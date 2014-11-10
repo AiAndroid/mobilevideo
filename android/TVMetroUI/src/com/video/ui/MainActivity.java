@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +13,6 @@ import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.*;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -33,7 +31,6 @@ import com.video.ui.view.MetroFragment;
 import com.video.ui.view.RecommendCardViewClickListenerFactory;
 import com.video.ui.view.UserViewFactory;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -62,12 +59,9 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         mTabHost.setup();
         mTabs    = (TabWidget)findViewById(android.R.id.tabs);
 
-        ViewStub vStub = (ViewStub) findViewById(R.id.new_home_menu);
         mViewPager = (ViewPager)findViewById(R.id.pager);
 
         mLoadingView = makeEmptyLoadingView(this, (RelativeLayout)findViewById(R.id.tabs_content));
-
-        setScrollerTime(800);
 
         albumItem = (DisplayItem) getIntent().getSerializableExtra("item");
         setUserFragmentClass();
@@ -223,26 +217,6 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         });
     }
 
-    private FixedSpeedScroller scroller=null;
-    public void setScrollerTime(int scrollerTime){
-        if(getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE)
-            return;
-
-        try {
-            if(scroller!=null){
-                scroller.setTime(scrollerTime);
-            }else{
-                Field mScroller;
-                mScroller = ViewPager.class.getDeclaredField("mScroller");
-                mScroller.setAccessible(true);
-                scroller= new FixedSpeedScroller(mViewPager.getContext(),new DecelerateInterpolator());
-                scroller.setTime(scrollerTime);
-                mScroller.set(mViewPager, scroller);
-            }
-        } catch (Exception e) {
-        }
-    }
-
     private View newTabIndicator(String tabName, boolean focused){
         final String name = tabName;
         View viewC  = View.inflate(this, R.layout.tab_view_indicator_item, null);
@@ -257,8 +231,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         if(focused == true){
             Resources res = getResources();
-            view.setTextColor(res.getColor(android.R.color.white));
-            view.setTypeface(null, Typeface.BOLD);
+            view.setTextColor(res.getColor(android.R.color.holo_orange_light));
             view.requestFocus();
         }
 
@@ -318,10 +291,6 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 Utils.playKeySound(mTabs, Utils.SOUND_ERROR_KEY);
                 return true;
             }
-
-        	setScrollerTime(500);
-        }else{
-        	setScrollerTime(500);
         }
 
         if(event.getAction() == KeyEvent.ACTION_DOWN && (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN||event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
@@ -540,13 +509,11 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             if(i == index) {
                 TextView view = (TextView) viewC.findViewById(R.id.tv_tab_indicator);
                 Resources res = view.getResources();
-                view.setTextColor(res.getColor(android.R.color.white));
-                view.setTypeface(null, Typeface.BOLD);
+                view.setTextColor(res.getColor(android.R.color.holo_orange_light));
             }else{
                 TextView view = (TextView) viewC.findViewById(R.id.tv_tab_indicator);
                 Resources res = view.getResources();
-                view.setTextColor(res.getColor(R.color.white_50));
-                view.setTypeface(null, Typeface.NORMAL);                        
+                view.setTextColor(res.getColor(android.R.color.darker_gray));
             }
         }
     }

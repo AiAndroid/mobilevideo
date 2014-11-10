@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_tabs_container"
-    android:background="#C5CAE9">
+    android:background="#EEEEEE">
     
     <RelativeLayout
             android:id="@+id/tabs_content"
@@ -28,7 +28,7 @@
                 android:showDividers="none"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-                android:background="#3F51B5"/>
+                android:background="#FFFFFF"/>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -50,16 +50,6 @@
             android:paddingTop="3dp"
             android:persistentDrawingCache="animation" />
 
-
-
-    <!-- menu stub -->
-    <ViewStub
-            android:id="@+id/new_home_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="true"
-            android:layout="@layout/menu_panel"/>
 
     </RelativeLayout>
 
