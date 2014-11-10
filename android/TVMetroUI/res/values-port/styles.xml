@@ -1,0 +1,9 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppBaseTheme" parent="@android:style/Theme.NoTitleBar">
+    </style>
+
+    <!-- Application theme. -->
+    <style name="TabsTheme" parent="@android:style/Theme.Holo">
+    </style>
+
+</resources>

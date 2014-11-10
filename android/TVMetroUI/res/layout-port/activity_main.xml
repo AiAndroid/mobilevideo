@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_tabs_container"
+    android:background="#C5CAE9">
+    
+    <RelativeLayout
+            android:id="@+id/tabs_content"
+            android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <com.video.ui.view.MiTabHost
+	    android:id="@android:id/tabhost"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+	
+	    <LinearLayout
+	        android:orientation="vertical"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+	
+	        <TabWidget
+	            android:id="@android:id/tabs"
+	            android:orientation="horizontal"
+                android:paddingTop="0dp"
+                android:tabStripEnabled="false"
+                android:showDividers="none"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+                android:background="#3F51B5"/>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </FrameLayout>
+
+	    </LinearLayout>
+	</com.video.ui.view.MiTabHost>
+
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:flipInterval="30"
+            android:layout_below="@android:id/tabhost"
+            android:paddingTop="3dp"
+            android:persistentDrawingCache="animation" />
+
+
+
+    <!-- menu stub -->
+    <ViewStub
+            android:id="@+id/new_home_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout="@layout/menu_panel"/>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

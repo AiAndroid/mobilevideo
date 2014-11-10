@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+    <string name="app_name">A.Y.Shi</string>
+	
+	<string name="search">Search</string>
+	<string name="menu_name">Menu</string>
+
+    <string name="empty_data">Load error</string>
+    <string name="user_tab">My App</string>
+
+    <string name="mine_info_account_title">Account information</string>
+    <string name="mine_info_account_summary_none">Not login</string>
+    <string name="share">Share</string>
+</resources>

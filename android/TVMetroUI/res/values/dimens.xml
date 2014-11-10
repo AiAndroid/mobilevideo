@@ -1,0 +1,92 @@
+<resources>
+
+    <dimen name="text_size_38">13dp</dimen>
+    <dimen name="text_size_50">16dp</dimen>
+
+    <dimen name="text_font_size_huge">21sp</dimen>
+
+        <!-- menu -->
+    <dimen name="menu_title_text_size">@dimen/text_size_50</dimen>
+    <dimen name="menu_item_text_size">@dimen/text_size_38</dimen>
+    <dimen name="menu_cursor_width">252dp</dimen>
+    <dimen name="menu_cursor_height">145dp</dimen>
+    <dimen name="menu_cursor_margin_left">-22.5dp</dimen>
+    <dimen name="menu_cursor_margin_top">205dp</dimen>
+    <dimen name="menu_title_margin_left">105dp</dimen>
+    <dimen name="menu_title_margin_top">73.5dp</dimen>
+    <dimen name="menu_title_bottom_line_width">155dp</dimen>
+    <dimen name="menu_title_bottom_line_height">1.5dp</dimen>
+    <dimen name="menu_title_bottom_margin_top">8.5dp</dimen>
+    <dimen name="main_menu_panel_width">155dp</dimen>
+    <dimen name="main_menu_panel_height">385dp</dimen>
+    <dimen name="main_menu_panel_margin_top">120dp</dimen>
+    <dimen name="main_menu_listview_margin_left">11.5dp</dimen>
+    <dimen name="main_menu_listview_margin_top">-100dp</dimen>
+    <dimen name="main_menu_listview_height">475dp</dimen>
+    <dimen name="main_menu_mask_height">64dp</dimen>
+    <dimen name="menu_divider_width">131.5dp</dimen>
+    <dimen name="menu_divider_height">0.5dp</dimen>
+    <dimen name="menu_divider_margin_left">15dp</dimen>
+    <dimen name="menu_icon_width">64dp</dimen>
+    <dimen name="menu_icon_height">64dp</dimen>
+    <dimen name="menu_item_margin_left">4dp</dimen>
+    <dimen name="menu_top_space">224dp</dimen>
+
+    <dimen name="nav_tab_text_size">@dimen/text_size_50</dimen>
+    <dimen name="tab_recommend_margin_left">60dp</dimen>
+    <dimen name="tab_highlight_height">48dp</dimen>
+    
+    <dimen name="nav_bar_margin_top">13dp</dimen>
+    <dimen name="tab_content_container_margin_top">52dp</dimen>
+
+    <dimen name="metro_offside">80dp</dimen>
+    <dimen name="fading_edge">80dp</dimen>
+
+    <dimen name="title_bar_left_margin">22.5dp</dimen>
+    <dimen name="title_bar_top_margin">24.5dp</dimen>
+    <dimen name="title_divider_left_margin">6dp</dimen>
+    <dimen name="title_divider_top_margin">-1dp</dimen>
+
+
+
+
+    <dimen name="mine_view_left_margin">3dp</dimen>
+    <dimen name="mine_mirror_view_width">201dp</dimen>
+    <dimen name="mine_mirror_view_height">100dp</dimen>
+    <dimen name="MIRROR_HEIGHTER">93dp</dimen>
+
+    <dimen name="ITEM_DIVIDE_SIZE">2dp</dimen>
+
+    <dimen name="text_tab_padding">15dp</dimen>
+
+    <dimen name="ITEM_V_WIDTH">134dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">202dp</dimen>
+    <dimen name="ITEM_H_WIDTH">202dp</dimen>
+
+    <dimen name="ITEM_H_HEIGHT">100dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">100dp</dimen>
+
+    <dimen name="OPERATOR_MARGIN">3.5dp</dimen>
+
+    <dimen name="metro_item_padding">1.5dp</dimen>
+    <dimen name="metro_item_recommend_text_height">20dp</dimen>
+    <dimen name="detail_y_distance">282dp</dimen>
+    
+
+    <dimen name="mirror_ref_height">36dp</dimen>
+
+    <dimen name="user_view_padding">4dp</dimen>
+
+    <dimen name="MAX_PIVOT_X">203dp</dimen>
+    <dimen name="MAX_PIVOT_Y">100dp</dimen>
+
+    <dimen name="item_v_margin_bottom">20dp</dimen>
+    <dimen name="tab_left_offset">50dp</dimen>
+
+    <dimen name="animation_offset_y">16dp</dimen>
+
+    <dimen name="ACCOUNT_ITEM_SIZE">62dp</dimen>
+    <dimen name="account_top_margin">42dp</dimen>
+    <dimen name="account_title_top_margin">14dp</dimen>
+
+</resources>

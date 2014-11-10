@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">A.Y.Shi</string>
+
+    <string name="search">搜索</string>
+    <string name="menu_name">菜单</string>
+
+    <string name="empty_data">加载数据失败</string>
+    <string name="user_tab">用户</string>
+
+    <string name="mine_info_account_title">帐号信息</string>
+    <string name="mine_info_account_summary_none">您还没有登录</string>
+    <string name="share">分享</string>
+</resources>

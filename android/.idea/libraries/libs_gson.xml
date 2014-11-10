@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libs_gson">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/TVMetroUI/libs/gson-2.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

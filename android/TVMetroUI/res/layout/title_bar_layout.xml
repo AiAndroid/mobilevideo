@@ -1,0 +1,48 @@
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal" android:weightSum="1">
+    <ImageView
+           android:id="@+id/back_imageview"
+           android:layout_marginLeft="@dimen/title_bar_left_margin"
+           android:layout_marginTop="@dimen/title_bar_top_margin"
+           android:layout_width="wrap_content" android:layout_height="wrap_content"
+           android:background="@drawable/title_icon_arrow" android:contentDescription="back key"/>
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+               android:background="@drawable/title_divider"
+               android:layout_marginLeft="@dimen/title_divider_left_margin"/>
+
+    <TextView
+            android:id="@+id/titlebar_title"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/title_divider_left_margin"
+            android:textColor="@color/common_text_color"
+            android:ellipsize="end"
+            android:textSize="23sp"
+            android:singleLine="true"/>
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:singleLine="true"
+                  android:layout_toLeftOf="@+id/title_bar_search"
+                  android:id="@+id/album_search" android:visibility="gone"
+                  android:layout_centerVertical="true"
+                  android:nextFocusRight="@+id/title_bar_search"
+                  android:hint="影片,演员"/>
+
+        <ImageView android:id="@id/title_bar_search"
+                   android:layout_width="wrap_content"
+                   android:focusable="true"
+                   android:layout_height="wrap_content"
+                   android:background="@drawable/icon_menu_search_normal"
+                   android:layout_alignParentRight="true"
+                   android:src="@drawable/list_selector_bg"
+                   android:visibility="invisible"/>
+    </RelativeLayout>
+
+</merge>

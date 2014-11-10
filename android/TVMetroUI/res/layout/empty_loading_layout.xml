@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/empty_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+
+    <LinearLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@drawable/icon_loading_bg"
+            android:layout_gravity="center_horizontal|center_vertical"
+            >
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="11dp">
+            <ImageView
+                android:id="@+id/empty_progress_view"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:src="@drawable/icon_loading"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="@dimen/text_size_38"
+                      android:textStyle="bold"
+                      android:layout_centerInParent="true"
+                      android:gravity="center"
+                      android:id="@+id/txt_percentage"/>
+
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/play_indicator"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+                  android:id="@+id/empty_layout"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:visibility="invisible"
+                  android:orientation="vertical">
+        <TextView android:id="@+id/empty_textview"
+                  android:text="@string/empty_data"
+                  android:layout_width="wrap_content"
+                  android:textAppearance="@style/TextAppearance.Primary"
+                  android:gravity="center_horizontal"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</merge>
