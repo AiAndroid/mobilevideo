@@ -5,7 +5,7 @@
 
     <dimen name="text_font_size_huge">21sp</dimen>
 
-    <dimen name="nav_tab_text_size">@dimen/text_size_38</dimen>
+    <dimen name="nav_tab_text_size">14.5dp</dimen>
     <dimen name="tab_recommend_margin_left">60dp</dimen>
     <dimen name="tab_highlight_height">48dp</dimen>
     
