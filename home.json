@@ -2,7 +2,9 @@
 VideoDisplayItem{
     name, image, res_id
     
+    //我们会出很多ui type
     UIType: lef_icon(小图居左), top icon(图标居上）, top poste(海报居上), None(不显示)
+    position: row, column
     size  : width, height 
 }
            ____List_____
@@ -48,7 +50,7 @@ VideoAlbum extends VideoDisplayItem{
             ]
             name: user behavor: 
           }
-          DisplayItem(name: 头部, id:001)
+          DisplayItem(name: 头部, id:001) //ww no need bind to header ??????
        },
        {
            {
@@ -82,7 +84,7 @@ VideoAlbum extends VideoDisplayItem{
                DisplayItem(name: 资讯频道, id:001)
            }
            
-           list conten: DisplayItem
+           list conten: DisplayItem //ww no need, jump to top level ??????
        }
    
    }
