@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="@dimen/header_width"
+                android:layout_height="@dimen/header_height"
+                android:layout_centerHorizontal="true"
+                android:background="#5C6BC0">
+
+</RelativeLayout>

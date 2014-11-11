@@ -81,7 +81,7 @@ public class SmoothHorizontalScrollView extends HorizontalScrollView{
                     if(_tabcount != -1 && _index == _tabcount-1){
                         Utils.playKeySound((MetroCursorView)obj, Utils.SOUND_ERROR_KEY);
                         ((MetroCursorView)obj).showIndicator();
-                        
+
                         return true;
                     }
                 }

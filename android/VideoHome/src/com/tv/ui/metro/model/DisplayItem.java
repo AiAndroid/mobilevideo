@@ -3,7 +3,7 @@ package com.tv.ui.metro.model;
 import java.io.Serializable;
 
 public class DisplayItem implements Serializable, Comparable<DisplayItem> {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 5L;
 
 	public static class UI implements Serializable {
 		private static final long serialVersionUID = 1L;

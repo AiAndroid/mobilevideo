@@ -62,4 +62,7 @@
     <dimen name="account_top_margin">42dp</dimen>
     <dimen name="account_title_top_margin">14dp</dimen>
 
+    <dimen name="header_width">350dp</dimen>
+    <dimen name="header_height">340dp</dimen>
+
 </resources>
