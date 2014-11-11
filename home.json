@@ -1,0 +1,68 @@
+定义单个Video的展示
+VideoDisplayItem{
+    name, image, res_id
+    
+    UIType: lef_icon(小图居左), top icon(图标居上）, top poste(海报居上), None(不显示)
+    size  : width, height 
+}
+           ____List_____
+          |     |       |
+        List   List   Item
+
+定义List里面Video的展示, List 可以嵌套List， List可以和Item混搭
+VideoAlbum extends VideoDisplayItem{
+    List<VideoDisplayItem> items
+}
+
+
+
+{
+  "tab 1": {
+   name    : "热点"
+   position: {1, 1}
+   images: {} 
+   id: "100"     //用于API
+   items: {
+       List for header:{
+          List ads: [
+          {display image, res_id, display name, displayItem}
+          {}
+          {}
+          ]
+          
+          List channel:[
+          {name: 电视剧，display image, displayItem}
+          {name: 电影  ，display image, displayItem}
+          ]
+          
+          List user behavor: [
+          item： 最近观看
+          item： 我的离线
+          ]
+          
+          DisplayItem(name: 频道1, id:001)
+       }
+       
+       list conten:{
+           list 1{
+               display item: 1
+               ...
+               display item: n
+           }
+           list 2{
+           }
+           
+           DisplayItem(name: 频道1, id:001)
+       }
+   
+   }
+   
+  
+  },
+  "tab 2": {
+  
+  },
+  "tab 2": {
+  
+  }
+}
