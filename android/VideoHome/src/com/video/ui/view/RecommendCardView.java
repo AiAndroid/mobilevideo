@@ -23,10 +23,10 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.VolleyHelper;
 import com.squareup.picasso.Picasso;
 import com.video.ui.R;
-import com.video.ui.model.DisplayItem;
-import com.video.ui.model.DisplayItem.UI;
-import com.video.ui.model.Image;
-import com.video.ui.model.Image.Ani;
+import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.DisplayItem.UI;
+import com.tv.ui.metro.model.Image;
+import com.tv.ui.metro.model.Image.Ani;
 
 import java.util.ArrayList;
 import java.util.List;

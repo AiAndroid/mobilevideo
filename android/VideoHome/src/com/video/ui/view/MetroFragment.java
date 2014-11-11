@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.video.ui.R;
-import com.video.ui.model.DisplayItem;
-import com.video.ui.model.GenericAlbum;
+import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.GenericAlbum;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
 import com.video.ui.loader.BaseGsonLoader;
-import com.video.ui.model.DisplayItem;
+import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.view.EmptyLoadingView;
 
 /**

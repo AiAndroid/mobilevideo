@@ -1,4 +1,4 @@
-package com.video.ui.model;
+package com.tv.ui.metro.model;
 
 import com.video.ui.utils.DateFormate;
 

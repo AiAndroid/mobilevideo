@@ -8,7 +8,7 @@ import com.android.volley.*;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.video.ui.model.DisplayItem;
+import com.tv.ui.metro.model.DisplayItem;
 
 import java.io.*;
 import java.lang.reflect.Type;

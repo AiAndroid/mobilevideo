@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
-import com.video.ui.model.DisplayItem;
+import com.tv.ui.metro.model.DisplayItem;
 
 /**
  * Created by tv metro on 9/1/14.

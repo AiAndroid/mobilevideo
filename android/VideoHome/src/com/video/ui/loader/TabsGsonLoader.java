@@ -5,8 +5,8 @@ import android.content.Context;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.VolleyHelper;
 import com.google.gson.reflect.TypeToken;
-import com.video.ui.model.DisplayItem;
-import com.video.ui.model.GenericSubjectItem;
+import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.GenericSubjectItem;
 
 /**
  * Created by tv metro on 9/1/14.
