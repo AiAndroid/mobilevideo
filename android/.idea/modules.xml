@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TVMetroUI/TVMetroUI.iml" filepath="$PROJECT_DIR$/TVMetroUI/TVMetroUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TVMetroUI/VideoHome.iml" filepath="$PROJECT_DIR$/TVMetroUI/VideoHome.iml" />
     </modules>
   </component>
 </project>
