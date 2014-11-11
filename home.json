@@ -23,36 +23,66 @@ VideoAlbum extends VideoDisplayItem{
    images: {} 
    id: "100"     //用于API
    items: {
-       List for header:{
-          List ads: [
-          {display image, res_id, display name, displayItem}
-          {}
-          {}
-          ]
+       {
+          {
+            data:[
+              {display image, res_id, display name, displayItem}
+              {}
+              {}
+            ]
+            name: List ads: 
+          }
           
-          List channel:[
-          {name: 电视剧，display image, displayItem}
-          {name: 电影  ，display image, displayItem}
-          ]
+          {
+            data:[
+              {name: 电视剧，display image, displayItem}
+              {name: 电影  ，display image, displayItem}
+            ]
+            name: List channel: 
+          }
           
-          List user behavor: [
-          item： 最近观看
-          item： 我的离线
-          ]
-          
-          DisplayItem(name: 频道1, id:001)
-       }
-       
-       list conten:{
-           list 1{
-               display item: 1
-               ...
-               display item: n
-           }
-           list 2{
+          {
+            data:[
+              {name: 最近观看，display image, displayItem}
+              {name: 我的离线  ，display image, displayItem}
+            ]
+            name: user behavor: 
+          }
+          DisplayItem(name: 头部, id:001)
+       },
+       {
+           {
+               list 1{
+                   display item: 1
+                   ...
+                   display item: n
+                   
+                   DisplayItem(name: “热点”)
+               }
+               list 2{
+                   
+                   DisplayItem(name: “社会”)
+               }
+               index： 2 //展示2， 可以用于再次进来， 如果数据没有变化
+               DisplayItem(name: 资讯频道, id:001)
+           },
+           {
+               list 1{
+                   display item: 1
+                   ...
+                   display item: n
+                   
+                   DisplayItem(name: “热点”)
+               }
+               list 2{
+                   
+                   DisplayItem(name: “社会”)
+               }
+               index： 2 //展示2， 可以用于再次进来， 如果数据没有变化
+               DisplayItem(name: 资讯频道, id:001)
            }
            
-           DisplayItem(name: 频道1, id:001)
+           list conten: DisplayItem
        }
    
    }
@@ -62,7 +92,22 @@ VideoAlbum extends VideoDisplayItem{
   "tab 2": {
   
   },
-  "tab 2": {
-  
+  "tab 3": {
   }
 }
+
+DisplayItem{
+    名称
+    图片
+    图片展示方式（小图， 左边，上边，海报）
+    动画：（参考，在线视频和小米音乐）
+    类型：单个视频，视频集合
+    
+    子数据{
+        DisplayItem: item1
+        ...
+        DisplayItem: item2
+    }
+    过滤类型： list
+}
+
