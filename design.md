@@ -116,9 +116,9 @@ class Item{<br>
 
 }<br>
 <br>
-class Block extends Item
-{
-      public ArrayList<Block>         blocks
-      public ArrayList<Item>          items
-}
+class Block extends Item<br>
+{<br>
+      public ArrayList<Block>         blocks<br>
+      public ArrayList<Item>          items<br>
+}<br>
 
