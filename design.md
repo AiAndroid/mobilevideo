@@ -63,8 +63,8 @@ UI_Type<br>
 
 </br>
 #UI类型(UI_TYPE)
-block_port(tabs)<br>
----------tabs_vertical(fragment)<br>
+block_port(tab)------------------------------------block_port(tab)<br>
+---------tabs_vertical(fragment)[0*1]<br>
 ---------------block_channel<br>
 ---------------block_channel<br>
 ---------------------block<br>
@@ -86,14 +86,14 @@ tabs_vertical---------312------------垂直tabs------------垂直展示tab类型
 <br>
 block_channel---------400------------一个频道块<br>
 block_tabs------------410------------<br>
-grid_land-------------411------------gridview------------水平展示媒体图片<br>
-grid_port-------------412------------gridview------------垂直展示媒体图片<br>
-list_land-------------413------------listview------------水平展示媒体图片<br>
-list_port-------------414------------listview------------垂直展示媒体图片<br>
+grid_media_land-------411------------gridview------------水平展示媒体图片<br>
+grid_media_port-------412------------gridview------------垂直展示媒体图片<br>
+list_media_land-------413------------listview------------水平展示媒体图片<br>
+list_media_port-------414------------listview------------垂直展示媒体图片<br>
 <br>
-list_width_full-------308------------listview------------填充整个宽度  category的port layout<br>
-list_height_full------309------------listview------------填充整个高度  category land layout<br>
-
+list_category_land----421------------listview------------category的land layout<br>
+list_category_port----422------------listview------------category port layout<br>
+grid_selection--------431------------grid----------------精选
 
 <br>
 sample 例子：
