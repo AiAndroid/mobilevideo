@@ -94,28 +94,28 @@ Block{<br>
     }<br>
 }<br>
 <br>
-
-class Item{
-    String  title       //主标题
-    String  sub_title   //副标题
-    String  desc        //一句话描述
+<br>
+class Item{<br>
+    String  title       //主标题<br>
+    String  sub_title   //副标题<br>
+    String  desc        //一句话描述<br><br>
     
-    UI_Type ui_type;
+    UI_Type ui_type;<br><br>
     
-    Poster  poster;//海报,放Media里面，还是Media外面
-    Media   media;
+    Poster  poster;//海报,放Media里面，还是Media外面<br>
+    Media   media;<br><br>
     
-    class Media{
-        String id;   //resource id
-        String type; //资源类型
-        String ns;   //资源空间
+    class Media{<br>
+        String id;   //resource id<br>
+        String type; //资源类型<br>
+        String ns;   //资源空间<br><br><br>
         
         
-        ImageGroup
-    }
+        ImageGroup<br>
+    }<br><br>
 
-}
-
+}<br>
+<br>
 class Block extends Item
 {
       public ArrayList<Block>         blocks
