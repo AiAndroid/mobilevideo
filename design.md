@@ -20,6 +20,11 @@ unlikes<br>
 comments<br>
 label{"4更新"，postion:left_top}<br>
 episode(更新至24集)<br>
+
+###action
+target   HTML5，需要在这里定义
+params   K-V类型
+
 ###UI
 UI_Type<br>
 背景图(keep Z order)<br> 
