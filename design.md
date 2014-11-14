@@ -22,7 +22,7 @@
 
 </br>
 #UI类型
-viewflipper            101       广告可以             给广告切换image<br>
+viewflipper           \t\t101       广告可以             给广告切换image<br>
 linearlayout_top       201       单行button    icon   图标在文本上边<br>
 linearlayout_left      202       单行Button,   icon， 图标在文本左边<br>
 linearlayout_poster    203       单行Button    海报   缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
