@@ -94,7 +94,7 @@ list_media_port-------414------------listview------------垂直展示媒体图�
 list_category_land----421------------listview------------category的land layout<br>
 list_category_port----422------------listview------------category port layout<br>
 grid_selection--------431------------grid----------------精选<br>
-rank_section----------441--------------------------------排行<br>
+list_rich_header------441--------------------------------排行<br>
 
 <br>
 
