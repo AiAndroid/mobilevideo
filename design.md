@@ -62,22 +62,34 @@ UI_Type<br>
 |_______________________________<br>
 
 </br>
-#UI类型
+#UI类型(UI_TYPE)
+block_port(tabs)<br>
+---------tabs_vertical(fragment)<br>
+---------------block_channel<br>
+---------------block_channel<br>
+---------------------block<br>
+---------------------block<br>
+-------------------------item<br>
+-------------------------item<br><br>
+
 imageswitcher----------101-------广告可以-------------给广告切换image<br>
 linearlayout_top-------201-------单行button----icon---图标在文本上边<br>
 linearlayout_left------202-------单行Button----icon---图标在文本左边<br>
-linearlayout_poster----203-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
+//linearlayout_poster----203-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
 linearlayout_none------204-------单行Button----文本， 缺省<br>
 <br>
 block_land------------300------------展示块容器------------没有什么用 landscape layout<br>
 block_port------------301------------展示块容器------------没有什么用 portrait layout<br>
 <br>
-tabs_horizontal-------302------------水平tabs------------水平展示tab的父Block      <br>
-tabs_vertical---------303------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV<br>
-grid_land-------------304------------gridview------------水平展示媒体图片<br>
-grid_port-------------305------------gridview------------垂直展示媒体图片<br>
-list_land-------------306------------listview------------水平展示媒体图片<br>
-list_port-------------307------------listview------------垂直展示媒体图片<br>
+tabs_horizontal-------311------------水平tabs------------水平展示tab的父Block      <br>
+tabs_vertical---------312------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV<br>
+<br>
+block_channel---------400------------一个频道块<br>
+block_tabs------------410------------<br>
+grid_land-------------411------------gridview------------水平展示媒体图片<br>
+grid_port-------------412------------gridview------------垂直展示媒体图片<br>
+list_land-------------413------------listview------------水平展示媒体图片<br>
+list_port-------------414------------listview------------垂直展示媒体图片<br>
 <br>
 list_width_full-------308------------listview------------填充整个宽度  category的port layout<br>
 list_height_full------309------------listview------------填充整个高度  category land layout<br>
