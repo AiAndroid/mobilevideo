@@ -6,7 +6,7 @@
 主标题<br>
 副标题<br>
 一句话描述<br><br>
-###media 数据, 可以为空，问题：数据增加，缓存失<br>
+###media 数据, 可以为空，问题：数据增加，缓存失效<br>
 id<br>
 poster<br>
 type  //类型<br>
