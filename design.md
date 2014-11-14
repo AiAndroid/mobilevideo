@@ -3,12 +3,37 @@
 
 ##元素表达：
 ###文本
-主标题
-副标题
-一句话描述
+主标题<br>
+副标题<br>
+一句话描述<br><br>
+###media 数据, 可以为空，问题：数据增加，缓存失<br>
+id<br>
+poster<br>
+type  //类型<br>
+ns    //空间，人物，视频，其他<br>
+cp    //内容提供方<br>
+duration<br>
+rate<br>
+play_times<br>
+likes<br>
+unlikes<br>
+comments<br>
+label{"4更新"，postion:left_top}<br>
+episode(更新至24集)<br>
 ###UI
-UI_Type
-背景图片
+UI_Type<br>
+背景图(keep Z order)<br> 
+--------text_color<br>
+--------bg_color<br>
+--------icon<br>
+--------back 顺序index 1开始往上画<br>
+------------image 1<br>
+------------image .<br>
+------------image n<br>
+--------<br>
+<br>
+<br>
+<br>
 
 
 
@@ -33,7 +58,7 @@ UI_Type
 
 </br>
 #UI类型
-viewflipper------------101-------广告可以-------------给广告切换image<br>
+imageswitcher----------101-------广告可以-------------给广告切换image<br>
 linearlayout_top-------201-------单行button----icon---图标在文本上边<br>
 linearlayout_left------202-------单行Button----icon---图标在文本左边<br>
 linearlayout_poster----203-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
@@ -134,3 +159,6 @@ class Block extends Item<br>
       public ArrayList<Item>          items<br>
 }<br>
 
+
+ImageSwitcher:
+文本，图
