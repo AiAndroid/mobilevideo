@@ -43,13 +43,13 @@ list_height_full------309------------listview------------填充整个高度  cat
 
 <br>
 sample 例子：
-Block{
-    ui_type: {name: block_port, id:301}
-    name: 热点
-    media:{}
-    xxx
-    Block{
-        ui_type: {name: viewflipper, id:101}
+Block{<br>
+    ui_type: {name: block_port, id:301}<br>
+    name: 热点<br>
+    media:{}<br>
+    xxx<br>
+    Block{<br>
+        ui_type: {name: viewflipper, id:101}<br><br>
 
         items:[
             {
@@ -65,34 +65,35 @@ Block{
         ]
     }
 
-    Block:{
-            ui_type: {name: block, id:300}
-            xxx
-            Block:{
-                  ui_type: {name: tabs_horizontal, id:401}
-                  电视剧
-                  Block{
-                        ui_type: {name: gridview, id:303}      
-                        热播剧
-                        items:[
-                            {
-                                    ui_type: {name: item_landscape, id:401}                                                       
-                                    media:
-                            }
-                        ]            
-                  }
-                  Block{
-                        ui_type: {name: gridview, id:303}                  
-                  }
-                  Block{ 
-                        ui_type: {name: gridview, id:303}                  
-                 }
-            }
-            Block:{}
-            Block:{}
-            Block:{}
-    }
-}
+    Block:{<br>
+            ui_type: {name: block, id:300}<br>
+            xxx<br>
+            Block:{<br>
+                  ui_type: {name: tabs_horizontal, id:401}<br>
+                  电视剧<br>
+                  Block{<br>
+                        ui_type: {name: gridview, id:303}      <br>
+                        热播剧<br>
+                        items:[<br>
+                            {<br>
+                                    ui_type: {name: item_landscape, id:401}<br>
+                                    media:<br>
+                            }<br>
+                        ]            <br>
+                  }<br>
+                  Block{<br>
+                        ui_type: {name: gridview, id:303}                  <br>
+                  }<br>
+                  Block{ <br>
+                        ui_type: {name: gridview, id:303}                  <br>
+                 }<br>
+            }<br>
+            Block:{}<br>
+            Block:{}<br>
+            Block:{}<br>
+    }<br>
+}<br>
+<br>
 
 class Item{
     String  title       //主标题
