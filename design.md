@@ -4,20 +4,20 @@
 #Block
  _______________________________<br>
 | Block    </br>
+|&nbsp;&nbsp;&nbsp;_____________________<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Block  ____     |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|item|    |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|item|    |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|item|    |<br>
+|&nbsp;&nbsp;&nbsp;|____________________|<br>
+|<br>
 |    _____________________<br>
-|    |    Block  ____     |<br>
-|    |          |item|    |<br>
-|    |          |item|    |<br>
-|    |          |item|    |<br>
-|    |____________________|<br>
-|</br>
-|    _____________________<br>
-|    |    Block  _____    |<br>
-|    |          |Block|   |<br>
-|    |          |Block|   |<br>
-|    |          |Block|   |<br>
-|    |          |Block|   |<br>
-|    |____________________|<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Block  _____    |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Block|   |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Block|   |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Block|   |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Block|   |<br>
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;________________|<br>
 |_______________________________<br>
 
 </br>
