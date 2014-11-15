@@ -2,10 +2,24 @@
     "blocks":[
         {
             "title":"热点",
+            "id":"hot",
+            "type":"album",
+            "ns":"video",
             "ui_type":{
                 "name":"block_port",
                 "id":301
             },
+            "action":{
+                "target":"",
+                "params":""
+            },
+            "images":[
+                {
+                    "icon":{
+                        "url":"http://xxx.png"
+                    }
+                }
+            ],
             "blocks":[
                 {
                     "title":"广告",
@@ -16,25 +30,105 @@
                     "items":[
                         {
                             "title":"蜘蛛侠",
+                            "sub_title":"",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
                             "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
                             },
                             "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
                             },
                             "images":[
                                 {
-                                    "back":"http://xxxx.jpg"
+                                    "poster":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         },
                         {
                             "title":"超体",
+                            "sub_title":"",
+                            "desc":"看看呗",
+                            "id":"101",
+                            "type":"item",
+                            "ns":"video",
                             "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
                             },
                             "action":{
+                                "target":"item"
                             },
                             "images":[
                                 {
-                                    "back":"http://xxxx.jpg"
+                                    "back":{
+                                        "url":"http://xxx.png"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"周星驰专辑",
+                            "sub_title":"功夫",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"album",
+                            "ns":"video",
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"album"
+                            },
+                            "images":[
+                                {
+                                    "back":{
+                                        "url":"http://xxx.png"
+                                    },
+                                    "sprite":{
+                                        "url":"http://xxx.png"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"爸爸快跑",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":[
+                                {
+                                    "back":{
+                                        "url":"http://xxx.png"
+                                    },
+                                    "sprite":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         }
@@ -49,27 +143,84 @@
                     "items":[
                         {
                             "title":"电视剧",
+                            "id":"200",
+                            "type":"episode",
+                            "ns":"video",
                             "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
                             },
                             "action":{
+                                "target":"episode",
+                                "params":"episode=8"
                             },
                             "images":[
                                 {
-                                    "back":"http://xxxx.jpg",
-                                    "icon":"http://xxxx.jpg"
+                                    "back":{
+                                        "url":"http://xxx.jpg"
+                                    },
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         },
                         {
                             "title":"电影",
-                            "media":{
-                            },
+                            "id":"200",
+                            "type":"album",
+                            "ns":"video",
                             "action":{
+                                "target":"movie"
                             },
                             "images":[
                                 {
-                                    "back":"http://xxxx.jpg",
-                                    "icon":"http://xxxx.jpg"
+                                    "back":{
+                                        "url":"http://xxx.jpg"
+                                    },
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"综艺",
+                            "id":"200",
+                            "type":"album",
+                            "ns":"video",
+                            "action":{
+                                "target":"variety"
+                            },
+                            "images":[
+                                {
+                                    "back":{
+                                        "url":"http://xxx.jpg"
+                                    },
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"全部",
+                            "id":"200",
+                            "type":"album",
+                            "ns":"video",
+                            "action":{
+                                "target":"album"
+                            },
+                            "images":[
+                                {
+                                    "back":{
+                                        "url":"http://xxx.jpg"
+                                    },
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         }
@@ -84,25 +235,49 @@
                     "items":[
                         {
                             "title":"播放历史",
-                            "media":{
-                            },
+                            "id":"300",
+                            "type":"album",
+                            "ns":"video",
                             "action":{
+                                "target":"album"
                             },
                             "images":[
                                 {
-                                    "icon":"http://xxxx.jpg"
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         },
                         {
                             "title":"我的离线",
-                            "media":{
-                            },
+                            "id":"offline",
+                            "type":"album",
+                            "ns":"video",
                             "action":{
+                                "target":"album"
                             },
                             "images":[
                                 {
-                                    "icon":"http://xxxx.jpg"
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"电视直播",
+                            "id":"400",
+                            "type":"album",
+                            "ns":"video",
+                            "action":{
+                                "target":"tv_live"
+                            },
+                            "images":[
+                                {
+                                    "icon":{
+                                        "url":"http://xxx.png"
+                                    }
                                 }
                             ]
                         }
