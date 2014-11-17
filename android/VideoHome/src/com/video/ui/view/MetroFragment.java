@@ -63,7 +63,10 @@ public class MetroFragment extends Fragment {
             int step = 0;
             for(Block<DisplayItem> item:tab.blocks){
                 View blockView = inflateBlock(item);
-                addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
+                if(item.ui_type.id == LayoutConstant.imageswitcher)
+                    addViewPort(blockView, item.ui_type.id, 0, step++);
+                else
+                    addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
             }
         }
     }

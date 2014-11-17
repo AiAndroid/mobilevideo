@@ -117,6 +117,18 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
+            case LayoutConstant.imageswitcher:
+                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(getResources().getDimensionPixelSize(R.dimen.media_banner_height)*mDensityScale));
+                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
+                flp.topMargin = getPaddingTop()+(getResources().getDimensionPixelSize(R.dimen.media_banner_height))*y+padding*y;
+                flp.rightMargin = getPaddingRight();
+                child.setFocusable(true);
+                child.setOnFocusChangeListener(this);
+                child.setTag(R.integer.tag_view_postion, 0);
+                addView(child,flp);
+                rowOffset[0]+=((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE))*mDensityScale+padding;
+
+                break;
             case Vertical:
                 flp = new LayoutParams(
                         (int)(ITEM_V_WIDTH*mDensityScale),

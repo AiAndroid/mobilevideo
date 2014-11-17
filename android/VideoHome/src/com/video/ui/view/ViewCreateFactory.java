@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.video.ui.view.subview.AdsView;
 
 /**
  * Created by liuhuadong on 11/17/14.
@@ -15,7 +16,7 @@ public class ViewCreateFactory {
             case LayoutConstant.list_category_land:
                 break;
             case LayoutConstant.imageswitcher:
-                //view = new AdsView(context, item.items);
+                view = new AdsView(context, item.items);
                 break;
         }
         return view;
