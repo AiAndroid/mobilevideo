@@ -6,12 +6,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.VolleyHelper;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.GenericSubjectItem;
+import com.tv.ui.metro.model.GenericBlock;
 
 /**
  * Created by tv metro on 9/1/14.
  */
-public class TabsGsonLoader extends BaseGsonLoader<GenericSubjectItem<DisplayItem>> {
+public class TabsGsonLoader extends BaseGsonLoader<GenericBlock<DisplayItem>> {
     public static int LOADER_ID = 0x401;
     @Override
     public void setCacheFileName() {
@@ -20,7 +20,7 @@ public class TabsGsonLoader extends BaseGsonLoader<GenericSubjectItem<DisplayIte
 
     @Override
     public void setLoaderURL(DisplayItem item) {
-        calledURL = "https://raw.githubusercontent.com/AiAndroid/stream/master/tv/game/mobile_port.json";
+        calledURL = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
     }
 
     public TabsGsonLoader(Context context, DisplayItem item) {
@@ -30,7 +30,7 @@ public class TabsGsonLoader extends BaseGsonLoader<GenericSubjectItem<DisplayIte
     @Override
     protected void loadDataByGson() {
         RequestQueue requestQueue = VolleyHelper.getInstance(getContext().getApplicationContext()).getAPIRequestQueue();
-        GsonRequest<GenericSubjectItem<DisplayItem>> gsonRequest = new GsonRequest<GenericSubjectItem<DisplayItem>>(calledURL, new TypeToken<GenericSubjectItem<DisplayItem>>(){}.getType(), null, listener, errorListener);
+        GsonRequest<GenericBlock<DisplayItem>> gsonRequest = new GsonRequest<GenericBlock<DisplayItem>>(calledURL, new TypeToken<GenericBlock<DisplayItem>>(){}.getType(), null, listener, errorListener);
 
         gsonRequest.setCacheNeed(getContext().getCacheDir() + "/" + cacheFileName);
         requestQueue.add(gsonRequest);

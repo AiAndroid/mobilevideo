@@ -22,11 +22,10 @@ import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.VolleyHelper;
 import com.squareup.picasso.Picasso;
-import com.video.ui.R;
 import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.DisplayItem.UI;
 import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.Image.Ani;
+import com.video.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,15 +62,15 @@ public class RecommendCardView extends RelativeLayout {
 	public RecommendCardView bindData(DisplayItem _content) {
 		mItem = _content;
 
-		showBannerText = UI.METRO_CELL_BANNER.equals(mItem._ui.type);
-        showTitle      = UI.METRO_CELL_TITLE.equals(mItem._ui.type);
+		showBannerText = true;
+        showTitle      = true;
 		if (!showBannerText && !showTitle) {
-			mLabelTextView.setText(mItem.name);
+			mLabelTextView.setText(mItem.title);
 			mLabelTextView.setVisibility(VISIBLE);
 		}
 
         if(showTitle){
-            mBannerTextView.setText(mItem.name);
+            mBannerTextView.setText(mItem.title);
             mBannerTextView.setVisibility(VISIBLE);
         }
 
@@ -321,23 +320,6 @@ public class RecommendCardView extends RelativeLayout {
 		}
 	};
 
-	public int cardWidth() {
-		initDimens();
-
-		int width = 0;
-		if (mItem._ui.layout.w == 2) {
-			width = ITEM_H_WIDTH;
-		} else {
-			if (mItem._ui.layout.h == 2) {
-				width = ITEM_V_WIDTH;
-			} else {
-				width = ITEM_NORMAL_SIZE;
-			}
-		}
-
-		return width;
-	}
-
 	protected void init(Context context) {
 		initDimens();
 		this.setClipChildren(true);
@@ -392,7 +374,7 @@ public class RecommendCardView extends RelativeLayout {
         if(showTitle == false) {
             if (gainFocus) {
                 if (showBannerText) {
-                    mBannerTextView.setText(mItem.name);
+                    mBannerTextView.setText(mItem.title);
                     mBannerTextView.setVisibility(View.VISIBLE);
                     mLabelTextView.setScaleX(1.1f);
                     mLabelTextView.setScaleY(1.1f);

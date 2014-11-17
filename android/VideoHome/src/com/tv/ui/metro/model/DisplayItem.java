@@ -2,54 +2,21 @@ package com.tv.ui.metro.model;
 
 import java.io.Serializable;
 
-public class DisplayItem implements Serializable, Comparable<DisplayItem> {
-	private static final long serialVersionUID = 5L;
+public class DisplayItem implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	public static class UI implements Serializable {
 		private static final long serialVersionUID = 1L;
-
-		public static class Layout implements Serializable {
-			private static final long serialVersionUID = 1L;
-
-			public int x;
-			public int y;
-			public int w;
-			public int h;
-
-			public String type; // default U1x1
-			public static final String U2x1 = "2x1";// 2 W cell, 1 H cell
-			// public static final String U2x2 = "2x2";//2x2
-			public static final String U1x1 = "1x1";
-			public static final String U1x2 = "1x2";
-
-            public Layout clone(){
-                Layout item = new Layout();
-                item.x = x;
-                item.y = y;
-                item.w = w;
-                item.h = h;
-                item.type = type;
-                return item;
-            }
-			public String toString() {
-				return "x: " + x + " y:" + y + " w:" + w + " h:" + h + " type:" + type;
-			}
-
-		}
-
-		public static final String METRO_CELL_BANNER = "metro_cell_banner";
-        public static final String METRO_CELL_TITLE  = "metro_cell_title";
-		public String type;
-		public Layout layout;
-
+        public String name;
+        public int    id;
         public UI clone(){
             UI item = new UI();
-            item.type = type;
-            if(layout != null)item.layout = layout.clone();
-            return  item;
+            item.name = name;
+            item.id   = id;
+            return item;
         }
 		public String toString() {
-			return " type:" + type + "  layout:" + layout;
+			return " type:" + name + "  id:" + id;
 		}
 	}
 
@@ -65,7 +32,6 @@ public class DisplayItem implements Serializable, Comparable<DisplayItem> {
             return item;
         }
 	}
-
     public static class Target implements Serializable{
         private static final long serialVersionUID = 1L;
         public String type;
@@ -80,62 +46,39 @@ public class DisplayItem implements Serializable, Comparable<DisplayItem> {
         }
     }
 
-	public Target target;
+
+    public String id;
+    public String title;
+    public String sub_title;
+    public String desc;
 	public String ns;
 	public String type;
-	public String id;
-	public String name;
+    public Target     action;
 	public ImageGroup images;
-	public UI _ui;
-	public Times times;
+	public UI         ui_type;
+	public Times      times;
 
     public DisplayItem clone(){
         DisplayItem item = new DisplayItem();
 
-        if(target != null)item.target = target.clone();
+        if(action != null)item.action = action.clone();
 
         item.ns   = this.ns;
         item.type = this.type;
         item.id   = this.id;
-        item.name = this.name;
+        item.title = this.title;
+        item.sub_title = this.sub_title;
+        item.desc      = this.desc;
         if(images != null)item.images = this.images.clone();
-        if(_ui != null)item._ui = this._ui.clone();
+        if(ui_type != null)item.ui_type = this.ui_type.clone();
         if(times!= null)item.times = times.clone();
 
         return  item;
     }
 	public String toString() {
-		return " ns:" + ns + " type:" + type + " target=" + target + " id:" + id + " name:" + name + "images:"
-				+ images + " _ui:" + _ui;
+		return " ns:" + ns + " type:" + type + " target=" + action + " id:" + id + " name:" + title + "images:"
+				+ images + " _ui:" + ui_type;
 	}
-
-	@Override
-	public int compareTo(DisplayItem another) {
-		if (_ui == null || another._ui == null || _ui.layout == null || another._ui.layout == null) {
-			return 0;
-		}
-		if (_ui.layout.x > another._ui.layout.x) {
-			return 1;
-		} else if (_ui.layout.x < another._ui.layout.x) {
-			return -1;
-		} else {
-			return _ui.layout.y - another._ui.layout.y;
-		}
-	}
-
-
-    public int compareToByY(DisplayItem another) {
-        if (_ui == null || another._ui == null || _ui.layout == null || another._ui.layout == null) {
-            return 0;
-        }
-        if (_ui.layout.y > another._ui.layout.y) {
-            return 1;
-        } else if (_ui.layout.y < another._ui.layout.y) {
-            return -1;
-        } else {
-            return _ui.layout.x - another._ui.layout.x;
-        }
-    }
 
     @Override
     public boolean equals(Object obj) {
