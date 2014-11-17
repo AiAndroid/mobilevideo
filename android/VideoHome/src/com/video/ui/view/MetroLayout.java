@@ -106,6 +106,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
     public View addItemViewPort(View child, int celltype , int x, int y){
         return addItemViewPort(child, celltype , x, y, DIVIDE_SIZE);
     }
+
     public View addItemViewPort(View child, int celltype , int x, int y, int padding){
         if(mLeftView==null){
             mLeftView = child;

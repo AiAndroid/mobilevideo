@@ -24,6 +24,7 @@ public class AdsView extends RelativeLayout{
         super(context, attrs, defStyle);
     }
 
+    private ViewFlipper viewFlipper;
     public AdsView(Context context, ArrayList<DisplayItem> items) {
         super(context, null, 0);
 
@@ -32,14 +33,24 @@ public class AdsView extends RelativeLayout{
 
     private void initUI(ArrayList<DisplayItem> items){
         View root = View.inflate(getContext(), R.layout.ads_viewflipper,  this);
-        ViewFlipper viewFlipper = (ViewFlipper) root.findViewById(R.id.image_flipper);
+        viewFlipper = (ViewFlipper) root.findViewById(R.id.image_flipper);
         for(DisplayItem item: items) {
             viewFlipper.addView(getImageView(item));
         }
+
+        viewFlipper.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "touched", Toast.LENGTH_SHORT).show();
+                viewFlipper.showNext();
+            }
+        });
     }
 
     private ImageView getImageView(DisplayItem item){
         ImageView imageView = new ImageView(getContext());
+        imageView.setFocusable(true);
+        imageView.setBackgroundResource(R.drawable.list_selector_bg);
         Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.icon_h_default).error(R.drawable.icon_h_default).fit().into(imageView);
         return imageView;
     }
