@@ -5,6 +5,10 @@
             "id":"hot",
             "type":"album",
             "ns":"video",
+            "times": {
+                "updated": 0,
+                "created": 0
+            },
             "ui_type":{
                 "name":"block_port",
                 "id":301
@@ -23,6 +27,13 @@
             "blocks":[
                 {
                     "title":"广告",
+                    "id":"100",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                       "updated": 0,
+                        "created": 0
+                    },
                     "ui_type":{
                         "name":"imageswitcher",
                         "id":101
@@ -35,6 +46,10 @@
                             "id":"100",
                             "type":"item",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "media":{
                                 "cp":{
                                     "vendor":"sohu",
@@ -60,6 +75,10 @@
                             "id":"101",
                             "type":"item",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "media":{
                                 "cp":{
                                     "vendor":"sohu",
@@ -84,6 +103,10 @@
                             "id":"100",
                             "type":"album",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "media":{
                                 "cp":{
                                     "vendor":"aiqiyi",
@@ -111,6 +134,10 @@
                             "id":"100",
                             "type":"item",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "media":{
                                 "cp":{
                                     "vendor":"aiqiyi",
@@ -140,12 +167,20 @@
                         "name":"linearlayout_top",
                         "id":201
                     },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
                     "items":[
                         {
                             "title":"电视剧",
                             "id":"200",
                             "type":"episode",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "media":{
                                 "cp":{
                                     "vendor":"aiqiyi",
@@ -175,6 +210,10 @@
                             "action":{
                                 "target":"movie"
                             },
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "images":[
                                 {
                                     "back":{
@@ -191,6 +230,10 @@
                             "id":"200",
                             "type":"album",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "action":{
                                 "target":"variety"
                             },
@@ -207,9 +250,13 @@
                         },
                         {
                             "title":"全部",
-                            "id":"200",
+                            "id":"all",
                             "type":"album",
                             "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
                             "action":{
                                 "target":"album"
                             },
@@ -299,6 +346,13 @@
                             "blocks":[
                                 {
                                     "title":"热点咨询",
+                                    "id":"501",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times": {
+                                        "updated": 0,
+                                        "created": 0
+                                    },
                                     "ui_type":{
                                         "name":"grid_media_land",
                                         "id":411
@@ -308,6 +362,13 @@
                                 },
                                 {
                                     "title":"搞笑",
+                                    "id":"502",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times": {
+                                        "updated": 0,
+                                        "created": 0
+                                    },
                                     "ui_type":{
                                         "name":"grid_media_land",
                                         "id":411
@@ -317,6 +378,13 @@
                                 },
                                 {
                                     "title":"福利",
+                                    "id":"503",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times": {
+                                        "updated": 0,
+                                        "created": 0
+                                    },
                                     "ui_type":{
                                         "name":"grid_media_land",
                                         "id":411
@@ -328,6 +396,16 @@
                         },
                         {
                             "title":"进入咨询频道",
+                            "id":"500",
+                            "type":"album",
+                            "ns":"video",
+                            "times": {
+                                "updated": 0,
+                                "created": 0
+                            },
+                            "action":{
+                                "target":"album"
+                            },
                             "ui_type":{
                                 "name":"linearlayout_none",
                                 "id":204
@@ -341,167 +419,349 @@
         },
         {
             "title":"分类",
+            "id":"600",
+            "type":"album",
+            "ns":"video",
+            "times": {
+                "updated": 0,
+                "created": 0
+            },
             "ui_type":{
                 "name":"block_port",
                 "id":301
             },
             "blocks":[
                 {
-                    "title":"广告",
-                    "ui_type":{
-                        "name":"imageswitcher",
-                        "id":101
+                    "title":"电视剧",
+                    "sub_title":"共30239部",
+                    "desc":"形似走揉，固件起源，离婚律师",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
                     },
-                    "items":[
-                        {
-                            "title":"蜘蛛侠",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "back":"http://xxxx.jpg"
-                                }
-                            ]
-                        },
-                        {
-                            "title":"超体",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "back":"http://xxxx.jpg"
-                                }
-                            ]
-                        }
-                    ]
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
                 },
                 {
-                    "title":"快速导航",
-                    "ui_type":{
-                        "name":"linearlayout_top",
-                        "id":201
+                    "title":"电视剧",
+                    "sub_title":"共30239部",
+                    "desc":"形似走揉，固件起源，离婚律师",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
                     },
-                    "items":[
-                        {
-                            "title":"电视剧",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "back":"http://xxxx.jpg",
-                                    "icon":"http://xxxx.jpg"
-                                }
-                            ]
-                        },
-                        {
-                            "title":"电影",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "back":"http://xxxx.jpg",
-                                    "icon":"http://xxxx.jpg"
-                                }
-                            ]
-                        }
-                    ]
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
                 },
                 {
-                    "title":"用户行为",
-                    "ui_type":{
-                        "name":"linearlayout_left",
-                        "id":202
+                    "title":"电影",
+                    "sub_title":"共82939部",
+                    "desc":"寻弄高手，无处客套，爱别离，复仇着脸盟",
+                    "id":"702",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
                     },
-                    "items":[
-                        {
-                            "title":"播放历史",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "icon":"http://xxxx.jpg"
-                                }
-                            ]
-                        },
-                        {
-                            "title":"我的离线",
-                            "media":{
-                            },
-                            "action":{
-                            },
-                            "images":[
-                                {
-                                    "icon":"http://xxxx.jpg"
-                                }
-                            ]
-                        }
-                    ]
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
                 },
                 {
-                    "title":"咨询频道",
-                    "ui_type":{
-                        "name":"block_port",
-                        "id":301
+                    "title":"综艺",
+                    "sub_title":"共82939部",
+                    "desc":"爸爸去哪儿，我是歌手，中国毫升硬，娱乐百分百",
+                    "id":"703",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
                     },
-                    "blocks":[
-                        {
-                            "title":"快捷",
-                            "ui_type":{
-                                "name":"tabs_horizontal",
-                                "id":311
-                            },
-                            "blocks":[
-                                {
-                                    "title":"热点咨询",
-                                    "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411
-                                    },
-                                    "items":[
-                                    ]
-                                },
-                                {
-                                    "title":"搞笑",
-                                    "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411
-                                    },
-                                    "items":[
-                                    ]
-                                },
-                                {
-                                    "title":"福利",
-                                    "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411
-                                    },
-                                    "items":[
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "title":"进入咨询频道",
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            },
-                            "media":{
-                            }
-                        }
-                    ]
-                }
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
+                },
+                {
+                    "title":"动漫",
+                    "sub_title":"共82939部",
+                    "desc":"还这王，热血搞笑，麻辣教师，乱码",
+                    "id":"704",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
+                },
+                {
+                    "title":"纪录片",
+                    "sub_title":"共82939部",
+                    "desc":"放也求生，太空，动物本本，地球太空",
+                    "id":"705",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
+                },
+                {
+                    "title":"游戏视频",
+                    "sub_title":"共82939部",
+                    "desc":"放也求生，太空，动物本本，地球太空",
+                    "id":"706",
+                    "type":"album",
+                    "ns":"video",
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":402
+                    }
+                },
+            ]
+        },
+        {
+            "title":"精选",
+            "id":"800",
+            "type":"album",
+            "ns":"video",
+            "times": {
+                "updated": 0,
+                "created": 0
+            },
+            "ui_type":{
+                "name":"block_port",
+                "id":301
+            },
+            "items":[
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+            ]
+        },
+        {
+            "title":"排行",
+            "id":"900",
+            "type":"album",
+            "ns":"video",
+            "times": {
+                "updated": 0,
+                "created": 0
+            },
+            "ui_type":{
+                "name":"block_port",
+                "id":301
+            },
+            "items":[
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "media":{
+                        "likes":13995
+                    },
+                    "times": {
+                        "updated": 0,
+                        "created": 0
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
             ]
         }
-    ]
+    ],
+    "times": {
+        "updated": 0,
+        "created": 0
+    },
+    "base_url":"http://tv.mitvos.com/v2/"
 }
