@@ -5,9 +5,9 @@
             "id":"hot",
             "type":"album",
             "ns":"video",
-            "times": {
-                "updated": 0,
-                "created": 0
+            "times":{
+                "updated":0,
+                "created":0
             },
             "ui_type":{
                 "name":"block_port",
@@ -19,7 +19,7 @@
             },
             "images":{
                 "icon":{
-                    "url":"http://xxx.png"
+                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                 }
             },
             "blocks":[
@@ -28,13 +28,18 @@
                     "id":"100",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                       "updated": 0,
-                        "created": 0
+                    "times":{
+                        "updated":0,
+                        "created":0
                     },
                     "ui_type":{
                         "name":"imageswitcher",
                         "id":101
+                    },
+                    "images":{
+                        "icon":{
+                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
                     },
                     "items":[
                         {
@@ -44,9 +49,9 @@
                             "id":"100",
                             "type":"item",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "media":{
                                 "cp":{
@@ -60,7 +65,7 @@
                             },
                             "images":{
                                 "poster":{
-                                        "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -71,9 +76,9 @@
                             "id":"101",
                             "type":"item",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "media":{
                                 "cp":{
@@ -85,8 +90,8 @@
                                 "target":"item"
                             },
                             "images":{
-                                "back":{
-                                    "url":"http://xxx.png"
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -97,9 +102,9 @@
                             "id":"100",
                             "type":"album",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "media":{
                                 "cp":{
@@ -112,10 +117,10 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
                                 "sprite":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -126,9 +131,9 @@
                             "id":"100",
                             "type":"item",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "media":{
                                 "cp":{
@@ -142,10 +147,10 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
                                 "sprite":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         }
@@ -157,9 +162,13 @@
                         "name":"linearlayout_top",
                         "id":201
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "times":{
+                        "updated":0,
+                        "created":0
+                    },
+                    "images":{
+                    },
+                    "media":{
                     },
                     "items":[
                         {
@@ -167,9 +176,9 @@
                             "id":"200",
                             "type":"episode",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "media":{
                                 "cp":{
@@ -183,13 +192,12 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
-                                "icon":{
-                                    "url":"http://xxx.png"
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
-                            
                         },
                         {
                             "title":"电影",
@@ -199,16 +207,16 @@
                             "action":{
                                 "target":"movie"
                             },
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
-                                "icon":{
-                                    "url":"http://xxx.png"
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -217,19 +225,19 @@
                             "id":"200",
                             "type":"album",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "action":{
                                 "target":"variety"
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
-                                "icon":{
-                                    "url":"http://xxx.png"
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -238,19 +246,19 @@
                             "id":"all",
                             "type":"album",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "times":{
+                                "updated":0,
+                                "created":0
                             },
                             "action":{
                                 "target":"album"
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://xxx.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
-                                "icon":{
-                                    "url":"http://xxx.png"
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         }
@@ -262,6 +270,12 @@
                         "name":"linearlayout_left",
                         "id":202
                     },
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
                     "items":[
                         {
                             "title":"播放历史",
@@ -271,9 +285,13 @@
                             "action":{
                                 "target":"album"
                             },
+                            "media":{
+                            },
+                            "times":{
+                            },
                             "images":{
                                 "icon":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -285,9 +303,13 @@
                             "action":{
                                 "target":"album"
                             },
+                            "media":{
+                            },
+                            "times":{
+                            },
                             "images":{
                                 "icon":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         },
@@ -296,12 +318,16 @@
                             "id":"400",
                             "type":"album",
                             "ns":"video",
+                            "media":{
+                            },
+                            "times":{
+                            },
                             "action":{
                                 "target":"tv_live"
                             },
                             "images":{
                                 "icon":{
-                                    "url":"http://xxx.png"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 }
                             }
                         }
@@ -313,6 +339,15 @@
                         "name":"block_port",
                         "id":301
                     },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "images":{
+                        "icon":{
+                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
                     "blocks":[
                         {
                             "title":"快捷",
@@ -320,15 +355,23 @@
                                 "name":"tabs_horizontal",
                                 "id":311
                             },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "times":{
+                            },
                             "blocks":[
                                 {
                                     "title":"热点咨询",
                                     "id":"501",
                                     "type":"album",
                                     "ns":"video",
-                                    "times": {
-                                        "updated": 0,
-                                        "created": 0
+                                    "media":{
+                                    },
+                                    "times":{
+                                    },
+                                    "images":{
                                     },
                                     "ui_type":{
                                         "name":"grid_media_land",
@@ -342,9 +385,11 @@
                                     "id":"502",
                                     "type":"album",
                                     "ns":"video",
-                                    "times": {
-                                        "updated": 0,
-                                        "created": 0
+                                    "images":{
+                                    },
+                                    "media":{
+                                    },
+                                    "times":{
                                     },
                                     "ui_type":{
                                         "name":"grid_media_land",
@@ -358,9 +403,11 @@
                                     "id":"503",
                                     "type":"album",
                                     "ns":"video",
-                                    "times": {
-                                        "updated": 0,
-                                        "created": 0
+                                    "images":{
+                                    },
+                                    "media":{
+                                    },
+                                    "times":{
                                     },
                                     "ui_type":{
                                         "name":"grid_media_land",
@@ -376,9 +423,11 @@
                             "id":"500",
                             "type":"album",
                             "ns":"video",
-                            "times": {
-                                "updated": 0,
-                                "created": 0
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "times":{
                             },
                             "action":{
                                 "target":"album"
@@ -386,8 +435,6 @@
                             "ui_type":{
                                 "name":"linearlayout_none",
                                 "id":204
-                            },
-                            "media":{
                             }
                         }
                     ]
@@ -399,9 +446,11 @@
             "id":"category",
             "type":"album",
             "ns":"video",
-            "times": {
-                "updated": 0,
-                "created": 0
+            "images":{
+            },
+            "media":{
+            },
+            "times":{
             },
             "ui_type":{
                 "name":"block_port",
@@ -415,9 +464,11 @@
                     "id":"701",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -434,9 +485,11 @@
                     "id":"701",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -453,9 +506,11 @@
                     "id":"702",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -472,9 +527,11 @@
                     "id":"703",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -491,9 +548,11 @@
                     "id":"704",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -510,9 +569,11 @@
                     "id":"705",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -529,9 +590,11 @@
                     "id":"706",
                     "type":"album",
                     "ns":"video",
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -540,7 +603,7 @@
                         "name":"list_category_land",
                         "id":402
                     }
-                },
+                }
             ]
         },
         {
@@ -548,9 +611,11 @@
             "id":"selection",
             "type":"album",
             "ns":"video",
-            "times": {
-                "updated": 0,
-                "created": 0
+            "images":{
+            },
+            "media":{
+            },
+            "times":{
             },
             "ui_type":{
                 "name":"block_port",
@@ -562,12 +627,40 @@
                     "id":"901",
                     "type":"album",
                     "ns":"video",
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
+                        "updated":0,
+                        "created":0
+                    },
                     "media":{
                         "likes":13995
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":441
+                    }
+                },
+                {
+                    "title":"经典搞笑大集合",
+                    "id":"901",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "media":{
+                        "likes":13995
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -585,9 +678,12 @@
                     "media":{
                         "likes":13995
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -605,9 +701,12 @@
                     "media":{
                         "likes":13995
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -616,27 +715,7 @@
                         "name":"grid_selection",
                         "id":441
                     }
-                },
-                {
-                    "title":"经典搞笑大集合",
-                    "id":"901",
-                    "type":"album",
-                    "ns":"video",
-                    "media":{
-                        "likes":13995
-                    },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
-                    },
-                    "action":{
-                        "target":"album"
-                    },
-                    "ui_type":{
-                        "name":"grid_selection",
-                        "id":441
-                    }
-                },
+                }
             ]
         },
         {
@@ -644,9 +723,11 @@
             "id":"rank",
             "type":"album",
             "ns":"video",
-            "times": {
-                "updated": 0,
-                "created": 0
+            "images":{
+            },
+            "media":{
+            },
+            "times":{
             },
             "ui_type":{
                 "name":"block_port",
@@ -658,12 +739,15 @@
                     "id":"901",
                     "type":"album",
                     "ns":"video",
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
+                    },
                     "media":{
                         "likes":13995
-                    },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
                     },
                     "action":{
                         "target":"album"
@@ -681,9 +765,12 @@
                     "media":{
                         "likes":13995
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -701,9 +788,12 @@
                     "media":{
                         "likes":13995
                     },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
                     },
                     "action":{
                         "target":"album"
@@ -718,12 +808,15 @@
                     "id":"901",
                     "type":"album",
                     "ns":"video",
+                    "images":{
+                        "back":{
+                         "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "times":{
+                    },
                     "media":{
                         "likes":13995
-                    },
-                    "times": {
-                        "updated": 0,
-                        "created": 0
                     },
                     "action":{
                         "target":"album"
@@ -732,13 +825,13 @@
                         "name":"grid_selection",
                         "id":441
                     }
-                },
+                }
             ]
         }
     ],
-    "times": {
-        "updated": 0,
-        "created": 0
+    "times":{
+        "updated":2,
+        "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
 }
