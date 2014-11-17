@@ -106,7 +106,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
     public View addItemViewPort(View child, int celltype , int x, int y){
         return addItemViewPort(child, celltype , x, y, DIVIDE_SIZE);
     }
-
     public View addItemViewPort(View child, int celltype , int x, int y, int padding){
         if(mLeftView==null){
             mLeftView = child;
@@ -118,18 +117,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
-            case LayoutConstant.imageswitcher:
-                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(getResources().getDimensionPixelSize(R.dimen.media_banner_height)*mDensityScale));
-                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+(getResources().getDimensionPixelSize(R.dimen.media_banner_height))*y+padding*y;
-                flp.rightMargin = getPaddingRight();
-                child.setFocusable(true);
-                child.setOnFocusChangeListener(this);
-                child.setTag(R.integer.tag_view_postion, 0);
-                addView(child,flp);
-                rowOffset[0]+=((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE))*mDensityScale+padding;
-
-                break;
             case Vertical:
                 flp = new LayoutParams(
                         (int)(ITEM_V_WIDTH*mDensityScale),
@@ -145,6 +132,17 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 
                 rowOffset[0]+=ITEM_V_WIDTH*mDensityScale+padding;
                 rowOffset[1]=rowOffset[0];
+                break;
+            case LayoutConstant.imageswitcher:
+                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(getResources().getDimensionPixelSize(R.dimen.media_banner_height)*mDensityScale));
+                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
+                flp.topMargin = getPaddingTop()+(ITEM_V_HEIGHT)*y+padding*y;
+                flp.rightMargin = getPaddingRight();
+                child.setFocusable(true);
+                child.setOnFocusChangeListener(this);
+                child.setTag(R.integer.tag_view_postion, 0);
+                addView(child,flp);
+                rowOffset[0]+=((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE))*mDensityScale+padding;
                 break;
             case HorizontalMatchWith:
                 flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(ITEM_V_HEIGHT*mDensityScale));
@@ -321,7 +319,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 	}
 
     private View lastFocusedView;
-    
+
     @Override
     protected boolean onRequestFocusInDescendants(int direction, Rect previouslyFocusedRect) {
         if (lastFocusedView!=null&&lastFocusedView.requestFocus(direction, previouslyFocusedRect)) {
@@ -355,7 +353,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
     public void requestChildFocus(View child, View focused) {
         super.requestChildFocus(child,focused);
     }
-    
+
     public void onFocusChange(final View v, boolean hasFocus){
     	if(mScaleAnimator!=null) mScaleAnimator.end();
     	if(mMetroCursorView!=null){
@@ -376,27 +374,27 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
     		}
     	}else{
         	if(hasFocus){
-                lastFocusedView = v;        
+                lastFocusedView = v;
     			bringChildToFront(v);
     			invalidate();
-    			ObjectAnimator animX = ObjectAnimator.ofFloat(v, "ScaleX", 
+    			ObjectAnimator animX = ObjectAnimator.ofFloat(v, "ScaleX",
             			new float[] { 1.0F, 1.1F }).setDuration(200);
-    			ObjectAnimator animY = ObjectAnimator.ofFloat(v, "ScaleY", 
+    			ObjectAnimator animY = ObjectAnimator.ofFloat(v, "ScaleY",
             			new float[] { 1.0F, 1.1F }).setDuration(200);
     			mScaleAnimator = new AnimatorSet();
     			mScaleAnimator.playTogether(new Animator[] { animX, animY });
     			mScaleAnimator.start();
-    			
+
         		//v.setScaleX(1.1f);
     			//v.setScaleY(1.1f);
-        	}else{    	   
+        	}else{
         		v.setScaleX(1.0f);
     			v.setScaleY(1.0f);
-        	} 
+        	}
     	}
- 	
+
     }
-    
+
     public void setMetroCursorView(MetroCursorView v){
     	mMetroCursorView = v;
     }

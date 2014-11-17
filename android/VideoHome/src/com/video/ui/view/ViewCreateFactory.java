@@ -5,6 +5,7 @@ import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.view.subview.AdsView;
+import com.video.ui.view.subview.QuickNavigationView;
 
 /**
  * Created by liuhuadong on 11/17/14.
@@ -17,6 +18,9 @@ public class ViewCreateFactory {
                 break;
             case LayoutConstant.imageswitcher:
                 view = new AdsView(context, item.items);
+                break;
+            case LayoutConstant.linearlayout_top:
+                view = new QuickNavigationView(context, item.items);
                 break;
         }
         return view;
