@@ -1,8 +1,3 @@
-#android framework for mobilevideo
-
-===========
-framework for multi-cp for android mobile video app
-
 #数据结构
 每个UI大块是由Block组成，Block会包含Blocks，或者具体的展示Items
 
@@ -187,4 +182,3 @@ class Block extends Item<br>
 
 ImageSwitcher:
 文本，图
-
