@@ -116,6 +116,9 @@
                                 "target":"album"
                             },
                             "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
@@ -146,6 +149,9 @@
                                 "params":"html5 address"
                             },
                             "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
