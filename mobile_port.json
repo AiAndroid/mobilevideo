@@ -419,7 +419,7 @@
         },
         {
             "title":"分类",
-            "id":"600",
+            "id":"category",
             "type":"album",
             "ns":"video",
             "times": {
@@ -568,7 +568,7 @@
         },
         {
             "title":"精选",
-            "id":"800",
+            "id":"selection",
             "type":"album",
             "ns":"video",
             "times": {
@@ -664,7 +664,7 @@
         },
         {
             "title":"排行",
-            "id":"900",
+            "id":"rank",
             "type":"album",
             "ns":"video",
             "times": {
