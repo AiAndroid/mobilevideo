@@ -79,20 +79,26 @@ public class MetroFragment extends Fragment {
             }
         }
         else if(tab != null && tab.items != null){
-
-        	//no need sort again
             int step = 0;
             for(DisplayItem item:tab.items){
-               addViewPort(new RecommendCardView(getActivity()).bindData(item), MetroLayout.HorizontalMatchWith, 0, step++);
+               View view = inflateDisplayItem(item);
+               addViewPort(view, MetroLayout.HorizontalMatchWith, 0, step++);
             }
-        }else if(tab != null && tab.blocks != null){
-
-            //no need sort again
+        }else if(tab != null && tab.blocks != null){            
             int step = 0;
-            for(DisplayItem item:tab.blocks){
-                addViewPort(new RecommendCardView(getActivity()).bindData(item), MetroLayout.HorizontalMatchWith, 0, step++);
+            for(Block<DisplayItem> item:tab.blocks){
+                View blockView = inflateBlock(item);
+                addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
             }
         }
+    }
+
+    protected View inflateBlock(Block<DisplayItem> item){
+        return  new RecommendCardView(getActivity()).bindData(item);
+    }
+
+    protected View inflateDisplayItem(DisplayItem item){
+        return  new RecommendCardView(getActivity()).bindData(item);
     }
 
     private View   lastPostionView;
