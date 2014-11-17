@@ -5,12 +5,12 @@
               android:layout_width="@dimen/media_banner_width"
               android:layout_height="@dimen/media_banner_height"
               android:layout_centerHorizontal="true">
-    <ViewFlipper android:layout_width="match_parent" android:layout_height="match_parent"
+    <com.video.ui.view.subview.CustomViewPager android:layout_width="match_parent" android:layout_height="match_parent"
                  android:id="@+id/image_flipper"
                  android:focusable="true"
                  android:focusableInTouchMode="true"
-                 android:background="@drawable/list_selector_bg">
-    </ViewFlipper>
+                 android:background="#E8EAF6">
+    </com.video.ui.view.subview.CustomViewPager>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
