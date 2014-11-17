@@ -16,7 +16,7 @@ public class Block<T>  extends DisplayItem implements Serializable {
     public ArrayList<Block<T>> blocks;
 
     public String toString(){
-        return "\n\nGenericAlbum: begin \tsort:"+sort +" \tpagi:"+pagi + super.toString() +" \n\titems:"+items + "\n\tend\n\n\n";
+        return "\n\nBlock: " + super.toString() +" \n\titems:"+items + "\n\tend\n\n\n";
     }
 }
 

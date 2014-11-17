@@ -83,7 +83,7 @@ public class MetroFragment extends Fragment {
         	//no need sort again
             int step = 0;
             for(DisplayItem item:tab.items){
-               addViewPort(new RecommendCardView(getActivity()).bindData(item), MetroLayout.Normal, 1, step++);
+               addViewPort(new RecommendCardView(getActivity()).bindData(item), MetroLayout.HorizontalMatchWith, 0, step++);
             }
         }
     }
