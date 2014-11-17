@@ -20,9 +20,6 @@
     <dimen name="title_divider_left_margin">6dp</dimen>
     <dimen name="title_divider_top_margin">-1dp</dimen>
 
-
-
-
     <dimen name="mine_view_left_margin">3dp</dimen>
     <dimen name="mine_mirror_view_width">201dp</dimen>
     <dimen name="mine_mirror_view_height">100dp</dimen>
@@ -64,5 +61,8 @@
 
     <dimen name="header_width">350dp</dimen>
     <dimen name="header_height">340dp</dimen>
+
+    <dimen name="media_banner_width">346.7dp</dimen>
+    <dimen name="media_banner_height">155.7dp</dimen>
 
 </resources>

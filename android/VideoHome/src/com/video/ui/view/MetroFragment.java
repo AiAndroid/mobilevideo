@@ -69,7 +69,7 @@ public class MetroFragment extends Fragment {
     }
 
     protected View inflateBlock(Block<DisplayItem> item){
-        View view = ViewCreateFactory.CreateBlockView(item);
+        View view = ViewCreateFactory.CreateBlockView(getActivity(), item);
         if(view != null)
             return view;
 
@@ -77,7 +77,7 @@ public class MetroFragment extends Fragment {
     }
 
     protected View inflateDisplayItem(DisplayItem item){
-        View view = ViewCreateFactory.CreateSingleView(item);
+        View view = ViewCreateFactory.CreateSingleView(getActivity(), item);
         if(view != null)
             return view;
 
