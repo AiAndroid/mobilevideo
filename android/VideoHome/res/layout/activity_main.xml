@@ -19,7 +19,7 @@
         android:layout_weight="1"/>
 
     <!-- <com.xiaomi.mibox.gamecenternew.widgets.MiTabHost -->
-    <com.video.ui.view.MiTabHost
+    <TabHost
 	    android:id="@android:id/tabhost"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content">
@@ -49,7 +49,7 @@
 
 	
 	    </RelativeLayout>
-	</com.video.ui.view.MiTabHost>
+	</TabHost>
 
 
     </RelativeLayout>

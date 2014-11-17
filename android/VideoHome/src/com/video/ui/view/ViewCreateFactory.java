@@ -11,6 +11,9 @@ public class ViewCreateFactory {
         switch (item.ui_type.id){
             case LayoutConstant.list_category_land:
                 break;
+            case LayoutConstant.imageswitcher:
+
+                break;
         }
         return null;
     }
