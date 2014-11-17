@@ -1,18 +1,17 @@
 package com.video.ui;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.*;
 import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.*;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -20,11 +19,11 @@ import android.widget.TextView;
 import com.aimashi.mobile.video.view.UserView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
+import com.tv.ui.metro.model.ImageGroup;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.TabsGsonLoader;
-import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.ImageGroup;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.EmptyLoadingView;
 import com.video.ui.view.MetroFragment;
@@ -250,88 +249,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         Log.d(TAG, "onPause");
     }
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if(event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_MENU) {
-            Utils.playKeySound(mTabs, Utils.SOUND_KEYSTONE_KEY);
-            return true;
-        }
-
-        //
-        //fix for one bug for up key and change the tab
-        if(event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_DPAD_UP) {
-            View view = this.getCurrentFocus();
-            Object obj = view.getTag(R.integer.tag_view_postion);
-            if(obj != null){
-                int position = (Integer)obj;
-                if(position == 0){
-                    mTabHost.setCurrentTab(mViewPager.getCurrentItem());
-
-                    Utils.playKeySound(mTabs, Utils.SOUND_KEYSTONE_KEY);
-                    //set highlight
-                    final View tabView = mTabs.getChildTabViewAt(mViewPager.getCurrentItem());
-                    tabView.post(new Runnable(){
-                        @Override
-                        public void run() {
-                            tabView.requestFocus();
-                        }
-                    });
-
-                    return true;
-                }
-            }
-        }
-
-        View view = getCurrentFocus();
-        if(event.getAction() == KeyEvent.ACTION_DOWN && (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_LEFT || event.getKeyCode() == KeyEvent.KEYCODE_DPAD_RIGHT)&& TextView.class.isInstance(view) == true){
-
-            //already in left or right, no need do focus move
-            if((event.getKeyCode() == KeyEvent.KEYCODE_DPAD_LEFT && mViewPager.getCurrentItem() == 0) || (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_RIGHT && mViewPager.getCurrentItem() == mViewPager.getChildCount()-1)){
-
-                Utils.playKeySound(mTabs, Utils.SOUND_ERROR_KEY);
-                return true;
-            }
-        }
-
-        if(event.getAction() == KeyEvent.ACTION_DOWN && (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN||event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-            view = this.getCurrentFocus();
-            if(view.getId() == R.id.tv_tab_indicator){
-                MetroFragment fragment = (MetroFragment)mTabsAdapter.getItem(mViewPager.getCurrentItem());
-                fragment.focusMoveToLeft();
-                return true;
-            }
-        }
-
-        return super.dispatchKeyEvent(event);
-    }
-
     protected String dataSchemaForSearchString = "tvschema://video/search";
     protected void setSeachSchema(String schema){
     	dataSchemaForSearchString = schema;
     }
-
-    public class MenuReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context content, Intent intent) {
-            String action = intent.getAction();
-            if( action.equals("com.tv.ui.metro.action.SEARCH")) {
-            	try{
-	                Intent searchIntent = new Intent(Intent.ACTION_VIEW);	                
-	                searchIntent.setData(Uri.parse(dataSchemaForSearchString));
-                    DisplayItem item = new DisplayItem();
-                    item.ns   = "video";
-                    item.type = "search";
-                    item.title = "Search";
-
-                    searchIntent.putExtra("item", item);
-	                startActivity(searchIntent);
-            	}catch (Exception e) {
-					Log.e(TAG, e.getMessage());
-				}
-            }
-        }
-    }
-
 
     public class TabsAdapter extends FragmentPagerAdapter
             implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
@@ -470,29 +391,6 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
             mTabHost.setCurrentTab(position);
             widget.setDescendantFocusability(oldFocusability);
-            if(!mTabChanging){
-                if(position<mPrePagerPosition) {
-                    MetroFragment mf = (MetroFragment) fragments.get(new Integer(position));
-                    mf.focusMoveToRight();
-                }
-                else if(position>mPrePagerPosition) {
-                    MetroFragment mf = (MetroFragment) fragments.get(new Integer(position));
-                    mf.focusMoveToLeft();
-                }
-            }else{
-                if(position<mPrePagerPosition) {
-                    MetroFragment mf = (MetroFragment) fragments.get(new Integer(position));
-                    mf.scrollToLeft(true);
-                    MetroFragment premf = (MetroFragment) fragments.get(new Integer(mPrePagerPosition));
-                    premf.scrollToLeft(false);
-                }
-                else if(position>mPrePagerPosition) {
-                    MetroFragment mf = (MetroFragment) fragments.get(new Integer(position));
-                    mf.scrollToLeft(false);
-                    MetroFragment premf = (MetroFragment) fragments.get(new Integer(mPrePagerPosition));
-                    premf.scrollToRight(false);
-                }
-            }
             mPrePagerPosition = position;
         }
 

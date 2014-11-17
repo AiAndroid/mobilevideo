@@ -7,11 +7,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.video.ui.R;
-import com.video.ui.Utils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -388,73 +386,5 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
     
     public void setMetroCursorView(MetroCursorView v){
     	mMetroCursorView = v;
-    }
-
-
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        // Handle automatic focus changes.
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            int direction = 0;
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_DPAD_LEFT:
-                    if (event.hasNoModifiers()) {
-                        direction = View.FOCUS_LEFT;
-                    }
-                    break;
-                case KeyEvent.KEYCODE_DPAD_RIGHT:
-                    if (event.hasNoModifiers()) {
-                        direction = View.FOCUS_RIGHT;
-                    }
-                    break;
-                case KeyEvent.KEYCODE_DPAD_UP:
-                    if (event.hasNoModifiers()) {
-                        direction = View.FOCUS_UP;
-                    }
-                    break;
-                case KeyEvent.KEYCODE_DPAD_DOWN:
-                    if (event.hasNoModifiers()) {
-                        direction = View.FOCUS_DOWN;
-                    }
-                    break;
-                case KeyEvent.KEYCODE_TAB:
-                    if (event.hasNoModifiers()) {
-                        direction = View.FOCUS_FORWARD;
-                    } else if (event.hasModifiers(KeyEvent.META_SHIFT_ON)) {
-                        direction = View.FOCUS_BACKWARD;
-                    }
-                    break;
-            }
-            if (direction == View.FOCUS_DOWN || direction == View.FOCUS_UP) {
-                View focused = findFocus();
-                if (focused != null) {
-                    View v = focused.focusSearch(direction);
-                    if (v == null) {
-                        Utils.playKeySound(this, Utils.SOUND_ERROR_KEY);
-                        mMetroCursorView.showIndicator();
-                    }
-                }
-            }
-        }
-        boolean ret = super.dispatchKeyEvent(event);
-        return ret;
-    }
-
-    public void focusMoveToLeft(){
-        if(mLeftView != null)
-            mLeftView.requestFocus();
-    }
-
-    public void focusMoveToRight(){
-        if(mRightView != null)mRightView.requestFocus();
-    }
-
-    public void focusMoveToPreFocused(){
-        if(lastFocusedView!=null){
-            lastFocusedView.requestFocus();
-        }else {
-            if(mLeftView != null)
-                mLeftView.requestFocus();
-        }
     }
 }
