@@ -806,7 +806,7 @@
         }
     ],
     "times":{
-        "updated":0,
+        "updated":1,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
