@@ -17,13 +17,11 @@
                 "target":"",
                 "params":""
             },
-            "images":[
-                {
-                    "icon":{
-                        "url":"http://xxx.png"
-                    }
+            "images":{
+                "icon":{
+                    "url":"http://xxx.png"
                 }
-            ],
+            },
             "blocks":[
                 {
                     "title":"广告",
@@ -60,13 +58,11 @@
                                 "target":"direct_show",
                                 "params":"http://xxxxx.mffmpeg"
                             },
-                            "images":[
-                                {
-                                    "poster":{
+                            "images":{
+                                "poster":{
                                         "url":"http://xxx.png"
-                                    }
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"超体",
@@ -88,13 +84,11 @@
                             "action":{
                                 "target":"item"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"周星驰专辑",
@@ -116,16 +110,14 @@
                             "action":{
                                 "target":"album"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.png"
-                                    },
-                                    "sprite":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.png"
+                                },
+                                "sprite":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"爸爸快跑",
@@ -148,16 +140,14 @@
                                 "target":"direct_show",
                                 "params":"html5 address"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.png"
-                                    },
-                                    "sprite":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.png"
+                                },
+                                "sprite":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         }
                     ]
                 },
@@ -191,16 +181,15 @@
                                 "target":"episode",
                                 "params":"episode=8"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.jpg"
-                                    },
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.jpg"
+                                },
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
+                            
                         },
                         {
                             "title":"电影",
@@ -214,16 +203,14 @@
                                 "updated": 0,
                                 "created": 0
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.jpg"
-                                    },
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.jpg"
+                                },
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"综艺",
@@ -237,16 +224,14 @@
                             "action":{
                                 "target":"variety"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.jpg"
-                                    },
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.jpg"
+                                },
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"全部",
@@ -260,16 +245,14 @@
                             "action":{
                                 "target":"album"
                             },
-                            "images":[
-                                {
-                                    "back":{
-                                        "url":"http://xxx.jpg"
-                                    },
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "back":{
+                                    "url":"http://xxx.jpg"
+                                },
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         }
                     ]
                 },
@@ -288,13 +271,11 @@
                             "action":{
                                 "target":"album"
                             },
-                            "images":[
-                                {
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"我的离线",
@@ -304,13 +285,11 @@
                             "action":{
                                 "target":"album"
                             },
-                            "images":[
-                                {
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         },
                         {
                             "title":"电视直播",
@@ -320,13 +299,11 @@
                             "action":{
                                 "target":"tv_live"
                             },
-                            "images":[
-                                {
-                                    "icon":{
-                                        "url":"http://xxx.png"
-                                    }
+                            "images":{
+                                "icon":{
+                                    "url":"http://xxx.png"
                                 }
-                            ]
+                            }
                         }
                     ]
                 },
