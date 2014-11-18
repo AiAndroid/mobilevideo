@@ -5,6 +5,7 @@ import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.view.subview.AdsView;
+import com.video.ui.view.subview.CategoryItemView;
 import com.video.ui.view.subview.QuickLocalNavigateView;
 import com.video.ui.view.subview.QuickNavigationView;
 
@@ -15,8 +16,6 @@ public class ViewCreateFactory {
     public static View CreateBlockView(Context context,  Block<DisplayItem> item){
         View view = null;
         switch (item.ui_type.id){
-            case LayoutConstant.list_category_land:
-                break;
             case LayoutConstant.imageswitcher:
                 view = new AdsView(context, item.items);
                 break;
@@ -25,6 +24,9 @@ public class ViewCreateFactory {
                 break;
             case LayoutConstant.linearlayout_left:
                 view = new QuickLocalNavigateView(context, item.items);
+                break;
+            case LayoutConstant.list_category_land:
+                view = new CategoryItemView(context, item);
                 break;
         }
         return view;

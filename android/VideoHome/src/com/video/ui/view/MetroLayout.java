@@ -123,7 +123,9 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         switch(celltype){
             case LayoutConstant.imageswitcher:
             case LayoutConstant.linearlayout_top:
-            case LayoutConstant.linearlayout_left: {
+            case LayoutConstant.linearlayout_left:
+            case LayoutConstant.list_category_land:
+            {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
                 flp = new LayoutParams(width, height);
