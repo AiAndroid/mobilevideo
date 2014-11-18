@@ -136,6 +136,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 break;
             case LayoutConstant.imageswitcher:
             case LayoutConstant.linearlayout_top:
+            case LayoutConstant.linearlayout_left:
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), height);
                 if(child instanceof DimensHelper){

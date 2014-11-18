@@ -3,6 +3,7 @@
     <dimen name="text_size_38">13dp</dimen>
     <dimen name="font_size_36">12sp</dimen>
     <dimen name="text_size_50">16dp</dimen>
+    <dimen name="font_size_42">14sp</dimen>
 
     <dimen name="text_font_size_huge">21sp</dimen>
 
@@ -72,6 +73,12 @@
     <dimen name="quick_entry_channel_content_paddingT">9.7dp</dimen>
     <dimen name="quick_entry_channel_content_paddingB">8.7dp</dimen>
     <dimen name="quick_entry_channel_drawable_padding">5dp</dimen>
+
+    <dimen name="quick_entry_user_height">45.7dp</dimen>
+    <dimen name="quick_entry_user_content_paddingH">19dp</dimen>
+    <dimen name="quick_entry_user_drawable_padding">8dp</dimen>
+
+
 
 
 </resources>

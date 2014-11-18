@@ -17,20 +17,19 @@ import com.video.ui.view.LinearFrame;
 import java.util.ArrayList;
 
 /**
- * Created by liuhuadong on 11/17/14.
+ * Created by liuhuadong on 11/18/14.
  */
-public class QuickNavigationView extends RelativeLayout implements DimensHelper {
-    public QuickNavigationView(Context context, AttributeSet attrs, int defStyle) {
+public class QuickLocalNavigateView extends RelativeLayout implements DimensHelper {
+    public QuickLocalNavigateView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
     private int []draws = {
-        R.drawable.quick_entry_tv_series_bg,
-        R.drawable.quick_entry_film_bg,
-        R.drawable.quick_entry_variety_bg,
-        R.drawable.quick_entry_all_bg
+            R.drawable.com_btn_left_bg,
+            R.drawable.com_btn_mid_bg,
+            R.drawable.com_btn_right_bg
     };
-    public QuickNavigationView(Context context, ArrayList<DisplayItem> items) {
+    public QuickLocalNavigateView(Context context, ArrayList<DisplayItem> items) {
         super(context);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
@@ -38,15 +37,15 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
 
         for (int i=0;i<items.size();i++) {
             DisplayItem item = items.get(i);
-            final TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_entry_textview, null);
+            final TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_local_entry_textview, null);
             tv.setText(item.title);
-            tv.setBackgroundResource(draws[i%4]);
+            tv.setBackgroundResource(draws[i%3]);
 
             Target topDrawable = new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                     if(bitmap != null){
-                        tv.setCompoundDrawables(null, new BitmapDrawable(getResources(), bitmap), null, null);
+                        tv.setCompoundDrawables(new BitmapDrawable(getResources(), bitmap), null, null, null);
                         tv.requestLayout();
                     }
                 }
@@ -56,7 +55,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
             };
 
             Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
-            mMetroLayout.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_intervalH));
+            mMetroLayout.addItemView(tv, getDimens().width/3, getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height), 0);
         }
     }
 
@@ -66,8 +65,9 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         if(mDimens == null){
             mDimens = new Dimens();
             mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height);
         }
         return mDimens;
     }
 }
+
