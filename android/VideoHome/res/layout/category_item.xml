@@ -3,7 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@drawable/com_bg_white_corner">
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/category_media_poster_height">
@@ -13,9 +14,8 @@
                 android:background="@drawable/default_border_corner_up">
             <ImageView
                     android:id="@+id/poster_bg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/default_poster_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>

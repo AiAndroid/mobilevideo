@@ -44,13 +44,13 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
         Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
 
         mNameView = (TextView) mContentView.findViewById(R.id.category_media_desc_name);
-        mNameView.setText(item.desc);
+        mNameView.setText(item.title);
 
         mCountView = (TextView) mContentView.findViewById(R.id.category_media_desc_count);
         mCountView.setText(item.sub_title);
 
         mMediaView = (TextView) mContentView.findViewById(R.id.category_media_desc_media);
-        mMediaView.setText(item.title);
+        mMediaView.setText(item.desc);
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
         Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(postImage);
@@ -61,8 +61,8 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
     public Dimens getDimens() {
         if(mDimens == null){
             mDimens = new Dimens();
-            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.category_media_view_width);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.category_media_view_height);
         }
         return mDimens;
     }

@@ -23,7 +23,7 @@ public class MobileVideoApplication extends Application{
         Picasso.setSingletonInstance(picasso);
 
         Picasso.with(getApplicationContext()).setLoggingEnabled(true);
-        Picasso.with(getApplicationContext()).setIndicatorsEnabled(true);
+        Picasso.with(getApplicationContext()).setIndicatorsEnabled(false);
     }
 
     static File createDefaultCacheDir(Context context) {
