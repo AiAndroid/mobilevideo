@@ -46,6 +46,7 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
         mPosterView.setRadius(getResources().getDimensionPixelSize(R.dimen.video_common_radius_9));
         mIconView = (ImageView) mContentView.findViewById(R.id.category_media_desc_icon);
         Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
+        Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
 
         mNameView = (TextView) mContentView.findViewById(R.id.category_media_desc_name);
         mNameView.setText(item.title);
@@ -57,14 +58,10 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
         mMediaView.setText(item.desc);
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(dpToPx(4), dpToPx(4))).into(postImage);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4)).into(postImage);
     }
 
-    public int dpToPx(int dp) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        int px = Math.round(dp* (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-        return px;
-    }
+
 
     private static Dimens mDimens;
     @Override
@@ -79,9 +76,14 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
 
     public static class Round_Corners implements Transformation {
         private int Round;
+        Round_Corners(Context context, int margin, int Round) {
+            this.Round = dpToPx(context, Round);
+        }
 
-        Round_Corners(int margin, int Round) {
-            this.Round = Round;
+        public int dpToPx(Context context, int dp) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            int px = Math.round(dp* (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+            return px;
         }
 
         @Override

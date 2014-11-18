@@ -102,7 +102,7 @@ public class AdsView extends RelativeLayout implements DimensHelper {
         ImageView imageView = new ImageView(getContext());
         imageView.setBackgroundResource(R.drawable.list_selector_bg);
         imageView.setClickable(true);
-        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.icon_h_default).error(R.drawable.icon_h_default).fit().into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.icon_h_default).error(R.drawable.icon_h_default).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
         return imageView;
     }
 

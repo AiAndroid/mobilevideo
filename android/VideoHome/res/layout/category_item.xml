@@ -21,8 +21,8 @@
         </FrameLayout>
         <com.video.ui.view.subview.CornerUpImageView
                 android:id="@+id/category_media_poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/app_name"/>
     </FrameLayout>
