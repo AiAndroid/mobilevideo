@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@drawable/com_bg_white_corner">
     <FrameLayout
+            android:id="@+id/poster_container"
             android:layout_width="match_parent"
             android:layout_height="@dimen/category_media_poster_height">
         <FrameLayout
@@ -27,9 +28,9 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/app_name"/>
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/list_selector_bg"/>
     </FrameLayout>
     <FrameLayout
+            android:layout_below="@id/poster_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <RelativeLayout
@@ -76,5 +77,4 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/app_name"/>
     </FrameLayout>
-
-</LinearLayout>
+</RelativeLayout>

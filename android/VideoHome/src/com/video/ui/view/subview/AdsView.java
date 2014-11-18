@@ -118,7 +118,6 @@ public class AdsView extends RelativeLayout implements DimensHelper {
     private ImageView getImageView(DisplayItem item){
         ImageView imageView = new ImageView(getContext());
         imageView.setBackgroundResource(R.drawable.list_selector_bg);
-        imageView.setClickable(true);
         imageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
