@@ -1,10 +1,15 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.view.LinearFrame;
@@ -33,9 +38,23 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
 
         for (int i=0;i<items.size();i++) {
             DisplayItem item = items.get(i);
-            TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_entry_textview, null);
+            final TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_entry_textview, null);
             tv.setText(item.title);
             tv.setBackgroundResource(draws[i%4]);
+
+            Target topDrawable = new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
+                    if(bitmap != null){
+                        tv.setCompoundDrawables(null, new BitmapDrawable(bitmap), null, null);
+                    }
+                }
+
+                @Override public void onBitmapFailed(Drawable drawable) {}
+                @Override public void onPrepareLoad(Drawable drawable) {}
+            };
+
+            Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
             mMetroLayout.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_intervalH));
         }
     }
