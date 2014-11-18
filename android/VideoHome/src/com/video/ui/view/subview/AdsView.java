@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends RelativeLayout{
+public class AdsView extends RelativeLayout implements SubViewBase{
     public AdsView(Context context) {
         this(context, null, 0);
     }
@@ -103,5 +103,16 @@ public class AdsView extends RelativeLayout{
         imageView.setBackgroundResource(R.drawable.list_selector_bg);
         Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.icon_h_default).error(R.drawable.icon_h_default).fit().into(imageView);
         return imageView;
+    }
+
+    private static Dimens mDimens;
+    @Override
+    public Dimens getDimens() {
+        if(mDimens == null){
+            mDimens = new Dimens();
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+        }
+        return mDimens;
     }
 }

@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.video.ui.R;
+import com.video.ui.view.subview.SubViewBase;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -134,26 +135,35 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 rowOffset[1]=rowOffset[0];
                 break;
             case LayoutConstant.imageswitcher:
-                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(getResources().getDimensionPixelSize(R.dimen.media_banner_height)*mDensityScale));
+            case LayoutConstant.linearlayout_top:
+                int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), height);
+                if(child instanceof SubViewBase){
+                    height = ((SubViewBase) child).getDimens().height;
+                    flp = new LayoutParams(((SubViewBase) child).getDimens().width, height);
+                }
                 flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+(ITEM_V_HEIGHT)*y+padding*y;
+                flp.topMargin = getPaddingTop()+ rowOffset[0] + padding*y;
                 flp.rightMargin = getPaddingRight();
                 child.setFocusable(true);
                 child.setOnFocusChangeListener(this);
                 child.setTag(R.integer.tag_view_postion, 0);
                 addView(child,flp);
-                rowOffset[0]+=((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE))*mDensityScale+padding;
+                rowOffset[0]+=height;
                 break;
             case HorizontalMatchWith:
                 flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(ITEM_V_HEIGHT*mDensityScale));
+                if(child instanceof SubViewBase){
+                    flp = new LayoutParams(((SubViewBase) child).getDimens().width, ((SubViewBase) child).getDimens().height);
+                }
                 flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+(ITEM_V_HEIGHT)*y+padding*y;
+                flp.topMargin = getPaddingTop()+ rowOffset[0] +padding*y;
                 flp.rightMargin = getPaddingRight();
                 child.setFocusable(true);
                 child.setOnFocusChangeListener(this);
                 child.setTag(R.integer.tag_view_postion, 0);
                 addView(child,flp);
-                rowOffset[0]+=((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE))*mDensityScale+padding;
+                rowOffset[0]+= ITEM_V_HEIGHT;
                 break;
             case Horizontal:
                 flp = new LayoutParams((int)(ITEM_H_WIDTH*mDensityScale), (int)(ITEM_H_HEIGHT*mDensityScale));

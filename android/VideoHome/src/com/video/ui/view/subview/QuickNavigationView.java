@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class QuickNavigationView extends RelativeLayout {
+public class QuickNavigationView extends RelativeLayout implements SubViewBase {
     public QuickNavigationView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -30,5 +30,16 @@ public class QuickNavigationView extends RelativeLayout {
         mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
         mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
         mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
+    }
+
+    private static Dimens mDimens;
+    @Override
+    public Dimens getDimens() {
+        if(mDimens == null){
+            mDimens = new Dimens();
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+        }
+        return mDimens;
     }
 }

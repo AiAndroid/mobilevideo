@@ -26,11 +26,12 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.Image.Ani;
 import com.video.ui.R;
+import com.video.ui.view.subview.SubViewBase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecommendCardView extends RelativeLayout {
+public class RecommendCardView extends RelativeLayout implements SubViewBase {
 
 	private static String TAG = "RecommendCardView";
 	protected CenterIconImage mBackView;
@@ -406,4 +407,15 @@ public class RecommendCardView extends RelativeLayout {
             ANIMATION_OFFSET_Y = getResources().getDimensionPixelSize(R.dimen.animation_offset_y);
 		}
 	}
+
+    private static Dimens mDimens;
+    @Override
+    public Dimens getDimens() {
+        if(mDimens == null){
+            mDimens = new Dimens();
+            mDimens.width  = ITEM_H_WIDTH + ITEM_NORMAL_SIZE;
+            mDimens.height = ITEM_V_HEIGHT;
+        }
+        return mDimens;
+    }
 }
