@@ -1242,6 +1242,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1269,6 +1272,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1296,6 +1302,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1323,6 +1332,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1350,6 +1362,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1377,6 +1392,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1404,6 +1422,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1431,6 +1452,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1458,6 +1482,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1485,6 +1512,9 @@
                         },
                         "icon":{
                             "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/category_icon_default.png"
+                        },
+                        "left_top_corner":{
+                            "url":"http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"
                         }
                     },
                     "media":{
@@ -1725,7 +1755,7 @@
         }
     ],
     "times":{
-        "updated":9,
+        "updated":10,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
