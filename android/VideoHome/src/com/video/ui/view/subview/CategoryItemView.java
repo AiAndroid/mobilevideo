@@ -1,18 +1,22 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.graphics.*;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 
 /**
  * Created by liuhuadong on 11/18/14.
+ * main copy from miuivideo
  */
 public class CategoryItemView extends RelativeLayout implements DimensHelper {
     public CategoryItemView(Context context, DisplayItem item) {
@@ -53,7 +57,13 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
         mMediaView.setText(item.desc);
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(postImage);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(dpToPx(4), dpToPx(4))).into(postImage);
+    }
+
+    public int dpToPx(int dp) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int px = Math.round(dp* (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return px;
     }
 
     private static Dimens mDimens;
@@ -65,5 +75,54 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
             mDimens.height = getResources().getDimensionPixelSize(R.dimen.category_media_view_height);
         }
         return mDimens;
+    }
+
+    public static class Round_Corners implements Transformation {
+        private int Round;
+
+        Round_Corners(int margin, int Round) {
+            this.Round = Round;
+        }
+
+        @Override
+        public String key() {
+            return "Round" + Round;
+        }
+
+        @Override
+        public Bitmap transform(Bitmap arg0) {
+            return getRoundedTopLeftCornerBitmap(arg0);
+        }
+
+        public Bitmap getRoundedTopLeftCornerBitmap(Bitmap bitmap) {
+            Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                    bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(output);
+
+            final int color = 0xff424242;
+            final Paint paint = new Paint();
+            final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            final RectF rectF = new RectF(rect);
+            final float Px = Round;
+
+            final Rect bottomRect = new Rect(0, bitmap.getHeight() / 2,
+                    bitmap.getWidth(), bitmap.getHeight());
+
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(color);
+            canvas.drawRoundRect(rectF, Px, Px, paint);
+            // Fill in upper right corner
+            // canvas.drawRect(topRightRect, paint);
+            // Fill in bottom corners
+            canvas.drawRect(bottomRect, paint);
+
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+            if (bitmap != output) {
+                bitmap.recycle();
+            }
+            return output;
+        }
     }
 }
