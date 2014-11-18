@@ -27,6 +27,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 	Context mContext;
 	int[] rowOffset = new int[2];
 	static  int DIVIDE_SIZE = 6;
+    static  int paddingLeft = 0;
 	boolean mMirror = true;
 	AnimatorSet mScaleAnimator;
 	List<WeakReference<View>> mViewList = new ArrayList<WeakReference<View>>();
@@ -77,6 +78,8 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             ITEM_H_HEIGHT = getResources().getDimensionPixelSize(R.dimen.ITEM_H_HEIGHT);
             ITEM_NORMAL_SIZE = getResources().getDimensionPixelSize(R.dimen.ITEM_NORMAL_SIZE);
             mirror_ref_height = getResources().getDimensionPixelSize(R.dimen.mirror_ref_height);
+
+            paddingLeft = (getResources().getDisplayMetrics().widthPixels - getResources().getDimensionPixelSize(R.dimen.media_banner_width))/2;
         }
 
 		mDensityScale = 1;//mContext.getResources().getDisplayMetrics().densityDpi/320.0f;
@@ -118,54 +121,40 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
-            case Vertical:
-                flp = new LayoutParams(
-                        (int)(ITEM_V_WIDTH*mDensityScale),
-                        (int)(ITEM_V_HEIGHT*mDensityScale));
-
-                child.setFocusable(true);
-                child.setOnFocusChangeListener(this);
-                child.setTag(R.integer.tag_view_postion, 0);
-                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+ITEM_NORMAL_SIZE*y+padding*y;
-                flp.rightMargin = getPaddingRight();
-                addView(child, flp);
-
-                rowOffset[0]+=ITEM_V_WIDTH*mDensityScale+padding;
-                rowOffset[1]=rowOffset[0];
-                break;
             case LayoutConstant.imageswitcher:
             case LayoutConstant.linearlayout_top:
-            case LayoutConstant.linearlayout_left:
+            case LayoutConstant.linearlayout_left: {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
-                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), height);
-                if(child instanceof DimensHelper){
+                int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                flp = new LayoutParams(width, height);
+                if (child instanceof DimensHelper) {
                     height = ((DimensHelper) child).getDimens().height;
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
-                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+ rowOffset[0] + padding*y;
-                flp.rightMargin = getPaddingRight();
+                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * y;
+                flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
-                child.setOnFocusChangeListener(this);
-                child.setTag(R.integer.tag_view_postion, 0);
-                addView(child,flp);
-                rowOffset[0]+=height;
+                addView(child, flp);
+                rowOffset[0] += height;
                 break;
+            }
             case HorizontalMatchWith:
-                flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(ITEM_V_HEIGHT*mDensityScale));
-                if(child instanceof DimensHelper){
+            {
+                int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+                int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                flp = new LayoutParams(width, height);
+                if (child instanceof DimensHelper) {
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, ((DimensHelper) child).getDimens().height);
                 }
-                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+ rowOffset[0] +padding*y;
-                flp.rightMargin = getPaddingRight();
+                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * y;
+                flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
-                child.setOnFocusChangeListener(this);
-                child.setTag(R.integer.tag_view_postion, 0);
-                addView(child,flp);
-                rowOffset[0]+= ITEM_V_HEIGHT;
+                addView(child, flp);
+                rowOffset[0] += ITEM_V_HEIGHT;
                 break;
+            }
             case Horizontal:
                 flp = new LayoutParams((int)(ITEM_H_WIDTH*mDensityScale), (int)(ITEM_H_HEIGHT*mDensityScale));
                 flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
@@ -177,22 +166,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 addView(child,flp);
                 rowOffset[0]+=ITEM_H_WIDTH*mDensityScale+padding;
                 break;
-            case Normal:
-                flp = new LayoutParams(
-                        (int)(ITEM_NORMAL_SIZE*mDensityScale),
-                        (int)(ITEM_NORMAL_SIZE*mDensityScale));
-
-                flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
-                flp.topMargin = getPaddingTop()+ITEM_NORMAL_SIZE*y+padding*y;
-                flp.rightMargin = getPaddingRight();
-                child.setFocusable(true);
-                child.setOnFocusChangeListener(this);
-                child.setTag(R.integer.tag_view_postion, 0);
-
-                addView(child,flp);
-                rowOffset[0]+=ITEM_NORMAL_SIZE*mDensityScale+padding;
-                break;
-
         }
         return result;
     }
