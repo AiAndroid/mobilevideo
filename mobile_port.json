@@ -202,6 +202,9 @@
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "icon":{
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series.png"
                                 }
                             }
                         },
@@ -223,6 +226,9 @@
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "icon":{
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film.png"
                                 }
                             }
                         },
@@ -244,6 +250,9 @@
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "icon":{
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety.png"
                                 }
                             }
                         },
@@ -265,6 +274,9 @@
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "icon":{
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all.png"
                                 }
                             }
                         }
