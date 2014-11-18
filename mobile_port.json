@@ -117,7 +117,7 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"http://file.market.xiaomi.com/download/Duokan/d1431eff-d20b-48da-a62a-4a51e0c699b0/dk204_33554432_601_20140825164044_1.jpg"
                                 },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -150,7 +150,139 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://img0.imgtn.bdimg.com/it/u=2775852015,2186553463&fm=23&gp=0.jpg"
+                                    "url":"http://www.fjsen.com/images/attachement/jpg/site1/2011-10-19/5627854952842282050.jpg"
+                                },
+                                "back":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"爸爸快跑",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://img31.mtime.cn/CMS/Gallery/2013/07/19/084744.11778217_900.jpg"
+                                },
+                                "back":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"爸爸快跑",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://www.huanbohainews.com.cn/pic/0/10/79/40/10794003_913201.jpg"
+                                },
+                                "back":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"爸爸快跑",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://img31.mtime.cn/CMS/Gallery/2013/05/01/204714.72558315_900.jpg"
+                                },
+                                "back":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"爸爸快跑",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://img.funshion.com/pictures/305/15/30515.jpg"
                                 },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -1755,7 +1887,7 @@
         }
     ],
     "times":{
-        "updated":11,
+        "updated":12,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
