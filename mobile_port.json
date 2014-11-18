@@ -1237,6 +1237,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                        "poster":{
+                            "url":"http://file.market.xiaomi.com/download/Duokan/d1431eff-d20b-48da-a62a-4a51e0c699b0/dk204_33554432_601_20140825164044_1.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1247,28 +1250,7 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
-                    }
-                },
-                {
-                    "title":"电视剧",
-                    "sub_title":"共30239部",
-                    "desc":"形似走揉，固件起源，离婚律师",
-                    "id":"701",
-                    "type":"album",
-                    "ns":"video",
-                    "images":{
-                    },
-                    "media":{
-                    },
-                    "times":{
-                    },
-                    "action":{
-                        "target":"album"
-                    },
-                    "ui_type":{
-                        "name":"list_category_land",
-                        "id":402
+                        "id":421
                     }
                 },
                 {
@@ -1279,6 +1261,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                         "poster":{
+                            "url":"http://www.fjsen.com/images/attachement/jpg/site1/2011-10-19/5627854952842282050.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1289,7 +1274,7 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
+                        "id":421
                     }
                 },
                 {
@@ -1300,6 +1285,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                         "poster":{
+                            "url":"http://img31.mtime.cn/CMS/Gallery/2013/07/19/084744.11778217_900.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1310,7 +1298,7 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
+                        "id":421
                     }
                 },
                 {
@@ -1321,6 +1309,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                         "poster":{
+                            "url":"http://www.huanbohainews.com.cn/pic/0/10/79/40/10794003_913201.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1331,7 +1322,7 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
+                        "id":421
                     }
                 },
                 {
@@ -1342,6 +1333,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                         "poster":{
+                            "url":"http://img31.mtime.cn/CMS/Gallery/2013/05/01/204714.72558315_900.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1352,7 +1346,7 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
+                        "id":421
                     }
                 },
                 {
@@ -1363,6 +1357,9 @@
                     "type":"album",
                     "ns":"video",
                     "images":{
+                         "poster":{
+                            "url":"http://img.funshion.com/pictures/305/15/30515.jpg"
+                        }
                     },
                     "media":{
                     },
@@ -1373,7 +1370,103 @@
                     },
                     "ui_type":{
                         "name":"list_category_land",
-                        "id":402
+                        "id":421
+                    }
+                },
+                {
+                    "title":"新闻咨询",
+                    "sub_title":"共30239部",
+                    "desc":"新闻联播，东方时空，时政要闻",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                         "poster":{
+                            "url":"http://www.haiyinds.com/UploadFile/20143261341368730.jpg"
+                        }
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":421
+                    }
+                },
+                {
+                    "title":"娱乐",
+                    "sub_title":"共30239部",
+                    "desc":"新闻联播，东方时空，时政要闻",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                         "poster":{
+                            "url":"http://www.51juping.com/img/televisionImg/2010_7_5_5741_haibao.jpg"
+                        }
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":421
+                    }
+                },
+                {
+                    "title":"体育",
+                    "sub_title":"共30239部",
+                    "desc":"新闻联播，东方时空，时政要闻",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                         "poster":{
+                            "url":"http://img4.imgtn.bdimg.com/it/u=1639635982,3137911336&fm=23&gp=0.jpg"
+                        }
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":421
+                    }
+                },
+                {
+                    "title":"搞笑",
+                    "sub_title":"共30239部",
+                    "desc":"新闻联播，东方时空，时政要闻",
+                    "id":"701",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                         "poster":{
+                            "url":"http://img0.imgtn.bdimg.com/it/u=2546462962,518483222&fm=23&gp=0.jpg"
+                        }
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "action":{
+                        "target":"album"
+                    },
+                    "ui_type":{
+                        "name":"list_category_land",
+                        "id":421
                     }
                 }
             ]
@@ -1602,7 +1695,7 @@
         }
     ],
     "times":{
-        "updated":7,
+        "updated":8,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
