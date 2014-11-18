@@ -46,7 +46,7 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
         mPosterView.setRadius(getResources().getDimensionPixelSize(R.dimen.video_common_radius_9));
         mIconView = (ImageView) mContentView.findViewById(R.id.category_media_desc_icon);
         Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
-        Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
+        Picasso.with(getContext()).load(item.images.get("left_top_corner").url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
 
         mNameView = (TextView) mContentView.findViewById(R.id.category_media_desc_name);
         mNameView.setText(item.title);

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.*;
 import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.video.ui.R;
@@ -37,7 +39,17 @@ public class CornerUpImageView extends ImageView {
 	private void initRadius() {
 		mRadius = mContext.getResources().getDimensionPixelSize(R.dimen.video_common_radius_18);
 	}
-	
+
+    @Override
+    public void setImageDrawable(Drawable drawable){
+        if(drawable instanceof  BitmapDrawable) {
+            Bitmap bmp = ((BitmapDrawable) drawable).getBitmap();
+            super.setImageDrawable(new BitmapDrawable(getResources(), toRoundCorner(bmp)));
+        }else {
+            super.setImageDrawable(drawable);
+        }
+    }
+
 	@Override
 	public void setImageBitmap(Bitmap bm) {
 		super.setImageBitmap(toRoundCorner(bm));

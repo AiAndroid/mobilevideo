@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -45,16 +46,32 @@ public class AdsView extends RelativeLayout implements DimensHelper {
     }
 
     private  ViewPager viewFlipper;
+    private  TextView  page_indicator;
     private  ArrayList<DisplayItem> content;
     private  ArrayList<View> viewList = new ArrayList<View>();
     private void initUI(ArrayList<DisplayItem> items){
         content = items;
         View root = View.inflate(getContext(), R.layout.ads_viewflipper,  this);
         viewFlipper = (ViewPager) root.findViewById(R.id.image_flipper);
+        page_indicator = (TextView) root.findViewById(R.id.page_indicator);
 
         for(DisplayItem item: items) {
             viewList.add(getImageView(item));
         }
+
+        page_indicator.setText(String.format("%1$s/%2$s", 1 ,content.size()));
+        viewFlipper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i2) {}
+
+            @Override
+            public void onPageSelected(int i) {
+                page_indicator.setText(String.format("%1$s/%2$s", i+1 ,content.size()));
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {}
+        });
 
         PagerAdapter pagerAdapter = new PagerAdapter() {
 
@@ -102,7 +119,13 @@ public class AdsView extends RelativeLayout implements DimensHelper {
         ImageView imageView = new ImageView(getContext());
         imageView.setBackgroundResource(R.drawable.list_selector_bg);
         imageView.setClickable(true);
-        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.icon_h_default).error(R.drawable.icon_h_default).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
         return imageView;
     }
 

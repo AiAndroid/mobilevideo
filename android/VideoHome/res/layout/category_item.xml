@@ -17,6 +17,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>
         <com.video.ui.view.subview.CornerUpImageView
@@ -25,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/app_name"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/list_selector_bg"/>
     </FrameLayout>
     <FrameLayout
             android:layout_width="match_parent"

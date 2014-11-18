@@ -72,7 +72,7 @@
 
     <!-- category -->
     <dimen name="category_media_view_width">351.3dp</dimen>
-    <dimen name="category_media_view_height">200dp</dimen>
+    <dimen name="category_media_view_height">190dp</dimen>
     <dimen name="category_media_poster_height">120dp</dimen>
     <dimen name="category_media_desc_icon_left_margin">12.3dp</dimen>
     <dimen name="category_media_desc_count_left_margin">6dp</dimen>
