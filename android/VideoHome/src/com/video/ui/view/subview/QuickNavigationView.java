@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
-import com.video.ui.view.MetroLayout;
-import com.video.ui.view.RecommendCardView;
+import com.video.ui.view.LinearFrame;
 
 import java.util.ArrayList;
 
@@ -19,17 +19,25 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         super(context, attrs, defStyle);
     }
 
+    private int []draws = {
+        R.drawable.quick_entry_tv_series_bg,
+        R.drawable.quick_entry_film_bg,
+        R.drawable.quick_entry_variety_bg,
+        R.drawable.quick_entry_all_bg
+    };
     public QuickNavigationView(Context context, ArrayList<DisplayItem> items) {
         super(context);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
-        MetroLayout mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
+        LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
 
-        mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
-        mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
-        mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
-        mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
-        mMetroLayout.addItemView(new RecommendCardView(getContext()).bindData(items.get(0)), MetroLayout.Normal, 0);
+        for (int i=0;i<items.size();i++) {
+            DisplayItem item = items.get(i);
+            TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_entry_textview, null);
+            tv.setText(item.title);
+            tv.setBackgroundResource(draws[i%4]);
+            mMetroLayout.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_intervalH));
+        }
     }
 
     private static Dimens mDimens;
@@ -38,7 +46,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         if(mDimens == null){
             mDimens = new Dimens();
             mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height);
         }
         return mDimens;
     }

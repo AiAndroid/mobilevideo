@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/quick_enter"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:layout_width="@dimen/quick_entry_channel_width"
+              android:layout_height="@dimen/quick_entry_channel_height"
+              android:paddingTop="@dimen/quick_entry_channel_content_paddingT"
+              android:paddingBottom="@dimen/quick_entry_channel_content_paddingB"
+              android:drawablePadding="@dimen/quick_entry_channel_drawable_padding"
+              android:textColor="@android:color/white"
+              android:textSize="@dimen/font_size_36"
+              android:clickable="true">
+
+</TextView>
