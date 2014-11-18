@@ -45,8 +45,11 @@ public class QuickLocalNavigateView extends RelativeLayout implements DimensHelp
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                     if(bitmap != null){
-                        tv.setCompoundDrawables(new BitmapDrawable(getResources(), bitmap), null, null, null);
-                        tv.requestLayout();
+                        BitmapDrawable image = new BitmapDrawable(getResources(), bitmap);
+                        int h = image.getIntrinsicHeight();
+                        int w = image.getIntrinsicWidth();
+                        image.setBounds( 0, 0, w, h );
+                        tv.setCompoundDrawables(image, null, null, null);
                     }
                 }
 

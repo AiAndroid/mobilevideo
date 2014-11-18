@@ -46,8 +46,11 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                     if(bitmap != null){
-                        tv.setCompoundDrawables(null, new BitmapDrawable(getResources(), bitmap), null, null);
-                        tv.requestLayout();
+                        BitmapDrawable image = new BitmapDrawable(getResources(), bitmap);
+                        int h = image.getIntrinsicHeight();
+                        int w = image.getIntrinsicWidth();
+                        image.setBounds( 0, 0, w, h );
+                        tv.setCompoundDrawables(null, image, null, null);
                     }
                 }
 
@@ -55,8 +58,8 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
                 @Override public void onPrepareLoad(Drawable drawable) {}
             };
 
-            Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
             mMetroLayout.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_intervalH));
+            Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
         }
     }
 
