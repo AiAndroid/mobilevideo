@@ -26,12 +26,12 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.Image.Ani;
 import com.video.ui.R;
-import com.video.ui.view.subview.SubViewBase;
+import com.video.ui.view.subview.DimensHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecommendCardView extends RelativeLayout implements SubViewBase {
+public class RecommendCardView extends RelativeLayout implements DimensHelper {
 
 	private static String TAG = "RecommendCardView";
 	protected CenterIconImage mBackView;

@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.video.ui.R;
-import com.video.ui.view.subview.SubViewBase;
+import com.video.ui.view.subview.DimensHelper;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -138,9 +138,9 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.linearlayout_top:
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), height);
-                if(child instanceof SubViewBase){
-                    height = ((SubViewBase) child).getDimens().height;
-                    flp = new LayoutParams(((SubViewBase) child).getDimens().width, height);
+                if(child instanceof DimensHelper){
+                    height = ((DimensHelper) child).getDimens().height;
+                    flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
                 flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
                 flp.topMargin = getPaddingTop()+ rowOffset[0] + padding*y;
@@ -153,8 +153,8 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 break;
             case HorizontalMatchWith:
                 flp = new LayoutParams((int)((ITEM_H_WIDTH + padding + ITEM_NORMAL_SIZE)*mDensityScale), (int)(ITEM_V_HEIGHT*mDensityScale));
-                if(child instanceof SubViewBase){
-                    flp = new LayoutParams(((SubViewBase) child).getDimens().width, ((SubViewBase) child).getDimens().height);
+                if(child instanceof DimensHelper){
+                    flp = new LayoutParams(((DimensHelper) child).getDimens().width, ((DimensHelper) child).getDimens().height);
                 }
                 flp.leftMargin = getPaddingLeft()+x*ITEM_NORMAL_SIZE+padding*x;
                 flp.topMargin = getPaddingTop()+ rowOffset[0] +padding*y;

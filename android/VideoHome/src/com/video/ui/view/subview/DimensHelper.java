@@ -3,7 +3,7 @@ package com.video.ui.view.subview;
 /**
  * Created by liuhuadong on 11/18/14.
  */
-public interface SubViewBase {
+public interface DimensHelper {
     public Dimens getDimens();
 
     public static class Dimens{

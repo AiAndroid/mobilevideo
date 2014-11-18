@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends RelativeLayout implements SubViewBase{
+public class AdsView extends RelativeLayout implements DimensHelper {
     public AdsView(Context context) {
         this(context, null, 0);
     }

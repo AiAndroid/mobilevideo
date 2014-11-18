@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class QuickNavigationView extends RelativeLayout implements SubViewBase {
+public class QuickNavigationView extends RelativeLayout implements DimensHelper {
     public QuickNavigationView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
