@@ -35,19 +35,19 @@ public class DisplayItem implements Serializable{
         public Version version;
 
 
-        public static class CP{
+        public static class CP implements Serializable{
             private static final long serialVersionUID = 1L;
             String name;
             String versrion_code;
         }
 
-        public static class Fee{
+        public static class Fee implements Serializable{
             private static final long serialVersionUID = 1L;
             String name;
             String pay_load;
         }
 
-        public static class Version{
+        public static class Version implements Serializable{
             private static final long serialVersionUID = 1L;
             String latest_version;
             String min_version;
