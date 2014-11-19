@@ -65,7 +65,7 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
                                 }
                             }
                         },
@@ -91,12 +91,12 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://img0.imgtn.bdimg.com/it/u=2775852015,2186553463&fm=23&gp=0.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p016NPEAxsLY/p8jpzgpjnHcGga.jpg"
                                 }
                             }
                         },
                         {
-                            "title":"周星驰专辑",
+                            "title":"战神",
                             "sub_title":"功夫",
                             "desc":"看看呗",
                             "id":"100",
@@ -117,7 +117,40 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://file.market.xiaomi.com/download/Duokan/d1431eff-d20b-48da-a62a-4a51e0c699b0/dk204_33554432_601_20140825164044_1.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
+                                },
+                                "back":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                },
+                                "sprite":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"舞出我人生2",
+                            "sub_title":"第三季提前看",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"aiqiyi",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"html5 address"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01CJu6KN4uc/8RLrH1tSVRxhMv.jpg"
                                 },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -150,7 +183,7 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://www.fjsen.com/images/attachement/jpg/site1/2011-10-19/5627854952842282050.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
                                 },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -183,40 +216,7 @@
                             },
                             "images":{
                                 "poster":{
-                                    "url":"http://img31.mtime.cn/CMS/Gallery/2013/07/19/084744.11778217_900.jpg"
-                                },
-                                "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "sprite":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                }
-                            }
-                        },
-                        {
-                            "title":"爸爸快跑",
-                            "sub_title":"第三季提前看",
-                            "desc":"看看呗",
-                            "id":"100",
-                            "type":"item",
-                            "ns":"video",
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "media":{
-                                "cp":{
-                                    "vendor":"aiqiyi",
-                                    "player_ver":"2"
-                                }
-                            },
-                            "action":{
-                                "target":"direct_show",
-                                "params":"html5 address"
-                            },
-                            "images":{
-                                "poster":{
-                                    "url":"http://www.huanbohainews.com.cn/pic/0/10/79/40/10794003_913201.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01mLZWJOkNy/ZRwwP9LMYvLSGT.jpg"
                                 },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -4511,7 +4511,7 @@
         }
     ],
     "times":{
-        "updated":20,
+        "updated":21,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
