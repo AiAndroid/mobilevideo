@@ -24,7 +24,6 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
-    private Context mContext;
     private View mContentView;
 
     //UI
@@ -37,7 +36,7 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
     private void initUI(DisplayItem item){
         this.item = item;
 
-        mContentView = View.inflate(mContext, R.layout.feature_item, null);
+        mContentView = View.inflate(getContext(), R.layout.feature_item, null);
         FrameLayout.LayoutParams contentViewParams = new FrameLayout.LayoutParams(getDimens().width, getDimens().height);
         addView(mContentView, contentViewParams);
         mPosterView = (CornerUpImageView) mContentView.findViewById(R.id.feature_media_poster);
