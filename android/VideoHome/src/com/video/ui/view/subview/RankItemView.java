@@ -33,7 +33,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         title.setText(container);
 
         //add height
-        height += dpToPx(48);
+        height +=  Math.ceil(title.getPaint().getFontMetrics().descent - title.getPaint().getFontMetrics().top) +2;
         //add height
         height += dpToPx(8);
         int padding = (getResources().getDimensionPixelSize(R.dimen.rank_banner_width)-3*getResources().getDimensionPixelSize(R.dimen.media_port_width))/4;
@@ -82,7 +82,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         height += dpToPx(48);
         ((Button)v.findViewById(R.id.enter_button)).setText(container);
 
-        height += dpToPx(8);
+        height += dpToPx(4);
         getDimens().height = height;
     }
 
