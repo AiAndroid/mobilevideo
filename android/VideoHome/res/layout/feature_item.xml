@@ -47,6 +47,7 @@
             android:layout_alignParentBottom="true"
             android:textSize="@dimen/font_size_36"
             android:drawableLeft="@drawable/favorite"
+            android:drawablePadding="3dp"
             android:textColor="@android:color/darker_gray"
             android:textIsSelectable="false"/>
     <View
