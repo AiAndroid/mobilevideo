@@ -46,7 +46,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:textSize="@dimen/font_size_36"
-            android:textColor="@color/p_80_black"
+            android:drawableLeft="@drawable/favorite"
+            android:textColor="@android:color/darker_gray"
             android:textIsSelectable="false"/>
     <View
             android:id="@+id/feature_media_click"
