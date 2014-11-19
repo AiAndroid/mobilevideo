@@ -320,18 +320,18 @@
       <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.88" vertical-offset="2103" max-vertical-offset="3175">
-              <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+            <state vertical-scroll-proportion="-10.88" vertical-offset="2153" max-vertical-offset="3175">
+              <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RankItemView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RankItemView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="2075">
-              <caret line="38" column="63" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.2753623" vertical-offset="1022" max-vertical-offset="2075">
+              <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#587#588#0" expanded="true" />
@@ -339,30 +339,30 @@
                 <element signature="e#959#1022#0" expanded="true" />
                 <element signature="e#1025#1087#0" expanded="true" />
                 <element signature="e#1589#1651#0" expanded="true" />
-                <element signature="e#1688#1751#0" expanded="true" />
-                <element signature="e#2196#2259#0" expanded="true" />
-                <element signature="e#2281#2350#0" expanded="true" />
-                <element signature="e#2352#2415#0" expanded="true" />
-                <element signature="e#2591#2654#0" expanded="true" />
-                <element signature="e#2680#2750#0" expanded="true" />
-                <element signature="e#2752#2815#0" expanded="true" />
-                <element signature="e#3098#3161#0" expanded="true" />
+                <element signature="e#1688#1756#0" expanded="true" />
+                <element signature="e#2232#2295#0" expanded="true" />
+                <element signature="e#2317#2386#0" expanded="true" />
+                <element signature="e#2388#2451#0" expanded="true" />
+                <element signature="e#2627#2690#0" expanded="true" />
+                <element signature="e#2716#2786#0" expanded="true" />
+                <element signature="e#2788#2851#0" expanded="true" />
+                <element signature="e#3134#3197#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="media_port_item.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="media_port_item.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.0" vertical-offset="0" max-vertical-offset="575">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.1666665" vertical-offset="0" max-vertical-offset="575">
               <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="e#403#429#0" expanded="true" />
               </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
         </entry>
@@ -371,7 +371,7 @@
         <entry file="file://$PROJECT_DIR$/res/layout/media_item_textview.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.8518518" vertical-offset="0" max-vertical-offset="475">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+              <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -383,8 +383,8 @@
       <file leaf-file-name="rank_item.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/rank_item.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.9444447" vertical-offset="0" max-vertical-offset="1025">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+            <state vertical-scroll-proportion="-14.351851" vertical-offset="0" max-vertical-offset="1025">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#150#176#0" expanded="true" />
                 <element signature="e#512#533#0" expanded="true" />
@@ -468,12 +468,12 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroLayout.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/media_item_textview.xml" />
-        <option value="$PROJECT_DIR$/res/layout/rank_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/rank_divider.xml" />
         <option value="$PROJECT_DIR$/res/layout/media_port_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/rank_item.xml" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java" />
       </list>
     </option>
   </component>
@@ -963,7 +963,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24686192" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06276151" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06276151" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1536,32 +1536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/media_item_textview.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8518518" vertical-offset="0" max-vertical-offset="475">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/rank_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.9444447" vertical-offset="0" max-vertical-offset="1025">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding>
-            <element signature="e#150#176#0" expanded="true" />
-            <element signature="e#512#533#0" expanded="true" />
-            <element signature="e#1434#1467#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/rank_divider.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.158831" vertical-offset="0" max-vertical-offset="787">
@@ -1573,10 +1547,57 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.1666665" vertical-offset="0" max-vertical-offset="575">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#403#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/rank_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.351851" vertical-offset="0" max-vertical-offset="1025">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#150#176#0" expanded="true" />
+            <element signature="e#512#533#0" expanded="true" />
+            <element signature="e#1434#1467#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/media_item_textview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8518518" vertical-offset="0" max-vertical-offset="475">
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.88" vertical-offset="2153" max-vertical-offset="3175">
+          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="2075">
-          <caret line="38" column="63" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.2753623" vertical-offset="1022" max-vertical-offset="2075">
+          <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#587#588#0" expanded="true" />
@@ -1584,37 +1605,16 @@
             <element signature="e#959#1022#0" expanded="true" />
             <element signature="e#1025#1087#0" expanded="true" />
             <element signature="e#1589#1651#0" expanded="true" />
-            <element signature="e#1688#1751#0" expanded="true" />
-            <element signature="e#2196#2259#0" expanded="true" />
-            <element signature="e#2281#2350#0" expanded="true" />
-            <element signature="e#2352#2415#0" expanded="true" />
-            <element signature="e#2591#2654#0" expanded="true" />
-            <element signature="e#2680#2750#0" expanded="true" />
-            <element signature="e#2752#2815#0" expanded="true" />
-            <element signature="e#3098#3161#0" expanded="true" />
+            <element signature="e#1688#1756#0" expanded="true" />
+            <element signature="e#2232#2295#0" expanded="true" />
+            <element signature="e#2317#2386#0" expanded="true" />
+            <element signature="e#2388#2451#0" expanded="true" />
+            <element signature="e#2627#2690#0" expanded="true" />
+            <element signature="e#2716#2786#0" expanded="true" />
+            <element signature="e#2788#2851#0" expanded="true" />
+            <element signature="e#3134#3197#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.88" vertical-offset="2103" max-vertical-offset="3175">
-          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0" vertical-offset="0" max-vertical-offset="575">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="e#403#429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
   </component>
