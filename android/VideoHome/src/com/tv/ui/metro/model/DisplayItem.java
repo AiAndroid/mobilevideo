@@ -3,7 +3,7 @@ package com.tv.ui.metro.model;
 import java.io.Serializable;
 
 public class DisplayItem implements Serializable{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	public static class UI implements Serializable {
 		private static final long serialVersionUID = 1L;
@@ -19,6 +19,45 @@ public class DisplayItem implements Serializable{
 			return " type:" + name + "  id:" + id;
 		}
 	}
+
+    public static class Media implements Serializable {
+        private static final long serialVersionUID = 1L;
+        public long  likes;
+        public long  unlikes;
+        public long  comments;
+        public long  play_times;
+        public float duration;
+        public float  rate;
+        public String episode; //update to 24
+        public String label;   //corner;
+        public CP      cp;
+        public Fee     fee;
+        public Version version;
+
+
+        public static class CP{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String versrion_code;
+        }
+
+        public static class Fee{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String pay_load;
+        }
+
+        public static class Version{
+            private static final long serialVersionUID = 1L;
+            String latest_version;
+            String min_version;
+        }
+
+        public Media clone(){
+            //TODO
+            return new Media();
+        }
+    }
 
 	public static class Times implements Serializable {
 		private static final long serialVersionUID = 1L;
@@ -57,6 +96,7 @@ public class DisplayItem implements Serializable{
 	public ImageGroup images;
 	public UI         ui_type;
 	public Times      times;
+    public Media      media;
 
     public DisplayItem clone(){
         DisplayItem item = new DisplayItem();
@@ -72,6 +112,7 @@ public class DisplayItem implements Serializable{
         if(images != null)item.images = this.images.clone();
         if(ui_type != null)item.ui_type = this.ui_type.clone();
         if(times!= null)item.times = times.clone();
+        if(media!= null)item.media = media.clone();
 
         return  item;
     }

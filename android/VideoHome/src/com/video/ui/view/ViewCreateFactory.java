@@ -32,8 +32,8 @@ public class ViewCreateFactory {
     public static View CreateSingleView(Context context, DisplayItem item){
         View view = null;
         switch (item.ui_type.id){
-            case LayoutConstant.list_category_land:
-                view = new SelectItemView(context, item);
+            case LayoutConstant.grid_selection:
+                view = new FeatureItemView(context, item);
                 break;
         }
         return null;

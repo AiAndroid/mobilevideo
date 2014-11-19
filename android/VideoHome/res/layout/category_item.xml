@@ -20,6 +20,7 @@
                     android:layout_gravity="center"
                     android:clickable="true"
                     android:focusable="true"
+                    android:src="@drawable/default_poster_pic"
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>
         <com.video.ui.view.subview.CornerUpImageView
