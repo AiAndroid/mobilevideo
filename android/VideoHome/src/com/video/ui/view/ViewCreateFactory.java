@@ -4,10 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
-import com.video.ui.view.subview.AdsView;
-import com.video.ui.view.subview.CategoryItemView;
-import com.video.ui.view.subview.QuickLocalNavigateView;
-import com.video.ui.view.subview.QuickNavigationView;
+import com.video.ui.view.subview.*;
 
 /**
  * Created by liuhuadong on 11/17/14.
@@ -33,8 +30,10 @@ public class ViewCreateFactory {
     }
 
     public static View CreateSingleView(Context context, DisplayItem item){
+        View view = null;
         switch (item.ui_type.id){
             case LayoutConstant.list_category_land:
+                view = new SelectItemView(context, item);
                 break;
         }
         return null;

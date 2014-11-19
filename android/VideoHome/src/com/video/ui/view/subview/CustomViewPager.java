@@ -13,13 +13,11 @@ import android.view.ViewParent;
 public class CustomViewPager  extends ViewPager implements View.OnTouchListener {
     public CustomViewPager(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-
         setOnTouchListener(this);
     }
 
     public CustomViewPager(final Context context) {
-        super(context);
-        setOnTouchListener(this);
+        this(context, null);
     }
 
     public boolean onTouch(View v, MotionEvent event) {

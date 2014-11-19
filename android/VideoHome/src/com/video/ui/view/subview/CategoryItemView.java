@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
@@ -18,10 +17,9 @@ import com.video.ui.R;
  * Created by liuhuadong on 11/18/14.
  * main copy from miuivideo
  */
-public class CategoryItemView extends RelativeLayout implements DimensHelper {
+public class CategoryItemView extends BaseCardView implements DimensHelper {
     public CategoryItemView(Context context, DisplayItem item) {
-        super(context);
-
+        this(context, null, 0);
         initUI(item);
     }
     public CategoryItemView(Context context, AttributeSet attrs, int defStyle) {
@@ -36,6 +34,7 @@ public class CategoryItemView extends RelativeLayout implements DimensHelper {
     private TextView  mMediaView;
 
     private void initUI(DisplayItem item){
+        this.item = item;
         int width = getContext().getResources().getDimensionPixelSize(R.dimen.category_media_view_width);
 
         View mContentView = View.inflate(getContext(), R.layout.category_item, null);

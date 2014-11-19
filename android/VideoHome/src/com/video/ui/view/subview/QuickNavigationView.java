@@ -31,7 +31,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         R.drawable.quick_entry_all_bg
     };
     public QuickNavigationView(Context context, ArrayList<DisplayItem> items) {
-        super(context);
+        this(context, null, 0);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);

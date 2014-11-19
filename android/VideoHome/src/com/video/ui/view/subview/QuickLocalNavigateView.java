@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/18/14.
  */
-public class QuickLocalNavigateView extends RelativeLayout implements DimensHelper {
+public class QuickLocalNavigateView extends BaseCardView implements DimensHelper {
     public QuickLocalNavigateView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -30,7 +29,7 @@ public class QuickLocalNavigateView extends RelativeLayout implements DimensHelp
             R.drawable.com_btn_right_bg
     };
     public QuickLocalNavigateView(Context context, ArrayList<DisplayItem> items) {
-        super(context);
+        this(context, null, 0);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);

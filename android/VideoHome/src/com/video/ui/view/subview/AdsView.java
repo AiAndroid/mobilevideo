@@ -24,14 +24,14 @@ public class AdsView extends RelativeLayout implements DimensHelper {
         this(context, null, 0);
     }
     public AdsView(Context context, AttributeSet attrs) {
-        super(context, attrs, 0);
+        this(context, attrs, 0);
     }
     public AdsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
     public AdsView(Context context, ArrayList<DisplayItem> items) {
-        super(context, null, 0);
+        this(context, null, 0);
 
         initUI(items);
     }
