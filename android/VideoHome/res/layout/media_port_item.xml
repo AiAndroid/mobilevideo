@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="@dimen/media_port_width"
               android:layout_height="@dimen/rank_media_item_height">
-    <RelativeLayout android:id="@+id/poster_container" android:layout_width="match_parent" android:layout_height="@dimen/rank_media_item_height">
+    <RelativeLayout android:id="@+id/poster_container" android:layout_width="match_parent" android:layout_height="@dimen/media_port_height">
         <ImageView android:id="@+id/poster"      android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true"/>
         <TextView  android:id="@+id/click_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
     </RelativeLayout>
