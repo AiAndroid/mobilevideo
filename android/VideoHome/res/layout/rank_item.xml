@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/rank_banner_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/com_bg_white_corner"
+        android:orientation="vertical">
+        <TextView android:id="@+id/rank_title"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="@dimen/font_size_48"
+                  android:paddingTop="8dp"
+                  android:paddingLeft="4dp"
+                  android:textColor="@color/orange"
+                  android:text="Movie"/>
+
+        <com.video.ui.view.LinearFrame
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+        </com.video.ui.view.LinearFrame>
+
+        <com.video.ui.view.LinearFrame
+            android:id="@+id/list"
+            android:paddingTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+        </com.video.ui.view.LinearFrame>
+
+        <View android:layout_width="match_parent" android:paddingTop="4dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:layout_height="@dimen/rank_port_divider_height" android:background="@android:color/darker_gray"/>
+
+        <Button android:id="@+id/enter_button" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -25,6 +25,9 @@ public class ViewCreateFactory {
             case LayoutConstant.list_category_land:
                 view = new CategoryItemView(context, item);
                 break;
+            case LayoutConstant.list_rich_header:
+                view = new RankItemView(context, item.items, item.title);
+                break;
         }
         return view;
     }

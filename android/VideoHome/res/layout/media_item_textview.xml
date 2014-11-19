@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/quick_entry_user"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/quick_entry_user_height"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/quick_entry_user_content_paddingH"
+            android:paddingRight="@dimen/quick_entry_user_content_paddingH"
+            android:drawablePadding="@dimen/quick_entry_user_drawable_padding"
+            android:textColor="@color/p_80_black"
+            android:textSize="@dimen/font_size_42"
+            android:clickable="true"/>

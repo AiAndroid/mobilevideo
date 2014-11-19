@@ -92,6 +92,14 @@
     <dimen name="feature_media_favorite_bottom_margin">10dp</dimen>
     <!-- FeatureMediaView end -->
 
+    <dimen name="rank_banner_width">346.7dp</dimen>
+    <dimen name="rank_media_item_height">200dp</dimen>
+    <dimen name="media_port_width">110dp</dimen>
+    <dimen name="media_port_height">150dp</dimen>
+    <dimen name="rank_port_padding">4dp</dimen>
+    <dimen name="rank_port_divider_height">1dp</dimen>
+
+
 
     <dimen name="video_common_radius_18">6dp</dimen>
     <dimen name="video_common_radius_9">3dp</dimen>

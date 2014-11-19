@@ -71,7 +71,8 @@ public class MetroFragment extends Fragment {
                 if(item.ui_type.id == LayoutConstant.imageswitcher    ||
                    item.ui_type.id == LayoutConstant.linearlayout_top ||
                    item.ui_type.id == LayoutConstant.linearlayout_left ||
-                   item.ui_type.id == LayoutConstant.list_category_land)
+                   item.ui_type.id == LayoutConstant.list_category_land ||
+                   item.ui_type.id == LayoutConstant.list_rich_header)
                     addViewPort(blockView, item.ui_type.id, 0, step++);
                 else
                     addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
