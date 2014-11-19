@@ -17,8 +17,9 @@
 
         <com.video.ui.view.LinearFrame
             android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/rank_media_item_height"
+            android:paddingTop="8dp"
             android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>
 
@@ -26,11 +27,9 @@
             android:id="@+id/list"
             android:paddingTop="4dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>
 
-        <View android:layout_width="match_parent" android:paddingTop="4dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:layout_height="@dimen/rank_port_divider_height" android:background="@android:color/darker_gray"/>
-
-        <Button android:id="@+id/enter_button" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/enter_button" android:layout_width="match_parent" android:layout_height="48dp"/>
 </LinearLayout>

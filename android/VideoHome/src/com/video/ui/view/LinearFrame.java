@@ -58,7 +58,7 @@ public class LinearFrame extends FrameLayout {
 		View result = child;
 
         LayoutParams flp = new LayoutParams(width, height);
-        flp.leftMargin = rowOffset[0];
+        flp.leftMargin = rowOffset[0] + padding;
         flp.topMargin   = getPaddingTop();
         flp.rightMargin = getPaddingRight();
         addView(child,flp);

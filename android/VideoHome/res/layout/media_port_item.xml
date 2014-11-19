@@ -5,13 +5,14 @@
               android:layout_width="@dimen/media_port_width"
               android:layout_height="@dimen/rank_media_item_height">
     <RelativeLayout android:id="@+id/poster_container" android:layout_width="match_parent" android:layout_height="@dimen/media_port_height">
-        <ImageView android:id="@+id/poster"      android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true"/>
-        <TextView  android:id="@+id/click_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
+        <ImageView android:id="@+id/poster"  android:scaleType="fitXY" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true"/>
+        <TextView  android:id="@+id/click_count" android:singleLine="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
     </RelativeLayout>
     <TextView  android:id="@+id/name"
+               android:paddingTop="4dp"
                android:layout_below="@id/poster_container"
-               android:textSize="@dimen/font_size_48"
                android:layout_width="wrap_content"
+               android:singleLine="true"
                android:layout_height="wrap_content"
                android:layout_centerHorizontal="true"/>
 
