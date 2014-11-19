@@ -36,6 +36,6 @@ public class ViewCreateFactory {
                 view = new FeatureItemView(context, item);
                 break;
         }
-        return null;
+        return view;
     }
 }

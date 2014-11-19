@@ -2,7 +2,7 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="@dimen/feature_media_view_width"
-        android:layout_height="@dimen/feature_media_view_width"
+        android:layout_height="@dimen/feature_media_view_height"
         android:background="@drawable/com_bg_white_corner" >
     <FrameLayout
             android:layout_width="match_parent"

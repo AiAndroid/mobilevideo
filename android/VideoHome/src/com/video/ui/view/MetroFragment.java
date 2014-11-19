@@ -59,6 +59,7 @@ public class MetroFragment extends Fragment {
                 View view = inflateDisplayItem(item);
                 if(item.ui_type.id == LayoutConstant.grid_selection){
                     addViewPort(view, item.ui_type.id, step%2, step/2);
+                    step++;
                 }else {
                     addViewPort(view, MetroLayout.HorizontalMatchWith, 0, step++);
                 }

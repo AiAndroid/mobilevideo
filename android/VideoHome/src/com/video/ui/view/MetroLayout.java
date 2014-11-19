@@ -28,6 +28,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 	int[] rowOffset = new int[2];
 	static  int DIVIDE_SIZE = 6;
     static  int paddingLeft = 0;
+    static  int twoItemspaddingLeft = 0;
 	boolean mMirror = true;
 	AnimatorSet mScaleAnimator;
 	List<WeakReference<View>> mViewList = new ArrayList<WeakReference<View>>();
@@ -80,6 +81,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             mirror_ref_height = getResources().getDimensionPixelSize(R.dimen.mirror_ref_height);
 
             paddingLeft = (getResources().getDisplayMetrics().widthPixels - getResources().getDimensionPixelSize(R.dimen.media_banner_width))/2;
+            twoItemspaddingLeft = (getResources().getDisplayMetrics().widthPixels - 2*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width) - DIVIDE_SIZE)/2;
         }
 
 		mDensityScale = 1;//mContext.getResources().getDisplayMetrics().densityDpi/320.0f;
@@ -122,15 +124,15 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         View result = child;
         switch(celltype){
             case LayoutConstant.grid_selection: {
-                int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
-                int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
+                int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
+                int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
                 flp = new LayoutParams(width, height);
                 if (child instanceof DimensHelper) {
                     height = ((DimensHelper) child).getDimens().height;
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
-                flp.leftMargin = getPaddingLeft() + (width + padding)*x + (paddingLeft-padding/2);
-                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * y;
+                flp.leftMargin = getPaddingLeft() + (width + padding)*x + twoItemspaddingLeft;
+                flp.topMargin = getPaddingTop() + (padding + height )* y;
                 flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
                 addView(child, flp);
