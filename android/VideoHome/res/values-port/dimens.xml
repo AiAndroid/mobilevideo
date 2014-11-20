@@ -5,7 +5,7 @@
     <dimen name="tab_content_container_margin_top">30dp</dimen>
     <dimen name="metro_offside">10dp</dimen>
 
-    <dimen name="ITEM_DIVIDE_SIZE">8dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">10dp</dimen>
 
     <dimen name="ITEM_V_WIDTH">116dp</dimen>
     <dimen name="ITEM_NORMAL_SIZE">116dp</dimen>
