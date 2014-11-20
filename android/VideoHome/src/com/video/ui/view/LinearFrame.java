@@ -52,19 +52,23 @@ public class LinearFrame extends FrameLayout {
         mViewMirrorMap.clear();
     }
 
-    public View addItemView(View child, int width, int height, int padding){
-		child.setFocusable(true);
-		mViewList.add(new WeakReference<View>(child));
-		View result = child;
+    public View addItemView(View child, int width, int height, int leftPadding, int midPadding){
+        child.setFocusable(true);
+        mViewList.add(new WeakReference<View>(child));
+        View result = child;
 
         LayoutParams flp = new LayoutParams(width, height);
-        flp.leftMargin = rowOffset[0] + padding;
+        flp.leftMargin = rowOffset[0] + leftPadding;
         flp.topMargin   = getPaddingTop();
         flp.rightMargin = getPaddingRight();
         addView(child,flp);
 
-        rowOffset[0]+=width + padding;
-		return result;
+        rowOffset[0]+=width + midPadding;
+        return result;
+    }
+
+    public View addItemView(View child, int width, int height, int padding){
+        return addItemView(child, width, height, padding, padding);
 	}
 
     public View addItemViewPort(View child, int width, int height, int padding){

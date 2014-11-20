@@ -132,7 +132,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
                 flp.leftMargin = getPaddingLeft() + (width + padding)*x + twoItemspaddingLeft;
-                flp.topMargin = getPaddingTop() + (padding + height )* y;
+                flp.topMargin = getPaddingTop() + height*y + padding* (y+1);
                 flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
                 addView(child, flp);
@@ -154,7 +154,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 }
 
                 flp.leftMargin = getPaddingLeft() + paddingLeft;
-                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * y;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * (y+1);
                 flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
                 addView(child, flp);

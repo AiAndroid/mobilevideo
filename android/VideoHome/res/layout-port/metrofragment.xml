@@ -10,7 +10,6 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/ITEM_DIVIDE_SIZE"
             android:scrollbars="none">
 	    <com.video.ui.view.MetroLayout
 	    android:id="@+id/metrolayout"

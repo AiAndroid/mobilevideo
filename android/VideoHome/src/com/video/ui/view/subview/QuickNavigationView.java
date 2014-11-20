@@ -37,7 +37,8 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
 
         int width = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width);
-        int padding = (getResources().getDisplayMetrics().widthPixels-4*width)/5;
+        int padding = (getDimens().width-4*width)/3;
+        int leftPadding = 0;
         for (int i=0;i<items.size();i++) {
             DisplayItem item = items.get(i);
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_entry_textview, null);
@@ -60,7 +61,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
                 @Override public void onPrepareLoad(Drawable drawable) {}
             };
 
-            mMetroLayout.addItemView(tv,width , getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), padding);
+            mMetroLayout.addItemView(tv,width , getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), leftPadding, padding);
             Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
         }
     }
