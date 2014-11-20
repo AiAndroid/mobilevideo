@@ -1,16 +1,11 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.view.LinearFrame;
@@ -38,45 +33,17 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
 
         for (int i=0;i<items.size();i++) {
             DisplayItem item = items.get(i);
-            final TextView tv = (TextView) View.inflate(getContext(), R.layout.qucik_local_entry_textview, null);
+            View view = View.inflate(getContext(), R.layout.qucik_local_entry_textview, null);
+            view.setClickable(true);
+            view.setBackgroundResource(draws[i%3]);
+
+            TextView  tv = (TextView)view.findViewById(R.id.quick_entry_user);
             tv.setText(item.title);
-            tv.setBackgroundResource(draws[i%3]);
 
-            Target topDrawable = new Target() {
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                    DisplayMetrics metrics = getResources().getDisplayMetrics();
-                    Bitmap resizedBitmap = bitmap;
-                    if(Math.abs(metrics.scaledDensity-3.0f) > 0.1) {
+            ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
+            Picasso.with(getContext()).load(item.images.icon().url).fit().into(iv);
 
-                        int width  = bitmap.getWidth();
-                        int height = bitmap.getHeight();
-
-                        float scaleWidth = metrics.scaledDensity / 3.0f;
-                        float scaleHeight = metrics.scaledDensity / 3.0f;
-
-                        // create a matrix for the manipulation
-                        Matrix matrix = new Matrix();
-                        // resize the bit map
-                        matrix.postScale(scaleWidth, scaleHeight);
-
-                        // recreate the new Bitmap
-                        resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                    }
-
-                    BitmapDrawable image = new BitmapDrawable(getResources(), resizedBitmap);
-                    int h = image.getIntrinsicHeight();
-                    int w = image.getIntrinsicWidth();
-                    image.setBounds( 0, 0, w, h );
-                    tv.setCompoundDrawables(image, null, null, null);
-                }
-
-                @Override public void onBitmapFailed(Drawable drawable) {}
-                @Override public void onPrepareLoad(Drawable drawable) {}
-            };
-
-            Picasso.with(getContext()).load(item.images.icon().url).into(topDrawable);
-            mMetroLayout.addItemView(tv, getDimens().width/3, getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height), 0);
+            mMetroLayout.addItemView(view, getDimens().width/3, getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height), 0);
         }
     }
 

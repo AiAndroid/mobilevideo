@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="@dimen/quick_entry_channel_width"
+                        android:layout_height="@dimen/quick_entry_channel_height">
+             <ImageView
+                        android:id="@+id/enter_image_indicator"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="@dimen/quick_entry_channel_image_width"
+                        android:layout_height="@dimen/quick_entry_channel_image_height"
+                        android:scaleType="fitCenter"
+                        android:paddingTop="@dimen/quick_entry_channel_content_paddingT"
+                        android:src="@drawable/quick_entry_default">
+             </ImageView>
+
+             <TextView
               android:id="@+id/quick_enter"
               android:orientation="vertical"
               android:gravity="center"
-              android:layout_width="@dimen/quick_entry_channel_width"
-              android:layout_height="@dimen/quick_entry_channel_height"
-              android:drawableTop="@drawable/quick_entry_default"
-              android:paddingTop="@dimen/quick_entry_channel_content_paddingT"
-              android:paddingBottom="@dimen/quick_entry_channel_content_paddingB"
-              android:drawablePadding="@dimen/quick_entry_channel_drawable_padding"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
               android:textColor="@android:color/white"
               android:textSize="@dimen/font_size_36"
-              android:clickable="true">
-
-</TextView>
+              android:clickable="false"
+              android:paddingBottom="@dimen/quick_entry_channel_content_paddingB"
+              android:layout_centerHorizontal="true"
+              android:layout_alignParentBottom="true">
+            </TextView>
+</RelativeLayout>

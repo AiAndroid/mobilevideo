@@ -111,13 +111,17 @@
 
     <dimen name="quick_entry_channel_width">80dp</dimen>
     <dimen name="quick_entry_channel_height">70dp</dimen>
+    <dimen name="quick_entry_channel_image_height">35dp</dimen>
+    <dimen name="quick_entry_channel_image_width">35dp</dimen>
     <dimen name="quick_entry_channel_intervalH">9dp</dimen>
     <dimen name="quick_entry_channel_content_paddingT">9.7dp</dimen>
     <dimen name="quick_entry_channel_content_paddingB">8.7dp</dimen>
     <dimen name="quick_entry_channel_drawable_padding">5dp</dimen>
 
     <dimen name="quick_entry_user_height">45.7dp</dimen>
-    <dimen name="quick_entry_user_content_paddingH">19dp</dimen>
+    <dimen name="quick_entry_user_image_height">22dp</dimen>
+    <dimen name="quick_entry_user_image_width">22dp</dimen>
+    <dimen name="quick_entry_user_content_paddingH">10dp</dimen>
     <dimen name="quick_entry_user_drawable_padding">8dp</dimen>
 
 

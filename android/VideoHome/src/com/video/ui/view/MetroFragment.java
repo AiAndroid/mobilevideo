@@ -58,7 +58,11 @@ public class MetroFragment extends Fragment {
             for(DisplayItem item:tab.items){
                 View view = inflateDisplayItem(item);
                 if(item.ui_type.id == LayoutConstant.grid_selection){
-                    addViewPort(view, item.ui_type.id, step%2, step/2);
+                    int row_count = tab.ui_type.row_count;
+                    if(row_count == 0){
+                        row_count = 2;
+                    }
+                    addViewPort(view, item.ui_type.id, step%row_count, step/row_count);
                     step++;
                 }else {
                     addViewPort(view, MetroLayout.HorizontalMatchWith, 0, step++);
