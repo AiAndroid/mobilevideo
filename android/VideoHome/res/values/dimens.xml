@@ -100,7 +100,10 @@
     <dimen name="rank_port_divider_height">1dp</dimen>
     <dimen name="rank_media_text_paddingH">8dp</dimen>
     <dimen name="rank_media_text_height">40dp</dimen>
-
+    <dimen name="rank_title_top">8dp</dimen>
+    <dimen name="rank_video_show_top">8dp</dimen>
+    <dimen name="rank_video_list_top">4dp</dimen>
+    <dimen name="rank_button_height">48dp</dimen>
 
 
     <dimen name="video_common_radius_18">6dp</dimen>

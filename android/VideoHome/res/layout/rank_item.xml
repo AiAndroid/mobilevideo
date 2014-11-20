@@ -10,7 +10,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="@dimen/font_size_48"
-                  android:paddingTop="8dp"
+                  android:paddingTop="@dimen/rank_title_top"
                   android:paddingLeft="8dp"
                   android:textColor="@color/orange"
                   android:text="Movie"/>
@@ -19,17 +19,17 @@
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/rank_media_item_height"
-            android:paddingTop="8dp"
+            android:paddingTop="@dimen/rank_video_show_top"
             android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>
 
         <com.video.ui.view.LinearFrame
             android:id="@+id/list"
-            android:paddingTop="4dp"
+            android:paddingTop="@dimen/rank_video_list_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>
 
-        <Button android:id="@+id/enter_button" android:layout_width="match_parent" android:layout_height="48dp"/>
+        <Button android:id="@+id/enter_button" android:layout_width="match_parent" android:layout_height="@dimen/rank_button_height"/>
 </LinearLayout>

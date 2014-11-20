@@ -21,24 +21,29 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
-    public RankItemView(Context context, ArrayList<DisplayItem> items, String container){
+    public RankItemView(Context context, ArrayList<DisplayItem> items, String container, int row_count){
         this(context, null, 0);
 
         int height = 0;
         View v = View.inflate(getContext(), R.layout.rank_item, this);
 
-        //add height
-        height += dpToPx(8);
+        //add title top height
+        height += getResources().getDimensionPixelSize(R.dimen.rank_title_top);
+
         TextView title = (TextView) v.findViewById(R.id.rank_title);
         title.setText(container);
 
-        //add height
+        //add text view height
         height +=  Math.ceil(title.getPaint().getFontMetrics().descent - title.getPaint().getFontMetrics().top) +2;
-        //add height
-        height += dpToPx(8);
-        int padding = (getResources().getDimensionPixelSize(R.dimen.rank_banner_width)-3*getResources().getDimensionPixelSize(R.dimen.media_port_width))/4;
+        //add top height
+        height += getResources().getDimensionPixelSize(R.dimen.rank_video_show_top);
+
+        if(row_count == 0)
+            row_count = 3;
+
+        int padding = (getResources().getDimensionPixelSize(R.dimen.rank_banner_width)-row_count*getResources().getDimensionPixelSize(R.dimen.media_port_width))/(row_count+1);
         LinearFrame header = (LinearFrame)v.findViewById(R.id.header);
-        for (int i=0;i<3;i++) {
+        for (int i=0;i<row_count;i++) {
             DisplayItem item = items.get(i);
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
             ((TextView)tv.findViewById(R.id.click_count)).setText(item.sub_title);
@@ -49,13 +54,13 @@ public class RankItemView extends BaseCardView implements DimensHelper {
             Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(iv);
         }
 
-        //add height
+        //add show movie height
         height += getResources().getDimensionPixelSize(R.dimen.rank_media_item_height);
 
-        //add height
-        height += dpToPx(4);
-        LinearFrame list = (LinearFrame)v.findViewById(R.id.list);
+        //add top height
+        height += getResources().getDimensionPixelSize(R.dimen.rank_video_list_top);
 
+        LinearFrame list = (LinearFrame)v.findViewById(R.id.list);
         for (int i=3;i<items.size();i++) {
             DisplayItem item = items.get(i);
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.media_item_textview, null);
@@ -63,20 +68,21 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
             list.addItemViewPort(tv, getResources().getDimensionPixelSize(R.dimen.rank_banner_width),getResources().getDimensionPixelSize(R.dimen.rank_media_text_height), 0);
 
-            //add height
+            //add text view height
             height +=getResources().getDimensionPixelSize(R.dimen.rank_media_text_height);
 
             if(i < (items.size()-1)){
                 View divider = View.inflate(getContext(), R.layout.rank_divider, null);
                 list.addItemViewPort(divider, getResources().getDimensionPixelSize(R.dimen.rank_banner_width), getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height), 0);
 
+                //add divider height
                 height +=getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height);
             }
         }
 
         //add height
         height += dpToPx(4);
-        height += dpToPx(48);
+        height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
         ((Button)v.findViewById(R.id.enter_button)).setText(container);
 
         height += dpToPx(4);

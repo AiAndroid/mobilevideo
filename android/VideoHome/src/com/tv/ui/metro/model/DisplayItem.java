@@ -6,13 +6,15 @@ public class DisplayItem implements Serializable{
 	private static final long serialVersionUID = 2L;
 
 	public static class UI implements Serializable {
-		private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = 2L;
         public String name;
         public int    id;
+        public int    row_count;
         public UI clone(){
             UI item = new UI();
             item.name = name;
             item.id   = id;
+            item.row_count = row_count;
             return item;
         }
 		public String toString() {
