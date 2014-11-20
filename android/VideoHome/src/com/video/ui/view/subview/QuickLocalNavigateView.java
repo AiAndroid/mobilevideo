@@ -2,9 +2,11 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
@@ -43,13 +45,30 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             Target topDrawable = new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-                    if(bitmap != null){
-                        BitmapDrawable image = new BitmapDrawable(getResources(), bitmap);
-                        int h = image.getIntrinsicHeight();
-                        int w = image.getIntrinsicWidth();
-                        image.setBounds( 0, 0, w, h );
-                        tv.setCompoundDrawables(image, null, null, null);
+                    DisplayMetrics metrics = getResources().getDisplayMetrics();
+                    Bitmap resizedBitmap = bitmap;
+                    if(Math.abs(metrics.scaledDensity-3.0f) > 0.1) {
+
+                        int width  = bitmap.getWidth();
+                        int height = bitmap.getHeight();
+
+                        float scaleWidth = metrics.scaledDensity / 3.0f;
+                        float scaleHeight = metrics.scaledDensity / 3.0f;
+
+                        // create a matrix for the manipulation
+                        Matrix matrix = new Matrix();
+                        // resize the bit map
+                        matrix.postScale(scaleWidth, scaleHeight);
+
+                        // recreate the new Bitmap
+                        resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
                     }
+
+                    BitmapDrawable image = new BitmapDrawable(getResources(), resizedBitmap);
+                    int h = image.getIntrinsicHeight();
+                    int w = image.getIntrinsicWidth();
+                    image.setBounds( 0, 0, w, h );
+                    tv.setCompoundDrawables(image, null, null, null);
                 }
 
                 @Override public void onBitmapFailed(Drawable drawable) {}

@@ -7,6 +7,8 @@
       <root url="jar://$PROJECT_DIR$/libs/okhttp-urlconnection-2.0.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/picasso-2.4.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

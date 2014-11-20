@@ -45,8 +45,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
             ((TextView)tv.findViewById(R.id.name)).setText(item.title);
             ImageView iv = (ImageView) tv.findViewById(R.id.poster);
 
-            header.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.media_port_width),
-                                   getResources().getDimensionPixelSize(R.dimen.rank_media_item_height), padding);
+            header.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.media_port_width), getResources().getDimensionPixelSize(R.dimen.rank_media_item_height), padding);
             Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(iv);
         }
 
@@ -69,8 +68,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
             if(i < (items.size()-1)){
                 View divider = View.inflate(getContext(), R.layout.rank_divider, null);
-                list.addItemViewPort(divider, getResources().getDimensionPixelSize(R.dimen.rank_banner_width),
-                        getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height), 0);
+                list.addItemViewPort(divider, getResources().getDimensionPixelSize(R.dimen.rank_banner_width), getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height), 0);
 
                 height +=getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height);
             }

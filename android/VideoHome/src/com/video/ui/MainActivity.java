@@ -139,6 +139,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     }
 
     protected void updateTabsAndMetroUI(GenericBlock<DisplayItem> content){
+        if(content == null || content.blocks == null ){
+            return;
+        }
+
         if(_contents != null ){
             if(_contents.times.updated == content.times.updated) {
                 Log.d(TAG, "same content, no need to update UI");
