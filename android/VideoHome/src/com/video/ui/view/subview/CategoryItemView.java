@@ -57,7 +57,7 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
         mMediaView.setText(item.desc);
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4)).into(postImage);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
     }
 
 
@@ -75,8 +75,10 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
 
     public static class Round_Corners implements Transformation {
         private int Round;
-        Round_Corners(Context context, int margin, int Round) {
+        private boolean justTopEffect;
+        Round_Corners(Context context, int margin, int Round, boolean justTop) {
             this.Round = dpToPx(context, Round);
+            justTopEffect = justTop;
         }
 
         public int dpToPx(Context context, int dp) {
@@ -106,8 +108,7 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
             final RectF rectF = new RectF(rect);
             final float Px = Round;
 
-            final Rect bottomRect = new Rect(0, bitmap.getHeight() / 2,
-                    bitmap.getWidth(), bitmap.getHeight());
+            final Rect bottomRect = new Rect(0, bitmap.getHeight()/(justTopEffect?2:1), bitmap.getWidth(), bitmap.getHeight());
 
             paint.setAntiAlias(true);
             canvas.drawARGB(0, 0, 0, 0);

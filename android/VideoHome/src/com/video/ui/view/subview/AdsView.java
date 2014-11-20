@@ -124,7 +124,7 @@ public class AdsView extends BaseCardView implements DimensHelper {
 
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
         return imageView;
     }
 

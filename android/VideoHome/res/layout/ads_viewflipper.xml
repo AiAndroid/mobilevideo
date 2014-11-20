@@ -4,8 +4,7 @@
               android:orientation="vertical"
               android:layout_width="@dimen/media_banner_width"
               android:layout_height="@dimen/media_banner_height"
-              android:layout_centerHorizontal="true"
-              android:background="@drawable/com_bg_white_corner">
+              android:layout_centerHorizontal="true">
     <com.video.ui.view.subview.CustomViewPager android:layout_width="match_parent" android:layout_height="match_parent"
                  android:id="@+id/image_flipper"
                  android:focusable="true"
