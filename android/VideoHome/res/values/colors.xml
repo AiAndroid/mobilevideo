@@ -35,6 +35,7 @@
     <color name="blue">#ff0247D1</color>
     <color name="gray">#ffd3d3d3</color>
     <color name="orange">#fff95f22</color>
+    <color name="tab">#ff999999</color>
 
     <color name="p_90_blue">#e60096ff</color>
     <color name="p_30_blue">#4c0096ff</color>

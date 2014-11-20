@@ -234,7 +234,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         if(focused == true){
             Resources res = getResources();
-            view.setTextColor(res.getColor(android.R.color.holo_orange_light));
+            view.setTextColor(res.getColor(R.color.orange));
             view.requestFocus();
         }
 
@@ -411,11 +411,11 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             if(i == index) {
                 TextView view = (TextView) viewC.findViewById(R.id.tv_tab_indicator);
                 Resources res = view.getResources();
-                view.setTextColor(res.getColor(android.R.color.holo_orange_light));
+                view.setTextColor(res.getColor(R.color.orange));
             }else{
                 TextView view = (TextView) viewC.findViewById(R.id.tv_tab_indicator);
                 Resources res = view.getResources();
-                view.setTextColor(res.getColor(android.R.color.darker_gray));
+                view.setTextColor(res.getColor(R.color.tab));
             }
         }
     }
