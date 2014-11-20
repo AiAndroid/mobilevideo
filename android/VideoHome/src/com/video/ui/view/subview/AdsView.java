@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends RelativeLayout implements DimensHelper {
+public class AdsView extends BaseCardView implements DimensHelper {
     public AdsView(Context context) {
         this(context, null, 0);
     }
@@ -31,7 +30,7 @@ public class AdsView extends RelativeLayout implements DimensHelper {
     }
 
     public AdsView(Context context, ArrayList<DisplayItem> items) {
-        this(context, null, 0);
+        super(context, null, 0);
 
         initUI(items);
     }
@@ -51,10 +50,11 @@ public class AdsView extends RelativeLayout implements DimensHelper {
     private  ArrayList<View> viewList = new ArrayList<View>();
     private void initUI(ArrayList<DisplayItem> items){
         content = items;
-        View root = View.inflate(getContext(), R.layout.ads_viewflipper,  this);
+        View root = View.inflate(getContext(), R.layout.ads_viewflipper,  null);
         viewFlipper = (ViewPager) root.findViewById(R.id.image_flipper);
         page_indicator = (TextView) root.findViewById(R.id.page_indicator);
 
+        addView(root);
         for(DisplayItem item: items) {
             viewList.add(getImageView(item));
         }
@@ -66,7 +66,7 @@ public class AdsView extends RelativeLayout implements DimensHelper {
 
             @Override
             public void onPageSelected(int i) {
-                page_indicator.setText(String.format("%1$s/%2$s", i+1 ,content.size()));
+                page_indicator.setText(String.format("%1$s/%2$s ", i+1 ,content.size()));
             }
 
             @Override

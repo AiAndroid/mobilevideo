@@ -62,8 +62,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.media_item_textview, null);
             tv.setText(String.format("%1$s . %2$s", i, item.title));
 
-            list.addItemViewPort(tv, getResources().getDimensionPixelSize(R.dimen.rank_banner_width),
-                    getResources().getDimensionPixelSize(R.dimen.rank_media_text_height), 0);
+            list.addItemViewPort(tv, getResources().getDimensionPixelSize(R.dimen.rank_banner_width),getResources().getDimensionPixelSize(R.dimen.rank_media_text_height), 0);
 
             //add height
             height +=getResources().getDimensionPixelSize(R.dimen.rank_media_text_height);

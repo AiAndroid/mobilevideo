@@ -53,6 +53,8 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
                         int h = image.getIntrinsicHeight();
                         int w = image.getIntrinsicWidth();
                         image.setBounds( 0, 0, w, h );
+                        //image.setTargetDensity();
+
                         tv.setCompoundDrawables(null, image, null, null);
                     }
                 }
