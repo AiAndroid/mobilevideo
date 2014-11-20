@@ -3022,7 +3022,7 @@
             "blocks":[
                 {
                     "title":"电影",
-                    "sub_title":"点击次数：2万",
+                    "sub_title":"进入电影频道",
                     "id":"901",
                     "type":"album",
                     "ns":"video",
@@ -3261,6 +3261,7 @@
                 },
                 {
                     "title":"电视剧",
+                    "sub_title":"进入电视剧频道",
                     "id":"901",
                     "type":"album",
                     "ns":"video",
@@ -3658,6 +3659,7 @@
                 },
                 {
                     "title":"短视频",
+                    "sub_title":"进入短视频频道",
                     "id":"901",
                     "type":"album",
                     "ns":"video",
@@ -4053,6 +4055,7 @@
                 },
                 {
                     "title":"美剧",
+                    "sub_title":"进入美剧频道",
                     "id":"901",
                     "type":"album",
                     "ns":"video",
@@ -4450,7 +4453,7 @@
         }
     ],
     "times":{
-        "updated":30,
+        "updated":31,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
