@@ -117,14 +117,14 @@ public class AdsView extends RelativeLayout implements DimensHelper {
 
     private ImageView getImageView(DisplayItem item){
         ImageView imageView = new ImageView(getContext());
-        imageView.setBackgroundResource(R.drawable.list_selector_bg);
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.default_poster_pic));
         imageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4)).into(imageView);
         return imageView;
     }
 
