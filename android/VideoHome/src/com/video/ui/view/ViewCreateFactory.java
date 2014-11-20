@@ -26,7 +26,7 @@ public class ViewCreateFactory {
                 view = new CategoryItemView(context, item);
                 break;
             case LayoutConstant.list_rich_header:
-                view = new RankItemView(context, item.items, item.title, item.ui_type.row_count);
+                view = new RankItemView(context, item.items, item.title, item.sub_title, item.ui_type.row_count);
                 break;
         }
         return view;

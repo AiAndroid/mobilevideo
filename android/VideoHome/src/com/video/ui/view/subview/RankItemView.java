@@ -21,7 +21,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
-    public RankItemView(Context context, ArrayList<DisplayItem> items, String container, int row_count){
+    public RankItemView(Context context, ArrayList<DisplayItem> items, String container, String subtitle, int row_count){
         this(context, null, 0);
 
         int height = 0;
@@ -83,7 +83,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         //add height
         height += dpToPx(4);
         height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-        ((Button)v.findViewById(R.id.enter_button)).setText(container);
+        ((Button)v.findViewById(R.id.enter_button)).setText(subtitle);
 
         height += dpToPx(4);
         getDimens().height = height;
