@@ -6,12 +6,11 @@
               android:layout_height="@dimen/media_banner_height"
               android:layout_centerHorizontal="true">
     <com.video.ui.view.subview.CustomViewPager android:layout_width="match_parent" android:layout_height="match_parent"
-                 android:id="@+id/image_flipper"
-                 android:focusable="true"
-                 android:focusableInTouchMode="true">
+                 android:id="@+id/image_flipper">
     </com.video.ui.view.subview.CustomViewPager>
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
               android:layout_alignParentBottom="true"
               android:id="@+id/page_indicator"

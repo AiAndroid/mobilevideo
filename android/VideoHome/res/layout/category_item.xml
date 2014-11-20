@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/com_bg_white_corner">
+              android:background="@drawable/com_big_item_bg_full">
     <FrameLayout
             android:id="@+id/poster_container"
             android:layout_width="match_parent"
@@ -18,8 +18,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:src="@drawable/default_poster_pic"
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>
@@ -78,4 +76,10 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/app_name"/>
     </FrameLayout>
+
+    <View
+            android:id="@+id/category_media_click"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_selector_bg"/>
 </RelativeLayout>

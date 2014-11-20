@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="@dimen/feature_media_view_width"
         android:layout_height="@dimen/feature_media_view_height"
-        android:background="@drawable/com_bg_white_corner" >
+        android:background="@drawable/com_big_item_bg_full" >
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/feature_media_poster_height">

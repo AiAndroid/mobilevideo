@@ -58,6 +58,8 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
         Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
+
+        mContentView.setClickable(true);
     }
 
 

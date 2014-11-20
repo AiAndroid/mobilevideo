@@ -113,6 +113,8 @@ public class AdsView extends BaseCardView implements DimensHelper {
 
         };
         viewFlipper.setAdapter(pagerAdapter);
+
+        root.setClickable(true);
     }
 
     private ImageView getImageView(DisplayItem item){
