@@ -957,9 +957,9 @@
                                     "images":{
                                     },
                                     "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411,
-                                        "row_count":2
+                                        "name":"grid_media_port",
+                                        "id":412,
+                                        "row_count":3
                                     },
                                     "items":[
                                         {
@@ -1069,6 +1069,60 @@
                                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vBtCi77fZ/UfthReUbYLeVqu.jpg"
                                                 }
                                             }
+                                        },
+                                        {
+                                            "title":"把爱带回家",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1066099",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01cxqklg0Hk/XZAm0PUkdNeJIX.jpg"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "title":"战神",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1065993",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01ANvoCMYla/ODrLJGWVQv3QkA.jpg"
+                                                }
+                                            }
                                         }
                                     ]
                                 },
@@ -1084,8 +1138,9 @@
                                     "times":{
                                     },
                                     "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411
+                                        "name":"grid_media_port",
+                                        "id":412,
+                                        "row_count":3
                                     },
                                     "items":[
                                         {
@@ -1195,6 +1250,60 @@
                                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SmTiDYW4p/H0uwmrhPDTt3pq.jpg"
                                                 }
                                             }
+                                        },
+                                        {
+                                            "title":"神盾局特工 第二季",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1066282",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01nxsc39fRd/bgWTuAYhr4tUqO.jpg"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "title":"蝎子网络 第一季",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1066223",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01VkKVD80KZ/Rtyx8flu7iuOS2.jpg"
+                                                }
+                                            }
                                         }
                                     ]
                                 },
@@ -1210,8 +1319,9 @@
                                     "times":{
                                     },
                                     "ui_type":{
-                                        "name":"grid_media_land",
-                                        "id":411
+                                        "name":"grid_media_port",
+                                        "id":412,
+                                        "row_count":3
                                     },
                                     "items":[
                                         {
@@ -1319,6 +1429,60 @@
                                             "images":{
                                                 "poster":{
                                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yWs8Fg9tW/KY12nuw53G8EtO.jpg"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "title":"酒店之王",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1050167",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yWs8Fg9tW/KY12nuw53G8EtO.jpg"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "title":"一吻定情2：冲绳特别篇",
+                                            "sub_title":"",
+                                            "desc":"看看呗",
+                                            "id":"1065660",
+                                            "type":"item",
+                                            "ns":"video",
+                                            "times":{
+                                                "updated":0,
+                                                "created":0
+                                            },
+                                            "media":{
+                                                "cp":{
+                                                    "vendor":"sohu",
+                                                    "player_ver":"2"
+                                                }
+                                            },
+                                            "action":{
+                                                "target":"direct_show",
+                                                "params":"http://xxxxx.mffmpeg"
+                                            },
+                                            "images":{
+                                                "poster":{
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01C90yapFEa/dcJqRmWxZnh8Zp.jpg"
                                                 }
                                             }
                                         }
@@ -4661,7 +4825,7 @@
         }
     ],
     "times":{
-        "updated":35,
+        "updated":36,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
