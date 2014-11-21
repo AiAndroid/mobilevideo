@@ -17,6 +17,15 @@
                    android:shadowRadius="3.0"
                    android:singleLine="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
 
+        <com.video.ui.view.subview.CornerUpImageView
+                android:id="@+id/rank_media_corner"
+                android:layout_width="@dimen/media_port_item_right_corner_width"
+                android:layout_height="@dimen/media_port_item_right_corner_width"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/app_name"/>
+
         <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/list_selector_bg" android:clickable="true"/>
     </RelativeLayout>
     <TextView  android:id="@+id/name"

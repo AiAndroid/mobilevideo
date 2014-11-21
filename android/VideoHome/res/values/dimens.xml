@@ -125,6 +125,6 @@
     <dimen name="quick_entry_user_drawable_padding">8dp</dimen>
 
 
-
+   <dimen name="media_port_item_right_corner_width">20dp</dimen>
 
 </resources>

@@ -9,6 +9,28 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.ideaLibSources/picasso-2.4.0-sources.jar!/" />
+      <root url="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/picasso-master/picasso/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/picasso-master/picasso-sample/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/picasso-master/picasso-pollexor/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/picasso-master/picasso-pollexor/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okcurl/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okcurl/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp/src/main/java-templates" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/samples/guide/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/samples/crawler/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/samples/simple-client/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/samples/static-server/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/benchmarks/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-tests/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/mockwebserver/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/mockwebserver/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-apache/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-apache/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-hpacktests/src/test/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-urlconnection/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/okhttp-master/okhttp-urlconnection/src/test/java" />
     </SOURCES>
   </library>
 </component>

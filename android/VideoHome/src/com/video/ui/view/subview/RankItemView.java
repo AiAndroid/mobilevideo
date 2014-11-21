@@ -48,8 +48,13 @@ public class RankItemView extends BaseCardView implements DimensHelper {
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
             ((TextView)tv.findViewById(R.id.click_count)).setText(item.sub_title);
             ((TextView)tv.findViewById(R.id.name)).setText(item.title);
-            ImageView iv = (ImageView) tv.findViewById(R.id.poster);
 
+            ImageView rightCorner = (ImageView) tv.findViewById(R.id.rank_media_corner);
+            if(item.images.get("right_top_corner") != null)
+                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
+
+
+            ImageView iv = (ImageView) tv.findViewById(R.id.poster);
             header.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.media_port_width), getResources().getDimensionPixelSize(R.dimen.rank_media_item_height), padding, padding);
             Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(iv);
         }
@@ -61,7 +66,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         height += getResources().getDimensionPixelSize(R.dimen.rank_video_list_top);
 
         LinearFrame list = (LinearFrame)v.findViewById(R.id.list);
-        for (int i=3;i<items.size();i++) {
+        for (int i=row_count;i<items.size();i++) {
             DisplayItem item = items.get(i);
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.media_item_textview, null);
             tv.setText(String.format("%1$s . %2$s", i, item.title));
