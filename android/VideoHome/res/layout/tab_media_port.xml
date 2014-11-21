@@ -8,27 +8,27 @@
               >
 
     <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+        android:layout_width="@dimen/media_port_width"
+        android:layout_height="@dimen/media_port_height" >
 
         <ImageView
                 android:id="@+id/poster"
-                android:layout_width="@dimen/media_port_width"
-                android:layout_height="@dimen/media_port_height"
-                 />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"/>
 
         <RelativeLayout
                 android:layout_width="@dimen/media_port_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom" >
-            <TextView
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
                      />
 
-            <TextView
+                <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -36,13 +36,18 @@
                     android:layout_gravity="bottom|right"
                      />
 
-            <ImageView
+                <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                      />
-
         </RelativeLayout>
+
+        <View
+            android:id="@+id/tab_media_click"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_selector_bg"/>
 
     </FrameLayout>
 

@@ -94,7 +94,7 @@
 
     <dimen name="rank_banner_width">346.7dp</dimen>
     <dimen name="rank_media_item_height">190dp</dimen>
-    <dimen name="media_port_width">105dp</dimen>
+    <dimen name="media_port_width">110dp</dimen>
     <dimen name="media_port_height">150dp</dimen>
     <dimen name="rank_port_padding">4dp</dimen>
     <dimen name="rank_port_divider_height">1dp</dimen>
@@ -128,9 +128,10 @@
    <dimen name="media_port_item_right_corner_width">20dp</dimen>
 
     <!-- Channeltabs start -->
-    <dimen name="channel_media_view_width">173.3dp</dimen>
+    <dimen name="channel_media_view_width">165dp</dimen>
+    <dimen name="channel_media_view_image_height">100dp</dimen>
     <dimen name="channel_media_view_height">127.3dp</dimen>
-    <dimen name="channel_media_view_port_width">127.3dp</dimen>
+    <dimen name="channel_media_view_port_width">110dp</dimen>
     <dimen name="channel_media_view_port_height">173.3dp</dimen>
     <dimen name="channel_tabs_horizontal_view_height">320.0dp</dimen>
     <dimen name="channel_tabs_portrait_view_height">400.0dp</dimen>

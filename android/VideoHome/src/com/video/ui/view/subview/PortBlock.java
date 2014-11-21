@@ -41,7 +41,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
     }
 
     private void initUI(Block<DisplayItem> rootblock){
-        setBackgroundColor(0xaaaaaa);
+
         content = rootblock;
         int size = content.blocks.size();
         for(Block<DisplayItem> block: content.blocks) {
