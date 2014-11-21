@@ -41,7 +41,7 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).fit().into(iv);
 
             mMetroLayout.addItemView(view, getDimens().width/3, getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height), 0);
         }

@@ -46,7 +46,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_default).fit().into(iv);
 
             mMetroLayout.addItemView(view,width , getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), leftPadding, padding);
         }

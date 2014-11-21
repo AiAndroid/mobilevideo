@@ -283,43 +283,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RankItemView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="821" max-vertical-offset="2500">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="e#3691#3754#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryItemView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryItemView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1399" max-vertical-offset="3025">
-              <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dimens.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.04" vertical-offset="2524" max-vertical-offset="3400">
+            <state vertical-scroll-proportion="0.7977941" vertical-offset="2524" max-vertical-offset="3400">
               <caret line="127" column="56" selection-start-line="127" selection-start-column="56" selection-end-line="127" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values-port/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="0" max-vertical-offset="575">
-              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -332,19 +300,6 @@
               <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rank_item.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/rank_item.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4814816" vertical-offset="225" max-vertical-offset="1025">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -367,19 +322,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category_item.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/category_item.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.555555" vertical-offset="238" max-vertical-offset="2250">
-              <caret line="28" column="63" selection-start-line="23" selection-start-column="7" selection-end-line="28" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Picasso.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Picasso.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -390,14 +332,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dispatcher.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Dispatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Dispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0701545" vertical-offset="900" max-vertical-offset="12650">
+            <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="12650">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#17402#17403#0" expanded="true" />
                 <element signature="e#17495#17496#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qucik_entry_textview.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_textview.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.925926" vertical-offset="88" max-vertical-offset="875">
+              <caret line="12" column="66" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qucik_local_entry_textview.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/qucik_local_entry_textview.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.074074" vertical-offset="138" max-vertical-offset="950">
+              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuickNavigationView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="1725">
+              <caret line="48" column="110" selection-start-line="48" selection-start-column="110" selection-end-line="48" selection-end-column="110" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuickLocalNavigateView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="1675">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -445,8 +437,6 @@
         <option value="$PROJECT_DIR$/src/com/tv/ui/metro/model/DisplayItem.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/media_item_textview.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java" />
         <option value="$PROJECT_DIR$/res/layout/qucik_local_entry_textview.xml" />
         <option value="$PROJECT_DIR$/res/layout/qucik_entry_textview.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryItemView.java" />
@@ -467,6 +457,8 @@
         <option value="$PROJECT_DIR$/res/layout/media_port_item.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java" />
       </list>
     </option>
   </component>
@@ -1111,13 +1103,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21621" max-vertical-offset="29700">
-          <caret line="873" column="41" selection-start-line="873" selection-start-column="41" selection-end-line="873" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/content/res/Resources.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="3325">
@@ -1148,31 +1133,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="649" max-vertical-offset="1725">
-          <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/qucik_local_entry_textview.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6296296" vertical-offset="0" max-vertical-offset="950">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-          <folding>
-            <element signature="e#204#236#0" expanded="false" />
-            <element signature="e#498#535#0" expanded="false" />
-            <element signature="e#582#620#0" expanded="false" />
-            <element signature="e#719#761#0" expanded="false" />
-            <element signature="e#1462#1483#0" expanded="false" />
-            <element signature="e#1578#1620#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/default_border_corner_up.9.png">
       <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
@@ -1187,13 +1147,6 @@
       </provider>
       <provider editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="1675">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/com_bg_white_corner.9.png">
@@ -1224,25 +1177,6 @@
         <state vertical-scroll-proportion="-7.0" vertical-offset="0" max-vertical-offset="350">
           <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_textview.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44472682" vertical-offset="0" max-vertical-offset="875">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#160#194#0" expanded="false" />
-            <element signature="e#241#276#0" expanded="false" />
-            <element signature="e#474#514#0" expanded="false" />
-            <element signature="e#561#602#0" expanded="false" />
-            <element signature="e#700#745#0" expanded="false" />
-            <element signature="e#1220#1241#0" expanded="false" />
-            <element signature="e#1318#1363#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
@@ -1500,16 +1434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="821" max-vertical-offset="2500">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#3691#3754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.314815" vertical-offset="76" max-vertical-offset="1125">
@@ -1525,14 +1449,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.04" vertical-offset="2524" max-vertical-offset="3400">
-          <caret line="127" column="56" selection-start-line="127" selection-start-column="56" selection-end-line="127" selection-end-column="56" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java">
@@ -1553,12 +1469,77 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Dispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0701545" vertical-offset="900" max-vertical-offset="12650">
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="12650">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#17402#17403#0" expanded="true" />
             <element signature="e#17495#17496#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/quick_entry_default.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/qucik_local_entry_textview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.074074" vertical-offset="138" max-vertical-offset="950">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_textview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.925926" vertical-offset="88" max-vertical-offset="875">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="1675">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="1725">
+          <caret line="48" column="110" selection-start-line="48" selection-start-column="110" selection-end-line="48" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2077295" vertical-offset="0" max-vertical-offset="2500">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#3691#3754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7977941" vertical-offset="2524" max-vertical-offset="3400">
+          <caret line="127" column="56" selection-start-line="127" selection-start-column="56" selection-end-line="127" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
