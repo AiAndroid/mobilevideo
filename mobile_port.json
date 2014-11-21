@@ -3046,7 +3046,7 @@
                     },
                     "items":[
                         {
-                            "title":"经典搞笑大集合",
+                            "title":"我是美女",
                             "sub_title":"点击次数：2万",
                             "id":"901",
                             "type":"album",
@@ -3054,6 +3054,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01LAaLpJ5Ki/Ja7M7NFLDayccX.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -3072,7 +3075,7 @@
                             }
                         },
                         {
-                            "title":"哪些年让我热血沸腾",
+                            "title":"你不是美女",
                             "sub_title":"观看次数：2万",
                             "id":"901",
                             "type":"album",
@@ -3080,6 +3083,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01wi5NDdrht/W4dUJ6oZmp7SXL.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "media":{
@@ -3096,7 +3102,7 @@
                             }
                         },
                         {
-                            "title":"IMDB TOP",
+                            "title":"美腿，好退",
                             "id":"901",
                             "sub_title":"收藏次数：2万",
                             "type":"album",
@@ -3107,6 +3113,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01tbxW9d1tF/59ttwNmo3Qh9KS.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -4453,7 +4462,7 @@
         }
     ],
     "times":{
-        "updated":31,
+        "updated":32,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
