@@ -161,6 +161,24 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 rowOffset[0] += height;
                 break;
             }
+            case LayoutConstant.block_port:
+            {
+                int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
+                int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                flp = new LayoutParams(width, height);
+                if (child instanceof DimensHelper) {
+                    flp = new LayoutParams(((DimensHelper) child).getDimens().width, ((DimensHelper) child).getDimens().height);
+                    height = ((DimensHelper) child).getDimens().height;
+                }
+                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * y;
+                flp.rightMargin = getPaddingRight() + paddingLeft;
+                child.setFocusable(true);
+                addView(child, flp);
+                child.forceLayout();
+                rowOffset[0] += height;
+                break;
+            }
             case HorizontalMatchWith:
             {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);

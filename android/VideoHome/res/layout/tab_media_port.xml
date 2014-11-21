@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:padding = "8dp"
+              >
+
+    <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+        <ImageView
+                android:id="@+id/poster"
+                android:layout_width="@dimen/media_port_width"
+                android:layout_height="@dimen/media_port_height"
+                 />
+
+        <RelativeLayout
+                android:layout_width="@dimen/media_port_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom" >
+            <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                     />
+
+            <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom|right"
+                     />
+
+            <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                     />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <TextView
+            android:id="@+id/descrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+</LinearLayout>

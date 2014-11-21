@@ -28,6 +28,9 @@ public class ViewCreateFactory {
             case LayoutConstant.list_rich_header:
                 view = new RankItemView(context, item.items, item.title, item.sub_title, item.ui_type.row_count);
                 break;
+            case LayoutConstant.block_port:
+                view = new PortBlock(context, item);
+                break;
         }
         return view;
     }

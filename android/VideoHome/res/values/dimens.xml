@@ -127,4 +127,13 @@
 
    <dimen name="media_port_item_right_corner_width">20dp</dimen>
 
+    <!-- Channeltabs start -->
+    <dimen name="channel_media_view_width">173.3dp</dimen>
+    <dimen name="channel_media_view_height">127.3dp</dimen>
+    <dimen name="channel_media_view_port_width">127.3dp</dimen>
+    <dimen name="channel_media_view_port_height">173.3dp</dimen>
+    <dimen name="channel_tabs_horizontal_view_height">320.0dp</dimen>
+    <dimen name="channel_tabs_portrait_view_height">400.0dp</dimen>
+    <!-- Channeltabs end -->
+
 </resources>
