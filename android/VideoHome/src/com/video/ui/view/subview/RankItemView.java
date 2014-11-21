@@ -44,7 +44,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         int padding = (getDimens().width-row_count*getResources().getDimensionPixelSize(R.dimen.media_port_width))/(row_count+1);
         LinearFrame header = (LinearFrame)v.findViewById(R.id.header);
         for (int i=0;i<row_count;i++) {
-            DisplayItem item = items.get(i);
+            final DisplayItem item = items.get(i);
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
             ((TextView)tv.findViewById(R.id.click_count)).setText(item.sub_title);
             ((TextView)tv.findViewById(R.id.name)).setText(item.title);
@@ -55,6 +55,13 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
 
             ImageView iv = (ImageView) tv.findViewById(R.id.poster);
+            tv.findViewById(R.id.rank_media_item_click).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    launcherAction(getContext(), item);
+                }
+            });
+
             header.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.media_port_width), getResources().getDimensionPixelSize(R.dimen.rank_media_item_height), padding, padding);
             Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(iv);
         }
@@ -67,9 +74,15 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
         LinearFrame list = (LinearFrame)v.findViewById(R.id.list);
         for (int i=row_count;i<items.size();i++) {
-            DisplayItem item = items.get(i);
+            final DisplayItem item = items.get(i);
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.media_item_textview, null);
             tv.setText(String.format("%1$s . %2$s", i, item.title));
+            tv.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    launcherAction(getContext(), item);
+                }
+            });
 
             list.addItemViewPort(tv, getResources().getDimensionPixelSize(R.dimen.rank_banner_width),getResources().getDimensionPixelSize(R.dimen.rank_media_text_height), 0);
 
@@ -89,6 +102,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         height += dpToPx(4);
         height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
         ((Button)v.findViewById(R.id.enter_button)).setText(subtitle);
+        //TODO add click
 
         height += dpToPx(4);
         getDimens().height = height;
