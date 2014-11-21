@@ -15,7 +15,7 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/18/14.
  */
-public class ChannelTabs extends LinearLayout implements DimensHelper {
+public class ChannelTabs extends LinearBaseCardView implements DimensHelper {
     Block<DisplayItem> content;
     private TabWidget mTabWidget;
     private boolean mGridLoaded = false;
@@ -23,17 +23,17 @@ public class ChannelTabs extends LinearLayout implements DimensHelper {
     int mType =  LayoutConstant.grid_media_land;
 
     public ChannelTabs(Context context) {
-        super(context);
+        super(context, null, 0);
     }
 
     public ChannelTabs(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super(context, attrs, 0);
     }
 
     private static Dimens mDimens;
 
     public ChannelTabs(Context context, Block<DisplayItem> blocks) {
-        super(context);
+        super(context, null, 0);
         initUI(blocks);
     }
 

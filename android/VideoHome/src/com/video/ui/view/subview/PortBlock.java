@@ -3,7 +3,6 @@ package com.video.ui.view.subview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -12,21 +11,21 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/20/14.
  */
-public class PortBlock extends LinearLayout implements DimensHelper{
+public class PortBlock extends LinearBaseCardView implements DimensHelper{
     Block<DisplayItem> content;
 
     public PortBlock(Context context) {
-        super(context);
+        super(context, null, 0);
     }
 
     public PortBlock(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super(context, attrs, 0);
     }
 
     private DimensHelper.Dimens mDimens;
 
     public PortBlock(Context context, Block<DisplayItem> blocks) {
-        super(context);
+        super(context, null, 0);
         initUI(blocks);
     }
 

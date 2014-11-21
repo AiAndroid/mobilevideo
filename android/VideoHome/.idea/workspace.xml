@@ -63,204 +63,204 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23b860ee-7930-4089-bd44-041294ebf36b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/RegisteredPhoneException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/FileResetableOutputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/Decompression.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/ServiceEntry.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/SecureRequest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/GameInfoView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/ViewUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/InstallProcessor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_url.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/ServiceToken.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/libs/cloudcommonlib.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_mode.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/ReportManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/SummaryView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/LocalAppInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/InstallPackageByIntent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ICloudManagerResponse.aidl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/add_handler.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/Client.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/AuthenticationFailureException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/BluetoothUtils.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/Base64.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/VideoView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/EasyMap.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/MemoryResetableOutputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/XMDownloadManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadObserver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/InvalidWritePositionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/AutoThreadFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/NoActivateAccountException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_gamecenter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/HorizontalScrollListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/Report.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/OnFindHanlderCallback.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/HttpConnectionManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/ImageUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/InstallController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/data/AccountInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/NeedCaptchaException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/AddHandlerDialog.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/ILoginCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/GameSummaryPage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/RegisteredPhoneException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/icon_gamecenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudServiceFailureException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/QSeekBarPositionView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/DataBaseColumnsMap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/OnLoaderControl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ThumbListView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_mode.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/GameCenterDatabaseHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ICloudManagerService.aidl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ExtendedAuthToken.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/PackageEntry.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/WLUIUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MineView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/ReportManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/HandlerCheck.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/IQueryBalance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/ViewUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/blue_card.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotListView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/MetaLoginData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/IQueryUserInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/LocalAppInfo.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/guide_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/AccountUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/InvalidWritePositionException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/BluetoothReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/SystemConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/HttpConnectionManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/libs/cloudcommonlib.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/UserView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/mine_handler.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_gamecenter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/ResetableOutputStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/GameCenterProvider.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/ReportProperty.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/MemoryResetableOutputStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/InstallProcessor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/SecureRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/CloudManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/CloudServiceException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/ImageUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudServerException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/SimpleRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/ServiceEntry.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/NoActivateAccountException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/data/XiaomiUserInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/GlobalReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/OperateDevice.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/PictureActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/OperationCancelledException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IUserData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/HorizontalScrollListView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/buy_handler.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/GameInfoView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseGridItem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/UserInfoUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/DrawableCache.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/extLibs/framework_tv.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/OperationSession.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/Report.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/data/AccountInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ICloudManagerService.aidl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/mine_account.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/libs/mitvpaymentsdk.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IPackageManagerConstants.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/FileTooLargeException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/GlobalConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudParameterError.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseScrollView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/DataBaseColumns.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/GameCenterDatabaseHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/add_handler_dialog_layout.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/VideoSeazons.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/WLReflect.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CipherException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MirrorView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/Decompression.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/CloudHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/DownloadCompeleteEntry.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadStatusHandler.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/Constants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/CloudServiceException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/AutoThreadFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/BluetoothUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/OnSeekBarListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/FileTooLargeException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/Client.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/PackageEntry.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IPackageManagerConstants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/GamecenterUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/mine_account.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/MainHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/ILoginCallback.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/MiboxGamecenterApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/CrashExceptionHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/Connection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/ProtocolFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/QSeekBarPositionView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_start_searching.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/OpenHandlerGameGuidePage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_url.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/NeedCaptchaException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/AccessDeniedException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/XMDownloadManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/MemoryManager.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/CloudCoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShot.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/InvalidCredentialException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BluetoothView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/GlobalService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/EasyMap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/MainHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadTablePojo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/extLibs/MitvAPI.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/InvalidUserNameException.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/OnBluetoothHandlerListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/ReportProperty.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/CloudManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/mine_handler.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/SimpleRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShot.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/AutoThreadFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/Connection.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/icon_appstore.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/HandlerHelperActivity.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/HandlerMangeActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/libs/mitvpaymentsdk.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/icon_gamecenter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/InvalidResponseException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/IExtraIntent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/AppStoreUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/ServiceToken.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/InvalidCredentialException.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/SmoothGridView.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/OnHandlerCheckResult.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/MetaLoginData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/PictureActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/ResetableOutputStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseItemContainer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseScrollView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/blue_card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/LoginManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/OperationCancelledException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/UserInfoUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudServiceFailureException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ICloudManagerResponse.aidl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/ConnectedHanlderOperatorActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/GlobalReceiver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudParameterError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/AccessDeniedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseGridItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/OperateDevice.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/VideoView.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/IQueryBalance.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/buy_handler.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/HandlerHelperActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BaseItemContainer.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/Protocol_LoadMibiKey.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/WLReflect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MineScaleFocusedView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/DrawableCache.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/DataBaseColumnsMap.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/AppStoreUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/utils/CloudHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/BluetoothReceiver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/NeedVerificationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/ClientRegister.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/HandlerCheck.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/DataBaseColumns.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/AccountUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/AccountUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/InvalidUserNameException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudServerException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MineView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/OpenHandlerGameGuidePage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/AuthenticationFailureException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/OnLoaderControl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/StaticsType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ScreenShotListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/ConfigTools.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/LocalAppManager.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/SpaceShortageActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/db/GameCenterProvider.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/StaticsType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/InstallPackageByIntent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/ConnectedHanlderOperatorActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/CrashExceptionHandler.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/RelatedGameListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/DownloadCompeleteEntry.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/IUserData.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudRichMediaServerException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/add_handler_dialog_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/WLUIUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/GlobalConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/extLibs/framework_tv.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/MemoryManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/BluetoothView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/SystemConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/UserView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CipherException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadTablePojo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/data/XiaomiUserInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/ThumbListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/extLibs/MitvAPI.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/OperationSession.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/VideoSeazons.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/IQueryUserInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/add_handler.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/icon_appstore.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/operator/AddHandlerDialog.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/Protocol_Method.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/localservice/GlobalService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/Protocol_Base.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/AESEncryption.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/IQueryBalance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/handler_start_searching.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/FileResetableOutputStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/DownloadObserver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/ExtendedAuthToken.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/ConfigTools.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/GameDetailsLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/GameSummaryPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MirrorView.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/app/AppMainActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/app/AppMainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoRelativesActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoRelativesActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/CommonRequest.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/CommonRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/screen_shot_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/screen_shot_layout.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/AppTabsGsonLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/AppTabsGsonLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_help_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_help_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_detail_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_detail_layout.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/Client.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/Client.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/gamedetail/OnSeekBarListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/ClientRegister.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/SummaryView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/download/InstallController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/view/MineScaleFocusedView.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/MiboxGamecenterApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/AccountUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/Protocol_Base.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/InvalidResponseException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/io/protocol/ProtocolFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/AESEncryption.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/ui/IExtraIntent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/utils/GamecenterUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/miui/cloud/exception/CloudRichMediaServerException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/statics/AutoThreadFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/data/LocalAppManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/account/LoginManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mibox/gamecenter/bluetooth/OnFindHanlderCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/xmsf/account/exception/NeedVerificationException.java" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/ApplicationAlbumActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/ApplicationAlbumActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/ApplicationDetailActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/ApplicationDetailActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/MiTVSystem.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/MiTVSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/activity_home.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/Client.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/video_album_detail.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/video_album_detail.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameDetailActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/GameDetailActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GameTabsGsonLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GameTabsGsonLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/HandlerHelperActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/HandlerHelperActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/Utils.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/subject_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/subject_layout.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameMainActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/TVMainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/Player.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_purchase_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_purchase_layout.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/CommonUrlBuilder.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/CommonUrlBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/IConfig.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/IConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/base_grid_item.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/base_grid_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_summary_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_summary_layout.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoPlayerActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoPlayerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rTW/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rTW/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_detail_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_detail_layout.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoDetailActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rCN/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rCN/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/activity_home.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameMainActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/TVMainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/screen_shot_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/screen_shot_layout.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/Constants.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/Constants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GenericSubjectLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GenericSubjectLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameAlbumActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/GameAlbumActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/PlayerActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/PlayerActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/XiaomiUIHelper.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/XiaomiUIHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/AndroidManifest.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GenericDetailLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GenericDetailLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/CommonUrl.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/CommonUrl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/SubjectActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/SubjectActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/MiTVBuild.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/MiTVBuild.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/Player.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/Player.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoAlbumActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoAlbumActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/base_grid_item.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/base_grid_item.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/ApplicationDetailActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/ApplicationDetailActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GameTabsGsonLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GameTabsGsonLoader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/CommonRequest.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/CommonRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_summary_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/game_summary_layout.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/MiTVSystem.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/MiTVSystem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoRelativesActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoRelativesActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_purchase_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_purchase_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/drawable-xhdpi/ic_launcher.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/app/AppMainActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/app/AppMainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/build.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/build.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/Utils.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/Utils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/VideoPlayerActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/VideoPlayerActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GenericSubjectLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GenericSubjectLoader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/video/PlayerActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/video/PlayerActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rCN/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rCN/strings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/IConfig.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/IConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/AppTabsGsonLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/AppTabsGsonLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values/strings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/CommonUrl.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/CommonUrl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/XiaomiUIHelper.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/XiaomiUIHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/network/GenericDetailLoader.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/network/GenericDetailLoader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/utils/MiTVBuild.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/utils/MiTVBuild.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/SubjectActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/SubjectActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameAlbumActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/GameAlbumActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rTW/strings.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/values-zh-rTW/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/subject_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/subject_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_help_layout.xml" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/res/layout/handler_help_layout.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/GameDetailActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/GameDetailActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/xiaomi/mitv/store/game/HandlerHelperActivity.java" afterPath="$PROJECT_DIR$/../../../project/xiaomi_gamecenter/migamecenter/src/com/aimashi/tv/store/game/HandlerHelperActivity.java" />
     </list>
     <ignored path="TVMetroUI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -283,11 +283,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ViewCreateFactory.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ViewCreateFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51428574" vertical-offset="0" max-vertical-offset="882">
-              <caret line="28" column="111" selection-start-line="28" selection-start-column="111" selection-end-line="28" selection-end-column="111" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1225">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -296,12 +296,58 @@
       <file leaf-file-name="RankItemView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1944">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1796" max-vertical-offset="2650">
               <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortBlock.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="733" max-vertical-offset="1600">
+              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
               <folding>
-                <element signature="e#587#588#0" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
+                <element signature="e#460#461#0" expanded="true" />
+                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChannelTabs.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.9074941" vertical-offset="1275" max-vertical-offset="3050">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinearBaseCardView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="650">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseCardView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
+              <caret line="30" column="5" selection-start-line="28" selection-start-column="3" selection-end-line="30" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -319,9 +365,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/res/layout-port/activity_main.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/DisplayView.java" />
         <option value="$PROJECT_DIR$/res/anim/ads_in.xml" />
         <option value="$PROJECT_DIR$/res/anim/adb_out.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/SmoothHorizontalScrollView.java" />
@@ -370,14 +413,17 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="14" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
     <option name="width" value="1857" />
-    <option name="height" value="1076" />
+    <option name="height" value="1085" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -405,8 +451,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -422,7 +466,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -432,19 +476,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -454,23 +498,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -480,27 +524,27 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="subview" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -510,41 +554,21 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VideoHome" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -633,19 +657,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -671,6 +682,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -775,7 +799,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="14" width="1857" height="1076" extended-state="0" />
+    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -789,14 +813,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24676724" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0625" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2458159" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06171548" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21774633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21725067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22698745" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959569" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -810,13 +834,13 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26778242" sideWeight="0.09595688" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21778975" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22698745" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959569" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22698745" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -946,6 +970,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1225">
+          <caret line="28" column="111" selection-start-line="28" selection-start-column="111" selection-end-line="28" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="3175">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3582">
@@ -997,25 +1037,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/qucik_local_entry_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14231259" vertical-offset="138" max-vertical-offset="950">
           <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_textview.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_textview.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29187194" vertical-offset="63" max-vertical-offset="875">
           <caret line="12" column="66" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="66" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java">
@@ -1033,14 +1073,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/rank_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4814816" vertical-offset="75" max-vertical-offset="1025">
           <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/LinearFrame.java">
@@ -1083,14 +1123,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/ads_viewflipper.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.962963" vertical-offset="0" max-vertical-offset="900">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
@@ -1101,14 +1141,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/category_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.944445" vertical-offset="1463" max-vertical-offset="2250">
           <caret line="80" column="49" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="49" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tv/ui/metro/model/DisplayItem.java">
@@ -1119,22 +1159,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
-          <caret line="29" column="87" selection-start-line="29" selection-start-column="87" selection-end-line="29" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/media_item_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="812">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryItemView.java">
@@ -1145,9 +1178,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.83979326" vertical-offset="0" max-vertical-offset="1125">
           <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
@@ -1156,27 +1186,30 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/feature_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/feature_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.481482" vertical-offset="788" max-vertical-offset="1575">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="56" selection-end-column="61" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/ads_imageview_container.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/ads_imageview_container.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2407408" vertical-offset="0" max-vertical-offset="375">
           <caret line="7" column="194" selection-start-line="7" selection-start-column="194" selection-end-line="7" selection-end-column="194" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/android/support/v4/view/ViewPager.class">
@@ -1207,28 +1240,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java.bak">
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1225">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1908">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1796" max-vertical-offset="2650">
           <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
+          <caret line="30" column="5" selection-start-line="28" selection-start-column="3" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="650">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
-            <element signature="e#587#588#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51428574" vertical-offset="0" max-vertical-offset="882">
-          <caret line="28" column="111" selection-start-line="28" selection-start-column="111" selection-end-line="28" selection-end-column="111" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="733" max-vertical-offset="1600">
+          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding>
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9074941" vertical-offset="1275" max-vertical-offset="3050">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
           <folding />
         </state>
       </provider>
