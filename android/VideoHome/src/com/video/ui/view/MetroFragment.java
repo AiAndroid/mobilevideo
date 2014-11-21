@@ -9,16 +9,22 @@ import android.view.ViewGroup;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
+import com.video.ui.view.subview.AdsAninationListener;
 
 import java.util.ArrayList;
 
-public class MetroFragment extends Fragment {
+public class MetroFragment extends Fragment implements AdsAninationListener{
     private final String TAG = "MetroFragment";
 	public MetroLayout mMetroLayout;
     protected SmoothHorizontalScrollView mHorizontalScrollView;
     protected Block<DisplayItem> tab;
     protected boolean isUserTab = false;
-	
+
+    private AdsAninationListener mAdsAL;
+    public void registerAnimationListener(AdsAninationListener al){
+        mAdsAL = al;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -72,6 +78,10 @@ public class MetroFragment extends Fragment {
             int step = 0;
             for(Block<DisplayItem> item:tab.blocks){
                 View blockView = inflateBlock(item);
+                if(blockView instanceof AdsAninationListener){
+                    registerAnimationListener((AdsAninationListener)blockView);
+                }
+
                 if(item.ui_type.id == LayoutConstant.imageswitcher    ||
                    item.ui_type.id == LayoutConstant.linearlayout_top ||
                    item.ui_type.id == LayoutConstant.linearlayout_left ||
@@ -98,5 +108,22 @@ public class MetroFragment extends Fragment {
             return view;
 
         return  new RecommendCardView(getActivity()).bindData(item);
+    }
+
+    @Override
+    public void startAnimation() {
+        if(mAdsAL != null)
+            mAdsAL.startAnimation();
+    }
+
+    @Override
+    public void stopAnimation() {
+        if(mAdsAL != null)
+            mAdsAL.stopAnimation();
+    }
+
+    @Override
+    public AdsAninationListener getAnimationListener() {
+        return mAdsAL;
     }
 }

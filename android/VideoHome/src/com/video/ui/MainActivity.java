@@ -29,6 +29,7 @@ import com.video.ui.view.EmptyLoadingView;
 import com.video.ui.view.MetroFragment;
 import com.video.ui.view.RecommendCardViewClickListenerFactory;
 import com.video.ui.view.UserViewFactory;
+import com.video.ui.view.subview.AdsAninationListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -376,6 +377,16 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         }
         
         private void switchTabView(int index){
+            Fragment fg = fragments.get(new Integer(index));
+            if(fg instanceof AdsAninationListener){
+                AdsAninationListener ap = ((AdsAninationListener) fg).getAnimationListener();
+                if(ap != null){
+                    if(index == 0)
+                        ap.startAnimation();
+                    else
+                        ap.stopAnimation();
+                }
+            }
             switchTab(index);
         }
 
@@ -402,7 +413,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         public void onPageScrollStateChanged(int state) {
         }
     }
-    
+
     public void switchTab(int index){
         TabWidget tw = mTabHost.getTabWidget();
         for(int i=0;i<tw.getChildCount();i++) {

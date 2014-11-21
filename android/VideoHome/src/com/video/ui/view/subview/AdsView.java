@@ -1,6 +1,7 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends BaseCardView implements DimensHelper {
+public class AdsView extends BaseCardView implements DimensHelper, AdsAninationListener {
     public AdsView(Context context) {
         this(context, null, 0);
     }
@@ -139,5 +140,35 @@ public class AdsView extends BaseCardView implements DimensHelper {
             mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
         }
         return mDimens;
+    }
+
+    private Handler mHander;
+    private boolean stoped;
+    @Override
+    public void startAnimation() {
+        stoped = false;
+        mHander.postDelayed(swipe, 2000);
+    }
+
+    private Runnable swipe = new Runnable() {
+        @Override
+        public void run() {
+            if(stoped == true) {
+                int index = viewFlipper.getCurrentItem();
+                viewFlipper.setCurrentItem((index + 1) % viewFlipper.getChildCount());
+                mHander.postDelayed(this, 2000);
+            }
+        }
+    };
+
+    @Override
+    public void stopAnimation() {
+        stoped = true;
+        mHander.removeCallbacks(swipe);
+    }
+
+    @Override
+    public AdsAninationListener getAnimationListener() {
+        return this;
     }
 }

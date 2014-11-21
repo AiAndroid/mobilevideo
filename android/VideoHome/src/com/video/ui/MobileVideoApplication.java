@@ -19,7 +19,8 @@ public class MobileVideoApplication extends Application{
     public void onCreate() {
         super.onCreate();
         File cacheFile = createDefaultCacheDir(getApplicationContext());
-        Picasso picasso = new Picasso.Builder(getApplicationContext()).downloader(new OkHttpDownloader(cacheFile,calculateDiskCacheSize(cacheFile) )).build();
+
+        Picasso picasso = new Picasso.Builder(getApplicationContext()).downloader(new OkHttpDownloader(cacheFile, calculateDiskCacheSize(cacheFile))).build();
         Picasso.setSingletonInstance(picasso);
 
         Picasso.with(getApplicationContext()).setLoggingEnabled(true);
