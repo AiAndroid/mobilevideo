@@ -27,6 +27,6 @@ public abstract class BaseCardView  extends RelativeLayout {
     }
 
     protected void launcherAction(Context context, DisplayItem item){
-        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/"+item.ns + item.ui_type, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.type + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
     }
 }
