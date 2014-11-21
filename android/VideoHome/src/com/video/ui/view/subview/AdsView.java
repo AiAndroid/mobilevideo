@@ -142,7 +142,7 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAninationL
         return mDimens;
     }
 
-    private Handler mHander;
+    private Handler mHander = new Handler();
     private boolean stoped;
     @Override
     public void startAnimation() {
