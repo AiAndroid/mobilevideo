@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 
 /**
@@ -23,5 +24,9 @@ public abstract class BaseCardView  extends RelativeLayout {
         DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
         int px = Math.round(dp* (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         return px;
+    }
+
+    protected void launcherAction(Context context, DisplayItem item){
+        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/"+item.ns + item.ui_type, Toast.LENGTH_SHORT).show();
     }
 }

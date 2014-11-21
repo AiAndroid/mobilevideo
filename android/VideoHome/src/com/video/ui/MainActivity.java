@@ -249,9 +249,30 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     }
 
     @Override
+    protected void onResume(){
+        super.onResume();
+
+        View view = mViewPager.getChildAt(mViewPager.getCurrentItem());
+        if(view instanceof AdsAnimationListener) {
+            AdsAnimationListener ap = ((AdsAnimationListener) view).getAnimationListener();
+            if (ap != null) {
+                ap.startAnimation();
+            }
+        }
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "onPause");
+
+        View view = mViewPager.getChildAt(mViewPager.getCurrentItem());
+        if(view instanceof AdsAnimationListener) {
+            AdsAnimationListener ap = ((AdsAnimationListener) view).getAnimationListener();
+            if (ap != null) {
+                ap.stopAnimation();
+            }
+        }
     }
 
     protected String dataSchemaForSearchString = "tvschema://video/search";
@@ -259,6 +280,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     	dataSchemaForSearchString = schema;
     }
 
+    private AdsAnimationListener preAdsAnimation;
     public class TabsAdapter extends FragmentPagerAdapter
             implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
         private final Context mContext;
@@ -376,7 +398,6 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             }
         }
 
-        private AdsAnimationListener preAdsAnimation;
         private void switchTabView(int index){
             Fragment fg = fragments.get(new Integer(index));
             if(fg instanceof AdsAnimationListener){

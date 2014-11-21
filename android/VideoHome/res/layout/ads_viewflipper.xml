@@ -8,6 +8,7 @@
     <com.video.ui.view.subview.CustomViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="false"
             android:id="@+id/image_flipper">
     </com.video.ui.view.subview.CustomViewPager>
 
@@ -15,6 +16,7 @@
               android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
               android:layout_alignParentBottom="true"
+              android:clickable="false"
               android:id="@+id/page_indicator"
               android:shadowColor="@color/black"
               android:shadowDy="2.0"

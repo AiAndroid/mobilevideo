@@ -33,7 +33,7 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
     private ImageView mPoster;
     private View      mClickView;
 
-    private void initUI(DisplayItem item){
+    private void initUI(final DisplayItem item){
         this.item = item;
 
         mContentView = View.inflate(getContext(), R.layout.feature_item, null);
@@ -53,6 +53,12 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
         mClickView = mContentView.findViewById(R.id.feature_media_click);
 
         mContentView.setClickable(true);
+        mClickView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launcherAction(getContext(), item);
+            }
+        });
     }
 
     private static Dimens mDimens;

@@ -33,7 +33,7 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
     private TextView  mCountView;
     private TextView  mMediaView;
 
-    private void initUI(DisplayItem item){
+    private void initUI(final DisplayItem item){
         this.item = item;
         int width = getContext().getResources().getDimensionPixelSize(R.dimen.category_media_view_width);
 
@@ -60,6 +60,13 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
         Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
 
         mContentView.setClickable(true);
+
+        mContentView.findViewById(R.id.category_media_click).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launcherAction(getContext(), item);
+            }
+        });
     }
 
 
