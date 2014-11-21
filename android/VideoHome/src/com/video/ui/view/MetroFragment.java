@@ -9,19 +9,19 @@ import android.view.ViewGroup;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
-import com.video.ui.view.subview.AdsAninationListener;
+import com.video.ui.view.subview.AdsAnimationListener;
 
 import java.util.ArrayList;
 
-public class MetroFragment extends Fragment implements AdsAninationListener{
+public class MetroFragment extends Fragment implements AdsAnimationListener {
     private final String TAG = "MetroFragment";
 	public MetroLayout mMetroLayout;
     protected SmoothHorizontalScrollView mHorizontalScrollView;
     protected Block<DisplayItem> tab;
     protected boolean isUserTab = false;
 
-    private AdsAninationListener mAdsAL;
-    public void registerAnimationListener(AdsAninationListener al){
+    private AdsAnimationListener mAdsAL;
+    public void registerAnimationListener(AdsAnimationListener al){
         mAdsAL = al;
     }
 
@@ -78,8 +78,8 @@ public class MetroFragment extends Fragment implements AdsAninationListener{
             int step = 0;
             for(Block<DisplayItem> item:tab.blocks){
                 View blockView = inflateBlock(item);
-                if(blockView instanceof AdsAninationListener){
-                    registerAnimationListener((AdsAninationListener)blockView);
+                if(blockView instanceof AdsAnimationListener){
+                    registerAnimationListener((AdsAnimationListener)blockView);
                 }
 
                 if(item.ui_type.id == LayoutConstant.imageswitcher    ||
@@ -123,7 +123,7 @@ public class MetroFragment extends Fragment implements AdsAninationListener{
     }
 
     @Override
-    public AdsAninationListener getAnimationListener() {
+    public AdsAnimationListener getAnimationListener() {
         return mAdsAL;
     }
 }

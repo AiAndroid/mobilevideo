@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends BaseCardView implements DimensHelper, AdsAninationListener {
+public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationListener {
     public AdsView(Context context) {
         this(context, null, 0);
     }
@@ -147,16 +147,16 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAninationL
     @Override
     public void startAnimation() {
         stoped = false;
-        mHander.postDelayed(swipe, 2000);
+        mHander.postDelayed(swipe, 5000);
     }
 
     private Runnable swipe = new Runnable() {
         @Override
         public void run() {
-            if(stoped == true) {
+            if(stoped == false) {
                 int index = viewFlipper.getCurrentItem();
-                viewFlipper.setCurrentItem((index + 1) % viewFlipper.getChildCount());
-                mHander.postDelayed(this, 2000);
+                viewFlipper.setCurrentItem((index + 1) % viewList.size());
+                mHander.postDelayed(this, 5000);
             }
         }
     };
@@ -168,7 +168,7 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAninationL
     }
 
     @Override
-    public AdsAninationListener getAnimationListener() {
+    public AdsAnimationListener getAnimationListener() {
         return this;
     }
 }
