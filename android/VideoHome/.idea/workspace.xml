@@ -283,26 +283,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdsView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AdsView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2574" max-vertical-offset="4425">
-              <caret line="146" column="11" selection-start-line="141" selection-start-column="7" selection-end-line="146" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.45410627" vertical-offset="2474" max-vertical-offset="4400">
+              <caret line="137" column="88" selection-start-line="137" selection-start-column="88" selection-end-line="137" selection-end-column="88" />
               <folding>
                 <element signature="e#2215#2216#0" expanded="true" />
                 <element signature="e#2277#2278#0" expanded="true" />
                 <element signature="e#2476#2715#0" expanded="true" />
                 <element signature="e#2696#2697#0" expanded="true" />
-                <element signature="e#4498#4664#0" expanded="true" />
-                <element signature="e#4653#4654#0" expanded="true" />
-                <element signature="e#5042#5106#0" expanded="true" />
-                <element signature="e#5137#5202#0" expanded="true" />
-                <element signature="e#5523#5831#0" expanded="true" />
-                <element signature="e#5824#5825#0" expanded="true" />
-                <element signature="e#6021#6022#0" expanded="true" />
-                <element signature="e#6048#6049#0" expanded="true" />
+                <element signature="e#4497#4663#0" expanded="true" />
+                <element signature="e#4652#4653#0" expanded="true" />
+                <element signature="e#5036#5100#0" expanded="true" />
+                <element signature="e#5131#5196#0" expanded="true" />
+                <element signature="e#5517#5825#0" expanded="true" />
+                <element signature="e#5818#5819#0" expanded="true" />
+                <element signature="e#6015#6016#0" expanded="true" />
+                <element signature="e#6042#6043#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ads_imageview_container.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/ads_imageview_container.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2407408" vertical-offset="0" max-vertical-offset="375">
+              <caret line="7" column="194" selection-start-line="7" selection-start-column="194" selection-end-line="7" selection-end-column="194" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -323,8 +336,8 @@
       <file leaf-file-name="feature_item.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/feature_item.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.407408" vertical-offset="763" max-vertical-offset="1575">
-              <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+            <state vertical-scroll-proportion="-9.481482" vertical-offset="788" max-vertical-offset="1575">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="56" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -369,10 +382,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RankItemView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RankItemView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36231884" vertical-offset="1050" max-vertical-offset="2850">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="2850">
               <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#937#997#0" expanded="true" />
@@ -438,7 +451,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/tv/ui/metro/model/ImageGroup.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/res/layout-port/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/DisplayView.java" />
@@ -483,12 +495,13 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/ads_viewflipper.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryItemView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java" />
         <option value="$PROJECT_DIR$/res/layout/media_port_item.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java" />
+        <option value="$PROJECT_DIR$/res/layout/ads_imageview_container.xml" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java" />
       </list>
     </option>
   </component>
@@ -708,6 +721,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoHome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoHome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1115,17 +1146,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout-port/tab_view_indicator_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0925927" vertical-offset="0" max-vertical-offset="550">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/android-sdks/platforms/android-19/data/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4370" max-vertical-offset="5300">
@@ -1451,17 +1471,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/feature_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.407408" vertical-offset="763" max-vertical-offset="1575">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="847" max-vertical-offset="1950">
@@ -1470,27 +1479,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2037#2203#0" expanded="true" />
             <element signature="e#2192#2193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2574" max-vertical-offset="4425">
-          <caret line="146" column="11" selection-start-line="141" selection-start-column="7" selection-end-line="146" selection-end-column="11" />
-          <folding>
-            <element signature="e#2215#2216#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2476#2715#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
-            <element signature="e#4498#4664#0" expanded="true" />
-            <element signature="e#4653#4654#0" expanded="true" />
-            <element signature="e#5042#5106#0" expanded="true" />
-            <element signature="e#5137#5202#0" expanded="true" />
-            <element signature="e#5523#5831#0" expanded="true" />
-            <element signature="e#5824#5825#0" expanded="true" />
-            <element signature="e#6021#6022#0" expanded="true" />
-            <element signature="e#6048#6049#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1562,7 +1550,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36231884" vertical-offset="1050" max-vertical-offset="2850">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="2850">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="e#937#997#0" expanded="true" />
@@ -1584,6 +1572,49 @@
             <element signature="e#4395#4465#0" expanded="true" />
             <element signature="e#4560#4624#0" expanded="true" />
             <element signature="e#4971#5034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/feature_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.481482" vertical-offset="788" max-vertical-offset="1575">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="56" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/ads_imageview_container.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2407408" vertical-offset="0" max-vertical-offset="375">
+          <caret line="7" column="194" selection-start-line="7" selection-start-column="194" selection-end-line="7" selection-end-column="194" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45410627" vertical-offset="2474" max-vertical-offset="4400">
+          <caret line="137" column="88" selection-start-line="137" selection-start-column="88" selection-end-line="137" selection-end-column="88" />
+          <folding>
+            <element signature="e#2215#2216#0" expanded="true" />
+            <element signature="e#2277#2278#0" expanded="true" />
+            <element signature="e#2476#2715#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#4497#4663#0" expanded="true" />
+            <element signature="e#4652#4653#0" expanded="true" />
+            <element signature="e#5036#5100#0" expanded="true" />
+            <element signature="e#5131#5196#0" expanded="true" />
+            <element signature="e#5517#5825#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#6015#6016#0" expanded="true" />
+            <element signature="e#6042#6043#0" expanded="true" />
           </folding>
         </state>
       </provider>

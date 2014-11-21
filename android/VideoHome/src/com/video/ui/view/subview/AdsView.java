@@ -134,19 +134,18 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
         viewFlipper.setAdapter(pagerAdapter);
     }
 
-    private ImageView getImageView(final DisplayItem item){
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.default_poster_pic));
+    private View getImageView(final DisplayItem item){
+        View view  = View.inflate(getContext(), R.layout.ads_imageview_container, null);
+        ImageView imageView = (ImageView) view.findViewById(R.id.image_ads);
 
-        imageView.setClickable(true);
-        imageView.setOnClickListener(new OnClickListener() {
+        view.findViewById(R.id.ads_media_click).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 launcherAction(getContext(), item);
             }
         });
         Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
-        return imageView;
+        return view;
     }
 
     private static Dimens mDimens;
