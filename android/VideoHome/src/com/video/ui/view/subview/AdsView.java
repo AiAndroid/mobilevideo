@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,15 +64,32 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
         page_indicator.setText(String.format("%1$s/%2$s", 1 ,content.size()));
         viewFlipper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i2) {}
+            public void onPageScrolled(int i, float v, int i2) {
+                Log.d("ads", "onPageScrolled");
+            }
 
             @Override
             public void onPageSelected(int i) {
                 page_indicator.setText(String.format("%1$s/%2$s ", i+1 ,content.size()));
+                mHander.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startAnimation();
+                        Log.d("ads", "onPageScrolled startAnimation");
+                    }
+                }, 200);
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {}
+            public void onPageScrollStateChanged(int i) {
+                if (i == 1) {
+                    Log.d("ads", "onPageScrolled stop");
+                    stopAnimation();
+                } else {
+                    Log.d("ads", "onPageScrolled start");
+                    startAnimation();
+                }
+            }
         });
 
         PagerAdapter pagerAdapter = new PagerAdapter() {
@@ -121,12 +139,7 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
     private ImageView getImageView(DisplayItem item){
         ImageView imageView = new ImageView(getContext());
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.default_poster_pic));
-        imageView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
         Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
         return imageView;
     }
@@ -143,11 +156,13 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
     }
 
     private Handler mHander = new Handler();
-    private boolean stoped;
+    private boolean stoped = true;
     @Override
     public void startAnimation() {
-        stoped = false;
-        mHander.postDelayed(swipe, 5000);
+        if(stoped == true) {
+            stoped = false;
+            mHander.postDelayed(swipe, 5000);
+        }
     }
 
     private Runnable swipe = new Runnable() {
