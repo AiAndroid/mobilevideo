@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class QuickNavigationView extends RelativeLayout implements DimensHelper {
+public class QuickNavigationView extends BaseCardView implements DimensHelper {
     public QuickNavigationView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -37,7 +36,7 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
         int padding = (getDimens().width-4*width)/3;
         int leftPadding = 0;
         for (int i=0;i<items.size();i++) {
-            DisplayItem item = items.get(i);
+            final DisplayItem item = items.get(i);
             View view =  View.inflate(getContext(), R.layout.qucik_entry_textview, null);
             view.setClickable(true);
             view.setBackgroundResource(draws[i%4]);
@@ -48,6 +47,12 @@ public class QuickNavigationView extends RelativeLayout implements DimensHelper 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
             Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_default).fit().into(iv);
 
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    launcherAction(getContext(), item);
+                }
+            });
             mMetroLayout.addItemView(view,width , getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), leftPadding, padding);
         }
     }

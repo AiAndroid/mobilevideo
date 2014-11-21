@@ -32,7 +32,7 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
 
         for (int i=0;i<items.size();i++) {
-            DisplayItem item = items.get(i);
+            final DisplayItem item = items.get(i);
             View view = View.inflate(getContext(), R.layout.qucik_local_entry_textview, null);
             view.setClickable(true);
             view.setBackgroundResource(draws[i%3]);
@@ -43,6 +43,12 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
             Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).fit().into(iv);
 
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    launcherAction(getContext(), item);
+                }
+            });
             mMetroLayout.addItemView(view, getDimens().width/3, getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height), 0);
         }
     }
