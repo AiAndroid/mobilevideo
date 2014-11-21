@@ -3293,7 +3293,7 @@
                     },
                     "items":[
                         {
-                            "title":"经典搞笑大集合",
+                            "title":美丽人生,
                             "sub_title":"评分最多：2万",
                             "id":"901",
                             "type":"album",
@@ -3301,6 +3301,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p019p75RdRe2/yT2vB9xBvwYFhN.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -3319,7 +3322,7 @@
                             }
                         },
                         {
-                            "title":"哪些年让我热血沸腾",
+                            "title":"以普洱主",
                             "sub_title":"午夜观看最多：2万",
                             "id":"901",
                             "type":"album",
@@ -3327,6 +3330,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01EkTqOWJrs/OqSkyyPvGJH7XN.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "media":{
@@ -3343,7 +3349,7 @@
                             }
                         },
                         {
-                            "title":"IMDB TOP",
+                            "title":"去给美女工资把",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3353,6 +3359,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01QTHJf9SHq/hMugyJ1oAHQlY3.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -3698,6 +3707,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p012lNPN5bk3/n19wpbaswsyLKs.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -3723,6 +3735,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01o4uPRrxGT/YB42qBqVp9sAW2.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "media":{
@@ -3749,6 +3764,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01gaavcodei/nlUtqQ9cbN030Y.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -4094,6 +4112,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01YfLreKwjL/XGkKITxPok8uTO.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -4119,6 +4140,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SuBh0HxYP/a116aeBRlChC3W.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "media":{
@@ -4145,6 +4169,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01VkKVD80KZ/Rtyx8flu7iuOS2.jpg"
+                                },
+                                "right_top_corner":{
+                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
                                 }
                             },
                             "times":{
@@ -4462,7 +4489,7 @@
         }
     ],
     "times":{
-        "updated":32,
+        "updated":33,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
