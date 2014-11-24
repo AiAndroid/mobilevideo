@@ -77,6 +77,7 @@ public class ChannelTabs extends LinearBaseCardView implements DimensHelper {
         for(Block<DisplayItem> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
+            text.setBackgroundResource(R.drawable.com_item_bg_up);
             mTabWidget.addView(text);
             text.setOnClickListener(new TabClickListener(mTabWidget.getTabCount() - 1));
 
