@@ -7,8 +7,9 @@ public class LayoutConstant {
     public final static int imageswitcher      = 101;//-------广告可以-------------给广告切换image
     public final static int linearlayout_top   = 201;//-------单行button----icon---图标在文本上边
     public final static int linearlayout_left  = 202;//-------单行Button----icon---图标在文本左边
-    public final static int linearlayout_poster= 203;//-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”
+    public final static int linearlayout_poster= 203;//-------单行Button----缺省,一行多个，以海报形式展示,电视剧：“韩剧专场”
     public final static int linearlayout_none  = 204;//-------单行Button----文本， 缺省
+    public final static int linearlayout_land  = 205;//-------单行海报---一行多个，以海报形式展示,电影：“韩剧专场”
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
     public final static int block_port         = 301;//------------展示块容器------------没有什么用 portrait layout
