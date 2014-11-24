@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/media_pager_white">
+            android:background="@drawable/media_pager_white"
+            android:paddingBottom="8dp">
     </FrameLayout>
 
     <TabWidget
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:showDividers="middle"
+            android:divider="@color/p_10_black"
             android:layout_marginTop="@dimen/media_pager_title_top_margin">
     </TabWidget>
 </RelativeLayout>

@@ -30,8 +30,7 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
         super(context, attrs, 0);
     }
 
-    private static Dimens mDimens;
-
+    private Dimens mDimens;
     public ChannelTabs(Context context, Block<DisplayItem> blocks) {
         super(context, null, 0);
         initUI(blocks);
@@ -41,13 +40,15 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
     public DimensHelper.Dimens getDimens() {
         if(mDimens == null){
             mDimens = new DimensHelper.Dimens();
+
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+            if( mType == LayoutConstant.grid_media_land) {
+                mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_tabs_horizontal_view_height);
+            }else{
+                mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_tabs_portrait_view_height);
+            }
         }
-        mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-        if( mType == LayoutConstant.grid_media_land) {
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_tabs_horizontal_view_height);
-        }else{
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_tabs_portrait_view_height);
-        }
+
         return mDimens;
     }
     private class TabClickListener implements OnClickListener {
@@ -65,6 +66,8 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
 
     private View root;
     private void initUI(Block<DisplayItem> rootblock){
+        int block_height = 0;
+        int item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         root = LayoutInflater.from(getContext()).inflate(R.layout.channel_tabs,null);
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         addView(root,lp);
@@ -74,6 +77,7 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
         mTabWidget = (TabWidget)root.findViewById(R.id.channeltabs);
         mTabWidget.setStripEnabled(false);
 
+        block_height += getResources().getDimensionPixelSize(R.dimen.media_pager_title_text_height);
         for(Block<DisplayItem> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
@@ -96,6 +100,8 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
 
                     int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_width))/(row_count+1);
 
+                    int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
+                    int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
                     for(int i=0;i<block.items.size();++i) {
                         final DisplayItem item = block.items.get(i);
 
@@ -112,17 +118,20 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
                         });
 
                         FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                        int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
-                        int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count) ) + padding*(i%row_count + 1);
-                        flp.topMargin  = getPaddingTop()  + (height*(i/row_count) );
+                        flp.topMargin  = getPaddingTop()  + (height*(i/row_count)) + item_padding*(i/row_count + 1);
 
                         grid.addView(meida,flp);
                     }
+
+                    block_height += height*(block.items.size()/row_count) + item_padding*(block.items.size()/row_count );
                 }else if(block.ui_type.id == LayoutConstant.grid_media_port){
                     int row_count = block.ui_type.row_count;
                     if(row_count == 0)
                         row_count = 3;
+
+                    int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
+                    int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
 
                     int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
                     mType = LayoutConstant.grid_media_port;
@@ -143,16 +152,19 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
                         });
 
                         FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                        int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
-                        int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
+
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count)) + padding*(i%row_count + 1);
-                        flp.topMargin  = getPaddingTop() + (height*(i/row_count));
+                        flp.topMargin  = getPaddingTop() + (height*(i/row_count)) + item_padding*(i/row_count + 1);
 
                         grid.addView(meida,flp);
                     }
+
+                    block_height += height*(block.items.size()/row_count) + item_padding*(block.items.size()/row_count);
                 }
             }
         }
+
+        getDimens().height = block_height;
     }
 
     private void showTab(int index){

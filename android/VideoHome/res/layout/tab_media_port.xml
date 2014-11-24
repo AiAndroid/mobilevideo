@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="@dimen/channel_media_view_port_width"
-              android:layout_height="wrap_content"
+              android:layout_height="@dimen/channel_media_view_port_height"
               android:gravity="center_horizontal"
-              android:orientation="vertical"
-              android:paddingTop="8dp">
+              android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="@dimen/channel_media_view_port_width"
-        android:layout_height="@dimen/channel_media_view_port_image_width" >
+        android:layout_height="@dimen/channel_media_view_port_image_height" >
 
         <ImageView
                 android:id="@+id/poster"
@@ -55,6 +54,7 @@
             android:layout_width="@dimen/channel_media_view_port_width"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:paddingTop="4dp"
             android:gravity="center"/>
 
 </LinearLayout>
