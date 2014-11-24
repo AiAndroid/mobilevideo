@@ -5,7 +5,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TabWidget;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
@@ -141,8 +144,11 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_port, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
                         Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
-                        TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                        descrip.setText(item.title);
+                        TextView title = (TextView)meida.findViewById(R.id.media_title);
+                        title.setText(item.title);
+
+                        TextView desc = (TextView)meida.findViewById(R.id.descrip);
+                        desc.setText(item.sub_title);
 
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                             @Override
@@ -164,6 +170,8 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             }
         }
 
+        //padding
+        getDimens().height += dpToPx(8);
         getDimens().height = block_height;
     }
 
@@ -190,8 +198,16 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             final DisplayItem item = block.items.get(i);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
             Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).into(image);
-            TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-            descrip.setText(item.title);
+
+            TextView title = (TextView)meida.findViewById(R.id.media_title);
+            if(title != null) {
+                title.setText(item.title);
+                TextView descrip = (TextView)meida.findViewById(R.id.descrip);
+                descrip.setText(item.sub_title);
+            }else {
+                TextView descrip = (TextView)meida.findViewById(R.id.descrip);
+                descrip.setText(item.title);
+            }
 
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override

@@ -2,7 +2,6 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
@@ -59,13 +58,5 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 }
             }
         }
-
-        mDimens.height += dpToPx(8);
-    }
-
-    public int dpToPx(int dp) {
-        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-        int px = Math.round(dp* (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-        return px;
     }
 }

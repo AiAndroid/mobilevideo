@@ -50,11 +50,21 @@
     </FrameLayout>
 
     <TextView
-            android:id="@+id/descrip"
+            android:id="@+id/media_title"
             android:layout_width="@dimen/channel_media_view_port_width"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:singleLine="true"
+            android:textColor="@color/text_color_deep_dark"
             android:paddingTop="4dp"
+            android:gravity="center"/>
+
+    <TextView
+            android:id="@+id/descrip"
+            android:layout_width="@dimen/channel_media_view_port_width"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="TextView"
             android:gravity="center"/>
 
 </LinearLayout>
