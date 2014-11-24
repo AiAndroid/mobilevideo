@@ -1491,6 +1491,84 @@
                             ]
                         },
                         {
+                            "title":"电视剧快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_poster",
+                                "id":203
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"韩剧专场",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"热播美剧",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "action":{
+                                        "target":"movie"
+                                    },
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"奇幻实时",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "action":{
+                                        "target":"variety"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "title":"进入电视剧频道",
                             "id":"500",
                             "type":"album",
@@ -2082,6 +2160,66 @@
                                             }
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "title":"电影快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_land",
+                                "id":205
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"韩剧专场",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"美剧联播",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "action":{
+                                        "target":"variety"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
                                 }
                             ]
                         },
@@ -4987,7 +5125,7 @@
         }
     ],
     "times":{
-        "updated":37,
+        "updated":38,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
