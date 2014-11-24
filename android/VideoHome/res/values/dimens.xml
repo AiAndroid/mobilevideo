@@ -94,8 +94,8 @@
 
     <dimen name="rank_banner_width">346.7dp</dimen>
     <dimen name="rank_media_item_height">190dp</dimen>
-    <dimen name="media_port_width">110dp</dimen>
-    <dimen name="media_port_height">150dp</dimen>
+    <dimen name="media_port_width">102dp</dimen>
+    <dimen name="media_port_height">148dp</dimen>
     <dimen name="rank_port_padding">4dp</dimen>
     <dimen name="rank_port_divider_height">1dp</dimen>
     <dimen name="rank_media_text_paddingH">8dp</dimen>

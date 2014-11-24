@@ -76,7 +76,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         for (int i=row_count;i<items.size();i++) {
             final DisplayItem item = items.get(i);
             final TextView tv = (TextView) View.inflate(getContext(), R.layout.media_item_textview, null);
-            tv.setText(String.format("%1$s . %2$s", i, item.title));
+            tv.setText(String.format("%1$s . %2$s", i+1, item.title));
             tv.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
