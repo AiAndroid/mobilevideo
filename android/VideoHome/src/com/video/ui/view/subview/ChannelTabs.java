@@ -15,7 +15,7 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/18/14.
  */
-public class ChannelTabs extends LinearBaseCardView implements DimensHelper {
+public class ChannelTabs extends BaseCardView implements DimensHelper {
     Block<DisplayItem> content;
     private TabWidget mTabWidget;
     private boolean mGridLoaded = false;
@@ -77,12 +77,13 @@ public class ChannelTabs extends LinearBaseCardView implements DimensHelper {
         for(Block<DisplayItem> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
-            text.setBackgroundResource(R.drawable.com_item_bg_up);
             mTabWidget.addView(text);
             text.setOnClickListener(new TabClickListener(mTabWidget.getTabCount() - 1));
 
             if(mGridLoaded ==false && block.items != null){
                 mGridLoaded = true;
+                text.setBackgroundResource(R.drawable.media_pager_tab_left);
+                text.setTextColor(getResources().getColor(R.color.orange));
 
                 FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
 
@@ -157,6 +158,20 @@ public class ChannelTabs extends LinearBaseCardView implements DimensHelper {
     private void showTab(int index){
         FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
         Block<DisplayItem> block = content.blocks.get(index);
+
+        for(int i=0;i<mTabWidget.getChildCount();i++){
+            TextView text = (TextView) mTabWidget.getChildAt(i);
+            if(i == index) {
+                if(i == 0)
+                    text.setBackgroundResource(R.drawable.media_pager_tab_left);
+                else
+                    text.setBackgroundResource(R.drawable.media_pager_tab_mid);
+                text.setTextColor(getResources().getColor(R.color.orange));
+            }else {
+                text.setBackground(null);
+                text.setTextColor(getResources().getColor(R.color.tab));
+            }
+        }
 
         for(int i=0;i<grid.getChildCount();i++){
             View meida = grid.getChildAt(i);

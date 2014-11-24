@@ -4,7 +4,7 @@
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              >
+              android:paddingTop="8dp">
 
     <FrameLayout
         android:layout_width="@dimen/channel_media_view_port_width"

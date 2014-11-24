@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:background="@drawable/com_item_bg_full">
+        android:orientation="vertical">
 
-    <TabWidget
-            android:id="@+id/channeltabs"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:showDividers="middle"
-            >
-    </TabWidget>
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/media_pager_title_bg_height"
+    android:background="@drawable/media_pager_gray"/>
 
     <FrameLayout
             android:id="@+id/channeltabcontent"
+            android:layout_marginTop="@dimen/media_pager_title_text_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
             android:layout_centerHorizontal="true"
-            >
+            android:background="@drawable/media_pager_white">
     </FrameLayout>
-</LinearLayout>
+
+    <TabWidget
+            android:id="@+id/channeltabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:showDividers="middle"
+            android:layout_marginTop="@dimen/media_pager_title_top_margin">
+    </TabWidget>
+</RelativeLayout>
