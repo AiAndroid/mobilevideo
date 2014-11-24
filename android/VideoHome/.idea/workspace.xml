@@ -286,8 +286,8 @@
       <file leaf-file-name="PortBlock.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
-              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1600">
+              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
               <folding>
                 <element signature="e#460#461#0" expanded="true" />
                 <element signature="e#499#500#0" expanded="true" />
@@ -300,126 +300,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuickNavigationView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1475">
-              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCardView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
-              <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="26" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChannelTabs.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ChannelTabs.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31610942" vertical-offset="3267" max-vertical-offset="5300">
-              <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="5225">
+              <caret line="73" column="72" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1294#1358#0" expanded="true" />
-                <element signature="e#1452#1533#0" expanded="true" />
-                <element signature="e#1587#1666#0" expanded="true" />
-                <element signature="e#2142#2204#0" expanded="true" />
-                <element signature="e#3786#3856#0" expanded="true" />
-                <element signature="e#3907#3977#0" expanded="true" />
-                <element signature="e#4012#4083#0" expanded="true" />
-                <element signature="e#5899#5974#0" expanded="true" />
-                <element signature="e#6009#6085#0" expanded="true" />
-                <element signature="e#6153#6228#0" expanded="true" />
-                <element signature="e#9841#10024#0" expanded="true" />
-                <element signature="e#10009#10010#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tab_media_port.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/tab_media_port.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6296296" vertical-offset="1258" max-vertical-offset="1875">
-              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-              <folding>
-                <element signature="e#147#185#0" expanded="true" />
-                <element signature="e#222#261#0" expanded="true" />
-                <element signature="e#405#443#0" expanded="true" />
-                <element signature="e#799#824#0" expanded="true" />
-                <element signature="e#2079#2117#0" expanded="true" />
-                <element signature="e#2463#2501#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="media_port_item.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.851852" vertical-offset="496" max-vertical-offset="1125">
-              <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-141.0" vertical-offset="0" max-vertical-offset="3975">
-              <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colors.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0" vertical-offset="1500" max-vertical-offset="2225">
-              <caret line="72" column="37" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tab_media_hor.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/tab_media_hor.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.111111" vertical-offset="883" max-vertical-offset="1650">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="channel_tabs.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="channel_tabs.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/channel_tabs.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2407408" vertical-offset="225" max-vertical-offset="925">
+            <state vertical-scroll-proportion="0.41588786" vertical-offset="133" max-vertical-offset="925">
               <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetroLayout.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4350" max-vertical-offset="10300">
+              <caret line="206" column="64" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="64" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -483,10 +395,10 @@
         <option value="$PROJECT_DIR$/res/layout/channel_tabs.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/tab_media_hor.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java" />
         <option value="$PROJECT_DIR$/res/layout/tab_media_port.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java" />
       </list>
     </option>
   </component>
@@ -991,7 +903,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2458159" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24058577" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24058577" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1468,45 +1380,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3450" max-vertical-offset="10300">
-          <caret line="176" column="34" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/DimensHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1475">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/channel_tabs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2407408" vertical-offset="225" max-vertical-offset="925">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
-          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1519,32 +1396,6 @@
             <element signature="imports" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding>
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#942#1006#0" expanded="true" />
-            <element signature="e#1752#1816#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.851852" vertical-offset="496" max-vertical-offset="1125">
-          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
@@ -1574,9 +1425,20 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/media_port_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25496688" vertical-offset="496" max-vertical-offset="1125">
+          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/tab_media_port.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6296296" vertical-offset="1258" max-vertical-offset="1875">
+        <state vertical-scroll-proportion="0.26012462" vertical-offset="1233" max-vertical-offset="1875">
           <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
           <folding>
             <element signature="e#147#185#0" expanded="true" />
@@ -1592,26 +1454,64 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31610942" vertical-offset="3267" max-vertical-offset="5300">
-          <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.3660322" vertical-offset="0" max-vertical-offset="725">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25143677" vertical-offset="0" max-vertical-offset="1475">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4350" max-vertical-offset="10300">
+          <caret line="206" column="64" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1600">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1294#1358#0" expanded="true" />
-            <element signature="e#1452#1533#0" expanded="true" />
-            <element signature="e#1587#1666#0" expanded="true" />
-            <element signature="e#2142#2204#0" expanded="true" />
-            <element signature="e#3786#3856#0" expanded="true" />
-            <element signature="e#3907#3977#0" expanded="true" />
-            <element signature="e#4012#4083#0" expanded="true" />
-            <element signature="e#5899#5974#0" expanded="true" />
-            <element signature="e#6009#6085#0" expanded="true" />
-            <element signature="e#6153#6228#0" expanded="true" />
-            <element signature="e#9841#10024#0" expanded="true" />
-            <element signature="e#10009#10010#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#942#1006#0" expanded="true" />
+            <element signature="e#1752#1816#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="5225">
+          <caret line="73" column="72" selection-start-line="73" selection-start-column="72" selection-end-line="73" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/channel_tabs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41588786" vertical-offset="133" max-vertical-offset="925">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

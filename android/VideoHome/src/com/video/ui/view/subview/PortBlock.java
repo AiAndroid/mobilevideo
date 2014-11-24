@@ -58,5 +58,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 }
             }
         }
+
+        mDimens.height += dpToPx(8);
     }
 }
