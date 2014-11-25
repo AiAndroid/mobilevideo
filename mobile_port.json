@@ -531,7 +531,7 @@
                                     "items":[
                                         {
                                             "title":"快男张天野疑行凶被抓",
-                                            "sub_title":"",
+                                            "sub_title":"爱看就看",
                                             "desc":"看看呗",
                                             "id":"100",
                                             "type":"item",
@@ -558,7 +558,7 @@
                                         },
                                         {
                                             "title":"性感美女街头大胆更衣",
-                                            "sub_title":"",
+                                            "sub_title":"爱看就看",
                                             "desc":"看看呗",
                                             "id":"100",
                                             "type":"item",
@@ -585,7 +585,7 @@
                                         },
                                         {
                                             "title":"驻马店发生恶性砍人事件",
-                                            "sub_title":"",
+                                            "sub_title":"爱看就看",
                                             "desc":"看看呗",
                                             "id":"100",
                                             "type":"item",
@@ -612,7 +612,7 @@
                                         },
                                         {
                                             "title":"台游览车司机诱少女车震",
-                                            "sub_title":"",
+                                            "sub_title":"爱看就看",
                                             "desc":"看看呗",
                                             "id":"100",
                                             "type":"item",
@@ -1591,6 +1591,66 @@
                                     "images":{
                                         "back":{
                                             "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"电视剧海报样式快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_land",
+                                "id":205
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"韩剧专场",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01C90yapFEa/dcJqRmWxZnh8Zp.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"美剧联播",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "action":{
+                                        "target":"movie"
+                                    },
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SmTiDYW4p/H0uwmrhPDTt3pq.jpg"
                                         }
                                     }
                                 }
@@ -5153,7 +5213,7 @@
         }
     ],
     "times":{
-        "updated":40,
+        "updated":42,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
