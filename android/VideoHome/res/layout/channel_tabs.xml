@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:background="@drawable/media_pager_white"
-            android:paddingBottom="8dp">
+            android:paddingBottom="@dimen/media_item_padding">
     </FrameLayout>
 
     <TabWidget

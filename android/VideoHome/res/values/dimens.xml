@@ -152,6 +152,11 @@
     <dimen name="media_pager_tab_bg_shadow_length">1.3dp</dimen>
     <dimen name="media_pager_media_view_top_margin">43.7dp</dimen>
     <!-- media pager view end -->
+
+    <dimen name="media_item_padding">8dp</dimen>
+
+    <dimen name="channel_media_poster_view_width">165dp</dimen>
+    <dimen name="channel_media_poster_view_height">100dp</dimen>
     <!-- Channeltabs end -->
 
 </resources>

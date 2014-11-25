@@ -112,7 +112,7 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
                         Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                        descrip.setText(item.title);
+                        descrip.setText(item.title + " " +item.sub_title);
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(View v) {

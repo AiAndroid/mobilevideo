@@ -74,6 +74,17 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
+
+                //add padding
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+            }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
+                PosterEnterView bv = new PosterEnterView(getContext(), block.items);
+
+                addView(bv);
+                getDimens().height += bv.getDimens().height;
+
+                //add padding
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
             }
         }
 

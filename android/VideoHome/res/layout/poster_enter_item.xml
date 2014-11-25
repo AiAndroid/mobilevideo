@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="@dimen/channel_media_poster_view_width"
+                android:layout_height="@dimen/channel_media_poster_view_height">
+
+    <ImageView
+            android:id="@+id/quick_enter_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:scaleType="fitXY">
+    </ImageView>
+    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/list_selector_bg"/>
+</RelativeLayout>
