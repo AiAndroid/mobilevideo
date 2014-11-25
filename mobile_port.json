@@ -1553,7 +1553,7 @@
                                     },
                                     "images":{
                                         "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01CJu6KN4uc/8RLrH1tSVRxhMv.jpg"
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
                                         }
                                     }
                                 },
@@ -1632,7 +1632,7 @@
                                     },
                                     "images":{
                                         "poster":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01C90yapFEa/dcJqRmWxZnh8Zp.jpg"
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
                                         }
                                     }
                                 },
@@ -1650,7 +1650,7 @@
                                     },
                                     "images":{
                                         "poster":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SmTiDYW4p/H0uwmrhPDTt3pq.jpg"
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
                                         }
                                     }
                                 }
@@ -2903,6 +2903,85 @@
                                             }
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "title":"电视剧快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_poster",
+                                "id":203
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"爸爸去哪儿",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"中国好声音",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "action":{
+                                        "target":"movie"
+                                    },
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"费城勿扰",
+                                    "sub_title":"想看就看被",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "action":{
+                                        "target":"variety"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
                                 }
                             ]
                         },
@@ -5218,7 +5297,7 @@
         }
     ],
     "times":{
-        "updated":45,
+        "updated":46,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
