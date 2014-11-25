@@ -1631,7 +1631,7 @@
                                         "params":"episode=8"
                                     },
                                     "images":{
-                                        "back":{
+                                        "poster":{
                                             "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01C90yapFEa/dcJqRmWxZnh8Zp.jpg"
                                         }
                                     }
@@ -1649,7 +1649,7 @@
                                         "created":0
                                     },
                                     "images":{
-                                        "back":{
+                                        "poster":{
                                             "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SmTiDYW4p/H0uwmrhPDTt3pq.jpg"
                                         }
                                     }
@@ -5213,7 +5213,7 @@
         }
     ],
     "times":{
-        "updated":41,
+        "updated":42,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
