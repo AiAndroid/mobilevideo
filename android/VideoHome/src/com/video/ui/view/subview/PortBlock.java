@@ -47,7 +47,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
 
         content = rootblock;
         int size = content.blocks.size();
-        for(Block<DisplayItem> block: content.blocks) {
+        for(final Block<DisplayItem> block: content.blocks) {
             if(block.ui_type.id == LayoutConstant.tabs_horizontal ){
                 View blockView = new ChannelTabs(getContext(),block);
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -60,14 +60,22 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                     mDimens.height += ((DimensHelper)blockView).getDimens().height;
                 }
             }else if(block.ui_type.id == LayoutConstant.linearlayout_none){
-                Button blockView = (Button) View.inflate(getContext(), R.layout.button_enter, null);
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.rank_button_height));
+                View buttonContain  = View.inflate(getContext(), R.layout.button_enter, null);
+                Button blockView = (Button)buttonContain.findViewById(R.id.enter_button);
+                //RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.media_banner_button_width), getResources().getDimensionPixelSize(R.dimen.rank_button_height));
                 blockView.setText(block.title);
-                addView(blockView, flp);
+
+                blockView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        launcherAction(getContext(), block);
+                    }
+                });
+                addView(buttonContain);
                 mDimens.height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
             }
         }
 
-        mDimens.height += dpToPx(12);
+        mDimens.height += dpToPx(16);
     }
 }

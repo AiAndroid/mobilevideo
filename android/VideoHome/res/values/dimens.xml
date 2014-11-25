@@ -70,6 +70,8 @@
     <dimen name="media_banner_width">352dp</dimen>
     <dimen name="media_banner_height">155.7dp</dimen>
 
+    <dimen name="media_banner_button_width">340dp</dimen>
+
     <!-- category -->
     <dimen name="category_media_view_width">352dp</dimen><!-- 351.3dp -->
     <dimen name="category_media_view_height">190dp</dimen>
