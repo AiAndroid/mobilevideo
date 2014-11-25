@@ -56,6 +56,14 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 if (blockView instanceof DimensHelper) {
                     getDimens().height += ((DimensHelper) blockView).getDimens().height;
                 }
+
+                View view = new View(getContext());
+                LayoutParams paddingLP = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                addView(view, paddingLP);
+
+                //add padding
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+
             } else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
                 Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
@@ -69,12 +77,23 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 });
                 addView(buttonContain);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+
+                View view = new View(getContext());
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                addView(view, flp);
+
+                //add padding
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+
             } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items);
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
 
+                View view = new View(getContext());
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                addView(view, flp);
                 //add padding
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
@@ -83,11 +102,16 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
 
+                View view = new View(getContext());
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                addView(view, flp);
+
                 //add padding
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
             }
         }
 
-        getDimens().height += dpToPx(16);
+        //more than one padding
+        getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
     }
 }
