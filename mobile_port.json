@@ -2267,8 +2267,8 @@
                             },
                             "items":[
                                 {
-                                    "title":"韩剧专场",
-                                    "id":"200",
+                                    "title":"爱情和香烟",
+                                    "id":"1057783",
                                     "type":"album",
                                     "ns":"video",
                                     "times":{
@@ -2287,13 +2287,13 @@
                                     },
                                     "images":{
                                         "poster":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01OhvHUmosK/10TGbYRk6grI9S.jpg"
                                         }
                                     }
                                 },
                                 {
-                                    "title":"美剧联播",
-                                    "id":"200",
+                                    "title":"窗台追踪",
+                                    "id":"1064262",
                                     "type":"album",
                                     "ns":"video",
                                     "times":{
@@ -2305,7 +2305,7 @@
                                     },
                                     "images":{
                                         "poster":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01sMDl0Fhim/MsWvDq8OaqF8eF.jpg"
                                         }
                                     }
                                 }
@@ -5213,7 +5213,7 @@
         }
     ],
     "times":{
-        "updated":42,
+        "updated":43,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
