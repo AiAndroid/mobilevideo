@@ -32,12 +32,14 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
         initUI(blocks);
     }
 
+    private static int media_item_padding = -1;
     @Override
     public DimensHelper.Dimens getDimens() {
         if(mDimens == null){
             mDimens = new DimensHelper.Dimens();
             mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
             mDimens.height = 0;
+            media_item_padding = getResources().getDimensionPixelSize(R.dimen.media_item_padding);
         }
 
         return mDimens;
@@ -58,11 +60,11 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 }
 
                 View view = new View(getContext());
-                LayoutParams paddingLP = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                LayoutParams paddingLP = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
                 addView(view, paddingLP);
 
                 //add padding
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+                getDimens().height += media_item_padding;
 
             } else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
@@ -79,11 +81,11 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
 
                 View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
                 addView(view, flp);
 
                 //add padding
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+                getDimens().height += media_item_padding;
 
             } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items);
@@ -92,10 +94,10 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 getDimens().height += bv.getDimens().height;
 
                 View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
                 addView(view, flp);
                 //add padding
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+                getDimens().height += media_item_padding;
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
                 PosterEnterView bv = new PosterEnterView(getContext(), block.items);
 
@@ -103,15 +105,15 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 getDimens().height += bv.getDimens().height;
 
                 View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.media_item_padding));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
                 addView(view, flp);
 
                 //add padding
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+                getDimens().height += media_item_padding;
             }
         }
 
         //more than one padding
-        getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+        getDimens().height += media_item_padding;
     }
 }
