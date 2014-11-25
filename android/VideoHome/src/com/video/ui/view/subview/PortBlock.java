@@ -54,11 +54,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 addView(blockView, flp);
                 if (blockView instanceof DimensHelper) {
-                    if (mDimens == null) {
-                        mDimens = new Dimens();
-                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-                    }
-                    mDimens.height += ((DimensHelper) blockView).getDimens().height;
+                    getDimens().height += ((DimensHelper) blockView).getDimens().height;
                 }
             } else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
@@ -72,29 +68,15 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                     }
                 });
                 addView(buttonContain);
-
-                if (blockView instanceof DimensHelper) {
-                    if (mDimens == null) {
-                        mDimens = new Dimens();
-                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-                    }
-                }
-
-                mDimens.height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
             } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items);
 
                 addView(bv);
-                if (bv instanceof DimensHelper) {
-                    if (mDimens == null) {
-                        mDimens = new Dimens();
-                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-                    }
-                    mDimens.height += bv.getDimens().height;
-                }
+                getDimens().height += bv.getDimens().height;
             }
         }
 
-        mDimens.height += dpToPx(16);
+        getDimens().height += dpToPx(16);
     }
 }
