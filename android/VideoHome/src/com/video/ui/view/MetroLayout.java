@@ -81,7 +81,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             mirror_ref_height = getResources().getDimensionPixelSize(R.dimen.mirror_ref_height);
 
             paddingLeft = (getResources().getDisplayMetrics().widthPixels - getResources().getDimensionPixelSize(R.dimen.media_banner_width))/2;
-            twoItemspaddingLeft = (getResources().getDisplayMetrics().widthPixels - 2*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width) - DIVIDE_SIZE)/2;
+            twoItemspaddingLeft = (getResources().getDisplayMetrics().widthPixels - 2*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width))/3;
         }
 
 		mDensityScale = 1;//mContext.getResources().getDisplayMetrics().densityDpi/320.0f;
@@ -131,7 +131,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                     height = ((DimensHelper) child).getDimens().height;
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
-                flp.leftMargin = getPaddingLeft() + (width + padding)*x + twoItemspaddingLeft;
+                flp.leftMargin = getPaddingLeft() + (width + twoItemspaddingLeft)*x + twoItemspaddingLeft;
                 flp.topMargin = getPaddingTop() + height*y + padding* (y+1);
                 flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);

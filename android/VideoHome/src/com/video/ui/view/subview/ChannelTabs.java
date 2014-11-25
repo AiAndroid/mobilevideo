@@ -170,6 +170,16 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             }
         }
 
+        TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
+        text.setText(" ");
+        mTabWidget.addView(text);
+        text.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //do nothing
+            }
+        });
+
         //padding
         getDimens().height += dpToPx(8);
         getDimens().height = block_height;
