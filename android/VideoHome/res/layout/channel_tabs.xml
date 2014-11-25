@@ -6,6 +6,7 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
+
     <View
     android:layout_width="match_parent"
     android:layout_height="@dimen/media_pager_title_bg_height"
@@ -29,4 +30,5 @@
             android:divider="@color/p_10_black"
             android:layout_marginTop="@dimen/media_pager_title_top_margin">
     </TabWidget>
+
 </RelativeLayout>

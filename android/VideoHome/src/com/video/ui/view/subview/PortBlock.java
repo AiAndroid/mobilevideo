@@ -3,6 +3,7 @@ package com.video.ui.view.subview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -26,6 +27,8 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
 
     public PortBlock(Context context, Block<DisplayItem> blocks) {
         super(context, null, 0);
+        setOrientation(VERTICAL);
+        setBackgroundResource(R.drawable.com_block_n);
         initUI(blocks);
     }
 
@@ -56,9 +59,15 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                     }
                     mDimens.height += ((DimensHelper)blockView).getDimens().height;
                 }
+            }else if(block.ui_type.id == LayoutConstant.linearlayout_none){
+                Button blockView = (Button) View.inflate(getContext(), R.layout.button_enter, null);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, getResources().getDimensionPixelSize(R.dimen.rank_button_height));
+                blockView.setText(block.title);
+                addView(blockView, flp);
+                mDimens.height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
             }
         }
 
-        mDimens.height += dpToPx(8);
+        mDimens.height += dpToPx(12);
     }
 }
