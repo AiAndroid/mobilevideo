@@ -43,26 +43,26 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
         return mDimens;
     }
 
-    private void initUI(Block<DisplayItem> rootblock){
+    private void initUI(Block<DisplayItem> rootblock) {
 
         content = rootblock;
         int size = content.blocks.size();
-        for(final Block<DisplayItem> block: content.blocks) {
-            if(block.ui_type.id == LayoutConstant.tabs_horizontal ){
-                View blockView = new ChannelTabs(getContext(),block);
+        for (int i=0;i<size;i++){
+            final Block<DisplayItem> block = content.blocks.get(i);
+            if (block.ui_type.id == LayoutConstant.tabs_horizontal) {
+                View blockView = new ChannelTabs(getContext(), block);
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 addView(blockView, flp);
                 if (blockView instanceof DimensHelper) {
-                    if(mDimens == null){
-                        mDimens = new DimensHelper.Dimens();
-                        mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                    if (mDimens == null) {
+                        mDimens = new Dimens();
+                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
                     }
-                    mDimens.height += ((DimensHelper)blockView).getDimens().height;
+                    mDimens.height += ((DimensHelper) blockView).getDimens().height;
                 }
-            }else if(block.ui_type.id == LayoutConstant.linearlayout_none){
-                View buttonContain  = View.inflate(getContext(), R.layout.button_enter, null);
-                Button blockView = (Button)buttonContain.findViewById(R.id.enter_button);
-                //RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.media_banner_button_width), getResources().getDimensionPixelSize(R.dimen.rank_button_height));
+            } else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
+                View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
+                Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
                 blockView.setText(block.title);
 
                 blockView.setOnClickListener(new OnClickListener() {
@@ -72,7 +72,26 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                     }
                 });
                 addView(buttonContain);
+
+                if (blockView instanceof DimensHelper) {
+                    if (mDimens == null) {
+                        mDimens = new Dimens();
+                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                    }
+                }
+
                 mDimens.height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+            } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
+                BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items);
+
+                addView(bv);
+                if (bv instanceof DimensHelper) {
+                    if (mDimens == null) {
+                        mDimens = new Dimens();
+                        mDimens.width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                    }
+                    mDimens.height += bv.getDimens().height;
+                }
             }
         }
 

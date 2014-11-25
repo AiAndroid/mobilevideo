@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="@dimen/quick_entry_channel_block_width"
+                        android:layout_height="@dimen/quick_entry_channel_block_height">
+
+             <TextView
+              android:id="@+id/quick_enter"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:singleLine="true"
+              android:textColor="@android:color/white"
+              android:textSize="@dimen/font_size_36"
+              android:clickable="false"
+              android:layout_centerHorizontal="true">
+            </TextView>
+</RelativeLayout>
