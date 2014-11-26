@@ -2349,6 +2349,47 @@
                     },
                     "blocks":[
                         {
+                            "title":"热点",
+                            "id":"500",
+                            "type":"album",
+                            "ns":"video",
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "times":{
+                            },
+                            "action":{
+                                "target":"album"
+                            },
+                            "ui_type":{
+                                "name":"linearlayout_title",
+                                "id":206
+                            }
+                        },
+                        {
+                            "title":"热点",
+                            "id":"500",
+                            "type":"album",
+                            "ns":"video",
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
+                                }
+                            },
+                            "media":{
+                            },
+                            "times":{
+                            },
+                            "action":{
+                                "target":"album"
+                            },
+                            "ui_type":{
+                                "name":"linearlayout_single_poster",
+                                "id":207
+                            }
+                        },
+                        {
                             "title":"快捷",
                             "ui_type":{
                                 "name":"tabs_horizontal",
@@ -6745,7 +6786,7 @@
         }
     ],
     "times":{
-        "updated":57,
+        "updated":58,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
