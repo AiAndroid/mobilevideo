@@ -72,32 +72,9 @@ block_port(tab)------------------------------------block_port(tab)<br>
 -------------------------item<br>
 -------------------------item<br><br>
 
-imageswitcher----------101-------广告可以-------------给广告切换image<br>
-linearlayout_top-------201-------单行button----icon---图标在文本上边<br>
-linearlayout_left------202-------单行Button----icon---图标在文本左边<br>
-//linearlayout_poster----203-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
-linearlayout_none------204-------单行Button----文本， 缺省<br>
-<br>
-block_land------------300------------展示块容器------------没有什么用 landscape layout<br>
-block_port------------301------------展示块容器------------没有什么用 portrait layout<br>
-<br>
-tabs_horizontal-------311------------水平tabs------------水平展示tab的父Block      <br>
-tabs_vertical---------312------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV<br>
-<br>
-block_channel---------400------------一个频道块<br>
-block_tabs------------410------------<br>
-grid_media_land-------411------------gridview------------水平展示媒体图片<br>
-grid_media_port-------412------------gridview------------垂直展示媒体图片<br>
-list_media_land-------413------------listview------------水平展示媒体图片<br>
-list_media_port-------414------------listview------------垂直展示媒体图片<br>
-<br>
-list_category_land----421------------listview------------category的land layout<br>
-list_category_port----422------------listview------------category port layout<br>
-grid_selection--------431------------grid----------------精选<br>
-list_rich_header------441--------------------------------排行<br>
+#Code in Android
 
-#Code
-public final static int imageswitcher      = 101;//-------广告可以-------------给广告切换image
+    public final static int imageswitcher      = 101;//-------广告可以-------------给广告切换image
     public final static int linearlayout_top   = 201;//-------单行button----icon---图标在文本上边
     public final static int linearlayout_left  = 202;//-------单行Button----icon---图标在文本左边
     public final static int linearlayout_poster= 203;//-------单行Button----缺省,一行多个，以海报形式展示,电视剧：“韩剧专场”
