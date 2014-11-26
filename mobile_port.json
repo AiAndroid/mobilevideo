@@ -3826,7 +3826,67 @@
                             }
                         }
                     ]
-                }
+                },
+                {
+                            "title":"电影快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_land",
+                                "id":205
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"爱情和香烟",
+                                    "id":"1057783",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01mLZWJOkNy/ZRwwP9LMYvLSGT.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"窗台追踪",
+                                    "id":"1064262",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "action":{
+                                        "target":"variety"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p016NPEAxsLY/p8jpzgpjnHcGga.jpg"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
             ]
         },
         {
@@ -5319,7 +5379,7 @@
         }
     ],
     "times":{
-        "updated":51,
+        "updated":52,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
