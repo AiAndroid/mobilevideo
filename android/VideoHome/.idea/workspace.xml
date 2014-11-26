@@ -286,8 +286,8 @@
       <file leaf-file-name="PortBlock.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="983" max-vertical-offset="2550">
-              <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="2550">
+              <caret line="64" column="14" selection-start-line="55" selection-start-column="12" selection-end-line="64" selection-end-column="14" />
               <folding>
                 <element signature="e#1166#1230#0" expanded="true" />
                 <element signature="e#2768#2832#0" expanded="true" />
@@ -313,20 +313,22 @@
       <file leaf-file-name="SubPortBlock.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80744547" vertical-offset="3221" max-vertical-offset="4225">
-              <caret line="172" column="33" selection-start-line="172" selection-start-column="33" selection-end-line="172" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.550706" vertical-offset="871" max-vertical-offset="4625">
+              <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
               <folding>
                 <element signature="e#1276#1340#0" expanded="true" />
-                <element signature="e#3167#3237#0" expanded="true" />
-                <element signature="e#3293#3355#0" expanded="true" />
-                <element signature="e#3386#3456#0" expanded="true" />
-                <element signature="e#3487#3558#0" expanded="true" />
-                <element signature="e#3796#3871#0" expanded="true" />
-                <element signature="e#3902#3978#0" expanded="true" />
-                <element signature="e#4041#4116#0" expanded="true" />
-                <element signature="e#6896#7103#0" expanded="true" />
-                <element signature="e#7084#7085#0" expanded="true" />
-                <element signature="e#7184#7248#0" expanded="true" />
+                <element signature="e#3316#3523#0" expanded="true" />
+                <element signature="e#3504#3505#0" expanded="true" />
+                <element signature="e#4051#4121#0" expanded="true" />
+                <element signature="e#4177#4239#0" expanded="true" />
+                <element signature="e#4270#4340#0" expanded="true" />
+                <element signature="e#4371#4442#0" expanded="true" />
+                <element signature="e#4680#4755#0" expanded="true" />
+                <element signature="e#4786#4862#0" expanded="true" />
+                <element signature="e#4925#5000#0" expanded="true" />
+                <element signature="e#7780#7987#0" expanded="true" />
+                <element signature="e#7968#7969#0" expanded="true" />
+                <element signature="e#8068#8132#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -335,8 +337,8 @@
       <file leaf-file-name="subchannel_imageview_container.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/subchannel_imageview_container.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8518518" vertical-offset="0" max-vertical-offset="650">
-              <caret line="4" column="58" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="73" />
+            <state vertical-scroll-proportion="-6.0185184" vertical-offset="0" max-vertical-offset="650">
+              <caret line="13" column="47" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -469,9 +471,9 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/LayoutConstant.java" />
         <option value="$PROJECT_DIR$/res/layout/subchannel_imageview_container.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/sub_channel_title.xml" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java" />
       </list>
     </option>
   </component>
@@ -976,7 +978,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2458159" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14016737" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14016737" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1135,13 +1137,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java</url>
-          <line>67</line>
+          <line>76</line>
           <properties />
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java</url>
-          <line>61</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="107" />
         </line-breakpoint>
@@ -1575,28 +1577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/subchannel_imageview_container.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8518518" vertical-offset="0" max-vertical-offset="650">
-          <caret line="4" column="58" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="983" max-vertical-offset="2550">
-          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-          <folding>
-            <element signature="e#1166#1230#0" expanded="true" />
-            <element signature="e#2768#2832#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="941" max-vertical-offset="5750">
@@ -1630,22 +1610,46 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="2550">
+          <caret line="64" column="14" selection-start-line="55" selection-start-column="12" selection-end-line="64" selection-end-column="14" />
+          <folding>
+            <element signature="e#1166#1230#0" expanded="true" />
+            <element signature="e#2768#2832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/subchannel_imageview_container.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0185184" vertical-offset="0" max-vertical-offset="650">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80744547" vertical-offset="3221" max-vertical-offset="4225">
-          <caret line="172" column="33" selection-start-line="172" selection-start-column="33" selection-end-line="172" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.550706" vertical-offset="871" max-vertical-offset="4625">
+          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
           <folding>
             <element signature="e#1276#1340#0" expanded="true" />
-            <element signature="e#3167#3237#0" expanded="true" />
-            <element signature="e#3293#3355#0" expanded="true" />
-            <element signature="e#3386#3456#0" expanded="true" />
-            <element signature="e#3487#3558#0" expanded="true" />
-            <element signature="e#3796#3871#0" expanded="true" />
-            <element signature="e#3902#3978#0" expanded="true" />
-            <element signature="e#4041#4116#0" expanded="true" />
-            <element signature="e#6896#7103#0" expanded="true" />
-            <element signature="e#7084#7085#0" expanded="true" />
-            <element signature="e#7184#7248#0" expanded="true" />
+            <element signature="e#3316#3523#0" expanded="true" />
+            <element signature="e#3504#3505#0" expanded="true" />
+            <element signature="e#4051#4121#0" expanded="true" />
+            <element signature="e#4177#4239#0" expanded="true" />
+            <element signature="e#4270#4340#0" expanded="true" />
+            <element signature="e#4371#4442#0" expanded="true" />
+            <element signature="e#4680#4755#0" expanded="true" />
+            <element signature="e#4786#4862#0" expanded="true" />
+            <element signature="e#4925#5000#0" expanded="true" />
+            <element signature="e#7780#7987#0" expanded="true" />
+            <element signature="e#7968#7969#0" expanded="true" />
+            <element signature="e#8068#8132#0" expanded="true" />
           </folding>
         </state>
       </provider>

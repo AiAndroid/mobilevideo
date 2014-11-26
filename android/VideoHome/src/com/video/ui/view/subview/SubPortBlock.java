@@ -57,7 +57,16 @@ public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
         int size = content.blocks.size();
         for (int i=0;i<size;i++){
             final Block<DisplayItem> block = content.blocks.get(i);
-            if(block.ui_type.id == LayoutConstant.linearlayout_title){
+            //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
+            if (block.ui_type.id == LayoutConstant.tabs_horizontal) {
+                View blockView = new ChannelTabs(getContext(), block);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                addView(blockView, flp);
+                if (blockView instanceof DimensHelper) {
+                    getDimens().height += ((DimensHelper) blockView).getDimens().height;
+                }
+                addOnePadding();
+            }else if(block.ui_type.id == LayoutConstant.linearlayout_title){
                 View root = View.inflate(getContext(), R.layout.sub_channel_title, null);
                 TextView title = (TextView) root.findViewById(R.id.channel_title);
                 title.setText(block.title);
@@ -69,6 +78,13 @@ public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
                 ImageView poster = (ImageView) root.findViewById(R.id.image_ads);
                 Picasso.with(getContext()).load(block.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().into(poster);
                 addView(root);
+
+                root.findViewById(R.id.ads_media_click).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        launcherAction(getContext(), block);
+                    }
+                });
 
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_banner_sub_channel_height);
                 addOnePadding();
