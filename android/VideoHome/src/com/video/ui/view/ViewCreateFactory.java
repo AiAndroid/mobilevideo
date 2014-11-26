@@ -31,7 +31,7 @@ public class ViewCreateFactory {
             case LayoutConstant.block_channel:
                 view = new PortBlock(context, item);
                 break;
-            case LayoutConstant.grid_selection:
+            case LayoutConstant.grid_block_selection:
                 view = new GridSelectView(context, item);
                 break;
         }
@@ -41,7 +41,7 @@ public class ViewCreateFactory {
     public static View CreateSingleView(Context context, DisplayItem item){
         View view = null;
         switch (item.ui_type.id){
-            case LayoutConstant.grid_selection:
+            case LayoutConstant.grid_item_selection:
                 view = new FeatureItemView(context, item);
                 break;
         }

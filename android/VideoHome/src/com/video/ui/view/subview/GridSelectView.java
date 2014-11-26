@@ -24,7 +24,7 @@ public class GridSelectView extends BaseCardView implements DimensHelper {
         super(context, null, 0);
 
         MetroLayout ml = new MetroLayout(context);
-        RelativeLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         int step = 0;
         int row_count = block.ui_type.row_count;
@@ -32,16 +32,20 @@ public class GridSelectView extends BaseCardView implements DimensHelper {
             row_count = 2;
         }
 
+        int itemHeight = 0;
         for(DisplayItem item: block.items) {
             View child = new FeatureItemView(context, item);
-            if(item.ui_type.id == LayoutConstant.grid_selection){
+            if(item.ui_type.id == LayoutConstant.grid_item_selection){
                 ml.addItemViewPort(child, item.ui_type.id, step % row_count, step / row_count);
                 step++;
             }
 
-            getDimens().height += ((DimensHelper)child).getDimens().height;
+            if(itemHeight == 0){
+                itemHeight =  ((DimensHelper)child).getDimens().height;
+            }
         }
 
+        getDimens().height += itemHeight * (step / row_count);
         addView(ml, lp);
     }
 

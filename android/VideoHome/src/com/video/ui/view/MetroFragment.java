@@ -63,7 +63,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
             int step = 0;
             for(DisplayItem item:tab.items){
                 View view = inflateDisplayItem(item);
-                if(item.ui_type.id == LayoutConstant.grid_selection){
+                if(item.ui_type.id == LayoutConstant.grid_item_selection){
                     int row_count = tab.ui_type.row_count;
                     if(row_count == 0){
                         row_count = 2;
@@ -88,7 +88,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
                    item.ui_type.id == LayoutConstant.list_category_land ||
                    item.ui_type.id == LayoutConstant.list_rich_header ||
                    item.ui_type.id == LayoutConstant.block_channel    ||
-                   item.ui_type.id == LayoutConstant.grid_selection)
+                   item.ui_type.id == LayoutConstant.grid_block_selection)
                     addViewPort(blockView, item.ui_type.id, 0, step++);
                 else
                     addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);

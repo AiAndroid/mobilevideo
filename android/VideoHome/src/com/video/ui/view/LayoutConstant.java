@@ -26,6 +26,7 @@ public class LayoutConstant {
 
     public final static int list_category_land = 421;//------------listview------------category的land layout
     public final static int list_category_port = 422;//------------listview------------category port layout
-    public final static int grid_selection     = 431;//------------grid----------------精选
+    public final static int grid_item_selection  = 431;//------------grid----------------精选
+    public final static int grid_block_selection = 432;//------------grid----------------精选
     public final static int list_rich_header   = 441;//--------------------------------排行
 }
