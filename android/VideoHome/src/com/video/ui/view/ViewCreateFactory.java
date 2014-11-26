@@ -28,8 +28,11 @@ public class ViewCreateFactory {
             case LayoutConstant.list_rich_header:
                 view = new RankItemView(context, item.items, item.title, item.sub_title, item.ui_type.row_count);
                 break;
-            case LayoutConstant.block_port:
+            case LayoutConstant.block_channel:
                 view = new PortBlock(context, item);
+                break;
+            case LayoutConstant.grid_selection:
+                view = new GridSelectView(context, item);
                 break;
         }
         return view;

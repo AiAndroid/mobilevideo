@@ -161,7 +161,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 rowOffset[0] += height;
                 break;
             }
-            case LayoutConstant.block_port:
+            case LayoutConstant.block_channel:
             {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);

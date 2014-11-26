@@ -87,7 +87,8 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
                    item.ui_type.id == LayoutConstant.linearlayout_left ||
                    item.ui_type.id == LayoutConstant.list_category_land ||
                    item.ui_type.id == LayoutConstant.list_rich_header ||
-                   item.ui_type.id == LayoutConstant.block_port )
+                   item.ui_type.id == LayoutConstant.block_channel    ||
+                   item.ui_type.id == LayoutConstant.grid_selection)
                     addViewPort(blockView, item.ui_type.id, 0, step++);
                 else
                     addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
