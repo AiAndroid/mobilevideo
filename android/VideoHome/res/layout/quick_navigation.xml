@@ -7,7 +7,7 @@
               android:layout_centerHorizontal="true">
         <com.video.ui.view.LinearFrame
                 android:id="@+id/metrolayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>

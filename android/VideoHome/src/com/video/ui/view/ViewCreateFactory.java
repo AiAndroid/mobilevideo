@@ -31,6 +31,9 @@ public class ViewCreateFactory {
             case LayoutConstant.block_channel:
                 view = new PortBlock(context, item, tag);
                 break;
+            case LayoutConstant.block_sub_channel:
+                view = new SubPortBlock(context, item, tag);
+                break;
             case LayoutConstant.grid_block_selection:
                 view = new GridSelectView(context, item, tag);
                 break;

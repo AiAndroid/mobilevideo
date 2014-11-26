@@ -61,13 +61,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                     getDimens().height += ((DimensHelper) blockView).getDimens().height;
                 }
 
-                View view = new View(getContext());
-                LayoutParams paddingLP = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
-                addView(view, paddingLP);
-
-                //add padding
-                getDimens().height += media_item_padding;
-
+                addOnePadding();
             } else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
                 Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
@@ -82,12 +76,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 addView(buttonContain);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
 
-                View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
-                addView(view, flp);
-
-                //add padding
-                getDimens().height += media_item_padding;
+                addOnePadding();
 
             } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
@@ -95,27 +84,27 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
 
-                View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
-                addView(view, flp);
-                //add padding
-                getDimens().height += media_item_padding;
+                addOnePadding();
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
                 PosterEnterView bv = new PosterEnterView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
 
-                View view = new View(getContext());
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
-                addView(view, flp);
-
-                //add padding
-                getDimens().height += media_item_padding;
+                addOnePadding();
             }
         }
 
         //more than one padding
+        getDimens().height += media_item_padding;
+    }
+
+    private void addOnePadding(){
+        View view = new View(getContext());
+        LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
+        addView(view, flp);
+
+        //add padding
         getDimens().height += media_item_padding;
     }
 }

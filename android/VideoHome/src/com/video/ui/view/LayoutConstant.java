@@ -10,6 +10,8 @@ public class LayoutConstant {
     public final static int linearlayout_poster= 203;//-------单行Button----缺省,一行多个，以海报形式展示,电视剧：“韩剧专场”
     public final static int linearlayout_none  = 204;//-------单行Button----文本， 缺省
     public final static int linearlayout_land  = 205;//-------单行海报---一行多个，以海报形式展示,电影：“韩剧专场”
+    public final static int linearlayout_title = 206;//-------标题
+    public final static int linearlayout_single_poster = 207;//-------单行海报
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
     public final static int block_port         = 301;//------------展示块容器------------没有什么用 portrait layout
@@ -17,7 +19,9 @@ public class LayoutConstant {
     public final static int tabs_horizontal    = 311;//------------水平tabs------------水平展示tab的父Block
     public final static int tabs_vertical      = 312;//------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV
 
-    public final static int block_channel      = 400;//------------一个频道块
+    public final static int block_channel      = 400;//------------多个频道块
+    public final static int block_sub_channel  = 401;//------------一个频道块
+
     public final static int block_tabs         = 410;//------------
     public final static int grid_media_land    = 411;//------------gridview------------水平展示媒体图片
     public final static int grid_media_port    = 412;//------------gridview------------垂直展示媒体图片

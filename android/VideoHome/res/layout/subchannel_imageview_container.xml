@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="@dimen/media_banner_sub_channel_width"
+              android:layout_height="@dimen/media_banner_sub_channel_height"
+              android:layout_centerHorizontal="true">
+    <ImageView android:id="@+id/image_ads"
+               android:layout_width="@dimen/media_banner_sub_channel_width"
+               android:layout_height="@dimen/media_banner_sub_channel_height"
+               android:src="@drawable/default_poster_pic"
+               android:layout_centerHorizontal="true"/>
+
+    <View      android:id="@+id/ads_media_click"
+               android:layout_width="@dimen/media_banner_sub_channel_width"
+               android:layout_height="@dimen/media_banner_sub_channel_height"
+               android:src="@drawable/default_poster_pic"
+               android:layout_centerHorizontal="true"
+               android:background="@drawable/list_selector_bg" android:clickable="true"/>
+
+</RelativeLayout>

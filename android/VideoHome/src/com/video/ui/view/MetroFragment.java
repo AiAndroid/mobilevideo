@@ -99,6 +99,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
                    item.ui_type.id == LayoutConstant.list_category_land ||
                    item.ui_type.id == LayoutConstant.list_rich_header   ||
                    item.ui_type.id == LayoutConstant.block_channel      ||
+                   item.ui_type.id == LayoutConstant.block_sub_channel  ||
                    item.ui_type.id == LayoutConstant.linearlayout_land  ||
                    item.ui_type.id == LayoutConstant.linearlayout_poster||
                    item.ui_type.id == LayoutConstant.grid_block_selection)

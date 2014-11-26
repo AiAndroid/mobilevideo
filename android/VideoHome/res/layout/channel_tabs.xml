@@ -8,6 +8,7 @@
 
 
     <View
+    android:id="@+id/tab_title_background"
     android:layout_width="match_parent"
     android:layout_height="@dimen/media_pager_title_bg_height"
     android:background="@drawable/media_pager_gray"/>

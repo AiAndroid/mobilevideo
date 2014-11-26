@@ -2,6 +2,7 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,9 +91,21 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             if(mGridLoaded ==false && block.items != null){
                 mGridLoaded = true;
                 text.setBackgroundResource(R.drawable.media_pager_tab_left);
+                if(size == 1){
+                    text.setBackground(null);
+                }
+
                 text.setTextColor(getResources().getColor(R.color.orange));
 
                 FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
+                if(size == 1){
+                    grid.setBackground(null);
+                    this.setBackground(null);
+                    root.findViewById(R.id.tab_title_background).setBackground(null);
+                    text.setGravity(Gravity.LEFT);
+                    int textPadding = getResources().getDimensionPixelSize(R.dimen.rank_title_top);
+                    text.setPadding(textPadding, textPadding, textPadding, textPadding);
+                }
 
                 if(block.ui_type.id == LayoutConstant.grid_media_land) {
                     mType = LayoutConstant.grid_media_land;
@@ -170,15 +183,18 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             }
         }
 
-        TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
-        text.setText(" ");
-        mTabWidget.addView(text);
-        text.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //do nothing
-            }
-        });
+        //size == 1 is special
+        if(size > 1) {
+            TextView text = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.tab_text, null);
+            text.setText(" ");
+            mTabWidget.addView(text);
+            text.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //do nothing
+                }
+            });
+        }
 
         //padding
         getDimens().height += dpToPx(8);
