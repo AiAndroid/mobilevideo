@@ -23,20 +23,23 @@ public class GridSelectView extends BaseCardView implements DimensHelper {
     public GridSelectView(Context context, Block<DisplayItem> block) {
         super(context, null, 0);
 
-        MetroLayout ml = new MetroLayout(context);
-        RelativeLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
 
+        MetroLayout ml = new MetroLayout(context);
+        RelativeLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.addRule(CENTER_HORIZONTAL);
         int step = 0;
         int row_count = block.ui_type.row_count;
         if(row_count == 0){
             row_count = 2;
         }
 
+        int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width))/(row_count+1);
         int itemHeight = 0;
         for(DisplayItem item: block.items) {
             View child = new FeatureItemView(context, item);
             if(item.ui_type.id == LayoutConstant.grid_item_selection){
-                ml.addItemViewPort(child, item.ui_type.id, step % row_count, step / row_count);
+                ml.addItemViewPort(child, item.ui_type.id, step % row_count, step/row_count, padding);
                 step++;
             }
 
@@ -45,8 +48,8 @@ public class GridSelectView extends BaseCardView implements DimensHelper {
             }
         }
 
-        getDimens().height += itemHeight * (step / row_count);
-        addView(ml, lp);
+        getDimens().height += (itemHeight)* ((step+1)/row_count) + padding*((step+1)/row_count - 1);
+        Root.addView(ml, lp);
     }
 
     private DimensHelper.Dimens mDimens;

@@ -123,22 +123,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
-            case LayoutConstant.grid_block_selection: {
-                int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
-                int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
-                flp = new LayoutParams(width, height);
-                if (child instanceof DimensHelper) {
-                    height = ((DimensHelper) child).getDimens().height;
-                    flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
-                }
-                flp.leftMargin = getPaddingLeft() + (width + twoItemspaddingLeft)*x + twoItemspaddingLeft;
-                flp.topMargin = getPaddingTop() + height*y + padding* (y+1);
-                flp.rightMargin = getPaddingRight() + paddingLeft;
-                child.setFocusable(true);
-                addView(child, flp);
-                rowOffset[0] += height;
-                break;
-            }
             case LayoutConstant.grid_item_selection: {
                 int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
@@ -147,9 +131,8 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                     height = ((DimensHelper) child).getDimens().height;
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
-                flp.leftMargin = getPaddingLeft() + (width + twoItemspaddingLeft)*x + twoItemspaddingLeft;
+                flp.leftMargin = getPaddingLeft() + (width + padding)*x + padding;
                 flp.topMargin = getPaddingTop() + height*y + padding* (y); //no need one more
-                flp.rightMargin = getPaddingRight() + paddingLeft;
                 child.setFocusable(true);
                 addView(child, flp);
                 rowOffset[0] += height;
@@ -160,6 +143,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.linearlayout_top:
             case LayoutConstant.linearlayout_left:
             case LayoutConstant.list_rich_header:
+            case LayoutConstant.grid_block_selection:
             {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
