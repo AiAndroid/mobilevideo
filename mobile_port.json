@@ -486,8 +486,8 @@
                 {
                     "title":"咨询频道",
                     "ui_type":{
-                        "name":"block_port",
-                        "id":301
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -946,8 +946,8 @@
                 {
                     "title":"电视剧频道",
                     "ui_type":{
-                        "name":"block_port",
-                        "id":301
+                         "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -1680,8 +1680,8 @@
                 {
                     "title":"电影频道",
                     "ui_type":{
-                        "name":"block_port",
-                        "id":301
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -2335,8 +2335,8 @@
                 {
                     "title":"综艺频道",
                     "ui_type":{
-                        "name":"block_port",
-                        "id":301
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -3342,7 +3342,27 @@
                 "id":301,
                 "row_count":2
             },
-            "items":[
+            "blocks":[
+                {
+                    "title":"精选1",
+                    "id":"100",
+                    "type":"album",
+                    "ns":"video",
+                    "times":{
+                        "updated":0,
+                        "created":0
+                    },
+                    "ui_type":{
+                        "name":"grid_selection",
+                        "id":431,
+                        "row_count":2
+                    },
+                    "images":{
+                        "icon":{
+                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                        }
+                    },
+                    "items":[
                 {
                     "title":"”光棍节“单身大作战",
                     "id":"1075976",
@@ -3804,6 +3824,8 @@
                         "name":"grid_selection",
                         "id":431
                     }
+                }
+            ],
                 }
             ]
         },
@@ -5297,7 +5319,7 @@
         }
     ],
     "times":{
-        "updated":46,
+        "updated":47,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
