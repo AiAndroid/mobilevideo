@@ -142,6 +142,9 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.imageswitcher:
             case LayoutConstant.linearlayout_top:
             case LayoutConstant.linearlayout_left:
+            case LayoutConstant.linearlayout_poster:
+            case LayoutConstant.linearlayout_land:
+            case LayoutConstant.linearlayout_none:
             case LayoutConstant.list_rich_header:
             case LayoutConstant.grid_block_selection:
             {

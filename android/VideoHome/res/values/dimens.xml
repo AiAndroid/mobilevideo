@@ -156,7 +156,7 @@
     <dimen name="media_item_padding">8dp</dimen>
 
     <dimen name="channel_media_poster_view_width">165dp</dimen>
-    <dimen name="channel_media_poster_view_height">100dp</dimen>
+    <dimen name="channel_media_poster_view_height">85dp</dimen>
     <!-- Channeltabs end -->
 
 </resources>

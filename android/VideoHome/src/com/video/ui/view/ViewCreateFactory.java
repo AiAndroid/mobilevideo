@@ -34,6 +34,12 @@ public class ViewCreateFactory {
             case LayoutConstant.grid_block_selection:
                 view = new GridSelectView(context, item);
                 break;
+            case LayoutConstant.linearlayout_land:
+                view = new PosterEnterView(context, item.items);
+                break;
+            case LayoutConstant.linearlayout_poster:
+                view = new BlockLinearButtonView(context, item.items);
+                break;
         }
         return view;
     }

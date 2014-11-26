@@ -15,7 +15,8 @@
 	    android:id="@+id/metrolayout"
 	    android:layout_width="wrap_content"
 	    android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="@dimen/ITEM_DIVIDE_SIZE"/>
     </ScrollView>
 
   	<com.video.ui.view.MetroCursorView
