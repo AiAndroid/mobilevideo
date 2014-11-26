@@ -216,13 +216,13 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
                 descrip.setText(item.sub_title);
             }else {
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                descrip.setText(item.title);
+                descrip.setText(item.title + " " +item.sub_title);
             }
 
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    launcherAction(getContext(), item);
+                launcherAction(getContext(), item);
                 }
             });
         }

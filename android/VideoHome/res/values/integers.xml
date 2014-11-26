@@ -7,4 +7,5 @@
     <integer name="scale_down_duration">150</integer>
     <integer name="update_duration">2000</integer>
     <integer name="text_font_size_two_digit">40</integer>
+    <integer name="picasso_tag">0x009900</integer>
 </resources>

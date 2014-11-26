@@ -19,8 +19,9 @@ public class PosterEnterView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
-    public PosterEnterView(Context context, ArrayList<DisplayItem> items) {
+    public PosterEnterView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
@@ -34,7 +35,7 @@ public class PosterEnterView extends BaseCardView implements DimensHelper {
             view.setClickable(true);
 
             ImageView tv = (ImageView) view.findViewById(R.id.quick_enter_imageview);
-            Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).fit().transform(new CategoryItemView.Round_Corners(getContext(),4, 4, false)).into(tv);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().transform(new CategoryItemView.Round_Corners(getContext(),4, 4, false)).into(tv);
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {

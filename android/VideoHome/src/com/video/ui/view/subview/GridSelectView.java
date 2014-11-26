@@ -20,8 +20,9 @@ public class GridSelectView extends BaseCardView implements DimensHelper {
     }
 
 
-    public GridSelectView(Context context, Block<DisplayItem> block) {
+    public GridSelectView(Context context, Block<DisplayItem> block, Object tag) {
         super(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
 
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
 

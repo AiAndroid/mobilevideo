@@ -26,8 +26,9 @@ public class QuickNavigationView extends BaseCardView implements DimensHelper {
         R.drawable.quick_entry_variety_bg,
         R.drawable.quick_entry_all_bg
     };
-    public QuickNavigationView(Context context, ArrayList<DisplayItem> items) {
+    public QuickNavigationView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
@@ -45,7 +46,7 @@ public class QuickNavigationView extends BaseCardView implements DimensHelper {
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_default).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.quick_entry_default).priority(Picasso.Priority.HIGH).fit().into(iv);
 
             view.setOnClickListener(new OnClickListener() {
                 @Override

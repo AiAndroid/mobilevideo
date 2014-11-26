@@ -31,9 +31,10 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
         super(context, attrs, defStyle);
     }
 
-    public AdsView(Context context, ArrayList<DisplayItem> items) {
+    public AdsView(Context context, ArrayList<DisplayItem> items, Object tag) {
         super(context, null, 0);
 
+        setTag(R.integer.picasso_tag, tag);
         initUI(items);
     }
 
@@ -144,7 +145,7 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
                 launcherAction(getContext(), item);
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
         return view;
     }
 

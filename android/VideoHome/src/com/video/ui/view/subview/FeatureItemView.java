@@ -42,7 +42,7 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
         mPosterView = (CornerUpImageView) mContentView.findViewById(R.id.feature_media_poster);
 
         mPoster     = (ImageView) mContentView.findViewById(R.id.feature_poster_bg);
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
+        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
 
         mDescView = (TextView) mContentView.findViewById(R.id.feature_media_desc);
         mDescView.setText(item.title);

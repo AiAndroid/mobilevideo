@@ -25,8 +25,9 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             R.drawable.com_btn_mid_bg,
             R.drawable.com_btn_right_bg
     };
-    public QuickLocalNavigateView(Context context, ArrayList<DisplayItem> items) {
+    public QuickLocalNavigateView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
@@ -41,7 +42,7 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).priority(Picasso.Priority.HIGH).fit().into(iv);
 
             view.setOnClickListener(new OnClickListener() {
                 @Override

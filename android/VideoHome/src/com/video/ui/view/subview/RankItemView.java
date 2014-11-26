@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.view.LinearFrame;
@@ -21,8 +22,15 @@ public class RankItemView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
-    public RankItemView(Context context, ArrayList<DisplayItem> items, String container, String subtitle, int row_count){
+    public RankItemView(Context context, Block<DisplayItem> block, Object tag){
         this(context, null, 0);
+
+        setTag(R.integer.picasso_tag, tag);
+
+        ArrayList<DisplayItem> items = block.items;
+        String container = block.title;
+        String subtitle  = block.sub_title;
+        int row_count    = block.ui_type.row_count;
 
         int height = 0;
         View v = View.inflate(getContext(), R.layout.rank_item, this);
@@ -51,7 +59,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
             ImageView rightCorner = (ImageView) tv.findViewById(R.id.rank_media_corner);
             if(item.images.get("right_top_corner") != null)
-                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
+                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
 
 
             ImageView iv = (ImageView) tv.findViewById(R.id.poster);
@@ -63,7 +71,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
             });
 
             header.addItemView(tv, getResources().getDimensionPixelSize(R.dimen.media_port_width), getResources().getDimensionPixelSize(R.dimen.rank_media_item_height), padding, padding);
-            Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().into(iv);
         }
 
         //add show movie height

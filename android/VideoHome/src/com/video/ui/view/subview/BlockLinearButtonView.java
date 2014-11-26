@@ -24,8 +24,9 @@ public class BlockLinearButtonView extends BaseCardView implements DimensHelper 
         R.drawable.quick_entry_variety_bg,
         R.drawable.quick_entry_all_bg
     };
-    public BlockLinearButtonView(Context context, ArrayList<DisplayItem> items) {
+    public BlockLinearButtonView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
 
         View v = View.inflate(getContext(), R.layout.quick_navigation, this);
         LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);

@@ -1,11 +1,13 @@
 package com.video.ui.view;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -18,6 +20,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
 	public MetroLayout mMetroLayout;
     protected SmoothHorizontalScrollView mHorizontalScrollView;
     protected Block<DisplayItem> tab;
+    protected int                index;
     protected boolean isUserTab = false;
 
     private AdsAnimationListener mAdsAL;
@@ -37,7 +40,15 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
 
         tab = (Block<DisplayItem>) this.getArguments().getSerializable("tab");
         isUserTab = getArguments().getBoolean("user_fragment", false);
-        initViews();
+        index     = getArguments().getInt("index", 0);
+        //a litter delay to construct UI
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initViews();
+            }
+        }, 500*(index>0?1:0));
+
         return v;
     }
 
@@ -77,7 +88,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         }else if(tab != null && tab.blocks != null){
             int step = 0;
             for(Block<DisplayItem> item:tab.blocks){
-                View blockView = inflateBlock(item);
+                View blockView = inflateBlock(item, new Integer(index));
                 if(blockView instanceof AdsAnimationListener){
                     registerAnimationListener((AdsAnimationListener)blockView);
                 }
@@ -98,8 +109,8 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         }
     }
 
-    protected View inflateBlock(Block<DisplayItem> item){
-        View view = ViewCreateFactory.CreateBlockView(getActivity(), item);
+    protected View inflateBlock(Block<DisplayItem> item, Object tag){
+        View view = ViewCreateFactory.CreateBlockView(getActivity(), item, tag);
         if(view != null)
             return view;
 
@@ -129,5 +140,22 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
     @Override
     public AdsAnimationListener getAnimationListener() {
         return mAdsAL;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Log.d(TAG, "onResume="+this);
+        Picasso.with(getActivity().getApplicationContext()).resumeTag(index);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Log.d(TAG, "onPause="+this);
+        Picasso.with(getActivity().getApplicationContext()).pauseTag(index);
     }
 }

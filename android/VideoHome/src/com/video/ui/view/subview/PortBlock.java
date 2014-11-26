@@ -25,8 +25,10 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
 
     private DimensHelper.Dimens mDimens;
 
-    public PortBlock(Context context, Block<DisplayItem> blocks) {
+    public PortBlock(Context context, Block<DisplayItem> blocks, Object tag) {
         super(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
+
         setOrientation(VERTICAL);
         setBackgroundResource(R.drawable.com_block_n);
         initUI(blocks);
@@ -88,7 +90,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 getDimens().height += media_item_padding;
 
             } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
-                BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items);
+                BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
@@ -99,7 +101,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
                 //add padding
                 getDimens().height += media_item_padding;
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
-                PosterEnterView bv = new PosterEnterView(getContext(), block.items);
+                PosterEnterView bv = new PosterEnterView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;

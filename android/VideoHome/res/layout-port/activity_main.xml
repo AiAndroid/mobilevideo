@@ -52,7 +52,7 @@
             android:flipInterval="30"
             android:layout_below="@android:id/tabhost"
             android:paddingTop="3dp"
-            android:persistentDrawingCache="animation" />
+            android:persistentDrawingCache="all" />
 
 
     </RelativeLayout>

@@ -10,35 +10,35 @@ import com.video.ui.view.subview.*;
  * Created by liuhuadong on 11/17/14.
  */
 public class ViewCreateFactory {
-    public static View CreateBlockView(Context context,  Block<DisplayItem> item){
+    public static View CreateBlockView(Context context,  Block<DisplayItem> item, Object tag){
         View view = null;
         switch (item.ui_type.id){
             case LayoutConstant.imageswitcher:
-                view = new AdsView(context, item.items);
+                view = new AdsView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_top:
-                view = new QuickNavigationView(context, item.items);
+                view = new QuickNavigationView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_left:
-                view = new QuickLocalNavigateView(context, item.items);
+                view = new QuickLocalNavigateView(context, item.items, tag);
                 break;
             case LayoutConstant.list_category_land:
-                view = new CategoryItemView(context, item);
+                view = new CategoryItemView(context, item, tag);
                 break;
             case LayoutConstant.list_rich_header:
-                view = new RankItemView(context, item.items, item.title, item.sub_title, item.ui_type.row_count);
+                view = new RankItemView(context, item, tag);
                 break;
             case LayoutConstant.block_channel:
-                view = new PortBlock(context, item);
+                view = new PortBlock(context, item, tag);
                 break;
             case LayoutConstant.grid_block_selection:
-                view = new GridSelectView(context, item);
+                view = new GridSelectView(context, item, tag);
                 break;
             case LayoutConstant.linearlayout_land:
-                view = new PosterEnterView(context, item.items);
+                view = new PosterEnterView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_poster:
-                view = new BlockLinearButtonView(context, item.items);
+                view = new BlockLinearButtonView(context, item.items, tag);
                 break;
         }
         return view;

@@ -18,8 +18,10 @@ import com.video.ui.R;
  * main copy from miuivideo
  */
 public class CategoryItemView extends BaseCardView implements DimensHelper {
-    public CategoryItemView(Context context, DisplayItem item) {
+    public CategoryItemView(Context context, DisplayItem item, Object tag) {
         this(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
+
         initUI(item);
     }
     public CategoryItemView(Context context, AttributeSet attrs, int defStyle) {
@@ -44,8 +46,8 @@ public class CategoryItemView extends BaseCardView implements DimensHelper {
         mPosterView = (CornerUpImageView) mContentView.findViewById(R.id.category_media_poster);
         mPosterView.setRadius(getResources().getDimensionPixelSize(R.dimen.video_common_radius_9));
         mIconView = (ImageView) mContentView.findViewById(R.id.category_media_desc_icon);
-        Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
-        Picasso.with(getContext()).load(item.images.get("left_top_corner").url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
+        Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
+        Picasso.with(getContext()).load(item.images.get("left_top_corner").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
 
         mNameView = (TextView) mContentView.findViewById(R.id.category_media_desc_name);
         mNameView.setText(item.title);

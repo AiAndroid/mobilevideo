@@ -26,6 +26,16 @@ public abstract class BaseCardView  extends RelativeLayout {
         return px;
     }
 
+    @Override
+    public java.lang.Object getTag(int key) {
+        Object obj = super.getTag(key);
+        if(obj == null){
+            return new Integer(-1);
+        }
+
+        return obj;
+    }
+
     protected void launcherAction(Context context, DisplayItem item){
         Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.type + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
     }
