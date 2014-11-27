@@ -3,6 +3,8 @@ package com.video.ui;
 import android.app.Application;
 import android.content.Context;
 import android.os.StatFs;
+import android.util.Log;
+import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
@@ -13,18 +15,28 @@ import java.io.File;
  */
 public class MobileVideoApplication extends Application{
     private static final int MIN_DISK_CACHE_SIZE = 5 * 1024 * 1024; // 5MB
-    private static final int MAX_DISK_CACHE_SIZE = 50 * 1024 * 1024; // 50MB
+    private static final int MAX_DISK_CACHE_SIZE = 100 * 1024 * 1024; // 50MB
+    private LruCache cache;
 
     @Override
     public void onCreate() {
         super.onCreate();
         File cacheFile = createDefaultCacheDir(getApplicationContext());
 
-        Picasso picasso = new Picasso.Builder(getApplicationContext()).downloader(new OkHttpDownloader(cacheFile, calculateDiskCacheSize(cacheFile))).build();
+        cache = new LruCache(getApplicationContext());
+        Picasso picasso = new Picasso.Builder(getApplicationContext()).memoryCache(cache).downloader(new OkHttpDownloader(cacheFile, calculateDiskCacheSize(cacheFile))).build();
         Picasso.setSingletonInstance(picasso);
 
         Picasso.with(getApplicationContext()).setLoggingEnabled(true);
-        Picasso.with(getApplicationContext()).setIndicatorsEnabled(false);
+        Picasso.with(getApplicationContext()).setIndicatorsEnabled(true);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+
+        Log.d("MobileVideoApplication", "onLowMemory");
+        cache.clear();
     }
 
     static File createDefaultCacheDir(Context context) {
