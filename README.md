@@ -77,113 +77,188 @@ block_port(tab)------------------------------------block_port(tab)<br>
 -------------------------item<br>
 -------------------------item<br><br>
 
-imageswitcher----------101-------广告可以-------------给广告切换image<br>
-linearlayout_top-------201-------单行button----icon---图标在文本上边<br>
-linearlayout_left------202-------单行Button----icon---图标在文本左边<br>
-//linearlayout_poster----203-------单行Button----海报---缺省,一行多个，以海报形式展示,电影：“韩剧专场”<br>
-linearlayout_none------204-------单行Button----文本， 缺省<br>
-<br>
-block_land------------300------------展示块容器------------没有什么用 landscape layout<br>
-block_port------------301------------展示块容器------------没有什么用 portrait layout<br>
-<br>
-tabs_horizontal-------311------------水平tabs------------水平展示tab的父Block      <br>
-tabs_vertical---------312------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV<br>
-<br>
-block_channel---------400------------一个频道块<br>
-block_tabs------------410------------<br>
-grid_media_land-------411------------gridview------------水平展示媒体图片<br>
-grid_media_port-------412------------gridview------------垂直展示媒体图片<br>
-list_media_land-------413------------listview------------水平展示媒体图片<br>
-list_media_port-------414------------listview------------垂直展示媒体图片<br>
-<br>
-list_category_land----421------------listview------------category的land layout<br>
-list_category_port----422------------listview------------category port layout<br>
-grid_selection--------431------------grid----------------精选<br>
-list_rich_header------441--------------------------------排行<br>
+    public final static int imageswitcher      = 101;//-------广告可以-------------给广告切换image
+    public final static int linearlayout_top   = 201;//-------单行button----icon---图标在文本上边
+    public final static int linearlayout_left  = 202;//-------单行Button----icon---图标在文本左边
+    public final static int linearlayout_poster= 203;//-------单行Button----缺省,一行多个，以海报形式展示,电视剧：“韩剧专场”
+    public final static int linearlayout_none  = 204;//-------单行Button----文本， 缺省
+    public final static int linearlayout_land  = 205;//-------单行海报---一行多个，以海报形式展示,电影：“韩剧专场”
+    public final static int linearlayout_title = 206;//-------标题
+    public final static int linearlayout_single_poster = 207;//-------单行海报
+
+    public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
+    public final static int block_port         = 301;//------------展示块容器------------没有什么用 portrait layout
+
+    public final static int tabs_horizontal    = 311;//------------水平tabs------------水平展示tab的父Block
+    public final static int tabs_vertical      = 312;//------------垂直tabs------------垂直展示tab类型的Block，用于tablet，TV
+
+    public final static int block_channel      = 400;//------------多个频道块
+    public final static int block_sub_channel  = 401;//------------一个频道块
+
+    public final static int block_tabs         = 410;//------------
+    public final static int grid_media_land    = 411;//------------gridview------------水平展示媒体图片
+    public final static int grid_media_port    = 412;//------------gridview------------垂直展示媒体图片
+    public final static int list_media_land    = 413;//------------listview------------水平展示媒体图片
+    public final static int list_media_port    = 414;//------------listview------------垂直展示媒体图片
+
+    public final static int list_category_land = 421;//------------listview------------category的land layout
+    public final static int list_category_port = 422;//------------listview------------category port layout
+    public final static int grid_item_selection  = 431;//------------grid----------------精选
+    public final static int grid_block_selection = 432;//------------grid----------------精选
+    public final static int list_rich_header   = 441;//--------------------------------排行
 
 <br>
 
 <br>
 sample 例子：
-Block{<br>
-    ui_type: {name: block_port, id:301}<br>
-    name: 热点<br>
-    media:{}<br>
-    xxx<br>
-    Block{<br>
-        ui_type: {name: viewflipper, id:101}<br><br>
 
-        items:[
-            {
-                ui_type: {name: item_landscape_ads, id:403}
-                title： xxx
-                subtitle:xxx
-                desc:xxx
-                media:{id, type, ns，poster images, hot images,xxx} //和以前类似,可以把明星，电影分成不同的ns
-                action{target:xxxx, params:xxxx} //params可以承载k-v 数据，里面会保留有关键字，intent, path,
-                xx
-                xx
-             }
-        ]
+public class Block<T>  extends DisplayItem implements Serializable {
+    private static final long serialVersionUID = 1L;
+    public String              sort;
+    public ArrayList<String>   filters;
+    public String              pagi;
+
+    public ArrayList<T>        items;
+    public ArrayList<Block<T>> blocks;
+
+    public String toString(){
+        return "\n\nBlock: " + super.toString() +" \n\titems:"+items + "\n\tend\n\n\n";
+    }
+}
+
+public class DisplayItem implements Serializable{
+	private static final long serialVersionUID = 2L;
+
+	public static class UI implements Serializable {
+		private static final long serialVersionUID = 2L;
+        public String name;
+        public int    id;
+        public int    row_count;
+        public UI clone(){
+            UI item = new UI();
+            item.name = name;
+            item.id   = id;
+            item.row_count = row_count;
+            return item;
+        }
+		public String toString() {
+			return " type:" + name + "  id:" + id;
+		}
+	}
+
+    public static class Media implements Serializable {
+        private static final long serialVersionUID = 1L;
+        public long  likes;
+        public long  unlikes;
+        public long  comments;
+        public long  play_times;
+        public float duration;
+        public float  rate;
+        public String episode; //update to 24
+        public String label;   //corner;
+        public CP      cp;
+        public Fee     fee;
+        public Version version;
+
+
+        public static class CP implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String versrion_code;
+        }
+
+        public static class Fee implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String pay_load;
+        }
+
+        public static class Version implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String latest_version;
+            String min_version;
+        }
+
+        public Media clone(){
+            //TODO
+            return new Media();
+        }
     }
 
-    Block:{<br>
-            ui_type: {name: block, id:300}<br>
-            xxx<br>
-            Block:{<br>
-                  ui_type: {name: tabs_horizontal, id:401}<br>
-                  电视剧<br>
-                  Block{<br>
-                        ui_type: {name: gridview, id:303}      <br>
-                        热播剧<br>
-                        items:[<br>
-                            {<br>
-                                    ui_type: {name: item_landscape, id:401}<br>
-                                    media:<br>
-                            }<br>
-                        ]            <br>
-                  }<br>
-                  Block{<br>
-                        ui_type: {name: gridview, id:303}                  <br>
-                  }<br>
-                  Block{ <br>
-                        ui_type: {name: gridview, id:303}                  <br>
-                 }<br>
-            }<br>
-            Block:{}<br>
-            Block:{}<br>
-            Block:{}<br>
-    }<br>
-}<br>
-<br>
-<br>
-class Item{<br>
-    String  title       //主标题<br>
-    String  sub_title   //副标题<br>
-    String  desc        //一句话描述<br><br>
-    
-    UI_Type ui_type;<br><br>
-    
-    Poster  poster;//海报,放Media里面，还是Media外面<br>
-    Media   media;<br><br>
-    
-    class Media{<br>
-        String id;   //resource id<br>
-        String type; //资源类型<br>
-        String ns;   //资源空间<br><br><br>
-        
-        
-        ImageGroup<br>
-    }<br><br>
+	public static class Times implements Serializable {
+		private static final long serialVersionUID = 1L;
+		public long updated;
+		public long created;
 
-}<br>
-<br>
-class Block extends Item<br>
-{<br>
-      public ArrayList<Block>         blocks<br>
-      public ArrayList<Item>          items<br>
-}<br>
+        public Times clone(){
+            Times item = new Times();
+            item.created = created;
+            item.updated = updated;
+            return item;
+        }
+	}
+    public static class Target implements Serializable{
+        private static final long serialVersionUID = 1L;
+        public String type;
+        public String params;
 
+
+        public Target clone(){
+            Target item = new Target();
+            item.type = type;
+            item.params = params;
+            return  item;
+        }
+    }
+
+
+    public String id;
+    public String title;
+    public String sub_title;
+    public String desc;
+	public String ns;
+	public String type;
+    public Target     action;
+	public ImageGroup images;
+	public UI         ui_type;
+	public Times      times;
+    public Media      media;
+
+    public DisplayItem clone(){
+        DisplayItem item = new DisplayItem();
+
+        if(action != null)item.action = action.clone();
+
+        item.ns   = this.ns;
+        item.type = this.type;
+        item.id   = this.id;
+        item.title = this.title;
+        item.sub_title = this.sub_title;
+        item.desc      = this.desc;
+        if(images != null)item.images = this.images.clone();
+        if(ui_type != null)item.ui_type = this.ui_type.clone();
+        if(times!= null)item.times = times.clone();
+        if(media!= null)item.media = media.clone();
+
+        return  item;
+    }
+	public String toString() {
+		return " ns:" + ns + " type:" + type + " target=" + action + " id:" + id + " name:" + title + "images:"
+				+ images + " _ui:" + ui_type;
+	}
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null)
+            return false;
+
+        if(obj instanceof DisplayItem){
+            return  ((DisplayItem)obj).id.equals(id);
+        }
+
+        return  false;
+    }
+}
 
 ImageSwitcher:
 文本，图
