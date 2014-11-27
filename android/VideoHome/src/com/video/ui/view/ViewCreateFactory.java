@@ -15,38 +15,42 @@ public class ViewCreateFactory {
         View view = null;
         switch (item.ui_type.id){
             case LayoutConstant.imageswitcher:
-                view = new AdsView(context, item.items, tag);
+                view = new AdsBlockView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_top:
-                view = new QuickNavigationView(context, item.items, tag);
+                view = new QuickNavigationBlockView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_left:
-                view = new QuickLocalNavigateView(context, item.items, tag);
+                view = new QuickLocalNavigateBlockView(context, item.items, tag);
                 break;
             case LayoutConstant.list_category_land:
-                view = new CategoryItemView(context, item, tag);
+                view = new CategoryBlockView(context, item, tag);
                 break;
             case LayoutConstant.list_rich_header:
-                view = new RankItemView(context, item, tag);
+                view = new RankBlockView(context, item, tag);
                 break;
             case LayoutConstant.block_channel:
-                view = new PortBlock(context, item, tag);
+                view = new PortBlockView(context, item, tag);
+                break;
+            case LayoutConstant.tabs_horizontal:
+                view = new ChannelTabsBlockView(context, item, tag);
                 break;
             case LayoutConstant.block_sub_channel:
-                view = new SubPortBlock(context, item, tag);
+                view = new SubPortBlockView(context, item, tag);
+                view.setBackgroundResource(R.drawable.com_block_n);
                 break;
             case LayoutConstant.grid_block_selection:
-                view = new GridSelectView(context, item, tag);
+                view = new GridSelectBlockView(context, item, tag);
                 break;
             case LayoutConstant.linearlayout_land:
-                view = new PosterEnterView(context, item.items, tag);
+                view = new PosterEnterBlockView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_poster:
                 view = new BlockLinearButtonView(context, item.items, tag);
                 break;
             case LayoutConstant.grid_media_land:
             case LayoutConstant.grid_media_port:
-                view = new GridMediaView(context, item, tag);
+                view = new GridMediaBlockView(context, item, tag);
                 //for single grid block, we help to set one background
                 view.setBackgroundResource(R.drawable.com_block_n);
                 break;

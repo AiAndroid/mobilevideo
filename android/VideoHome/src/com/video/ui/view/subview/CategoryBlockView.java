@@ -17,14 +17,14 @@ import com.video.ui.R;
  * Created by liuhuadong on 11/18/14.
  * main copy from miuivideo
  */
-public class CategoryItemView extends BaseCardView implements DimensHelper {
-    public CategoryItemView(Context context, DisplayItem item, Object tag) {
+public class CategoryBlockView extends BaseCardView implements DimensHelper {
+    public CategoryBlockView(Context context, DisplayItem item, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
         initUI(item);
     }
-    public CategoryItemView(Context context, AttributeSet attrs, int defStyle) {
+    public CategoryBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

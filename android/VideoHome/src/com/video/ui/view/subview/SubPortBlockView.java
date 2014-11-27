@@ -15,20 +15,20 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/20/14.
  */
-public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
+public class SubPortBlockView extends LinearBaseCardView implements DimensHelper{
     Block<DisplayItem> content;
 
-    public SubPortBlock(Context context) {
+    public SubPortBlockView(Context context) {
         super(context, null, 0);
     }
 
-    public SubPortBlock(Context context, AttributeSet attrs) {
+    public SubPortBlockView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
     }
 
     private Dimens mDimens;
 
-    public SubPortBlock(Context context, Block<DisplayItem> blocks, Object tag) {
+    public SubPortBlockView(Context context, Block<DisplayItem> blocks, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
@@ -58,7 +58,7 @@ public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
             final Block<DisplayItem> block = content.blocks.get(i);
             //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
             if (block.ui_type.id == LayoutConstant.tabs_horizontal) {
-                View blockView = new ChannelTabs(getContext(), block);
+                View blockView = new ChannelTabsBlockView(getContext(), block, getTag(R.integer.picasso_tag));
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 addView(blockView, flp);
                 if (blockView instanceof DimensHelper) {
@@ -89,7 +89,7 @@ public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
                 addOnePadding();
             }else if (block.ui_type.id == LayoutConstant.grid_media_land || block.ui_type.id == LayoutConstant.grid_media_port) {
 
-                GridMediaView view = new GridMediaView(getContext(), block, getTag(R.integer.picasso_tag));
+                GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
                 addView(view);
 
                 getDimens().height += view.getDimens().height;
@@ -118,7 +118,7 @@ public class SubPortBlock extends LinearBaseCardView implements DimensHelper{
 
                 addOnePadding();
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
-                PosterEnterView bv = new PosterEnterView(getContext(), block.items, getTag(R.integer.picasso_tag));
+                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;

@@ -19,12 +19,12 @@ import com.video.ui.view.LinearFrame;
 /**
  * Created by liuhuadong on 11/27/14.
  */
-public class GridMediaView extends LinearBaseCardView implements DimensHelper{
-    public GridMediaView(Context context, AttributeSet attrs, int defStyle) {
+public class GridMediaBlockView extends LinearBaseCardView implements DimensHelper{
+    public GridMediaBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public GridMediaView(Context context, Block<DisplayItem> block, Object tag){
+    public GridMediaBlockView(Context context, Block<DisplayItem> block, Object tag){
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
         initUI(context, block, tag);

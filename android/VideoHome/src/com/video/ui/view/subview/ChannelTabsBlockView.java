@@ -19,24 +19,26 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/18/14.
  */
-public class ChannelTabs extends BaseCardView implements DimensHelper {
+public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
     Block<DisplayItem> content;
     private TabWidget mTabWidget;
     private boolean mGridLoaded = false;
 
     int mType =  LayoutConstant.grid_media_land;
 
-    public ChannelTabs(Context context) {
+    public ChannelTabsBlockView(Context context) {
         super(context, null, 0);
     }
 
-    public ChannelTabs(Context context, AttributeSet attrs) {
+    public ChannelTabsBlockView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
     }
 
     private Dimens mDimens;
-    public ChannelTabs(Context context, Block<DisplayItem> blocks) {
+    public ChannelTabsBlockView(Context context, Block<DisplayItem> blocks, Object obj) {
         super(context, null, 0);
+        setTag(R.integer.picasso_tag, obj);
+
         initUI(blocks);
     }
 
@@ -196,9 +198,9 @@ public class ChannelTabs extends BaseCardView implements DimensHelper {
             });
         }
 
+        getDimens().height = block_height;
         //padding
         getDimens().height += dpToPx(8);
-        getDimens().height = block_height;
     }
 
     private void showTab(int index){

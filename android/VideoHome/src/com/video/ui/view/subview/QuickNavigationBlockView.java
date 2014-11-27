@@ -15,8 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class QuickNavigationView extends BaseCardView implements DimensHelper {
-    public QuickNavigationView(Context context, AttributeSet attrs, int defStyle) {
+public class QuickNavigationBlockView extends BaseCardView implements DimensHelper {
+    public QuickNavigationBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -26,7 +26,7 @@ public class QuickNavigationView extends BaseCardView implements DimensHelper {
         R.drawable.quick_entry_variety_bg,
         R.drawable.quick_entry_all_bg
     };
-    public QuickNavigationView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public QuickNavigationBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 

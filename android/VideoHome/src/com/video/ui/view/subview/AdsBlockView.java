@@ -20,18 +20,18 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationListener {
-    public AdsView(Context context) {
+public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnimationListener {
+    public AdsBlockView(Context context) {
         this(context, null, 0);
     }
-    public AdsView(Context context, AttributeSet attrs) {
+    public AdsBlockView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    public AdsView(Context context, AttributeSet attrs, int defStyle) {
+    public AdsBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public AdsView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public AdsBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         super(context, null, 0);
 
         setTag(R.integer.picasso_tag, tag);
@@ -145,7 +145,7 @@ public class AdsView extends BaseCardView implements DimensHelper, AdsAnimationL
                 launcherAction(getContext(), item);
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
         return view;
     }
 

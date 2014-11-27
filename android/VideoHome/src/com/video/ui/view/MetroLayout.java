@@ -147,6 +147,9 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.linearlayout_none:
             case LayoutConstant.list_rich_header:
             case LayoutConstant.grid_block_selection:
+            case LayoutConstant.grid_media_port:
+            case LayoutConstant.grid_media_land:
+            case LayoutConstant.tabs_horizontal:
             {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);

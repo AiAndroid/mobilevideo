@@ -15,8 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/18/14.
  */
-public class QuickLocalNavigateView extends BaseCardView implements DimensHelper {
-    public QuickLocalNavigateView(Context context, AttributeSet attrs, int defStyle) {
+public class QuickLocalNavigateBlockView extends BaseCardView implements DimensHelper {
+    public QuickLocalNavigateBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -25,7 +25,7 @@ public class QuickLocalNavigateView extends BaseCardView implements DimensHelper
             R.drawable.com_btn_mid_bg,
             R.drawable.com_btn_right_bg
     };
-    public QuickLocalNavigateView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public QuickLocalNavigateBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 

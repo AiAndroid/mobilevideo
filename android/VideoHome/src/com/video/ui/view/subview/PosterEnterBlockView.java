@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/25/14.
  */
-public class PosterEnterView extends BaseCardView implements DimensHelper {
-    public PosterEnterView(Context context, AttributeSet attrs, int defStyle) {
+public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
+    public PosterEnterBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public PosterEnterView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public PosterEnterBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
@@ -35,7 +35,7 @@ public class PosterEnterView extends BaseCardView implements DimensHelper {
             view.setClickable(true);
 
             ImageView tv = (ImageView) view.findViewById(R.id.quick_enter_imageview);
-            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().transform(new CategoryItemView.Round_Corners(getContext(),4, 4, false)).into(tv);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().transform(new CategoryBlockView.Round_Corners(getContext(),4, 4, false)).into(tv);
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {

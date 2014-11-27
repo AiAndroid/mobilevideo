@@ -14,13 +14,13 @@ import com.video.ui.view.MetroLayout;
 /**
  * Created by liuhuadong on 11/26/14.
  */
-public class GridSelectView extends BaseCardView implements DimensHelper {
-    public GridSelectView(Context context, AttributeSet attrs, int defStyle) {
+public class GridSelectBlockView extends BaseCardView implements DimensHelper {
+    public GridSelectBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
 
-    public GridSelectView(Context context, Block<DisplayItem> block, Object tag) {
+    public GridSelectBlockView(Context context, Block<DisplayItem> block, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 

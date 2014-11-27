@@ -12,20 +12,20 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/20/14.
  */
-public class PortBlock extends LinearBaseCardView implements DimensHelper{
+public class PortBlockView extends LinearBaseCardView implements DimensHelper{
     Block<DisplayItem> content;
 
-    public PortBlock(Context context) {
+    public PortBlockView(Context context) {
         super(context, null, 0);
     }
 
-    public PortBlock(Context context, AttributeSet attrs) {
+    public PortBlockView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
     }
 
     private DimensHelper.Dimens mDimens;
 
-    public PortBlock(Context context, Block<DisplayItem> blocks, Object tag) {
+    public PortBlockView(Context context, Block<DisplayItem> blocks, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
@@ -54,7 +54,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
         for (int i=0;i<size;i++){
             final Block<DisplayItem> block = content.blocks.get(i);
             if (block.ui_type.id == LayoutConstant.tabs_horizontal) {
-                View blockView = new ChannelTabs(getContext(), block);
+                View blockView = new ChannelTabsBlockView(getContext(), block,getTag(R.integer.picasso_tag));
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 addView(blockView, flp);
                 if (blockView instanceof DimensHelper) {
@@ -86,7 +86,7 @@ public class PortBlock extends LinearBaseCardView implements DimensHelper{
 
                 addOnePadding();
             }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
-                PosterEnterView bv = new PosterEnterView(getContext(), block.items, getTag(R.integer.picasso_tag));
+                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;

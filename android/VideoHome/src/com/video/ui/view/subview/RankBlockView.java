@@ -17,12 +17,12 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/19/14.
  */
-public class RankItemView extends BaseCardView implements DimensHelper {
-    public RankItemView(Context context, AttributeSet attrs, int defStyle) {
+public class RankBlockView extends BaseCardView implements DimensHelper {
+    public RankBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public RankItemView(Context context, Block<DisplayItem> block, Object tag){
+    public RankBlockView(Context context, Block<DisplayItem> block, Object tag){
         this(context, null, 0);
 
         setTag(R.integer.picasso_tag, tag);
@@ -59,7 +59,7 @@ public class RankItemView extends BaseCardView implements DimensHelper {
 
             ImageView rightCorner = (ImageView) tv.findViewById(R.id.rank_media_corner);
             if(item.images.get("right_top_corner") != null)
-                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryItemView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
+                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
 
 
             ImageView iv = (ImageView) tv.findViewById(R.id.poster);
