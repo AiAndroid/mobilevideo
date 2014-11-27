@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.video.ui.R;
 import com.video.ui.view.subview.*;
 
 /**
@@ -42,6 +43,12 @@ public class ViewCreateFactory {
                 break;
             case LayoutConstant.linearlayout_poster:
                 view = new BlockLinearButtonView(context, item.items, tag);
+                break;
+            case LayoutConstant.grid_media_land:
+            case LayoutConstant.grid_media_port:
+                view = new GridMediaView(context, item, tag);
+                //for single grid block, we help to set one background
+                view.setBackgroundResource(R.drawable.com_block_n);
                 break;
         }
         return view;

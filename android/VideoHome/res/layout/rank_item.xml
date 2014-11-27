@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="@dimen/rank_banner_width"
         android:layout_height="wrap_content"
-        android:background="@drawable/com_bg_white_corner"
+        android:background="@drawable/com_block_n"
         android:orientation="vertical"
         android:layout_centerHorizontal="true">
         <TextView android:id="@+id/rank_title"

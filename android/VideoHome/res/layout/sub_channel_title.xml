@@ -18,7 +18,7 @@
     <View android:layout_below="@id/channel_title"
           android:layout_width="@dimen/media_banner_sub_channel_width"
           android:layout_height="1px"
-          android:background="@android:color/darker_gray"
+          android:background="#ddd"
           android:layout_gravity="center_horizontal"
           android:layout_centerHorizontal="true"
           android:layout_marginBottom="@dimen/title_divider_bottom_padding"/>
