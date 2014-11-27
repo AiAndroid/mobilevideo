@@ -112,9 +112,6 @@ block_port(tab)------------------------------------block_port(tab)<br>
 <br>
 sample 例子：
 
-/**
- * Created by liuhuadong on 9/23/14.
- */
 public class Block<T>  extends DisplayItem implements Serializable {
     private static final long serialVersionUID = 1L;
     public String              sort;
