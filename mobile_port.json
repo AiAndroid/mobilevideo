@@ -5031,6 +5031,133 @@
                             }
                         }
                     ]
+                },
+                {
+                    "title":"社会",
+                    "id":"503",
+                    "type":"album",
+                    "ns":"video",
+                    "images":{
+                    },
+                    "media":{
+                    },
+                    "times":{
+                    },
+                    "ui_type":{
+                        "name":"grid_media_land",
+                        "id":411,
+                        "row_count":2
+                    },
+                    "items":[
+                        {
+                            "title":"女子被天降砖头砸伤成植物人",
+                            "sub_title":"想看就看被",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01UbC76mYlk/5UkrFUsVna1FbJ.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"九岁男童被母亲用铁链拴着走",
+                            "sub_title":"想看就看被",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01SUT7Lp42k/aBngpdWFotSW9f.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"男子开车不满被堵拿刀砍司机",
+                            "sub_title":"想看就看被",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01bFomDpH56/jJ3bTOe9ka8G7k.jpg"
+                                }
+                            }
+                        },
+                        {
+                            "title":"白马寺游客许愿井一天捞钱四次",
+                            "sub_title":"想看就看被",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01o0FmPJEFR/c8imJ15iZd1Mcg.jpg"
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -6524,7 +6651,7 @@
         }
     ],
     "times":{
-        "updated":64,
+        "updated":65,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
