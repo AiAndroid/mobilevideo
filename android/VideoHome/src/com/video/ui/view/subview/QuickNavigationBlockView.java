@@ -82,7 +82,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
             if(iv != null) {
-                Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.quick_entry_default).priority(Picasso.Priority.HIGH).fit().into(iv);
+                Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.quick_entry_default).priority(Picasso.Priority.HIGH).centerCrop().into(iv);
             }
         }
     }

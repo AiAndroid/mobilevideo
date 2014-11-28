@@ -138,7 +138,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_hor, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
+                        Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(image);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                         descrip.setText(item.title + " " +item.sub_title);
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
@@ -171,7 +171,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_port, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                        Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
+                        Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(image);
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         title.setText(item.title);
 
@@ -238,7 +238,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
             View meida = grid.getChildAt(i);
             final DisplayItem item = block.items.get(i);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).into(image);
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             if(title != null) {

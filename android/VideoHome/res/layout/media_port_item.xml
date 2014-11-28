@@ -9,7 +9,8 @@
                    android:scaleType="fitXY"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:layout_centerHorizontal="true"/>
+                   android:layout_centerHorizontal="true"
+                   android:background="@drawable/default_poster_pic"/>
         <TextView  android:id="@+id/click_count" android:textColor="@android:color/white"
                    android:textSize="@dimen/font_size_36"
                    android:shadowColor="@color/black"

@@ -18,7 +18,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:src="@drawable/default_poster_pic"
+                    android:background="@drawable/default_poster_pic"
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>
         <com.video.ui.view.subview.CornerUpImageView

@@ -8,7 +8,7 @@
     <ImageView android:id="@+id/image_ads"
                android:layout_width="@dimen/media_banner_sub_channel_width"
                android:layout_height="@dimen/media_banner_sub_channel_height"
-               android:src="@drawable/default_poster_pic"
+               android:background="@drawable/default_poster_pic"
                android:layout_centerHorizontal="true"/>
 
     <View      android:id="@+id/ads_media_click"

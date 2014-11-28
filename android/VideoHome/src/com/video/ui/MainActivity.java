@@ -12,10 +12,11 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.RelativeLayout;
+import android.widget.TabHost;
+import android.widget.TabWidget;
+import android.widget.TextView;
 import com.aimashi.mobile.video.view.UserView;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.tv.ui.metro.model.ImageGroup;
@@ -104,27 +105,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 }
             });
         }else {
-
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    //this is the code for test
-                    mLoadingView.stopLoading(true, false);
-                    //load test code for out of companny
-                    Gson gson = new Gson();
-                    GenericBlock<DisplayItem> fromJson = gson.fromJson(buildInData, new TypeToken<GenericBlock<DisplayItem>>(){}.getType());
-
-                    updateTabsAndMetroUI(fromJson);
-                    mTabHost.requestLayout();
-                    final View tabView = mTabs.getChildTabViewAt(mViewPager.getCurrentItem());
-                    tabView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            tabView.requestFocus();
-                        }
-                    });
-                }
-            });
+            mLoadingView.stopLoading(false, false);
         }
     }
 

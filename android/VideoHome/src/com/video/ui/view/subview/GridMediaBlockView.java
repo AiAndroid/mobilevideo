@@ -74,7 +74,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
 
             ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).tag(tag).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(tag).fit().into(image);
 
             if(block.ui_type.id == LayoutConstant.grid_media_port) {
                 TextView title = (TextView) meida.findViewById(R.id.media_title);
@@ -124,7 +124,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             View view = mMetroLayout.getChildAt(i);
             ImageView image = (ImageView)view.findViewById(R.id.poster);
             if(image != null) {
-                Picasso.with(getContext()).load(content.items.get(i).images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
+                Picasso.with(getContext()).load(content.items.get(i).images.get("poster").url).fit().into(image);
             }
         }
     }
