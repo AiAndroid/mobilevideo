@@ -34,8 +34,8 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
         setTag(R.integer.picasso_tag, tag);
         content = items;
 
-        View v = View.inflate(getContext(), R.layout.quick_navigation, this);
-        LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
+        root = View.inflate(getContext(), R.layout.quick_navigation, this);
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
 
         int width = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_width);
         int padding = (getDimens().width-4*width)/3;

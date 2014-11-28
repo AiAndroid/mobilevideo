@@ -4,9 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -73,19 +71,10 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
                 addView(root);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.title_height);
             }else if(block.ui_type.id == LayoutConstant.linearlayout_single_poster){
-                View root = View.inflate(getContext(), R.layout.subchannel_imageview_container, null);
-                ImageView poster = (ImageView) root.findViewById(R.id.image_ads);
-                Picasso.with(getContext()).load(block.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().into(poster);
-                addView(root);
+                SinglePosterBlockView view = new SinglePosterBlockView(getContext(), block, getTag(R.integer.picasso_tag));
+                addView(view);
 
-                root.findViewById(R.id.ads_media_click).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        launcherAction(getContext(), block);
-                    }
-                });
-
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_banner_sub_channel_height);
+                getDimens().height += view.getDimens().height;
                 addOnePadding();
             }else if (block.ui_type.id == LayoutConstant.grid_media_land || block.ui_type.id == LayoutConstant.grid_media_port) {
 

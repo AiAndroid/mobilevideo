@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
+import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.subview.AdsAnimationListener;
 
 import java.util.ArrayList;
@@ -42,12 +43,16 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         isUserTab = getArguments().getBoolean("user_fragment", false);
         index     = getArguments().getInt("index", 0);
         //a litter delay to construct UI
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                initViews();
-            }
-        }, 500*(index>0?1:0));
+        if(ViewUtils.LargerMemoryMode() == true) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    initViews();
+                }
+            }, 500 * (index > 0 ? 1 : 0));
+        }else {
+            initViews();
+        }
 
         return v;
     }
@@ -105,7 +110,8 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
                    item.ui_type.id == LayoutConstant.grid_block_selection ||
                    item.ui_type.id == LayoutConstant.grid_media_land ||
                    item.ui_type.id == LayoutConstant.grid_media_port ||
-                   item.ui_type.id == LayoutConstant.tabs_horizontal)
+                   item.ui_type.id == LayoutConstant.tabs_horizontal
+                         )
                     addViewPort(blockView, item.ui_type.id, 0, step++);
                 else
                     addViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);

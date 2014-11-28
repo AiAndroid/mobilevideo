@@ -65,7 +65,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
         initDimens(block);
         content = block;
 
-        View root = View.inflate(getContext(), R.layout.quick_navigation, null);
+        root = View.inflate(getContext(), R.layout.quick_navigation, null);
         LayoutParams flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         addView(root, flp);
         LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);

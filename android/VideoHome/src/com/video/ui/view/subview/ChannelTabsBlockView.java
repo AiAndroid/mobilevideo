@@ -72,15 +72,14 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
     private class TabClickListener implements OnClickListener {
 
+        private int mIndex;
         private TabClickListener(int tabIndex) {
-            if(tabIndex == currentIndex)
-                return;
-
-            currentIndex = tabIndex;
+            mIndex = tabIndex;
         }
 
         public void onClick(View v) {
-            showTab(currentIndex);
+            currentIndex = mIndex;
+            showTab(mIndex);
         }
     }
 

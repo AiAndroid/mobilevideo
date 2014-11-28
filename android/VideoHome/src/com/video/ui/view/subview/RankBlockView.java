@@ -144,6 +144,9 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
             ImageView rightCorner = (ImageView) view.findViewById(R.id.rank_media_corner);
             if(item.images.get("right_top_corner") != null)
                 Picasso.with(getContext()).load(item.images.get("right_top_corner").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
+
+            ImageView iv = (ImageView) view.findViewById(R.id.poster);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().into(iv);
         }
     }
 

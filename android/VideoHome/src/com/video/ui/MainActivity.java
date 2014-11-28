@@ -12,10 +12,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TextView;
+import android.widget.*;
 import com.aimashi.mobile.video.view.UserView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -30,6 +27,7 @@ import com.video.ui.view.MetroFragment;
 import com.video.ui.view.RecommendCardViewClickListenerFactory;
 import com.video.ui.view.UserViewFactory;
 import com.video.ui.view.subview.AdsAnimationListener;
+import com.video.ui.view.subview.DimensHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -345,7 +343,18 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object){
-            //container.removeView(fragments.get(new Integer(position)).getView());
+            if(ViewUtils.LargerMemoryMode() == false) {
+                final View view = fragments.get(new Integer(position)).getView();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ViewUtils.unbindImageDrawables(view);
+                    }
+                }, 500);
+
+                container.removeView(view);
+                fragments.remove(new Integer(position));
+            }
         }
 
         @Override
@@ -398,7 +407,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             }
         }
 
-        private void switchTabView(int index){
+        private void switchTabView(final int index){
             Fragment fg = fragments.get(new Integer(index));
             if(fg instanceof AdsAnimationListener){
                 AdsAnimationListener ap = ((AdsAnimationListener) fg).getAnimationListener();
@@ -411,7 +420,69 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                     }
                 }
             }
+
+            //TODO
+            //We need pay much attention to memory usage
+            if(false) {
+                final int size = mViewPager.getChildCount();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //remove show image
+                        for (int i = index + 2; i < size; i++) {
+                            ViewUtils.unbindImageDrawables(mViewPager.getChildAt(i));
+                            mViewPager.getChildAt(i).setTag(R.integer.removed_bitmap, true);
+                        }
+                        for (int i = index - 2; i >= 0; i--) {
+                            ViewUtils.unbindImageDrawables(mViewPager.getChildAt(i));
+                            mViewPager.getChildAt(i).setTag(R.integer.removed_bitmap, true);
+                        }
+                    }
+                }, 500);
+
+                //show picture
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = index + 1; i < size; i++) {
+                            final int showIndex = i;
+                            Object tag = mViewPager.getChildAt(i).getTag(R.integer.removed_bitmap);
+                            if ((tag != null) && ((Boolean) tag == true)) {
+
+                                invalidateUI(mViewPager.getChildAt(showIndex));
+                                mViewPager.getChildAt(showIndex).setTag(R.integer.removed_bitmap, false);
+                            }
+                        }
+
+                        for (int i = index - 1; i >= 0; i--) {
+                            final int showIndex = i;
+                            Object tag = mViewPager.getChildAt(i).getTag(R.integer.removed_bitmap);
+                            if ((tag != null) && ((Boolean) tag == true)) {
+                                invalidateUI(mViewPager.getChildAt(showIndex));
+                                mViewPager.getChildAt(showIndex).setTag(R.integer.removed_bitmap, false);
+                            }
+                        }
+                    }
+                }, 500);
+            }
+
             switchTab(index);
+        }
+
+        private void invalidateUI(View view){
+            if (null == view) {
+                return;
+            }
+
+            if(view instanceof DimensHelper){
+                DimensHelper imageView = (DimensHelper)view;
+                imageView.invalidateUI();
+            }
+            if (view instanceof ViewGroup) {
+                for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                    invalidateUI(((ViewGroup) view).getChildAt(i));
+                }
+            }
         }
 
         @Override

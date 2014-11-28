@@ -75,7 +75,7 @@ public class GridSelectBlockView extends BaseCardView implements DimensHelper {
             View view = ml.getChildAt(i);
             ImageView mPoster  = (ImageView) view.findViewById(R.id.feature_poster_bg);
             if(mPoster != null)
-                Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
+                Picasso.with(getContext()).load(content.items.get(i).images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
 
         }
     }

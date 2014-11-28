@@ -164,7 +164,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
     @Override
     public void invalidateUI() {
         for(int i=0;i<content.size();i++) {
-            ImageView view = (ImageView) viewList.get(i);
+            ImageView view = (ImageView) viewList.get(i).findViewById(R.id.image_ads);
             DisplayItem item = content.get(i);
             Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
         }

@@ -37,6 +37,30 @@ public final class ViewUtils {
 			}
 		}
 	}
+
+    public static void unbindImageDrawables(View view) {
+        if (null == view) {
+            return;
+        }
+
+        if(view instanceof ImageView){
+            ImageView imageView = (ImageView)view;
+
+            if(imageView.getDrawable() != null){
+                imageView.getDrawable().setCallback(null);
+                imageView.setImageDrawable(null);
+            }
+        }
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                unbindImageDrawables(((ViewGroup) view).getChildAt(i));
+            }
+        }
+    }
 	private ViewUtils() {
 	}
+
+    public static boolean LargerMemoryMode() {
+        return true;
+    }
 }
