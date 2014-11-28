@@ -22,10 +22,12 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
+    private View root;
+    private Block<DisplayItem> content;
     public RankBlockView(Context context, Block<DisplayItem> block, Object tag){
         this(context, null, 0);
-
         setTag(R.integer.picasso_tag, tag);
+        content = block;
 
         ArrayList<DisplayItem> items = block.items;
         String container = block.title;
@@ -33,12 +35,12 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         int row_count    = block.ui_type.row_count;
 
         int height = 0;
-        View v = View.inflate(getContext(), R.layout.rank_item, this);
+        root = View.inflate(getContext(), R.layout.rank_item, this);
 
         //add title top height
         height += getResources().getDimensionPixelSize(R.dimen.rank_title_top);
 
-        TextView title = (TextView) v.findViewById(R.id.rank_title);
+        TextView title = (TextView) root.findViewById(R.id.rank_title);
         title.setText(container);
 
         //add text view height
@@ -50,7 +52,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
             row_count = 3;
 
         int padding = (getDimens().width-row_count*getResources().getDimensionPixelSize(R.dimen.media_port_width))/(row_count+1);
-        LinearFrame header = (LinearFrame)v.findViewById(R.id.header);
+        LinearFrame header = (LinearFrame)root.findViewById(R.id.header);
         for (int i=0;i<row_count;i++) {
             final DisplayItem item = items.get(i);
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
@@ -80,7 +82,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         //add top height
         height += getResources().getDimensionPixelSize(R.dimen.rank_video_list_top);
 
-        LinearFrame list = (LinearFrame)v.findViewById(R.id.list);
+        LinearFrame list = (LinearFrame)root.findViewById(R.id.list);
         for (int i=row_count;i<items.size();i++) {
             final DisplayItem item = items.get(i);
             View view =  View.inflate(getContext(), R.layout.media_item_textview, null);
@@ -114,7 +116,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         //add height
         height += dpToPx(4);
         height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-        ((Button)v.findViewById(R.id.enter_button)).setText(subtitle);
+        ((Button)root.findViewById(R.id.enter_button)).setText(subtitle);
         //TODO add click
 
         height += dpToPx(4);
@@ -130,5 +132,23 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
             mDimens.height = 1920;//getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height);
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        LinearFrame header = (LinearFrame)root.findViewById(R.id.header);
+        for (int i=0;i<header.getChildCount();i++) {
+            final DisplayItem item = content.items.get(i);
+            View view =  header.getChildAt(i);
+
+            ImageView rightCorner = (ImageView) view.findViewById(R.id.rank_media_corner);
+            if(item.images.get("right_top_corner") != null)
+                Picasso.with(getContext()).load(item.images.get("right_top_corner").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(rightCorner);
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 }

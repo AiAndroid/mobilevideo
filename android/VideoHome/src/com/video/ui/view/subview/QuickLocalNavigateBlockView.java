@@ -25,12 +25,16 @@ public class QuickLocalNavigateBlockView extends BaseCardView implements DimensH
             R.drawable.com_btn_mid_bg,
             R.drawable.com_btn_right_bg
     };
+
+    private View root;
+    private ArrayList<DisplayItem> content;
     public QuickLocalNavigateBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
+        content = items;
 
-        View v = View.inflate(getContext(), R.layout.quick_navigation, this);
-        LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
+        root = View.inflate(getContext(), R.layout.quick_navigation, this);
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
 
         for (int i=0;i<items.size();i++) {
             final DisplayItem item = items.get(i);
@@ -63,6 +67,25 @@ public class QuickLocalNavigateBlockView extends BaseCardView implements DimensH
             mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height);
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
+        for (int i=0;i<content.size();i++) {
+            final DisplayItem item = content.get(i);
+            View view =  mMetroLayout.getChildAt(i);
+
+            ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
+            if(iv != null) {
+                Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).priority(Picasso.Priority.HIGH).fit().into(iv);
+            }
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 }
 

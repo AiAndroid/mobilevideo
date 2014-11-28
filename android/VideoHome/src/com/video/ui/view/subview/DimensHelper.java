@@ -1,10 +1,15 @@
 package com.video.ui.view.subview;
 
+import android.view.View;
+
 /**
  * Created by liuhuadong on 11/18/14.
  */
 public interface DimensHelper {
     public Dimens getDimens();
+
+    public void invalidateUI();
+    public void unbindDrawables(View view);
 
     public static class Dimens{
         public int width;

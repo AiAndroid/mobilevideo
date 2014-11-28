@@ -19,12 +19,15 @@ public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
+    private ArrayList<DisplayItem> content;
+    private View root;
     public PosterEnterBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
+        content = items;
 
-        View v = View.inflate(getContext(), R.layout.quick_navigation, this);
-        LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
+        root = View.inflate(getContext(), R.layout.quick_navigation, this);
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
 
         int width = getResources().getDimensionPixelSize(R.dimen.channel_media_poster_view_width);
         int padding = (getDimens().width-items.size()*width)/(items.size()+1);
@@ -55,5 +58,23 @@ public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
             mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_media_poster_view_height);
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
+        for (int i=0;i<content.size();i++) {
+            final DisplayItem item = content.get(i);
+            View view =  mMetroLayout.getChildAt(i);
+            ImageView tv = (ImageView) view.findViewById(R.id.quick_enter_imageview);
+            if(tv != null) {
+                Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(tv);
+            }
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 }

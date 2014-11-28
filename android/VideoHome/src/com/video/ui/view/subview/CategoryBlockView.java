@@ -84,6 +84,18 @@ public class CategoryBlockView extends BaseCardView implements DimensHelper {
         return mDimens;
     }
 
+    @Override
+    public void invalidateUI() {
+        Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
+        Picasso.with(getContext()).load(item.images.get("left_top_corner").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
+    }
+
     public static class Round_Corners implements Transformation {
         private int Round;
         private boolean justTopEffect;

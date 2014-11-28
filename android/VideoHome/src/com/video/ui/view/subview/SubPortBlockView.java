@@ -139,4 +139,19 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         //add padding
         getDimens().height += media_item_padding;
     }
+
+    @Override
+    public void invalidateUI() {
+        for(int i=0;i<getChildCount();i++){
+            View view =  getChildAt(i);
+            if(view instanceof DimensHelper){
+                ((DimensHelper) view).invalidateUI();
+            }
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
+    }
 }

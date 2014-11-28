@@ -36,8 +36,11 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
     private int width;
     private int height;
     private int res_id;
+    private Block<DisplayItem> content;
+    private View root;
 
     private void initDimens(Block<DisplayItem> block){
+        content = block;
         item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         if(block.ui_type.id == LayoutConstant.grid_media_port) {
             row_count = block.ui_type.row_count;
@@ -60,11 +63,12 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
 
     private void initUI(Context context, Block<DisplayItem> block, Object tag){
         initDimens(block);
+        content = block;
 
-        View v = View.inflate(getContext(), R.layout.quick_navigation, null);
+        View root = View.inflate(getContext(), R.layout.quick_navigation, null);
         LayoutParams flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        addView(v, flp);
-        LinearFrame mMetroLayout = (LinearFrame)v.findViewById(R.id.metrolayout);
+        addView(root, flp);
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
         for(int step=0;step<block.items.size();step++) {
             final DisplayItem item = block.items.get(step);
 
@@ -110,5 +114,23 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             mDimens.height = 0;
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
+
+        for(int i=0;i<mMetroLayout.getChildCount();i++){
+            View view = mMetroLayout.getChildAt(i);
+            ImageView image = (ImageView)view.findViewById(R.id.poster);
+            if(image != null) {
+                Picasso.with(getContext()).load(content.items.get(i).images.get("poster").url).placeholder(R.drawable.default_poster_pic).error(R.drawable.default_poster_pic).fit().into(image);
+            }
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 }

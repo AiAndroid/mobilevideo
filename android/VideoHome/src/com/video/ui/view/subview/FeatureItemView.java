@@ -71,4 +71,14 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
         }
         return mDimens;
     }
+
+    @Override
+    public void invalidateUI() {
+        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
+    }
 }

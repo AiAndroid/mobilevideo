@@ -24,6 +24,7 @@ public class MobileVideoApplication extends Application{
         File cacheFile = createDefaultCacheDir(getApplicationContext());
 
         cache = new LruCache(getApplicationContext());
+        Log.d("MobileVideoApplication", " max siz="+cache.maxSize());
         Picasso picasso = new Picasso.Builder(getApplicationContext()).memoryCache(cache).downloader(new OkHttpDownloader(cacheFile, calculateDiskCacheSize(cacheFile))).build();
         Picasso.setSingletonInstance(picasso);
 

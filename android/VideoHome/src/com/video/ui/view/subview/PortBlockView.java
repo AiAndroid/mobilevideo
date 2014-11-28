@@ -13,8 +13,6 @@ import com.video.ui.view.LayoutConstant;
  * Created by wangwei on 11/20/14.
  */
 public class PortBlockView extends LinearBaseCardView implements DimensHelper{
-    Block<DisplayItem> content;
-
     public PortBlockView(Context context) {
         super(context, null, 0);
     }
@@ -24,10 +22,12 @@ public class PortBlockView extends LinearBaseCardView implements DimensHelper{
     }
 
     private DimensHelper.Dimens mDimens;
+    private Block<DisplayItem>  content;
 
     public PortBlockView(Context context, Block<DisplayItem> blocks, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
+        content = blocks;
 
         setOrientation(VERTICAL);
         setBackgroundResource(R.drawable.com_block_n);
@@ -45,6 +45,21 @@ public class PortBlockView extends LinearBaseCardView implements DimensHelper{
         }
 
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        for(int i=0;i<getChildCount();i++){
+            View view =  getChildAt(i);
+            if(view instanceof DimensHelper){
+                ((DimensHelper) view).invalidateUI();
+            }
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 
     private void initUI(Block<DisplayItem> rootblock) {

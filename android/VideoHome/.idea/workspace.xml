@@ -59,6 +59,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MobileVideoApplication" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.video.ui" />
   </component>
   <component name="ChangeListManager">
@@ -283,97 +284,165 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ViewCreateFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
+      <file leaf-file-name="RankBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1775">
-              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdsBlockView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsBlockView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5145631" vertical-offset="604" max-vertical-offset="4100">
-              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="3450">
+              <caret line="84" column="44" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
               <folding>
-                <element signature="e#5229#5293#0" expanded="true" />
-                <element signature="e#5324#5389#0" expanded="true" />
+                <element signature="e#866#887#0" expanded="true" />
+                <element signature="e#1253#1313#0" expanded="true" />
+                <element signature="e#1613#1678#0" expanded="true" />
+                <element signature="e#1787#1849#0" expanded="true" />
+                <element signature="e#2525#2546#0" expanded="true" />
+                <element signature="e#3018#3080#0" expanded="true" />
+                <element signature="e#3082#3150#0" expanded="true" />
+                <element signature="e#3257#3278#0" expanded="true" />
+                <element signature="e#3358#3426#0" expanded="true" />
+                <element signature="e#3472#3537#0" expanded="true" />
+                <element signature="e#4358#4421#0" expanded="true" />
+                <element signature="e#4422#4490#0" expanded="true" />
+                <element signature="e#4553#4621#0" expanded="true" />
+                <element signature="e#4796#4859#0" expanded="true" />
+                <element signature="e#4861#4931#0" expanded="true" />
+                <element signature="e#5000#5070#0" expanded="true" />
+                <element signature="e#5165#5229#0" expanded="true" />
+                <element signature="e#5579#5642#0" expanded="true" />
+                <element signature="e#6324#6345#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DimensHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/DimensHelper.java">
+      <file leaf-file-name="SubPortBlockView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="525">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MetroFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="3675">
-              <caret line="116" column="46" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MobileVideoApplication.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1575">
-              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Application.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/app/Application.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1375">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Picasso.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Picasso.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="180.53334" vertical-offset="14441" max-vertical-offset="17725">
-              <caret line="435" column="30" selection-start-line="435" selection-start-column="9" selection-end-line="435" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LruCache.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/LruCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2181" max-vertical-offset="2975">
-              <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.95423025" vertical-offset="2687" max-vertical-offset="3575">
+              <caret line="155" column="4" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
               <folding>
-                <element signature="e#3437#3438#0" expanded="true" />
-                <element signature="e#3457#3458#0" expanded="true" />
+                <element signature="e#919#940#0" expanded="true" />
+                <element signature="e#1257#1321#0" expanded="true" />
+                <element signature="e#1388#1452#0" expanded="true" />
+                <element signature="e#1988#2009#0" expanded="true" />
+                <element signature="e#2722#2780#0" expanded="true" />
+                <element signature="e#3143#3164#0" expanded="true" />
+                <element signature="e#3586#3663#0" expanded="true" />
+                <element signature="e#3922#3943#0" expanded="true" />
+                <element signature="e#4755#4819#0" expanded="true" />
+                <element signature="e#5039#5060#0" expanded="true" />
+                <element signature="e#5368#5389#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Utils.java">
+      <file leaf-file-name="PosterEnterBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5950" max-vertical-offset="9150">
-              <caret line="300" column="44" selection-start-line="300" selection-start-column="44" selection-end-line="300" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1211" max-vertical-offset="1975">
+              <caret line="72" column="9" selection-start-line="64" selection-start-column="6" selection-end-line="72" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#798#819#0" expanded="true" />
+                <element signature="e#1035#1112#0" expanded="true" />
+                <element signature="e#1619#1640#0" expanded="true" />
+                <element signature="e#2050#2128#0" expanded="true" />
+                <element signature="e#2345#2409#0" expanded="true" />
+                <element signature="e#2440#2518#0" expanded="true" />
+                <element signature="e#3049#3070#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridMediaBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2646" max-vertical-offset="3425">
+              <caret line="118" column="7" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuickLocalNavigateBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="2050">
+              <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="88" selection-end-column="5" />
+              <folding>
+                <element signature="e#1006#1027#0" expanded="true" />
+                <element signature="e#2155#2224#0" expanded="true" />
+                <element signature="e#2422#2486#0" expanded="true" />
+                <element signature="e#2517#2586#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuickNavigationBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1436" max-vertical-offset="2125">
+              <caret line="86" column="9" selection-start-line="78" selection-start-column="6" selection-end-line="86" selection-end-column="9" />
+              <folding>
+                <element signature="e#1062#1083#0" expanded="true" />
+                <element signature="e#1298#1369#0" expanded="true" />
+                <element signature="e#2003#2024#0" expanded="true" />
+                <element signature="e#2395#2467#0" expanded="true" />
+                <element signature="e#2684#2748#0" expanded="true" />
+                <element signature="e#2779#2851#0" expanded="true" />
+                <element signature="e#3376#3397#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChannelTabsBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5256" max-vertical-offset="6150">
+              <caret line="237" column="27" selection-start-line="237" selection-start-column="27" selection-end-line="237" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridSelectBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1498" max-vertical-offset="2275">
+              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#918#939#0" expanded="true" />
+                <element signature="e#1487#1557#0" expanded="true" />
+                <element signature="e#2383#2447#0" expanded="true" />
+                <element signature="e#2868#2889#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="898" max-vertical-offset="2925">
+              <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="62" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeatureItemView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1875">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -392,12 +461,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/tab_text.xml" />
-        <option value="$PROJECT_DIR$/res/layout/tab_media_hor.xml" />
-        <option value="$PROJECT_DIR$/res/layout/tab_media_port.xml" />
-        <option value="$PROJECT_DIR$/res/layout/button_enter.xml" />
-        <option value="$PROJECT_DIR$/res/layout/quick_enter_button.xml" />
-        <option value="$PROJECT_DIR$/res/layout/qucik_entry_textview.xml" />
         <option value="$PROJECT_DIR$/res/layout/poster_enter_item.xml" />
         <option value="$PROJECT_DIR$/res/layout/media_item_textview.xml" />
         <option value="$PROJECT_DIR$/res/layout/qucik_entry_block_textview.xml" />
@@ -407,7 +470,6 @@
         <option value="$PROJECT_DIR$/res/layout-port/metrofragment.xml" />
         <option value="$PROJECT_DIR$/res/layout-port/activity_main.xml" />
         <option value="$PROJECT_DIR$/res/values/integers.xml" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/RankItemView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationView.java" />
@@ -415,7 +477,6 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryItemView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/BlockLinearButtonView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/AdsView.java" />
         <option value="$PROJECT_DIR$/res/layout/channel_tabs.xml" />
         <option value="$PROJECT_DIR$/res/layout/quick_navigation.xml" />
@@ -429,20 +490,28 @@
         <option value="$PROJECT_DIR$/res/layout/sub_channel_title.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlock.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabs.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterBlockView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/MetroLayout.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/AdsBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/DimensHelper.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/AdsBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/RecommendCardView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/BlockLinearButtonView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/RankBlockView.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java" />
       </list>
     </option>
   </component>
@@ -580,7 +649,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="8e986555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="2119416e" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="TV" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="options.lastSelected" value="preferences.sourceCode.XML" />
@@ -797,7 +866,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -805,7 +874,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0754717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17364016" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31276152" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3410042" sideWeight="0.81832886" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26778242" sideWeight="0.09595688" order="8" side_tool="true" content_ui="tabs" />
@@ -960,13 +1029,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java</url>
-          <line>37</line>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java</url>
-          <line>42</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
@@ -985,87 +1054,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6540698" vertical-offset="0" max-vertical-offset="1475">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Dispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1867" max-vertical-offset="12600">
-          <caret line="146" column="35" selection-start-line="146" selection-start-column="32" selection-end-line="146" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-xxhdpi/media_pager_white.9.png">
-      <provider selected="true" editor-type-id="ninepatcheditor">
-        <state />
-      </provider>
-      <provider editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/qucik_entry_block_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17531557" vertical-offset="0" max-vertical-offset="713">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/ads_viewflipper.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="900">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#195#222#0" expanded="false" />
-            <element signature="e#259#287#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/button_enter.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23712738" vertical-offset="0" max-vertical-offset="738">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/tab_text.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1693767" vertical-offset="0" max-vertical-offset="738">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/ads_imageview_container.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="725">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.2" vertical-offset="645" max-vertical-offset="2225">
@@ -1183,14 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2196" max-vertical-offset="2950">
-          <caret line="132" column="5" selection-start-line="123" selection-start-column="3" selection-end-line="132" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/UserViewFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1851369" vertical-offset="33" max-vertical-offset="1475">
@@ -1218,27 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2021" max-vertical-offset="2925">
-          <caret line="100" column="52" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#946#967#0" expanded="true" />
-            <element signature="e#1255#1317#0" expanded="true" />
-            <element signature="e#1547#1622#0" expanded="true" />
-            <element signature="e#1645#1721#0" expanded="true" />
-            <element signature="e#1776#1851#0" expanded="true" />
-            <element signature="e#2100#2170#0" expanded="true" />
-            <element signature="e#2193#2264#0" expanded="true" />
-            <element signature="e#2321#2391#0" expanded="true" />
-            <element signature="e#4791#4854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/poster_enter_item.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1261,60 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="533" max-vertical-offset="1750">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BlockLinearButtonView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1425">
-          <caret line="26" column="90" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3175">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1625">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1450">
-          <caret line="28" column="98" selection-start-line="28" selection-start-column="98" selection-end-line="28" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="903" max-vertical-offset="2550">
-          <caret line="56" column="106" selection-start-line="56" selection-start-column="106" selection-end-line="56" selection-end-column="106" />
-          <folding>
-            <element signature="e#1806#1827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/channel_tabs.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1334,46 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="1025">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1862" max-vertical-offset="3200">
-          <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
-          <folding>
-            <element signature="e#1988#2009#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="5800">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1188#1209#0" expanded="true" />
-            <element signature="e#2822#2897#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/content/pm/ApplicationInfo.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33296338" vertical-offset="575" max-vertical-offset="1975">
@@ -1390,57 +1255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5950" max-vertical-offset="9150">
-          <caret line="300" column="44" selection-start-line="300" selection-start-column="44" selection-end-line="300" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Picasso.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="180.53334" vertical-offset="14441" max-vertical-offset="17725">
-          <caret line="435" column="30" selection-start-line="435" selection-start-column="9" selection-end-line="435" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/app/Application.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1375">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/LruCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2181" max-vertical-offset="2975">
-          <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
-          <folding>
-            <element signature="e#3437#3438#0" expanded="true" />
-            <element signature="e#3457#3458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1575">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2081" max-vertical-offset="3675">
-          <caret line="116" column="46" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ViewCreateFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1775">
@@ -1449,29 +1263,313 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/DimensHelper.java">
+    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/widget/ImageView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="525">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.21306819" vertical-offset="0" max-vertical-offset="3225">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/RecommendCardView.java">
+    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/graphics/Bitmap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58867365" vertical-offset="30" max-vertical-offset="9625">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+        <state vertical-scroll-proportion="-2.9232996" vertical-offset="2895" max-vertical-offset="3600">
+          <caret line="36" column="52" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/app/ActivityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33287102" vertical-offset="160" max-vertical-offset="5200">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.366485" vertical-offset="8106" max-vertical-offset="9200">
+          <caret line="389" column="41" selection-start-line="389" selection-start-column="41" selection-end-line="389" selection-end-column="41" />
+          <folding>
+            <element signature="e#13903#13904#0" expanded="true" />
+            <element signature="e#13961#13962#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/Picasso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3552812" vertical-offset="14441" max-vertical-offset="17725">
+          <caret line="668" column="51" selection-start-line="668" selection-start-column="51" selection-end-line="668" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/app/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16756032" vertical-offset="0" max-vertical-offset="1375">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/picasso-master/picasso/src/main/java/com/squareup/picasso/LruCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2122" max-vertical-offset="2925">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/MobileVideoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3686327" vertical-offset="300" max-vertical-offset="1600">
+          <caret line="31" column="73" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/MetroFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="3675">
+          <caret line="117" column="24" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.6" vertical-offset="1637" max-vertical-offset="11125">
+          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/android-sdks/platforms/android-19/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3324397" vertical-offset="22252" max-vertical-offset="29700">
+          <caret line="901" column="16" selection-start-line="901" selection-start-column="16" selection-end-line="901" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/utils/ViewUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <element signature="e#180#212#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/DimensHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="650">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/AdsBlockView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5145631" vertical-offset="604" max-vertical-offset="4100">
-          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.49157733" vertical-offset="2979" max-vertical-offset="4450">
+          <caret line="164" column="32" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
           <folding>
-            <element signature="e#5229#5293#0" expanded="true" />
-            <element signature="e#5324#5389#0" expanded="true" />
+            <element signature="e#1148#1169#0" expanded="true" />
+            <element signature="e#4866#4887#0" expanded="true" />
+            <element signature="e#5266#5330#0" expanded="true" />
+            <element signature="e#5361#5426#0" expanded="true" />
+            <element signature="e#5751#5772#0" expanded="true" />
+            <element signature="e#6017#6018#0" expanded="true" />
+            <element signature="e#6064#6065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/RecommendCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9234303" vertical-offset="8922" max-vertical-offset="9875">
+          <caret line="423" column="0" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/LinearBaseCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0324484" vertical-offset="0" max-vertical-offset="900">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/CategoryBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26253688" vertical-offset="1572" max-vertical-offset="3475">
+          <caret line="86" column="1" selection-start-line="86" selection-start-column="1" selection-end-line="86" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BlockLinearButtonView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4934877" vertical-offset="984" max-vertical-offset="1675">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5256" max-vertical-offset="6150">
+          <caret line="237" column="27" selection-start-line="237" selection-start-column="27" selection-end-line="237" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FeatureItemView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1875">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridSelectBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1498" max-vertical-offset="2275">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#918#939#0" expanded="true" />
+            <element signature="e#1487#1557#0" expanded="true" />
+            <element signature="e#2383#2447#0" expanded="true" />
+            <element signature="e#2868#2889#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2646" max-vertical-offset="3425">
+          <caret line="118" column="7" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PosterEnterBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1211" max-vertical-offset="1975">
+          <caret line="72" column="9" selection-start-line="64" selection-start-column="6" selection-end-line="72" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#798#819#0" expanded="true" />
+            <element signature="e#1035#1112#0" expanded="true" />
+            <element signature="e#1619#1640#0" expanded="true" />
+            <element signature="e#2050#2128#0" expanded="true" />
+            <element signature="e#2345#2409#0" expanded="true" />
+            <element signature="e#2440#2518#0" expanded="true" />
+            <element signature="e#3049#3070#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickLocalNavigateBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="2050">
+          <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="88" selection-end-column="5" />
+          <folding>
+            <element signature="e#1006#1027#0" expanded="true" />
+            <element signature="e#2155#2224#0" expanded="true" />
+            <element signature="e#2422#2486#0" expanded="true" />
+            <element signature="e#2517#2586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/QuickNavigationBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1436" max-vertical-offset="2125">
+          <caret line="86" column="9" selection-start-line="78" selection-start-column="6" selection-end-line="86" selection-end-column="9" />
+          <folding>
+            <element signature="e#1062#1083#0" expanded="true" />
+            <element signature="e#1298#1369#0" expanded="true" />
+            <element signature="e#2003#2024#0" expanded="true" />
+            <element signature="e#2395#2467#0" expanded="true" />
+            <element signature="e#2684#2748#0" expanded="true" />
+            <element signature="e#2779#2851#0" expanded="true" />
+            <element signature="e#3376#3397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/RankBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="3450">
+          <caret line="84" column="44" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
+          <folding>
+            <element signature="e#866#887#0" expanded="true" />
+            <element signature="e#1253#1313#0" expanded="true" />
+            <element signature="e#1613#1678#0" expanded="true" />
+            <element signature="e#1787#1849#0" expanded="true" />
+            <element signature="e#2525#2546#0" expanded="true" />
+            <element signature="e#3018#3080#0" expanded="true" />
+            <element signature="e#3082#3150#0" expanded="true" />
+            <element signature="e#3257#3278#0" expanded="true" />
+            <element signature="e#3358#3426#0" expanded="true" />
+            <element signature="e#3472#3537#0" expanded="true" />
+            <element signature="e#4358#4421#0" expanded="true" />
+            <element signature="e#4422#4490#0" expanded="true" />
+            <element signature="e#4553#4621#0" expanded="true" />
+            <element signature="e#4796#4859#0" expanded="true" />
+            <element signature="e#4861#4931#0" expanded="true" />
+            <element signature="e#5000#5070#0" expanded="true" />
+            <element signature="e#5165#5229#0" expanded="true" />
+            <element signature="e#5579#5642#0" expanded="true" />
+            <element signature="e#6324#6345#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/PortBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="898" max-vertical-offset="2925">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="62" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.95423025" vertical-offset="2687" max-vertical-offset="3575">
+          <caret line="155" column="4" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
+          <folding>
+            <element signature="e#919#940#0" expanded="true" />
+            <element signature="e#1257#1321#0" expanded="true" />
+            <element signature="e#1388#1452#0" expanded="true" />
+            <element signature="e#1988#2009#0" expanded="true" />
+            <element signature="e#2722#2780#0" expanded="true" />
+            <element signature="e#3143#3164#0" expanded="true" />
+            <element signature="e#3586#3663#0" expanded="true" />
+            <element signature="e#3922#3943#0" expanded="true" />
+            <element signature="e#4755#4819#0" expanded="true" />
+            <element signature="e#5039#5060#0" expanded="true" />
+            <element signature="e#5368#5389#0" expanded="true" />
           </folding>
         </state>
       </provider>

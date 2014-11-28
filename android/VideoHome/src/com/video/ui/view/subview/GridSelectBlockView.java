@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -20,13 +22,16 @@ public class GridSelectBlockView extends BaseCardView implements DimensHelper {
     }
 
 
+    private MetroLayout        ml;
+    private Block<DisplayItem> content;
     public GridSelectBlockView(Context context, Block<DisplayItem> block, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
+        content = block;
 
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
 
-        MetroLayout ml = new MetroLayout(context);
+        ml = new MetroLayout(context);
         RelativeLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.addRule(CENTER_HORIZONTAL);
         int step = 0;
@@ -62,5 +67,21 @@ public class GridSelectBlockView extends BaseCardView implements DimensHelper {
             mDimens.height = 0;
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        for(int i=0;i<ml.getChildCount();i++){
+            View view = ml.getChildAt(i);
+            ImageView mPoster  = (ImageView) view.findViewById(R.id.feature_poster_bg);
+            if(mPoster != null)
+                Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, true)).into(mPoster);
+
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
     }
 }

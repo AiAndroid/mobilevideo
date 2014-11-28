@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
+import com.video.ui.utils.ViewUtils;
 
 import java.util.ArrayList;
 
@@ -158,6 +159,20 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
             mDimens.height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
         }
         return mDimens;
+    }
+
+    @Override
+    public void invalidateUI() {
+        for(int i=0;i<content.size();i++) {
+            ImageView view = (ImageView) viewList.get(i);
+            DisplayItem item = content.get(i);
+            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
+        }
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+        ViewUtils.unbindDrawables(this);
     }
 
     private Handler mHander = new Handler();

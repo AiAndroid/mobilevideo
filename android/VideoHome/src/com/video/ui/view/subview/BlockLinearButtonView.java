@@ -63,4 +63,14 @@ public class BlockLinearButtonView extends BaseCardView implements DimensHelper 
         }
         return mDimens;
     }
+
+    @Override
+    public void invalidateUI() {
+
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
+    }
 }

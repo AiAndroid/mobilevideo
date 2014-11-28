@@ -20,9 +20,11 @@ import com.video.ui.view.LayoutConstant;
  * Created by wangwei on 11/18/14.
  */
 public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
-    Block<DisplayItem> content;
+    private Block<DisplayItem> content;
     private TabWidget mTabWidget;
     private boolean mGridLoaded = false;
+    private View root;
+    private int  currentIndex = 0;
 
     int mType =  LayoutConstant.grid_media_land;
 
@@ -57,21 +59,33 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
         return mDimens;
     }
+
+    @Override
+    public void invalidateUI() {
+       showTab(currentIndex);
+    }
+
+    @Override
+    public void unbindDrawables(View view) {
+
+    }
+
     private class TabClickListener implements OnClickListener {
 
-        private final int mTabIndex;
-
         private TabClickListener(int tabIndex) {
-            mTabIndex = tabIndex;
+            if(tabIndex == currentIndex)
+                return;
+
+            currentIndex = tabIndex;
         }
 
         public void onClick(View v) {
-            showTab(mTabIndex);
+            showTab(currentIndex);
         }
     }
 
-    private View root;
     private void initUI(Block<DisplayItem> rootblock){
+        content = rootblock;
         int block_height = 0;
         int item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         root = LayoutInflater.from(getContext()).inflate(R.layout.channel_tabs,null);
