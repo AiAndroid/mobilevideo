@@ -59,9 +59,12 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         page_indicator = (TextView) root.findViewById(R.id.page_indicator);
 
         addView(root);
+
+        viewList.add(getImageView(items.get(items.size()-1)));
         for(DisplayItem item: items) {
             viewList.add(getImageView(item));
         }
+        viewList.add(getImageView(items.get(0)));
 
         page_indicator.setText(String.format("%1$s/%2$s", 1 ,content.size()));
         viewFlipper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -72,7 +75,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
             @Override
             public void onPageSelected(int i) {
-                page_indicator.setText(String.format("%1$s/%2$s ", i+1 ,content.size()));
+                page_indicator.setText(String.format("%1$s/%2$s ", i ,content.size()));
                 mHander.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -80,6 +83,15 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                         Log.d("ads", "onPageScrolled startAnimation");
                     }
                 }, 200);
+
+                //when move to last, move to first
+                if(i == content.size()+1){
+                    viewFlipper.setCurrentItem(1, false);
+                }
+
+                if(i == 0){
+                    viewFlipper.setCurrentItem(content.size(), false);
+                }
             }
 
             @Override
@@ -134,6 +146,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
         };
         viewFlipper.setAdapter(pagerAdapter);
+        viewFlipper.setCurrentItem(1, false);
     }
 
     private View getImageView(final DisplayItem item){
