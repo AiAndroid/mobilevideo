@@ -4,6 +4,8 @@ package com.video.ui.view;
  * Created by liuhuadong on 11/17/14.
  */
 public class LayoutConstant {
+
+    public final static int single_view        = 100;//-------plain view
     public final static int imageswitcher      = 101;//-------广告可以-------------给广告切换image
     public final static int linearlayout_top   = 201;//-------单行button----icon---图标在文本上边
     public final static int linearlayout_left  = 202;//-------单行Button----icon---图标在文本左边

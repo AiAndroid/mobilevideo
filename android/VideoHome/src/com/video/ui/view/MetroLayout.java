@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.video.ui.R;
 import com.video.ui.view.subview.DimensHelper;
@@ -123,6 +124,18 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
+            case LayoutConstant.single_view: {
+                int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                flp = new LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT);
+
+                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * (y + 1);
+                flp.rightMargin = getPaddingRight() + paddingLeft;
+                child.setFocusable(true);
+                addView(child, flp);
+                //rowOffset[0] += height;
+                break;
+            }
             case LayoutConstant.grid_item_selection:{
                 int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
