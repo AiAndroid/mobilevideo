@@ -2,7 +2,7 @@
     "blocks":[
         {
             "title":"推荐",
-            "id":"hot",
+            "id":"xx.choice",
             "type":"album",
             "ns":"video",
             "times":{
