@@ -295,195 +295,6 @@
                     ]
                 },
                 {
-                    "title":"快速导航",
-                    "ui_type":{
-                        "name":"linearlayout_top",
-                        "id":201
-                    },
-                    "times":{
-                        "updated":0,
-                        "created":0
-                    },
-                    "images":{
-                    },
-                    "media":{
-                    },
-                    "items":[
-                        {
-                            "title":"电视剧",
-                            "id":"200",
-                            "type":"episode",
-                            "ns":"video",
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "media":{
-                                "cp":{
-                                    "vendor":"aiqiyi",
-                                    "player_ver":"2"
-                                }
-                            },
-                            "action":{
-                                "target":"episode",
-                                "params":"episode=8"
-                            },
-                            "images":{
-                                "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "sprite":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series.png"
-                                }
-                            }
-                        },
-                        {
-                            "title":"电影",
-                            "id":"200",
-                            "type":"album",
-                            "ns":"video",
-                            "action":{
-                                "target":"movie"
-                            },
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "images":{
-                                "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "sprite":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film.png"
-                                }
-                            }
-                        },
-                        {
-                            "title":"综艺",
-                            "id":"200",
-                            "type":"album",
-                            "ns":"video",
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "action":{
-                                "target":"variety"
-                            },
-                            "images":{
-                                "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "sprite":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety.png"
-                                }
-                            }
-                        },
-                        {
-                            "title":"全部",
-                            "id":"all",
-                            "type":"album",
-                            "ns":"video",
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "images":{
-                                "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "sprite":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                },
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all.png"
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "title":"用户行为",
-                    "ui_type":{
-                        "name":"linearlayout_left",
-                        "id":202
-                    },
-                    "images":{
-                    },
-                    "media":{
-                    },
-                    "times":{
-                    },
-                    "items":[
-                        {
-                            "title":"播放历史",
-                            "id":"300",
-                            "type":"album",
-                            "ns":"video",
-                            "action":{
-                                "target":"album"
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "images":{
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_play_his.png"
-                                }
-                            }
-                        },
-                        {
-                            "title":"我的离线",
-                            "id":"offline",
-                            "type":"album",
-                            "ns":"video",
-                            "action":{
-                                "target":"album"
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "images":{
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_offline.png"
-                                }
-                            }
-                        },
-                        {
-                            "title":"电视直播",
-                            "id":"400",
-                            "type":"album",
-                            "ns":"video",
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"tv_live"
-                            },
-                            "images":{
-                                "icon":{
-                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv.png"
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
                     "title":"咨询频道",
                     "ui_type":{
                         "name":"block_channel",
@@ -921,25 +732,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "title":"进入咨询频道",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            }
                         }
                     ]
                 },
@@ -1518,85 +1310,6 @@
                             ]
                         },
                         {
-                            "title":"电视剧快速导航",
-                            "ui_type":{
-                                "name":"linearlayout_poster",
-                                "id":203
-                            },
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "items":[
-                                {
-                                    "title":"韩剧专场",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "media":{
-                                        "cp":{
-                                            "vendor":"aiqiyi",
-                                            "player_ver":"2"
-                                        }
-                                    },
-                                    "action":{
-                                        "target":"episode",
-                                        "params":"episode=8"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"热播美剧",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "action":{
-                                        "target":"movie"
-                                    },
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"奇幻实时",
-                                    "sub_title":"想看就看被",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "action":{
-                                        "target":"variety"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
                             "title":"电视剧海报样式快速导航",
                             "ui_type":{
                                 "name":"linearlayout_land",
@@ -1655,25 +1368,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "title":"进入电视剧频道",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            }
                         }
                     ]
                 },
@@ -2310,25 +2004,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "title":"进入电影频道",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            }
                         }
                     ]
                 },
@@ -2517,85 +2192,6 @@
                             ]
                         },
                         {
-                            "title":"电视剧快速导航",
-                            "ui_type":{
-                                "name":"linearlayout_poster",
-                                "id":203
-                            },
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "items":[
-                                {
-                                    "title":"韩剧专场",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "media":{
-                                        "cp":{
-                                            "vendor":"aiqiyi",
-                                            "player_ver":"2"
-                                        }
-                                    },
-                                    "action":{
-                                        "target":"episode",
-                                        "params":"episode=8"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"热播美剧",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "action":{
-                                        "target":"movie"
-                                    },
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"奇幻实时",
-                                    "sub_title":"想看就看被",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "action":{
-                                        "target":"variety"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
                             "title":"电视剧海报样式快速导航",
                             "ui_type":{
                                 "name":"linearlayout_land",
@@ -2654,25 +2250,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "title":"单块频道块",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            }
                         }
                     ]
                 },
@@ -3249,104 +2826,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "title":"电视剧快速导航",
-                            "ui_type":{
-                                "name":"linearlayout_poster",
-                                "id":203
-                            },
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "items":[
-                                {
-                                    "title":"爸爸去哪儿",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "media":{
-                                        "cp":{
-                                            "vendor":"aiqiyi",
-                                            "player_ver":"2"
-                                        }
-                                    },
-                                    "action":{
-                                        "target":"episode",
-                                        "params":"episode=8"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"中国好声音",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "action":{
-                                        "target":"movie"
-                                    },
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
-                                        }
-                                    }
-                                },
-                                {
-                                    "title":"费城勿扰",
-                                    "sub_title":"想看就看被",
-                                    "id":"200",
-                                    "type":"album",
-                                    "ns":"video",
-                                    "times":{
-                                        "updated":0,
-                                        "created":0
-                                    },
-                                    "action":{
-                                        "target":"variety"
-                                    },
-                                    "images":{
-                                        "back":{
-                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "title":"进入综艺频道",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_none",
-                                "id":204
-                            }
                         }
                     ]
                 }
@@ -4397,7 +3876,7 @@
         }
     ],
     "times":{
-        "updated":1,
+        "updated":2,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
