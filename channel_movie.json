@@ -295,6 +295,30 @@
                     ]
                 },
                 {
+                    "title":"filter",
+                    "id":"100",
+                    "type":"album",
+                    "ns":"video",
+                    "filters":[
+                        "华语",
+                        "美国",
+                        "华语",
+                        "美国",
+                        "华语",
+                        "美国",
+                        "华语",
+                        "摔选"
+                    ]
+                    "times":{
+                        "updated":0,
+                        "created":0
+                    },
+                    "ui_type":{
+                        "name":"linearlayout_filter",
+                        "id":208
+                    }
+                },
+                {
                     "title":"咨询频道",
                     "ui_type":{
                         "name":"block_channel",
@@ -3876,7 +3900,7 @@
         }
     ],
     "times":{
-        "updated":2,
+        "updated":3,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
