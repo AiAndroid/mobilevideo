@@ -17,8 +17,8 @@ import com.video.ui.view.subview.DimensHelper;
 
 import java.util.ArrayList;
 
-public class MetroFragment extends Fragment implements AdsAnimationListener {
-    private final String TAG = "MetroFragment";
+public class ListFragment extends Fragment implements AdsAnimationListener {
+    private final String TAG = ListFragment.class.getName();
 	public MetroLayout mMetroLayout;
     protected SmoothHorizontalScrollView mHorizontalScrollView;
     protected Block<DisplayItem> tab;
@@ -35,7 +35,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
             Bundle savedInstanceState) {
 
         Log.d(TAG, "onCreateView ="+this);
-        View v = inflater.inflate(R.layout.metrofragment, container, false);
+        View v = inflater.inflate(R.layout.listfragment, container, false);
         mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
         mMetroLayout.setMetroCursorView((MetroCursorView)v.findViewById(R.id.metrocursor));
         mHorizontalScrollView = (SmoothHorizontalScrollView)v.findViewById(R.id.horizontalScrollView);
@@ -111,8 +111,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
                    item.ui_type.id == LayoutConstant.grid_block_selection ||
                    item.ui_type.id == LayoutConstant.grid_media_land ||
                    item.ui_type.id == LayoutConstant.grid_media_port ||
-                   item.ui_type.id == LayoutConstant.tabs_horizontal ||
-                   item.ui_type.id == LayoutConstant.linearlayout_filter
+                   item.ui_type.id == LayoutConstant.tabs_horizontal
                          )
                     addViewPort(blockView, item.ui_type.id, 0, step++);
                 else

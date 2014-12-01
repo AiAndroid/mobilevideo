@@ -1,10 +1,14 @@
 <resources>
 
-    <dimen name="text_size_38">13dp</dimen>
     <dimen name="font_size_36">12sp</dimen>
+    <dimen name="text_size_38">13dp</dimen>
+    <dimen name="font_size_40">13.3sp</dimen>
     <dimen name="font_size_42">14sp</dimen>
     <dimen name="font_size_48">16sp</dimen>
     <dimen name="text_size_50">16dp</dimen>
+    <dimen name="size_74">24.67dp</dimen>
+
+    <dimen name="size_40">13.33dp</dimen>
 
     <dimen name="text_font_size_huge">21sp</dimen>
 
@@ -64,8 +68,73 @@
 
 
     <!-- from old video app-->
+
+    <dimen name="video_common_blur_radius">80dp</dimen>
+    <dimen name="video_common_radius_18">6dp</dimen>
+    <dimen name="video_common_radius_9">3dp</dimen>
+    <dimen name="video_common_text_btn_padding_40">13.33dp</dimen>
+    <dimen name="video_common_text_btn_paddingH">7dp</dimen>
+    <dimen name="video_common_text_btn_drawble_padding">4dp</dimen>
+    <dimen name="video_common_text_btn_paddingV">2dp</dimen>
+    <dimen name="video_common_text_btn_paddingH2">15.67dp</dimen>
+    <dimen name="video_common_text_btn_paddingV2">8.67dp</dimen>
+    <dimen name="video_common_dialog_list_item_height">42dp</dimen>
+    <dimen name="video_common_title_top_btn_paddingH">10dp</dimen>
+    <dimen name="video_common_title_top_btn_paddingV">6.3dp</dimen>
+    <dimen name="video_common_title_top_btn_top_margin">7dp</dimen>
+    <dimen name="video_common_list_top_margin">49.7dp</dimen>
+    <dimen name="video_common_list_top_padding">9dp</dimen>
+    <dimen name="video_common_secondary_list_top_padding">9dp</dimen>
+    <dimen name="video_common_title_top_height">53.3dp</dimen>
+    <dimen name="video_common_content_top_margin">50dp</dimen>
+    <dimen name="video_common_interval_150">50dp</dimen>
+    <dimen name="video_common_interval_57">19dp</dimen>
+    <dimen name="video_common_interval_50">16.7dp</dimen>
     <dimen name="video_common_interval_45">15dp</dimen>
     <dimen name="video_common_interval_40">13.3dp</dimen>
+    <dimen name="video_common_interval_36">12dp</dimen>
+    <dimen name="video_common_interval_34">11.3dp</dimen>
+    <dimen name="video_common_interval_30">10dp</dimen>
+    <dimen name="video_common_interval_27">9dp</dimen>
+    <dimen name="video_common_interval_24">8dp</dimen>
+    <dimen name="video_common_interval_20">6.7dp</dimen>
+    <dimen name="video_common_interval_15">5dp</dimen>
+    <dimen name="video_common_interval_14">4.7dp</dimen>
+    <dimen name="video_common_interval_13">4.3dp</dimen>
+    <dimen name="video_common_interval_10">3.3dp</dimen>
+    <dimen name="video_common_interval_negtive_10">-3.3dp</dimen>
+    <dimen name="video_common_left_margin_49">16.3dp</dimen>
+    <dimen name="video_common_right_margin_49">16.3dp</dimen>
+    <dimen name="video_common_divider_width">1px</dimen>
+    <dimen name="video_common_divider_height">1px</dimen>
+    <dimen name="video_common_progress_width">24dp</dimen>
+    <dimen name="video_common_progress_height">24dp</dimen>
+    <dimen name="video_common_progress_padding">5dp</dimen>
+    <dimen name="video_common_fade_edge_length">75dp</dimen>
+    <dimen name="video_common_empty_top_margin">203dp</dimen>
+    <dimen name="video_common_empty_top_margin2">139dp</dimen>
+    <!-- common end -->
+
+    <!-- title top start -->
+    <dimen name="title_top_iv_left_margin">15.3dp</dimen>
+    <dimen name="title_top_iv_top_margin">17dp</dimen>
+    <dimen name="title_top_tv_left_margin">13dp</dimen>
+    <dimen name="title_top_action_button_height">26dp</dimen>
+    <dimen name="title_top_action_button_padding">11dp</dimen>
+    <dimen name="title_top_text_margin_top">1dp</dimen>
+    <!-- title top end -->
+
+    <!-- channel start -->
+    <dimen name="channel_title_btn_width">45.33dp</dimen>
+    <dimen name="channel_title_btn_height">26.67dp</dimen>
+    <dimen name="channel_banner_left_margin">3dp</dimen>
+    <dimen name="channel_banner_right_margin">3dp</dimen>
+    <dimen name="channel_banner_top_margin">9dp</dimen>
+    <dimen name="channel_banner_bottom_margin">7dp</dimen>
+    <dimen name="channel_choise_list_divider_height">4dp</dimen>
+    <dimen name="channel_choice_top_margin">4dp</dimen>
+    <!-- channel end -->
+
 
     <dimen name="media_banner_width">352dp</dimen>
     <dimen name="media_banner_height">155.7dp</dimen>
@@ -110,9 +179,6 @@
     <dimen name="rank_video_list_top">4dp</dimen>
     <dimen name="rank_button_height">48dp</dimen>
 
-
-    <dimen name="video_common_radius_18">6dp</dimen>
-    <dimen name="video_common_radius_9">3dp</dimen>
 
     <dimen name="quick_entry_channel_width">80dp</dimen>
     <dimen name="quick_entry_channel_height">70dp</dimen>
@@ -165,5 +231,7 @@
     <dimen name="title_bottom_padding">13dp</dimen>
     <dimen name="title_divider_bottom_padding">10dp</dimen>
     <!-- Channeltabs end -->
+
+    <dimen name="filter_button_width">75dp</dimen>
 
 </resources>

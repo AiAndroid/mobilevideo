@@ -17,6 +17,7 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 import com.aimashi.mobile.video.view.UserView;
+import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.tv.ui.metro.model.ImageGroup;
@@ -52,7 +53,11 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        if(this instanceof ChannelActivity) {
+            setContentView(R.layout.channel_layout);
+        }else {
+            setContentView(R.layout.activity_main);
+        }
 
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
@@ -105,7 +110,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 }
             });
         }else {
-            mLoadingView.stopLoading(false, false);
+            mLoadingView.stopLoading(true, false);
         }
     }
 
@@ -143,10 +148,8 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             args.putInt("index",            mTabs.getTabCount());
             args.putInt("tab_count",        content.blocks.size()+(isNeedUserTab?1:0));
             
-            //Log.d(TAG, content.tabs.get(i).toString());
-
             mTabsAdapter.addTab(mTabHost.newTabSpec(content.blocks.get(i).title).setIndicator(newTabIndicator(content.blocks.get(i).title, mTabs.getTabCount() == 0)),
-                        MetroFragment.class, args);
+                    getFragmentClass(content.blocks.get(i)), args);
 
         }
 
@@ -165,6 +168,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 mTabs.focusCurrentTab(0);
             }
         }, 200);
+    }
+
+    protected Class getFragmentClass(Block<DisplayItem> block){
+        return MetroFragment.class;
     }
 
     protected boolean isNeedUserTab = true;

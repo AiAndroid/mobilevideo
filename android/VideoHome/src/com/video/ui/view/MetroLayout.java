@@ -123,7 +123,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
-            case LayoutConstant.grid_item_selection: {
+            case LayoutConstant.grid_item_selection:{
                 int height = getResources().getDimensionPixelSize(R.dimen.feature_media_view_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.feature_media_view_width);
                 flp = new LayoutParams(width, height);
@@ -133,6 +133,17 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 }
                 flp.leftMargin = getPaddingLeft() + (width + padding)*x + padding;
                 flp.topMargin = getPaddingTop() + height*y + padding* (y); //no need one more
+                child.setFocusable(true);
+                addView(child, flp);
+                rowOffset[0] += height;
+                break;
+            }
+            case LayoutConstant.linearlayout_filter_item:{
+                int height = getResources().getDimensionPixelSize(R.dimen.size_74);
+                int width = getResources().getDimensionPixelSize(R.dimen.filter_button_width);
+                flp = new LayoutParams(width, height);
+                flp.leftMargin = getPaddingLeft() + (width + padding)*x + padding;
+                flp.topMargin = getPaddingTop() + height*y + padding* (y+1); //no need one more
                 child.setFocusable(true);
                 addView(child, flp);
                 rowOffset[0] += height;
@@ -150,6 +161,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.grid_media_port:
             case LayoutConstant.grid_media_land:
             case LayoutConstant.tabs_horizontal:
+            case LayoutConstant.linearlayout_filter:
             {
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);

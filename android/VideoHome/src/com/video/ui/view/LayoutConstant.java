@@ -12,6 +12,9 @@ public class LayoutConstant {
     public final static int linearlayout_land  = 205;//-------单行海报---一行多个，以海报形式展示,电影：“韩剧专场”
     public final static int linearlayout_title = 206;//-------标题
     public final static int linearlayout_single_poster = 207;//-------单行海报
+    public final static int linearlayout_filter= 208;//-------过滤
+    public final static int linearlayout_filter_item= 209;//-------过滤
+
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
     public final static int block_port         = 301;//------------展示块容器------------没有什么用 portrait layout

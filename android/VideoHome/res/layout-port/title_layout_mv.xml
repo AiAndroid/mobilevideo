@@ -1,0 +1,66 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_common_title_top_height"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:background="@drawable/com_bg_white_shadow"
+        android:focusableInTouchMode="true" >
+    <LinearLayout
+            android:id="@+id/title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/video_common_title_top_height"
+            android:orientation="horizontal" >
+
+        <ImageButton
+                android:id="@+id/title_top_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/title_top_iv_left_margin"
+                android:background="@drawable/back_left"
+                android:clickable="false"
+                android:contentDescription="@string/app_name" />
+
+        <TextView
+                android:id="@+id/title_top_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/title_top_tv_left_margin"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:text="@string/app_name"
+                android:textColor="@color/text_color_light_dark"
+                android:textSize="@dimen/font_size_42" />
+
+    </LinearLayout>
+    <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    <ImageView
+            android:id="@+id/channel_filte_btn"
+            android:layout_width="@dimen/channel_title_btn_width"
+            android:layout_height="@dimen/channel_title_btn_height"
+            android:layout_marginRight="@dimen/size_40"
+            android:clickable="true"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/play_screen_icon"
+            android:background="@drawable/editable_title_com_btn_bg"/>
+
+    <ImageView
+            android:id="@+id/channel_search_btn"
+            android:layout_width="@dimen/channel_title_btn_width"
+            android:layout_height="@dimen/channel_title_btn_height"
+            android:layout_marginRight="@dimen/size_40"
+            android:clickable="true"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/play_search_icon"
+            android:background="@drawable/editable_title_com_btn_bg"/>
+</LinearLayout>
