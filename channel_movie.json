@@ -3353,7 +3353,7 @@
             ]
         },
         {
-            "title":"分类",
+            "title":"热播",
             "id":"category",
             "type":"album",
             "ns":"video",
@@ -3671,7 +3671,7 @@
             ]
         },
         {
-            "title":"精选",
+            "title":"好评",
             "id":"selection",
             "type":"album",
             "ns":"video",
@@ -4174,7 +4174,7 @@
             ]
         },
         {
-            "title":"排行",
+            "title":"新剧",
             "id":"rank",
             "type":"album",
             "ns":"video",
