@@ -2,7 +2,7 @@
     "blocks":[
         {
             "title":"热点",
-            "id":"hot",
+            "id":"hot.choice",
             "type":"album",
             "ns":"video",
             "times":{
@@ -3354,7 +3354,7 @@
         },
         {
             "title":"分类",
-            "id":"category",
+            "id":"category.choice",
             "type":"album",
             "ns":"video",
             "images":{
@@ -3672,7 +3672,7 @@
         },
         {
             "title":"精选",
-            "id":"selection",
+            "id":"selection.choice",
             "type":"album",
             "ns":"video",
             "images":{
@@ -4175,7 +4175,7 @@
         },
         {
             "title":"排行",
-            "id":"rank",
+            "id":"rank.choice",
             "type":"album",
             "ns":"video",
             "images":{
@@ -5663,7 +5663,7 @@
         }
     ],
     "times":{
-        "updated":68,
+        "updated":69,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
