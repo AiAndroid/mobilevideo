@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.video.ui.view.DetailFragment;
 
 /**
  * Created by liuhuadong on 12/2/14.
  */
 public class MediaDetailActivity extends DisplayItemActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,5 +32,8 @@ public class MediaDetailActivity extends DisplayItemActivity {
                 MediaDetailActivity.this.finish();
             }
         });
+
+        DetailFragment df = new DetailFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
     }
 }
