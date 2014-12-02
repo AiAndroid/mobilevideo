@@ -10,7 +10,7 @@
             "media":{
             },
             "times":{
-                "updated":3,
+                "updated":4,
                 "created":0
             },
             "ui_type":{
@@ -22,7 +22,7 @@
                     "title":"我是美女",
                     "sub_title":"点击次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "images":{
                         "poster":{
@@ -51,7 +51,7 @@
                     "title":"你不是美女",
                     "sub_title":"观看次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "images":{
                         "poster":{
@@ -79,7 +79,7 @@
                     "id":"901",
                     "sub_title":"收藏次数：2万",
                     "type":"album",
-                    "ns":"video",
+                    "ns":"item",
                     "media":{
                         "likes":73995
                     },
@@ -105,7 +105,7 @@
                     "title":"惊人天人以往情深的爱情故事随热故事长刘",
                     "sub_title":"收藏次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "media":{
                         "likes":43995
@@ -129,7 +129,7 @@
                     "title":"哪些年让我们热血沸腾的清楚片",
                     "sub_title":"收藏次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "images":{
                         "poster":{
@@ -153,7 +153,7 @@
                     "title":"全世界独一无二让我哦么分发的动作片",
                     "sub_title":"收藏次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "media":{
                         "likes":63995
@@ -177,7 +177,7 @@
                     "title":"最吓人的恐怖片",
                     "sub_title":"收藏次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "media":{
                         "likes":13995
@@ -201,7 +201,7 @@
                     "title":"惊天动作片， 好好看哦",
                     "sub_title":"收藏次数：2万",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "images":{
                         "poster":{
@@ -224,7 +224,7 @@
                 {
                     "title":"IMDB TOP",
                     "id":"901",
-                    "type":"album",
+                    "type":"item",
                     "ns":"video",
                     "media":{
                         "likes":13995
