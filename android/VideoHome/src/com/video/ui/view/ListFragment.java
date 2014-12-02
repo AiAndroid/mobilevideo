@@ -104,7 +104,8 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         currentPage = mLoader.getCurrentPage();
         //first page
         if (mVidoeInfo == null) {
-            adapter = new RelativeAdapter(result.blocks.get(0).items);
+            mVidoeInfo = result;
+            adapter = new RelativeAdapter(mVidoeInfo.blocks.get(0).items);
 
             //update UI
             listView.setAdapter(adapter);
