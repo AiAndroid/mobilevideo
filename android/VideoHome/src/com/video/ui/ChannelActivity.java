@@ -2,6 +2,7 @@ package com.video.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
@@ -23,6 +24,14 @@ public class ChannelActivity extends  MainActivity {
         View titlebar = this.findViewById(R.id.title_bar);
         TextView tv = (TextView) titlebar.findViewById(R.id.title_top_name);
         tv.setText(albumItem.title);
+
+        ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
+        back_imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChannelActivity.this.finish();
+            }
+        });
     }
 
     @Override
