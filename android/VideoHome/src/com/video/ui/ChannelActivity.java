@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
-import com.video.ui.loader.GenericSubjectLoader;
+import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
 
@@ -46,7 +46,7 @@ public class ChannelActivity extends  MainActivity {
             albumItem.title = "home";
         }
 
-        mLoader = GenericSubjectLoader.generateTabsLoader(getBaseContext(), albumItem);
+        mLoader = GenericAlbumLoader.generateTabsLoader(getBaseContext(), albumItem);
     }
 
     @Override

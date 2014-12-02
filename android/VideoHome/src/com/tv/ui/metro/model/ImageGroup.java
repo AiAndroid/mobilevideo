@@ -13,6 +13,8 @@ public class ImageGroup extends HashMap<String, Image> implements Serializable{
 	public Image text(){return get("text");}
 	public Image thumbnail(){return get("thumbnail");}
     public Image screenshot(){return get("screenshot");}
+    public Image poster(){return get("poster");}
+    public Image smallerPoster(){return get("poster");}
 
     public ImageGroup clone(){
         ImageGroup item = new ImageGroup();

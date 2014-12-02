@@ -30,7 +30,31 @@
     <style name="TextAppearance.Primary"><!-- 需要反色 -->
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textSize">@dimen/text_font_size_huge</item>
-    </style>   
-      
+    </style>
+
+    <style name="SubtitleTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/text_color_light_dark</item>
+        <item name="android:textSize">@dimen/font_size_36</item>
+    </style>
+
+    <style name="TitleTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/text_color_deep_dark</item>
+        <item name="android:textSize">@dimen/font_size_42</item>
+    </style>
+
+    <style name="NameTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">@dimen/font_size_42</item>
+    </style>
+
+    <style name="PlaceTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/color_sub_text</item>
+        <item name="android:textSize">@dimen/font_size_40</item>
+    </style>
+
+    <style name="ExtraTextViewDarkStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/text_color_deep_dark</item>
+        <item name="android:textSize">@dimen/font_size_30</item>
+    </style>
 
 </resources>

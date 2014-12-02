@@ -1,27 +1,44 @@
 package com.video.ui.view;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
+import com.video.ui.loader.BaseGsonLoader;
+import com.video.ui.loader.GenericAlbumLoader;
+import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
+import com.video.ui.view.subview.ChannelVideoItemView;
 
-public class ListFragment extends Fragment implements LoaderManager.LoaderCallbacks<GenericBlock<DisplayItem>> {
+import java.util.ArrayList;
+
+public class ListFragment extends Fragment implements LoaderManager.LoaderCallbacks<GenericBlock<VideoItem>>,OnNextPageLoader {
     private final String TAG = ListFragment.class.getName();
 	public    MetroLayout        mMetroLayout;
     protected Block<DisplayItem> tab;
     protected int                index;
 
-    private ListView             listView;
+    private   ListView           listView;
+    protected BaseGsonLoader     mLoader;
+    private   EmptyLoadingView   mLoadingView;
+    private   int                loaderID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,35 +51,181 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         tab = (Block<DisplayItem>) this.getArguments().getSerializable("tab");
         index     = getArguments().getInt("index", 0);
 
+        mLoadingView = makeEmptyLoadingView(getActivity(), (RelativeLayout) v.findViewById(R.id.tabs_content));
+        mLoadingView.setVisibility(View.GONE);
+
         //have data
-        if(tab.items != null && tab.items.size() > 0){
+        if(false && tab.items != null && tab.items.size() > 0){
             //construct UI directly
-            listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
-            mMetroLayout.addItemViewPort(listView, LayoutConstant.single_view, 0, 0);
+            addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
         }else {
-            createDataLoader();
+            addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (int)(Math.random()*100);
+            getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
         }
 
         return v;
     }
 
+    private View createListContentView(Block<DisplayItem> block){
+        listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
+        listView.setDivider(null);
+        listView.setSelector(R.drawable.list_selector_bg);
+
+        return listView;
+    }
+
+
     @Override
-    public Loader<GenericBlock<DisplayItem>> onCreateLoader(int i, Bundle bundle) {
+    public Loader<GenericBlock<VideoItem>> onCreateLoader(int id, Bundle bundle) {
+        if(id == loaderID) {
+            mLoader = GenericAlbumLoader.generateVideoAlbumLoader(getActivity(), tab);
+            mLoader.setProgressNotifiable(mLoadingView);
+            return mLoader;
+        }
+
         return null;
     }
 
-    private void createDataLoader(){
+    int currentPage = -1;
+    private GenericBlock<VideoItem> mVidoeInfo;
+    RelativeAdapter adapter;
+    @Override
+    public void onLoadFinished(Loader<GenericBlock<VideoItem>> genericBlockLoader, GenericBlock<VideoItem> result) {
+        //for cache show
+        if (result != null && mVidoeInfo != null &&
+                mVidoeInfo.times != null && mVidoeInfo.times.updated == result.times.updated &&
+                mLoader.getCurrentPage() == 1) {
+            return;
+        }
+
+        if (currentPage == mLoader.getCurrentPage()) {
+            Log.d(TAG, "same page loader, may from cache page=" + currentPage);
+            return;
+        }
+
+        currentPage = mLoader.getCurrentPage();
+        //first page
+        if (mVidoeInfo == null) {
+            adapter = new RelativeAdapter(result.blocks.get(0).items);
+
+            //update UI
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener(itemClicker);
+        }else {
+
+            if(result.blocks.size() > 0) {
+
+                mVidoeInfo.blocks.get(0).items.addAll(result.blocks.get(0).items);
+                adapter.changeContent(mVidoeInfo.blocks.get(0).items);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<GenericBlock<VideoItem>> genericBlockLoader) {
 
     }
 
     @Override
-    public void onLoadFinished(Loader<GenericBlock<DisplayItem>> genericBlockLoader, GenericBlock<DisplayItem> displayItemGenericBlock) {
-
+    public boolean nextPage() {
+        if(mLoader != null 	&& ((GenericAlbumLoader)mLoader).hasMoreData() && !((GenericAlbumLoader)mLoader).isLoading()){
+            ((GenericAlbumLoader)mLoader).nextPage();
+            mLoader.forceLoad();
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    @Override
-    public void onLoaderReset(Loader<GenericBlock<DisplayItem>> genericBlockLoader) {
+    AdapterView.OnItemClickListener itemClicker = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
 
+                Object tag = view.getTag();
+                if(tag != null && tag instanceof DisplayItem){
+                    DisplayItem content = (DisplayItem)tag;
+                    intent.setData(Uri.parse("mvschema://" + content.ns + "/" + content.type + "?rid=" + content.id));
+                    intent.putExtra("item", content);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    view.getContext().startActivity(intent);
+                }
+            }catch (Exception ne){ne.printStackTrace();}
+        }
+    };
+
+    public class RelativeAdapter extends BaseAdapter {
+        public RelativeAdapter(ArrayList<VideoItem> content){
+            super();
+            items = content;
+        }
+
+        public void changeContent(ArrayList<VideoItem> content){
+            if(content != null) {
+                items = content;
+                notifyDataSetChanged();
+            }
+        }
+        private ArrayList<VideoItem> items;
+
+        @Override
+        public int getCount() {
+            return items==null?40:items.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return items==null?new Object():items.get(i);
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            ChannelVideoItemView root = null;
+            if(items == null) {
+                root = new ChannelVideoItemView(getActivity());
+            }else {
+                if(view == null) {
+                    root = new ChannelVideoItemView(getActivity());
+                }else{
+                    root = (ChannelVideoItemView)view;
+                }
+
+
+                root.setTag(getItem(i));
+                root.setContent((DisplayItem) getItem(i));
+            }
+
+            int size = getCount();
+            if(size == 1) {
+                root.setBackgroundResource(R.drawable.com_item_bg_full);
+                root.line.setVisibility(View.INVISIBLE);
+                root.padding.setVisibility(View.GONE);
+            } else {
+                if(i == 0) {
+                    root.layout.setBackgroundResource(R.drawable.com_item_bg_up);
+                    root.line.setVisibility(View.VISIBLE);
+                    root.padding.setVisibility(View.GONE);
+                } else if(i == size - 1) {
+                    root.layout.setBackgroundResource(R.drawable.com_item_bg_down);
+                    root.line.setVisibility(View.INVISIBLE);
+                    root.padding.setVisibility(View.VISIBLE);
+                } else {
+                    root.layout.setBackgroundResource(R.drawable.com_item_bg_mid);
+                    root.line.setVisibility(View.VISIBLE);
+                    root.padding.setVisibility(View.GONE);
+                }
+            }
+            return root;
+        }
     }
 
     public View addViewPort(View view, int celltype, int x, int y){
@@ -72,7 +235,6 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
     public void initViews(){
 
     }
-
 
     @Override
     public void onResume() {
@@ -94,5 +256,20 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
         Log.d(TAG, "onDestroy="+this);
         ViewUtils.unbindImageDrawables(getView());
+    }
+
+
+
+    public static EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
+        return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
+    }
+
+    public static EmptyLoadingView makeEmptyLoadingView(Context context, RelativeLayout parentView, int rule){
+        EmptyLoadingView loadingView = new EmptyLoadingView(context);
+        loadingView.setGravity(Gravity.CENTER);
+        RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        rlp.addRule(rule);
+        parentView.addView(loadingView, rlp);
+        return loadingView;
     }
 }

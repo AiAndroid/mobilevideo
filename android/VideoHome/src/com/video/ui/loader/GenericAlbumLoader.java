@@ -15,15 +15,15 @@ import java.net.URLEncoder;
 /**
  * Created by liuhuadong on 9/16/14.
  */
-public abstract class GenericSubjectLoader<T> extends BaseGsonLoader<GenericBlock<T>>{
-    public static int VIDEO_SUBJECT_LOADER_ID   = 0x901;
+public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<T>>{
+    public static int VIDEO_ALBUM_LOADER_ID   = 0x901;
     public static int VIDEO_SUBJECT_SEARCH_LOADER_ID   = 0x902;
-    public GenericSubjectLoader(Context con, DisplayItem item){
+    public GenericAlbumLoader(Context con, DisplayItem item){
         super(con, item);
     }
 
-    public static GenericSubjectLoader<DisplayItem> generateTabsLoader(final Context con, DisplayItem item){
-        GenericSubjectLoader<DisplayItem> loader = new GenericSubjectLoader<DisplayItem>(con, item){
+    public static GenericAlbumLoader<DisplayItem> generateTabsLoader(final Context con, DisplayItem item){
+        GenericAlbumLoader<DisplayItem> loader = new GenericAlbumLoader<DisplayItem>(con, item){
 
             @Override
             public void setCacheFileName() {
@@ -60,8 +60,8 @@ public abstract class GenericSubjectLoader<T> extends BaseGsonLoader<GenericBloc
     }
 
 
-    public static GenericSubjectLoader<VideoItem> generateVideoSubjectLoader(Context con, DisplayItem item){
-        GenericSubjectLoader<VideoItem> loader = new GenericSubjectLoader<VideoItem>(con, item){
+    public static GenericAlbumLoader<VideoItem> generateVideoAlbumLoader(Context con, DisplayItem item){
+        GenericAlbumLoader<VideoItem> loader = new GenericAlbumLoader<VideoItem>(con, item){
             @Override
             public void setCacheFileName() {
                 cacheFileName = "video_album_";
@@ -78,9 +78,9 @@ public abstract class GenericSubjectLoader<T> extends BaseGsonLoader<GenericBloc
         return  loader;
     }
 
-    public static GenericSubjectLoader<VideoItem> generateVideoSearchLoader(Context con, final String keyword){
+    public static GenericAlbumLoader<VideoItem> generateVideoSearchLoader(Context con, final String keyword){
         String mSearchword = keyword;
-        GenericSubjectLoader<VideoItem> loader = new GenericSubjectLoader<VideoItem>(con, null){
+        GenericAlbumLoader<VideoItem> loader = new GenericAlbumLoader<VideoItem>(con, null){
             @Override
             public void setCacheFileName() {
                 cacheFileName = "video_search_";
@@ -120,7 +120,9 @@ public abstract class GenericSubjectLoader<T> extends BaseGsonLoader<GenericBloc
     @Override
     public void setLoaderURL(DisplayItem _item) {
         mItem = _item;
-        String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+page;
+        //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+page;
+        //TODO, just return test data list
+        String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
     }
 
