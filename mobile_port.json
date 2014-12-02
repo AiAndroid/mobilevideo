@@ -311,8 +311,8 @@
                     "items":[
                         {
                             "title":"电视剧",
-                            "id":"200",
-                            "type":"episode",
+                            "id":"tv.channel",
+                            "type":"album",
                             "ns":"video",
                             "times":{
                                 "updated":0,
@@ -342,7 +342,7 @@
                         },
                         {
                             "title":"电影",
-                            "id":"200",
+                            "id":"movie.channel",
                             "type":"album",
                             "ns":"video",
                             "action":{
@@ -366,7 +366,7 @@
                         },
                         {
                             "title":"综艺",
-                            "id":"200",
+                            "id":"variety.channel",
                             "type":"album",
                             "ns":"video",
                             "times":{
@@ -924,7 +924,7 @@
                         },
                         {
                             "title":"进入咨询频道",
-                            "id":"500",
+                            "id":"news.channel",
                             "type":"album",
                             "ns":"video",
                             "images":{
@@ -1658,7 +1658,7 @@
                         },
                         {
                             "title":"进入电视剧频道",
-                            "id":"500",
+                            "id":"tv.channel",
                             "type":"album",
                             "ns":"video",
                             "images":{
@@ -2313,7 +2313,7 @@
                         },
                         {
                             "title":"进入电影频道",
-                            "id":"500",
+                            "id":"movie.channel",
                             "type":"album",
                             "ns":"video",
                             "images":{
@@ -3331,7 +3331,7 @@
                         },
                         {
                             "title":"进入综艺频道",
-                            "id":"500",
+                            "id":"variety.channel",
                             "type":"album",
                             "ns":"video",
                             "images":{
@@ -5663,7 +5663,7 @@
         }
     ],
     "times":{
-        "updated":69,
+        "updated":70,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
