@@ -1,7 +1,7 @@
 {
     "blocks":[
         {
-            "titl":"本期精选",
+            "title":"本期精选",
             "id":"xx.choice",
             "type":"album",
             "ns":"video",
@@ -1402,7 +1402,7 @@
         }
     ],
     "times":{
-        "updated":5,
+        "updated":6,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
