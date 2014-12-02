@@ -43,33 +43,6 @@
                     },
                     "items":[
                         {
-                            "title":"四十九日·祭",
-                            "sub_title":"",
-                            "desc":"看看呗",
-                            "id":"100",
-                            "type":"item",
-                            "ns":"video",
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "media":{
-                                "cp":{
-                                    "vendor":"sohu",
-                                    "player_ver":"2"
-                                }
-                            },
-                            "action":{
-                                "target":"direct_show",
-                                "params":"http://xxxxx.mffmpeg"
-                            },
-                            "images":{
-                                "poster":{
-                                    "url":"http://file.market.xiaomi.com/download/Duokan/0aba22b0-8f49-4ca3-adea-c5b4c4fc7ed2/83399912-79ce-11e4-9bc7-002590c3ab24_hor_bigposter.jpg"
-                                }
-                            }
-                        },
-                        {
                             "title":"哆啦A梦",
                             "sub_title":"",
                             "desc":"看看呗",
@@ -2201,7 +2174,7 @@
         }
     ],
     "times":{
-        "updated":4,
+        "updated":1,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
