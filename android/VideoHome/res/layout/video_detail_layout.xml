@@ -11,7 +11,7 @@
             android:background="@drawable/com_bg_gray" />
 
     <include
-            android:id="@+id/title_top"
+            android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/video_common_title_top_height"
             layout="@layout/title_layout_mv" />

@@ -26,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.video.ui.DisplayItemActivity">
-            <intent-filter android:priority="-500">
+        <activity android:name="com.video.ui.MediaDetailActivity">
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/item"/>
