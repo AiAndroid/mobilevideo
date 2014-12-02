@@ -294,11 +294,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.733333" vertical-offset="2743" max-vertical-offset="6550">
-              <caret line="143" column="68" selection-start-line="143" selection-start-column="68" selection-end-line="143" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.65539455" vertical-offset="1918" max-vertical-offset="6550">
+              <caret line="117" column="70" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
               <folding>
                 <element signature="e#5493#6281#0" expanded="true" />
                 <element signature="e#6274#6275#0" expanded="true" />
@@ -317,11 +317,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericAlbumLoader.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GenericAlbumLoader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44854072" vertical-offset="2533" max-vertical-offset="3425">
-              <caret line="131" column="25" selection-start-line="131" selection-start-column="25" selection-end-line="131" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1562" max-vertical-offset="3500">
+              <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -330,9 +330,12 @@
       <file leaf-file-name="BaseGsonLoader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/BaseGsonLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="5650">
-              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4054" max-vertical-offset="5700">
+              <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+              <folding>
+                <element signature="e#1648#1649#0" expanded="true" />
+                <element signature="e#1675#1676#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -448,8 +451,8 @@
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java" />
         <option value="$PROJECT_DIR$/res/layout/filter_item_layout.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/ListFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/loader/BaseGsonLoader.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java" />
       </list>
     </option>
   </component>
@@ -1218,8 +1221,14 @@
           <properties />
           <option name="timeStamp" value="116" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/video/ui/view/ListFragment.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="119" />
+      <option name="time" value="120" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1702,30 +1711,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.733333" vertical-offset="2743" max-vertical-offset="6550">
-          <caret line="143" column="68" selection-start-line="143" selection-start-column="68" selection-end-line="143" selection-end-column="68" />
-          <folding>
-            <element signature="e#5493#6281#0" expanded="true" />
-            <element signature="e#6274#6275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/BaseGsonLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="5650">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="904" max-vertical-offset="5700">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+          <folding>
+            <element signature="e#1648#1649#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44854072" vertical-offset="2533" max-vertical-offset="3425">
-          <caret line="131" column="25" selection-start-line="131" selection-start-column="25" selection-end-line="131" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1562" max-vertical-offset="3500">
+          <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/ListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65539455" vertical-offset="1918" max-vertical-offset="6550">
+          <caret line="117" column="70" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
+          <folding>
+            <element signature="e#5493#6281#0" expanded="true" />
+            <element signature="e#6274#6275#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

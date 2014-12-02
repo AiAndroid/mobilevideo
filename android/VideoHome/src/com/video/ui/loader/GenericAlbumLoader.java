@@ -143,7 +143,10 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
         page++;
         //load from server
         mIsLoading = true;
-        String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+(page);
+        //
+        //tring url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+(page);
+        //TODO, just return test data list
+        String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         Log.d("nextpage", "page="+(page));
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
         loadDataByGson();
