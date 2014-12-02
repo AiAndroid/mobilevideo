@@ -52,14 +52,22 @@ public class ChannelVideoItemView extends RelativeLayout {
         actors.setText("演员");
 
         // score
-        if(mShowScroe){
+        if(content.ui_type.show_score == 0){
+            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
+            score = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
+        }else{
+            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+            score = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
+        }
+
+        if(content.ui_type.show_score == 1){
             score.setText(String.format("%.1f", 9.9f));
         }else{
             score.setText(String.format(" %d", 100));
         }
 
         // place
-        if(mShowRank){
+        if(content.ui_type.show_rank == 1){
             place.setVisibility(View.VISIBLE);
             place.setText(getResources().getString(R.string.place_at, 0));
         }else{
@@ -67,9 +75,7 @@ public class ChannelVideoItemView extends RelativeLayout {
         }
     }
 
-    private boolean mShowRank = true;
-    private boolean mShowScroe = true;
-
+    View      convertView;
     ImageView poster;
     TextView title;
     TextView subtitle;
@@ -80,25 +86,8 @@ public class ChannelVideoItemView extends RelativeLayout {
     public View     line;
     public View     padding;
 
-
-    public void setShowRank(boolean show){
-        mShowRank = show;
-    }
-
-    public void setShowScroe(boolean show){
-        mShowScroe = show;
-    }
-
     private void initViews(Context ctx){
-        View convertView = LayoutInflater.from(ctx).inflate(R.layout.channel_rank_item, this);
-
-        if(!mShowScroe){
-            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
-            score = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
-        }else{
-            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
-            score = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
-        }
+        convertView = LayoutInflater.from(ctx).inflate(R.layout.channel_rank_item, this);
         layout = (RelativeLayout) convertView.findViewById(R.id.channel_rank_item_layout);
         poster = (ImageView) convertView.findViewById(R.id.channel_rank_item_poster);
         title = (TextView) convertView.findViewById(R.id.channel_rank_item_title);
