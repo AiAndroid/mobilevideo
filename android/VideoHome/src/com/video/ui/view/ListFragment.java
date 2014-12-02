@@ -66,9 +66,6 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
     private View createListContentView(Block<DisplayItem> block){
         listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
-        listView.setDivider(null);
-        listView.setSelector(R.drawable.list_selector_bg);
-
         return listView;
     }
 

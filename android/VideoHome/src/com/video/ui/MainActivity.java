@@ -407,6 +407,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                         preAdsAnimation.stopAnimation();
                     }
                 }
+            }else {
+                if(preAdsAnimation != null){
+                    preAdsAnimation.stopAnimation();
+                }
             }
 
             //TODO
