@@ -17,4 +17,8 @@
 
     <string name="score">评分&#160;&#160;</string>
     <string name="place_at">No.%d</string>
+
+    <string name="play">播放</string>
+    <string name="offline">离线</string>
+    <string name="favorite">收藏</string>
 </resources>

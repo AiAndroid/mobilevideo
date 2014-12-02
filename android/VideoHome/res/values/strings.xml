@@ -16,4 +16,8 @@
 
     <string name="score">Score&#160;&#160;</string>
     <string name="place_at">No.%d</string>
+
+    <string name="favorite">Star</string>
+    <string name="offline">Offline</string>
+    <string name="play">Play</string>
 </resources>

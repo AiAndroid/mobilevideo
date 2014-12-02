@@ -249,4 +249,18 @@
 
     <dimen name="filter_button_width">75dp</dimen>
 
+    <dimen name="detail_bottom_bar_height">60dp</dimen>
+    <dimen name="detail_bottom_bar_content_intervalH">14.7dp</dimen>
+    <dimen name="detail_bottom_bar_drawable_padding">6.3dp</dimen>
+    <dimen name="detail_favorite_width">72dp</dimen>
+    <dimen name="detail_favorite_height">33.3dp</dimen>
+    <dimen name="detail_favorite_left_margin">17dp</dimen>
+    <dimen name="detail_download_width">72dp</dimen>
+    <dimen name="detail_download_height">33.3dp</dimen>
+    <dimen name="detail_download_right_margin">17dp</dimen>
+    <dimen name="detail_play_width">156dp</dimen>
+    <dimen name="detail_play_height">33.3dp</dimen>
+
+    <dimen name="page_title_offset">-3.7dp</dimen>
+
 </resources>
