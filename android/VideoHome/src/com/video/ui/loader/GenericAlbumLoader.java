@@ -34,13 +34,19 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
             public void setLoaderURL(DisplayItem _item) {
                 mItem = _item;
 
-                String url ;
+                String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie.json";
                 if(_item.ns.equals("home")) {
                     url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
-                }
-                else {
-                    url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie.json";
+                }else {
+                    if(mItem.id.equals("movie.channel")) {
+                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie.json";
+                    }
+                    else if(mItem.id.equals("tv.channel")){
+                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_tv.json";
+                    }else if(mItem.id.equals("variety.channel")){
+                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_variety.json";
+                    }
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                     //
                     //TODO, not defined
