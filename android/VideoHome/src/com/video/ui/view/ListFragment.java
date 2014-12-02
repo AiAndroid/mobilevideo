@@ -12,10 +12,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
@@ -111,6 +108,7 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
             //update UI
             listView.setAdapter(adapter);
+            listView.setOnScrollListener(scrollListener);
             listView.setOnItemClickListener(itemClicker);
         }else {
 
@@ -127,6 +125,19 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onLoaderReset(Loader<GenericBlock<VideoItem>> genericBlockLoader) {
 
     }
+
+    AbsListView.OnScrollListener scrollListener = new AbsListView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+        }
+
+        @Override
+        public void onScroll(AbsListView absListView, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
+            if(firstVisibleItem + 5 >= totalItemCount){
+                nextPage();
+            }
+        }
+    };
 
     @Override
     public boolean nextPage() {

@@ -4,6 +4,7 @@
 	        android:id="@+id/channel_filter_btn"
 	        android:layout_width="@dimen/filter_button_width"
 	        android:layout_height="@dimen/size_74"
+            android:drawableLeft="@drawable/detail_screening_icon"
 	        android:drawablePadding="@dimen/video_common_text_btn_drawble_padding"
 	        android:gravity="center"
 	        android:textSize="@dimen/font_size_40"

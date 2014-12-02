@@ -21,7 +21,7 @@ public abstract  class BaseGsonLoader<T> extends Loader<T> {
     private final  static String TAG = "BaseGsonLoader";
 
     protected       int page      = 1;
-    protected final int page_size = 50;
+    protected final int page_size = 20;
     protected          T       mResult;
     protected volatile boolean mIsLoading;
     private ProgressNotifiable mProgressNotifiable;

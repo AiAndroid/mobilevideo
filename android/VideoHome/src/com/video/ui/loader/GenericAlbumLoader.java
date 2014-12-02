@@ -127,6 +127,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
     }
 
     public boolean hasMoreData() {
+        //TODO
         if(mResult != null && mResult.blocks != null && mResult.blocks.size() > 0 && mResult.blocks.get(0).items.size() == page_size){
             return  true;
         }

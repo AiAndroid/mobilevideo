@@ -1,7 +1,6 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +49,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_filter_item, step % row_count, step / row_count, padding);
             step++;
 
-            if (step == filtes.size()){
-                Drawable filDrawble = getResources().getDrawable(R.drawable.detail_screening_icon);
-                filDrawble.setBounds(0, 0, filDrawble.getMinimumWidth(), filDrawble.getMinimumHeight());
-                mFiter.setCompoundDrawables(filDrawble, null, null, null);
-                mFiter.setText(item);
+            if (step != filtes.size()){
+                mFiter.setCompoundDrawables(null, null, null, null);
             }
 
             if(itemHeight == 0){
