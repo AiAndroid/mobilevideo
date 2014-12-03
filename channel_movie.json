@@ -283,7 +283,7 @@
                     }
                 },
                 {
-                    "title":"单块频道",
+                    "title":"全网首播",
                     "ui_type":{
                         "name":"grid_media_port_title",
                         "id":414
@@ -2182,7 +2182,7 @@
         }
     ],
     "times":{
-        "updated":6,
+        "updated":7,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
