@@ -53,6 +53,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
     public void startLoading(boolean hasData) {
         updateStyle(hasData);
         loading_layout.setVisibility(VISIBLE);
+        progress.setIndeterminate(true);
         view_retry.setVisibility(GONE);
     }
 
@@ -62,9 +63,11 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
             updateStyle(hasData);
             if (hasData) {
                 hideView(loading_layout);
+                    progress.setIndeterminate(false);
                 view_retry.setVisibility(GONE);
             } else {
                 view_retry.setVisibility(VISIBLE);
+                progress.setIndeterminate(false);
                 hideView(loading_layout);
             }
         }
@@ -93,13 +96,16 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
         updateStyle(hasData);
         if (isLoading) {
             loading_layout.setVisibility(VISIBLE);
+            progress.setIndeterminate(true);
             view_retry.setVisibility(GONE);
         } else {
 
             if (hasData) {
                 loading_layout.setVisibility(GONE);
+                progress.setIndeterminate(false);
                 view_retry.setVisibility(VISIBLE);
             } else {
+                progress.setIndeterminate(true);
                 loading_layout.setVisibility(VISIBLE);
                 view_retry.setVisibility(GONE);
             }
@@ -108,6 +114,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
 
     @Override
     public void OnRetryLoad(View vClicked) {
+        progress.setIndeterminate(true);
         showView(this);
         if(mRetryListener != null){
             mRetryListener.OnRetryLoad(vClicked);
