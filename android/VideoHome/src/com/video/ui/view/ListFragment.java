@@ -276,8 +276,6 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         ViewUtils.unbindImageDrawables(getView());
     }
 
-
-
     public EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
         return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
     }

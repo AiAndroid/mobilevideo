@@ -173,6 +173,8 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.grid_block_selection:
             case LayoutConstant.grid_media_port:
             case LayoutConstant.grid_media_land:
+            case LayoutConstant.grid_media_port_title:
+            case LayoutConstant.grid_media_land_title:
             case LayoutConstant.tabs_horizontal:
             case LayoutConstant.linearlayout_filter:
             {

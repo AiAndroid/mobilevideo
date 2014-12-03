@@ -30,8 +30,11 @@ public class LayoutConstant {
     public final static int block_tabs         = 410;//------------
     public final static int grid_media_land    = 411;//------------gridview------------水平展示媒体图片
     public final static int grid_media_port    = 412;//------------gridview------------垂直展示媒体图片
-    public final static int list_media_land    = 413;//------------listview------------水平展示媒体图片
-    public final static int list_media_port    = 414;//------------listview------------垂直展示媒体图片
+    public final static int grid_media_land_title = 413;//------------gridview------------水平展示媒体图片,带标题
+    public final static int grid_media_port_title = 414;//------------gridview------------垂直展示媒体图片，带标题
+
+    public final static int list_media_land    = 415;//------------listview------------水平展示媒体图片
+    public final static int list_media_port    = 416;//------------listview------------垂直展示媒体图片
 
     public final static int list_category_land = 421;//------------listview------------category的land layout
     public final static int list_category_port = 422;//------------listview------------category port layout

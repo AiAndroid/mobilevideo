@@ -42,7 +42,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
     private void initDimens(Block<DisplayItem> block){
         content = block;
         item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
-        if(block.ui_type.id == LayoutConstant.grid_media_port) {
+        if(block.ui_type.id == LayoutConstant.grid_media_port || block.ui_type.id == LayoutConstant.grid_media_port_title ) {
             row_count = block.ui_type.row_count;
             if(row_count == 0) row_count = 3;
 
@@ -50,7 +50,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
             height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
             padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
-        }else if(block.ui_type.id == LayoutConstant.grid_media_land) {
+        }else if(block.ui_type.id == LayoutConstant.grid_media_land || block.ui_type.id == LayoutConstant.grid_media_land_title) {
             row_count = block.ui_type.row_count;
             if (row_count == 0)row_count = 2;
 
@@ -76,7 +76,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
             Picasso.with(getContext()).load(item.images.get("poster").url).tag(tag).fit().into(image);
 
-            if(block.ui_type.id == LayoutConstant.grid_media_port) {
+            if(block.ui_type.id == LayoutConstant.grid_media_port || block.ui_type.id == LayoutConstant.grid_media_port_title) {
                 TextView title = (TextView) meida.findViewById(R.id.media_title);
                 title.setText(item.title);
 

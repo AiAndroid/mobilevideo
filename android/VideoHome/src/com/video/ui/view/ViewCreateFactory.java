@@ -57,6 +57,23 @@ public class ViewCreateFactory {
                 //for single grid block, we help to set one background
                 view.setBackgroundResource(R.drawable.com_block_n);
                 break;
+            case LayoutConstant.grid_media_port_title:
+            case LayoutConstant.grid_media_land_title:
+                SubPortBlockView sbv = new SubPortBlockView(context, tag);
+                //add title
+                Block<DisplayItem> itemBlock = new Block<DisplayItem>();
+                itemBlock.ui_type = new DisplayItem.UI();
+                itemBlock.ui_type.id = LayoutConstant.linearlayout_title;
+                itemBlock.title = item.title;
+                sbv.addChildView(itemBlock);
+
+                //add content
+                sbv.addChildView(itemBlock);
+
+                sbv.getDimens().height += context.getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+                view = sbv;
+                view.setBackgroundResource(R.drawable.com_block_n);
+                break;
         }
         return view;
     }

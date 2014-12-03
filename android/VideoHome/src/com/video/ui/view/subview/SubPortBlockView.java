@@ -35,6 +35,95 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         initUI(blocks);
     }
 
+    public SubPortBlockView(Context context, Object tag) {
+        super(context, null, 0);
+        setTag(R.integer.picasso_tag, tag);
+
+        setOrientation(VERTICAL);
+        setBackgroundResource(R.drawable.com_block_n);
+    }
+
+    public void addChildView(final Block<DisplayItem> block){
+        switch (block.ui_type.id){
+            //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
+            case LayoutConstant.tabs_horizontal: {
+                View blockView = new ChannelTabsBlockView(getContext(), block, getTag(R.integer.picasso_tag));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                addView(blockView, flp);
+                if (blockView instanceof DimensHelper) {
+                    getDimens().height += ((DimensHelper) blockView).getDimens().height;
+                }
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.linearlayout_title:{
+                View root = View.inflate(getContext(), R.layout.sub_channel_title, null);
+                TextView title = (TextView) root.findViewById(R.id.channel_title);
+                title.setText(block.title);
+
+                addView(root);
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.title_height);
+                break;
+            }
+            case LayoutConstant.linearlayout_single_poster:{
+                SinglePosterBlockView view = new SinglePosterBlockView(getContext(), block, getTag(R.integer.picasso_tag));
+                addView(view);
+
+                getDimens().height += view.getDimens().height;
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.grid_media_land:
+            case LayoutConstant.grid_media_port:
+            case LayoutConstant.grid_media_land_title:
+            case LayoutConstant.grid_media_port_title:{
+
+                GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
+                addView(view);
+
+                getDimens().height += view.getDimens().height;
+                //add padding view
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.linearlayout_none: {
+                View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
+                Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
+                blockView.setText(block.title);
+
+                blockView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        launcherAction(getContext(), block);
+                    }
+                });
+                addView(buttonContain);
+                getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.linearlayout_poster:{
+                BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
+
+                addView(bv);
+                getDimens().height += bv.getDimens().height;
+
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.linearlayout_land: {
+                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
+
+                addView(bv);
+                getDimens().height += bv.getDimens().height;
+
+                addOnePadding();
+                break;
+            }
+        }
+    }
+
     private static int media_item_padding = -1;
     @Override
     public Dimens getDimens() {
@@ -53,67 +142,7 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         content = rootblock;
         int size = content.blocks.size();
         for (int i=0;i<size;i++){
-            final Block<DisplayItem> block = content.blocks.get(i);
-            //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
-            if (block.ui_type.id == LayoutConstant.tabs_horizontal) {
-                View blockView = new ChannelTabsBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-                addView(blockView, flp);
-                if (blockView instanceof DimensHelper) {
-                    getDimens().height += ((DimensHelper) blockView).getDimens().height;
-                }
-                addOnePadding();
-            }else if(block.ui_type.id == LayoutConstant.linearlayout_title){
-                View root = View.inflate(getContext(), R.layout.sub_channel_title, null);
-                TextView title = (TextView) root.findViewById(R.id.channel_title);
-                title.setText(block.title);
-
-                addView(root);
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.title_height);
-            }else if(block.ui_type.id == LayoutConstant.linearlayout_single_poster){
-                SinglePosterBlockView view = new SinglePosterBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                addView(view);
-
-                getDimens().height += view.getDimens().height;
-                addOnePadding();
-            }else if (block.ui_type.id == LayoutConstant.grid_media_land || block.ui_type.id == LayoutConstant.grid_media_port) {
-
-                GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                addView(view);
-
-                getDimens().height += view.getDimens().height;
-                //add padding view
-                addOnePadding();
-            }else if (block.ui_type.id == LayoutConstant.linearlayout_none) {
-                View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
-                Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
-                blockView.setText(block.title);
-
-                blockView.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        launcherAction(getContext(), block);
-                    }
-                });
-                addView(buttonContain);
-                getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-
-                addOnePadding();
-            } else if (block.ui_type.id == LayoutConstant.linearlayout_poster) {
-                BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
-
-                addView(bv);
-                getDimens().height += bv.getDimens().height;
-
-                addOnePadding();
-            }else if (block.ui_type.id == LayoutConstant.linearlayout_land) {
-                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
-
-                addView(bv);
-                getDimens().height += bv.getDimens().height;
-
-                addOnePadding();
-            }
+            addChildView(content.blocks.get(i));
         }
 
         //more than one padding

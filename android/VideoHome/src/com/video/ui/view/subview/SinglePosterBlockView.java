@@ -26,7 +26,7 @@ public class SinglePosterBlockView extends BaseCardView implements DimensHelper 
 
         root = View.inflate(getContext(), R.layout.subchannel_imageview_container, this);
         ImageView poster = (ImageView) root.findViewById(R.id.image_ads);
-        Picasso.with(getContext()).load(block.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().into(poster);
+        Picasso.with(getContext()).load(block.images.poster().url).tag(getTag(R.integer.picasso_tag)).fit().into(poster);
 
         root.findViewById(R.id.ads_media_click).setOnClickListener(new OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class SinglePosterBlockView extends BaseCardView implements DimensHelper 
     @Override
     public void invalidateUI() {
         ImageView poster = (ImageView) root.findViewById(R.id.image_ads);
-        Picasso.with(getContext()).load(content.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().into(poster);
+        Picasso.with(getContext()).load(content.images.poster().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.default_poster_pic).fit().into(poster);
     }
 
     @Override
