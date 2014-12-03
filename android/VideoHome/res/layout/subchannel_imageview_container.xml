@@ -4,7 +4,8 @@
               android:orientation="vertical"
               android:layout_width="@dimen/media_banner_sub_channel_width"
               android:layout_height="@dimen/media_banner_sub_channel_height"
-              android:layout_centerHorizontal="true">
+              android:layout_centerHorizontal="true"
+              android:paddingTop="@dimen/media_item_padding">
     <ImageView android:id="@+id/image_ads"
                android:layout_width="@dimen/media_banner_sub_channel_width"
                android:layout_height="@dimen/media_banner_sub_channel_height"

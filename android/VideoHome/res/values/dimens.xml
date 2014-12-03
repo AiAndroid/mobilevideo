@@ -241,7 +241,7 @@
 
     <dimen name="title_height">50dp</dimen>
     <dimen name="title_bottom_padding">13dp</dimen>
-    <dimen name="title_divider_bottom_padding">10dp</dimen>
+    <dimen name="title_divider_bottom_padding">0dp</dimen>
     <!-- Channeltabs end -->
 
     <dimen name="media_list_cover_v_width">91.3dp</dimen>

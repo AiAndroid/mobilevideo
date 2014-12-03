@@ -70,6 +70,7 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
 
                 addView(root);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.title_height);
+
                 break;
             }
             case LayoutConstant.linearlayout_single_poster:{

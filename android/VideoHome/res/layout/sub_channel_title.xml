@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="@dimen/title_height"
         android:layout_width="@dimen/media_banner_sub_channel_width"
@@ -10,8 +10,8 @@
           android:layout_width="@dimen/media_pager_tab_bg_width"
           android:layout_height="@dimen/title_height"
           android:paddingLeft="@dimen/media_item_padding"
-          android:paddingTop="@dimen/title_bottom_padding"
-          android:paddingBottom="@dimen/title_bottom_padding"
+          android:gravity="center_vertical"
+          android:layout_centerVertical="true"
           android:textColor="@color/orange"
           android:textSize="@dimen/font_size_48"/>
 
@@ -22,4 +22,4 @@
           android:layout_gravity="center_horizontal"
           android:layout_centerHorizontal="true"
           android:layout_marginBottom="@dimen/title_divider_bottom_padding"/>
-</LinearLayout>
+</RelativeLayout>
