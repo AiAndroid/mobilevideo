@@ -35,15 +35,11 @@ public class DetailCommentView extends FrameLayout {
 	}
 
 	public DetailCommentView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		this.mContext = context;
-		init();
+		this(context, attrs, 0);
 	}
 
 	public DetailCommentView(Context context) {
-		super(context);
-		this.mContext = context;
-		init();
+		this(context, null, 0);
 	}
 
 	
@@ -88,6 +84,8 @@ public class DetailCommentView extends FrameLayout {
 		List<MediaReview> reviews = new ArrayList<MediaReview>();
         reviews.add(makeTestData());
         reviews.add(makeTestData());
+
+        mTotalCommentCount = 100;
 
 		mCommentReviewView.setMediaReviews(reviews);
 		String str = mContext.getResources().getString(R.string.see_all_count_comment);
