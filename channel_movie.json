@@ -285,8 +285,8 @@
                 {
                     "title":"单块频道",
                     "ui_type":{
-                        "name":"block_sub_channel",
-                        "id":401
+                        "name":"grid_media_port_title",
+                        "id":414
                     },
                     "media":{
                     },
@@ -310,8 +310,8 @@
                             "times":{
                             },
                             "ui_type":{
-                                "name":"grid_media_port_title",
-                                "id":414,
+                                "name":"grid_media_port",
+                                "id":412,
                                 "row_count":3
                             },
                             "items":[
@@ -2182,7 +2182,7 @@
         }
     ],
     "times":{
-        "updated":5,
+        "updated":6,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
