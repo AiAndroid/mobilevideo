@@ -119,8 +119,8 @@
     <dimen name="video_common_right_margin_49">16.3dp</dimen>
     <dimen name="video_common_divider_width">1px</dimen>
     <dimen name="video_common_divider_height">1px</dimen>
-    <dimen name="video_common_progress_width">24dp</dimen>
-    <dimen name="video_common_progress_height">24dp</dimen>
+    <dimen name="video_common_progress_width">34dp</dimen>
+    <dimen name="video_common_progress_height">34dp</dimen>
     <dimen name="video_common_progress_padding">5dp</dimen>
     <dimen name="video_common_fade_edge_length">75dp</dimen>
     <dimen name="video_common_empty_top_margin">203dp</dimen>

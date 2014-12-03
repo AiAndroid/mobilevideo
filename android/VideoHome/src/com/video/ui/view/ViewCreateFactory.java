@@ -68,7 +68,7 @@ public class ViewCreateFactory {
                 sbv.addChildView(itemBlock);
 
                 //add content
-                sbv.addChildView(itemBlock);
+                sbv.addChildView(item.blocks);
 
                 sbv.getDimens().height += context.getResources().getDimensionPixelSize(R.dimen.media_item_padding);
                 view = sbv;

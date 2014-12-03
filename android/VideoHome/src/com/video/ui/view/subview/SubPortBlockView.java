@@ -10,6 +10,8 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 
+import java.util.ArrayList;
+
 /**
  * Created by wangwei on 11/20/14.
  */
@@ -43,6 +45,11 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         setBackgroundResource(R.drawable.com_block_n);
     }
 
+    public void addChildView(final ArrayList<Block<DisplayItem>> blocks){
+        for(Block<DisplayItem> block:blocks){
+            addChildView(block);
+        }
+    }
     public void addChildView(final Block<DisplayItem> block){
         switch (block.ui_type.id){
             //tabs_horizontal and linearlayout_title show just has one, and they should be the first item

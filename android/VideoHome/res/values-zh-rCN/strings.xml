@@ -45,7 +45,7 @@
     <!-- comment edit end -->
 
     <!-- loading start -->
-    <string name="loading"> <CDATA>正在加载...</CDATA> </string>
+    <string name="loading"> <CDATA>正在加载内容</CDATA> </string>
     <string name="reload_title_ep">无法获取全部剧集</string>
     <string name="reload_title">网络不可用</string>
     <string name="reload_sub_title">点击屏幕重试</string>
