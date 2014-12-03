@@ -81,6 +81,15 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         return null;
     }
 
+    RetryView.OnRetryLoadListener retryLoadListener = new RetryView.OnRetryLoadListener() {
+        @Override
+        public void OnRetryLoad(View vClicked) {
+            if(mLoader != null){
+                mLoader.forceLoad();
+            }
+        }
+    };
+
     int currentPage = -1;
     private GenericBlock<VideoItem> mVidoeInfo;
     RelativeAdapter adapter;
@@ -269,12 +278,13 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
 
 
-    public static EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
+    public EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
         return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
     }
 
-    public static EmptyLoadingView makeEmptyLoadingView(Context context, RelativeLayout parentView, int rule){
+    public EmptyLoadingView makeEmptyLoadingView(Context context, RelativeLayout parentView, int rule){
         EmptyLoadingView loadingView = new EmptyLoadingView(context);
+        loadingView.setOnRetryListener(retryLoadListener);
         loadingView.setGravity(Gravity.CENTER);
         RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         rlp.addRule(rule);
