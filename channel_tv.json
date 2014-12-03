@@ -1056,47 +1056,6 @@
                     "blocks":[
                         {
                             "title":"人气日韩剧",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_title",
-                                "id":206
-                            }
-                        },
-                        {
-                            "title":"热点",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                                "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
-                                }
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_single_poster",
-                                "id":207
-                            }
-                        },
-                        {
-                            "title":"娱乐",
                             "id":"502",
                             "type":"album",
                             "ns":"video",
@@ -1107,8 +1066,8 @@
                             "times":{
                             },
                             "ui_type":{
-                                "name":"grid_media_port",
-                                "id":412,
+                                "name":"grid_media_port_title",
+                                "id":414,
                                 "row_count":3
                             },
                             "items":[
@@ -1925,7 +1884,7 @@
         }
     ],
     "times":{
-        "updated":2,
+        "updated":3,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
