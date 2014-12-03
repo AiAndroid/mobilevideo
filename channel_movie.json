@@ -300,25 +300,6 @@
                     "blocks":[
                         {
                             "title":"全网首播",
-                            "id":"500",
-                            "type":"album",
-                            "ns":"video",
-                            "images":{
-                            },
-                            "media":{
-                            },
-                            "times":{
-                            },
-                            "action":{
-                                "target":"album"
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_title",
-                                "id":206
-                            }
-                        },
-                        {
-                            "title":"娱乐",
                             "id":"502",
                             "type":"album",
                             "ns":"video",
@@ -329,8 +310,8 @@
                             "times":{
                             },
                             "ui_type":{
-                                "name":"grid_media_port",
-                                "id":412,
+                                "name":"grid_media_port_title",
+                                "id":414,
                                 "row_count":3
                             },
                             "items":[
@@ -2201,7 +2182,7 @@
         }
     ],
     "times":{
-        "updated":4,
+        "updated":5,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
