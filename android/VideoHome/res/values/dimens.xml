@@ -5,7 +5,9 @@
     <dimen name="text_size_38">13dp</dimen>
     <dimen name="font_size_40">13.3sp</dimen>
     <dimen name="font_size_42">14sp</dimen>
+    <dimen name="font_size_46">15.3sp</dimen>
     <dimen name="font_size_48">16sp</dimen>
+    <dimen name="font_size_60">20sp</dimen>
     <dimen name="text_size_50">16dp</dimen>
 
     <dimen name="size_2">0.67dp</dimen>
@@ -16,7 +18,9 @@
     <dimen name="size_20">6.67dp</dimen>
     <dimen name="size_30">10dp</dimen>
     <dimen name="size_40">13.33dp</dimen>
+    <dimen name="size_51">17dp</dimen>
     <dimen name="size_74">24.67dp</dimen>
+    <dimen name="size_106">35.33dp</dimen>
 
     <dimen name="text_font_size_huge">21sp</dimen>
 
@@ -249,6 +253,29 @@
 
     <dimen name="filter_button_width">75dp</dimen>
 
+    <!-- media detail start -->
+    <dimen name="detail_poster_height">526dp</dimen>
+    <dimen name="detail_poster_mask_height">366dp</dimen>
+    <dimen name="detail_poster_bottom_mask_height">25dp</dimen>
+    <dimen name="detail_play_view_top_margin">131.7dp</dimen>
+    <dimen name="detail_scroll_top_padding">148dp</dimen>
+    <dimen name="detail_scroll_info_height">265dp</dimen>
+    <dimen name="detail_scroll_item_title_height">41dp</dimen>
+    <dimen name="detail_scroll_item_btn_height">43.3dp</dimen>
+    <dimen name="detail_info_actorname_paddingV">5dp</dimen>
+    <dimen name="detail_info_actorname_paddingH">7.3dp</dimen>
+    <dimen name="detail_info_actorname_padding">26.3dp</dimen>
+    <dimen name="detail_info_divider_left_margin">8.3dp</dimen>
+    <dimen name="detail_info_divider_right_margin">8.3dp</dimen>
+    <dimen name="detail_info_score_count_top_margin">-4dp</dimen>
+    <dimen name="detail_info_score_desc_top_margin">-3dp</dimen>
+    <dimen name="detail_info_type_top_margin">1.3dp</dimen>
+    <dimen name="detail_variety_item_height">87.7dp</dimen>
+    <dimen name="detail_introduce_line_space">1.7dp</dimen>
+    <dimen name="detail_ep_item_load_width">26dp</dimen>
+    <dimen name="detail_ep_item_load_height">26dp</dimen>
+    <dimen name="detail_ep_multy_btn_width">74dp</dimen>
+    <dimen name="detail_ep_multy_btn_height">33.3dp</dimen>
     <dimen name="detail_bottom_bar_height">60dp</dimen>
     <dimen name="detail_bottom_bar_content_intervalH">14.7dp</dimen>
     <dimen name="detail_bottom_bar_drawable_padding">6.3dp</dimen>
@@ -260,7 +287,35 @@
     <dimen name="detail_download_right_margin">17dp</dimen>
     <dimen name="detail_play_width">156dp</dimen>
     <dimen name="detail_play_height">33.3dp</dimen>
+    <dimen name="detail_review_item_user_top_margin">9.7dp</dimen>
+    <dimen name="detail_review_item_rate_left_margin">3.7dp</dimen>
+    <dimen name="detail_review_item_comment_top_margin">31dp</dimen>
+    <dimen name="detail_review_item_divider_top_margin">11dp</dimen>
+    <dimen name="detail_page_episode_row_height">36dp</dimen>
+    <dimen name="detail_variety_item_name_left_margin">17.5dp</dimen>
+    <dimen name="detail_variety_item_name_right_margin">20dp</dimen>
+    <dimen name="detail_comment_write_btn_paddingH">17dp</dimen>
+    <dimen name="detail_comment_write_btn_paddingV">5.7dp</dimen>
+    <dimen name="detail_comment_empty_icon_top_margin">48dp</dimen>
+    <dimen name="detail_comment_empty_icon_bottom_margin">68dp</dimen>
+    <!-- media detail end -->
+
+
+    <!-- rating view start -->
+    <dimen name="rating_view_padding">2.3dp</dimen>
+    <!-- rating view end -->
+
+    <!-- loading view start -->
+    <dimen name="loading_text_margin_left">6dp</dimen>
+    <dimen name="loading_text_margin_top">6dp</dimen>
+    <!-- loading view end -->
 
     <dimen name="page_title_offset">-3.7dp</dimen>
+
+
+    <!-- retry view start -->
+    <dimen name="reload_view_title_top_margin">2dp</dimen>
+    <dimen name="reload_view_sub_title_top_margin">2dp</dimen>
+    <!-- retry view end -->
 
 </resources>

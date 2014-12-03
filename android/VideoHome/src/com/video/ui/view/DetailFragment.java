@@ -8,9 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.tv.ui.metro.model.GenericItemList;
 import com.tv.ui.metro.model.VideoItem;
+import com.video.ui.view.detail.DetailView;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -21,9 +21,10 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView =" + this);
-        TextView textView = new TextView(getActivity());
-        textView.setText("正在努力实现");
-        return textView;
+        DetailView detailView = new DetailView(getActivity());
+
+        detailView.setData((com.tv.ui.metro.model.DisplayItem) getArguments().getSerializable("item"));
+        return detailView;
     }
 
     @Override

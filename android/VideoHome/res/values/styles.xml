@@ -17,7 +17,35 @@
         <item name="android:windowBackground">@drawable/tranparent_selector</item>
     </style>
 
-        <!-- 字体 -->
+    <attr name="ratingStarStyle" format="reference" />
+    <declare-styleable name="RatingStar">
+        <attr name="ratingStarType">
+            <enum name="small" value="0"></enum>
+            <enum name="normal" value="1"></enum>
+        </attr>
+        <attr name="ratingStarScore">
+            <enum name="score1" value="2"></enum>
+            <enum name="score2" value="4"></enum>
+            <enum name="score3" value="6"></enum>
+            <enum name="score4" value="8"></enum>
+            <enum name="score5" value="10"></enum>
+        </attr>
+    </declare-styleable>
+
+
+    <style name="NormalProgressStyle" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDrawable">@drawable/loading_rotate_black</item>
+        <item name="android:background">@drawable/transparent</item>
+    </style>
+
+    <style name="SmallProgressStyle" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDrawable">@drawable/loading_rotate_black_small</item>
+        <item name="android:background">@drawable/loading_bg_black_solid_small</item>
+    </style>
+
+    <!-- 字体 -->
     <style name="TextAppearance">
         <item name="android:textColorHighlight">@color/text_color_highlight</item>
         <item name="android:textColorLink">@color/text_color_link</item>

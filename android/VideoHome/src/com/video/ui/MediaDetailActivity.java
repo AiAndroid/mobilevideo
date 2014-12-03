@@ -34,6 +34,9 @@ public class MediaDetailActivity extends DisplayItemActivity {
         });
 
         DetailFragment df = new DetailFragment();
+        Bundle data = new Bundle();
+        data.putSerializable("item", getIntent().getSerializableExtra("item"));
+        df.setArguments(data);
         getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
     }
 }
