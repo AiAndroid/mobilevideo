@@ -1,6 +1,7 @@
 package com.video.ui.view;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -18,12 +19,21 @@ import com.video.ui.view.detail.DetailView;
 public class DetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<GenericItemList<VideoItem>> {
 
     private static final String TAG = DetailFragment.class.getName();
+    private DetailView detailView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView =" + this);
-        DetailView detailView = new DetailView(getActivity());
+        detailView = new DetailView(getActivity());
 
-        detailView.setData((com.tv.ui.metro.model.DisplayItem) getArguments().getSerializable("item"));
+        detailView.showLoadingView();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                detailView.showContentView();
+                detailView.setData((com.tv.ui.metro.model.DisplayItem) getArguments().getSerializable("item"));
+            }
+        }, 200);
+
         return detailView;
     }
 
