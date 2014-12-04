@@ -25,6 +25,8 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.TabsGsonLoader;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.*;
+import com.video.ui.view.metro.RecommendCardViewClickListenerFactory;
+import com.video.ui.view.metro.UserViewFactory;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 

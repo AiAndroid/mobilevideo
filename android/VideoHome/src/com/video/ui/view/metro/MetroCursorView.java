@@ -1,4 +1,4 @@
-package com.video.ui.view;
+package com.video.ui.view.metro;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import com.video.ui.R;
-import com.video.ui.view.MineView;
+import com.video.ui.view.metro.MineView;
 
 /**
  * Created by tv metro on 9/2/14.

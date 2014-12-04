@@ -20,7 +20,7 @@
         android:paddingBottom="@dimen/ITEM_DIVIDE_SIZE"/>
     </com.video.ui.view.detail.ObserverScrollView>
 
-  	<com.video.ui.view.MetroCursorView
+  	<com.video.ui.view.metro.MetroCursorView
 	    android:id="@+id/metrocursor"
 	    android:layout_width="wrap_content"
 	    android:layout_height="match_parent"

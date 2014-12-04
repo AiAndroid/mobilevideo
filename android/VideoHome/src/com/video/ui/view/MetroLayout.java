@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.video.ui.R;
+import com.video.ui.view.metro.MetroCursorView;
+import com.video.ui.view.metro.MirrorItemView;
 import com.video.ui.view.subview.DimensHelper;
 
 import java.lang.ref.WeakReference;

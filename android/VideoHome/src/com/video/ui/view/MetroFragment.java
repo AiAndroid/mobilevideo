@@ -17,6 +17,10 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.detail.ObserverScrollView;
+import com.video.ui.view.metro.MetroCursorView;
+import com.video.ui.view.metro.RecommendCardView;
+import com.video.ui.view.metro.SmoothHorizontalScrollView;
+import com.video.ui.view.metro.UserViewFactory;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 

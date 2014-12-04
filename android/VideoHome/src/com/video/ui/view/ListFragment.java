@@ -22,6 +22,7 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
+import com.video.ui.view.metro.MetroCursorView;
 import com.video.ui.view.subview.ChannelVideoItemView;
 
 import java.util.ArrayList;

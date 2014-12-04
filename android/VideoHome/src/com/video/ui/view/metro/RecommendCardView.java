@@ -1,4 +1,4 @@
-package com.video.ui.view;
+package com.video.ui.view.metro;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -26,6 +26,7 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.Image.Ani;
 import com.video.ui.R;
+import com.video.ui.view.MetroLayout;
 import com.video.ui.view.subview.DimensHelper;
 
 import java.util.ArrayList;

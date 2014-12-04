@@ -13,7 +13,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/account_top_margin">
 
-        <com.video.ui.view.CenterIconImage
+        <com.video.ui.view.metro.CenterIconImage
                 android:id="@+id/mine_action_view"
                 android:layout_width="@dimen/ACCOUNT_ITEM_SIZE"
                 android:layout_height="@dimen/ACCOUNT_ITEM_SIZE"

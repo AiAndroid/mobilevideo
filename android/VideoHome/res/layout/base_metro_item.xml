@@ -5,20 +5,20 @@
     android:layout_height="@dimen/ITEM_NORMAL_SIZE"
     android:layout_centerHorizontal="true">
 
-    <com.video.ui.view.CenterIconImage
+    <com.video.ui.view.metro.CenterIconImage
         android:id="@+id/back_ground_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:scaleType="center" />
 
-    <com.video.ui.view.CenterIconImage
+    <com.video.ui.view.metro.CenterIconImage
         android:id="@+id/front_ground_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
-    <com.video.ui.view.CenterIconImage
+    <com.video.ui.view.metro.CenterIconImage
         android:id="@+id/sub_ground_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:orientation="vertical" >
 
-        <com.video.ui.view.CenterIconImage
+        <com.video.ui.view.metro.CenterIconImage
             android:id="@+id/icon_imageview"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
