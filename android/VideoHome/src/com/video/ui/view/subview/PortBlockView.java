@@ -109,9 +109,6 @@ public class PortBlockView extends LinearBaseCardView implements DimensHelper{
                 addOnePadding();
             }
         }
-
-        //more than one padding
-        getDimens().height += media_item_padding;
     }
 
     private void addOnePadding(){

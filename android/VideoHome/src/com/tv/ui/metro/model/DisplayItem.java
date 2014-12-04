@@ -6,10 +6,11 @@ public class DisplayItem implements Serializable{
 	private static final long serialVersionUID = 2L;
 
 	public static class UI implements Serializable {
-		private static final long serialVersionUID = 3L;
+		private static final long serialVersionUID = 4L;
         public String name;
         public int    id;
         public int    row_count;
+        public int    display_count;
         public int    show_score;
         public int    show_rank;
         public UI clone(){

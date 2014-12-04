@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
+import com.video.ui.R;
 
 /**
  * Created by liuhuadong on 11/19/14.
@@ -15,6 +16,9 @@ import com.tv.ui.metro.model.DisplayItem;
 public abstract class BaseCardView  extends RelativeLayout {
     public BaseCardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        if(media_item_padding == -1){
+            media_item_padding = getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+        }
     }
 
     protected DisplayItem item;
@@ -38,6 +42,7 @@ public abstract class BaseCardView  extends RelativeLayout {
         return obj;
     }
 
+    protected static int media_item_padding = -1;
     protected void launcherAction(Context context, DisplayItem item){
         Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.type + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
 

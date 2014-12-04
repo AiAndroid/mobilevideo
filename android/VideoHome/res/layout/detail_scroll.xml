@@ -25,6 +25,13 @@
             android:background="@drawable/com_bg_gray"
             android:orientation="vertical" >
 
+            <com.video.ui.view.detail.DetailEpisodeView
+                android:id="@+id/detail_episode_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/video_common_interval_15"/>
+
             <com.video.ui.view.detail.DetailIntroduceView
                 android:id="@+id/detail_introduce_view"
                 android:layout_width="match_parent"

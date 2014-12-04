@@ -101,7 +101,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             mMetroLayout.addView(meida,itemflp);
         }
 
-        int lines = (block.items.size()+1)/row_count;
+        int lines = (block.items.size()+row_count -1)/row_count;
         getDimens().height += (height + item_padding)*lines;
     }
 

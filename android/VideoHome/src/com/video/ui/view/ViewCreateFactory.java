@@ -49,7 +49,10 @@ public class ViewCreateFactory {
                 view = new BlockLinearButtonView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_filter:
-                view = new FilterBlockView(context, item.filters);
+                view = new FilterBlockView(context, item.filters, FilterBlockView.Filter_Type);
+                break;
+            case LayoutConstant.linearlayout_episode:
+                view = new FilterBlockView(context, item.filters, FilterBlockView.Episode_Type);
                 break;
             case LayoutConstant.grid_media_land:
             case LayoutConstant.grid_media_port:

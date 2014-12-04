@@ -162,6 +162,17 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 rowOffset[0] += height;
                 break;
             }
+            case LayoutConstant.linearlayout_episode_item: {
+                int height = getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+                int width = getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width);
+                flp = new LayoutParams(width, height);
+                flp.leftMargin = getPaddingLeft() + (width + padding) * x + padding;
+                flp.topMargin = getPaddingTop() + height * y + padding * (y + 1); //no need one more
+                child.setFocusable(true);
+                addView(child, flp);
+                rowOffset[0] += height;
+                break;
+            }
             case LayoutConstant.list_category_land:
             case LayoutConstant.imageswitcher:
             case LayoutConstant.linearlayout_top:

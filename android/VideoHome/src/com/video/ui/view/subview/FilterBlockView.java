@@ -23,13 +23,25 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
     private MetroLayout ml;
     private ArrayList<String>filtes;
-    public FilterBlockView(Context context, ArrayList<String> filtes) {
+    public static final int Filter_Type  = LayoutConstant.linearlayout_filter;
+    public static final int Episode_Type = LayoutConstant.linearlayout_episode;
+
+    private OnClickListener mItemClick;
+    public void setOnClickListener(OnClickListener itemClick){
+        mItemClick = itemClick;
+    }
+
+    public FilterBlockView(Context context, ArrayList<String> filtes, int uiType) {
         super(context, null, 0);
         this.filtes = filtes;
+        int selectIndex = 2;
 
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
 
-        Root.setBackgroundResource(R.drawable.com_block_n);
+        if(uiType != Episode_Type) {
+            Root.setBackgroundResource(R.drawable.com_block_n);
+        }
+
         ml = new MetroLayout(context);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.addRule(CENTER_HORIZONTAL);
@@ -38,27 +50,56 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
 
         int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
+        if(uiType == LayoutConstant.linearlayout_episode) {
+            padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width))/(row_count+1);
+        }
         int itemHeight = 0;
         for(String item: filtes) {
-            View convertView = View.inflate(getContext(), R.layout.filter_item_layout, null);
+            View convertView = null;
+            if(uiType == LayoutConstant.linearlayout_filter) {
+                convertView = View.inflate(getContext(), R.layout.filter_item_layout, null);
+                convertView.setBackgroundResource(R.drawable.editable_title_com_btn_bg);
+            }
+            else if(uiType == LayoutConstant.linearlayout_episode) {
+                convertView = View.inflate(getContext(), R.layout.episode_item_layout, null);
+                convertView.setBackgroundResource(R.drawable.com_btn_bg);
+            }
 
             TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-            convertView.setBackgroundResource(R.drawable.editable_title_com_btn_bg);
             mFiter.setText(item);
 
-            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_filter_item, step % row_count, step / row_count, padding);
+            if(uiType == LayoutConstant.linearlayout_episode) {
+                if (selectIndex == step)
+                    mFiter.setTextColor(getResources().getColor(R.color.orange));
+                else
+                    mFiter.setTextColor(getResources().getColor(R.color.p_80_black));
+            }
+
+            ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?
+                                            LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,
+                    step % row_count, step / row_count, padding);
+
             step++;
 
-            if (step != filtes.size()){
+            if (step != filtes.size() || uiType == Episode_Type){
                 mFiter.setCompoundDrawables(null, null, null, null);
             }
+
+            mFiter.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mItemClick != null){
+                        mItemClick.onClick(v);
+                    }
+                }
+            });
 
             if(itemHeight == 0){
                 itemHeight =  getResources().getDimensionPixelSize(R.dimen.size_74);
             }
         }
 
-        getDimens().height += (itemHeight)* ((step+1)/row_count) + padding*((step+1)/row_count + 1);
+        getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count + 1);
         Root.addView(ml, lp);
     }
 

@@ -15,7 +15,9 @@ public class LayoutConstant {
     public final static int linearlayout_title = 206;//-------标题
     public final static int linearlayout_single_poster = 207;//-------单行海报
     public final static int linearlayout_filter= 208;//-------过滤
-    public final static int linearlayout_filter_item= 209;//-------过滤
+    public final static int linearlayout_filter_item= 298;//-------过滤
+    public final static int linearlayout_episode= 209;//-------剧集
+    public final static int linearlayout_episode_item=299;//----剧集
 
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout

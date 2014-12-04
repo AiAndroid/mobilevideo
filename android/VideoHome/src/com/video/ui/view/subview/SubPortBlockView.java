@@ -113,6 +113,14 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
             }
             case LayoutConstant.linearlayout_poster:{
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
+                addView(bv);
+
+                getDimens().height += bv.getDimens().height;
+                addOnePadding();
+                break;
+            }
+            case LayoutConstant.linearlayout_land: {
+                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
@@ -120,8 +128,10 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
                 addOnePadding();
                 break;
             }
-            case LayoutConstant.linearlayout_land: {
-                PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
+            case LayoutConstant.linearlayout_episode:
+            case LayoutConstant.linearlayout_filter:{
+
+                FilterBlockView bv = new FilterBlockView(getContext(), block.filters, block.ui_type.id);
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
