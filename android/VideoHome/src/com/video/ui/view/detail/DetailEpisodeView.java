@@ -54,7 +54,7 @@ public class DetailEpisodeView extends FrameLayout {
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.linearlayout_episode;
         item.ui_type.row_count     = 4;
-        item.ui_type.display_count = 9;
+        item.ui_type.display_count = 11;
         item.filters = createRecommendBlockItems(item.ui_type.display_count);
 
         return item;
