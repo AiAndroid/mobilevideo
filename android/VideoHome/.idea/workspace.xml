@@ -296,8 +296,8 @@
       <file leaf-file-name="ViewUtils.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/utils/ViewUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45987654" vertical-offset="2652" max-vertical-offset="4200">
-              <caret line="131" column="65" selection-start-line="131" selection-start-column="65" selection-end-line="131" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.15123457" vertical-offset="2652" max-vertical-offset="4200">
+              <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -650,7 +650,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="8e986555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="TV" />
     <property name="last_opened_file_path" value="$USER_HOME$/code/android_5.0/frameworks/base/core" />
   </component>
@@ -1493,8 +1493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/utils/ViewUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45987654" vertical-offset="2652" max-vertical-offset="4200">
-          <caret line="131" column="65" selection-start-line="131" selection-start-column="65" selection-end-line="131" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.15123457" vertical-offset="2652" max-vertical-offset="4200">
+          <caret line="123" column="29" selection-start-line="123" selection-start-column="29" selection-end-line="123" selection-end-column="29" />
           <folding />
         </state>
       </provider>

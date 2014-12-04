@@ -121,7 +121,7 @@ public final class ViewUtils {
             memsize = getMemeorySize(context);
             Log.d("memory", "size = " + memsize);
         }
-        return memsize >2.0f;
+        return memsize >=1.75f;
     }
 
     private static  float getMemeorySize(Context context){
