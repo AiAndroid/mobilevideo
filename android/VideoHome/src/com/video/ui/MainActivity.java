@@ -267,7 +267,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         }
     }
 
-    protected String dataSchemaForSearchString = "tvschema://video/search";
+    protected String dataSchemaForSearchString = "mvschema://video/search";
     protected void setSeachSchema(String schema){
     	dataSchemaForSearchString = schema;
     }
@@ -337,7 +337,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object){
-            if(ViewUtils.LargerMemoryMode() == false) {
+            if(ViewUtils.LargerMemoryMode(getApplicationContext()) == false) {
                 final View view = fragments.get(new Integer(position)).getView();
                 new Handler().postDelayed(new Runnable() {
                     @Override

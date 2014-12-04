@@ -4,6 +4,61 @@
       <root url="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/java" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/utillib/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/apks/version/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/apks/version_nosys/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/apks/install_bad_dex/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/apks/install_complete_package_info/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/EnabledTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/coretests/DisabledTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/SharedUid/32/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/SharedUid/64/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/SharedUid/dual/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/SharedUid/java_only/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/NoLocTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/SimpleTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/AutoLocTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalLocTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/InternalLocTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPerms/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsBT/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsFL/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_Auto/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_None/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/DownloadManagerTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/NoLocVersionedTestApp_v1/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/NoLocVersionedTestApp_v2/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalLocPermsFLTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_External/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/VersatileTestApp_Internal/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/AutoLocVersionedTestApp_v1/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/AutoLocVersionedTestApp_v2/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalLocAllPermsTestApp/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalSharedPermsDiffKey/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyAndException/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestServices/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalLocVersionedTestApp_v1/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/ExternalLocVersionedTestApp_v2/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyTestServicesTests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/UpdateExtToIntLocTestApp_v1_ext/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/UpdateExtToIntLocTestApp_v2_int/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/UpdateExternalLocTestApp_v1_ext/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/UpdateExternalLocTestApp_v2_none/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v1/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v2/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/hosttests/test-apps/MultiDexLegacyVersionedTestApp_v3/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/benchmarks/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/overlaytests/OverlayTest/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/bandwidthtests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/bluetoothtests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/inputmethodtests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/systemproperties/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/notificationtests/src" />
+      <root url="file://$USER_HOME$/code/android_5.0/frameworks/base/core/tests/ConnectivityManagerTest/src" />
+    </SOURCES>
   </library>
 </component>

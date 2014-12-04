@@ -2,22 +2,28 @@ package com.video.ui.view;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.OverScroller;
+import android.widget.ScrollView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.utils.ViewUtils;
+import com.video.ui.view.detail.ObserverScrollView;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class MetroFragment extends Fragment implements AdsAnimationListener {
+public class MetroFragment extends Fragment implements AdsAnimationListener, ObserverScrollView.OnScrollChangedListener {
     private final String TAG = "MetroFragment";
 	public MetroLayout mMetroLayout;
     protected SmoothHorizontalScrollView mHorizontalScrollView;
@@ -30,12 +36,17 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         mAdsAL = al;
     }
 
+    private ObserverScrollView scroll_view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
         Log.d(TAG, "onCreateView ="+this);
         View v = inflater.inflate(R.layout.metrofragment, container, false);
+        scroll_view = (ObserverScrollView) v.findViewById(R.id.scroll_view);
+        scroll_view.setOnScrollChangedListener(this);
+        hackScroller();
+
         mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
         mMetroLayout.setMetroCursorView((MetroCursorView)v.findViewById(R.id.metrocursor));
         mHorizontalScrollView = (SmoothHorizontalScrollView)v.findViewById(R.id.horizontalScrollView);
@@ -44,7 +55,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         isUserTab = getArguments().getBoolean("user_fragment", false);
         index     = getArguments().getInt("index", 0);
         //a litter delay to construct UI
-        if(ViewUtils.LargerMemoryMode() == true) {
+        if(ViewUtils.LargerMemoryMode(getActivity()) == true) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -58,6 +69,41 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         return v;
     }
 
+    Handler mainHandler = new Handler();
+    HandlerThread ht = new HandlerThread("checkImage");
+    Handler newMoveHandler;
+    OverScroller scroller;
+    private void hackScroller(){
+        ht.start();
+        newMoveHandler = new Handler(ht.getLooper()){
+            @Override
+            public void dispatchMessage(Message msg) {
+                switch (msg.what) {
+                    case 100:
+                        if(scroller.isFinished()){
+                            Log.d(TAG, "scroll finished");
+
+                            mainHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ViewUtils.unbindInvisibleImageDrawables(mMetroLayout);
+                                    invalidateUI(mMetroLayout);
+                                }
+                            });
+                        }
+                        break;
+                }
+            }
+        };
+        try {
+            Field mScroller;
+            mScroller = ScrollView.class.getDeclaredField("mScroller");
+            mScroller.setAccessible(true);
+            scroller = new OverScroller(getActivity());
+            mScroller.set(scroll_view, scroller);
+        } catch (Exception e) {
+        }
+    }
     public View addViewPort(View view, int celltype, int x, int y){
         return mMetroLayout.addItemViewPort(view, celltype, x, y);
     }
@@ -169,11 +215,11 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
             return;
         }
 
-        if(view instanceof DimensHelper){
+        if(view instanceof DimensHelper && ViewUtils.isInVisisble(view) == false){
             DimensHelper imageView = (DimensHelper)view;
             imageView.invalidateUI();
         }
-        if (view instanceof ViewGroup) {
+        if (view instanceof ViewGroup ) {
             for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
                 invalidateUI(((ViewGroup) view).getChildAt(i));
             }
@@ -194,5 +240,13 @@ public class MetroFragment extends Fragment implements AdsAnimationListener {
         Log.d(TAG, "onDestroy="+this);
         Picasso.with(getActivity().getApplicationContext()).pauseTag(index);
         ViewUtils.unbindImageDrawables(getView());
+    }
+
+    @Override
+    public void onScrollChanged(int mScrollX, int mScrollY, int oldX, int oldY) {
+        if(scroller != null && ViewUtils.LargerMemoryMode(getActivity()) == false){
+            newMoveHandler.removeMessages(100);
+            newMoveHandler.sendMessageDelayed(newMoveHandler.obtainMessage(100), 80);
+        }
     }
 }
