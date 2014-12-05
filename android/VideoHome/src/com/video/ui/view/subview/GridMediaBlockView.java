@@ -19,12 +19,12 @@ import com.video.ui.view.LinearFrame;
 /**
  * Created by liuhuadong on 11/27/14.
  */
-public class GridMediaBlockView extends LinearBaseCardView implements DimensHelper{
+public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensHelper{
     public GridMediaBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public GridMediaBlockView(Context context, Block<DisplayItem> block, Object tag){
+    public GridMediaBlockView(Context context, Block<T> block, Object tag){
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
         initUI(context, block, tag);
@@ -36,10 +36,10 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
     private int width;
     private int height;
     private int res_id;
-    private Block<DisplayItem> content;
+    private Block<T> content;
     private View root;
 
-    private void initDimens(Block<DisplayItem> block){
+    private void initDimens(Block<T> block){
         content = block;
         item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         if(block.ui_type.id == LayoutConstant.grid_media_port || block.ui_type.id == LayoutConstant.grid_media_port_title ) {
@@ -61,7 +61,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
         }
     }
 
-    private void initUI(Context context, Block<DisplayItem> block, Object tag){
+    private void initUI(Context context, Block<T> block, Object tag){
         initDimens(block);
         content = block;
 
@@ -70,7 +70,7 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
         addView(root, flp);
         LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
         for(int step=0;step<block.items.size();step++) {
-            final DisplayItem item = block.items.get(step);
+            final DisplayItem item = (DisplayItem) block.items.get(step);
 
             ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
@@ -124,7 +124,8 @@ public class GridMediaBlockView extends LinearBaseCardView implements DimensHelp
             View view = mMetroLayout.getChildAt(i);
             ImageView image = (ImageView)view.findViewById(R.id.poster);
             if(image != null) {
-                Picasso.with(getContext()).load(content.items.get(i).images.get("poster").url).fit().into(image);
+                DisplayItem item = (DisplayItem) content.items.get(i);
+                Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(image);
             }
         }
     }

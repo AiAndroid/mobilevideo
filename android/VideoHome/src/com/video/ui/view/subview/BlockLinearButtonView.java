@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/17/14.
  */
-public class BlockLinearButtonView extends BaseCardView implements DimensHelper {
+public class BlockLinearButtonView<T> extends BaseCardView implements DimensHelper {
     public BlockLinearButtonView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -24,7 +24,7 @@ public class BlockLinearButtonView extends BaseCardView implements DimensHelper 
         R.drawable.quick_entry_variety_bg,
         R.drawable.quick_entry_all_bg
     };
-    public BlockLinearButtonView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public BlockLinearButtonView(Context context, ArrayList<T> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
@@ -35,7 +35,7 @@ public class BlockLinearButtonView extends BaseCardView implements DimensHelper 
         int padding = (getDimens().width-items.size()*width)/(items.size()+1);
         int leftPadding = padding;
         for (int i=0;i<items.size();i++) {
-            final DisplayItem item = items.get(i);
+            final DisplayItem item = (DisplayItem) items.get(i);
             View view =  View.inflate(getContext(), R.layout.qucik_entry_block_textview, null);
             view.setClickable(true);
             view.setBackgroundResource(draws[i%4]);

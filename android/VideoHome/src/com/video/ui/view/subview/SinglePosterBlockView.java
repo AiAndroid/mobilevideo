@@ -6,20 +6,19 @@ import android.view.View;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
-import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 
 /**
  * Created by liuhuadong on 11/28/14.
  */
-public class SinglePosterBlockView extends BaseCardView implements DimensHelper {
+public class SinglePosterBlockView<T> extends BaseCardView implements DimensHelper {
     public SinglePosterBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
     private View root;
-    private Block<DisplayItem> content;
-    public SinglePosterBlockView(Context context, final Block<DisplayItem> block, Object tag){
+    private Block<T> content;
+    public SinglePosterBlockView(Context context, final Block<T> block, Object tag){
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
         content = block;

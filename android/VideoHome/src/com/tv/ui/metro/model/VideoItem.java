@@ -71,6 +71,7 @@ public class VideoItem extends DisplayItem {
         public String                  id;
         public int                     play_time;
         public String                  name;
+        public String                  desc;
         public Times                   times;
         public HashMap<String, String> urls;
     }

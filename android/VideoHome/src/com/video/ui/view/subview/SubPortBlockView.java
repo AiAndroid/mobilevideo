@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
-import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by wangwei on 11/20/14.
  */
-public class SubPortBlockView extends LinearBaseCardView implements DimensHelper{
-    Block<DisplayItem> content;
+public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHelper{
+    Block<T> content;
 
     public SubPortBlockView(Context context) {
         super(context, null, 0);
@@ -28,7 +28,7 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
 
     private Dimens mDimens;
 
-    public SubPortBlockView(Context context, Block<DisplayItem> blocks, Object tag) {
+    public SubPortBlockView(Context context, Block<T> blocks, Object tag) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
 
@@ -45,12 +45,12 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         setBackgroundResource(R.drawable.com_block_n);
     }
 
-    public void addChildView(final ArrayList<Block<DisplayItem>> blocks){
-        for(Block<DisplayItem> block:blocks){
+    public void addChildView(final ArrayList<Block<T>> blocks){
+        for(Block<T> block:blocks){
             addChildView(block);
         }
     }
-    public void addChildView(final Block<DisplayItem> block){
+    public void addChildView(final Block<T> block){
         switch (block.ui_type.id){
             //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
             case LayoutConstant.tabs_horizontal: {
@@ -139,6 +139,19 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
                 addOnePadding();
                 break;
             }
+            case LayoutConstant.linearlayout_episode_list:{
+                VideoItem vi = (VideoItem) block.items.get(0);
+                FilterBlockView bv = new FilterBlockView(getContext(), vi.videos, 1, 4);
+
+                addView(bv);
+                getDimens().height += bv.getDimens().height;
+                if(vi.videos.size() > 4) {
+                    addOnePadding();
+                }else {
+                    setBackground(null);
+                }
+                break;
+            }
         }
     }
 
@@ -155,7 +168,7 @@ public class SubPortBlockView extends LinearBaseCardView implements DimensHelper
         return mDimens;
     }
 
-    private void initUI(Block<DisplayItem> rootblock) {
+    private void initUI(Block<T> rootblock) {
 
         content = rootblock;
         int size = content.blocks.size();

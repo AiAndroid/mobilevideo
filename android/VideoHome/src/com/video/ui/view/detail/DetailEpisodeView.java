@@ -7,11 +7,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
-import com.video.ui.R;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.subview.SubPortBlockView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DetailEpisodeView extends FrameLayout {
 
@@ -32,8 +33,8 @@ public class DetailEpisodeView extends FrameLayout {
         this(context, null, 0);
 	}
 
-    private Block<DisplayItem> createTitleBlock(){
-        Block<DisplayItem> item = new Block<DisplayItem>();
+    private Block<VideoItem> createTitleBlock(){
+        Block<VideoItem> item = new Block<VideoItem>();
         item.title = "共106集";
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = 206;
@@ -48,8 +49,8 @@ public class DetailEpisodeView extends FrameLayout {
         return episodes;
     }
 
-    private Block<DisplayItem> createRecommendBlock() {
-        Block<DisplayItem> item = new Block<DisplayItem>();
+    private Block<VideoItem> createEpisodeBlock() {
+        Block<VideoItem> item = new Block<VideoItem>();
         item.title = "episode";
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.linearlayout_episode;
@@ -60,8 +61,35 @@ public class DetailEpisodeView extends FrameLayout {
         return item;
     }
 
-    private Block<DisplayItem> createLineBlock() {
-        Block<DisplayItem> item = new Block<DisplayItem>();
+    private Block<VideoItem> createListEpisodeBlock() {
+        Block<VideoItem> item = new Block<VideoItem>();
+        item.title = "episode";
+        item.ui_type = new DisplayItem.UI();
+        item.ui_type.id = LayoutConstant.linearlayout_episode_list;
+        item.ui_type.row_count     = 4;
+        item.ui_type.display_count = 11;
+
+        item.items = new ArrayList<VideoItem>();
+        VideoItem video = new VideoItem();
+        video.videos = new ArrayList<VideoItem.Video>();
+
+        item.items.add(video);
+        int size = 4;
+        if((Math.random()*100) > 50) {
+            size = 5;
+        }
+        for(int i=0;i<size;i++) {
+            VideoItem.Video item1 = new VideoItem.Video();
+            item1.name = new Date().toGMTString();
+            item1.desc = "快跑把， 这里游戏\n我陪配额额";
+            video.videos.add(item1);
+        }
+
+        return item;
+    }
+
+    private Block<VideoItem> createLineBlock() {
+        Block<VideoItem> item = new Block<VideoItem>();
         item.title = "全部剧集";
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.linearlayout_none;
@@ -69,19 +97,38 @@ public class DetailEpisodeView extends FrameLayout {
         return item;
     }
 
+    static  int step = 0;
 	//init
 	private void init() {
-        Block<DisplayItem> item = new Block<DisplayItem>();
-        item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.block_sub_channel;
-        item.blocks = new ArrayList<Block<DisplayItem>>();
-        item.blocks.add(createTitleBlock());
-        item.blocks.add(createRecommendBlock());
-        item.blocks.add(createLineBlock());
+        if (step % 4 == 0) {
+            Block<VideoItem> item = new Block<VideoItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<VideoItem>>();
+            item.blocks.add(createTitleBlock());
+            item.blocks.add(createEpisodeBlock());
+            item.blocks.add(createLineBlock());
 
-        SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+            SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+            LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
+            addView(view, flp);
+        }else {
+            Block<VideoItem> item = new Block<VideoItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<VideoItem>>();
 
-        LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams( view.getDimens().width, view.getDimens().height + getResources().getDimensionPixelSize(R.dimen.media_item_padding));
-        addView(view, flp);
+            Block<VideoItem> video = createListEpisodeBlock();
+            item.blocks.add(video);
+            if(video.items.get(0).videos.size() > 4) {
+                item.blocks.add(createLineBlock());
+            }
+
+            SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+            LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height);
+            addView(view, flp);
+        }
+
+        step++;
 	}
 }

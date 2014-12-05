@@ -14,14 +14,14 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/25/14.
  */
-public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
+public class PosterEnterBlockView<T> extends BaseCardView implements DimensHelper {
     public PosterEnterBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    private ArrayList<DisplayItem> content;
+    private ArrayList<T> content;
     private View root;
-    public PosterEnterBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
+    public PosterEnterBlockView(Context context, ArrayList<T> items, Object tag) {
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
         content = items;
@@ -33,7 +33,7 @@ public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
         int padding = (getDimens().width-items.size()*width)/(items.size()+1);
         int leftPadding = padding;
         for (int i=0;i<items.size();i++) {
-            final DisplayItem item = items.get(i);
+            final DisplayItem item = (DisplayItem) items.get(i);
             View view =  View.inflate(getContext(), R.layout.poster_enter_item, null);
             view.setClickable(true);
 
@@ -64,7 +64,7 @@ public class PosterEnterBlockView extends BaseCardView implements DimensHelper {
     public void invalidateUI() {
         LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
         for (int i=0;i<content.size();i++) {
-            final DisplayItem item = content.get(i);
+            final DisplayItem item = (DisplayItem) content.get(i);
             View view =  mMetroLayout.getChildAt(i);
             ImageView tv = (ImageView) view.findViewById(R.id.quick_enter_imageview);
             if(tv != null) {

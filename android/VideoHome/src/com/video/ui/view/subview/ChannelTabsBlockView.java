@@ -19,8 +19,8 @@ import com.video.ui.view.LayoutConstant;
 /**
  * Created by wangwei on 11/18/14.
  */
-public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
-    private Block<DisplayItem> content;
+public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelper {
+    private Block<T> content;
     private TabWidget mTabWidget;
     private boolean mGridLoaded = false;
     private View root;
@@ -37,7 +37,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
     }
 
     private Dimens mDimens;
-    public ChannelTabsBlockView(Context context, Block<DisplayItem> blocks, Object obj) {
+    public ChannelTabsBlockView(Context context, Block<T> blocks, Object obj) {
         super(context, null, 0);
         setTag(R.integer.picasso_tag, obj);
 
@@ -83,7 +83,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
         }
     }
 
-    private void initUI(Block<DisplayItem> rootblock){
+    private void initUI(Block<T> rootblock){
         content = rootblock;
         int block_height = 0;
         int item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
@@ -97,7 +97,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
         mTabWidget.setStripEnabled(false);
 
         block_height += getResources().getDimensionPixelSize(R.dimen.media_pager_title_text_height);
-        for(Block<DisplayItem> block: content.blocks) {
+        for(Block<T> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
             mTabWidget.addView(text);
@@ -134,7 +134,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
                     int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
                     int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
                     for(int i=0;i<block.items.size();++i) {
-                        final DisplayItem item = block.items.get(i);
+                        final DisplayItem item = (DisplayItem) block.items.get(i);
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_hor, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
@@ -167,7 +167,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
                     int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
                     mType = LayoutConstant.grid_media_port;
                     for(int i=0;i<block.items.size();++i) {
-                        final DisplayItem item = block.items.get(i);
+                        final DisplayItem item = (DisplayItem) block.items.get(i);
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_port, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
@@ -218,7 +218,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
     private void showTab(int index){
         FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
-        Block<DisplayItem> block = content.blocks.get(index);
+        Block<T> block = content.blocks.get(index);
 
         for(int i=0;i<mTabWidget.getChildCount();i++){
             TextView text = (TextView) mTabWidget.getChildAt(i);
@@ -236,7 +236,7 @@ public class ChannelTabsBlockView extends BaseCardView implements DimensHelper {
 
         for(int i=0;i<grid.getChildCount();i++){
             View meida = grid.getChildAt(i);
-            final DisplayItem item = block.items.get(i);
+            final DisplayItem item = (DisplayItem) block.items.get(i);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
             Picasso.with(getContext()).load(item.images.get("poster").url).into(image);
 

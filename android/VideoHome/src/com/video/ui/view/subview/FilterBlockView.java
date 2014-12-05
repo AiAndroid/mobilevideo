@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.MetroLayout;
@@ -25,26 +26,27 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     private ArrayList<String>filtes;
     public static final int Filter_Type  = LayoutConstant.linearlayout_filter;
     public static final int Episode_Type = LayoutConstant.linearlayout_episode;
+    public static final int Episode_list_Type = LayoutConstant.linearlayout_episode_list;
 
     private OnClickListener mItemClick;
     public void setOnClickListener(OnClickListener itemClick){
         mItemClick = itemClick;
     }
 
+    int mUIType = -1;
     public FilterBlockView(Context context, ArrayList<String> filtes, int uiType) {
         super(context, null, 0);
         this.filtes = filtes;
         int selectIndex = 2;
+        mUIType = uiType;
 
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
 
-        if(uiType != Episode_Type) {
+        if(uiType == Filter_Type) {
             Root.setBackgroundResource(R.drawable.com_block_n);
         }
 
         ml = new MetroLayout(context);
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.addRule(CENTER_HORIZONTAL);
         int step      = 0;
         int row_count = 4;
 
@@ -59,33 +61,91 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             if(uiType == LayoutConstant.linearlayout_filter) {
                 convertView = View.inflate(getContext(), R.layout.filter_item_layout, null);
                 convertView.setBackgroundResource(R.drawable.editable_title_com_btn_bg);
-            }
-            else if(uiType == LayoutConstant.linearlayout_episode) {
+            }else if(uiType == LayoutConstant.linearlayout_episode) {
                 convertView = View.inflate(getContext(), R.layout.episode_item_layout, null);
                 convertView.setBackgroundResource(R.drawable.com_btn_bg);
             }
 
-            TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-            mFiter.setText(item);
+            if(uiType == LayoutConstant.linearlayout_filter || uiType == LayoutConstant.linearlayout_episode){
+                TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+                mFiter.setText(item);
 
-            if(uiType == LayoutConstant.linearlayout_episode) {
-                if (selectIndex == step)
-                    mFiter.setTextColor(getResources().getColor(R.color.orange));
-                else
-                    mFiter.setTextColor(getResources().getColor(R.color.p_80_black));
+                if(uiType == LayoutConstant.linearlayout_episode) {
+                    if (selectIndex == step)
+                        mFiter.setTextColor(getResources().getColor(R.color.orange));
+                    else
+                        mFiter.setTextColor(getResources().getColor(R.color.p_80_black));
+                }
+
+                ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+                step++;
+
+                if (step != filtes.size() || uiType == Episode_Type){
+                    mFiter.setCompoundDrawables(null, null, null, null);
+                }
+
+                mFiter.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(mItemClick != null){
+                            mItemClick.onClick(v);
+                        }
+                    }
+                });
+            }else if(uiType == LayoutConstant.linearlayout_episode_list){
+
+            }
+        }
+
+        if(itemHeight == 0){
+            if(uiType == LayoutConstant.linearlayout_filter) {
+                itemHeight = getResources().getDimensionPixelSize(R.dimen.size_74);
+            }else if(uiType == LayoutConstant.linearlayout_episode) {
+                itemHeight = getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+            }
+        }
+
+        getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count + 1);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
+        Root.addView(ml, lp);
+    }
+
+    public FilterBlockView(Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
+        super(context, null, 0);
+        mUIType = LayoutConstant.linearlayout_episode_list;
+
+        RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
+        ml = new MetroLayout(context);
+
+        int row_count  = 1;
+        int padding    = 0;
+        int itemHeight = 0;
+        int size       = episodes.size();
+        if(size > maxVisible)
+            size = maxVisible;
+
+        for(int i=0;i<size;i++){
+            VideoItem.Video item = episodes.get(i);
+            VarietyEpisode view = new VarietyEpisode(getContext());
+
+            if(size == 1) {
+                view.setBackgroundResource(R.drawable.com_item_bg_full);
+            } else {
+                if(i == 0) {
+                    view.setBackgroundResource(R.drawable.com_item_bg_up);
+                }else if(i == size -1 && episodes.size() <= maxVisible){
+                    view.setBackgroundResource(R.drawable.com_item_bg_down);
+                }
+                else {
+                    view.setBackgroundResource(R.drawable.com_item_bg_mid);
+                }
             }
 
-            ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?
-                                            LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,
-                    step % row_count, step / row_count, padding);
+            view.setData(item, i == selectIndex);
+            ml.addItemViewPort(view, LayoutConstant.linearlayout_episode_list_item,0, i , padding);
 
-            step++;
-
-            if (step != filtes.size() || uiType == Episode_Type){
-                mFiter.setCompoundDrawables(null, null, null, null);
-            }
-
-            mFiter.setOnClickListener(new OnClickListener() {
+            view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(mItemClick != null){
@@ -94,12 +154,16 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                 }
             });
 
-            if(itemHeight == 0){
-                itemHeight =  getResources().getDimensionPixelSize(R.dimen.size_74);
-            }
         }
 
-        getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count + 1);
+        if(itemHeight == 0){
+            itemHeight = getResources().getDimensionPixelSize(R.dimen.detail_variety_item_height);
+        }
+
+        getDimens().height += (itemHeight)* size ;
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
         Root.addView(ml, lp);
     }
 
@@ -121,5 +185,69 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     @Override
     public void unbindDrawables(View view) {
 
+    }
+
+    public class VarietyEpisode extends RelativeLayout {
+        //UI
+        private View mPoster;
+        private TextView mData;
+        private TextView mName;
+
+        private int mColorNormal;
+        private int mColorSelected;
+
+        //data
+        private VideoItem.Video mItem;
+
+        public VarietyEpisode(Context context, AttributeSet attrs) {
+            this(context, attrs, 0);
+        }
+        public VarietyEpisode(Context context) {
+            this(context, null, 0);
+        }
+
+        public VarietyEpisode(Context context, AttributeSet attrs, int uiStyle) {
+            super(context, attrs, uiStyle);
+            init();
+        }
+
+
+        public VideoItem.Video getData() {
+            return mItem;
+        }
+
+        public void setData(VideoItem.Video item, boolean selected) {
+            this.mItem = item;
+            refresh(selected);
+        }
+
+        //init
+        private void init() {
+            View.inflate(getContext(), R.layout.detail_ep_item_variety, this);
+            mColorNormal   = getResources().getColor(R.color.p_80_black);
+            mColorSelected = getResources().getColor(R.color.orange);
+            View.inflate(getContext(), R.layout.detail_ep_item_variety, this);
+            mPoster = findViewById(R.id.detail_variety_item_poster);
+            mData = (TextView) findViewById(R.id.detail_variety_item_data);
+            mName = (TextView) findViewById(R.id.detail_variety_item_name);
+        }
+
+        //packaged method
+        private void refresh(boolean selected) {
+            if(mItem == null) {
+                return;
+            }
+            mData.setText(mItem.name);
+            mName.setText(mItem.desc);
+
+            mPoster.setSelected(selected);
+            if(selected) {
+                mName.setTextColor(mColorSelected);
+                mData.setTextColor(mColorSelected);
+            } else {
+                mName.setTextColor(mColorNormal);
+                mData.setTextColor(mColorNormal);
+            }
+        }
     }
 }
