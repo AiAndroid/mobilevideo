@@ -1,6 +1,7 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -148,7 +149,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 if(vi.videos.size() > 4) {
                     addOnePadding();
                 }else {
-                    setBackground(null);
+                    setBackgroundColor(Color.TRANSPARENT);
                 }
                 break;
             }

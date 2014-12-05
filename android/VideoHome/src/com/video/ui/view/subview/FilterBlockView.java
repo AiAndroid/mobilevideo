@@ -136,6 +136,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                     view.setBackgroundResource(R.drawable.com_item_bg_up);
                 }else if(i == size -1 && episodes.size() <= maxVisible){
                     view.setBackgroundResource(R.drawable.com_item_bg_down);
+                    view.findViewById(R.id.line).setVisibility(GONE);
                 }
                 else {
                     view.setBackgroundResource(R.drawable.com_item_bg_mid);
@@ -226,7 +227,6 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             View.inflate(getContext(), R.layout.detail_ep_item_variety, this);
             mColorNormal   = getResources().getColor(R.color.p_80_black);
             mColorSelected = getResources().getColor(R.color.orange);
-            View.inflate(getContext(), R.layout.detail_ep_item_variety, this);
             mPoster = findViewById(R.id.detail_variety_item_poster);
             mData = (TextView) findViewById(R.id.detail_variety_item_data);
             mName = (TextView) findViewById(R.id.detail_variety_item_name);
