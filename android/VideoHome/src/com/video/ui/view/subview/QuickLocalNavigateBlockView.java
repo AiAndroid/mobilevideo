@@ -26,6 +26,12 @@ public class QuickLocalNavigateBlockView extends BaseCardView implements DimensH
             R.drawable.com_btn_right_bg
     };
 
+    private int []hodlerdraws = {
+            R.drawable.quick_entry_play_his,
+            R.drawable.quick_entry_offline,
+            R.drawable.quick_entry_tv
+    };
+
     private View root;
     private ArrayList<DisplayItem> content;
     public QuickLocalNavigateBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
@@ -46,7 +52,7 @@ public class QuickLocalNavigateBlockView extends BaseCardView implements DimensH
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.local_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.quick_entry_play_his).priority(Picasso.Priority.HIGH).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).placeholder(hodlerdraws[i]).priority(Picasso.Priority.HIGH).fit().into(iv);
 
             view.setOnClickListener(new OnClickListener() {
                 @Override

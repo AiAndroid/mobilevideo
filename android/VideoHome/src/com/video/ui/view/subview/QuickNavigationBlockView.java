@@ -27,6 +27,13 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
         R.drawable.quick_entry_all_bg
     };
 
+    private int []hodlerdraws = {
+            R.drawable.quick_entry_tv_series,
+            R.drawable.quick_entry_film,
+            R.drawable.quick_entry_variety,
+            R.drawable.quick_entry_all
+    };
+
     private View                   root;
     private ArrayList<DisplayItem> content;
     public QuickNavigationBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
@@ -50,7 +57,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(R.drawable.quick_entry_default).priority(Picasso.Priority.HIGH).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(hodlerdraws[i]).priority(Picasso.Priority.HIGH).fit().into(iv);
 
             view.setOnClickListener(new OnClickListener() {
                 @Override
