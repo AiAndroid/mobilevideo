@@ -204,7 +204,7 @@
     <dimen name="quick_entry_channel_drawable_padding">5dp</dimen>
 
     <dimen name="quick_entry_user_height">45.7dp</dimen>
-    <dimen name="quick_entry_user_image_height">29dp</dimen>
+    <dimen name="quick_entry_user_image_height">28.5dp</dimen>
     <dimen name="quick_entry_user_image_width">25dp</dimen>
     <dimen name="quick_entry_user_content_paddingH">10dp</dimen>
     <dimen name="quick_entry_user_drawable_padding">8dp</dimen>
