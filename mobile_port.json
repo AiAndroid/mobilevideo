@@ -5660,27 +5660,10 @@
                     ]
                 }
             ]
-        },
-        {
-            "title":"用户",
-            "id":"user.choice",
-            "type":"album",
-            "ns":"video",
-            "images":{
-            },
-            "media":{
-            },
-            "times":{
-            },
-            "ui_type":{
-                "name":"block_port",
-                "id":301,
-                "row_count":2
-            }
         }
     ],
     "times":{
-        "updated":72,
+        "updated":73,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
