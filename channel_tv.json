@@ -299,16 +299,18 @@
                     "id":"100",
                     "type":"album",
                     "ns":"video",
-                    "filters":[
-                        "大陆",
-                        "港台",
-                        "美国",
-                        "欧洲",
-                        "日韩",
-                        "其他",
-                        "古装",
-                        "筛选"
-                    ],
+                    "filters":{
+                        "filters":[
+                            {"name":"大陆"},
+                            {"name":"港台"},
+                            {"name":"美国"},
+                            {"name":"欧洲"},
+                            {"name":"日韩"},
+                            {"name":"其他"},
+                            {"name":"古装"},
+                            {"name":"筛选"}
+                        ]
+                    },
                     "times":{
                         "updated":0,
                         "created":0
@@ -1884,7 +1886,7 @@
         }
     ],
     "times":{
-        "updated":4,
+        "updated":5,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"

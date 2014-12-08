@@ -263,16 +263,18 @@
                     "id":"100",
                     "type":"album",
                     "ns":"video",
-                    "filters":[
-                        "华语",
-                        "美国",
-                        "欧洲",
-                        "日韩",
-                        "其他",
-                        "古装",
-                        "谨慎",
-                        "筛选"
-                    ],
+                    "filters":{
+                        "filters":[
+                            {"name":"华语"},
+                            {"name":"美国"},
+                            {"name":"欧洲"},
+                            {"name":"日韩"},
+                            {"name":"其他"},
+                            {"name":"古装"},
+                            {"name":"谨慎"},
+                            {"name":"筛选"}
+                        ]
+                    },
                     "times":{
                         "updated":0,
                         "created":0
@@ -2182,7 +2184,7 @@
         }
     ],
     "times":{
-        "updated":7,
+        "updated":9,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
