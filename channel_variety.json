@@ -263,16 +263,19 @@
                     "id":"100",
                     "type":"album",
                     "ns":"video",
-                    "filters":[
-                        "大陆",
-                        "港台新",
-                        "日韩",
-                        "欧美",
-                        "其他",
-                        "选秀",
-                        "访谈",
-                        "筛选"
-                    ],
+                    "filters":{
+                        "filters":[
+                            {"name":"大陆"},
+                            {"name":"港台新"},
+                            {"name":"日韩"},
+                            {"name":"欧美"},
+                            {"name":"日韩"},
+                            {"name":"其他"},
+                            {"name":"选秀"},
+                            {"name":"访谈"},
+                            {"name":"筛选"}
+                        ]
+                    },
                     "times":{
                         "updated":0,
                         "created":0
@@ -1402,7 +1405,7 @@
         }
     ],
     "times":{
-        "updated":6,
+        "updated":7,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
