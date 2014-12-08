@@ -149,6 +149,20 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         addVideoTestData(content);
         _contents = content;
+
+        if(isNeedUserTab == true) {
+            boolean existUserChoise = false;
+            for (Block<DisplayItem> block : _contents.blocks) {
+                if (block.id.equals("user.choice")) {
+                    existUserChoise = true;
+                    break;
+                }
+            }
+
+            if(existUserChoise == false){
+                isNeedUserTab = false;
+            }
+        }
         
        for(int i=0;i<content.blocks.size();i++) {
             Bundle args = new Bundle();
