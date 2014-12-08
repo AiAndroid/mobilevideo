@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
@@ -21,20 +22,26 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
+    public FilterBlockView(Context context){
+        super(context, null , 0);
+    }
+
 
     private MetroLayout ml;
-    private ArrayList<String>filtes;
+    private ArrayList<DisplayItem.FilterItem>filtes;
     public static final int Filter_Type  = LayoutConstant.linearlayout_filter;
     public static final int Episode_Type = LayoutConstant.linearlayout_episode;
-    public static final int Episode_list_Type = LayoutConstant.linearlayout_episode_list;
+    public static final int Episode_list_Type  = LayoutConstant.linearlayout_episode_list;
+    public static final int Filter_select_Type = LayoutConstant.linearlayout_filter_select;
 
     private OnClickListener mItemClick;
+
     public void setOnClickListener(OnClickListener itemClick){
         mItemClick = itemClick;
     }
 
     int mUIType = -1;
-    public FilterBlockView(Context context, ArrayList<String> filtes, int uiType) {
+    public FilterBlockView(Context context, ArrayList<DisplayItem.FilterItem> filtes, int uiType) {
         super(context, null, 0);
         this.filtes = filtes;
         int selectIndex = 2;
@@ -56,7 +63,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width))/(row_count+1);
         }
         int itemHeight = 0;
-        for(String item: filtes) {
+        for(DisplayItem.FilterItem item: filtes) {
             View convertView = null;
             if(uiType == LayoutConstant.linearlayout_filter) {
                 convertView = View.inflate(getContext(), R.layout.filter_item_layout, null);
@@ -68,7 +75,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
             if(uiType == LayoutConstant.linearlayout_filter || uiType == LayoutConstant.linearlayout_episode){
                 TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-                mFiter.setText(item);
+                mFiter.setText(item.name);
 
                 if(uiType == LayoutConstant.linearlayout_episode) {
                     if (selectIndex == step)
@@ -167,6 +174,47 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         lp.addRule(CENTER_HORIZONTAL);
         Root.addView(ml, lp);
     }
+
+    public static FilterBlockView createFilterBlockView(Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
+        FilterBlockView filterView = new FilterBlockView(context);
+        RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
+
+        MetroLayout ml = new MetroLayout(context);
+        int step      = 0;
+        int row_count = 4;
+
+
+        int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
+
+        int itemHeight = 0;
+        for(DisplayItem.FilterItem item: filters) {
+            View convertView = View.inflate(context, R.layout.episode_item_layout, null);
+            convertView.setBackgroundResource(R.drawable.com_btn_bg);
+
+            final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+            mFiter.setText(item.name);
+            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+
+            mFiter.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
+            step++;
+        }
+
+        if(itemHeight == 0){
+            itemHeight = context.getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+        }
+
+        filterView.getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, filterView.getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
+        filterView.addView(ml, lp);
+
+        return filterView;
+    }
+
 
     private DimensHelper.Dimens mDimens;
     @Override

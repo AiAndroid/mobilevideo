@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/com_bg_white"
+                android:fitsSystemWindows="true" >
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/com_bg_gray" />
+
+    <include
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/video_common_title_top_height"
+            layout="@layout/title_layout_mv" />
+
+    <include
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/detail_bottom_bar_height"
+            android:layout_alignParentBottom="true"
+            layout="@layout/detail_bottom" />
+
+    <FrameLayout
+            android:id="@+id/filter_view"
+            android:background="@drawable/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_bar"
+            android:layout_below="@id/title_bar" />
+
+</RelativeLayout>

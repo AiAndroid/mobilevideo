@@ -1,5 +1,7 @@
 package com.video.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +26,25 @@ public class ChannelActivity extends  MainActivity {
         View titlebar = this.findViewById(R.id.title_bar);
         TextView tv = (TextView) titlebar.findViewById(R.id.title_top_name);
         tv.setText(albumItem.title);
+
+        View view = titlebar.findViewById(R.id.channel_filte_btn);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if(_contents != null && _contents.blocks.get(0).id.endsWith(".choice")) {
+                        Block<DisplayItem> block = _contents.blocks.get(0);
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
+                        intent.putExtra("item", block);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                } catch (Exception ne) {
+                    ne.printStackTrace();
+                }
+            }
+        });
 
         ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
         back_imageview.setOnClickListener(new View.OnClickListener() {

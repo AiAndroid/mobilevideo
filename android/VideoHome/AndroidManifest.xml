@@ -43,6 +43,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ChannelFilterActivity">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/filter"/>
+            </intent-filter>
+        </activity>
+
         <provider
             android:name="com.video.ui.idata.iDataProvider"
             android:authorities="com.tv.ui.metro.mobile"

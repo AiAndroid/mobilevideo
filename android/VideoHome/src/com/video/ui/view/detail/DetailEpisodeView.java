@@ -41,12 +41,15 @@ public class DetailEpisodeView extends FrameLayout {
         return item;
     }
 
-    private ArrayList<String> createRecommendBlockItems(int count){
-        ArrayList<String> episodes = new ArrayList<String>();
+    private ArrayList<DisplayItem.FilterItem> createRecommendBlockItems(int count){
+        ArrayList<DisplayItem.FilterItem> filterItems = new ArrayList<DisplayItem.FilterItem>();
         for(int i=1;i<=count;i++){
-            episodes.add(String.valueOf(i));
+            DisplayItem.FilterItem item = new DisplayItem.FilterItem();
+            item.name = String.valueOf(i);
+            item.fid = "0";
+            filterItems.add(item);
         }
-        return episodes;
+        return filterItems;
     }
 
     private Block<VideoItem> createEpisodeBlock() {
@@ -56,7 +59,8 @@ public class DetailEpisodeView extends FrameLayout {
         item.ui_type.id = LayoutConstant.linearlayout_episode;
         item.ui_type.row_count     = 4;
         item.ui_type.display_count = 11;
-        item.filters = createRecommendBlockItems(item.ui_type.display_count);
+        item.filters = new DisplayItem.Filter();
+        item.filters.put("filters", createRecommendBlockItems(item.ui_type.display_count));
 
         return item;
     }

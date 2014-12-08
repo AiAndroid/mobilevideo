@@ -1,6 +1,8 @@
 package com.tv.ui.metro.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public class DisplayItem implements Serializable{
 	private static final long serialVersionUID = 2L;
@@ -64,6 +66,17 @@ public class DisplayItem implements Serializable{
             //TODO
             return new Media();
         }
+    }
+
+    public static class Filter extends LinkedHashMap<String, ArrayList<FilterItem>> implements Serializable{
+        private static final long serialVersionUID = 1L;
+        public ArrayList<FilterItem> filters(){return get("filters");};
+    }
+
+    public static class FilterItem implements Serializable{
+        private static final long serialVersionUID = 1L;
+        public String name;
+        public String fid;
     }
 
 	public static class Times implements Serializable {

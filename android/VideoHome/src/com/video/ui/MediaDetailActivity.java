@@ -1,5 +1,7 @@
 package com.video.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +26,22 @@ public class MediaDetailActivity extends DisplayItemActivity {
 
         titlebar.findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
         titlebar.findViewById(R.id.channel_search_btn).setVisibility(View.GONE);
+
+        View view = titlebar.findViewById(R.id.channel_filte_btn);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("mvschema://video/filter?rid=" + item.id));
+                    intent.putExtra("item", item);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } catch (Exception ne) {
+                    ne.printStackTrace();
+                }
+            }
+        });
 
         ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
         back_imageview.setOnClickListener(new View.OnClickListener() {
