@@ -89,7 +89,11 @@ public class LayoutConstant {
     public final static int linearlayout_title = 206;//-------标题
     public final static int linearlayout_single_poster = 207;//-------单行海报
     public final static int linearlayout_filter= 208;//-------过滤
-    public final static int linearlayout_filter_item= 209;//-------过滤
+    public final static int linearlayout_filter_item= 298;//-------过滤
+    public final static int linearlayout_episode= 209;//-------剧集, 默认button风格
+    public final static int linearlayout_episode_item=299;//----子剧集 外部不直接使用
+    public final static int linearlayout_episode_list     = 210;//-----剧集 list 风格
+    public final static int linearlayout_episode_list_item= 211;//-----子剧集 外部不直接使用
 
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
