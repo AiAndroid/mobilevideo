@@ -263,16 +263,18 @@
                     "id":"100",
                     "type":"album",
                     "ns":"video",
-                    "filters":[
-                        "华语",
-                        "美国",
-                        "华语",
-                        "美国",
-                        "华语",
-                        "美国",
-                        "华语",
-                        "摔选"
-                    ],
+                    "filters":{
+                        "filters":[
+                            {"name":"科幻"},
+                            {"name":"青春"},
+                            {"name":"冒险"},
+                            {"name":"亲子"},
+                            {"name":"少女"},
+                            {"name":"搞笑"},
+                            {"name":"宠物"},
+                            {"name":"筛选"}
+                        ]
+                    },
                     "times":{
                         "updated":0,
                         "created":0
@@ -2201,7 +2203,7 @@
         }
     ],
     "times":{
-        "updated":4,
+        "updated":5,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
