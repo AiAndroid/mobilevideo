@@ -265,7 +265,7 @@
                     "ns":"video",
                     "filters":{
                         "filters":[
-                            {"name":"华语"}
+                            {"name":"华语"},
                             {"name":"美国"},
                             {"name":"欧洲"},
                             {"name":"日韩"},
@@ -2184,7 +2184,7 @@
         }
     ],
     "times":{
-        "updated":8,
+        "updated":9,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
