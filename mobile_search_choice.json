@@ -59,32 +59,6 @@
                             }
                         },
                         {
-                            "title":"filter",
-                            "id":"100",
-                            "type":"album",
-                            "ns":"video",
-                            "filters":{
-                                "filters":[
-                                    {"name":"华语"},
-                                    {"name":"美国"},
-                                    {"name":"欧洲"},
-                                    {"name":"日韩"},
-                                    {"name":"其他"},
-                                    {"name":"古装"},
-                                    {"name":"谨慎"},
-                                    {"name":"筛选"}
-                                ]
-                            },
-                            "times":{
-                                "updated":0,
-                                "created":0
-                            },
-                            "ui_type":{
-                                "name":"linearlayout_filter_select",
-                                "id":212
-                            }
-                        },
-                        {
                             "title":"search",
                             "id":"100",
                             "type":"album",
@@ -554,7 +528,7 @@
         }
     ],
     "times":{
-        "updated":6,
+        "updated":7,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
