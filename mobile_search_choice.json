@@ -80,8 +80,8 @@
                                 "created":0
                             },
                             "ui_type":{
-                                "name":"linearlayout_episode",
-                                "id":209
+                                "name":"linearlayout_filter_select",
+                                "id":212
                             }
                         }
                     ]
@@ -451,7 +451,7 @@
         }
     ],
     "times":{
-        "updated":3,
+        "updated":4,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
