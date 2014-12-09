@@ -212,7 +212,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
 
     private void addOnePadding(){
         View view = new View(getContext());
-        view.setBackgroundColor(Color.RED);
+        //view.setBackgroundColor(Color.RED);
         LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
         addView(view, flp);
 
