@@ -486,8 +486,8 @@
                 {
                     "title":"咨询频道",
                     "ui_type":{
-                        "name":"block_channel",
-                        "id":400
+                        "name":"block_sub_channel",
+                        "id":401
                     },
                     "media":{
                     },
@@ -946,8 +946,8 @@
                 {
                     "title":"电视剧频道",
                     "ui_type":{
-                        "name":"block_channel",
-                        "id":400
+                        "name":"block_sub_channel",
+                        "id":401
                     },
                     "media":{
                     },
@@ -1680,8 +1680,8 @@
                 {
                     "title":"电影频道",
                     "ui_type":{
-                        "name":"block_channel",
-                        "id":400
+                        "name":"block_sub_channel",
+                        "id":401
                     },
                     "media":{
                     },
@@ -5524,7 +5524,7 @@
         }
     ],
     "times":{
-        "updated":75,
+        "updated":76,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
