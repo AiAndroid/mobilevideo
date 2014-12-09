@@ -24,7 +24,7 @@
             },
             "blocks":[
                 {
-                    "title":"大家都在搜索",
+                    "title":"大家都在搜",
                     "ui_type":{
                         "name":"block_sub_channel",
                         "id":401
@@ -451,7 +451,7 @@
         }
     ],
     "times":{
-        "updated":4,
+        "updated":5,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
