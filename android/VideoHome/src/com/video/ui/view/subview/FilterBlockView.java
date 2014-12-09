@@ -215,6 +215,46 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
+    public static FilterBlockView createSearchBlockView(Context context,ArrayList<DisplayItem>items, int maxVisible) {
+        FilterBlockView filterView = new FilterBlockView(context);
+        RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
+
+        MetroLayout ml = new MetroLayout(context);
+        int step      = 0;
+        int row_count = 4;
+
+
+        int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
+
+        int itemHeight = 0;
+        for(DisplayItem item: items) {
+            View convertView = View.inflate(context, R.layout.episode_item_layout, null);
+            convertView.setBackgroundResource(R.drawable.com_btn_bg);
+
+            final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+            mFiter.setText(item.title);
+            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+
+            mFiter.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
+            step++;
+        }
+
+        if(itemHeight == 0){
+            itemHeight = context.getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+        }
+
+        filterView.getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, filterView.getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
+        filterView.addView(ml, lp);
+
+        return filterView;
+    }
+
 
     private DimensHelper.Dimens mDimens;
     @Override

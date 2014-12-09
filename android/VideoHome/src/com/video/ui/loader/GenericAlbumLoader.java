@@ -74,7 +74,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                 //TODO
                 //if for search no cache
                 if(mItem.ns.equals("search")) {
-                    gsonRequest.setShouldCache(false);
+                    gsonRequest.setShouldCache(true);
                 }
                 requestQueue.add(gsonRequest);
             }

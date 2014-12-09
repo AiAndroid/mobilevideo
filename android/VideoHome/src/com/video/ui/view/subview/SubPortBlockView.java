@@ -161,6 +161,14 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 addOnePadding();
                 break;
             }
+            case LayoutConstant.linearlayout_search:{
+                FilterBlockView child = FilterBlockView.createSearchBlockView(getContext(), (ArrayList<com.tv.ui.metro.model.DisplayItem>) block.items, 12);
+
+                addView(child);
+                getDimens().height += child.getDimens().height;
+                addOnePadding();
+                break;
+            }
         }
     }
 
