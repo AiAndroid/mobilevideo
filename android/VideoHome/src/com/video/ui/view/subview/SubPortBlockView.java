@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
@@ -56,12 +57,12 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
             //tabs_horizontal and linearlayout_title show just has one, and they should be the first item
             case LayoutConstant.tabs_horizontal: {
                 View blockView = new ChannelTabsBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 addView(blockView, flp);
+
                 if (blockView instanceof DimensHelper) {
                     getDimens().height += ((DimensHelper) blockView).getDimens().height;
                 }
-                addOnePadding();
                 break;
             }
             case LayoutConstant.linearlayout_title:{
@@ -69,33 +70,38 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 TextView title = (TextView) root.findViewById(R.id.channel_title);
                 title.setText(block.title);
 
-                addView(root);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  getResources().getDimensionPixelSize(R.dimen.title_height));
+                addView(root, flp);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.title_height);
 
                 break;
             }
             case LayoutConstant.linearlayout_single_poster:{
+                addOnePadding();
                 SinglePosterBlockView view = new SinglePosterBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                addView(view);
+
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  view.getDimens().height);
+                addView(view, flp);
 
                 getDimens().height += view.getDimens().height;
-                addOnePadding();
                 break;
             }
+
             case LayoutConstant.grid_media_land:
             case LayoutConstant.grid_media_port:
             case LayoutConstant.grid_media_land_title:
             case LayoutConstant.grid_media_port_title:{
-
-                GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
-                addView(view);
-
-                getDimens().height += view.getDimens().height;
                 //add padding view
                 addOnePadding();
+
+                GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  view.getDimens().height);
+                addView(view, flp);
+                getDimens().height += view.getDimens().height;
                 break;
             }
             case LayoutConstant.linearlayout_none: {
+                addOnePadding();
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
                 Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
                 blockView.setText(block.title);
@@ -109,24 +115,31 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 addView(buttonContain);
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
 
+                //last one
                 addOnePadding();
                 break;
             }
             case LayoutConstant.linearlayout_poster:{
+                addOnePadding();
                 BlockLinearButtonView bv = new BlockLinearButtonView(getContext(), block.items, getTag(R.integer.picasso_tag));
-                addView(bv);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
+                addView(bv, flp);
 
                 getDimens().height += bv.getDimens().height;
-                addOnePadding();
+                //add one more for seperate
+                //addOnePadding();
                 break;
             }
             case LayoutConstant.linearlayout_land: {
+                addOnePadding();
                 PosterEnterBlockView bv = new PosterEnterBlockView(getContext(), block.items, getTag(R.integer.picasso_tag));
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
+                addView(bv, flp);
 
-                addView(bv);
                 getDimens().height += bv.getDimens().height;
 
-                addOnePadding();
+                //for last sep, because no padding
+                //addOnePadding();
                 break;
             }
             case LayoutConstant.linearlayout_episode:
@@ -199,6 +212,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
 
     private void addOnePadding(){
         View view = new View(getContext());
+        view.setBackgroundColor(Color.RED);
         LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
         addView(view, flp);
 

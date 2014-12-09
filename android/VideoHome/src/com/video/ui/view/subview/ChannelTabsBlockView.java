@@ -155,7 +155,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         grid.addView(meida,flp);
                     }
 
-                    block_height += height*(block.items.size()/row_count) + item_padding*(block.items.size()/row_count );
+                    block_height += height*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1);
                 }else if(block.ui_type.id == LayoutConstant.grid_media_port){
                     int row_count = block.ui_type.row_count;
                     if(row_count == 0)
@@ -193,7 +193,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         grid.addView(meida,flp);
                     }
 
-                    block_height += height*(block.items.size()/row_count) + item_padding*(block.items.size()/row_count);
+                    block_height += height*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1);
                 }
             }
         }
@@ -212,8 +212,6 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }
 
         getDimens().height = block_height;
-        //padding
-        getDimens().height += dpToPx(8);
     }
 
     private void showTab(int index){

@@ -215,10 +215,10 @@
     <!-- Channeltabs start -->
     <dimen name="channel_media_view_width">155dp</dimen>
     <dimen name="channel_media_view_image_height">100dp</dimen>
-    <dimen name="channel_media_view_height">145dp</dimen>
+    <dimen name="channel_media_view_height">140dp</dimen>
     <dimen name="channel_media_view_port_width">105dp</dimen>
     <dimen name="channel_media_view_port_image_height">155dp</dimen>
-    <dimen name="channel_media_view_port_height">195dp</dimen>
+    <dimen name="channel_media_view_port_height">200dp</dimen>
     <dimen name="channel_tabs_horizontal_view_height">320.0dp</dimen>
     <dimen name="channel_tabs_portrait_view_height">400.0dp</dimen>
 
@@ -241,7 +241,7 @@
 
     <dimen name="title_height">50dp</dimen>
     <dimen name="title_bottom_padding">13dp</dimen>
-    <dimen name="title_divider_bottom_padding">0dp</dimen>
+    <dimen name="title_divider_bottom_padding">1px</dimen>
     <!-- Channeltabs end -->
 
     <dimen name="media_list_cover_v_width">91.3dp</dimen>

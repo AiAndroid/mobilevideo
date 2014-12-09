@@ -3,8 +3,7 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="@dimen/title_height"
-        android:layout_width="@dimen/media_banner_sub_channel_width"
-        android:orientation="vertical">
+        android:layout_width="@dimen/media_banner_sub_channel_width">
 <TextView
           android:id="@+id/channel_title"
           android:layout_width="@dimen/media_pager_tab_bg_width"
@@ -15,11 +14,10 @@
           android:textColor="@color/orange"
           android:textSize="@dimen/font_size_48"/>
 
-    <View android:layout_below="@id/channel_title"
-          android:layout_width="@dimen/media_banner_sub_channel_width"
+    <View android:layout_width="@dimen/media_banner_sub_channel_width"
           android:layout_height="1px"
           android:background="#ddd"
           android:layout_gravity="center_horizontal"
           android:layout_centerHorizontal="true"
-          android:layout_marginBottom="@dimen/title_divider_bottom_padding"/>
+          android:layout_alignParentBottom="true"/>
 </RelativeLayout>
