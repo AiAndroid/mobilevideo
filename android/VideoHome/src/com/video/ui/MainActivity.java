@@ -1,8 +1,10 @@
 package com.video.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.*;
@@ -54,7 +56,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         if(this instanceof ChannelActivity) {
             setContentView(R.layout.channel_layout);
-        }else {
+        }else if(this instanceof SearchActivty){
+            setContentView(R.layout.search_layout);
+        }
+        else {
             setContentView(R.layout.activity_main);
         }
 
@@ -72,6 +77,23 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
         if (savedInstanceState != null) {
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
+        }
+
+        View search = findViewById(R.id.search_button);
+        if(search != null) {
+            search.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("mvschema://video/search?rid=" + "choice"));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    } catch (Exception ne) {
+                        ne.printStackTrace();
+                    }
+                }
+            });
         }
     }
 
@@ -163,6 +185,10 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 isNeedUserTab = false;
             }
         }
+        //if just one tab, don't show the tabs
+        if(content.blocks.size() == 1){
+            mTabs.setVisibility(View.GONE);
+        }
         
        for(int i=0;i<content.blocks.size();i++) {
             Bundle args = new Bundle();
@@ -196,7 +222,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         return MetroFragment.class;
     }
 
-    protected boolean isNeedUserTab = true;
+    protected boolean isNeedUserTab = false;
     protected String mUserTabName = "";
     protected Class  mUserFragmentClass = null;
     protected void setUserFragmentClass(){  

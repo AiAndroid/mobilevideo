@@ -46,6 +46,22 @@ public class ChannelActivity extends  MainActivity {
             }
         });
 
+        View search = titlebar.findViewById(R.id.channel_search_btn);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("mvschema://video/search?rid=" + "choice"));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } catch (Exception ne) {
+                    ne.printStackTrace();
+                }
+            }
+        });
+
+
         ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
         back_imageview.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_bottom_bar_height"
             android:layout_alignParentBottom="true"
-            layout="@layout/detail_bottom" />
+            layout="@layout/filter_bottom" />
 
     <FrameLayout
             android:id="@+id/filter_view"

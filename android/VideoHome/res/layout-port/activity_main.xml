@@ -31,7 +31,7 @@
                 android:layout_weight="1"
 	            android:layout_width="0dp"
 	            android:layout_height="wrap_content"/>
-                <ImageView android:layout_width="48dp" android:clickable="true" android:layout_height="48dp" android:scaleType="center" android:src="@drawable/btn_search_bg"/>
+                <ImageView android:id="@+id/search_button" android:layout_width="48dp" android:clickable="true" android:layout_height="48dp" android:scaleType="center" android:src="@drawable/btn_search_bg"/>
             </LinearLayout>
 
             <FrameLayout

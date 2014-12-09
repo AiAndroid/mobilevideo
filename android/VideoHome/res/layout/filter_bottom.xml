@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_bottom_bar_height"
+        android:background="@drawable/com_bg_white">
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/video_common_divider_height"
+            android:background="@drawable/com_10_black"/>
+
+    <TextView
+            android:id="@+id/detail_play"
+            android:layout_width="@dimen/detail_play_width"
+            android:layout_height="@dimen/detail_play_height"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@android:string/ok"
+            android:background="@drawable/com_btn_bg_3"
+            android:textSize="@dimen/font_size_36"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:textIsSelectable="false"/>
+</RelativeLayout>
