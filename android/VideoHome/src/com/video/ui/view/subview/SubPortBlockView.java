@@ -91,8 +91,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
             case LayoutConstant.grid_media_port:
             case LayoutConstant.grid_media_land_title:
             case LayoutConstant.grid_media_port_title:{
-                //add padding view
-                addOnePadding();
+                //grid already have one top padding, so ignore
 
                 GridMediaBlockView view = new GridMediaBlockView(getContext(), block, getTag(R.integer.picasso_tag));
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  view.getDimens().height);
@@ -116,7 +115,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 getDimens().height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
 
                 //last one
-                addOnePadding();
+                //addOnePadding();
                 break;
             }
             case LayoutConstant.linearlayout_poster:{

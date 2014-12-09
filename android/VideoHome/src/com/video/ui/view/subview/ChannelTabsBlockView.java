@@ -88,9 +88,9 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         int block_height = 0;
         int item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         root = LayoutInflater.from(getContext()).inflate(R.layout.channel_tabs,null);
-        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        addView(root,lp);
-        if(rootblock.ui_type.id != LayoutConstant.tabs_horizontal) return ;
+        if(rootblock.ui_type.id != LayoutConstant.tabs_horizontal)
+            return ;
+
         content = rootblock;
         int size = content.blocks.size();
         mTabWidget = (TabWidget)root.findViewById(R.id.channeltabs);
@@ -148,7 +148,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                             }
                         });
 
-                        FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                        FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, height);
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count) ) + padding*(i%row_count + 1);
                         flp.topMargin  = getPaddingTop()  + (height*(i/row_count)) + item_padding*(i/row_count + 1);
 
@@ -185,7 +185,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                             }
                         });
 
-                        FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                        FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, height);
 
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count)) + padding*(i%row_count + 1);
                         flp.topMargin  = getPaddingTop() + (height*(i/row_count)) + item_padding*(i/row_count + 1);
@@ -197,6 +197,10 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 }
             }
         }
+
+
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height);
+        addView(root,lp);
 
         //size == 1 is special
         if(size > 1) {

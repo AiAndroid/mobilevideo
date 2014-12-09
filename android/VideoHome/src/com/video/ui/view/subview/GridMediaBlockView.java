@@ -94,7 +94,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
                 }
             });
 
-            FrameLayout.LayoutParams itemflp = new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            FrameLayout.LayoutParams itemflp = new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, height);
             itemflp.leftMargin = getPaddingLeft() + (width*(step%row_count) ) + padding*(step%row_count + 1);
             itemflp.topMargin  = getPaddingTop()  + (height*(step/row_count)) + item_padding*(step/row_count + 1);
 
