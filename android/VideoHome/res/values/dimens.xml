@@ -318,4 +318,22 @@
     <dimen name="reload_view_sub_title_top_margin">2dp</dimen>
     <!-- retry view end -->
 
+    <!-- search box start -->
+    <dimen name="search_box_height">30dp</dimen>
+    <dimen name="search_box_btn_del_width">27.7dp</dimen>
+    <dimen name="search_box_btn_del_height">27.7dp</dimen>
+    <dimen name="search_hint_item_height">53.3dp</dimen>
+    <dimen name="search_hint_tv_left_margin">27dp</dimen>
+    <!-- search box end -->
+
+    <!-- search result start -->
+    <dimen name="search_box_top_margin">9dp</dimen>
+    <dimen name="search_box_left_margin">14dp</dimen>
+    <dimen name="search_box_right_margin">63dp</dimen>
+    <dimen name="search_recommend_word_hint_height">37dp</dimen>
+    <dimen name="search_empty_hint_top_margin">114.3dp</dimen>
+    <dimen name="search_empty_media_top_margin">100dp</dimen>
+    <dimen name="search_result_filter_top_margin">24.3dp</dimen>
+    <!-- search result end -->
+
 </resources>

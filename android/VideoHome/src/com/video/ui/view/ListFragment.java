@@ -58,12 +58,14 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
             addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
         }else {
             addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
-            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (int)(Math.random()*100);
+            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
             getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
         }
 
         return v;
     }
+
+    static int stepID = 1000;
 
     private View createListContentView(Block<DisplayItem> block){
         listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);

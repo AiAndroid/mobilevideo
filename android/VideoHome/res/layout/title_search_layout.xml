@@ -1,0 +1,52 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_common_title_top_height"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:background="@drawable/com_bg_white_shadow"
+        android:focusableInTouchMode="true" >
+    <LinearLayout
+            android:id="@+id/title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/video_common_title_top_height"
+            android:orientation="horizontal" >
+
+        <ImageButton
+                android:id="@+id/title_top_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/back_left"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/list_selector_bg"
+                android:clickable="true"/>
+    </LinearLayout>
+
+
+    <EditText
+            android:id="@+id/search_name"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            style="@style/SearchEditTextStyle"
+            android:hint="@string/search_hint"
+            android:background="@drawable/com_btn_bg_n"
+            android:layout_height="@dimen/search_box_height"
+            android:paddingLeft="@dimen/video_common_interval_30"
+            android:paddingRight="@dimen/video_common_interval_30"
+            />
+
+    <ImageView
+            android:id="@+id/channel_search_btn"
+            android:layout_width="@dimen/channel_title_btn_width"
+            android:layout_height="@dimen/channel_title_btn_height"
+            android:layout_marginRight="@dimen/size_40"
+            android:clickable="true"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/play_search_icon"
+            android:background="@drawable/editable_title_com_btn_bg"/>
+</LinearLayout>

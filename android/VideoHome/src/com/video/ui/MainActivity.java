@@ -84,14 +84,14 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             search.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    try {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("mvschema://video/search?rid=" + "choice"));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    } catch (Exception ne) {
-                        ne.printStackTrace();
-                    }
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("mvschema://video/search?rid=" + "choice"));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } catch (Exception ne) {
+                    ne.printStackTrace();
+                }
                 }
             });
         }

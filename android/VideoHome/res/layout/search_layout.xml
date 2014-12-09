@@ -9,7 +9,7 @@
             android:id="@+id/tabs_content"
             android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <include layout="@layout/title_layout_mv" android:id="@+id/title_bar"/>
+        <include layout="@layout/title_search_layout" android:id="@+id/title_bar"/>
 
         <TabHost
                 android:layout_below="@id/title_bar"
@@ -45,17 +45,19 @@
             </LinearLayout>
         </TabHost>
 
-
+        <LinearLayout android:id="@+id/search_result"
+                      android:layout_below="@android:id/tabhost"
+                      android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:visibility="gone">
+        </LinearLayout>
         <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:flipInterval="30"
-                android:layout_below="@android:id/tabhost"
-                android:paddingTop="3dp"
+                android:layout_below="@id/search_result"
                 android:persistentDrawingCache="all" />
-
-
     </RelativeLayout>
 
 

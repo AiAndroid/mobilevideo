@@ -85,4 +85,14 @@
         <item name="android:textSize">@dimen/font_size_30</item>
     </style>
 
+    <style name="SearchEditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_light</item>
+        <item name="android:textColor">@color/p_80_black</item>
+        <item name="android:textColorHint">@color/p_50_black</item>
+        <item name="android:textSize">@dimen/font_size_42</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">flagNoExtractUi|actionSearch</item>
+    </style>
+
 </resources>

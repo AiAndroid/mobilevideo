@@ -39,7 +39,11 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                     url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }else if(_item.ns.equals("search")) {
-                    url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_search_choice.json";
+                    if(_item.id.endsWith("search.choice")) {
+                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_search_choice.json";
+                    }else {
+                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
+                    }
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }
                 else {
@@ -67,6 +71,9 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                 RequestQueue requestQueue = VolleyHelper.getInstance(getContext().getApplicationContext()).getAPIRequestQueue();
                 GsonRequest<GenericBlock<DisplayItem>> gsonRequest = new GsonRequest<GenericBlock<DisplayItem>>(calledURL, new TypeToken<GenericBlock<DisplayItem>>(){}.getType(), null, listener, errorListener);
                 gsonRequest.setCacheNeed(getContext().getCacheDir() + "/" + cacheFileName + mItem.id + ".cache");
+                //TODO
+                //if for search no cache
+                //gsonRequest.setShouldCache();
                 requestQueue.add(gsonRequest);
             }
         };

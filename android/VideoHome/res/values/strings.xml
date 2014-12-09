@@ -70,4 +70,6 @@
     <string name="cancel_favorite_success">Unstarred</string>
     <!-- media detail end -->
 
+    <string name="search_hint">Search online video</string>
+
 </resources>
