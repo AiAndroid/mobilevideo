@@ -464,7 +464,7 @@
                             }
                         },
                         {
-                            "title":"电视直播",
+                            "title":"我的收藏",
                             "id":"400",
                             "type":"album",
                             "ns":"video",
@@ -5524,7 +5524,7 @@
         }
     ],
     "times":{
-        "updated":77,
+        "updated":78,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
