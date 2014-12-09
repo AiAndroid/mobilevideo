@@ -486,8 +486,8 @@
                 {
                     "title":"咨询频道",
                     "ui_type":{
-                        "name":"block_sub_channel",
-                        "id":401
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -923,7 +923,7 @@
                             ]
                         },
                         {
-                            "title":"更多咨询",
+                            "title":"进入咨询频道",
                             "id":"news.channel",
                             "type":"album",
                             "ns":"video",
@@ -946,8 +946,8 @@
                 {
                     "title":"电视剧频道",
                     "ui_type":{
-                        "name":"block_sub_channel",
-                        "id":401
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -1657,7 +1657,7 @@
                             ]
                         },
                         {
-                            "title":"更多电视剧",
+                            "title":"进入电视剧频道",
                             "id":"tv.channel",
                             "type":"album",
                             "ns":"video",
@@ -1680,8 +1680,8 @@
                 {
                     "title":"电影频道",
                     "ui_type":{
-                        "name":"block_sub_channel",
-                        "id":401
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -2312,7 +2312,7 @@
                             ]
                         },
                         {
-                            "title":"更多电影",
+                            "title":"进入电影频道",
                             "id":"movie.channel",
                             "type":"album",
                             "ns":"video",
@@ -2517,7 +2517,146 @@
                             ]
                         },
                         {
-                            "title":"更多单块",
+                            "title":"电视剧快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_poster",
+                                "id":203
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"韩剧专场",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"热播美剧",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "action":{
+                                        "target":"movie"
+                                    },
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"奇幻实时",
+                                    "sub_title":"想看就看被",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "action":{
+                                        "target":"variety"
+                                    },
+                                    "images":{
+                                        "back":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"电视剧海报样式快速导航",
+                            "ui_type":{
+                                "name":"linearlayout_land",
+                                "id":205
+                            },
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "images":{
+                            },
+                            "media":{
+                            },
+                            "items":[
+                                {
+                                    "title":"韩剧专场",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"aiqiyi",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"episode",
+                                        "params":"episode=8"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017wz3qoqjC/AyDjAD0FX6oa1l.jpg"
+                                        }
+                                    }
+                                },
+                                {
+                                    "title":"美剧联播",
+                                    "id":"200",
+                                    "type":"album",
+                                    "ns":"video",
+                                    "action":{
+                                        "target":"movie"
+                                    },
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01vofGsgXWD/ajXSBEQeiWdlNs.jpg"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "title":"单块频道块",
                             "id":"500",
                             "type":"album",
                             "ns":"video",
@@ -2540,8 +2679,8 @@
                 {
                     "title":"综艺频道",
                     "ui_type":{
-                        "name":"block_sub_channel",
-                        "id":401
+                        "name":"block_channel",
+                        "id":400
                     },
                     "media":{
                     },
@@ -3191,7 +3330,7 @@
                             ]
                         },
                         {
-                            "title":"更多综艺",
+                            "title":"进入综艺频道",
                             "id":"variety.channel",
                             "type":"album",
                             "ns":"video",
@@ -5524,7 +5663,7 @@
         }
     ],
     "times":{
-        "updated":77,
+        "updated":0,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
