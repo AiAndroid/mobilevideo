@@ -2540,8 +2540,8 @@
                 {
                     "title":"综艺频道",
                     "ui_type":{
-                        "name":"block_channel",
-                        "id":400
+                        "name":"block_sub_channel",
+                        "id":401
                     },
                     "media":{
                     },
@@ -5524,7 +5524,7 @@
         }
     ],
     "times":{
-        "updated":76,
+        "updated":77,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
