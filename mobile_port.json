@@ -923,7 +923,7 @@
                             ]
                         },
                         {
-                            "title":"进入咨询频道",
+                            "title":"更多咨询",
                             "id":"news.channel",
                             "type":"album",
                             "ns":"video",
@@ -1657,7 +1657,7 @@
                             ]
                         },
                         {
-                            "title":"进入电视剧频道",
+                            "title":"更多电视剧",
                             "id":"tv.channel",
                             "type":"album",
                             "ns":"video",
@@ -2312,7 +2312,7 @@
                             ]
                         },
                         {
-                            "title":"进入电影频道",
+                            "title":"更多电影",
                             "id":"movie.channel",
                             "type":"album",
                             "ns":"video",
@@ -2656,7 +2656,7 @@
                             ]
                         },
                         {
-                            "title":"单块频道块",
+                            "title":"更多单块",
                             "id":"500",
                             "type":"album",
                             "ns":"video",
@@ -3330,7 +3330,7 @@
                             ]
                         },
                         {
-                            "title":"进入综艺频道",
+                            "title":"更多综艺",
                             "id":"variety.channel",
                             "type":"album",
                             "ns":"video",
@@ -5663,7 +5663,7 @@
         }
     ],
     "times":{
-        "updated":73,
+        "updated":74,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
