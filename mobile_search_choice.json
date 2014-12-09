@@ -83,6 +83,109 @@
                                 "name":"linearlayout_filter_select",
                                 "id":212
                             }
+                        },
+                        {
+                            "title":"search",
+                            "id":"100",
+                            "type":"album",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "ui_type":{
+                                "name":"linearlayout_search",
+                                "id":214
+                            },
+                            "items":[
+                                {
+                                    "title":"一步制药",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"一步制药",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"红高亮",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"红高亮",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"敢死队3",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"敢死队3",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"奔跑把兄弟",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"奔跑吧兄弟",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"青年医生",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"青年医生",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"风中起源",
+                                    "type":"item",
+                                    "ns":"search",
+                                    "id":"风好大",
+                                    "action":{
+                                        "target":"search",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    }
+                                },
+                                {
+                                    "title":"无处可逃",
+                                    "sub_title":"姚婷婷",
+                                    "desc":"看看呗",
+                                    "id":"90014931",
+                                    "type":"item",
+                                    "ns":"video",
+                                    "times":{
+                                        "updated":0,
+                                        "created":0
+                                    },
+                                    "media":{
+                                        "cp":{
+                                            "vendor":"sohu",
+                                            "player_ver":"2"
+                                        }
+                                    },
+                                    "action":{
+                                        "target":"direct_show",
+                                        "params":"http://xxxxx.mffmpeg"
+                                    },
+                                    "images":{
+                                        "poster":{
+                                            "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01tbxW9d1tF/062Ti1iNmo0pfV.jpg"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
@@ -451,7 +554,7 @@
         }
     ],
     "times":{
-        "updated":5,
+        "updated":6,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
