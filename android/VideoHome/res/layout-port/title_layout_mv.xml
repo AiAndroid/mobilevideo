@@ -41,25 +41,16 @@
 
     <ImageView
             android:id="@+id/channel_filte_btn"
-            android:layout_width="@dimen/channel_title_btn_width"
-            android:layout_height="@dimen/channel_title_btn_height"
-            android:layout_marginRight="@dimen/size_40"
-            android:clickable="true"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical" android:layout_width="wrap_content"  android:clickable="true" android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/play_screen_icon"
-            android:background="@drawable/editable_title_com_btn_bg"/>
+            android:background="@drawable/filter_icon"/>
 
     <ImageView
             android:id="@+id/channel_search_btn"
-            android:layout_width="@dimen/channel_title_btn_width"
-            android:layout_height="@dimen/channel_title_btn_height"
-            android:layout_marginRight="@dimen/size_40"
-            android:clickable="true"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical" android:layout_width="wrap_content"  android:clickable="true" android:layout_height="wrap_content"
+
             android:scaleType="centerInside"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/play_search_icon"
-            android:background="@drawable/editable_title_com_btn_bg"/>
+            android:background="@drawable/search_icon"/>
 </LinearLayout>
