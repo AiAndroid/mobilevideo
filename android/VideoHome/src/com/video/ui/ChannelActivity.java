@@ -27,7 +27,7 @@ public class ChannelActivity extends  MainActivity {
         TextView tv = (TextView) titlebar.findViewById(R.id.title_top_name);
         tv.setText(albumItem.title);
 
-        View view = titlebar.findViewById(R.id.channel_filte_btn);
+        final View view = titlebar.findViewById(R.id.channel_filte_btn);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
