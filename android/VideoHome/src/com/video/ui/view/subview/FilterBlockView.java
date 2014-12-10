@@ -48,7 +48,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
 
     int mUIType = -1;
-    public FilterBlockView(Context context, ArrayList<DisplayItem.FilterItem> filtes, int uiType) {
+    public FilterBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filtes, final int uiType) {
         super(context, null, 0);
         this.filtes = filtes;
         int selectIndex = 2;
@@ -100,6 +100,15 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                     public void onClick(View v) {
                         if(mItemClick != null){
                             mItemClick.onClick(v);
+                        }else {
+                            if(uiType == LayoutConstant.linearlayout_filter){
+                                DisplayItem launchItem = new DisplayItem();
+                                launchItem.title = "美国";
+                                launchItem.type  = "album";
+                                launchItem.id    = "channel_movie_usa";
+                                launchItem.ns    = "video";
+                                launcherAction(context, launchItem);
+                            }
                         }
                     }
                 });
