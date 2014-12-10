@@ -115,7 +115,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                                 }else {
                                     DisplayItem launchItem = new DisplayItem();
                                     launchItem.title = item.name;
-                                    launchItem.type = "filter";
+                                    launchItem.type = "channelfilter";
                                     launchItem.id = "channel_movie_usa";
                                     launchItem.ns = "video";
                                     launcherAction(context, launchItem);

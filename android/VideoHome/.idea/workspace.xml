@@ -296,32 +296,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterBlockView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FilterBlockView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2311" max-vertical-offset="9250">
-              <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.44827586" vertical-offset="2461" max-vertical-offset="9250">
+              <caret line="117" column="70" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1627#1628#0" expanded="true" />
                 <element signature="e#1661#1662#0" expanded="true" />
                 <element signature="e#2289#2354#0" expanded="true" />
                 <element signature="e#2484#2555#0" expanded="true" />
-                <element signature="e#4189#5651#0" expanded="true" />
+                <element signature="e#4189#5658#0" expanded="true" />
                 <element signature="e#4634#4647#0" expanded="true" />
-                <element signature="e#5632#5633#0" expanded="true" />
-                <element signature="e#6164#6217#0" expanded="true" />
-                <element signature="e#6318#6390#0" expanded="true" />
-                <element signature="e#8258#8528#0" expanded="true" />
-                <element signature="e#8513#8514#0" expanded="true" />
-                <element signature="e#8597#8677#0" expanded="true" />
-                <element signature="e#9502#9575#0" expanded="true" />
-                <element signature="e#10141#10411#0" expanded="true" />
-                <element signature="e#10396#10397#0" expanded="true" />
-                <element signature="e#10499#10579#0" expanded="true" />
-                <element signature="e#11448#11521#0" expanded="true" />
-                <element signature="e#12290#12370#0" expanded="true" />
-                <element signature="e#12971#13035#0" expanded="true" />
+                <element signature="e#5639#5640#0" expanded="true" />
+                <element signature="e#6171#6224#0" expanded="true" />
+                <element signature="e#6325#6397#0" expanded="true" />
+                <element signature="e#8265#8535#0" expanded="true" />
+                <element signature="e#8520#8521#0" expanded="true" />
+                <element signature="e#8604#8684#0" expanded="true" />
+                <element signature="e#9509#9582#0" expanded="true" />
+                <element signature="e#10148#10418#0" expanded="true" />
+                <element signature="e#10403#10404#0" expanded="true" />
+                <element signature="e#10506#10586#0" expanded="true" />
+                <element signature="e#11455#11528#0" expanded="true" />
+                <element signature="e#12297#12377#0" expanded="true" />
+                <element signature="e#12978#13042#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -337,10 +337,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChannelActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ChannelActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/ChannelActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6363636" vertical-offset="75" max-vertical-offset="2225">
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="2225">
               <caret line="37" column="80" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="80" />
               <folding />
             </state>
@@ -351,7 +351,7 @@
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="899" max-vertical-offset="1875">
-              <caret line="57" column="96" selection-start-line="57" selection-start-column="90" selection-end-line="57" selection-end-column="96" />
+              <caret line="41" column="103" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -390,8 +390,8 @@
       <file leaf-file-name="BaseCardView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1375">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1375">
+              <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -1692,14 +1692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1375">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4150">
@@ -1735,45 +1727,53 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="899" max-vertical-offset="1875">
-          <caret line="57" column="96" selection-start-line="57" selection-start-column="90" selection-end-line="57" selection-end-column="96" />
+          <caret line="41" column="103" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/ChannelActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="2225">
+          <caret line="37" column="80" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/BaseCardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1375">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2311" max-vertical-offset="9250">
-          <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.44827586" vertical-offset="2461" max-vertical-offset="9250">
+          <caret line="117" column="70" selection-start-line="117" selection-start-column="70" selection-end-line="117" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1627#1628#0" expanded="true" />
             <element signature="e#1661#1662#0" expanded="true" />
             <element signature="e#2289#2354#0" expanded="true" />
             <element signature="e#2484#2555#0" expanded="true" />
-            <element signature="e#4189#5651#0" expanded="true" />
+            <element signature="e#4189#5658#0" expanded="true" />
             <element signature="e#4634#4647#0" expanded="true" />
-            <element signature="e#5632#5633#0" expanded="true" />
-            <element signature="e#6164#6217#0" expanded="true" />
-            <element signature="e#6318#6390#0" expanded="true" />
-            <element signature="e#8258#8528#0" expanded="true" />
-            <element signature="e#8513#8514#0" expanded="true" />
-            <element signature="e#8597#8677#0" expanded="true" />
-            <element signature="e#9502#9575#0" expanded="true" />
-            <element signature="e#10141#10411#0" expanded="true" />
-            <element signature="e#10396#10397#0" expanded="true" />
-            <element signature="e#10499#10579#0" expanded="true" />
-            <element signature="e#11448#11521#0" expanded="true" />
-            <element signature="e#12290#12370#0" expanded="true" />
-            <element signature="e#12971#13035#0" expanded="true" />
+            <element signature="e#5639#5640#0" expanded="true" />
+            <element signature="e#6171#6224#0" expanded="true" />
+            <element signature="e#6325#6397#0" expanded="true" />
+            <element signature="e#8265#8535#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8604#8684#0" expanded="true" />
+            <element signature="e#9509#9582#0" expanded="true" />
+            <element signature="e#10148#10418#0" expanded="true" />
+            <element signature="e#10403#10404#0" expanded="true" />
+            <element signature="e#10506#10586#0" expanded="true" />
+            <element signature="e#11455#11528#0" expanded="true" />
+            <element signature="e#12297#12377#0" expanded="true" />
+            <element signature="e#12978#13042#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/ChannelActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6363636" vertical-offset="75" max-vertical-offset="2225">
-          <caret line="37" column="80" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
