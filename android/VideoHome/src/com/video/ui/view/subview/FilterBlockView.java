@@ -37,8 +37,14 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
     private OnClickListener mItemClick;
 
-    public void setOnClickListener(OnClickListener itemClick){
-        mItemClick = itemClick;
+    private Drawable mNewBackground;
+    public void setOnClickListener(OnClickListener itemClick, Drawable newBackground){
+        mItemClick     = itemClick;
+        mNewBackground = newBackground;
+    }
+
+    public OnClickListener getItemClick(){
+        return  mItemClick;
     }
 
     int mUIType = -1;
@@ -121,12 +127,10 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         Root.addView(ml, lp);
     }
 
-    public FilterBlockView(Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
-        super(context, null, 0);
-        mUIType = LayoutConstant.linearlayout_episode_list;
-
-        RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, this);
-        ml = new MetroLayout(context);
+    public static FilterBlockView createEpisodeListBlockView(Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
+        final FilterBlockView filterView = new FilterBlockView(context);
+        RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
+        MetroLayout ml = new MetroLayout(context);
 
         int row_count  = 1;
         int padding    = 0;
@@ -137,7 +141,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
         for(int i=0;i<size;i++){
             VideoItem.Video item = episodes.get(i);
-            VarietyEpisode view = new VarietyEpisode(getContext());
+            VarietyEpisode view = new VarietyEpisode(context);
 
             if(size == 1) {
                 view.setBackgroundResource(R.drawable.com_item_bg_full);
@@ -159,8 +163,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mItemClick != null){
-                        mItemClick.onClick(v);
+                    if(filterView.getItemClick() != null){
+                        filterView.getItemClick().onClick(v);
                     }
                 }
             });
@@ -168,18 +172,20 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         }
 
         if(itemHeight == 0){
-            itemHeight = getResources().getDimensionPixelSize(R.dimen.detail_variety_item_height);
+            itemHeight = context.getResources().getDimensionPixelSize(R.dimen.detail_variety_item_height);
         }
 
-        getDimens().height += (itemHeight)* size ;
+        filterView.getDimens().height += (itemHeight)* size ;
 
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getDimens().height);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, filterView.getDimens().height);
         lp.addRule(CENTER_HORIZONTAL);
         Root.addView(ml, lp);
+
+        return filterView;
     }
 
-    public static FilterBlockView createFilterBlockView(Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
-        FilterBlockView filterView = new FilterBlockView(context);
+    public static FilterBlockView createFilterSelectBlockView(Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
+        final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
         MetroLayout ml = new MetroLayout(context);
@@ -201,6 +207,9 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             mFiter.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(filterView.getItemClick() != null){
+                        filterView.getItemClick().onClick(v);
+                    }
                 }
             });
             step++;
@@ -279,7 +288,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
     }
 
-    public class VarietyEpisode extends RelativeLayout {
+    public static class VarietyEpisode extends RelativeLayout {
         //UI
         private View mPoster;
         private TextView mData;

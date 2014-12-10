@@ -299,11 +299,39 @@
       <file leaf-file-name="FilterBlockView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6320191" vertical-offset="1496" max-vertical-offset="8300">
-              <caret line="87" column="97" selection-start-line="87" selection-start-column="97" selection-end-line="87" selection-end-column="97" />
+            <state vertical-scroll-proportion="-0.553802" vertical-offset="3511" max-vertical-offset="8725">
+              <caret line="129" column="60" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1536#1537#0" expanded="true" />
+                <element signature="e#1570#1571#0" expanded="true" />
+                <element signature="e#2186#2251#0" expanded="true" />
+                <element signature="e#2381#2452#0" expanded="true" />
+                <element signature="e#4080#4348#0" expanded="true" />
+                <element signature="e#4329#4330#0" expanded="true" />
+                <element signature="e#4861#4914#0" expanded="true" />
+                <element signature="e#5015#5087#0" expanded="true" />
+                <element signature="e#6955#7225#0" expanded="true" />
+                <element signature="e#7210#7211#0" expanded="true" />
+                <element signature="e#7294#7374#0" expanded="true" />
+                <element signature="e#8199#8272#0" expanded="true" />
+                <element signature="e#8838#9108#0" expanded="true" />
+                <element signature="e#9093#9094#0" expanded="true" />
+                <element signature="e#9196#9276#0" expanded="true" />
+                <element signature="e#10145#10218#0" expanded="true" />
+                <element signature="e#10987#11067#0" expanded="true" />
+                <element signature="e#11668#11732#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubPortBlockView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3371" max-vertical-offset="5575">
+              <caret line="168" column="83" selection-start-line="168" selection-start-column="56" selection-end-line="168" selection-end-column="83" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -395,12 +423,12 @@
         <option value="$PROJECT_DIR$/res/layout/sub_channel_title.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/ChannelTabsBlockView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java" />
         <option value="$PROJECT_DIR$/res/drawable/filter_icon.xml" />
         <option value="$PROJECT_DIR$/res/layout-port/title_layout_mv.xml" />
         <option value="$PROJECT_DIR$/res/layout/title_search_layout.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/filter_item_layout.xml" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java" />
       </list>
     </option>
@@ -998,6 +1026,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0754717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2960251" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27719665" sideWeight="0.81832886" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26778242" sideWeight="0.09595688" order="8" side_tool="true" content_ui="tabs" />
@@ -1005,18 +1034,17 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12552302" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07949791" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07949791" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20377359" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22594142" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22594142" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959569" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31276152" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1195,7 +1223,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java</url>
-          <line>88</line>
+          <line>94</line>
           <properties />
           <option name="timeStamp" value="145" />
         </line-breakpoint>
@@ -1281,10 +1309,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1950">
           <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1163#2049#0" expanded="true" />
-            <element signature="e#1658#1671#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1163#2049#0" expanded="false" />
+            <element signature="e#1658#1671#0" expanded="false" />
+            <element signature="e#2042#2043#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1340,6 +1368,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1550" max-vertical-offset="4175">
           <caret line="100" column="51" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#865#876#0" expanded="true" />
+            <element signature="e#1102#1113#0" expanded="true" />
+            <element signature="e#1354#1365#0" expanded="true" />
+            <element signature="e#2056#2067#0" expanded="true" />
+            <element signature="e#2293#2304#0" expanded="true" />
+            <element signature="e#2545#2556#0" expanded="true" />
+            <element signature="e#3247#3258#0" expanded="true" />
+            <element signature="e#3484#3495#0" expanded="true" />
+            <element signature="e#3736#3747#0" expanded="true" />
+            <element signature="e#4624#4648#0" expanded="true" />
+            <element signature="e#5164#5188#0" expanded="true" />
+            <element signature="e#5694#5718#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,7 +1391,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="796">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#315#356#0" expanded="true" />
+            <element signature="e#315#356#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1369,10 +1412,10 @@
         <state vertical-scroll-proportion="-8.796296" vertical-offset="0" max-vertical-offset="700">
           <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
           <folding>
-            <element signature="e#153#174#0" expanded="true" />
-            <element signature="e#204#243#0" expanded="true" />
-            <element signature="e#394#415#0" expanded="true" />
-            <element signature="e#692#731#0" expanded="true" />
+            <element signature="e#153#174#0" expanded="false" />
+            <element signature="e#204#243#0" expanded="false" />
+            <element signature="e#394#415#0" expanded="false" />
+            <element signature="e#692#731#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1421,8 +1464,8 @@
         <state vertical-scroll-proportion="-1.3888888" vertical-offset="0" max-vertical-offset="1675">
           <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
           <folding>
-            <element signature="e#147#180#0" expanded="true" />
-            <element signature="e#459#499#0" expanded="true" />
+            <element signature="e#147#180#0" expanded="false" />
+            <element signature="e#459#499#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1435,7 +1478,7 @@
         <state vertical-scroll-proportion="0.1621271" vertical-offset="0" max-vertical-offset="771">
           <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
           <folding>
-            <element signature="e#271#311#0" expanded="true" />
+            <element signature="e#271#311#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1457,27 +1500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.4" vertical-offset="2018" max-vertical-offset="5575">
-          <caret line="117" column="18" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
-          <folding>
-            <element signature="e#921#942#0" expanded="true" />
-            <element signature="e#1178#1199#0" expanded="true" />
-            <element signature="e#1783#1804#0" expanded="true" />
-            <element signature="e#2519#2577#0" expanded="true" />
-            <element signature="e#2654#2712#0" expanded="true" />
-            <element signature="e#2945#2966#0" expanded="true" />
-            <element signature="e#3581#3602#0" expanded="true" />
-            <element signature="e#4501#4565#0" expanded="true" />
-            <element signature="e#4857#4878#0" expanded="true" />
-            <element signature="e#5385#5406#0" expanded="true" />
-            <element signature="e#7574#7638#0" expanded="true" />
-            <element signature="e#7705#7769#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/GridMediaBlockView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="3100">
@@ -1490,7 +1512,7 @@
         <state vertical-scroll-proportion="-1.3888888" vertical-offset="0" max-vertical-offset="1900">
           <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
           <folding>
-            <element signature="e#474#519#0" expanded="true" />
+            <element signature="e#474#519#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1511,7 +1533,7 @@
         <state vertical-scroll-proportion="-4.7777777" vertical-offset="317" max-vertical-offset="1675">
           <caret line="23" column="193" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="193" />
           <folding>
-            <element signature="e#797#826#0" expanded="true" />
+            <element signature="e#797#826#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1673,12 +1695,38 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3371" max-vertical-offset="5575">
+          <caret line="168" column="83" selection-start-line="168" selection-start-column="56" selection-end-line="168" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6320191" vertical-offset="1496" max-vertical-offset="8300">
-          <caret line="87" column="97" selection-start-line="87" selection-start-column="97" selection-end-line="87" selection-end-column="97" />
+        <state vertical-scroll-proportion="-0.553802" vertical-offset="3511" max-vertical-offset="8725">
+          <caret line="129" column="60" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1536#1537#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="e#2186#2251#0" expanded="true" />
+            <element signature="e#2381#2452#0" expanded="true" />
+            <element signature="e#4080#4348#0" expanded="true" />
+            <element signature="e#4329#4330#0" expanded="true" />
+            <element signature="e#4861#4914#0" expanded="true" />
+            <element signature="e#5015#5087#0" expanded="true" />
+            <element signature="e#6955#7225#0" expanded="true" />
+            <element signature="e#7210#7211#0" expanded="true" />
+            <element signature="e#7294#7374#0" expanded="true" />
+            <element signature="e#8199#8272#0" expanded="true" />
+            <element signature="e#8838#9108#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9196#9276#0" expanded="true" />
+            <element signature="e#10145#10218#0" expanded="true" />
+            <element signature="e#10987#11067#0" expanded="true" />
+            <element signature="e#11668#11732#0" expanded="true" />
           </folding>
         </state>
       </provider>

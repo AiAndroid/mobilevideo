@@ -154,7 +154,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
             }
             case LayoutConstant.linearlayout_episode_list:{
                 VideoItem vi = (VideoItem) block.items.get(0);
-                FilterBlockView bv = new FilterBlockView(getContext(), vi.videos, 1, 4);
+                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), vi.videos, 1, 4);
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
@@ -166,7 +166,7 @@ public class SubPortBlockView<T> extends LinearBaseCardView implements DimensHel
                 break;
             }
             case LayoutConstant.linearlayout_filter_select:{
-                FilterBlockView child = FilterBlockView.createFilterBlockView(getContext(), block.filters.filters(), 12);
+                FilterBlockView child = FilterBlockView.createFilterSelectBlockView(getContext(), block.filters.filters(), 12);
 
                 addView(child);
                 getDimens().height += child.getDimens().height;
