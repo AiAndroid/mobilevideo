@@ -296,40 +296,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterBlockView.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FilterBlockView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="8950">
-              <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.72536945" vertical-offset="1936" max-vertical-offset="8950">
+              <caret line="105" column="53" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1536#1537#0" expanded="true" />
                 <element signature="e#1570#1571#0" expanded="true" />
                 <element signature="e#2198#2263#0" expanded="true" />
                 <element signature="e#2393#2464#0" expanded="true" />
-                <element signature="e#4092#4894#0" expanded="true" />
-                <element signature="e#4875#4876#0" expanded="true" />
-                <element signature="e#5407#5460#0" expanded="true" />
-                <element signature="e#5561#5633#0" expanded="true" />
-                <element signature="e#7501#7771#0" expanded="true" />
-                <element signature="e#7756#7757#0" expanded="true" />
-                <element signature="e#7840#7920#0" expanded="true" />
-                <element signature="e#8745#8818#0" expanded="true" />
-                <element signature="e#9384#9654#0" expanded="true" />
-                <element signature="e#9639#9640#0" expanded="true" />
-                <element signature="e#9742#9822#0" expanded="true" />
-                <element signature="e#10691#10764#0" expanded="true" />
-                <element signature="e#11533#11613#0" expanded="true" />
-                <element signature="e#12214#12278#0" expanded="true" />
+                <element signature="e#4098#4905#0" expanded="true" />
+                <element signature="e#4886#4887#0" expanded="true" />
+                <element signature="e#5418#5471#0" expanded="true" />
+                <element signature="e#5572#5644#0" expanded="true" />
+                <element signature="e#7512#7782#0" expanded="true" />
+                <element signature="e#7767#7768#0" expanded="true" />
+                <element signature="e#7851#7931#0" expanded="true" />
+                <element signature="e#8756#8829#0" expanded="true" />
+                <element signature="e#9395#9665#0" expanded="true" />
+                <element signature="e#9650#9651#0" expanded="true" />
+                <element signature="e#9753#9833#0" expanded="true" />
+                <element signature="e#10702#10775#0" expanded="true" />
+                <element signature="e#11544#11624#0" expanded="true" />
+                <element signature="e#12225#12289#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericAlbumLoader.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GenericAlbumLoader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7081281" vertical-offset="600" max-vertical-offset="4150">
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4150">
               <caret line="61" column="111" selection-start-line="61" selection-start-column="111" selection-end-line="61" selection-end-column="111" />
               <folding />
             </state>
@@ -448,8 +448,8 @@
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/filter_item_layout.xml" />
         <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/SubPortBlockView.java" />
-        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java" />
         <option value="$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java" />
+        <option value="$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java" />
       </list>
     </option>
   </component>
@@ -1054,7 +1054,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12552302" sideWeight="0.4948787" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07949791" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07949791" sideWeight="0.90404314" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1719,39 +1719,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4150">
+          <caret line="61" column="111" selection-start-line="61" selection-start-column="111" selection-end-line="61" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/video/ui/view/subview/FilterBlockView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="8950">
-          <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.72536945" vertical-offset="1936" max-vertical-offset="8950">
+          <caret line="105" column="53" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1536#1537#0" expanded="true" />
             <element signature="e#1570#1571#0" expanded="true" />
             <element signature="e#2198#2263#0" expanded="true" />
             <element signature="e#2393#2464#0" expanded="true" />
-            <element signature="e#4092#4894#0" expanded="true" />
-            <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#5407#5460#0" expanded="true" />
-            <element signature="e#5561#5633#0" expanded="true" />
-            <element signature="e#7501#7771#0" expanded="true" />
-            <element signature="e#7756#7757#0" expanded="true" />
-            <element signature="e#7840#7920#0" expanded="true" />
-            <element signature="e#8745#8818#0" expanded="true" />
-            <element signature="e#9384#9654#0" expanded="true" />
-            <element signature="e#9639#9640#0" expanded="true" />
-            <element signature="e#9742#9822#0" expanded="true" />
-            <element signature="e#10691#10764#0" expanded="true" />
-            <element signature="e#11533#11613#0" expanded="true" />
-            <element signature="e#12214#12278#0" expanded="true" />
+            <element signature="e#4098#4905#0" expanded="true" />
+            <element signature="e#4886#4887#0" expanded="true" />
+            <element signature="e#5418#5471#0" expanded="true" />
+            <element signature="e#5572#5644#0" expanded="true" />
+            <element signature="e#7512#7782#0" expanded="true" />
+            <element signature="e#7767#7768#0" expanded="true" />
+            <element signature="e#7851#7931#0" expanded="true" />
+            <element signature="e#8756#8829#0" expanded="true" />
+            <element signature="e#9395#9665#0" expanded="true" />
+            <element signature="e#9650#9651#0" expanded="true" />
+            <element signature="e#9753#9833#0" expanded="true" />
+            <element signature="e#10702#10775#0" expanded="true" />
+            <element signature="e#11544#11624#0" expanded="true" />
+            <element signature="e#12225#12289#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/video/ui/loader/GenericAlbumLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7081281" vertical-offset="600" max-vertical-offset="4150">
-          <caret line="61" column="111" selection-start-line="61" selection-start-column="111" selection-end-line="61" selection-end-column="111" />
-          <folding />
         </state>
       </provider>
     </entry>

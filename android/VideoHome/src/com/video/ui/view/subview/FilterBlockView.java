@@ -70,7 +70,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width))/(row_count+1);
         }
         int itemHeight = 0;
-        for(DisplayItem.FilterItem item: filtes) {
+        for(final DisplayItem.FilterItem item: filtes) {
             View convertView = null;
             if(uiType == LayoutConstant.linearlayout_filter) {
                 convertView = View.inflate(getContext(), R.layout.filter_item_layout, null);
@@ -103,7 +103,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         }else {
                             if(uiType == LayoutConstant.linearlayout_filter){
                                 DisplayItem launchItem = new DisplayItem();
-                                launchItem.title = "美国";
+                                launchItem.title = item.name;
                                 launchItem.type  = "album";
                                 launchItem.id    = "channel_movie_usa";
                                 launchItem.ns    = "video";
