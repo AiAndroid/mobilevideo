@@ -269,11 +269,10 @@
                             {"name":"港台新"},
                             {"name":"日韩"},
                             {"name":"欧美"},
-                            {"name":"日韩"},
                             {"name":"其他"},
                             {"name":"选秀"},
                             {"name":"访谈"},
-                            {"name":"筛选"}
+                            {"name":"筛选","fid":"-1"}
                         ]
                     },
                     "times":{
@@ -1405,7 +1404,7 @@
         }
     ],
     "times":{
-        "updated":7,
+        "updated":8,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"

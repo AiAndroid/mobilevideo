@@ -272,7 +272,7 @@
                             {"name":"少女"},
                             {"name":"搞笑"},
                             {"name":"宠物"},
-                            {"name":"筛选"}
+                            {"name":"筛选","fid":"-1"}
                         ]
                     },
                     "times":{
@@ -2203,7 +2203,7 @@
         }
     ],
     "times":{
-        "updated":5,
+        "updated":6,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
