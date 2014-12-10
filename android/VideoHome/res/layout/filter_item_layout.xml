@@ -2,11 +2,11 @@
     <TextView
             xmlns:android="http://schemas.android.com/apk/res/android"
 	        android:id="@+id/channel_filter_btn"
-	        android:layout_width="@dimen/filter_button_width"
+	        android:layout_width="wrap_content"
 	        android:layout_height="@dimen/size_74"
-            android:drawableLeft="@drawable/detail_screening_icon"
 	        android:drawablePadding="@dimen/video_common_text_btn_drawble_padding"
 	        android:gravity="center"
+            android:layout_gravity="center_horizontal"
 	        android:textSize="@dimen/font_size_40"
             android:clickable="true"
 	        android:textColor="@color/text_color_deep_dark" />

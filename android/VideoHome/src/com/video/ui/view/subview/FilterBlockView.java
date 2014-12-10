@@ -1,6 +1,7 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,8 +76,6 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
 
             if(uiType == LayoutConstant.linearlayout_filter || uiType == LayoutConstant.linearlayout_episode){
                 TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-                mFiter.setText(item.name);
-
                 if(uiType == LayoutConstant.linearlayout_episode) {
                     if (selectIndex == step)
                         mFiter.setTextColor(getResources().getColor(R.color.orange));
@@ -84,11 +83,10 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         mFiter.setTextColor(getResources().getColor(R.color.p_80_black));
                 }
 
-                ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
-                step++;
-
-                if (step != filtes.size() || uiType == Episode_Type){
-                    mFiter.setCompoundDrawables(null, null, null, null);
+                if (step == filtes.size()-1 && uiType == Filter_Type) {
+                    Drawable filDrawble = getResources().getDrawable(R.drawable.detail_screening_icon);
+                    filDrawble.setBounds(0+dpToPx(10), 0, filDrawble.getMinimumWidth()+dpToPx(10), filDrawble.getMinimumHeight());
+                    mFiter.setCompoundDrawables(filDrawble, null, null, null);
                 }
 
                 mFiter.setOnClickListener(new OnClickListener() {
@@ -99,6 +97,11 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         }
                     }
                 });
+
+                mFiter.setText(item.name);
+                ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+                step++;
+
             }else if(uiType == LayoutConstant.linearlayout_episode_list){
 
             }
