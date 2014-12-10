@@ -29,6 +29,8 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         setTag(R.integer.picasso_tag, tag);
         content = block;
 
+        setBackgroundResource(R.drawable.com_block_n);
+
         ArrayList<DisplayItem> items = block.items;
         String container = block.title;
         String subtitle  = block.sub_title;
@@ -106,20 +108,19 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
 
             if(i < (items.size()-1)){
                 View divider = View.inflate(getContext(), R.layout.rank_divider, null);
-                list.addItemViewPort(divider, getResources().getDimensionPixelSize(R.dimen.rank_banner_width), getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height), 0);
+                list.addItemViewPort(divider, getResources().getDimensionPixelSize(R.dimen.rank_banner_width), 1, 0);
 
                 //add divider height
-                height +=getResources().getDimensionPixelSize(R.dimen.rank_port_divider_height);
+                height += 1;
             }
         }
 
         //add height
-        height += dpToPx(4);
+        height += dpToPx(8);
         height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-        ((Button)root.findViewById(R.id.enter_button)).setText(subtitle);
-        //TODO add click
+        height += dpToPx(8);
 
-        height += dpToPx(4);
+        ((Button)root.findViewById(R.id.enter_button)).setText(subtitle);
         getDimens().height = height;
     }
 
@@ -129,7 +130,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         if(mDimens == null){
             mDimens = new Dimens();
             mDimens.width  = getResources().getDimensionPixelSize(R.dimen.rank_banner_width);
-            mDimens.height = 1920;//getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height);
+            mDimens.height = 0;//getResources().getDimensionPixelSize(R.dimen.quick_entry_user_height);
         }
         return mDimens;
     }
