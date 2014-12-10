@@ -39,7 +39,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/album"/>
-                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/category"/>
+                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/channelfilter"/>
             </intent-filter>
         </activity>
 

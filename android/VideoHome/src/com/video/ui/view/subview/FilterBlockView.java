@@ -1,12 +1,15 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
@@ -102,12 +105,21 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                             mItemClick.onClick(v);
                         }else {
                             if(uiType == LayoutConstant.linearlayout_filter){
-                                DisplayItem launchItem = new DisplayItem();
-                                launchItem.title = item.name;
-                                launchItem.type  = "album";
-                                launchItem.id    = "channel_movie_usa";
-                                launchItem.ns    = "video";
-                                launcherAction(context, launchItem);
+                                if("-1".equals(item.fid)) {
+                                    Block<DisplayItem> block = new Block<DisplayItem>();
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
+                                    intent.putExtra("item", block);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    getContext().startActivity(intent);
+                                }else {
+                                    DisplayItem launchItem = new DisplayItem();
+                                    launchItem.title = item.name;
+                                    launchItem.type = "filter";
+                                    launchItem.id = "channel_movie_usa";
+                                    launchItem.ns = "video";
+                                    launcherAction(context, launchItem);
+                                }
                             }
                         }
                     }

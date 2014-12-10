@@ -35,7 +35,7 @@ public class ChannelActivity extends  MainActivity {
                     if(_contents != null && _contents.blocks.get(0).id.endsWith(".choice")) {
                         Block<DisplayItem> block = _contents.blocks.get(0);
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
+                        intent.setData(Uri.parse("mvschema://video/channelfilter?rid=" + block.id));
                         intent.putExtra("item", block);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
