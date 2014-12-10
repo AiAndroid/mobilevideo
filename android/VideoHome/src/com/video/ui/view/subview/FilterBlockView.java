@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
@@ -107,6 +108,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                             if(uiType == LayoutConstant.linearlayout_filter){
                                 if("-1".equals(item.fid)) {
                                     Block<DisplayItem> block = new Block<DisplayItem>();
+                                    block.title = item.name;
                                     Intent intent = new Intent(Intent.ACTION_VIEW);
                                     intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
                                     intent.putExtra("item", block);
@@ -148,7 +150,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         Root.addView(ml, lp);
     }
 
-    public static FilterBlockView createEpisodeListBlockView(Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
+    public static FilterBlockView createEpisodeListBlockView(final Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
         final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
         MetroLayout ml = new MetroLayout(context);
@@ -205,31 +207,39 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
-    public static FilterBlockView createFilterSelectBlockView(Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
+    public static FilterBlockView createFilterSelectBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
         final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
         MetroLayout ml = new MetroLayout(context);
         int step      = 0;
         int row_count = 4;
-
-
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
 
         int itemHeight = 0;
         for(DisplayItem.FilterItem item: filters) {
-            View convertView = View.inflate(context, R.layout.episode_item_layout, null);
+            View convertView = View.inflate(context, R.layout.filter_check_item_layout, null);
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
             final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
             mFiter.setText(item.name);
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
 
-            mFiter.setOnClickListener(new OnClickListener() {
+            final ImageView imageView = (ImageView) convertView.findViewById(R.id.channel_filter_selected);
+            convertView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(filterView.getItemClick() != null){
+                    if (filterView.getItemClick() != null) {
                         filterView.getItemClick().onClick(v);
+                    }
+                    if (imageView.getVisibility() == VISIBLE) {
+                        imageView.setVisibility(GONE);
+                        mFiter.setTextColor(context.getResources().getColor(R.color.text_color_deep_dark));
+                        mFiter.setBackgroundResource(0);
+                    } else {
+                        imageView.setVisibility(VISIBLE);
+                        mFiter.setTextColor(context.getResources().getColor(R.color.orange));
+                        mFiter.setBackgroundResource(R.drawable.editable_title_com_btn_bg_s);
                     }
                 }
             });

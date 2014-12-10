@@ -20,6 +20,7 @@
     <dimen name="size_40">13.33dp</dimen>
     <dimen name="size_51">17dp</dimen>
     <dimen name="size_74">24.67dp</dimen>
+    <dimen name="size_100">33.33dp</dimen>
     <dimen name="size_106">35.33dp</dimen>
 
     <dimen name="text_font_size_huge">21sp</dimen>
