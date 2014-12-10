@@ -272,7 +272,7 @@
                             {"name":"其他"},
                             {"name":"古装"},
                             {"name":"谨慎"},
-                            {"name":"筛选"}
+                            {"name":"筛选", "fid":"-1"}
                         ]
                     },
                     "times":{
@@ -2184,7 +2184,7 @@
         }
     ],
     "times":{
-        "updated":9,
+        "updated":10,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
