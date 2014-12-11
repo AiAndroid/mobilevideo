@@ -40,7 +40,7 @@
                     },
                     "blocks":[
                         {
-                            "title":"大家都在搜索",
+                            "title":"大家都在搜",
                             "id":"500",
                             "type":"album",
                             "ns":"video",
@@ -528,7 +528,7 @@
         }
     ],
     "times":{
-        "updated":7,
+        "updated":8,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
