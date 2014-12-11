@@ -3,4 +3,5 @@
         android:layout_width="@dimen/media_pager_tab_bg_width"
         android:layout_height="@dimen/media_pager_tab_bg_height"
         android:layout_marginTop="@dimen/media_pager_tab_bg_shadow_length"
+        android:textSize="@dimen/font_size_42"
         android:gravity="center"/>

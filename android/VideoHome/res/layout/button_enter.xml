@@ -8,5 +8,6 @@
         android:layout_width="@dimen/media_banner_button_width"
         android:layout_height="@dimen/rank_button_height"
         android:background="@drawable/com_item_bg_full"
+        android:textSize="@dimen/font_size_42"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>

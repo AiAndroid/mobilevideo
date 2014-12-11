@@ -25,6 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
+                    android:textSize="@dimen/font_size_42"
                      />
 
             <TextView
@@ -33,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
+                    android:textSize="@dimen/font_size_42"
                      />
 
             <ImageView
@@ -56,6 +58,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:lines="2"
+            android:textSize="@dimen/font_size_42"
             android:paddingTop="4dp"
             android:gravity="left"/>
 

@@ -57,7 +57,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
             tv.setText(item.title);
 
             ImageView iv = (ImageView) view.findViewById(R.id.enter_image_indicator);
-            Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(hodlerdraws[i]).priority(Picasso.Priority.HIGH).fit().into(iv);
+            Picasso.with(getContext()).load(item.images.icon().url).tag(getTag(R.integer.picasso_tag)).placeholder(hodlerdraws[i]).priority(Picasso.Priority.HIGH).into(iv);
 
             view.setOnClickListener(new OnClickListener() {
                 @Override

@@ -7,7 +7,7 @@
 <TextView
             android:id="@+id/quick_entry_user"
             android:layout_width="wrap_content"
-            android:maxWidth="240dp"
+            android:maxWidth="@dimen/first_textview_width"
             android:singleLine="true"
             android:layout_height="@dimen/rank_media_text_height"
             android:layout_weight="1"

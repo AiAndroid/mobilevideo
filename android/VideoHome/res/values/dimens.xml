@@ -191,7 +191,7 @@
     <dimen name="rank_video_show_top">8dp</dimen>
     <dimen name="rank_video_list_top">4dp</dimen>
     <dimen name="rank_button_height">48dp</dimen>
-
+    <dimen name="first_textview_width">240dp</dimen>
 
     <dimen name="quick_entry_channel_width">80dp</dimen>
     <dimen name="quick_entry_channel_height">70dp</dimen>

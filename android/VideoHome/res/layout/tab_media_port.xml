@@ -25,6 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
+                    android:textSize="@dimen/font_size_42"
                      />
 
                 <TextView
@@ -33,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
+                    android:textSize="@dimen/font_size_42"
                      />
 
                 <ImageView
@@ -58,6 +60,7 @@
             android:singleLine="true"
             android:textColor="@color/text_color_deep_dark"
             android:paddingTop="4dp"
+            android:textSize="@dimen/font_size_42"
             android:gravity="center"/>
 
     <TextView
@@ -66,6 +69,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="TextView"
+            android:textSize="@dimen/font_size_42"
             android:gravity="center"/>
 
 </LinearLayout>

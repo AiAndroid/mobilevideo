@@ -13,5 +13,4 @@
     <dimen name="ITEM_H_HEIGHT">116dp</dimen>
     <dimen name="ITEM_V_HEIGHT">235dp</dimen>
     <dimen name="ITEM_H_WIDTH">235dp</dimen>
-
 </resources>
