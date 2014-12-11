@@ -43,6 +43,36 @@
                     },
                     "items":[
                         {
+                            "title":"寻找下一代超模",
+                            "sub_title":"",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01nWpAqcbov/OXwc9xoxDJ28Y6.jpg"
+                                },
+                                "ads":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01nWpAqcbov/OXwc9xoxDJ28Y6.jpg"
+                                }
+                            }
+                        },
+                        {
                             "title":"团圆饭",
                             "sub_title":"",
                             "desc":"看看呗",
@@ -65,6 +95,9 @@
                             },
                             "images":{
                                 "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p015dNmjflxL/bU4i6OPvErHvD1.jpg"
+                                },
+                                "ads":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p015dNmjflxL/bU4i6OPvErHvD1.jpg"
                                 }
                             }
@@ -92,6 +125,9 @@
                             "images":{
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01lt3q95CIV/P9HsUME2GQ0mIb.jpg"
+                                },
+                                "ads":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01lt3q95CIV/P9HsUME2GQ0mIb.jpg"
                                 }
                             }
                         },
@@ -117,6 +153,9 @@
                             },
                             "images":{
                                 "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01XRuqffBzJ/qyNeXELmR1vmB6.jpg"
+                                },
+                                "ads":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01XRuqffBzJ/qyNeXELmR1vmB6.jpg"
                                 },
                                 "back":{
@@ -152,6 +191,9 @@
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01Q66MIoCxK/x4LGKoDB3TODBt.jpg"
                                 },
+                                "ads":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01Q66MIoCxK/x4LGKoDB3TODBt.jpg"
+                                },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
@@ -183,6 +225,9 @@
                             },
                             "images":{
                                 "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01AKGRQ6c0w/MuVOzVmlKMWJfp.jpg"
+                                },
+                                "ads":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01AKGRQ6c0w/MuVOzVmlKMWJfp.jpg"
                                 },
                                 "back":{
@@ -218,6 +263,9 @@
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01QhIPoxiyI/CkWqVZYxeBqMAS.jpg"
                                 },
+                                "ads":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01QhIPoxiyI/CkWqVZYxeBqMAS.jpg"
+                                },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
@@ -251,6 +299,9 @@
                                 "poster":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01xE62wEIbh/JzCQbfegoNYbAX.jpg"
                                 },
+                                "ads":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01xE62wEIbh/JzCQbfegoNYbAX.jpg"
+                                },
                                 "back":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
                                 },
@@ -282,6 +333,9 @@
                             },
                             "images":{
                                 "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p015cYAsYwkE/ruFKrafR2vTSDv.jpg"
+                                },
+                                "ads":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p015cYAsYwkE/ruFKrafR2vTSDv.jpg"
                                 },
                                 "back":{
@@ -330,7 +384,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -354,7 +408,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -378,7 +432,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -402,7 +456,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -5524,7 +5578,7 @@
         }
     ],
     "times":{
-        "updated":80,
+        "updated":82,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
