@@ -6,7 +6,7 @@
         android:layout_width="@dimen/media_banner_sub_channel_width">
 <TextView
           android:id="@+id/channel_title"
-          android:layout_width="@dimen/media_pager_tab_bg_width"
+          android:layout_width="wrap_content"
           android:layout_height="@dimen/title_height"
           android:paddingLeft="@dimen/media_item_padding"
           android:gravity="center_vertical"
