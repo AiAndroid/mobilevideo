@@ -357,7 +357,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -381,7 +381,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -405,7 +405,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -429,7 +429,7 @@
                             },
                             "images":{
                                 "back":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety_bg_n.9.png"
                                 },
                                 "sprite":{
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"
@@ -5551,7 +5551,7 @@
         }
     ],
     "times":{
-        "updated":81,
+        "updated":82,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
