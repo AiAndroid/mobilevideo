@@ -43,6 +43,33 @@
                     },
                     "items":[
                         {
+                            "title":"寻找下一代超模",
+                            "sub_title":"",
+                            "desc":"看看呗",
+                            "id":"100",
+                            "type":"item",
+                            "ns":"video",
+                            "times":{
+                                "updated":0,
+                                "created":0
+                            },
+                            "media":{
+                                "cp":{
+                                    "vendor":"sohu",
+                                    "player_ver":"2"
+                                }
+                            },
+                            "action":{
+                                "target":"direct_show",
+                                "params":"http://xxxxx.mffmpeg"
+                            },
+                            "images":{
+                                "poster":{
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01nWpAqcbov/OXwc9xoxDJ28Y6.jpg"
+                                }
+                            }
+                        },
+                        {
                             "title":"团圆饭",
                             "sub_title":"",
                             "desc":"看看呗",
@@ -5524,7 +5551,7 @@
         }
     ],
     "times":{
-        "updated":80,
+        "updated":81,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
