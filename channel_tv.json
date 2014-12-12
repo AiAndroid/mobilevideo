@@ -362,7 +362,7 @@
                             "ns":"video",
                             "images":{
                                 "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p018LDhrVrdT/6aSEMHuH3GBhx4.jpg"
                                 }
                             },
                             "media":{
@@ -602,7 +602,7 @@
                             "ns":"video",
                             "images":{
                                 "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01us4k0xeDM/ufvsugFawylGR6.jpg"
                                 }
                             },
                             "media":{
@@ -842,7 +842,7 @@
                             "ns":"video",
                             "images":{
                                 "poster":{
-                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p010sLwy23TA/Kl5ya64GdlSb8T.jpg"
+                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01lh7aChWn5/xWx1VEvJjWgF7O.jpg"
                                 }
                             },
                             "media":{
@@ -1886,7 +1886,7 @@
         }
     ],
     "times":{
-        "updated":6,
+        "updated":7,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
