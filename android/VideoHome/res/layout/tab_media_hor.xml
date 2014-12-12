@@ -16,6 +16,12 @@
                 android:scaleType="centerCrop"
                 android:background="@drawable/default_poster_pic"/>
 
+        <View
+                android:id="@+id/mask"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/poster_mask_h" />
+
         <RelativeLayout
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"

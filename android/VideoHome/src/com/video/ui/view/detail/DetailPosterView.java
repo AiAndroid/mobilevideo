@@ -24,15 +24,11 @@ public class DetailPosterView extends RelativeLayout {
     }
 
     public DetailPosterView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mContext = context;
-        init();
+        this(context, attrs, 0);
     }
 
     public DetailPosterView(Context context) {
-        super(context);
-        this.mContext = context;
-        init();
+        this(context, null, 0);
     }
 
     public void setImageUrlInfo(String url) {
