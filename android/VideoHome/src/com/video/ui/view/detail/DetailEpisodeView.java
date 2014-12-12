@@ -9,7 +9,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.view.LayoutConstant;
-import com.video.ui.view.subview.SubPortBlockView;
+import com.video.ui.view.subview.PortBlockView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -113,7 +113,7 @@ public class DetailEpisodeView extends FrameLayout {
             item.blocks.add(createEpisodeBlock());
             item.blocks.add(createLineBlock());
 
-            SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+            PortBlockView view = new PortBlockView(getContext(), item, new Integer(100));
             LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
             addView(view, flp);
         }else {
@@ -128,7 +128,7 @@ public class DetailEpisodeView extends FrameLayout {
                 item.blocks.add(createLineBlock());
             }
 
-            SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+            PortBlockView view = new PortBlockView(getContext(), item, new Integer(100));
             LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height);
             addView(view, flp);
         }

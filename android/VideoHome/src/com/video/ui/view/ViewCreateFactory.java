@@ -36,7 +36,7 @@ public class ViewCreateFactory {
                 view = new ChannelTabsBlockView(context, item, tag);
                 break;
             case LayoutConstant.block_sub_channel:
-                view = new SubPortBlockView(context, item, tag);
+                view = new PortBlockView(context, item, tag);
                 view.setBackgroundResource(R.drawable.com_block_n);
                 break;
             case LayoutConstant.grid_block_selection:
@@ -62,7 +62,7 @@ public class ViewCreateFactory {
                 break;
             case LayoutConstant.grid_media_port_title:
             case LayoutConstant.grid_media_land_title:
-                SubPortBlockView sbv = new SubPortBlockView(context, tag);
+                PortBlockView sbv = new PortBlockView(context, tag);
                 //add title
                 Block<DisplayItem> itemBlock = new Block<DisplayItem>();
                 itemBlock.ui_type = new DisplayItem.UI();

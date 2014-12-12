@@ -9,7 +9,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.ImageGroup;
-import com.video.ui.view.subview.SubPortBlockView;
+import com.video.ui.view.subview.PortBlockView;
 
 import java.util.ArrayList;
 
@@ -79,7 +79,7 @@ public class DetailRecommendView extends FrameLayout {
         item.blocks.add(createTitleBlock());
         item.blocks.add(createRecommendBlock());
 
-        SubPortBlockView view = new SubPortBlockView(getContext(), item, new Integer(100));
+        PortBlockView view = new PortBlockView(getContext(), item, new Integer(100));
 
         LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, view.getDimens().height);
         addView(view, flp);

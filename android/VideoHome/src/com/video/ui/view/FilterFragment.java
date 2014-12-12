@@ -9,7 +9,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
-import com.video.ui.view.subview.SubPortBlockView;
+import com.video.ui.view.subview.PortBlockView;
 
 import java.util.ArrayList;
 
@@ -48,7 +48,7 @@ public class FilterFragment extends Fragment {
 
             item.blocks.add(filteritem);
 
-            SubPortBlockView view = new SubPortBlockView(getActivity(), item, new Integer(100));
+            PortBlockView view = new PortBlockView(getActivity(), item, new Integer(100));
             ml.addItemViewPort(view, LayoutConstant.block_sub_channel, 0, 0);
         }
 
@@ -77,7 +77,7 @@ public class FilterFragment extends Fragment {
 
             item.blocks.add(filteritem);
 
-            SubPortBlockView view = new SubPortBlockView(getActivity(), item, new Integer(100));
+            PortBlockView view = new PortBlockView(getActivity(), item, new Integer(100));
             ml.addItemViewPort(view, LayoutConstant.block_sub_channel, 0, 1);
         }
 
@@ -106,7 +106,7 @@ public class FilterFragment extends Fragment {
 
             item.blocks.add(filteritem);
 
-            SubPortBlockView view = new SubPortBlockView(getActivity(), item, new Integer(100));
+            PortBlockView view = new PortBlockView(getActivity(), item, new Integer(100));
             ml.addItemViewPort(view, LayoutConstant.block_sub_channel, 0, 2);
         }
 
