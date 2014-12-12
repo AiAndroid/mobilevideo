@@ -38,6 +38,7 @@ public class CategoryBlockView extends BaseCardView implements DimensHelper {
     private void initUI(final DisplayItem item){
         this.item = item;
         int width = getContext().getResources().getDimensionPixelSize(R.dimen.category_media_view_width);
+        int imageHeight = getContext().getResources().getDimensionPixelSize(R.dimen.category_media_poster_height);
 
         View mContentView = View.inflate(getContext(), R.layout.category_item, null);
         FrameLayout.LayoutParams contentParams = new FrameLayout.LayoutParams(width, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -59,7 +60,7 @@ public class CategoryBlockView extends BaseCardView implements DimensHelper {
         mMediaView.setText(item.desc);
 
         postImage  = (ImageView) mContentView.findViewById(R.id.poster_bg);
-        Picasso.with(getContext()).load(item.images.get("poster").url).fit().transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
+        Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).transform(new Round_Corners(getContext(), 4, 4, true)).into(postImage);
 
         mContentView.setClickable(true);
 

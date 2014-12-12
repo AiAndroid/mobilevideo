@@ -15,7 +15,7 @@
 
     <FrameLayout
             android:id="@+id/channeltabcontent"
-            android:layout_marginTop="@dimen/media_pager_title_text_height"
+            android:layout_marginTop="@dimen/media_pager_content_padding_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/media_pager_title_text_height"
             android:showDividers="middle"
-            android:divider="@color/p_10_black"
+            android:divider="@color/progress_color"
             android:layout_marginTop="@dimen/media_pager_title_top_margin">
     </TabWidget>
 

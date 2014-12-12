@@ -46,6 +46,7 @@
     <!-- loading start -->
 
     <string name="loading"><CDATA>Loading </CDATA></string>
+    <string name="tab_loading"><CDATA>...</CDATA></string>
     <string name="reload_title_ep">Unable to obtain the full series</string>
     <string name="reload_title">Couldn\'t connect to the network</string>
     <string name="reload_sub_title">Click screen retry</string>

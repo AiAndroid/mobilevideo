@@ -159,11 +159,11 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                 launcherAction(getContext(), item);
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).resize(getDimens().width, getDimens().height).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()<2?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
         return view;
     }
 
-    private static Dimens mDimens;
+    private Dimens mDimens;
     @Override
     public Dimens getDimens() {
         if(mDimens == null){
@@ -179,7 +179,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         for(int i=0;i<content.size();i++) {
             ImageView view = (ImageView) viewList.get(i).findViewById(R.id.image_ads);
             DisplayItem item = content.get(i);
-            Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).fit().transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(getDimens().width, getDimens().height).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
         }
     }
 

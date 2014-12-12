@@ -54,6 +54,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        boolean showTabLoading = false;
         if(this instanceof ChannelActivity) {
             setContentView(R.layout.channel_layout);
         }else if(this instanceof SearchActivty){
@@ -61,11 +62,16 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         }
         else {
             setContentView(R.layout.activity_main);
+            showTabLoading = true;
         }
 
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
         mTabs    = (TabWidget)findViewById(android.R.id.tabs);
+
+        //just for indicator loading
+        if(showTabLoading)
+            mTabs.addView(newTabIndicator(getString(R.string.tab_loading), false));
 
         mViewPager = (ViewPager)findViewById(R.id.pager);
 

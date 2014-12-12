@@ -97,6 +97,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         mTabWidget.setStripEnabled(false);
 
         block_height += getResources().getDimensionPixelSize(R.dimen.media_pager_title_text_height);
+        //TODO also have .67dp
+
         for(Block<T> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
@@ -133,12 +135,13 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                     int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
                     int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
+                    int imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_height);
                     for(int i=0;i<block.items.size();++i) {
                         final DisplayItem item = (DisplayItem) block.items.get(i);
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_hor, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                        Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(image);
+                        Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                         descrip.setText(item.title + " " +item.sub_title);
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
@@ -163,7 +166,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                     int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
                     int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
-
+                    int imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
                     int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
                     mType = LayoutConstant.grid_media_port;
                     for(int i=0;i<block.items.size();++i) {
@@ -171,7 +174,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_port, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                        Picasso.with(getContext()).load(item.images.get("poster").url).fit().into(image);
+                        Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         title.setText(item.title);
 
@@ -240,7 +243,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             View meida = grid.getChildAt(i);
             final DisplayItem item = (DisplayItem) block.items.get(i);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(image.getWidth(), image.getHeight()).into(image);
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             if(title != null) {
