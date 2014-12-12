@@ -1,6 +1,7 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,6 +98,8 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
                 }
             });
 
+            setHintText(meida, item);
+
             FrameLayout.LayoutParams itemflp = new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, height);
             itemflp.leftMargin = getPaddingLeft() + (width*(step%row_count) ) + padding*(step%row_count + 1);
             itemflp.topMargin  = getPaddingTop()  + (height*(step/row_count)) + item_padding*(step/row_count + 1);
@@ -106,6 +109,23 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
 
         int lines = (block.items.size()+row_count -1)/row_count;
         getDimens().height += (height + item_padding)*lines;
+    }
+
+    private void setHintText(View meida, DisplayItem item){
+        if(item.hint != null && TextUtils.isEmpty(item.hint.left()) == false) {
+            TextView leftView = (TextView) meida.findViewById(R.id.left_textview);
+            leftView.setText(item.hint.left());
+        }
+
+        if(item.hint != null && TextUtils.isEmpty(item.hint.mid()) == false) {
+            TextView midView = (TextView) meida.findViewById(R.id.mid_textview);
+            midView.setText(item.hint.mid());
+        }
+
+        if(item.hint != null && TextUtils.isEmpty(item.hint.right()) == false) {
+            TextView rightView = (TextView) meida.findViewById(R.id.right_textview);
+            rightView.setText(item.hint.right());
+        }
     }
 
     private Dimens mDimens;

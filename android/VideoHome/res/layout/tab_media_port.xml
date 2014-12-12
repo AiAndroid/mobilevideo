@@ -27,21 +27,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom" >
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/left_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
-                    android:textSize="@dimen/font_size_42"
-                     />
+                    android:textSize="@dimen/font_size_30"/>
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/mid_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/font_size_30"/>
+
+                <TextView
+                    android:id="@+id/right_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
-                    android:textSize="@dimen/font_size_42"
-                     />
+                    android:textSize="@dimen/font_size_30"/>
 
                 <ImageView
                     android:id="@+id/imageView2"
