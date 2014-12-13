@@ -20,6 +20,8 @@
               android:id="@+id/page_indicator"
               android:shadowColor="@color/black"
               android:shadowDy="2.0"
+              android:paddingRight="2dp"
+              android:paddingBottom="2dp"
               android:textSize="@dimen/font_size_42"
               android:shadowRadius="3.0"
               android:text="1/8"/>

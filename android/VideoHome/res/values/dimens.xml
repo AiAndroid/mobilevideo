@@ -152,8 +152,8 @@
     <dimen name="media_banner_width">352dp</dimen>
     <dimen name="media_banner_height">155.7dp</dimen>
 
-    <dimen name="media_banner_sub_channel_width">331dp</dimen>
-    <dimen name="media_banner_sub_channel_height">150dp</dimen>
+    <dimen name="media_banner_sub_channel_width">333dp</dimen><!-- 331 -->
+    <dimen name="media_banner_sub_channel_height">186dp</dimen><!--155 -->
 
     <dimen name="media_banner_button_width">335dp</dimen>
 
@@ -214,7 +214,7 @@
    <dimen name="media_port_item_right_corner_width">20dp</dimen>
 
     <!-- Channeltabs start -->
-    <dimen name="channel_media_view_width">160dp</dimen>
+    <dimen name="channel_media_view_width">161dp</dimen>
     <dimen name="channel_media_view_image_height">100dp</dimen>
     <dimen name="channel_media_view_height">145dp</dimen>
     <dimen name="channel_media_view_port_width">105dp</dimen>
