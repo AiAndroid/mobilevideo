@@ -3348,7 +3348,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01LAaLpJ5Ki/Ja7M7NFLDayccX.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_1.png"
                                 }
                             },
                             "times":{
@@ -3377,7 +3377,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01wi5NDdrht/W4dUJ6oZmp7SXL.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_2.png"
                                 }
                             },
                             "media":{
@@ -3407,7 +3407,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01tbxW9d1tF/59ttwNmo3Qh9KS.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://image.tupian114.com/20140422/14221171.png.thumb.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_2.png"
                                 }
                             },
                             "times":{
@@ -3601,7 +3601,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p019p75RdRe2/yT2vB9xBvwYFhN.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://img.sj33.cn/uploads/allimg/200909/20090907081553219.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_1.png"
                                 }
                             },
                             "times":{
@@ -3630,7 +3630,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01EkTqOWJrs/OqSkyyPvGJH7XN.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://img.sc115.com/uploads/png/110125/201101251543154804.png"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_2.png"
                                 }
                             },
                             "media":{
@@ -3659,7 +3659,7 @@
                                     "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01QTHJf9SHq/hMugyJ1oAHQlY3.jpg"
                                 },
                                 "right_top_corner":{
-                                    "url":"http://img.sj33.cn/uploads/allimg/200909/20090907081553219.jpg"
+                                    "url":"https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/rank_right_3.png"
                                 }
                             },
                             "times":{
@@ -5608,7 +5608,7 @@
         }
     ],
     "times":{
-        "updated":85,
+        "updated":86,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
