@@ -89,7 +89,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
             final DisplayItem item = items.get(i);
             View view =  View.inflate(getContext(), R.layout.media_item_textview, null);
             final TextView tv = (TextView)view.findViewById(R.id.quick_entry_user);
-            tv.setText(String.format("%1$s . %2$s", i+1, item.title));
+            tv.setText(String.format("%1$s . %2$s", i+1, getTitle(item.title)));
 
             final TextView actor = (TextView)view.findViewById(R.id.rank_media_item_actor);
             actor.setText(item.sub_title);
@@ -123,6 +123,16 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         ((Button)root.findViewById(R.id.enter_button)).setText(subtitle);
         getDimens().height = height;
     }
+    private String getTitle(String title){
+        String trim = title;
+        if(title.length() > 11){
+            trim = title.substring(0, 11);
+            trim += ("...");
+        }
+
+        return trim;
+    }
+
 
     private static Dimens mDimens;
     @Override
