@@ -3422,7 +3422,7 @@
                         },
                         {
                             "title":"惊人天人以往情深的爱情故事随热故事长刘",
-                            "sub_title":"收藏次数：2万",
+                            "sub_title":"陈学通，王爱均",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3446,7 +3446,7 @@
                         },
                         {
                             "title":"哪些年让我们热血沸腾的清楚片",
-                            "sub_title":"收藏次数：2万",
+                            "sub_title":"刘华东，王爱均",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3470,7 +3470,7 @@
                         },
                         {
                             "title":"全世界独一无二让我哦么分发的动作片",
-                            "sub_title":"收藏次数：2万",
+                            "sub_title":"贺岁片",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3494,7 +3494,7 @@
                         },
                         {
                             "title":"最吓人的恐怖片",
-                            "sub_title":"收藏次数：2万",
+                            "sub_title":"卡没龙",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3518,7 +3518,7 @@
                         },
                         {
                             "title":"惊天动作片， 好好看哦",
-                            "sub_title":"收藏次数：2万",
+                            "sub_title":"好莱坞，成龙",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -3542,6 +3542,7 @@
                         },
                         {
                             "title":"IMDB TOP",
+                            "sub_title":"18岁以上",
                             "id":"901",
                             "type":"album",
                             "ns":"video",
@@ -5607,7 +5608,7 @@
         }
     ],
     "times":{
-        "updated":84,
+        "updated":85,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
