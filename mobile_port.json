@@ -1230,7 +1230,7 @@
                                             },
                                             "images":{
                                                 "poster":{
-                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017mdD6a8wD/3dTjxxdImaZ1yn.jpg
+                                                    "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017mdD6a8wD/3dTjxxdImaZ1yn.jpg"
                                                 }
                                             }
                                         }
@@ -5608,7 +5608,7 @@
         }
     ],
     "times":{
-        "updated":87,
+        "updated":88,
         "created":0
     },
     "base_url":"http://tv.mitvos.com/v2/"
