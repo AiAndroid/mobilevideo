@@ -117,11 +117,15 @@ public final class ViewUtils {
     //large than 3G
     static float memsize = -1.0f;
     public static boolean LargerMemoryMode(Context context) {
-        if(memsize == -1.0f){
-            memsize = getMemeorySize(context);
-            Log.d("memory", "size = " + memsize);
+        if(false) {
+            if (memsize == -1.0f) {
+                memsize = getMemeorySize(context);
+                Log.d("memory", "size = " + memsize);
+            }
+            return memsize >= 1.75f;
         }
-        return memsize >=1.75f;
+
+        return true;
     }
 
     private static  float getMemeorySize(Context context){
