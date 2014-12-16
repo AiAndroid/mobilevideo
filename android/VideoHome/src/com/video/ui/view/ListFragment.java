@@ -98,6 +98,12 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
     RelativeAdapter adapter;
     @Override
     public void onLoadFinished(Loader<GenericBlock<VideoItem>> genericBlockLoader, GenericBlock<VideoItem> result) {
+        if(result == null){
+            if(mVidoeInfo == null){
+                mLoadingView.stopLoading(false, true);
+            }
+            return;
+        }
         //for cache show
         if (result != null && mVidoeInfo != null &&
                 mVidoeInfo.times != null && mVidoeInfo.times.updated == result.times.updated &&
