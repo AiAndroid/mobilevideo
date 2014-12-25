@@ -44,7 +44,7 @@ public class iDataORM {
             "value",
     };
 
-    public static String[]favorProject =  new String[]{
+    public static String[] actionProject =  new String[]{
             "_id",
             "res_id",
             "ns",
@@ -62,7 +62,7 @@ public class iDataORM {
         public static final String ChangeDate = "date_time";
     }
 
-    public static class Favoritor<T>{
+    public static class ActionRecord<T>{
         public int    id;
         public String res_id;
         public String ns;
@@ -76,6 +76,15 @@ public class iDataORM {
         }
     }
 
+    /**
+     * add history and favor
+     * @param context
+     * @param ns     video
+     * @param action favor/history
+     * @param res_id media id
+     * @param json   whole video info json
+     * @return
+     */
     public static Uri addFavor(Context context, String ns, String action,String res_id,  String json){
         Uri ret = null;
         ContentValues ct = new ContentValues();
@@ -122,25 +131,25 @@ public class iDataORM {
         return lens;
     }
 
-    public static ArrayList<Favoritor> getFavorites(Context context, String ns, String action){
-        ArrayList<Favoritor> favoritors = new ArrayList<Favoritor>();
+    public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
+        ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
         String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, favorProject, where, null, null);
+        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, null);
         if(cursor != null ){
             while(cursor.moveToNext()){
-                Favoritor item = new Favoritor();
+                ActionRecord item = new ActionRecord();
                 item.id     = cursor.getInt(cursor.getColumnIndex(FavorCol.ID));
                 item.res_id = cursor.getString(cursor.getColumnIndex(FavorCol.RES_ID));
                 item.ns     = cursor.getString(cursor.getColumnIndex(FavorCol.NS));
                 item.json   = cursor.getString(cursor.getColumnIndex(FavorCol.VALUE));
                 item.action = cursor.getString(cursor.getColumnIndex(FavorCol.Action));
                 item.date   = cursor.getString(cursor.getColumnIndex(FavorCol.ChangeDate));
-                favoritors.add(item);
+                actionRecords.add(item);
             }
             cursor.close();
             cursor = null;
         }
-        return favoritors;
+        return actionRecords;
     }
 
     public int getDataCollectionInterval(int defaultValue) {
