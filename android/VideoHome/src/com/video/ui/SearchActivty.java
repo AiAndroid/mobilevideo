@@ -34,6 +34,10 @@ public class SearchActivty extends MainActivity{
         titlebar.findViewById(R.id.channel_search_btn).setOnClickListener(searchClickLister);
     }
 
+    @Override public void setContentView(){
+        setContentView(R.layout.search_layout);
+    }
+
     View.OnClickListener searchClickLister = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

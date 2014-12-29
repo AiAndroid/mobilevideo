@@ -72,6 +72,10 @@ public class ChannelActivity extends  MainActivity {
     }
 
     @Override
+    public void setContentView(){
+        setContentView(R.layout.channel_layout);
+    }
+
     protected Class getFragmentClass(Block<DisplayItem> block){
         if(block.id.endsWith(".choice"))
             return MetroFragment.class;

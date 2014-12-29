@@ -1,5 +1,7 @@
 package com.video.ui;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,10 +16,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TextView;
+import android.widget.*;
 import com.aimashi.mobile.video.view.UserView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
@@ -49,21 +48,13 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     int mPrePagerPosition = 0;
 
     protected DisplayItem albumItem;
+    boolean showTabLoading = false;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        boolean showTabLoading = false;
-        if(this instanceof ChannelActivity) {
-            setContentView(R.layout.channel_layout);
-        }else if(this instanceof SearchActivty){
-            setContentView(R.layout.search_layout);
-        }
-        else {
-            setContentView(R.layout.activity_main);
-            showTabLoading = true;
-        }
+        setContentView();
 
         mTabHost = (TabHost)findViewById(android.R.id.tabhost);
         mTabHost.setup();
@@ -101,6 +92,24 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 }
             });
         }
+
+        checkAccount();
+    }
+
+    private void checkAccount(){
+        AccountManager mAccountManager = AccountManager.get(getBaseContext());
+        Account[] account = mAccountManager.getAccountsByType("com.xiaomi");
+        if(account.length == 0) {
+            mAccountManager.addAccount("com.xiaomi", (String)null, (String[])null, (Bundle)null, this, null, (Handler)null);
+        }else {
+            Toast.makeText(getBaseContext(), account[0].toString(), Toast.LENGTH_LONG).show();
+            mAccountManager.removeAccount(account[0], null, (Handler) null);
+        }
+    }
+
+    public void setContentView() {
+        setContentView(R.layout.activity_main);
+        showTabLoading = true;
     }
 
     @Override
