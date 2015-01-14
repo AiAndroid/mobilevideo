@@ -47,8 +47,8 @@ public class FeatureItemView extends BaseCardView  implements DimensHelper {
         mDescView = (TextView) mContentView.findViewById(R.id.feature_media_desc);
         mDescView.setText(item.title);
 
-        mFavoriteView = (TextView) mContentView.findViewById(R.id.feature_media_favorite);
-        mFavoriteView.setText(String.valueOf(item.media.likes));
+        //mFavoriteView = (TextView) mContentView.findViewById(R.id.feature_media_favorite);
+        //mFavoriteView.setText(String.valueOf(item.media.likes));
 
         mClickView = mContentView.findViewById(R.id.feature_media_click);
 

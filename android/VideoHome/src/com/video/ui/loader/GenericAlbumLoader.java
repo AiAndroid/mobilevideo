@@ -36,7 +36,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
 
                 String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie.json";
                 if(_item.ns.equals("home")) {
-                    url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
+                    url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mi_mobile_port.json";
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }else if(_item.ns.equals("search")) {
                     if(_item.id.endsWith("search.choice")) {

@@ -49,7 +49,8 @@
             android:drawableLeft="@drawable/favorite"
             android:drawablePadding="3dp"
             android:textColor="@android:color/darker_gray"
-            android:textIsSelectable="false"/>
+            android:textIsSelectable="false"
+            android:visibility="gone"/>
     <View
             android:id="@+id/feature_media_click"
             android:layout_width="match_parent"

@@ -28,7 +28,7 @@ public class MobileVideoApplication extends Application{
         Picasso picasso = new Picasso.Builder(getApplicationContext()).memoryCache(cache).downloader(new OkHttpDownloader(cacheFile, calculateDiskCacheSize(cacheFile))).build();
         Picasso.setSingletonInstance(picasso);
 
-        Picasso.with(getApplicationContext()).setLoggingEnabled(true);
+        Picasso.with(getApplicationContext()).setLoggingEnabled(false);
         Picasso.with(getApplicationContext()).setIndicatorsEnabled(false);
     }
 
