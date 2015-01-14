@@ -291,6 +291,10 @@
               "id": "c/news",
               "ns": "video",
               "target": {"url": "c/news"},
+              "ui_type":{
+                "name":"linearlayout_none",
+                "id":204
+              }
               "title": "更多"
             }
           ],
