@@ -1,0 +1,434 @@
+{
+  "blocks": [
+    {
+      "ui_type": {
+        "name": "block_port",
+        "id": 301
+      },
+      "blocks": [
+        {
+          "items": [
+            {
+              "ns": "video",
+              "target": {"url": "o/V001119861"},
+              "title": "草原风暴",
+              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "hint": {"center": "评分: 9.2"},
+              "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+              "sub_title": "草原人民智斗反革命",
+              "id": "o/V001119861",
+              "times": {
+                "updated": 1418731732,
+                "created": 1418731732
+              }
+            },
+            {
+              "ns": "video",
+              "target": {"url": "o/V001119861"},
+              "title": "草原风暴",
+              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "hint": {"center": "评分: 9.2"},
+              "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+              "sub_title": "草原人民智斗反革命",
+              "id": "o/V001119861",
+              "times": {
+                "updated": 1418731732,
+                "created": 1418731732
+              }
+            }
+          ],
+          "ui_type": {
+            "name": "imageswitcher",
+            "id": 101
+          },
+          "ns": "video",
+          "id": "",
+          "title": ""
+        },
+        {
+          "items": [
+            {
+              "images": {
+                "back": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series_bg_n.9.png"},
+                "spirit": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"},
+                "icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv_series.png"}
+              },
+              "id": "c/tv",
+              "ns": "video",
+              "target": {"url": "c/tv"},
+              "title": "电视剧"
+            },
+            {
+              "images": {
+                "back": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film_bg_n.9.png"},
+                "spirit": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"},
+                "icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_film.png"}
+              },
+              "id": "c/movie",
+              "ns": "video",
+              "target": {"url": "c/movie"},
+              "title": "电影"
+            },
+            {
+              "images": {
+                "back": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all_bg_n.9.png"},
+                "spirit": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"},
+                "icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety.png"}
+              },
+              "id": "c/variety",
+              "ns": "video",
+              "target": {"url": "c/variety"},
+              "title": "综艺"
+            },
+            {
+              "images": {
+                "back": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_variety_bg_n.9.png"},
+                "spirit": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01yPwXDncs1/KUjiUzoiqpwR4e.jpg"},
+                "icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_all.png"}
+              },
+              "id": "c/category",
+              "ns": "video",
+              "target": {"url": "c/category"},
+              "title": "全部"
+            }
+          ],
+          "ui_type": {
+            "name": "linearlayout_top",
+            "id": 201
+          },
+          "ns": "video",
+          "id": "",
+          "title": ""
+        },
+        {
+          "items": [
+            {
+              "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_play_his.png"}},
+              "id": "play_history",
+              "ns": "video",
+              "target": {"url": "play_history"},
+              "title": "播放历史"
+            },
+            {
+              "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_offline.png"}},
+              "id": "play_offline",
+              "ns": "video",
+              "target": {"url": "play_offline"},
+              "title": "我的离线"
+            },
+            {
+              "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv.png"}},
+              "id": "play_favor",
+              "ns": "video",
+              "target": {"url": "play_favor"},
+              "title": "我的收藏"
+            }
+          ],
+          "ui_type": {
+            "name": "linearlayout_left",
+            "id": 202
+          },
+          "ns": "video",
+          "id": "",
+          "title": ""
+        },
+        {
+          "ui_type": {
+            "name": "block_sub_channel",
+            "id": 401
+          },
+          "ns": "video",
+          "blocks": [
+            {
+              "ui_type": {
+                "name": "tabs_horizontal",
+                "id": 311
+              },
+              "ns": "video",
+              "blocks": [
+                {
+                  "items": [
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001119861"},
+                      "title": "草原风暴",
+                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "hint": {"center": "评分: 9.2"},
+                      "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+                      "sub_title": "草原人民智斗反革命",
+                      "id": "o/V001119861",
+                      "times": {
+                        "updated": 1418731732,
+                        "created": 1418731732
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001119861"},
+                      "title": "草原风暴",
+                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "hint": {"center": "评分: 9.2"},
+                      "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+                      "sub_title": "草原人民智斗反革命",
+                      "id": "o/V001119861",
+                      "times": {
+                        "updated": 1418731732,
+                        "created": 1418731732
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001119861"},
+                      "title": "草原风暴",
+                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "hint": {"center": "评分: 9.2"},
+                      "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+                      "sub_title": "草原人民智斗反革命",
+                      "id": "o/V001119861",
+                      "times": {
+                        "updated": 1418731732,
+                        "created": 1418731732
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001119861"},
+                      "title": "草原风暴",
+                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "hint": {"center": "评分: 9.2"},
+                      "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+                      "sub_title": "草原人民智斗反革命",
+                      "id": "o/V001119861",
+                      "times": {
+                        "updated": 1418731732,
+                        "created": 1418731732
+                      }
+                    }
+                  ],
+                  "ui_type": {
+                    "row_count": 2,
+                    "name": "grid_media_land",
+                    "id": 411
+                  },
+                  "ns": "video",
+                  "id": "",
+                  "title": "娱乐"
+                },
+                {
+                  "items": [
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001123394"},
+                      "title": "指控",
+                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "hint": {"left": "更新至20集"},
+                      "desc": "",
+                      "sub_title": "十个经典查办案例",
+                      "id": "o/V001123394",
+                      "times": {
+                        "updated": 1405092619,
+                        "created": 1405092619
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001123394"},
+                      "title": "指控",
+                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "hint": {"left": "更新至20集"},
+                      "desc": "",
+                      "sub_title": "十个经典查办案例",
+                      "id": "o/V001123394",
+                      "times": {
+                        "updated": 1405092619,
+                        "created": 1405092619
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001123394"},
+                      "title": "指控",
+                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "hint": {"left": "更新至20集"},
+                      "desc": "",
+                      "sub_title": "十个经典查办案例",
+                      "id": "o/V001123394",
+                      "times": {
+                        "updated": 1405092619,
+                        "created": 1405092619
+                      }
+                    },
+                    {
+                      "ns": "video",
+                      "target": {"url": "o/V001123394"},
+                      "title": "指控",
+                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "hint": {"left": "更新至20集"},
+                      "desc": "",
+                      "sub_title": "十个经典查办案例",
+                      "id": "o/V001123394",
+                      "times": {
+                        "updated": 1405092619,
+                        "created": 1405092619
+                      }
+                    }
+                  ],
+                  "ui_type": {
+                    "row_count": 2,
+                    "name": "grid_media_land",
+                    "id": 411
+                  },
+                  "ns": "video",
+                  "id": "",
+                  "title": "社会"
+                }
+              ],
+              "id": "",
+              "title": ""
+            },
+            {
+              "images": {},
+              "id": "c/news",
+              "ns": "video",
+              "target": {"url": "c/news"},
+              "title": "更多"
+            }
+          ],
+          "id": "",
+          "title": ""
+        }
+      ],
+      "title": "热点",
+      "meta": {
+        "o_type": "album",
+        "o_id": "hot.r"
+      },
+      "ns": "video",
+      "id": "hot.r"
+    },
+    {
+      "ui_type": {
+        "name": "block_port",
+        "id": 301
+      },
+      "blocks": [
+        {
+          "items": [
+            {
+              "ui_type": {
+                "name": "list_category_land",
+                "id": 421
+              },
+              "target": {"url": "c/tv"},
+              "title": "电视剧",
+              "images": {
+                "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01fqQpDxePp/f2zGofXPuCNVdU.jpg"},
+                "left_top_corner": {"url": "http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"},
+                "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01rxilGU8pR/ilxRotUdLxAM36.png"}
+              },
+              "ns": "video",
+              "id": "c/tv"
+            },
+            {
+              "ui_type": {
+                "name": "list_category_land",
+                "id": 421
+              },
+              "target": {"url": "c/movie"},
+              "title": "电影",
+              "images": {
+                "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01ayiAVYXbf/8Sds0zWuXvsW9E.jpg"},
+                "left_top_corner": {"url": "http://img1.imgtn.bdimg.com/it/u=2514004641,3479236838&fm=23&gp=0.jpg"},
+                "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01I1m8Lc90h/gkPDl8pOV7HuGp.png"}
+              },
+              "ns": "video",
+              "id": "c/movie"
+            }
+          ],
+          "ui_type": {
+            "row_count": 2,
+            "name": "grid_block_selection",
+            "id": 432
+          },
+          "ns": "video",
+          "id": "",
+          "title": ""
+        }
+      ],
+      "title": "分类",
+      "meta": {
+        "o_type": "album",
+        "o_id": "category.r"
+      },
+      "ns": "video",
+      "id": "category.r"
+    },
+    {
+      "ui_type": {
+        "name": "block_port",
+        "id": 301
+      },
+      "blocks": [
+        {
+          "items": [
+            {
+              "ui_type": {
+                "name": "grid_item_selection",
+                "id": 431
+              },
+              "ns": "video",
+              "target": {"url": "o/V001123394"},
+              "title": "指控",
+              "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+              "hint": {"left": "更新至20集"},
+              "desc": "",
+              "sub_title": "十个经典查办案例",
+              "id": "o/V001123394",
+              "times": {
+                "updated": 1405092619,
+                "created": 1405092619
+              }
+            },
+            {
+              "ui_type": {
+                "name": "grid_item_selection",
+                "id": 431
+              },
+              "ns": "video",
+              "target": {"url": "o/V001119861"},
+              "title": "草原风暴",
+              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "hint": {"center": "评分: 9.2"},
+              "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
+              "sub_title": "草原人民智斗反革命",
+              "id": "o/V001119861",
+              "times": {
+                "updated": 1418731732,
+                "created": 1418731732
+              }
+            }
+          ],
+          "ui_type": {
+            "row_count": 2,
+            "name": "grid_block_selection",
+            "id": 432
+          },
+          "ns": "video",
+          "id": "",
+          "title": ""
+        }
+      ],
+      "title": "精选",
+      "meta": {
+        "o_type": "album",
+        "o_id": "choice.r"
+      },
+      "ns": "video",
+      "id": "choice.r"
+    }
+  ],
+  "times": {
+    "updated": 0,
+    "created": 0
+  }
+}
