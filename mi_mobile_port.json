@@ -295,7 +295,7 @@
                 "name":"linearlayout_none",
                 "id":204
               },
-              "title": "更多"
+              "title": "更多资讯"
             }
           ],
           "id": "",
@@ -317,46 +317,34 @@
       },
       "blocks": [
         {
-          "items": [
-            {
-              "ui_type": {
-                "name": "list_category_land",
-                "id": 421
-              },
-              "target": {"url": "c/tv"},
-              "title": "电视剧",
-              "images": {
-                "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01fqQpDxePp/f2zGofXPuCNVdU.jpg"},
-                "left_top_corner": {"url": "http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"},
-                "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01rxilGU8pR/ilxRotUdLxAM36.png"}
-              },
-              "ns": "video",
-              "id": "c/tv"
-            },
-            {
-              "ui_type": {
-                "name": "list_category_land",
-                "id": 421
-              },
-              "target": {"url": "c/movie"},
-              "title": "电影",
-              "images": {
-                "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01ayiAVYXbf/8Sds0zWuXvsW9E.jpg"},
-                "left_top_corner": {"url": "http://img1.imgtn.bdimg.com/it/u=2514004641,3479236838&fm=23&gp=0.jpg"},
-                "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01I1m8Lc90h/gkPDl8pOV7HuGp.png"}
-              },
-              "ns": "video",
-              "id": "c/movie"
-            }
-          ],
           "ui_type": {
-            "row_count": 2,
-            "name": "grid_block_selection",
-            "id": 432
+            "name": "list_category_land",
+            "id": 421
+          },
+          "target": {"url": "c/tv"},
+          "title": "电视剧",
+          "images": {
+            "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01fqQpDxePp/f2zGofXPuCNVdU.jpg"},
+            "left_top_corner": {"url": "http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"},
+            "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01rxilGU8pR/ilxRotUdLxAM36.png"}
           },
           "ns": "video",
-          "id": "",
-          "title": ""
+          "id": "c/tv"
+        },
+        {
+          "ui_type": {
+            "name": "list_category_land",
+            "id": 421
+          },
+          "target": {"url": "c/movie"},
+          "title": "电影",
+          "images": {
+            "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01ayiAVYXbf/8Sds0zWuXvsW9E.jpg"},
+            "left_top_corner": {"url": "http://img1.imgtn.bdimg.com/it/u=2514004641,3479236838&fm=23&gp=0.jpg"},
+            "icon": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01I1m8Lc90h/gkPDl8pOV7HuGp.png"}
+          },
+          "ns": "video",
+          "id": "c/movie"
         }
       ],
       "title": "分类",
@@ -432,7 +420,7 @@
     }
   ],
   "times": {
-    "updated": 0,
+    "updated": 1,
     "created": 0
   }
 }
