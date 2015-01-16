@@ -20,7 +20,7 @@ public class TabsGsonLoader extends BaseGsonLoader<GenericBlock<DisplayItem>> {
 
     @Override
     public void setLoaderURL(DisplayItem item) {
-        calledURL = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mi_mobile_port.json";
+        calledURL = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
     }
 
     public TabsGsonLoader(Context context, DisplayItem item) {

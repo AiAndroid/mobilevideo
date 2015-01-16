@@ -61,7 +61,7 @@ public class SearchActivty extends MainActivity{
 
     @Override
     protected Class getFragmentClass(Block<DisplayItem> block){
-        if(block.id.endsWith(".choice"))
+        if(block.id.endsWith(".choice") || block.id.endsWith(".r"))
             return MetroFragment.class;
 
         return ListFragment.class;

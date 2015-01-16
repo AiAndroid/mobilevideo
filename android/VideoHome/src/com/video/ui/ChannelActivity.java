@@ -77,7 +77,7 @@ public class ChannelActivity extends  MainActivity {
     }
 
     protected Class getFragmentClass(Block<DisplayItem> block){
-        if(block.id.endsWith(".choice"))
+        if(block.id.endsWith(".choice") || block.id.endsWith(".r"))
             return MetroFragment.class;
 
         return ListFragment.class;
