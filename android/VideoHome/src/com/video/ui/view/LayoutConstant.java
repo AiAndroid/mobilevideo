@@ -23,6 +23,7 @@ public class LayoutConstant {
     public final static int linearlayout_filter_select      = 212;//过滤器UI使用
     public final static int linearlayout_filter_select_item = 213;//过滤器单个元素使用
     public final static int linearlayout_search             = 214;//search UI
+    public final static int linearlayout_single_desc        = 215;//描述
 
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
@@ -48,4 +49,11 @@ public class LayoutConstant {
     public final static int grid_item_selection  = 431;//------------grid----------------精选
     public final static int grid_block_selection = 432;//------------grid----------------精选
     public final static int list_rich_header   = 441;//--------------------------------排行
+    public final static int channel_list_long_hot   = 451; //频道 列表 显示hot
+    public final static int channel_list_long_rate  = 452; //频道 列表 显示rate
+    public final static int channel_list_short      = 453; //频道 资讯
+
+
+
+
 }
