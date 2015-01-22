@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
@@ -43,8 +44,25 @@ public abstract class BaseCardView  extends RelativeLayout {
     }
 
     protected static int media_item_padding = -1;
-    protected void launcherAction(Context context, DisplayItem item){
-        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.type + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
+    public static void launcherAction(Context context, DisplayItem item){
+        Log.d("click action", "item ="+item);
+        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.target + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
+
+        if(item.target != null && item.target.entity != null) {
+            if(item.target.entity.endsWith("pvideo")) {
+                item.type = "item";
+            }else if(item.target.entity.endsWith("svideo")) {
+                item.type = "album";
+            }else if(item.target.entity.endsWith("album_collection")) {
+                item.type = "album";
+            }else if(item.target.entity.endsWith("album")) {
+                item.type = "album";
+            }
+        }
+
+        if(item.id.endsWith("play_history") || item.id.endsWith("play_offline") || item.id.endsWith("play_favor")){
+            item.type = "local_album";
+        }
 
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);

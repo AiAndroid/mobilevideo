@@ -53,9 +53,10 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         mLoadingView.setVisibility(View.GONE);
 
         //have data
-        if(false && tab.items != null && tab.items.size() > 0){
+        if(false && tab.blocks != null && tab.blocks.size()>0&&
+                tab.blocks.get(0).items != null && tab.blocks.get(0).items.size() > 0){
             //construct UI directly
-            addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+            addViewPort(createListContentView(tab.blocks.get(0)), LayoutConstant.single_view, 0, 0);
         }else {
             addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
             loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
@@ -120,7 +121,7 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         //first page
         if (mVidoeInfo == null) {
             mVidoeInfo = result;
-            adapter = new RelativeAdapter(mVidoeInfo.blocks.get(0).items);
+            adapter = new RelativeAdapter(mVidoeInfo.blocks.get(0).blocks.get(0).items);
 
             //update UI
             listView.setAdapter(adapter);
@@ -130,8 +131,8 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
             if(result.blocks.size() > 0) {
 
-                mVidoeInfo.blocks.get(0).items.addAll(result.blocks.get(0).items);
-                adapter.changeContent(mVidoeInfo.blocks.get(0).items);
+                mVidoeInfo.blocks.get(0).blocks.get(0).items.addAll(result.blocks.get(0).blocks.get(0).items);
+                adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(0).items);
                 adapter.notifyDataSetChanged();
             }
         }

@@ -168,10 +168,23 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         Log.d(TAG, "addVideoTestData");
     }
 
+    protected void mockTitmes(GenericBlock<DisplayItem> _contents){
+        if(_contents.times == null){
+            _contents.times = new DisplayItem.Times();
+        }
+
+        for(Block item :_contents.blocks){
+            if(_contents.times.updated <item.times.updated){
+                _contents.times.updated = item.times.updated;
+            }
+        }
+    }
+
     protected void updateTabsAndMetroUI(GenericBlock<DisplayItem> content){
         if(content == null || content.blocks == null ){
             return;
         }
+        mockTitmes(content);
 
         if(_contents != null ){
             if(_contents.times.updated == content.times.updated) {
@@ -242,7 +255,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     }
 
     protected Class getFragmentClass2(Block<DisplayItem> block){
-        return RecyclerFragment.class;
+        return MetroFragment.class;
     }
 
     protected boolean isNeedUserTab = false;

@@ -39,7 +39,7 @@
                         "target":"album"
                     },
                     "ui_type":{
-                        "name":"grid_selection",
+                        "name":"list_hot",
                         "id":431,
                         "show_score":1,
                         "show_rank":1

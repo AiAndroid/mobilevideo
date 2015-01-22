@@ -54,11 +54,11 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
     private  ArrayList<View> viewList = new ArrayList<View>();
     private void initUI(ArrayList<DisplayItem> items){
         content = items;
-        View root = View.inflate(getContext(), R.layout.ads_viewflipper,  null);
+        View root = View.inflate(getContext(), R.layout.ads_viewflipper,  this);
         viewFlipper = (ViewPager) root.findViewById(R.id.image_flipper);
         page_indicator = (TextView) root.findViewById(R.id.page_indicator);
 
-        addView(root);
+        //addView(root);
 
         viewList.add(getImageView(items.get(items.size()-1)));
         for(DisplayItem item: items) {

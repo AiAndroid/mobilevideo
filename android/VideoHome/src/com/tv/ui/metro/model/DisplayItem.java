@@ -93,15 +93,23 @@ public class DisplayItem implements Serializable{
 	}
     public static class Target implements Serializable{
         private static final long serialVersionUID = 1L;
-        public String action;
+        public String entity;
         public String params;
         public String url;
+
+        public String toString(){
+            return "url: "+url + " entity:" +entity;
+        }
     }
 
     public static class Hint extends LinkedHashMap<String, String> implements Serializable{
         public String left() {return  get("left");}
         public String mid()  {return  get("mid");}
         public String right(){return  get("right");}
+
+        public String toString(){
+            return  "hint left:"+left() + " mid:"+mid() + " right:"+right();
+        }
     }
 
 
@@ -120,7 +128,7 @@ public class DisplayItem implements Serializable{
 
 	public String toString() {
 		return " ns:" + ns + " type:" + type + " target=" + target + " id:" + id + " name:" + title + "images:"
-				+ images + " _ui:" + ui_type;
+				+ images + " _ui:" + ui_type + " hint: "+hint;
 	}
 
     @Override

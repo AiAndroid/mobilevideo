@@ -36,7 +36,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChannelActivity">
+        <activity android:name=".ChannelActivity"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -45,7 +46,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SearchActivty">
+        <activity android:name=".SearchActivty"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

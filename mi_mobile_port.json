@@ -5,14 +5,18 @@
         "name": "block_port",
         "id": 301
       },
+      "ns": "video",
       "blocks": [
         {
           "items": [
             {
               "ns": "video",
-              "target": {"url": "o/V001119861"},
+              "target": {
+                "url": "o/V001119861",
+                "entity": "pvideo"
+              },
               "title": "草原风暴",
-              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "images": {"poster": {}},
               "hint": {"center": "评分: 9.2"},
               "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
               "sub_title": "草原人民智斗反革命",
@@ -24,9 +28,12 @@
             },
             {
               "ns": "video",
-              "target": {"url": "o/V001119861"},
+              "target": {
+                "url": "o/V001119861",
+                "entity": "pvideo"
+              },
               "title": "草原风暴",
-              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "images": {"poster": {}},
               "hint": {"center": "评分: 9.2"},
               "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
               "sub_title": "草原人民智斗反革命",
@@ -55,7 +62,10 @@
               },
               "id": "c/tv",
               "ns": "video",
-              "target": {"url": "c/tv"},
+              "target": {
+                "url": "c/tv",
+                "entity": "album_collection"
+              },
               "title": "电视剧"
             },
             {
@@ -66,7 +76,10 @@
               },
               "id": "c/movie",
               "ns": "video",
-              "target": {"url": "c/movie"},
+              "target": {
+                "url": "c/movie",
+                "entity": "album_collection"
+              },
               "title": "电影"
             },
             {
@@ -77,7 +90,10 @@
               },
               "id": "c/variety",
               "ns": "video",
-              "target": {"url": "c/variety"},
+              "target": {
+                "url": "c/variety",
+                "entity": "album_collection"
+              },
               "title": "综艺"
             },
             {
@@ -88,7 +104,10 @@
               },
               "id": "c/category",
               "ns": "video",
-              "target": {"url": "c/category"},
+              "target": {
+                "url": "c/category",
+                "entity": "album_collection"
+              },
               "title": "全部"
             }
           ],
@@ -106,21 +125,21 @@
               "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_play_his.png"}},
               "id": "play_history",
               "ns": "video",
-              "target": {"url": "play_history"},
+              "target": {"url": ""},
               "title": "播放历史"
             },
             {
               "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_offline.png"}},
               "id": "play_offline",
               "ns": "video",
-              "target": {"url": "play_offline"},
+              "target": {"url": ""},
               "title": "我的离线"
             },
             {
               "images": {"icon": {"url": "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/server_res/quick_entry_tv.png"}},
               "id": "play_favor",
               "ns": "video",
-              "target": {"url": "play_favor"},
+              "target": {"url": ""},
               "title": "我的收藏"
             }
           ],
@@ -150,9 +169,12 @@
                   "items": [
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001119861"},
+                      "target": {
+                        "url": "o/V001119861",
+                        "entity": "pvideo"
+                      },
                       "title": "草原风暴",
-                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"center": "评分: 9.2"},
                       "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
                       "sub_title": "草原人民智斗反革命",
@@ -164,9 +186,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001119861"},
+                      "target": {
+                        "url": "o/V001119861",
+                        "entity": "pvideo"
+                      },
                       "title": "草原风暴",
-                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"center": "评分: 9.2"},
                       "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
                       "sub_title": "草原人民智斗反革命",
@@ -178,9 +203,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001119861"},
+                      "target": {
+                        "url": "o/V001119861",
+                        "entity": "pvideo"
+                      },
                       "title": "草原风暴",
-                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"center": "评分: 9.2"},
                       "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
                       "sub_title": "草原人民智斗反革命",
@@ -192,9 +220,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001119861"},
+                      "target": {
+                        "url": "o/V001119861",
+                        "entity": "pvideo"
+                      },
                       "title": "草原风暴",
-                      "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"center": "评分: 9.2"},
                       "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
                       "sub_title": "草原人民智斗反革命",
@@ -218,9 +249,12 @@
                   "items": [
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001123394"},
+                      "target": {
+                        "url": "o/V001123394",
+                        "entity": "pvideo"
+                      },
                       "title": "指控",
-                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"left": "更新至20集"},
                       "desc": "",
                       "sub_title": "十个经典查办案例",
@@ -232,9 +266,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001123394"},
+                      "target": {
+                        "url": "o/V001123394",
+                        "entity": "pvideo"
+                      },
                       "title": "指控",
-                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"left": "更新至20集"},
                       "desc": "",
                       "sub_title": "十个经典查办案例",
@@ -246,9 +283,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001123394"},
+                      "target": {
+                        "url": "o/V001123394",
+                        "entity": "pvideo"
+                      },
                       "title": "指控",
-                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"left": "更新至20集"},
                       "desc": "",
                       "sub_title": "十个经典查办案例",
@@ -260,9 +300,12 @@
                     },
                     {
                       "ns": "video",
-                      "target": {"url": "o/V001123394"},
+                      "target": {
+                        "url": "o/V001123394",
+                        "entity": "pvideo"
+                      },
                       "title": "指控",
-                      "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+                      "images": {"poster": {}},
                       "hint": {"left": "更新至20集"},
                       "desc": "",
                       "sub_title": "十个经典查办案例",
@@ -287,44 +330,44 @@
               "title": ""
             },
             {
-              "images": {},
-              "id": "c/news",
-              "ns": "video",
-              "target": {"url": "c/news"},
-              "ui_type":{
-                "name":"linearlayout_none",
-                "id":204
+              "ui_type": {
+                "name": "linearlayout_none",
+                "id": 204
               },
-              "title": "更多资讯"
+              "target": {
+                "url": "c/news",
+                "entity": "album_collection"
+              },
+              "title": "更多",
+              "images": {},
+              "ns": "video",
+              "id": "c/news"
             }
           ],
           "id": "",
           "title": ""
         }
       ],
-      "title": "热点",
-      "meta": {
-        "o_type": "album",
-        "o_id": "hot.r"
-      },
-      "ns": "video",
-      "id": "hot.r"
+      "id": "hot.r",
+      "title": "热点"
     },
     {
       "ui_type": {
         "name": "block_port",
         "id": 301
       },
+      "ns": "video",
       "blocks": [
         {
           "ui_type": {
             "name": "list_category_land",
             "id": 421
           },
-          "target": {"url": "c/tv"},
+          "target": {
+            "url": "c/tv",
+            "entity": "album_collection"
+          },
           "title": "电视剧",
-          "sub_title":"共30239部",
-          "desc":"形似走揉，固件起源，离婚律师",
           "images": {
             "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01fqQpDxePp/f2zGofXPuCNVdU.jpg"},
             "left_top_corner": {"url": "http://img3.imgtn.bdimg.com/it/u=3028821154,3417087429&fm=23&gp=0.jpg"},
@@ -338,10 +381,11 @@
             "name": "list_category_land",
             "id": 421
           },
-          "target": {"url": "c/movie"},
+          "target": {
+            "url": "c/movie",
+            "entity": "album_collection"
+          },
           "title": "电影",
-          "sub_title":"共82939部",
-          "desc":"寻弄高手，无处客套，爱别离，复仇着脸盟",
           "images": {
             "poster": {"url": "http://image.box.xiaomi.com/mfsv2/download/s010/p01ayiAVYXbf/8Sds0zWuXvsW9E.jpg"},
             "left_top_corner": {"url": "http://img1.imgtn.bdimg.com/it/u=2514004641,3479236838&fm=23&gp=0.jpg"},
@@ -349,142 +393,17 @@
           },
           "ns": "video",
           "id": "c/movie"
-        },
-        {
-          "title":"综艺",
-          "sub_title":"共82939部",
-          "desc":"爸爸去哪儿，我是歌手，中国毫升硬，娱乐百分百",
-          "id":"c/variety",
-          "target": {"url": "c/variety"},
-          "type":"album",
-          "ns":"video",
-          "images":{
-            "poster":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01wbyShd38C/WOrlRAzr4QzE0w.png"
-            },
-            "icon":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p016TdRRiyyq/u01lPWJSMNTnCa.png"
-            },
-            "left_top_corner":{
-              "url":"http://img4.imgtn.bdimg.com/it/u=1742052273,3005588735&fm=23&gp=0.jpg"
-            }
-          },
-          "ui_type":{
-            "name":"list_category_land",
-            "id":421
-          }
-        },
-        {
-          "title":"动漫",
-          "sub_title":"共82939部",
-          "desc":"还这王，热血搞笑，麻辣教师，乱码",
-          "id":"c/cartoon",
-          "target": {"url": "c/cartoon"},
-          "type":"album",
-          "ns":"video",
-          "images":{
-            "poster":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017CFCbV01Q/1LlxopwIuIdAn1.png"
-            },
-            "icon":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01f4N8kDfGE/mpLB8rCoebnB8H.png"
-            },
-            "left_top_corner":{
-              "url":"http://img2.imgtn.bdimg.com/it/u=3156077000,4216896940&fm=23&gp=0.jpg"
-            }
-          },
-          "ui_type":{
-            "name":"list_category_land",
-            "id":421
-          }
-        },
-        {
-          "title":"纪录片",
-          "sub_title":"共82939部",
-          "desc":"放也求生，太空，动物本本，地球太空",
-          "id":"c/documentary",
-          "target": {"url": "c/documentary"},
-          "type":"album",
-          "ns":"video",
-          "images":{
-            "poster":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01KHp5Kuca3/VxBhpRiYna2fIq.png"
-            },
-            "icon":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01wFXzKUMpV/Fottie1UJmsc15.png"
-            },
-            "left_top_corner":{
-              "url":"http://img4.imgtn.bdimg.com/it/u=1742052273,3005588735&fm=23&gp=0.jpg"
-            }
-          },
-          "ui_type":{
-            "name":"list_category_land",
-            "id":421
-          }
-        },
-        {
-          "title":"资讯",
-          "sub_title":"共82939部",
-          "desc":"放也求生，太空，动物本本，地球太空",
-          "id":"c/news",
-          "target": {"url": "c/news"},
-          "type":"album",
-          "ns":"video",
-          "images":{
-            "poster":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01KHp5Kuca3/VxBhpRiYna2fIq.png"
-            },
-            "icon":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01wFXzKUMpV/Fottie1UJmsc15.png"
-            },
-            "left_top_corner":{
-              "url":"http://img4.imgtn.bdimg.com/it/u=1742052273,3005588735&fm=23&gp=0.jpg"
-            }
-          },
-          "ui_type":{
-            "name":"list_category_land",
-            "id":421
-          }
-        },
-        {
-          "title":"游戏竞技场",
-          "sub_title":"共82939部",
-          "desc":"放也求生，太空，动物本本，地球太空",
-          "id":"game",
-          "target": {"url": "c/game"},
-          "type":"album",
-          "ns":"video",
-          "images":{
-            "poster":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p01DAn1xV7Ji/pvry7WggSGVwGz.jpg"
-            },
-            "icon":{
-              "url":"http://image.box.xiaomi.com/mfsv2/download/s010/p017HigRzfrS/xzIBOpBi0AaA0w.png"
-            },
-            "left_top_corner":{
-              "url":"http://img4.imgtn.bdimg.com/it/u=3579155955,7052767&fm=23&gp=0.jpg"
-            }
-          },
-          "ui_type":{
-            "name":"list_category_land",
-            "id":421
-          }
         }
-
       ],
-      "title": "分类",
-      "meta": {
-        "o_type": "album",
-        "o_id": "category.r"
-      },
-      "ns": "video",
-      "id": "category.r"
+      "id": "category.r",
+      "title": "分类"
     },
     {
       "ui_type": {
         "name": "block_port",
         "id": 301
       },
+      "ns": "video",
       "blocks": [
         {
           "items": [
@@ -494,9 +413,12 @@
                 "id": 431
               },
               "ns": "video",
-              "target": {"url": "o/V001123394"},
+              "target": {
+                "url": "o/V001123394",
+                "entity": "pvideo"
+              },
               "title": "指控",
-              "images": {"poster": {"url": "http://pic7.qiyipic.com/image/20140716/07/c1/a_100005985_m_600_m1.jpg"}},
+              "images": {"poster": {}},
               "hint": {"left": "更新至20集"},
               "desc": "",
               "sub_title": "十个经典查办案例",
@@ -512,9 +434,12 @@
                 "id": 431
               },
               "ns": "video",
-              "target": {"url": "o/V001119861"},
+              "target": {
+                "url": "o/V001119861",
+                "entity": "pvideo"
+              },
               "title": "草原风暴",
-              "images": {"poster": {"url": "http://pic2.qiyipic.com/image/20141218/72/a2/v_108796203_m_600_m1.jpg"}},
+              "images": {"poster": {}},
               "hint": {"center": "评分: 9.2"},
               "desc": "1958年的早春，青海黄仁藏族地区的牧民们在党的领导下，走上了合作化的道路。反动活佛拉莫茸和大干户多尔吉预感到草原上的合作化运动已经从根本上动摇了他们奴隶主统治的基础。因此，他们藏匿了一个解放时漏网的蒋匪少校军官马乙奴，企图搞垮牧业社，进一步发动反革命叛乱。他们利用宗教和迷信拉拢群众，迫使牧民们怀疑并远离牧业社。拉莫茸指使小喇嘛旦增在牧业社修建定居点的工地上偷偷地埋上一块刻有经文的石头。牧民们响应牧业社的号召，结束流浪迁徙的游牧生活，他们兴高采烈地盖定居房子。牧业社主任尕布藏在挖地基时，挖出了一块经石，这块经石的出现，令反革命分子有了可乘之机。。。",
               "sub_title": "草原人民智斗反革命",
@@ -535,17 +460,8 @@
           "title": ""
         }
       ],
-      "title": "精选",
-      "meta": {
-        "o_type": "album",
-        "o_id": "choice.r"
-      },
-      "ns": "video",
-      "id": "choice.r"
+      "id": "choice.r",
+      "title": "精选"
     }
-  ],
-  "times": {
-    "updated": 1,
-    "created": 0
-  }
+  ]
 }
