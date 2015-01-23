@@ -23,6 +23,7 @@ import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.metro.MetroCursorView;
+import com.video.ui.view.subview.BaseCardView;
 import com.video.ui.view.subview.ChannelVideoItemView;
 
 import java.util.ArrayList;
@@ -170,18 +171,13 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
     AdapterView.OnItemClickListener itemClicker = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
 
-                Object tag = view.getTag();
-                if(tag != null && tag instanceof DisplayItem){
-                    DisplayItem content = (DisplayItem)tag;
-                    intent.setData(Uri.parse("mvschema://" + content.ns + "/" + content.type + "?rid=" + content.id));
-                    intent.putExtra("item", content);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    view.getContext().startActivity(intent);
-                }
-            }catch (Exception ne){ne.printStackTrace();}
+            Object tag = view.getTag();
+            if(tag != null && tag instanceof DisplayItem){
+                DisplayItem content = (DisplayItem)tag;
+                BaseCardView.launcherAction(getActivity(), content);
+            }
+
         }
     };
 
@@ -215,11 +211,15 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         }
 
 
+        private int getLeftBottomUIType(){
+            return mVidoeInfo.blocks.get(0).blocks.get(0).ui_type.id;
+        }
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             ChannelVideoItemView root = null;
             if(items == null) {
                 root = new ChannelVideoItemView(getActivity());
+                root.setUIType(getLeftBottomUIType());
             }else {
                 if(view == null) {
                     root = new ChannelVideoItemView(getActivity());
@@ -229,7 +229,8 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
 
                 root.setTag(getItem(i));
-                root.setContent((DisplayItem) getItem(i));
+                root.setUIType(getLeftBottomUIType());
+                root.setContent((DisplayItem) getItem(i), i);
             }
 
             int size = getCount();

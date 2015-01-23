@@ -102,7 +102,7 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         if(account.length == 0) {
             mAccountManager.addAccount("com.xiaomi", (String)null, (String[])null, (Bundle)null, this, null, (Handler)null);
         }else {
-            Toast.makeText(getBaseContext(), account[0].toString(), Toast.LENGTH_LONG).show();
+            Log.d(TAG, "xiaimi account: " + account[0].toString());
             mAccountManager.removeAccount(account[0], null, (Handler) null);
         }
     }

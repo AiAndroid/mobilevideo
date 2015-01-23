@@ -146,7 +146,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
     public void setLoaderURL(DisplayItem _item) {
         mItem = _item;
         //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+page;
-        String url = CommonUrl.BaseURL + mItem.target.url + "&page="+page;
+        String url = CommonUrl.BaseURL + mItem.target.url + "?page="+page;
         //TODO, just return test data list
         //String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
@@ -154,7 +154,9 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
 
     public boolean hasMoreData() {
         //TODO
-        if(mResult != null && mResult.blocks != null && mResult.blocks.size() > 0 && mResult.blocks.get(0).items.size() == page_size){
+        if(mResult != null && mResult.blocks != null && mResult.blocks.size() > 0
+                && mResult.blocks.get(0).blocks != null && mResult.blocks.get(0).blocks.size() > 0 &&
+                mResult.blocks.get(0).blocks.get(0).items != null && mResult.blocks.get(0).blocks.get(0).items.size() == page_size){
             return  true;
         }
         return false;
@@ -171,7 +173,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
         mIsLoading = true;
         //
         //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+(page);
-        String url = CommonUrl.BaseURL + mItem.target.url + "&page="+(page);
+        String url = CommonUrl.BaseURL + mItem.target.url + "?page="+(page);
         //TODO, just return test data list
         //String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         Log.d("nextpage", "page="+(page));

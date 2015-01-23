@@ -12,12 +12,17 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
+import com.video.ui.view.LayoutConstant;
 
 /**
  * Created by liuhuadong on 12/2/14.
  */
 public class ChannelVideoItemView extends RelativeLayout {
 
+    private int ui_type = LayoutConstant.channel_list_long_hot;
+    public void setUIType(int type){
+        ui_type = type;
+    }
     public ChannelVideoItemView(Context context) {
         this(context, null, 0);
     }
@@ -30,7 +35,7 @@ public class ChannelVideoItemView extends RelativeLayout {
     }
 
     DisplayItem content;
-    public void setContent(DisplayItem item){
+    public void setContent(DisplayItem item, int position){
         content = item;
 
         title.setText(item.title);
@@ -47,29 +52,27 @@ public class ChannelVideoItemView extends RelativeLayout {
         // title
         title.setText(item.title);
         // subtitle
-        subtitle.setText("分类");
+        subtitle.setText(item.sub_title);
         // actor
-        actors.setText("演员");
+        actors.setText(item.desc);
 
         // score
-        if(content.ui_type.show_score == 0){
+        if(ui_type == LayoutConstant.channel_list_long_hot){
             convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
+            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.VISIBLE);
             score = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
+            score.setText(String.format(" %1$s", item.value));
         }else{
             convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.VISIBLE);
             score = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
-        }
-
-        if(content.ui_type.show_score == 1){
-            score.setText(String.format("%.1f", 9.9f));
-        }else{
-            score.setText(String.format(" %d", 100));
+            score.setText(String.format("%1$s", item.value));
         }
 
         // place
         if(content.ui_type.show_rank == 1){
             place.setVisibility(View.VISIBLE);
-            place.setText(getResources().getString(R.string.place_at, 0));
+            place.setText(getResources().getString(R.string.place_at, position+1));
         }else{
             place.setVisibility(View.INVISIBLE);
         }
@@ -97,26 +100,4 @@ public class ChannelVideoItemView extends RelativeLayout {
         line = convertView.findViewById(R.id.channel_rank_item_line);
         padding = convertView.findViewById(R.id.channel_rank_item_padding);
     }
-
-    OnClickListener clickListener = new OnClickListener(){
-        @Override
-        public void onClick(View view) {
-            try {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                if(content != null ){
-                    content.type = "item";
-                    intent.setData(Uri.parse("mvschema://" + content.ns + "/" + content.type + "?rid=" + content.id));
-                    intent.putExtra("item", content);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    view.getContext().startActivity(intent);
-                }else {
-                    //just for test
-                    intent.setData(Uri.parse("mvschema://video/item" /*+ item.type */ + "?rid=" + content.id));
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    view.getContext().startActivity(intent);
-                }
-
-            }catch (Exception ne){ne.printStackTrace();}
-        }
-    };
 }

@@ -14,7 +14,7 @@ public class DisplayItem implements Serializable{
         public int    row_count;
         public int    display_count;
         public int    show_score;
-        public int    show_rank;
+        public int    show_rank = 1;
         public UI clone(){
             UI item = new UI();
             item.name = name;
@@ -125,6 +125,7 @@ public class DisplayItem implements Serializable{
 	public UI         ui_type;
 	public Times      times;
     public Media      media;
+    public String     value;
 
 	public String toString() {
 		return " ns:" + ns + " type:" + type + " target=" + target + " id:" + id + " name:" + title + "images:"

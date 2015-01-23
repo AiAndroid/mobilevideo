@@ -58,11 +58,14 @@ public class CommonUrl {
 
 	private String getResolution() {
 		DisplayMetrics displaymetrics = mAppContext.getResources().getDisplayMetrics();
-		if (displaymetrics.heightPixels == 720) {
+		if (displaymetrics.widthPixels == 720) {
 			return "hd720";
-		} else if (displaymetrics.heightPixels == 1080) {
+		} else if (displaymetrics.widthPixels == 1080) {
 			return "hd1080";
-		} else if (displaymetrics.heightPixels == 2160) {
+		}else if (displaymetrics.widthPixels == 1440) {
+			return "hd1440";
+		}
+		else if (displaymetrics.widthPixels == 2160) {
 			return "hd2160";
 		} else {
 			return displaymetrics.widthPixels + "x" + displaymetrics.heightPixels;
