@@ -2,6 +2,7 @@ package com.video.ui.view;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Button;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -13,7 +14,7 @@ import com.video.ui.view.subview.*;
 public class ViewCreateFactory {
     public static View CreateBlockView(Context context,  Block<DisplayItem> item, Object tag){
         View view = null;
-        switch (item.ui_type.id){
+        switch (item.ui_type.id) {
             case LayoutConstant.imageswitcher:
                 view = new AdsBlockView(context, item.items, tag);
                 break;

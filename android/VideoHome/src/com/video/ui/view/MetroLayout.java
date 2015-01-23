@@ -126,6 +126,17 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         mViewList.add(new WeakReference<View>(child));
         View result = child;
         switch(celltype){
+            case LayoutConstant.linearlayout_single_desc: {
+                int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+                flp = new LayoutParams(width, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.topMargin = getPaddingTop() + rowOffset[0] + padding * (y + 1);
+                flp.rightMargin = getPaddingRight() + paddingLeft;
+                child.setFocusable(true);
+                addView(child, flp);
+                break;
+            }
             case LayoutConstant.single_view: {
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
                 flp = new LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT);

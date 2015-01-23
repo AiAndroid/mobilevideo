@@ -54,16 +54,38 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         mLoadingView.setVisibility(View.GONE);
 
         //have data
-        if(false && tab.blocks != null && tab.blocks.size()>0&&
-                tab.blocks.get(0).items != null && tab.blocks.get(0).items.size() > 0){
-            //construct UI directly
-            addViewPort(createListContentView(tab.blocks.get(0)), LayoutConstant.single_view, 0, 0);
-        }else {
-            addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
-            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
-            getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
+
+        //now we just get the data from server
+        addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+
+
+        if(tab.blocks != null && tab.blocks.size() > 0){
+
+            for(int i=0;i<tab.blocks.size();i++){
+                Block<DisplayItem> block = tab.blocks.get(i);
+                if(block.ui_type.id == LayoutConstant.linearlayout_single_desc){
+                    TextView textView = new TextView(getActivity());
+                    textView.setText(block.desc);
+                    textView.setBackgroundResource(R.drawable.com_block_n);
+                    listView.addHeaderView(textView, null, false);
+
+                    //no need filter and search
+                    if(getActivity().findViewById(R.id.channel_filte_btn) != null) {
+                        getActivity().findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
+                    }
+                    if(getActivity().findViewById(R.id.channel_search_btn) != null) {
+                        getActivity().findViewById(R.id.channel_search_btn).setVisibility(View.GONE);
+                    }
+
+                    break;
+                }
+            }
         }
 
+        loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
+        getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
+
+        //we just have one list view
         return v;
     }
 
@@ -122,7 +144,15 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         //first page
         if (mVidoeInfo == null) {
             mVidoeInfo = result;
-            adapter = new RelativeAdapter(mVidoeInfo.blocks.get(0).blocks.get(0).items);
+            for(int i=0;i<mVidoeInfo.blocks.get(0).blocks.size();i++) {
+                Block<VideoItem> block = mVidoeInfo.blocks.get(0).blocks.get(i);
+                if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                        block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                        block.ui_type.id == LayoutConstant.channel_list_short ) {
+                    adapter = new RelativeAdapter(block.items);
+                    break;
+                }
+            }
 
             //update UI
             listView.setAdapter(adapter);
@@ -132,8 +162,21 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
             if(result.blocks.size() > 0) {
 
-                mVidoeInfo.blocks.get(0).blocks.get(0).items.addAll(result.blocks.get(0).blocks.get(0).items);
-                adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(0).items);
+                int content_step = 0;
+                for(int i=0;i<result.blocks.get(0).blocks.size();i++) {
+                    Block<VideoItem> block = result.blocks.get(0).blocks.get(i);
+                    if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                            block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                            block.ui_type.id == LayoutConstant.channel_list_short ) {
+
+                        content_step = i;
+                        mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(block.items);
+                        break;
+                    }
+                }
+
+
+                adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(content_step).items);
                 adapter.notifyDataSetChanged();
             }
         }

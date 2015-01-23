@@ -223,10 +223,13 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
             args.putSerializable("tab",     content.blocks.get(i));
             args.putInt("index",            mTabs.getTabCount());
             args.putInt("tab_count",        content.blocks.size()+(isNeedUserTab?1:0));
+            /*
             if(i==0){
                 mTabsAdapter.addTab(mTabHost.newTabSpec(content.blocks.get(i).title).setIndicator(newTabIndicator(content.blocks.get(i).title, mTabs.getTabCount() == 0)),
                         getFragmentClass2(content.blocks.get(i)), args);
-            }else {
+            }else
+            */
+            {
                 mTabsAdapter.addTab(mTabHost.newTabSpec(content.blocks.get(i).title).setIndicator(newTabIndicator(content.blocks.get(i).title, mTabs.getTabCount() == 0)),
                         getFragmentClass(content.blocks.get(i)), args);
             }
