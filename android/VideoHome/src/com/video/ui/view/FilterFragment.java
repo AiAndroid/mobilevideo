@@ -44,7 +44,7 @@ public class FilterFragment extends Fragment {
             filteritem.ui_type.row_count     = 4;
             filteritem.ui_type.display_count = 11;
             filteritem.filters = new DisplayItem.Filter();
-            filteritem.filters.put("filters", createAreaFilter());
+            filteritem.filters.filters =  createAreaFilter();
 
             item.blocks.add(filteritem);
 
@@ -73,7 +73,7 @@ public class FilterFragment extends Fragment {
             filteritem.ui_type.row_count     = 4;
             filteritem.ui_type.display_count = 11;
             filteritem.filters = new DisplayItem.Filter();
-            filteritem.filters.put("filters", createTypeFilter());
+            filteritem.filters.filters = createTypeFilter();
 
             item.blocks.add(filteritem);
 
@@ -102,7 +102,7 @@ public class FilterFragment extends Fragment {
             filteritem.ui_type.row_count     = 4;
             filteritem.ui_type.display_count = 11;
             filteritem.filters = new DisplayItem.Filter();
-            filteritem.filters.put("filters", createYearFilter());
+            filteritem.filters.filters = createYearFilter();
 
             item.blocks.add(filteritem);
 
@@ -121,8 +121,8 @@ public class FilterFragment extends Fragment {
         for(String name: area)
         {
             DisplayItem.FilterItem item = new DisplayItem.FilterItem();
-            item.name = name;
-            item.fid = "0";
+            item.title  = name;
+            item.target= new DisplayItem.Target();
             filterItems.add(item);
         }
 
@@ -137,8 +137,8 @@ public class FilterFragment extends Fragment {
         for(String name: types)
         {
             DisplayItem.FilterItem item = new DisplayItem.FilterItem();
-            item.name = name;
-            item.fid = "0";
+            item.title  = name;
+            item.target= new DisplayItem.Target();
             filterItems.add(item);
         }
         return filterItems;
@@ -152,8 +152,8 @@ public class FilterFragment extends Fragment {
         for(String name: years)
         {
             DisplayItem.FilterItem item = new DisplayItem.FilterItem();
-            item.name = name;
-            item.fid = "0";
+            item.title  = name;
+            item.target= new DisplayItem.Target();
             filterItems.add(item);
         }
         return filterItems;

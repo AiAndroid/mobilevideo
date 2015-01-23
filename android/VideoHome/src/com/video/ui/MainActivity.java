@@ -296,7 +296,12 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
 
     private View newTabIndicator(String tabName, boolean focused){
         final String name = tabName;
-        View viewC  = View.inflate(this, R.layout.tab_view_indicator_item, null);
+        View viewC  = null;
+        if(MainActivity.this instanceof ChannelActivity){
+            viewC  = View.inflate(this, R.layout.tab_view_indicator_item_channel, null);
+        }else {
+            viewC  = View.inflate(this, R.layout.tab_view_indicator_item, null);
+        }
 
         TextView view = (TextView)viewC.findViewById(R.id.tv_tab_indicator);
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

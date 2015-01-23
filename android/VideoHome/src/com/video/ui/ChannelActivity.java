@@ -32,7 +32,7 @@ public class ChannelActivity extends  MainActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if(_contents != null && _contents.blocks.get(0).id.endsWith(".choice")) {
+                    if(_contents != null && (_contents.blocks.get(0).id.endsWith(".choice") || _contents.blocks.get(0).id.endsWith(".r") )) {
                         Block<DisplayItem> block = _contents.blocks.get(0);
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));

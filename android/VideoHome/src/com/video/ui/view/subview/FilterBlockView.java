@@ -106,9 +106,9 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                             mItemClick.onClick(v);
                         }else {
                             if(uiType == LayoutConstant.linearlayout_filter){
-                                if("-1".equals(item.fid)) {
+                                if(DisplayItem.FilterItem.custom_filter.equals(item.target.url)) {
                                     Block<DisplayItem> block = new Block<DisplayItem>();
-                                    block.title = item.name;
+                                    block.title = item.title;
                                     Intent intent = new Intent(Intent.ACTION_VIEW);
                                     intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
                                     intent.putExtra("item", block);
@@ -116,10 +116,11 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                                     getContext().startActivity(intent);
                                 }else {
                                     DisplayItem launchItem = new DisplayItem();
-                                    launchItem.title = item.name;
-                                    launchItem.type = "channelfilter";
-                                    launchItem.id = "channel_movie_usa";
+                                    launchItem.title = item.title;
+                                    launchItem.type = "album";
+                                    launchItem.id = item.target.url;
                                     launchItem.ns = "video";
+                                    launchItem.target = item.target;
                                     launcherAction(context, launchItem);
                                 }
                             }
@@ -127,7 +128,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                     }
                 });
 
-                mFiter.setText(item.name);
+                mFiter.setText(item.title);
                 ml.addItemViewPort(convertView, uiType == LayoutConstant.linearlayout_filter?LayoutConstant.linearlayout_filter_item:LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
                 step++;
 
@@ -222,7 +223,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
             final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-            mFiter.setText(item.name);
+            mFiter.setText(item.title);
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
 
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.channel_filter_selected);

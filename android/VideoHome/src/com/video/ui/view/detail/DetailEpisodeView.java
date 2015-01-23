@@ -45,8 +45,8 @@ public class DetailEpisodeView extends FrameLayout {
         ArrayList<DisplayItem.FilterItem> filterItems = new ArrayList<DisplayItem.FilterItem>();
         for(int i=1;i<=count;i++){
             DisplayItem.FilterItem item = new DisplayItem.FilterItem();
-            item.name = String.valueOf(i);
-            item.fid = "0";
+            item.title  = String.valueOf(i);
+            item.target = new DisplayItem.Target();
             filterItems.add(item);
         }
         return filterItems;
@@ -60,7 +60,7 @@ public class DetailEpisodeView extends FrameLayout {
         item.ui_type.row_count     = 4;
         item.ui_type.display_count = 11;
         item.filters = new DisplayItem.Filter();
-        item.filters.put("filters", createRecommendBlockItems(item.ui_type.display_count));
+        item.filters.filters = createRecommendBlockItems(item.ui_type.display_count);
 
         return item;
     }

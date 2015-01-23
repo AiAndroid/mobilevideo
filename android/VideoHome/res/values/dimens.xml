@@ -28,6 +28,7 @@
     <dimen name="nav_tab_text_size">14.5dp</dimen>
     <dimen name="tab_recommend_margin_left">60dp</dimen>
     <dimen name="tab_highlight_height">48dp</dimen>
+    <dimen name="tab_highlight_height_channel">40dp</dimen>
     
     <dimen name="nav_bar_margin_top">13dp</dimen>
     <dimen name="tab_content_container_margin_top">52dp</dimen>

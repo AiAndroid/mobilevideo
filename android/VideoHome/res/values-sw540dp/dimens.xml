@@ -2,6 +2,7 @@
     
     <dimen name="tab_highlight_width">75dp</dimen>
     <dimen name="tab_highlight_height">87dp</dimen>
+    <dimen name="tab_highlight_height_channel">72.5dp</dimen>
     
     <dimen name="nav_bar_margin_top">20dp</dimen>
     <dimen name="tab_content_container_margin_top">78dp</dimen>

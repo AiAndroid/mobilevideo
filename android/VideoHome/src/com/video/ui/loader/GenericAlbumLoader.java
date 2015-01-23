@@ -10,6 +10,7 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.tv.ui.metro.model.VideoItem;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 /**
@@ -47,23 +48,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }
                 else {
-                    /*
-                    if(mItem.id.equals("movie.channel")) {
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie.json";
-                    }
-                    else if(mItem.id.equals("tv.channel")){
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_tv.json";
-                    }else if(mItem.id.equals("variety.channel")){
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_variety.json";
-                    }else if(mItem.id.equals("documentary.channel")){
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_documentary.json";
-                    }else if(mItem.id.equals("cartoon.channel")){
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_cartoon.json";
-                    }else if(mItem.id.equals("channel_movie_usa")){
-                        url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_movie_usa.json";
-                    }*/
-
-                    url = CommonUrl.BaseURL + _item.target.url;
+                    url = CommonUrl.BaseURL + encode(_item.target.url);
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }
             }
@@ -145,11 +130,12 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
     @Override
     public void setLoaderURL(DisplayItem _item) {
         mItem = _item;
-        //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+page;
-        String url = CommonUrl.BaseURL + mItem.target.url + "?page="+page;
-        //TODO, just return test data list
-        //String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
+        String url = CommonUrl.BaseURL + encode(mItem.target.url) + "?page="+page;
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
+    }
+
+    protected static String encode(String name){
+       return name;
     }
 
     public boolean hasMoreData() {
@@ -173,7 +159,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
         mIsLoading = true;
         //
         //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+(page);
-        String url = CommonUrl.BaseURL + mItem.target.url + "?page="+(page);
+        String url = CommonUrl.BaseURL + encode(mItem.target.url) + "?page="+(page);
         //TODO, just return test data list
         //String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         Log.d("nextpage", "page="+(page));

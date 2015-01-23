@@ -68,15 +68,28 @@ public class DisplayItem implements Serializable{
         }
     }
 
-    public static class Filter extends LinkedHashMap<String, ArrayList<FilterItem>> implements Serializable{
+    public static class Filter  implements Serializable{
         private static final long serialVersionUID = 1L;
-        public ArrayList<FilterItem> filters(){return get("filters");};
+        public ArrayList<FilterItem> filters(){return filters;}
+
+        public ArrayList<FilterItem> filters;
+        public ArrayList<FilterType> all;
+
+        public static class FilterType implements Serializable{
+            private static final long serialVersionUID = 1L;
+
+            public String type;
+            public String title;
+            public ArrayList<String> tags;
+        }
     }
 
     public static class FilterItem implements Serializable{
         private static final long serialVersionUID = 1L;
-        public String name;
-        public String fid;
+        public String title;
+        public Target target;
+
+        public static String custom_filter = "custom_filter";
     }
 
 	public static class Times implements Serializable {
