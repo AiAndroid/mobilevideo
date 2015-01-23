@@ -52,7 +52,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
 
     int mUIType = -1;
-    public FilterBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filtes, final int uiType) {
+    public FilterBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filtes, final int uiType, final Block<DisplayItem> block) {
         super(context, null, 0);
         this.filtes = filtes;
         int selectIndex = 2;
@@ -107,11 +107,10 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         }else {
                             if(uiType == LayoutConstant.linearlayout_filter){
                                 if(DisplayItem.FilterItem.custom_filter.equals(item.target.url)) {
-                                    Block<DisplayItem> block = new Block<DisplayItem>();
-                                    block.title = item.title;
                                     Intent intent = new Intent(Intent.ACTION_VIEW);
                                     intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
                                     intent.putExtra("item", block);
+                                    intent.putExtra("title", item.title);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     getContext().startActivity(intent);
                                 }else {
@@ -208,7 +207,12 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
-    public static FilterBlockView createFilterSelectBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filters, int maxVisible) {
+    public ArrayList<String> getSelectedItems(){
+        return selectedItems;
+    }
+    private ArrayList<String> selectedItems = new ArrayList<String>();
+
+    public static FilterBlockView createFilterSelectBlockView(final Context context, final DisplayItem.Filter.FilterType filterType, int maxVisible) {
         final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
@@ -218,12 +222,13 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
 
         int itemHeight = 0;
-        for(DisplayItem.FilterItem item: filters) {
+        for(String title: filterType.tags) {
             View convertView = View.inflate(context, R.layout.filter_check_item_layout, null);
+            convertView.setTag(title + "("+filterType.type+")");
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
             final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
-            mFiter.setText(item.title);
+            mFiter.setText(title);
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
 
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.channel_filter_selected);
@@ -237,7 +242,12 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         imageView.setVisibility(GONE);
                         mFiter.setTextColor(context.getResources().getColor(R.color.text_color_deep_dark));
                         mFiter.setBackgroundResource(0);
+
+                        filterView.getSelectedItems().remove((String) v.getTag());
                     } else {
+
+                        filterView.getSelectedItems().add((String) v.getTag());
+
                         imageView.setVisibility(VISIBLE);
                         mFiter.setTextColor(context.getResources().getColor(R.color.orange));
                         mFiter.setBackgroundResource(R.drawable.editable_title_com_btn_bg_s);

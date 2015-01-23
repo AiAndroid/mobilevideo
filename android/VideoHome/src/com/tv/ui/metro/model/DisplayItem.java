@@ -74,6 +74,7 @@ public class DisplayItem implements Serializable{
 
         public ArrayList<FilterItem> filters;
         public ArrayList<FilterType> all;
+        public String                custom_filter_id_format;
 
         public static class FilterType implements Serializable{
             private static final long serialVersionUID = 1L;
@@ -88,8 +89,21 @@ public class DisplayItem implements Serializable{
         private static final long serialVersionUID = 1L;
         public String title;
         public Target target;
+        public String type;
 
         public static String custom_filter = "custom_filter";
+
+        @Override
+        public boolean equals(Object obj) {
+            if(obj == null)
+                return false;
+
+            if(obj instanceof FilterItem){
+                return  ((FilterItem)obj).title.equals(title);
+            }
+
+            return  false;
+        }
     }
 
 	public static class Times implements Serializable {

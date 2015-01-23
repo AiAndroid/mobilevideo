@@ -10,6 +10,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.loader.GenericAlbumLoader;
+import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
 
@@ -36,9 +37,15 @@ public class ChannelActivity extends  MainActivity {
                         Block<DisplayItem> block = _contents.blocks.get(0);
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("mvschema://video/filter?rid=" + block.id));
-                        intent.putExtra("item", block);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        for(Block<DisplayItem> eachB :block.blocks) {
+                            if (eachB.ui_type != null && eachB.ui_type.id == LayoutConstant.linearlayout_filter) {
+                                intent.putExtra("item", eachB);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+
+                                break;
+                            }
+                        }
                     }
                 } catch (Exception ne) {
                     ne.printStackTrace();

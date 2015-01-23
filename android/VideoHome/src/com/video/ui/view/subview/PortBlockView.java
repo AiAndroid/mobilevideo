@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
@@ -144,7 +145,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
             case LayoutConstant.linearlayout_episode:
             case LayoutConstant.linearlayout_filter:{
 
-                FilterBlockView bv = new FilterBlockView(getContext(), block.filters.filters(), block.ui_type.id);
+                FilterBlockView bv = new FilterBlockView(getContext(), block.filters.filters(), block.ui_type.id, (Block<DisplayItem>) block);
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
@@ -166,7 +167,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_filter_select:{
-                FilterBlockView child = FilterBlockView.createFilterSelectBlockView(getContext(), block.filters.filters(), 12);
+                FilterBlockView child = FilterBlockView.createFilterSelectBlockView(getContext(), block.filters.all.get(0), 12);
 
                 addView(child);
                 getDimens().height += child.getDimens().height;

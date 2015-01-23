@@ -46,7 +46,7 @@ public abstract class BaseCardView  extends RelativeLayout {
     protected static int media_item_padding = -1;
     public static void launcherAction(Context context, DisplayItem item){
         Log.d("click action", "item ="+item);
-        Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.target + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.target + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
 
         if(item.target != null && item.target.entity != null) {
             if(item.target.entity.endsWith("pvideo")) {

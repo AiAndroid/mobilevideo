@@ -22,6 +22,8 @@ public class VideoItem extends DisplayItem {
     public String                 publisher;
     public String                 phrase;
 
+    public Object                 clickObject;
+
     public static class Actor implements Serializable {
         private static final long serialVersionUID = 1L;
         public String id;
