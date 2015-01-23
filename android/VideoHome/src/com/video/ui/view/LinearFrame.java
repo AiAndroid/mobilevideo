@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.video.ui.R;
-import com.video.ui.view.metro.MirrorItemView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ public class LinearFrame extends FrameLayout {
 	int[] rowOffset         = new int[2];
 	static  int DIVIDE_SIZE = 6;
 	List<WeakReference<View>> mViewList = new ArrayList<WeakReference<View>>();
-	HashMap<View, WeakReference<MirrorItemView>> mViewMirrorMap = new HashMap<View, WeakReference<MirrorItemView>>();
     private static int ITEM_V_WIDTH  = -1;
 
 	public LinearFrame(Context context) {
@@ -51,7 +49,6 @@ public class LinearFrame extends FrameLayout {
         removeAllViews();
         rowOffset[1]=rowOffset[0]=0;
         mViewList.clear();
-        mViewMirrorMap.clear();
     }
 
     public View addItemView(View child, int width, int height, int leftPadding, int midPadding){

@@ -17,7 +17,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.aimashi.mobile.video.view.UserView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
@@ -26,8 +25,6 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.TabsGsonLoader;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.*;
-import com.video.ui.view.metro.RecommendCardViewClickListenerFactory;
-import com.video.ui.view.metro.UserViewFactory;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 
@@ -268,30 +265,6 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         isNeedUserTab      = true;
     	mUserTabName       = getResources().getString(R.string.user_tab); 
     	mUserFragmentClass = MetroFragment.class;
-
-        //please call this
-        UserViewFactory.getInstance().setFactory(new UserViewFactory.ViewCreatorFactory(){
-            @Override
-            public ArrayList<View> create(Context context) {
-                ArrayList<View> views = new ArrayList<View>();
-                views.add(new UserView(context, "title 1"));
-                views.add(new UserView(context, "title 2"));
-                views.add(new UserView(context, "title 2"));
-                return  views;
-            }
-
-            @Override
-            public int getPadding(Context context) {
-                return getResources().getDimensionPixelSize(R.dimen.user_view_padding);
-            }
-        });
-
-        RecommendCardViewClickListenerFactory.getInstance().setFactory(new RecommendCardViewClickListenerFactory.ClickCreatorFactory() {
-            @Override
-            public View.OnClickListener getRecommendCardViewClickListener() {
-                return null;
-            }
-        });
     }
 
     private View newTabIndicator(String tabName, boolean focused){

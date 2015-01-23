@@ -1,8 +1,6 @@
 package com.video.ui.view;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -22,7 +20,6 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
-import com.video.ui.view.metro.MetroCursorView;
 import com.video.ui.view.subview.BaseCardView;
 import com.video.ui.view.subview.ChannelVideoItemView;
 
@@ -46,7 +43,6 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
         Log.d(TAG, "onCreateView ="+this);
         View v = inflater.inflate(R.layout.listfragment, container, false);
         mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
-        mMetroLayout.setMetroCursorView((MetroCursorView)v.findViewById(R.id.metrocursor));
         tab = (Block<DisplayItem>) this.getArguments().getSerializable("tab");
         index     = getArguments().getInt("index", 0);
 

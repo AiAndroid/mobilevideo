@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.video.ui.R;
-import com.video.ui.view.metro.MetroCursorView;
-import com.video.ui.view.metro.MirrorItemView;
 import com.video.ui.view.subview.DimensHelper;
 
 import java.lang.ref.WeakReference;
@@ -35,8 +33,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 	boolean mMirror = true;
 	AnimatorSet mScaleAnimator;
 	List<WeakReference<View>> mViewList = new ArrayList<WeakReference<View>>();
-	HashMap<View, WeakReference<MirrorItemView>> mViewMirrorMap = new HashMap<View, WeakReference<MirrorItemView>>();
-	MetroCursorView mMetroCursorView;
 
     View mLeftView;
     View mRightView;
@@ -107,7 +103,6 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         removeAllViews();
         rowOffset[1]=rowOffset[0]=0;
         mViewList.clear();
-        mViewMirrorMap.clear();
         mLeftView = null;
         mRightView = null;
     }
@@ -296,20 +291,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 			flp = new LayoutParams(
 					(int)(ITEM_V_WIDTH*mDensityScale),
 					(int)(ITEM_V_HEIGHT*mDensityScale));
-			if(mMirror){
-				MirrorItemView mirror = new MirrorItemView(mContext);
-				mirror.setContentView(child, flp);
-				flp.bottomMargin = mirror_ref_height;
-				flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				flp.leftMargin = rowOffset[0];
-				flp.topMargin = getPaddingTop();
-				flp.rightMargin = getPaddingRight();
-				mirror.setOnFocusChangeListener(this);
-				child.setTag(R.integer.tag_view_postion, 0);
-				addView(mirror,flp);
-				result = mirror;
-				mViewMirrorMap.put(child, new WeakReference<MirrorItemView>(mirror));
-			}else{
+			{
 				child.setFocusable(true);
 				child.setOnFocusChangeListener(this);
                 child.setTag(R.integer.tag_view_postion, 0);
@@ -335,21 +317,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 				rowOffset[0]+=ITEM_H_WIDTH*mDensityScale+padding;
 				break;
 			case 1:
-				if(mMirror){
-					MirrorItemView mirror = new MirrorItemView(mContext);
-					mirror.setContentView(child, flp);
-					flp.bottomMargin = mirror_ref_height;
-					flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-					flp.leftMargin = rowOffset[1];
-					flp.topMargin = getPaddingTop();
-					flp.rightMargin = getPaddingRight();
-					flp.topMargin += ITEM_NORMAL_SIZE*mDensityScale+padding;
-					child.setTag(R.integer.tag_view_postion, 1);
-					addView(mirror,flp);
-					mirror.setOnFocusChangeListener(this);
-					result = mirror;
-					mViewMirrorMap.put(child, new WeakReference<MirrorItemView>(mirror));
-				}else{
+				{
 					child.setFocusable(true);
 					child.setOnFocusChangeListener(this);
                     child.setTag(R.integer.tag_view_postion, 1);
@@ -379,21 +347,7 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
 				rowOffset[0]+=ITEM_NORMAL_SIZE*mDensityScale+padding;
 				break;
 			case 1:
-				if(mMirror){
-					MirrorItemView mirror = new MirrorItemView(mContext);
-					mirror.setContentView(child, flp);
-					flp.bottomMargin = mirror_ref_height;
-					flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-					flp.leftMargin = rowOffset[1];
-					flp.topMargin = getPaddingTop();
-					flp.rightMargin = getPaddingRight();
-					flp.topMargin += ITEM_NORMAL_SIZE*mDensityScale+padding;
-					addView(mirror,flp);
-					child.setTag(R.integer.tag_view_postion, 1);
-					mirror.setOnFocusChangeListener(this);
-					result = mirror;
-					mViewMirrorMap.put(child, new WeakReference<MirrorItemView>(mirror));
-				}else{
+				{
 					child.setFocusable(true);
                     child.setTag(R.integer.tag_view_postion, 1);
 					child.setOnFocusChangeListener(this);
@@ -447,48 +401,28 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
         super.requestChildFocus(child,focused);
     }
 
-    public void onFocusChange(final View v, boolean hasFocus){
-    	if(mScaleAnimator!=null) mScaleAnimator.end();
-    	if(mMetroCursorView!=null){
-    		if(hasFocus){
-    			if(mViewMirrorMap.get(v)!=null){
-    				mMetroCursorView.setFocusView(mViewMirrorMap.get(v).get());
-    			}else{
-        			mMetroCursorView.setFocusView(v);
-    			}
-    	    	v.setTag(R.integer.tag_view_focused_host_view, mMetroCursorView);
-    			lastFocusedView = v;
-    		}else{
-    			if(mViewMirrorMap.get(v)!=null){
-    				mMetroCursorView.setUnFocusView(mViewMirrorMap.get(v).get());
-    			}else{
-        			mMetroCursorView.setUnFocusView(v);
-    			}
-    		}
-    	}else{
-        	if(hasFocus){
+    public void onFocusChange(final View v, boolean hasFocus) {
+        if (mScaleAnimator != null) mScaleAnimator.end();
+        {
+            if (hasFocus) {
                 lastFocusedView = v;
-    			bringChildToFront(v);
-    			invalidate();
-    			ObjectAnimator animX = ObjectAnimator.ofFloat(v, "ScaleX",
-            			new float[] { 1.0F, 1.1F }).setDuration(200);
-    			ObjectAnimator animY = ObjectAnimator.ofFloat(v, "ScaleY",
-            			new float[] { 1.0F, 1.1F }).setDuration(200);
-    			mScaleAnimator = new AnimatorSet();
-    			mScaleAnimator.playTogether(new Animator[] { animX, animY });
-    			mScaleAnimator.start();
+                bringChildToFront(v);
+                invalidate();
+                ObjectAnimator animX = ObjectAnimator.ofFloat(v, "ScaleX",
+                        new float[]{1.0F, 1.1F}).setDuration(200);
+                ObjectAnimator animY = ObjectAnimator.ofFloat(v, "ScaleY",
+                        new float[]{1.0F, 1.1F}).setDuration(200);
+                mScaleAnimator = new AnimatorSet();
+                mScaleAnimator.playTogether(new Animator[]{animX, animY});
+                mScaleAnimator.start();
 
-        		//v.setScaleX(1.1f);
-    			//v.setScaleY(1.1f);
-        	}else{
-        		v.setScaleX(1.0f);
-    			v.setScaleY(1.0f);
-        	}
-    	}
+                //v.setScaleX(1.1f);
+                //v.setScaleY(1.1f);
+            } else {
+                v.setScaleX(1.0f);
+                v.setScaleY(1.0f);
+            }
+        }
 
-    }
-
-    public void setMetroCursorView(MetroCursorView v){
-    	mMetroCursorView = v;
     }
 }

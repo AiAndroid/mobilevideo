@@ -7,7 +7,7 @@
       android:paddingRight="0dp"
       android:paddingBottom="30dp">
 
-  <com.video.ui.view.metro.SmoothHorizontalScrollView
+  <ScrollView
       android:id="@+id/horizontalScrollView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -23,12 +23,7 @@
         >
 
 	</com.video.ui.view.MetroLayout>
-  </com.video.ui.view.metro.SmoothHorizontalScrollView>
-  	<com.video.ui.view.metro.MetroCursorView
-	    android:id="@+id/metrocursor"
-	    android:layout_width="wrap_content"
-	    android:layout_height="match_parent"
-        />
+  </ScrollView>
 </FrameLayout>
 
 

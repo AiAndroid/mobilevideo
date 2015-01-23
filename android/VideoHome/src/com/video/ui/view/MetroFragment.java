@@ -11,26 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.detail.ObserverScrollView;
-import com.video.ui.view.metro.MetroCursorView;
-import com.video.ui.view.metro.RecommendCardView;
-import com.video.ui.view.metro.SmoothHorizontalScrollView;
-import com.video.ui.view.metro.UserViewFactory;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 
 public class MetroFragment extends Fragment implements AdsAnimationListener, ObserverScrollView.OnScrollChangedListener {
     private final String TAG = "MetroFragment";
 	public MetroLayout mMetroLayout;
-    protected SmoothHorizontalScrollView mHorizontalScrollView;
+    protected ScrollView mHorizontalScrollView;
     protected Block<DisplayItem> tab;
     protected int                index;
     protected boolean isUserTab = false;
@@ -52,8 +48,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener, Obs
         hackScroller();
 
         mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
-        mMetroLayout.setMetroCursorView((MetroCursorView)v.findViewById(R.id.metrocursor));
-        mHorizontalScrollView = (SmoothHorizontalScrollView)v.findViewById(R.id.horizontalScrollView);
+        mHorizontalScrollView = (ScrollView)v.findViewById(R.id.horizontalScrollView);
 
         tab = (Block<DisplayItem>) this.getArguments().getSerializable("tab");
         isUserTab = getArguments().getBoolean("user_fragment", false);
@@ -112,21 +107,8 @@ public class MetroFragment extends Fragment implements AdsAnimationListener, Obs
         return mMetroLayout.addItemViewPort(view, celltype, x, y);
     }
 
-    public ArrayList<View> createUserView(){
-        return UserViewFactory.getInstance().createUserView(getActivity());
-    }
-
     public void initViews(){
-
-        if(isUserTab == true){
-            ArrayList<View> views = createUserView();
-            int Y = 0;
-            for(View item: views){
-                addViewPort(item, MetroLayout.HorizontalMatchWith, 0, Y);
-                Y++;
-            }
-        }
-        else if(tab != null && tab.items != null){
+        if(tab != null && tab.items != null){
             int step = 0;
             for(DisplayItem item:tab.items){
                 View view = inflateDisplayItem(item);
@@ -177,7 +159,9 @@ public class MetroFragment extends Fragment implements AdsAnimationListener, Obs
         if(view != null)
             return view;
 
-        return  new RecommendCardView(getActivity()).bindData(item);
+        TextView notview =  new TextView(getActivity());
+        notview.setText("not support: "+item);
+        return notview;
     }
 
     protected View inflateDisplayItem(DisplayItem item){
@@ -185,7 +169,9 @@ public class MetroFragment extends Fragment implements AdsAnimationListener, Obs
         if(view != null)
             return view;
 
-        return  new RecommendCardView(getActivity()).bindData(item);
+        TextView notview =  new TextView(getActivity());
+        notview.setText("not support: "+item);
+        return notview;
     }
 
     @Override
