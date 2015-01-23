@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<GenericBlock<DisplayItem>> {
-    private final static String TAG = "TVMetro-MainActivity";
+    private final static String TAG = "video-MainActivity";
 
     protected BaseGsonLoader mLoader;
     TabHost    mTabHost;
