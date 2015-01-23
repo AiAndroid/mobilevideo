@@ -48,7 +48,7 @@ public class MetroFragment extends Fragment implements AdsAnimationListener, Obs
         hackScroller();
 
         mMetroLayout = (MetroLayout)v.findViewById(R.id.metrolayout);
-        mHorizontalScrollView = (ScrollView)v.findViewById(R.id.horizontalScrollView);
+        mHorizontalScrollView = (ScrollView)v.findViewById(R.id.scroll_view);
 
         tab = (Block<DisplayItem>) this.getArguments().getSerializable("tab");
         isUserTab = getArguments().getBoolean("user_fragment", false);

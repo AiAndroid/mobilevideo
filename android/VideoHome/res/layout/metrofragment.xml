@@ -5,25 +5,22 @@
       android:paddingTop="0dp"
       android:paddingLeft="0dp"
       android:paddingRight="0dp"
-      android:paddingBottom="30dp">
+      android:paddingBottom="0dp">
 
-  <ScrollView
-      android:id="@+id/horizontalScrollView"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scrollbars="none" >
-
-	<com.video.ui.view.MetroLayout
+    <com.video.ui.view.detail.ObserverScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+	    <com.video.ui.view.MetroLayout
 	    android:id="@+id/metrolayout"
 	    android:layout_width="wrap_content"
 	    android:layout_height="match_parent"
-        android:paddingTop="30dp"
-        android:paddingLeft="@dimen/metro_offside"
-        android:paddingRight="50dp"
-        >
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="@dimen/ITEM_DIVIDE_SIZE"/>
+    </com.video.ui.view.detail.ObserverScrollView>
 
-	</com.video.ui.view.MetroLayout>
-  </ScrollView>
+
 </FrameLayout>
 
 
