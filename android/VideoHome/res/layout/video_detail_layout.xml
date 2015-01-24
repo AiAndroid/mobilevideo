@@ -3,7 +3,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/com_bg_white"
-                android:fitsSystemWindows="true" >
+                android:fitsSystemWindows="true"
+                android:id="@+id/tabs_content">
 
     <View
             android:layout_width="match_parent"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_bottom_bar_height"
             android:layout_alignParentBottom="true"
-            layout="@layout/detail_bottom" />
+            layout="@layout/detail_bottom"/>
 
     <FrameLayout
             android:id="@+id/detail_view"

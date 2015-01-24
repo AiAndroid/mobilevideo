@@ -25,14 +25,13 @@ import com.video.ui.view.subview.ChannelVideoItemView;
 
 import java.util.ArrayList;
 
-public class ListFragment extends Fragment implements LoaderManager.LoaderCallbacks<GenericBlock<VideoItem>>,OnNextPageLoader {
+public class ListFragment extends LoadingFragment implements LoaderManager.LoaderCallbacks<GenericBlock<VideoItem>>,OnNextPageLoader {
     private final String TAG = ListFragment.class.getName();
 	public    MetroLayout        mMetroLayout;
     protected Block<DisplayItem> tab;
     protected int                index;
 
     private   ListView           listView;
-    protected BaseGsonLoader     mLoader;
     private   EmptyLoadingView   mLoadingView;
     private   int                loaderID;
 
@@ -126,7 +125,7 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onLoadFinished(Loader<GenericBlock<VideoItem>> genericBlockLoader, GenericBlock<VideoItem> result) {
         if(result == null){
             if(mVidoeInfo == null){
-                mLoadingView.stopLoading(false, true);
+                mLoadingView.stopLoading(false, false);
             }
             return;
         }
@@ -330,19 +329,5 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
         Log.d(TAG, "onDestroy="+this);
         ViewUtils.unbindImageDrawables(getView());
-    }
-
-    public EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
-        return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
-    }
-
-    public EmptyLoadingView makeEmptyLoadingView(Context context, RelativeLayout parentView, int rule){
-        EmptyLoadingView loadingView = new EmptyLoadingView(context);
-        loadingView.setOnRetryListener(retryLoadListener);
-        loadingView.setGravity(Gravity.CENTER);
-        RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        rlp.addRule(rule);
-        parentView.addView(loadingView, rlp);
-        return loadingView;
     }
 }

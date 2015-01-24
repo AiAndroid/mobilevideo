@@ -6,9 +6,7 @@
       android:paddingLeft="0dp"
       android:paddingRight="0dp"
       android:paddingBottom="0dp">
-     <RelativeLayout
-            android:id="@+id/tabs_content"
-            android:layout_width="match_parent" android:layout_height="match_parent"/>
+      <include layout="@layout/loading_holderplace"/>
 	  <com.video.ui.view.MetroLayout
 	    android:id="@+id/metrolayout"
 	    android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.RetryView;
 
@@ -14,14 +15,12 @@ public class DetailView extends FrameLayout {
 	
 	private Context mContext;
 
-    DisplayItem item;
+    VideoItem item;
 	
 	//UI
 	private View mContentView;
 	private View mDetailViewContent;
-	private View mDetailViewLoad;
-	private RetryView mDetailViewRetry;
-	
+
 	private DetailPosterView mPosterView;
 
 	private DetailScrollView mScrollView;
@@ -29,70 +28,28 @@ public class DetailView extends FrameLayout {
 	public DetailView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.mContext = context;
-		init();
+		initUI();
 	}
 
 	public DetailView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		this.mContext = context;
-		init();
+		this(context, attrs, 0);
 	}
 
 	public DetailView(Context context) {
-		super(context);
-		this.mContext = context;
-		init();
+		this(context, null, 0);
 	}
-	
-	public void playCurCi() {
-		mScrollView.playCurCi();
-	}
-	
-	public int getCurCi() {
-		return mScrollView.getCurCi();
-	}
-	
 
-	public void setRecommend() {
+	
+	public void setData(VideoItem _item) {
+		item = _item;
+		refresh();
 	}
 	
-	public void setData(DisplayItem _item) {
-        item = _item;
-
-	    refresh();
-	}
-	
-	public void showLoadingView() {
-		mDetailViewLoad.setVisibility(View.VISIBLE);
-		mDetailViewContent.setVisibility(View.INVISIBLE);
-		mDetailViewRetry.setVisibility(View.INVISIBLE);
-	}
-	
-	public void showRetryView() {
-		mDetailViewRetry.setVisibility(View.VISIBLE);
-		mDetailViewLoad.setVisibility(View.INVISIBLE);
-		mDetailViewContent.setVisibility(View.INVISIBLE);
-	}
-	
-	public void showContentView() {
-		mDetailViewContent.setVisibility(View.VISIBLE);
-		mDetailViewRetry.setVisibility(View.INVISIBLE);
-		mDetailViewLoad.setVisibility(View.INVISIBLE);
-	}
-	
-	//init
-	private void init() {
-		initUi();
-	}
-	
-	private void initUi() {
+	private void initUI() {
 		mContentView = View.inflate(mContext, R.layout.detail_view, null);
 		addView(mContentView);
 		
 		mDetailViewContent = mContentView.findViewById(R.id.detail_view_content);
-		mDetailViewLoad = mContentView.findViewById(R.id.detail_view_load);
-		mDetailViewRetry = (RetryView) mContentView.findViewById(R.id.detail_view_retry);
-		
 		mPosterView = (DetailPosterView) mContentView.findViewById(R.id.detail_poster_view);
 		mScrollView = (DetailScrollView) mContentView.findViewById(R.id.detail_scroll_view);
 		mScrollView.setOnScrollChangedListener(mOnScrollChangedListener);
@@ -106,7 +63,7 @@ public class DetailView extends FrameLayout {
 	
 	private void refreshPosterView() {
 		if(item != null) {
-			mPosterView.setImageUrlInfo(item.images.poster().url);
+			mPosterView.setImageUrlInfo(item.media.poster);
 		}
 	}
 	
@@ -114,8 +71,6 @@ public class DetailView extends FrameLayout {
 		if(item != null) {
 			mScrollView.setIntroduce("一堆描述将凡在这里");
 		}
-		//mScrollView.setData();
-		//mScrollView.setPlayHistory();
 	}
 
 	private ObserverScrollView.OnScrollChangedListener mOnScrollChangedListener = new ObserverScrollView.OnScrollChangedListener() {

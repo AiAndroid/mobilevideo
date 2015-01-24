@@ -5,14 +5,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.VolleyHelper;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.GenericItemList;
+import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
 
 /**
  * Created by liuhuadong on 9/10/14.
  */
-public abstract class GenericDetailLoader<T> extends BaseGsonLoader<GenericItemList<T>> {
-    public static int GAME_LOADER_ID  = 0x701;
+public abstract class GenericDetailLoader<T> extends BaseGsonLoader<VideoBlocks<T>> {
     public static int VIDEO_LOADER_ID = 0x702;
 
     public GenericDetailLoader(Context con, DisplayItem item){
@@ -29,7 +28,7 @@ public abstract class GenericDetailLoader<T> extends BaseGsonLoader<GenericItemL
             @Override
             protected void loadDataByGson() {
                 RequestQueue requestQueue = VolleyHelper.getInstance(getContext().getApplicationContext()).getAPIRequestQueue();
-                GsonRequest<GenericItemList<VideoItem>> gsonRequest = new GsonRequest<GenericItemList<VideoItem>>(calledURL, new TypeToken<GenericItemList<VideoItem>>(){}.getType(), null, listener, errorListener);
+                GsonRequest<VideoBlocks<VideoItem>> gsonRequest = new GsonRequest<VideoBlocks<VideoItem>>(calledURL, new TypeToken<VideoBlocks<VideoItem>>(){}.getType(), null, listener, errorListener);
                 gsonRequest.setCacheNeed(getContext().getCacheDir() + "/" + cacheFileName + mItem.id + ".cache");
                 requestQueue.add(gsonRequest);
             }
@@ -39,7 +38,7 @@ public abstract class GenericDetailLoader<T> extends BaseGsonLoader<GenericItemL
     
     @Override
     public void setLoaderURL(DisplayItem _item) {
-        String url = CommonUrl.BaseURL + _item.ns + "/" + _item.type + "?id=" + _item.id;
+        String url = CommonUrl.BaseURL + _item.target.url;
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
     }
 

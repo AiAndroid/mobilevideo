@@ -24,6 +24,48 @@ public class VideoItem extends DisplayItem {
 
     public Object                 clickObject;
 
+    public Media      media;
+
+    public static class Media implements Serializable {
+        private static final long serialVersionUID = 1L;
+        public long  likes;
+        public long  unlikes;
+        public long  comments;
+        public long  play_times;
+        public float duration;
+        public float  rate;
+        public String episode; //update to 24
+        public String label;   //corner;
+        public CP      cp;
+        public Fee     fee;
+        public Version version;
+        public String  poster;
+
+
+        public static class CP implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String versrion_code;
+        }
+
+        public static class Fee implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String name;
+            String pay_load;
+        }
+
+        public static class Version implements Serializable{
+            private static final long serialVersionUID = 1L;
+            String latest_version;
+            String min_version;
+        }
+
+        public Media clone(){
+            //TODO
+            return new Media();
+        }
+    }
+
     public static class Actor implements Serializable {
         private static final long serialVersionUID = 1L;
         public String id;

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/main_tabs_container"
     android:background="#EEEEEE">
-    
+
     <RelativeLayout
             android:id="@+id/tabs_content"
             android:layout_width="match_parent" android:layout_height="match_parent">

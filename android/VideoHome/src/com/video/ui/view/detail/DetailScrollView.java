@@ -19,30 +19,20 @@ public class DetailScrollView extends ObserverScrollView {
 	public DetailScrollView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.mContext = context;
-//		init();
-	}
+    }
 
 	public DetailScrollView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		this.mContext = context;
-//		init();
+		this(context, attrs, 0);
 	}
 
 	public DetailScrollView(Context context) {
-		super(context);
-		this.mContext = context;
+		this(context, null, 0);
 	}
 	
 	protected int getTopPadding() {
 		return mScrollViewTopPadding;
 	}
-	
-	protected int getCurCi() {
-		return 1;
-	}
-	
-	protected void playCurCi() {
-	}
+
 	
 	protected void setIntroduce(String introduce) {
 		mIntroduceView.setIntroduce(introduce);

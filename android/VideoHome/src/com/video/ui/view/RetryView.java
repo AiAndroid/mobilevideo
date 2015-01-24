@@ -41,19 +41,11 @@ public class RetryView extends FrameLayout{
 	}
 
 	public RetryView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init();
+		this(context, attrs, 0);
 	}
 
 	public RetryView(Context context) {
-		super(context);
-		init();
-	}
-	
-	public RetryView(Context context, int style) {
-		super(context);
-		this.style = style;
-		init();
+		this(context, null, 0);
 	}
 	
 	private void init() {

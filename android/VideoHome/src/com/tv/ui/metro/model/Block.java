@@ -8,10 +8,7 @@ import java.util.ArrayList;
  */
 public class Block<T>  extends DisplayItem implements Serializable {
     private static final long serialVersionUID = 1L;
-    public String              sort;
     public Filter              filters;
-    public String              pagi;
-
     public ArrayList<T>        items;
     public ArrayList<Block<T>> blocks;
 
