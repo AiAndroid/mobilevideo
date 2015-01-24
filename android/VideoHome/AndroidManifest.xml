@@ -62,6 +62,8 @@
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/filter"/>
             </intent-filter>
         </activity>
+        <activity android:name=".UserActivity"
+                android:theme="@android:style/Theme.Holo.Light"/>
 
         <provider
             android:name="com.video.ui.idata.iDataProvider"

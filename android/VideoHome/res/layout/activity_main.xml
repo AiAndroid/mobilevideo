@@ -21,7 +21,7 @@
 	        android:layout_height="match_parent">
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="@dimen/video_common_title_top_height" android:orientation="horizontal" android:background="#FFFFFF">
-               <ImageView android:id="@+id/menu_icon" android:layout_gravity="center_vertical" android:layout_width="wrap_content"  android:clickable="true" android:layout_height="wrap_content" android:scaleType="center" android:background="@drawable/personal_icon"/>
+               <ImageView android:id="@+id/user_icon" android:layout_gravity="center_vertical" android:layout_width="wrap_content"  android:clickable="true" android:layout_height="wrap_content" android:scaleType="center" android:background="@drawable/personal_icon"/>
 	           <TabWidget
 	            android:id="@android:id/tabs"
 	            android:orientation="horizontal"

@@ -107,6 +107,14 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     public void setContentView() {
         setContentView(R.layout.activity_main);
         showTabLoading = true;
+
+        findViewById(R.id.user_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), UserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
