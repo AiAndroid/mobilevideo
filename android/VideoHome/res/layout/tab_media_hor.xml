@@ -11,16 +11,17 @@
 
         <ImageView
                 android:id="@+id/poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/channel_media_view_image_width"
+                android:layout_height="@dimen/channel_media_view_image_height"
                 android:scaleType="centerCrop"
                 android:background="@drawable/default_poster_pic"/>
 
         <View
                 android:id="@+id/mask"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/poster_mask_h" />
+                android:layout_height="@dimen/channel_media_view_image_height"
+                android:background="@drawable/poster_mask_h"
+                android:layout_marginTop="0dp"/>
 
         <RelativeLayout
                 android:layout_width="150dp"
@@ -31,6 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
+                    android:paddingLeft="2dp"
                     android:textSize="@dimen/font_size_30"/>
 
             <TextView
@@ -47,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
+                    android:paddingRight="2dp"
                     android:textSize="@dimen/font_size_30"/>
 
             <ImageView

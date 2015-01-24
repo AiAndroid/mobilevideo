@@ -43,13 +43,7 @@ public class MediaDetailActivity extends DisplayItemActivity {
             }
         });
 
-        ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
-        back_imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MediaDetailActivity.this.finish();
-            }
-        });
+
 
         DetailFragment df = new DetailFragment();
         Bundle data = new Bundle();

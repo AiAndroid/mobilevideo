@@ -110,6 +110,29 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
     }
 
     @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+
+        if(findViewById(R.id.title_top_back) != null) {
+            findViewById(R.id.title_top_back).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        }
+
+        if(findViewById(R.id.title_top_name) != null) {
+            findViewById(R.id.title_top_name).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ViewUtils.unbindDrawables(findViewById(R.id.main_tabs_container));
