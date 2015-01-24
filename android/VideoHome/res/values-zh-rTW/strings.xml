@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">M.V.Shi</string>
+    <string name="app_name">视频开发</string>
 
     <string name="search">搜索</string>
     <string name="menu_name">菜单</string>
