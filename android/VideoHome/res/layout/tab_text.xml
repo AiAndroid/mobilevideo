@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:minWidth="@dimen/media_pager_tab_bg_width"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:layout_height="@dimen/media_pager_tab_bg_height"

@@ -12,9 +12,9 @@
         <include layout="@layout/title_layout_mv" android:id="@+id/title_bar"/>
 
         <TabHost
-                android:layout_below="@id/title_bar"
                 android:id="@android:id/tabhost"
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/video_common_content_top_margin"
                 android:layout_height="wrap_content">
 
             <LinearLayout
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:flipInterval="30"
                 android:layout_below="@android:id/tabhost"
-                android:paddingTop="3dp"
+                android:paddingTop="-3.3dp"
                 android:persistentDrawingCache="all" />
 
 

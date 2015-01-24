@@ -211,7 +211,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         addView(root,lp);
 
         //size == 1 is special
-        if(size > 1) {
+        if(size > 1 && false) {
             TextView text = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.tab_text, null);
             text.setText(" ");
             mTabWidget.addView(text);

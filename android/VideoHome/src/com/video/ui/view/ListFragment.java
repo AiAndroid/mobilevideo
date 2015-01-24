@@ -60,11 +60,8 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
             for(int i=0;i<tab.blocks.size();i++){
                 Block<DisplayItem> block = tab.blocks.get(i);
                 if(block.ui_type.id == LayoutConstant.linearlayout_single_desc){
-                    TextView textView = new TextView(getActivity());
-                    textView.setText(block.desc);
-                    textView.setBackgroundResource(R.drawable.com_block_n);
-                    listView.addHeaderView(textView, null, false);
 
+                    createHeader(block);
                     //no need filter and search
                     if(getActivity().findViewById(R.id.channel_filte_btn) != null) {
                         getActivity().findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
@@ -83,6 +80,15 @@ public class ListFragment extends Fragment implements LoaderManager.LoaderCallba
 
         //we just have one list view
         return v;
+    }
+
+    private View createHeader(Block<DisplayItem> block){
+        View header = View.inflate(getActivity(), R.layout.list_header_text, null);
+
+        TextView textView = (TextView) header.findViewById(R.id.header_introduce);
+        textView.setText(block.desc);
+        listView.addHeaderView(header, null, false);
+        return header;
     }
 
     static int stepID = 1000;

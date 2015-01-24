@@ -28,7 +28,7 @@
             android:background="@drawable/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/bottom_bar"
-            android:layout_below="@id/title_bar" />
+            android:layout_marginTop="@dimen/video_common_content_top_margin"
+            android:layout_above="@id/bottom_bar"/>
 
 </RelativeLayout>

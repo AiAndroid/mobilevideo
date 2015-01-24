@@ -230,6 +230,7 @@
     <dimen name="media_pager_title_text_height">72.5dp</dimen>
     <dimen name="media_pager_title_bg_height">85.33dp</dimen>
     <dimen name="media_pager_title_top_margin">1.3dp</dimen>
+    <dimen name="media_pager_title_right_margin">13dp</dimen>
     <dimen name="media_pager_tab_bg_width">229dp</dimen>
     <dimen name="media_pager_tab_bg_height">72.5dp</dimen>
     <dimen name="media_pager_tab_bg_corner_width">9.17dp</dimen>
