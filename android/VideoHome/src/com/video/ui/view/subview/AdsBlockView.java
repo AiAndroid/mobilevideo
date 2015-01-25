@@ -50,6 +50,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
     private  ViewPager viewFlipper;
     private  TextView  page_indicator;
+    private  TextView  page_title;
     private  ArrayList<DisplayItem> content;
     private  ArrayList<View> viewList = new ArrayList<View>();
     private void initUI(ArrayList<DisplayItem> items){
@@ -57,6 +58,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         View root = View.inflate(getContext(), R.layout.ads_viewflipper,  this);
         viewFlipper = (ViewPager) root.findViewById(R.id.image_flipper);
         page_indicator = (TextView) root.findViewById(R.id.page_indicator);
+        page_title     = (TextView) root.findViewById(R.id.page_title);
 
         //addView(root);
 
@@ -87,10 +89,12 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                 //when move to last, move to first
                 if(i == content.size()+1){
                     viewFlipper.setCurrentItem(1, false);
-                }
-
-                if(i == 0){
+                    page_title.setText(content.get(0).title);
+                }else if(i == 0){
                     viewFlipper.setCurrentItem(content.size(), false);
+                    page_title.setText(content.get(content.size()-1).title);
+                }else {
+                    page_title.setText(content.get(i-1).title);
                 }
             }
 

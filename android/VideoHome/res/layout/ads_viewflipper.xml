@@ -14,6 +14,19 @@
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              android:layout_centerHorizontal="true"
+              android:layout_alignParentBottom="true"
+              android:clickable="false"
+              android:id="@+id/page_title"
+              android:shadowColor="@color/black"
+              android:shadowDy="2.0"
+              android:paddingBottom="2dp"
+              android:textSize="@dimen/font_size_42"
+              android:shadowRadius="3.0"
+              android:text=""/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
               android:layout_alignParentBottom="true"
               android:clickable="false"
