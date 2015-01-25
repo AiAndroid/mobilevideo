@@ -163,7 +163,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                 launcherAction(getContext(), item);
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).resize(getDimens().width, getDimens().height).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()<2?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(imageView);
+        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()<2?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).fit().into(imageView);
         return view;
     }
 
