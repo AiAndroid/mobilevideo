@@ -5,32 +5,27 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.tv.ui.metro.model.Block;
-import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.Image;
-import com.tv.ui.metro.model.ImageGroup;
+import com.tv.ui.metro.model.*;
 import com.video.ui.view.subview.PortBlockView;
 
 import java.util.ArrayList;
 
 public class DetailRecommendView extends FrameLayout {
 
-	private Context mContext;
-	private View mDetailRecommendView;
-	
+    public DetailRecommendView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+    public DetailRecommendView(Context context) {
+        this(context, null, 0);
+    }
 	public DetailRecommendView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		this.mContext = context;
 		init();
 	}
 
-	public DetailRecommendView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-	}
+    public void setVideo(VideoItem videoItem){
 
-	public DetailRecommendView(Context context) {
-        this(context, null, 0);
-	}
+    }
 
     private Block<DisplayItem> createTitleBlock(){
         Block<DisplayItem> item = new Block<DisplayItem>();

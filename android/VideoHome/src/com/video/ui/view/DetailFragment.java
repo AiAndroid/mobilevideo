@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.detail.*;
@@ -23,6 +24,7 @@ public class DetailFragment extends LoadingFragment {
     private DetailCommentView   mCommentView;    //comments
     private DetailRecommendView mRecommendView;  //recommends videos
     private EpisodeContainerView mEpisodeView;    //for episode
+    private BlockContainerView   relative_region;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class DetailFragment extends LoadingFragment {
         mIntroduceView = (DetailIntroduceView) root.findViewById(R.id.detail_introduce_view);
         mCommentView   = (DetailCommentView) root.findViewById(R.id.detail_comment_view);
         mRecommendView = (DetailRecommendView) root.findViewById(R.id.detail_recommend_view);
+        relative_region = (BlockContainerView) root.findViewById(R.id.relative_region);
 
         mPosterView    = (DetailPosterView) root.findViewById(R.id.detail_poster_view);
 
@@ -52,6 +55,14 @@ public class DetailFragment extends LoadingFragment {
                 mEpisodeView.setVisibility(View.GONE);
             }else {
                 mEpisodeView.setVideo(mItem);
+            }
+
+            mRecommendView.setVisibility(View.GONE);
+
+            if(mItem.blocks == null || mItem.blocks == null || mItem.blocks.size() == 0){
+                relative_region.setVisibility(View.GONE);
+            }else{
+                relative_region.setVideo(mItem);
             }
 
             mInfoView.setVideo(mItem);

@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.view.EmptyLoadingView;
@@ -58,7 +59,25 @@ public class DisplayItemActivity extends FragmentActivity {
             });
         }
     }
-    
+
+    protected void setTitle(String title){
+        if(findViewById(R.id.title_top_name) != null) {
+            ((TextView)findViewById(R.id.title_top_name)).setText(title);
+        }
+    }
+
+    protected void showFilter(boolean show){
+        if(findViewById(R.id.channel_filte_btn) != null){
+            findViewById(R.id.channel_filte_btn).setVisibility(show?View.VISIBLE:View.GONE);
+        }
+    }
+
+    protected void showSearch(boolean show){
+        if(findViewById(R.id.channel_search_btn) != null){
+            findViewById(R.id.channel_search_btn).setVisibility(show?View.VISIBLE:View.GONE);
+        }
+    }
+
     public static EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
         return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
     }

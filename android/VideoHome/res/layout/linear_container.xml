@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/com_bg_gray"
+                android:fitsSystemWindows="true"
+                android:id="@+id/tabs_content">
+
+    <include
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/video_common_title_top_height"
+            layout="@layout/title_layout_mv" />
+
+    <ScrollView
+            android:background="@drawable/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_marginTop="@dimen/video_common_content_top_margin">
+
+        <LinearLayout android:id="@+id/episode_container"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center_horizontal"
+                     android:layout_marginTop="@dimen/video_common_interval_15"
+                     android:layout_marginBottom="@dimen/video_common_interval_15"
+                     android:orientation="vertical"/>
+    </ScrollView>
+
+</RelativeLayout>

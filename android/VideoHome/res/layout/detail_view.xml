@@ -57,6 +57,11 @@
                     android:layout_marginRight="@dimen/video_common_interval_13"
                     android:layout_marginTop="@dimen/video_common_interval_15"/>
 
+                    <com.video.ui.view.BlockContainerView
+                    android:id="@+id/relative_region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
                     <com.video.ui.view.detail.DetailCommentView
                     android:id="@+id/detail_comment_view"
                     android:layout_width="match_parent"

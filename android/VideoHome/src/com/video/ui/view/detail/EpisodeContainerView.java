@@ -51,9 +51,7 @@ public class EpisodeContainerView extends FrameLayout {
         item.ui_type.id = LayoutConstant.linearlayout_episode;
         item.ui_type.row_count     = 4;
         item.ui_type.display_count = 11;
-        item.media = new DisplayItem.Media();
-        item.media.items = new ArrayList<DisplayItem.Media.Episode>();
-        item.media.items.addAll(videoItem.media.items);
+        item.media = videoItem.media;
 
         return item;
     }
@@ -67,9 +65,7 @@ public class EpisodeContainerView extends FrameLayout {
         item.ui_type.display_count = 11;
 
 
-        item.media = new DisplayItem.Media();
-        item.media.items = new ArrayList<DisplayItem.Media.Episode>();
-        item.media.items.addAll(videoItem.media.items);
+        item.media = videoItem.media;
 
         return item;
     }
@@ -110,6 +106,7 @@ public class EpisodeContainerView extends FrameLayout {
 
         PortBlockView view = new PortBlockView(vg.getContext(), item, new Integer(100));
         LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
+
         vg.addView(view, flp);
 
         Button mAllEpisode = (Button) view.findViewById(R.id.enter_button);
@@ -119,6 +116,8 @@ public class EpisodeContainerView extends FrameLayout {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(vg.getContext(), AllEpisodeActivity.class);
+                    videoItem.media.display_layout.max_display = 10000;
+                    videoItem.title = String.format("1-%1$s集", videoItem.media.items.size());
                     intent.putExtra("item", videoItem);
                     vg.getContext().startActivity(intent);
                 }

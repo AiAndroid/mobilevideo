@@ -10,5 +10,5 @@ import java.util.HashMap;
 public class VideoItem extends DisplayItem {
     private static final long serialVersionUID = 1L;
 
-
+    public ArrayList<Block<DisplayItem>>  blocks;
 }

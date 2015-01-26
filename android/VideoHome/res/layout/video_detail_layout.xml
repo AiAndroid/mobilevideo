@@ -31,6 +31,6 @@
             android:layout_height="match_parent"
             android:layout_above="@id/bottom_bar"
             android:layout_below="@id/title_top"
-            android:layout_marginTop="@dimen/video_common_title_top_height" />
+            android:layout_marginTop="@dimen/video_common_content_top_margin" />
 
 </RelativeLayout>
