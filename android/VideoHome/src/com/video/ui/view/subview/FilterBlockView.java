@@ -150,12 +150,60 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         Root.addView(ml, lp);
     }
 
-    public static FilterBlockView createEpisodeListBlockView(final Context context, ArrayList<VideoItem.Video> episodes, int selectIndex, int maxVisible) {
+    public static FilterBlockView createEpisodeButtonBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
+        final FilterBlockView filterView = new FilterBlockView(context);
+
+        RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
+        MetroLayout ml = new MetroLayout(context);
+        int step      = 0;
+        int row_count = 4;
+
+        int padding = (filterView.getDimens().width - row_count*filterView.getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width))/(row_count+1);
+
+        int itemHeight = 0;
+
+        for(final DisplayItem.Media.Episode item: episodes) {
+            View convertView = View.inflate(filterView.getContext(), R.layout.episode_item_layout, null);
+            convertView.setBackgroundResource(R.drawable.com_btn_bg);
+
+            TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+            mFiter.setTextColor(selectIndex == step?filterView.getResources().getColor(R.color.orange):filterView.getResources().getColor(R.color.p_80_black));
+
+            mFiter.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (filterView.getItemClick() != null) {
+                        filterView.getItemClick().onClick(v);
+                    }
+                }
+            });
+
+            mFiter.setText(String.valueOf(item.episode));
+            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item, step % row_count, step / row_count, padding);
+            step++;
+
+            if(step >= maxVisible){
+                break;
+            }
+        }
+
+        if(itemHeight == 0){
+            itemHeight = filterView.getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+        }
+
+        filterView.getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count + 1);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, filterView.getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
+        Root.addView(ml, lp);
+
+        return filterView;
+    }
+
+    public static FilterBlockView createEpisodeListBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
         final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
         MetroLayout ml = new MetroLayout(context);
 
-        int row_count  = 1;
         int padding    = 0;
         int itemHeight = 0;
         int size       = episodes.size();
@@ -163,7 +211,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             size = maxVisible;
 
         for(int i=0;i<size;i++){
-            VideoItem.Video item = episodes.get(i);
+            VideoItem.Media.Episode item = episodes.get(i);
             VarietyEpisode view = new VarietyEpisode(context);
 
             if(size == 1) {
@@ -192,6 +240,9 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                 }
             });
 
+            if(i+1 >= maxVisible){
+                break;
+            }
         }
 
         if(itemHeight == 0){
@@ -333,14 +384,14 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     public static class VarietyEpisode extends RelativeLayout {
         //UI
         private View mPoster;
-        private TextView mData;
+        private TextView mDate;
         private TextView mName;
 
         private int mColorNormal;
         private int mColorSelected;
 
         //data
-        private VideoItem.Video mItem;
+        private VideoItem.Media.Episode mItem;
 
         public VarietyEpisode(Context context, AttributeSet attrs) {
             this(context, attrs, 0);
@@ -355,11 +406,11 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         }
 
 
-        public VideoItem.Video getData() {
+        public VideoItem.Media.Episode getData() {
             return mItem;
         }
 
-        public void setData(VideoItem.Video item, boolean selected) {
+        public void setData(VideoItem.Media.Episode item, boolean selected) {
             this.mItem = item;
             refresh(selected);
         }
@@ -370,7 +421,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             mColorNormal   = getResources().getColor(R.color.p_80_black);
             mColorSelected = getResources().getColor(R.color.orange);
             mPoster = findViewById(R.id.detail_variety_item_poster);
-            mData = (TextView) findViewById(R.id.detail_variety_item_data);
+            mDate = (TextView) findViewById(R.id.detail_variety_item_date);
             mName = (TextView) findViewById(R.id.detail_variety_item_name);
         }
 
@@ -379,16 +430,16 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             if(mItem == null) {
                 return;
             }
-            mData.setText(mItem.name);
-            mName.setText(mItem.desc);
+            mDate.setText(mItem.date);
+            mName.setText(mItem.name);
 
             mPoster.setSelected(selected);
             if(selected) {
                 mName.setTextColor(mColorSelected);
-                mData.setTextColor(mColorSelected);
+                mDate.setTextColor(mColorSelected);
             } else {
                 mName.setTextColor(mColorNormal);
-                mData.setTextColor(mColorNormal);
+                mDate.setTextColor(mColorNormal);
             }
         }
     }

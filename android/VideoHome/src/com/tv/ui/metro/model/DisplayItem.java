@@ -2,6 +2,7 @@ package com.tv.ui.metro.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class DisplayItem implements Serializable{
@@ -114,6 +115,68 @@ public class DisplayItem implements Serializable{
 	public Times      times;
 
     public String     value;
+    public Media      media;//why put here, for media detail episode list UI create, actually we should put this in VideoItem
+
+    public static class Media implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        public String description;
+        public float  score;
+        public Tags   tags;
+
+        public ArrayList<Episode>  items;
+        public Stuff               stuff;
+        public String              poster;
+        public String              date;
+        public String              phrase;
+        public ArrayList<CP>       cps;
+        public String              id;
+        public String              name;
+        public DisplayLayout       display_layout;
+        public String              category_name;
+
+        public static class DisplayLayout implements Serializable{
+            private static final long serialVersionUID = 1L;
+            public String type        = "tv";
+            public int    max_display = 8;
+        }
+
+        public static class Tags extends HashMap<String, ArrayList<String>> implements Serializable{
+            private static final long serialVersionUID = 1L;
+            public ArrayList<String> genre(){return  get("director");}
+            public ArrayList<String> year(){return get("writer");}
+            public ArrayList<String> language(){return get("actor");}
+            public ArrayList<String> area(){return get("area");}
+        }
+
+        public static class CP implements Serializable{
+            private static final long serialVersionUID = 1L;
+            public String cp;
+            public String name;
+            public String icon;
+        }
+
+        public static class Episode implements Serializable{
+            private static final long serialVersionUID = 1L;
+            public String                  date;
+            public int                     episode;
+            public String                  id;
+            public String                  name;
+        }
+
+        public static class Stuff extends HashMap<String, ArrayList<Stuff.Star>>  implements Serializable{
+            private static final long serialVersionUID = 1L;
+            public ArrayList<Stuff.Star> director(){return  get("director");}
+            public ArrayList<Stuff.Star> writer(){return get("writer");}
+            public ArrayList<Stuff.Star> actor(){return get("actor");}
+
+            public static class Star implements Serializable {
+                private static final long serialVersionUID = 1L;
+                public String id;
+                public String name;
+            }
+        }
+    }
 
 	public String toString() {
 		return " ns:" + ns + " type:" + type + " target=" + target + " id:" + id + " name:" + title + "images:"

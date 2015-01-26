@@ -20,7 +20,7 @@
         android:background="@drawable/com_10_black" />
 
     <TextView
-        android:id="@+id/detail_variety_item_data"
+        android:id="@+id/detail_variety_item_date"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_106"
         android:layout_marginLeft="@dimen/video_common_interval_50"
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/line"
-        android:layout_below="@id/detail_variety_item_data"
+        android:layout_below="@id/detail_variety_item_date"
         android:layout_marginLeft="@dimen/video_common_interval_50"
         android:layout_marginRight="@dimen/size_51"
         android:layout_toRightOf="@id/detail_variety_item_poster"

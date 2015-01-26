@@ -35,7 +35,7 @@ public class DetailIntroduceView extends FrameLayout {
 		init();
 	}
 	
-	protected void setIntroduce(String introduce) {
+	public void setIntroduce(String introduce) {
 		if(introduce == null) {
 			return;
 		}

@@ -12,11 +12,13 @@
             android:id="@+id/image_flipper">
     </com.video.ui.view.subview.CustomViewPager>
 
-    <TextView android:layout_width="wrap_content"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_centerHorizontal="true"
               android:layout_alignParentBottom="true"
+              android:gravity="center_horizontal"
               android:clickable="false"
+              android:singleLine="true"
               android:id="@+id/page_title"
               android:shadowColor="@color/black"
               android:shadowDy="2.0"

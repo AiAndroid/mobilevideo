@@ -142,7 +142,6 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 //addOnePadding();
                 break;
             }
-            case LayoutConstant.linearlayout_episode:
             case LayoutConstant.linearlayout_filter:{
 
                 FilterBlockView bv = new FilterBlockView(getContext(), block.filters.filters(), block.ui_type.id, (Block<DisplayItem>) block);
@@ -153,17 +152,22 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 addOnePadding();
                 break;
             }
+            case LayoutConstant.linearlayout_episode:{
+                FilterBlockView bv = FilterBlockView.createEpisodeButtonBlockView(getContext(), block.media.items, 0, block.media.display_layout.max_display);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
+                addView(bv, flp);
+
+                getDimens().height += bv.getDimens().height;
+                break;
+            }
             case LayoutConstant.linearlayout_episode_list:{
                 VideoItem vi = (VideoItem) block.items.get(0);
-                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), vi.videos, 1, 4);
+                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), vi.media.items, 1, vi.media.display_layout.max_display);
 
-                addView(bv);
+                LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
+                addView(bv, flp);
+
                 getDimens().height += bv.getDimens().height;
-                if(vi.videos.size() > 4) {
-                    addOnePadding();
-                }else {
-                    setBackgroundColor(Color.TRANSPARENT);
-                }
                 break;
             }
             case LayoutConstant.linearlayout_filter_select:{

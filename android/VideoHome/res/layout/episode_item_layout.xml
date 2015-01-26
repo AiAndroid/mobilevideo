@@ -4,6 +4,7 @@
 	        android:id="@+id/channel_filter_btn"
 	        android:layout_width="@dimen/detail_ep_multy_btn_width"
 	        android:layout_height="@dimen/detail_ep_multy_btn_height"
+			android:singleLine="true"
 	        android:gravity="center"
 	        android:textSize="@dimen/font_size_42"
             android:clickable="true"
