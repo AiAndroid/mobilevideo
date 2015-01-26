@@ -153,7 +153,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_episode:{
-                FilterBlockView bv = FilterBlockView.createEpisodeButtonBlockView(getContext(), block.media.items, 0, block.media.display_layout.max_display);
+                FilterBlockView bv = FilterBlockView.createEpisodeButtonBlockView(getContext(), block.media.items, 0,  block.media.display_layout==null?8:block.media.display_layout.max_display);
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
                 addView(bv, flp);
 
@@ -162,7 +162,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
             }
             case LayoutConstant.linearlayout_episode_list:{
                 VideoItem vi = (VideoItem) block.items.get(0);
-                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), vi.media.items, 1, vi.media.display_layout.max_display);
+                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), vi.media.items, 1, vi.media.display_layout==null?4:vi.media.display_layout.max_display);
 
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
                 addView(bv, flp);

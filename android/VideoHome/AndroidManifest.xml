@@ -64,6 +64,7 @@
         </activity>
         <activity android:name=".UserActivity"
                 android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".AllEpisodeActivity"/>
 
         <provider
             android:name="com.video.ui.idata.iDataProvider"

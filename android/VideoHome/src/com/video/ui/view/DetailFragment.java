@@ -1,7 +1,6 @@
 package com.video.ui.view;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,14 +22,14 @@ public class DetailFragment extends LoadingFragment {
     private DetailIntroduceView mIntroduceView;  //introduce
     private DetailCommentView   mCommentView;    //comments
     private DetailRecommendView mRecommendView;  //recommends videos
-    private DetailEpisodeView   mEpisodeView;    //for episode
+    private EpisodeContainerView mEpisodeView;    //for episode
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView =" + this);
         View root = inflater.inflate(R.layout.detail_view, null);
 
-        mEpisodeView   = (DetailEpisodeView) root.findViewById(R.id.detail_episode_view);
+        mEpisodeView   = (EpisodeContainerView) root.findViewById(R.id.detail_episode_view);
         mInfoView      = (DetailInfoView) root.findViewById(R.id.detail_info_view);
         mIntroduceView = (DetailIntroduceView) root.findViewById(R.id.detail_introduce_view);
         mCommentView   = (DetailCommentView) root.findViewById(R.id.detail_comment_view);
