@@ -80,16 +80,17 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
             Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).tag(tag).into(image);
 
-            if(block.ui_type.id == LayoutConstant.grid_media_port || block.ui_type.id == LayoutConstant.grid_media_port_title) {
-                TextView title = (TextView) meida.findViewById(R.id.media_title);
-                title.setText(item.title);
-
-                TextView desc = (TextView) meida.findViewById(R.id.descrip);
-                desc.setText(item.sub_title);
+            TextView title = (TextView)meida.findViewById(R.id.media_title);
+            TextView desc = (TextView)meida.findViewById(R.id.descrip);
+            if(TextUtils.isEmpty(item.sub_title)){
+                title.setMaxLines(2);
+                desc.setVisibility(GONE);
             }else {
-                TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                descrip.setText(item.title + " " +item.sub_title);
+                title.setMaxLines(1);
+                desc.setVisibility(VISIBLE);
             }
+            title.setText(item.title);
+            desc.setText(item.sub_title);
 
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override
