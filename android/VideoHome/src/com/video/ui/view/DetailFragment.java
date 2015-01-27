@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.detail.*;
@@ -22,7 +21,7 @@ public class DetailFragment extends LoadingFragment {
     private DetailInfoView      mInfoView;       //header viewer
     private DetailIntroduceView mIntroduceView;  //introduce
     private DetailCommentView   mCommentView;    //comments
-    private DetailRecommendView mRecommendView;  //recommends videos
+    private RecommendBlockView mRecommendView;  //recommends videos
     private EpisodeContainerView mEpisodeView;    //for episode
     private BlockContainerView   relative_region;
 
@@ -35,7 +34,7 @@ public class DetailFragment extends LoadingFragment {
         mInfoView      = (DetailInfoView) root.findViewById(R.id.detail_info_view);
         mIntroduceView = (DetailIntroduceView) root.findViewById(R.id.detail_introduce_view);
         mCommentView   = (DetailCommentView) root.findViewById(R.id.detail_comment_view);
-        mRecommendView = (DetailRecommendView) root.findViewById(R.id.detail_recommend_view);
+        mRecommendView = (RecommendBlockView) root.findViewById(R.id.detail_recommend_view);
         relative_region = (BlockContainerView) root.findViewById(R.id.relative_region);
 
         mPosterView    = (DetailPosterView) root.findViewById(R.id.detail_poster_view);
@@ -50,6 +49,12 @@ public class DetailFragment extends LoadingFragment {
     @Override
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         mItem = (VideoItem) getArguments().getSerializable("item");
+
+        updateVideo(mItem);
+    }
+
+    public void updateVideo(VideoItem videoItem) {
+        mItem = videoItem;
         if(mItem != null){
             if(mItem.media.items.size() <= 1){
                 mEpisodeView.setVisibility(View.GONE);
@@ -87,4 +92,6 @@ public class DetailFragment extends LoadingFragment {
             mPosterView.setTranslationY(scrollViewTopPadding / posterViewTranslateSpeed * (alpha - 1));
         }
     };
+
+
 }

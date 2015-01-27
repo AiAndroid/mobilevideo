@@ -49,7 +49,7 @@
                     android:layout_marginTop="@dimen/video_common_interval_15"
                     android:background="@drawable/com_bg_white_corner" />
 
-                    <com.video.ui.view.detail.DetailRecommendView
+                    <com.video.ui.view.RecommendBlockView
                     android:id="@+id/detail_recommend_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

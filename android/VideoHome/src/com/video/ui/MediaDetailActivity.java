@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
@@ -97,11 +98,17 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderMa
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                DetailFragment df = new DetailFragment();
-                Bundle data = new Bundle();
-                data.putSerializable("item", mVidoeInfo.blocks.get(0));
-                df.setArguments(data);
-                getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
+                Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
+                if(fg == null) {
+                    DetailFragment df = new DetailFragment();
+                    Bundle data = new Bundle();
+                    data.putSerializable("item", mVidoeInfo.blocks.get(0));
+                    df.setArguments(data);
+                    getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
+                }else {
+                    DetailFragment df = (DetailFragment)fg;
+                    df.updateVideo(mVidoeInfo.blocks.get(0));
+                }
             }
         });
     }

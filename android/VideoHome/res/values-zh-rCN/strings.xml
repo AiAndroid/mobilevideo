@@ -71,4 +71,6 @@
     <!-- media detail end -->
 
     <string name="search_hint">搜索影片、精选、明星</string>
+    <string name="all_episode">全部剧集</string>
+    <string name="total_episode">"共%1$s集"</string>
 </resources>

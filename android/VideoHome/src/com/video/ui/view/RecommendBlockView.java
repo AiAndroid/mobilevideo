@@ -1,8 +1,7 @@
-package com.video.ui.view.detail;
+package com.video.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.tv.ui.metro.model.*;
@@ -10,15 +9,15 @@ import com.video.ui.view.subview.PortBlockView;
 
 import java.util.ArrayList;
 
-public class DetailRecommendView extends FrameLayout {
+public class RecommendBlockView extends FrameLayout {
 
-    public DetailRecommendView(Context context, AttributeSet attrs) {
+    public RecommendBlockView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-    public DetailRecommendView(Context context) {
+    public RecommendBlockView(Context context) {
         this(context, null, 0);
     }
-	public DetailRecommendView(Context context, AttributeSet attrs, int defStyle) {
+	public RecommendBlockView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		init();
 	}

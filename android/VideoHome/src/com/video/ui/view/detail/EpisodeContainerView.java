@@ -32,12 +32,12 @@ public class EpisodeContainerView extends FrameLayout {
 	}
 
     public void setVideo(VideoItem videoItem){
-        createEpisodeView(videoItem, this);
+        createEpisodeView(getContext(), videoItem, this);
     }
 
-    private static Block<VideoItem> createTitleBlock(VideoItem videoItem){
+    private static Block<VideoItem> createTitleBlock(Context context, VideoItem videoItem){
         Block<VideoItem> item = new Block<VideoItem>();
-        item.title = String.format("共%1$s集", videoItem.media.items.size());
+        item.title = String.format(context.getString(R.string.total_episode), videoItem.media.items.size());
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = 206;
         return item;
@@ -70,9 +70,9 @@ public class EpisodeContainerView extends FrameLayout {
         return item;
     }
 
-    private static Block<VideoItem> createLineBlock(VideoItem videoItem) {
+    private static Block<VideoItem> createLineBlock(Context context, VideoItem videoItem) {
         Block<VideoItem> item = new Block<VideoItem>();
-        item.title = "全部剧集";
+        item.title = context.getString(R.string.all_episode);
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.linearlayout_none;
 
@@ -86,12 +86,12 @@ public class EpisodeContainerView extends FrameLayout {
 
 
 	//init
-	public static void createEpisodeView(final VideoItem videoItem, final ViewGroup vg) {
+	public static void createEpisodeView(Context context, final VideoItem videoItem, final ViewGroup vg) {
         Block<VideoItem> item = new Block<VideoItem>();
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.block_sub_channel;
         item.blocks = new ArrayList<Block<VideoItem>>();
-        item.blocks.add(createTitleBlock(videoItem));
+        item.blocks.add(createTitleBlock(context, videoItem));
 
         if(videoItem.media.display_layout != null && ("variety").equals(videoItem.media.display_layout.type)){
             item.blocks.add(createListEpisodeBlock(videoItem));
@@ -100,7 +100,7 @@ public class EpisodeContainerView extends FrameLayout {
         }
 
         if(videoItem.media.items.size() > videoItem.media.display_layout.max_display ) {
-            item.blocks.add(createLineBlock(videoItem));
+            item.blocks.add(createLineBlock(context, videoItem));
         }
 
 

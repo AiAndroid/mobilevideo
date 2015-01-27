@@ -18,9 +18,9 @@ public class AllEpisodeActivity extends DisplayItemActivity {
 
         showFilter(false);
         showSearch(false);
-        setTitle("全部视频");
+        setTitle(getString(R.string.all_episode));
         ViewGroup vg = (ViewGroup) findViewById(R.id.episode_container);
 
-        EpisodeContainerView.createEpisodeView((VideoItem) item, vg);
+        EpisodeContainerView.createEpisodeView(getBaseContext(), (VideoItem) item, vg);
     }
 }
