@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.loader.GenericDetailLoader;
@@ -20,11 +22,13 @@ import com.video.ui.view.RetryView;
 /**
  * Created by liuhuadong on 12/2/14.
  */
-public class MediaDetailActivity extends DisplayItemActivity implements LoaderManager.LoaderCallbacks<VideoBlocks<VideoItem>> {
+public class MediaDetailActivity extends DisplayItemActivity implements LoaderCallbacks<VideoBlocks<VideoItem>> {
 
+    private static String TAG = MediaDetailActivity.class.getName();
     private int loaderID;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.video_detail_layout);
@@ -36,16 +40,43 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderMa
         titlebar.findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
         titlebar.findViewById(R.id.channel_search_btn).setVisibility(View.GONE);
 
-        View view = titlebar.findViewById(R.id.channel_filte_btn);
+        View view = findViewById(R.id.detail_play);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("mvschema://video/filter?rid=" + item.id));
-                    intent.putExtra("item", item);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    if(mVidoeInfo == null){
+                        Log.d(TAG, "wait to fetch url information");
+                        return;
+                    }
+                    getSupportLoaderManager().initLoader(GenericDetailLoader.VIDEO_LOADER_PLAY_ID, savedInstanceState, new LoaderCallbacks<PlaySource>() {
+                        @Override
+                        public Loader<PlaySource> onCreateLoader(int id, Bundle bundle) {
+                            if(id == GenericDetailLoader.VIDEO_LOADER_PLAY_ID){
+                                mLoader = GenericDetailLoader.generateVideoPlayerSourceLoader(getBaseContext(), mVidoeInfo.blocks.get(0));
+                                TextView view = (TextView) findViewById(R.id.detail_play);
+
+                                view.setEnabled(false);
+                                view.setText(getString(R.string.play_source_fetching));
+                            }
+                            return null;
+                        }
+
+                        @Override
+                        public void onLoadFinished(Loader<PlaySource> loader, PlaySource playSource) {
+                            //reset play status
+                            TextView view = (TextView) findViewById(R.id.detail_play);
+                            view.setEnabled(true);
+                            view.setText(getString(R.string.play));
+
+                            Log.d(TAG, "episode information:" + playSource);
+                        }
+
+                        @Override
+                        public void onLoaderReset(Loader<PlaySource> loader) {
+
+                        }
+                    });
                 } catch (Exception ne) {
                     ne.printStackTrace();
                 }
@@ -94,6 +125,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderMa
 
         mLoadingView.stopLoading(true, false);
         mVidoeInfo = blocks;
+
+        setTitle(mVidoeInfo.blocks.get(0).title);
 
         new Handler().post(new Runnable() {
             @Override
