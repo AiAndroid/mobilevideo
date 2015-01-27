@@ -69,7 +69,7 @@
             android:background="@drawable/list_selector_bg"/>
 
     </FrameLayout>
-
+    <!--
     <TextView
             android:id="@+id/media_title"
             android:layout_width="@dimen/channel_media_view_port_width"
@@ -89,5 +89,27 @@
             android:text="TextView"
             android:textSize="@dimen/font_size_42"
             android:gravity="center"/>
+    -->
+    <TextView
+            android:id="@+id/media_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_76"
+            android:gravity="bottom|left"
+            android:contentDescription="@string/app_name"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/color_text"
+            android:textSize="@dimen/text_size_normal" />
+
+    <TextView
+            android:id="@+id/descrip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_84"
+            android:contentDescription="@string/app_name"
+            android:ellipsize="end"
+            android:gravity="top|left"
+            android:maxLines="1"
+            android:textColor="@color/color_sub_text"
+            android:textSize="@dimen/text_size_subtitle" />
 
 </LinearLayout>

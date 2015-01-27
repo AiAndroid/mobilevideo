@@ -17,6 +17,7 @@ public class BlockContainerView  extends MetroLayout {
     }
 
     public void setVideo(VideoItem tab){
+        this.removeAllViews();
         int step = 0;
         for(Block<DisplayItem> item:tab.blocks){
             View blockView = inflateBlock(item, new Integer(0));

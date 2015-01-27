@@ -143,8 +143,19 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.tab_media_hor, null);
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
                         Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
+
+                        TextView title = (TextView)meida.findViewById(R.id.media_title);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                        descrip.setText(item.title + " " +item.sub_title);
+                        if(TextUtils.isEmpty(item.sub_title)){
+                            title.setMaxLines(2);
+                            descrip.setVisibility(GONE);
+                        }else {
+                            title.setMaxLines(1);
+                            descrip.setVisibility(VISIBLE);
+                        }
+                        title.setText(item.title);
+                        descrip.setText(item.sub_title);
+
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -179,9 +190,15 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         ImageView image = (ImageView)meida.findViewById(R.id.poster);
                         Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
-                        title.setText(item.title);
-
                         TextView desc = (TextView)meida.findViewById(R.id.descrip);
+                        if(TextUtils.isEmpty(item.sub_title)){
+                            title.setMaxLines(2);
+                            desc.setVisibility(GONE);
+                        }else {
+                            title.setMaxLines(1);
+                            desc.setVisibility(VISIBLE);
+                        }
+                        title.setText(item.title);
                         desc.setText(item.sub_title);
 
                         setHintText(meida, item);
@@ -207,7 +224,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }
 
 
-        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height+item_padding);
         addView(root,lp);
 
         //size == 1 is special
@@ -223,7 +240,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             });
         }
 
-        getDimens().height = block_height;
+        getDimens().height = block_height + item_padding;
     }
 
     private void showTab(int index){
@@ -252,8 +269,16 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             if(title != null) {
-                title.setText(item.title);
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);
+                if(TextUtils.isEmpty(item.sub_title)){
+                    title.setMaxLines(2);
+                    descrip.setVisibility(GONE);
+                }else {
+                    descrip.setVisibility(VISIBLE);
+                    title.setMaxLines(1);
+                }
+                title.setText(item.title);
+
                 descrip.setText(item.sub_title);
             }else {
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);

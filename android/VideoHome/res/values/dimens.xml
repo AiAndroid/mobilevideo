@@ -1,5 +1,8 @@
 <resources>
 
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_subtitle">12sp</dimen>
+
     <dimen name="font_size_30">10sp</dimen>
     <dimen name="font_size_36">12sp</dimen>
     <dimen name="text_size_38">13dp</dimen>
@@ -20,6 +23,9 @@
     <dimen name="size_40">13.33dp</dimen>
     <dimen name="size_51">17dp</dimen>
     <dimen name="size_74">24.67dp</dimen>
+    <dimen name="size_76">25.3dp</dimen>
+    <dimen name="size_81">27dp</dimen>
+    <dimen name="size_84">28dp</dimen>
     <dimen name="size_100">33.33dp</dimen>
     <dimen name="size_106">35.33dp</dimen>
 

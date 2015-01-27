@@ -216,7 +216,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
 
     private void addOnePadding(){
         View view = new View(getContext());
-        //view.setBackgroundColor(Color.RED);
+        view.setBackgroundColor(Color.TRANSPARENT);
         LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT, media_item_padding);
         addView(view, flp);
 
