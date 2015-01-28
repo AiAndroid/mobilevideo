@@ -42,7 +42,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     private OnClickListener mItemClick;
 
     private Drawable mNewBackground;
-    public void setOnClickListener(OnClickListener itemClick, Drawable newBackground){
+    public void setOnPlayClickListener(OnClickListener itemClick, Drawable newBackground){
         mItemClick     = itemClick;
         mNewBackground = newBackground;
     }
@@ -169,6 +169,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
             mFiter.setTextColor(selectIndex == step?filterView.getResources().getColor(R.color.orange):filterView.getResources().getColor(R.color.p_80_black));
 
+            mFiter.setTag(item);
             mFiter.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

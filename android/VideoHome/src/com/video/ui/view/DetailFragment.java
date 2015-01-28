@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.detail.*;
+import com.video.ui.view.subview.FilterBlockView;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -94,4 +95,28 @@ public class DetailFragment extends LoadingFragment {
     };
 
 
+    public void setEpisodeClick(View.OnClickListener episodeClick) {
+        View view = findFilterBlockView(mEpisodeView);
+        if(view != null){
+            ((FilterBlockView)view).setOnPlayClickListener(episodeClick, null);
+        }
+    }
+
+    private View findFilterBlockView(View view){
+        if(view instanceof FilterBlockView)
+            return view;
+        else if(view instanceof ViewGroup){
+            int size = ((ViewGroup) view).getChildCount();
+            for (int i=0;i<size;i++){
+                View item = ((ViewGroup) view).getChildAt(i);
+                if(item instanceof FilterBlockView)
+                    return item;
+                else if(item instanceof ViewGroup){
+                    return findFilterBlockView(item);
+                }
+            }
+        }
+
+        return null;
+    }
 }

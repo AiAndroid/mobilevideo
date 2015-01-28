@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -153,6 +154,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                 Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
                 if(fg == null) {
                     DetailFragment df = new DetailFragment();
+                    df.setEpisodeClick(episodeClick);
                     Bundle data = new Bundle();
                     data.putSerializable("item", mVidoeInfo.blocks.get(0));
                     df.setArguments(data);
@@ -164,6 +166,13 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             }
         });
     }
+
+    View.OnClickListener episodeClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(getBaseContext(), "click episode:"+view.getTag(), Toast.LENGTH_LONG).show();
+        }
+    };
 
     @Override
     public void onLoaderReset(Loader<VideoBlocks<VideoItem>> blocks) {
