@@ -189,7 +189,7 @@ sdkinfo: {"vid":"http:\/\/m.iqiyi.com\/v_19rrnx1kr4.html"}
 sdkdisable: false
      */
     private void setPostToOldAPI(PlaySource ps){
-        Intent intent = new Intent("duokan.intent.action.VIDEO_PLAY");
+        Intent intent = new Intent("duokan.intent.action.VIDEO_PLAY", Uri.parse(ps.h5_url));
         intent.putExtra("video_type", 0);
         intent.putExtra("current_episode", 1);
         intent.putExtra("multi_set", mVidoeInfo.blocks.get(0).media.items.size() > 0);
