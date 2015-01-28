@@ -73,4 +73,5 @@
     <string name="all_episode">全部剧集</string>
     <string name="total_episode">"共%1$s集"</string>
     <string name="play_source_fetching">连接中</string>
+    <string name="data_buffering">缓冲中</string>
 </resources>

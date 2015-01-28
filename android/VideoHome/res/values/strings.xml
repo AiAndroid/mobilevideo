@@ -75,5 +75,5 @@
     <string name="all_episode">All Episodes</string>
     <string name="total_episode">%1$s Episodes</string>
     <string name="play_source_fetching">Connecting</string>
-
+    <string name="data_buffering">Buffering</string>
 </resources>

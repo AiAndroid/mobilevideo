@@ -186,10 +186,16 @@ public abstract  class BaseGsonLoader<T> extends Loader<T> {
         }
     }
 
+    public static void createDir(String filename){
+        new File(filename).mkdirs();
+    }
+
     public static void updateToFile(String fileName, String response){
         if(null == response || TextUtils.isEmpty(fileName)){
             return;
         }
+        createDir(fileName);
+
         File f = new File(fileName);
         if(f.exists()){
             f.delete();
