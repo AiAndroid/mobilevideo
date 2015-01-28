@@ -74,6 +74,8 @@ public class DetailFragment extends LoadingFragment {
             mInfoView.setVideo(mItem);
             mIntroduceView.setIntroduce(mItem.media.description);
             mPosterView.setImageUrlInfo(mItem.media.poster);
+
+            setEpisodeClick(episodeClickListener);
         }
     }
 
@@ -95,7 +97,10 @@ public class DetailFragment extends LoadingFragment {
     };
 
 
+    View.OnClickListener episodeClickListener;
     public void setEpisodeClick(View.OnClickListener episodeClick) {
+        episodeClickListener = episodeClick;
+
         View view = findFilterBlockView(mEpisodeView);
         if(view != null){
             ((FilterBlockView)view).setOnPlayClickListener(episodeClick, null);
