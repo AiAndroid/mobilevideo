@@ -72,10 +72,13 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                             playview.setText(getString(R.string.play));
                             Log.d(TAG, "play source:"+response);
 
+                            setPostToOldAPI(response);
+                            /*
                             Intent intent = new Intent(getBaseContext(), PlayerActivity.class);
                             intent.putExtra("vid", response.cp_id);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             getBaseContext().startActivity(intent);
+                            */
                         }
                     };
 
@@ -167,4 +170,41 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         Log.d("MediaDetailActivity", "onLoaderReset result:" + blocks);
     }
 
+    /*
+    Action:duokan.intent.action.VIDEO_PLAY
+data: http://m.iqiyi.com/v_19rrnx1kr4.html
+bundle:
+video_type: 0
+current_episode: 3
+multi_set: true
+media_id: 1082695
+media_clarity: 1
+media_h5_url: http://m.iqiyi.com/v_19rrnx1kr4.html
+media_source: 8
+available_episode_count: 36
+media_poster_url: http://file.market.xiaomi.com/download/Duokan/1456f48d-f8d3-46f4-838e-e8e22c3903ea/cc260772-a4fe-11e4-8a9a-002590c3ab24_poster_mi3.jpg
+media_set_name: 何以笙箫默第3集
+mediaTitle: 何以笙箫默
+sdkinfo: {"vid":"http:\/\/m.iqiyi.com\/v_19rrnx1kr4.html"}
+sdkdisable: false
+     */
+    private void setPostToOldAPI(PlaySource ps){
+        Intent intent = new Intent("duokan.intent.action.VIDEO_PLAY");
+        intent.putExtra("video_type", 0);
+        intent.putExtra("current_episode", 1);
+        intent.putExtra("multi_set", mVidoeInfo.blocks.get(0).media.items.size() > 0);
+        intent.putExtra("media_id", ps.cp_id);
+        intent.putExtra("media_clarity", 1);
+        intent.putExtra("media_h5_url", ps.h5_url);
+        intent.putExtra("media_source", 8);
+        intent.putExtra("available_episode_count", mVidoeInfo.blocks.get(0).media.items.size());
+        intent.putExtra("media_poster_url", mVidoeInfo.blocks.get(0).media.poster);
+        intent.putExtra("media_set_name", mVidoeInfo.blocks.get(0).media.items.get(0).name);
+        intent.putExtra("mediaTitle", mVidoeInfo.blocks.get(0).media.name);
+        intent.putExtra("sdkinfo", String.format("{\"vid\":\"%1$s\"}", ps.h5_url));
+        intent.putExtra("sdkdisable", false);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getBaseContext().startActivity(intent);
+    }
 }
