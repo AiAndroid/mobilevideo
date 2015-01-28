@@ -164,7 +164,9 @@ public abstract class SdkVideoView implements IVideoView{
         } 
     }
 
-
+	public void setAdsPlayListener(AdsPlayListener adPlayListener) {
+		this.mAdsPlayListener = adPlayListener;
+	}
 
 	@Override
 	public int getBufferPercentage() {

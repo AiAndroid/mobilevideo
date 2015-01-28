@@ -15,6 +15,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.RelativeLayout;
+import com.miui.videoplayer.widget.AdView;
 import com.qiyi.playersdk.AdPlayListener;
 import com.qiyi.playersdk.IQiyiVideoPlayer;
 import com.xiaomi.video.player.duokan.SdkVideoView;
@@ -164,6 +165,13 @@ public class QiyiVideoView extends SdkVideoView {
     @Override
     public void setForceFullScreen(boolean forceFullScreen) {
     }
+
+
+	@Override
+	public void attachAdView(AdView adView) {
+		adView.setDisableView(true);
+	}
+
 
 	@Override
 	public boolean isSupportZoom() {

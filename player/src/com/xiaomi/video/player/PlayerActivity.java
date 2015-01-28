@@ -11,7 +11,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.duokan.MediaPlayer;
+import com.miui.videoplayer.media.IMediaPlayer;
+import com.miui.videoplayer.widget.AdView;
 import com.qiyi.playersdk.AdPlayListener;
+import com.xiaomi.video.player.duokan.IVideoView;
+import com.xiaomi.video.player.duokan.media.AdsPlayListener;
 
 /**
  * Created by liuhuadong on 9/19/14.
@@ -31,6 +35,14 @@ public class PlayerActivity extends Activity implements MediaPlayer.OnCompletion
 
             String vid = getIntent().getStringExtra("vid");
             videoView  = new QiyiVideoView(PlayerActivity.this);
+
+            mAdView = new AdView(PlayerActivity.this);
+            mAdView.setVisibility(View.GONE);
+            videoView.setAdsPlayListener(mOnAdsPlayListener);
+            videoView.attachAdView(mAdView);
+
+
+
             videoView.setForceFullScreen(true);
             videoView.asView().setVisibility(View.VISIBLE);
 
@@ -47,9 +59,13 @@ public class PlayerActivity extends Activity implements MediaPlayer.OnCompletion
             params.gravity = Gravity.CENTER;
             videoView.asView().setLayoutParams(params);
 
+
+
             RelativeLayout rl = (RelativeLayout)findViewById(R.id.video_contain_view) ;
             rl.addView(videoView.asView(), params);
 
+            rl.addView(mAdView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT
+                    , FrameLayout.LayoutParams.MATCH_PARENT));
 
             videoView.setDataSource(String.format("{\"vid\":\"%1$s\"}", vid));
 
@@ -61,7 +77,17 @@ public class PlayerActivity extends Activity implements MediaPlayer.OnCompletion
         }
     }
 
+    private IMediaPlayer.OnVideoSizeChangedListener mCacheVideoSizeChangedListener;
+    private IMediaPlayer.OnBufferingUpdateListener mCacheBufferingUpdateListener;
+    private IMediaPlayer.OnInfoListener mCacheInfoListener;
+    private IMediaPlayer.OnSeekCompleteListener mCacheSeekCompleteListener;
+    private IMediaPlayer.OnErrorListener mCacheOnErrorListener;
+    private IMediaPlayer.OnCompletionListener mCacheOnCompleteListener;
+    private IMediaPlayer.OnPreparedListener mCacheOnPreparedListener;
+    private IVideoView.OnVideoLoadingListener mOnVideoLoadingListener;
+
     private Handler mHandler;
+    private AdView mAdView;
 
     @Override
     protected void onDestroy() {
@@ -74,20 +100,47 @@ public class PlayerActivity extends Activity implements MediaPlayer.OnCompletion
 
     }
 
-    private AdPlayListener mAdPlayListenerQiyi = new AdPlayListener() {
+
+    private void continuePlay(){
+        if(!videoView.isAdsPlaying()){
+            videoView.start();
+        }
+    }
+
+    private AdsPlayListener mOnAdsPlayListener = new AdsPlayListener() {
+        @Override
+        public void onAdsTimeUpdate(int leftSeconds) {
+            if(mAdView != null){
+                mAdView.onAdsTimeUpdate(leftSeconds);
+            }
+        }
 
         @Override
-        public void onAdPlayStart() {
+        public void onAdsPlayStart() {
+            if(mAdView != null){
+                mAdView.onAdsPlayStart();
+            }
+
             Log.d(TAG, "onAdPlayStart");
         }
 
         @Override
-        public void onAdPlayEnd() {
+        public void onAdsPlayEnd() {
+            if(mAdView != null){
+                mAdView.onAdsPlayEnd();
+            }
+            if(videoView != null && !videoView.hasLoadingAfterAd()){
+                continuePlay();
+            }
+
             Log.d(TAG, "onAdPlayEnd");
         }
 
         @Override
-        public void onAdDuration(int duration) {
+        public void onAdsDuration(int duration) {
+            if(mAdView != null){
+                mAdView.onAdsDuration(duration);
+            }
         }
     };
 

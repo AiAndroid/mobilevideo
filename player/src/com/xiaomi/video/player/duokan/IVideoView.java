@@ -12,6 +12,8 @@ package com.xiaomi.video.player.duokan;
 
 import android.view.View;
 import com.miui.videoplayer.media.IMediaPlayer.*;
+import com.miui.videoplayer.widget.AdView;
+import com.xiaomi.video.player.duokan.media.AdsPlayListener;
 import com.xiaomi.video.player.duokan.media.MediaPlayerControl;
 
 
@@ -36,8 +38,9 @@ public interface IVideoView extends MediaPlayerControl {
 	
 	public boolean isSupportZoom();
 	public void setForceFullScreen(boolean forceFullScreen);
-	
 
+	public void setAdsPlayListener(AdsPlayListener adPlayListener);
+	public void attachAdView(AdView adView);
 	
 	public void setOnVideoLoadingListener(OnVideoLoadingListener loadingListener);
     public void setOnPreparedListener(OnPreparedListener listener);
