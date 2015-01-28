@@ -108,16 +108,17 @@ public class DetailFragment extends LoadingFragment {
     }
 
     private View findFilterBlockView(ViewGroup view){
+        if(view == null)
+            return null;
+
         if(view instanceof FilterBlockView)
             return view;
 
         int size = view.getChildCount();
         for (int i=0;i<size;i++){
             View item =  view.getChildAt(i);
-            if(item instanceof FilterBlockView)
-                return item;
 
-             if(item instanceof ViewGroup){
+            if(item instanceof ViewGroup){
                 return findFilterBlockView((ViewGroup) item);
             }
         }
