@@ -193,7 +193,7 @@ sdkdisable: false
         intent.putExtra("video_type", 0);
         intent.putExtra("current_episode", 1);
         intent.putExtra("multi_set", mVidoeInfo.blocks.get(0).media.items.size() > 0);
-        intent.putExtra("media_id", ps.cp_id);
+        intent.putExtra("media_id", Integer.valueOf(ps.cp_id));
         intent.putExtra("media_clarity", 1);
         intent.putExtra("media_h5_url", ps.h5_url);
         intent.putExtra("media_source", 8);
