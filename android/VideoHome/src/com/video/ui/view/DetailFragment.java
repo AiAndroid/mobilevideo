@@ -107,20 +107,21 @@ public class DetailFragment extends LoadingFragment {
         }
     }
 
-    private View findFilterBlockView(View view){
+    private View findFilterBlockView(ViewGroup view){
         if(view instanceof FilterBlockView)
             return view;
-        else if(view instanceof ViewGroup){
-            int size = ((ViewGroup) view).getChildCount();
-            for (int i=0;i<size;i++){
-                View item = ((ViewGroup) view).getChildAt(i);
-                if(item instanceof FilterBlockView)
-                    return item;
-                else if(item instanceof ViewGroup){
-                    return findFilterBlockView(item);
-                }
+
+        int size = view.getChildCount();
+        for (int i=0;i<size;i++){
+            View item =  view.getChildAt(i);
+            if(item instanceof FilterBlockView)
+                return item;
+
+             if(item instanceof ViewGroup){
+                return findFilterBlockView((ViewGroup) item);
             }
         }
+
 
         return null;
     }
