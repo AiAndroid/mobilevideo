@@ -115,6 +115,12 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                 text.setTextColor(getResources().getColor(R.color.orange));
 
+                int secondHeight = 0;
+                secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
+                if(block.ui_type.id == LayoutConstant.grid_media_land) {
+                    secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
+                }
+
                 FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
                 if(size == 1){
                     grid.setBackground(null);
@@ -147,14 +153,21 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                         if(TextUtils.isEmpty(item.sub_title)){
+                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
                             title.setMaxLines(2);
+                            descrip.setHeight(0);
                             descrip.setVisibility(GONE);
                         }else {
                             title.setMaxLines(1);
+                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+                            descrip.setHeight(secondHeight);
                             descrip.setVisibility(VISIBLE);
                         }
                         title.setText(item.title);
                         descrip.setText(item.sub_title);
+
+                        title.requestLayout();
+                        descrip.requestLayout();
 
                         meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                             @Override
@@ -192,14 +205,21 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         TextView desc = (TextView)meida.findViewById(R.id.descrip);
                         if(TextUtils.isEmpty(item.sub_title)){
+                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
                             title.setMaxLines(2);
+                            desc.setHeight(0);
                             desc.setVisibility(GONE);
                         }else {
                             title.setMaxLines(1);
+                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+                            desc.setHeight(secondHeight);
                             desc.setVisibility(VISIBLE);
                         }
                         title.setText(item.title);
                         desc.setText(item.sub_title);
+
+                        title.requestLayout();
+                        desc.requestLayout();
 
                         setHintText(meida, item);
 
@@ -261,6 +281,12 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             }
         }
 
+
+        int secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
+        if(block.ui_type.id == LayoutConstant.grid_media_land) {
+            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
+        }
+
         for(int i=0;i<grid.getChildCount();i++){
             View meida = grid.getChildAt(i);
             final DisplayItem item = (DisplayItem) block.items.get(i);
@@ -271,15 +297,21 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             if(title != null) {
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                 if(TextUtils.isEmpty(item.sub_title)){
+                    title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
                     title.setMaxLines(2);
                     descrip.setVisibility(GONE);
+                    descrip.setHeight(0);
                 }else {
                     descrip.setVisibility(VISIBLE);
+                    title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
                     title.setMaxLines(1);
+                    descrip.setHeight(secondHeight);
                 }
                 title.setText(item.title);
-
                 descrip.setText(item.sub_title);
+
+                title.requestLayout();
+                descrip.requestLayout();
             }else {
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                 descrip.setText(item.title + " " +item.sub_title);

@@ -3,6 +3,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/video_contain_view">
-    <RelativeLayout android:id="@+id/ads_view" android:layout_width="match_parent" android:layout_height="match_parent"></RelativeLayout>
+    <RelativeLayout android:id="@+id/ads_view" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone"></RelativeLayout>
 
 </RelativeLayout>

@@ -29,31 +29,36 @@ import java.util.Map;
  *
  */
 public class QiyiVideoView extends SdkVideoView {
-	
+
 	public static final String TAG = "QiyiVideoView";
 
 	private Handler mHandler ;
 
 	private Activity mContext;
-	
-	private int mAdsDuration = 0; 
-	
-	public QiyiVideoView(Context context){
+
+	private int mAdsDuration = 0;
+
+
+	RelativeLayout mContainer;
+
+	public QiyiVideoView(Context context, RelativeLayout layout){
 		super(context);
+		mContainer = layout;
 		mContext = (Activity)context;
 		init();
 	}
-	
+
 	private void init(){
 
 		mHandler = new Handler();
 	    try{
 	        IQiyiVideoPlayer.getInstance().initVideoPlayer(mContext, mContext.getApplicationContext(),
-	                getHandler(), (RelativeLayout)asView());
+	                getHandler(), mContainer);
 	    }catch(Throwable t){
+			t.printStackTrace();
 	    }
 	}
-	
+
 	public Handler getHandler(){
 		return mHandler;
 	}

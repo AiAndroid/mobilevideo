@@ -97,7 +97,7 @@
             android:gravity="bottom|left"
             android:contentDescription="@string/app_name"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:singleLine="true"
             android:textColor="@color/color_text"
             android:textSize="@dimen/text_size_normal" />
 
@@ -108,7 +108,7 @@
             android:contentDescription="@string/app_name"
             android:ellipsize="end"
             android:gravity="top|left"
-            android:maxLines="1"
+            android:singleLine="true"
             android:textColor="@color/color_sub_text"
             android:textSize="@dimen/text_size_subtitle" />
 

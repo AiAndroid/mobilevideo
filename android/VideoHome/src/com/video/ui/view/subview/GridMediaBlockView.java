@@ -41,6 +41,8 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
     private Block<T> content;
     private View root;
 
+    private int secondHeight;
+
     private void initDimens(Block<T> block){
         content = block;
         item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
@@ -53,9 +55,14 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
             imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
             padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
+
+            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
+
         }else if(block.ui_type.id == LayoutConstant.grid_media_land || block.ui_type.id == LayoutConstant.grid_media_land_title) {
             row_count = block.ui_type.row_count;
             if (row_count == 0)row_count = 2;
+
+            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
 
             res_id = R.layout.tab_media_hor;
             width = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
@@ -84,9 +91,13 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             TextView desc = (TextView)meida.findViewById(R.id.descrip);
             if(TextUtils.isEmpty(item.sub_title)){
                 title.setMaxLines(2);
+                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
+                desc.setHeight(0);
                 desc.setVisibility(GONE);
             }else {
                 title.setMaxLines(1);
+                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+                desc.setHeight(secondHeight);
                 desc.setVisibility(VISIBLE);
             }
             title.setText(item.title);
