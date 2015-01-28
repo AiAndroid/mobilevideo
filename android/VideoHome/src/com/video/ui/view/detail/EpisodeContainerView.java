@@ -32,6 +32,7 @@ public class EpisodeContainerView extends FrameLayout {
 	}
 
     public void setVideo(VideoItem videoItem){
+        this.removeAllViews();
         createEpisodeView(getContext(), videoItem, this);
     }
 
@@ -118,6 +119,9 @@ public class EpisodeContainerView extends FrameLayout {
                     Intent intent = new Intent(vg.getContext(), AllEpisodeActivity.class);
                     videoItem.media.display_layout.max_display = 10000;
                     videoItem.title = String.format("1-%1$s集", videoItem.media.items.size());
+                    //TODO
+                    //we should choose the cp from user selection
+                    intent.putExtra("cp",   videoItem.media.cps.get(0));
                     intent.putExtra("item", videoItem);
                     vg.getContext().startActivity(intent);
                 }
