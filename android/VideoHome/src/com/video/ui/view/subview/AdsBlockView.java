@@ -82,7 +82,6 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                     @Override
                     public void run() {
                         startAnimation();
-                        Log.d("ads", "onPageScrolled startAnimation");
                     }
                 }, 200);
 
@@ -101,10 +100,8 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
             @Override
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    Log.d("ads", "onPageScrolled stop");
                     stopAnimation();
                 } else {
-                    Log.d("ads", "onPageScrolled start");
                     startAnimation();
                 }
             }

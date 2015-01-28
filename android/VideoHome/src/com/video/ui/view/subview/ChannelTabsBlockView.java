@@ -153,13 +153,10 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                         if(TextUtils.isEmpty(item.sub_title)){
-                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                            title.setMaxLines(2);
-                            descrip.setHeight(0);
+                            title.setSingleLine(false);
                             descrip.setVisibility(GONE);
                         }else {
-                            title.setMaxLines(1);
-                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+                            title.setSingleLine(true);
                             descrip.setHeight(secondHeight);
                             descrip.setVisibility(VISIBLE);
                         }
@@ -205,13 +202,10 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         TextView title = (TextView)meida.findViewById(R.id.media_title);
                         TextView desc = (TextView)meida.findViewById(R.id.descrip);
                         if(TextUtils.isEmpty(item.sub_title)){
-                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                            title.setMaxLines(2);
-                            desc.setHeight(0);
+                            title.setSingleLine(false);
                             desc.setVisibility(GONE);
                         }else {
-                            title.setMaxLines(1);
-                            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+                            title.setSingleLine(true);
                             desc.setHeight(secondHeight);
                             desc.setVisibility(VISIBLE);
                         }
@@ -297,14 +291,11 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             if(title != null) {
                 TextView descrip = (TextView)meida.findViewById(R.id.descrip);
                 if(TextUtils.isEmpty(item.sub_title)){
-                    title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                    title.setMaxLines(2);
+                    title.setSingleLine(false);
                     descrip.setVisibility(GONE);
-                    descrip.setHeight(0);
                 }else {
                     descrip.setVisibility(VISIBLE);
-                    title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
-                    title.setMaxLines(1);
+                    title.setSingleLine(true);
                     descrip.setHeight(secondHeight);
                 }
                 title.setText(item.title);

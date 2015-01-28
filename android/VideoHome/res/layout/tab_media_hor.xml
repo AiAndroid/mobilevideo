@@ -78,25 +78,28 @@
             android:gravity="left"/>
     -->
 
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
         <TextView
                 android:id="@+id/media_title"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_76"
-                android:gravity="bottom|left"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:gravity="top|left"
                 android:ellipsize="end"
-                android:singleLine="true"
                 android:textColor="@color/color_text"
                 android:textSize="@dimen/text_size_normal" />
 
         <TextView
                 android:id="@+id/descrip"
+                android:layout_below="@id/media_title"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_81"
+                android:layout_height="wrap_content"
+                android:paddingTop="1dp"
                 android:ellipsize="end"
                 android:gravity="top|left"
                 android:singleLine="true"
                 android:textColor="@color/color_sub_text"
                 android:textSize="@dimen/text_size_subtitle" />
-
+    </RelativeLayout>
 
 </LinearLayout>

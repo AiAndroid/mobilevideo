@@ -90,26 +90,29 @@
             android:textSize="@dimen/font_size_42"
             android:gravity="center"/>
     -->
-    <TextView
-            android:id="@+id/media_title"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_76"
-            android:gravity="bottom|left"
-            android:contentDescription="@string/app_name"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/text_size_normal" />
 
-    <TextView
-            android:id="@+id/descrip"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_84"
-            android:contentDescription="@string/app_name"
-            android:ellipsize="end"
-            android:gravity="top|left"
-            android:singleLine="true"
-            android:textColor="@color/color_sub_text"
-            android:textSize="@dimen/text_size_subtitle" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/media_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:gravity="top|left"
+                android:ellipsize="end"
+                android:textColor="@color/color_text"
+                android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+                android:id="@+id/descrip"
+                android:layout_below="@id/media_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="1dp"
+                android:ellipsize="end"
+                android:gravity="top|left"
+                android:singleLine="true"
+                android:textColor="@color/color_sub_text"
+                android:textSize="@dimen/text_size_subtitle" />
+    </RelativeLayout>
 
 </LinearLayout>

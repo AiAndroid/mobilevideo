@@ -90,12 +90,12 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             TextView desc = (TextView)meida.findViewById(R.id.descrip);
             if(TextUtils.isEmpty(item.sub_title)){
-                title.setMaxLines(2);
+                title.setSingleLine(false);
                 title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
                 desc.setHeight(0);
                 desc.setVisibility(GONE);
             }else {
-                title.setMaxLines(1);
+                title.setSingleLine(true);
                 title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
                 desc.setHeight(secondHeight);
                 desc.setVisibility(VISIBLE);
