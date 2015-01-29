@@ -1,12 +1,9 @@
 package com.video.ui.view;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +11,7 @@ import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
-import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
-import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
