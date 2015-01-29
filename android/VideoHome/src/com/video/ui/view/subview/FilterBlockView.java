@@ -232,6 +232,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             view.setData(item, i == selectIndex);
             ml.addItemViewPort(view, LayoutConstant.linearlayout_episode_list_item,0, i , padding);
 
+            view.setTag(item);
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
