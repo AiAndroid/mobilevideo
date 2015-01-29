@@ -262,15 +262,13 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         public View getView(int i, View view, ViewGroup viewGroup) {
             ChannelVideoItemView root = null;
             if(items == null) {
-                root = new ChannelVideoItemView(getActivity());
-                root.setUIType(getLeftBottomUIType());
+                root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
             }else {
                 if(view == null) {
-                    root = new ChannelVideoItemView(getActivity());
+                    root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
                 }else{
                     root = (ChannelVideoItemView)view;
                 }
-
 
                 root.setTag(getItem(i));
                 root.setUIType(getLeftBottomUIType());

@@ -52,7 +52,7 @@ public abstract class BaseCardView  extends RelativeLayout {
             if(item.target.entity.endsWith("pvideo")) {
                 item.type = "item";
             }else if(item.target.entity.endsWith("svideo")) {
-                item.type = "item";
+                item.type = "album";
             }else if(item.target.entity.endsWith("album_collection")) {
                 item.type = "album";
             }else if(item.target.entity.endsWith("album")) {

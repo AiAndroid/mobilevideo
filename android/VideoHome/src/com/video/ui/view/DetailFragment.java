@@ -74,7 +74,7 @@ public class DetailFragment extends LoadingFragment {
             }
 
             mInfoView.setVideo(mItem);
-            
+
             if(TextUtils.isEmpty(mItem.media.description)){
                 mIntroduceView.setVisibility(View.GONE);
             }else {

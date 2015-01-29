@@ -17,6 +17,7 @@
     <dimen name="size_3">1dp</dimen>
     <dimen name="size_5">1.67dp</dimen>
     <dimen name="size_6">2dp</dimen>
+    <dimen name="size_10">3.33dp</dimen>
     <dimen name="size_15">5dp</dimen>
     <dimen name="size_20">6.67dp</dimen>
     <dimen name="size_30">10dp</dimen>
@@ -348,5 +349,12 @@
     <dimen name="search_empty_media_top_margin">100dp</dimen>
     <dimen name="search_result_filter_top_margin">24.3dp</dimen>
     <!-- search result end -->
+
+    <!-- info start -->
+    <dimen name="info_filter_view_item_height">40dp</dimen>
+    <dimen name="info_channel_list_item_height">86.3dp</dimen>
+    <dimen name="info_channel_list_poster_width">118.7dp</dimen>
+    <dimen name="info_channel_list_poster_height">66.7dp</dimen>
+    <!-- info end -->
 
 </resources>
