@@ -64,6 +64,8 @@ public class ChannelVideoItemView extends RelativeLayout {
             left = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
             left.setText(String.format("%1$s", item.value));
         }else {
+            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
             left = (TextView) convertView.findViewById(R.id.channel_rank_item_hint_right);
             if(item.hint != null &&  item.hint.right() != null) {
                 left.setVisibility(VISIBLE);

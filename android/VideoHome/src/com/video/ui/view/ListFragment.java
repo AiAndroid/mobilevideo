@@ -284,7 +284,9 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                 if(i == 0) {
                     root.layout.setBackgroundResource(R.drawable.com_item_bg_up);
                     root.line.setVisibility(View.VISIBLE);
-                    root.padding.setVisibility(View.GONE);
+                    if(getLeftBottomUIType() != LayoutConstant.channel_list_short) {
+                        root.padding.setVisibility(View.GONE);
+                    }
                 } else if(i == size - 1) {
                     root.layout.setBackgroundResource(R.drawable.com_item_bg_down);
                     root.line.setVisibility(View.INVISIBLE);
