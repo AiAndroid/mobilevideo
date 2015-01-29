@@ -17,7 +17,7 @@ public abstract class GenericDetailLoader<T> extends BaseGsonLoader<VideoBlocks<
     public static int VIDEO_LOADER_PLAY_ID=0x703;
 
     public GenericDetailLoader(Context con, DisplayItem item){
-        super(con, item);
+        super(con, item, 1);
     }
 
     public static GenericDetailLoader<VideoItem> generateVideotLoader(Context con, DisplayItem item){
@@ -39,7 +39,7 @@ public abstract class GenericDetailLoader<T> extends BaseGsonLoader<VideoBlocks<
     }
 
     public static BaseGsonLoader<PlaySource> generateVideoPlayerSourceLoader(Context con, DisplayItem item){
-        BaseGsonLoader<PlaySource> loader = new BaseGsonLoader<PlaySource>(con, item){
+        BaseGsonLoader<PlaySource> loader = new BaseGsonLoader<PlaySource>(con, item, 1){
             @Override
             public void setCacheFileName() {
                 cacheFileName = "video_source_";

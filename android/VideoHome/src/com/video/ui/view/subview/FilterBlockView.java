@@ -269,7 +269,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
-        MetroLayout ml = new MetroLayout(context);
+        final MetroLayout ml = new MetroLayout(context);
         int step      = 0;
         int row_count = 4;
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
@@ -304,6 +304,22 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                         imageView.setVisibility(VISIBLE);
                         mFiter.setTextColor(context.getResources().getColor(R.color.orange));
                         mFiter.setBackgroundResource(R.drawable.editable_title_com_btn_bg_s);
+
+                        //remove others selected button
+                        for(int i=0;i<ml.getChildCount();i++){
+                            View view = ml.getChildAt(i);
+                            if(view.findViewById(R.id.channel_filter_selected) != null){
+                                ImageView iv = (ImageView) view.findViewById(R.id.channel_filter_selected);
+                                if(iv.getVisibility() == VISIBLE && view != v){
+                                    //remove the select
+                                    iv.setVisibility(GONE);
+                                    TextView tv = (TextView) view.findViewById(R.id.channel_filter_btn);
+                                    tv.setTextColor(context.getResources().getColor(R.color.text_color_deep_dark));
+                                    tv.setBackgroundResource(0);
+                                    filterView.getSelectedItems().remove((String) v.getTag());
+                                }
+                            }
+                        }
                     }
                 }
             });

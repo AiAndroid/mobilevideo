@@ -19,8 +19,12 @@ import java.net.URLEncoder;
 public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<T>>{
     public static int VIDEO_ALBUM_LOADER_ID   = 0x901;
     public static int VIDEO_SUBJECT_SEARCH_LOADER_ID   = 0x902;
+    public GenericAlbumLoader(Context con, DisplayItem item, int setPage){
+        super(con, item, setPage);
+    }
+
     public GenericAlbumLoader(Context con, DisplayItem item){
-        super(con, item);
+        super(con, item, 1);
     }
 
     public static GenericAlbumLoader<DisplayItem> generateTabsLoader(final Context con, DisplayItem item){
@@ -70,8 +74,8 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
     }
 
 
-    public static GenericAlbumLoader<VideoItem> generateVideoAlbumLoader(Context con, DisplayItem item){
-        GenericAlbumLoader<VideoItem> loader = new GenericAlbumLoader<VideoItem>(con, item){
+    public static GenericAlbumLoader<VideoItem> generateVideoAlbumLoader(Context con, DisplayItem item, int setPage){
+        GenericAlbumLoader<VideoItem> loader = new GenericAlbumLoader<VideoItem>(con, item, setPage){
             @Override
             public void setCacheFileName() {
                 cacheFileName = "video_album_";
@@ -140,9 +144,9 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
 
     public boolean hasMoreData() {
         //TODO
-        if(mResult != null && mResult.blocks != null && mResult.blocks.size() > 0
-                && mResult.blocks.get(0).blocks != null && mResult.blocks.get(0).blocks.size() > 0 &&
-                mResult.blocks.get(0).blocks.get(0).items != null && mResult.blocks.get(0).blocks.get(0).items.size() == page_size){
+        if(mResult != null && mResult.blocks != null && mResult.blocks.size() > 0 //tab
+                && mResult.blocks.get(0).blocks != null && mResult.blocks.get(0).blocks.size() > 0 && //blocks
+                mResult.blocks.get(0).blocks.get(0).items != null && mResult.blocks.get(0).blocks.get(0).items.size() >= 5/*page_size*/){
             return  true;
         }
         return false;
@@ -154,7 +158,11 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
 
 
     public void nextPage() {
-        page++;
+        nextPage(++page);
+    }
+
+    public void nextPage(int specificPage) {
+        page = specificPage;
         //load from server
         mIsLoading = true;
         //

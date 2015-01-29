@@ -52,9 +52,14 @@ public abstract  class BaseGsonLoader<T> extends Loader<T> {
         setLoaderURL(item);
     }
 
-    public BaseGsonLoader(Context context, DisplayItem item) {
+    public BaseGsonLoader(Context context, DisplayItem item, int setPage) {
         super(context);
+        page = setPage;
         init(item);
+    }
+
+    public void setCurrentPage(int setPage){
+        page = setPage;
     }
 
     public int getCurrentPage(){

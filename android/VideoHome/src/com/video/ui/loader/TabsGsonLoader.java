@@ -26,7 +26,7 @@ public class TabsGsonLoader extends BaseGsonLoader<GenericBlock<DisplayItem>> {
     }
 
     public TabsGsonLoader(Context context, DisplayItem item) {
-        super(context, item);
+        super(context, item, 1);
     }
 
     @Override

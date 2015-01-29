@@ -52,31 +52,37 @@ public class ChannelVideoItemView extends RelativeLayout {
         // desc
         desc.setText(item.desc);
 
-        // score
-        if(ui_type == LayoutConstant.channel_list_long_hot){
-            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
-            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.VISIBLE);
-            left = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
-            left.setText(String.format(" %1$s", item.value));
-        }else if(ui_type == LayoutConstant.channel_list_long_rate){
-            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
-            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.VISIBLE);
-            left = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
-            left.setText(String.format("%1$s", item.value));
-        }else {
-            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
-            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
-            left = (TextView) convertView.findViewById(R.id.channel_rank_item_hint_right);
-            if(item.hint != null &&  item.hint.right() != null) {
-                left.setVisibility(VISIBLE);
-                left.setText(item.hint.right());
-            }else {
-                left.setVisibility(GONE);
+        // value
+        if (content.ui_type.show_value == 1) {
+            if (ui_type == LayoutConstant.channel_list_long_hot) {
+                convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
+                convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.VISIBLE);
+                left = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
+                left.setText(String.format(" %1$s", item.value));
+            } else if (ui_type == LayoutConstant.channel_list_long_rate) {
+                convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+                convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.VISIBLE);
+                left = (TextView) convertView.findViewById(R.id.channel_rank_item_score);
+                left.setText(String.format("%1$s", item.value));
+
+            } else {
+                convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+                convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
+                left = (TextView) convertView.findViewById(R.id.channel_rank_item_hint_right);
+                if (item.hint != null && item.hint.right() != null) {
+                    left.setVisibility(VISIBLE);
+                    left.setText(item.hint.right());
+                } else {
+                    left.setVisibility(GONE);
+                }
             }
+        }else {
+            convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
+            convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
         }
 
-        // place
-        if(content.ui_type.show_rank == 1 && ui_type != LayoutConstant.channel_list_short){
+        // rank
+        if(content.ui_type.show_rank == 1 ){
             place.setVisibility(View.VISIBLE);
             place.setText(getResources().getString(R.string.place_at, position+1));
         }else{

@@ -14,15 +14,15 @@ public class DisplayItem implements Serializable{
         public int    id;
         public int    row_count;
         public int    display_count;
-        public int    show_score;
-        public int    show_rank = 1;
+        public int    show_value = 1;
+        public int    show_rank  = 1;
         public UI clone(){
             UI item = new UI();
             item.name = name;
             item.id   = id;
             item.row_count = row_count;
             item.show_rank = show_rank;
-            item.show_score = show_score;
+            item.show_value = show_value;
             return item;
         }
 		public String toString() {
@@ -118,6 +118,12 @@ public class DisplayItem implements Serializable{
     public Media      media;//why put here, for media detail episode list UI create, actually we should put this in VideoItem
 
     public Settings   settings;//for server key-value settings
+    public Meta       meta;
+
+    public static class Meta extends HashMap<String, String> implements Serializable{
+        private static final long serialVersionUID = 1L;
+        public String page(){return get("page");}
+    }
 
     public static class Settings  extends HashMap<String, String> implements Serializable{
         private static final long serialVersionUID = 1L;

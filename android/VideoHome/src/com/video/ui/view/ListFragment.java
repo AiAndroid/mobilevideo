@@ -25,7 +25,7 @@ import com.video.ui.view.subview.ChannelVideoItemView;
 
 import java.util.ArrayList;
 
-public class ListFragment extends LoadingFragment implements LoaderManager.LoaderCallbacks<GenericBlock<VideoItem>>,OnNextPageLoader {
+public class ListFragment extends LoadingFragment implements LoaderManager.LoaderCallbacks<GenericBlock<DisplayItem>>,OnNextPageLoader {
     private final String TAG = ListFragment.class.getName();
 	public    MetroLayout        mMetroLayout;
     protected Block<DisplayItem> tab;
@@ -34,6 +34,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     private   ListView           listView;
     private   EmptyLoadingView   mLoadingView;
     private   int                loaderID;
+    private   boolean            haveBuildInData = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,13 +47,9 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         index     = getArguments().getInt("index", 0);
 
         mLoadingView = makeEmptyLoadingView(getActivity(), (RelativeLayout) v.findViewById(R.id.tabs_content));
-        mLoadingView.setVisibility(View.GONE);
-
         //have data
-
         //now we just get the data from server
         addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
-
 
         if(tab.blocks != null && tab.blocks.size() > 0){
 
@@ -74,8 +71,11 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
             }
         }
 
-        loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
-        getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
+        //if send data in, just use the sent data, then fetch new data in next page
+        if(haveBuildInData == false) {
+            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
+            getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
+        }
 
         //we just have one list view
         return v;
@@ -91,17 +91,36 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     }
 
     static int stepID = 1000;
+    private Block<DisplayItem> sendInBlock;
 
-    private View createListContentView(Block<DisplayItem> block){
+    private View createListContentView(Block<DisplayItem> preData){
         listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
+        for(int i=0;i<preData.blocks.size();i++) {
+            Block<DisplayItem> block = preData.blocks.get(i);
+            if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                    block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                    block.ui_type.id == LayoutConstant.channel_list_short ) {
+                if(block.items != null && block.items.size() > 0) {
+                    sendInBlock = block;
+                    adapter = new RelativeAdapter(block.items, block.ui_type.id);
+                    haveBuildInData = true;
+
+                    //update UI
+                    listView.setAdapter(adapter);
+                    listView.setOnScrollListener(scrollListener);
+                    listView.setOnItemClickListener(itemClicker);
+                }
+                break;
+            }
+        }
         return listView;
     }
 
 
     @Override
-    public Loader<GenericBlock<VideoItem>> onCreateLoader(int id, Bundle bundle) {
+    public Loader<GenericBlock<DisplayItem>> onCreateLoader(int id, Bundle bundle) {
         if(id == loaderID) {
-            mLoader = GenericAlbumLoader.generateVideoAlbumLoader(getActivity(), tab);
+            mLoader = GenericAlbumLoader.generateVideoAlbumLoader(getActivity(), tab, haveBuildInData==true?2:1);
             mLoader.setProgressNotifiable(mLoadingView);
             return mLoader;
         }
@@ -109,20 +128,10 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         return null;
     }
 
-    RetryView.OnRetryLoadListener retryLoadListener = new RetryView.OnRetryLoadListener() {
-        @Override
-        public void OnRetryLoad(View vClicked) {
-            if(mLoader != null){
-                mLoader.forceLoad();
-            }
-        }
-    };
-
-    int currentPage = -1;
-    private GenericBlock<VideoItem> mVidoeInfo;
+    private GenericBlock<DisplayItem> mVidoeInfo;
     RelativeAdapter adapter;
     @Override
-    public void onLoadFinished(Loader<GenericBlock<VideoItem>> genericBlockLoader, GenericBlock<VideoItem> result) {
+    public void onLoadFinished(Loader<GenericBlock<DisplayItem>> genericBlockLoader, GenericBlock<DisplayItem> result) {
         if(result == null){
             if(mVidoeInfo == null){
                 mLoadingView.stopLoading(false, false);
@@ -136,36 +145,46 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
             return;
         }
 
-        if (currentPage == mLoader.getCurrentPage()) {
-            Log.d(TAG, "same page loader, may from cache page=" + currentPage);
-            return;
-        }
-
-        currentPage = mLoader.getCurrentPage();
         //first page
         if (mVidoeInfo == null) {
             mVidoeInfo = result;
+
             for(int i=0;i<mVidoeInfo.blocks.get(0).blocks.size();i++) {
-                Block<VideoItem> block = mVidoeInfo.blocks.get(0).blocks.get(i);
+                Block<DisplayItem> block = mVidoeInfo.blocks.get(0).blocks.get(i);
                 if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                         block.ui_type.id == LayoutConstant.channel_list_long_rate ||
                         block.ui_type.id == LayoutConstant.channel_list_short ) {
-                    adapter = new RelativeAdapter(block.items);
+                    if(haveBuildInData == true){
+                        mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(sendInBlock.items);
+                        adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(i).items);
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                        adapter = new RelativeAdapter(block.items, block.ui_type.id);
+                        //update UI
+                        listView.setAdapter(adapter);
+                        listView.setOnScrollListener(scrollListener);
+                        listView.setOnItemClickListener(itemClicker);
+                    }
                     break;
                 }
             }
 
-            //update UI
-            listView.setAdapter(adapter);
-            listView.setOnScrollListener(scrollListener);
-            listView.setOnItemClickListener(itemClicker);
         }else {
 
             if(result.blocks.size() > 0) {
 
+                //same page, no need update
+                int currentPage = Integer.valueOf(mVidoeInfo.blocks.get(0).meta.page());
+                int toBePage    = Integer.valueOf(result.blocks.get(0).meta.page());
+                if (currentPage == toBePage) {
+                    Log.d(TAG, "same page loader, may from cache page=" + currentPage);
+                    return;
+                }
+
                 int content_step = 0;
                 for(int i=0;i<result.blocks.get(0).blocks.size();i++) {
-                    Block<VideoItem> block = result.blocks.get(0).blocks.get(i);
+                    Block<DisplayItem> block = result.blocks.get(0).blocks.get(i);
                     if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                             block.ui_type.id == LayoutConstant.channel_list_long_rate ||
                             block.ui_type.id == LayoutConstant.channel_list_short ) {
@@ -176,6 +195,8 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                     }
                 }
 
+                //to remember the page
+                mVidoeInfo.blocks.get(0).media = result.blocks.get(0).media;
 
                 adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(content_step).items);
                 adapter.notifyDataSetChanged();
@@ -184,7 +205,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     }
 
     @Override
-    public void onLoaderReset(Loader<GenericBlock<VideoItem>> genericBlockLoader) {
+    public void onLoaderReset(Loader<GenericBlock<DisplayItem>> genericBlockLoader) {
 
     }
 
@@ -203,13 +224,28 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
     @Override
     public boolean nextPage() {
-        if(mLoader != null 	&& ((GenericAlbumLoader)mLoader).hasMoreData() && !((GenericAlbumLoader)mLoader).isLoading()){
-            ((GenericAlbumLoader)mLoader).nextPage();
-            mLoader.forceLoad();
-            return true;
+        if(mLoader != null 	){
+            int nextPage = 0;
+            if(mVidoeInfo != null){
+                nextPage = Integer.valueOf(mVidoeInfo.blocks.get(0).meta.page());
+            }
+
+            if((((GenericAlbumLoader)mLoader).hasMoreData() ||  nextPage > 0) && !((GenericAlbumLoader)mLoader).isLoading()) {
+                ((GenericAlbumLoader) mLoader).nextPage(nextPage + 1);
+                mLoader.forceLoad();
+                return true;
+            }
         }else{
-            return false;
+
+            //
+            //when enter this UI, use the send in data firstly, then fetch next page
+            //
+            loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
+            getActivity().getSupportLoaderManager().initLoader(loaderID, null, this);
+            return true;
         }
+
+        return false;
     }
 
     AdapterView.OnItemClickListener itemClicker = new AdapterView.OnItemClickListener() {
@@ -226,18 +262,20 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     };
 
     public class RelativeAdapter extends BaseAdapter {
-        public RelativeAdapter(ArrayList<VideoItem> content){
+        private int mui_type;
+        public RelativeAdapter(ArrayList<DisplayItem> content, int ui_type){
             super();
             items = content;
+            mui_type = ui_type;
         }
 
-        public void changeContent(ArrayList<VideoItem> content){
+        public void changeContent(ArrayList<DisplayItem> content){
             if(content != null) {
                 items = content;
                 notifyDataSetChanged();
             }
         }
-        private ArrayList<VideoItem> items;
+        private ArrayList<DisplayItem> items;
 
         @Override
         public int getCount() {
@@ -256,7 +294,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
 
         private int getLeftBottomUIType(){
-            return mVidoeInfo.blocks.get(0).blocks.get(0).ui_type.id;
+            return mui_type;
         }
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
