@@ -117,6 +117,12 @@ public class DisplayItem implements Serializable{
     public String     value;
     public Media      media;//why put here, for media detail episode list UI create, actually we should put this in VideoItem
 
+    public Settings   settings;//for server key-value settings
+
+    public static class Settings  extends HashMap<String, String> implements Serializable{
+        private static final long serialVersionUID = 1L;
+    }
+
     public static class Media implements Serializable {
         private static final long serialVersionUID = 1L;
 

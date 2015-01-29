@@ -16,6 +16,7 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
 import com.video.ui.view.RetryView;
+import com.video.ui.view.subview.FilterBlockView;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -134,6 +135,9 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         @Override
         public void onClick(View view) {
             DisplayItem.Media.Episode ps = (DisplayItem.Media.Episode) view.getTag();
+            if(view instanceof FilterBlockView.VarietyEpisode){
+                view = view.findViewById(R.id.detail_variety_item_name);
+            }
             EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media);
             Log.d(TAG, "click episode:" + view.getTag());
         }
