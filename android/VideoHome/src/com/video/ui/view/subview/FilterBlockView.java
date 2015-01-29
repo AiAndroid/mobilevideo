@@ -219,7 +219,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                 view.setBackgroundResource(R.drawable.com_item_bg_full);
             } else {
                 if(i == 0) {
-                    view.setBackgroundResource(R.drawable.com_item_bg_up);
+                    view.setBackgroundResource(R.drawable.com_item_bg_mid);
                 }else if(i == size -1 && episodes.size() <= maxVisible){
                     view.setBackgroundResource(R.drawable.com_item_bg_down);
                     view.findViewById(R.id.line).setVisibility(GONE);
@@ -236,7 +236,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(filterView.getItemClick() != null){
+                    if (filterView.getItemClick() != null) {
                         filterView.getItemClick().onClick(v);
                     }
                 }

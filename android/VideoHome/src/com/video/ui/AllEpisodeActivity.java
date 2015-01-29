@@ -41,6 +41,9 @@ public class AllEpisodeActivity extends DisplayItemActivity {
         @Override
         public void onClick(View view) {
             DisplayItem.Media.Episode ps = (DisplayItem.Media.Episode) view.getTag();
+            if(view instanceof FilterBlockView.VarietyEpisode ){
+                view = view.findViewById(R.id.detail_variety_item_name);
+            }
             EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media);
             Log.d(TAG, "click episode:" + view.getTag());
         }

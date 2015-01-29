@@ -1,6 +1,7 @@
 package com.video.ui.view;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +74,13 @@ public class DetailFragment extends LoadingFragment {
             }
 
             mInfoView.setVideo(mItem);
-            mIntroduceView.setIntroduce(mItem.media.description);
+            
+            if(TextUtils.isEmpty(mItem.media.description)){
+                mIntroduceView.setVisibility(View.GONE);
+            }else {
+                mIntroduceView.setIntroduce(mItem.media.description);
+            }
+
             mPosterView.setImageUrlInfo(mItem.media.poster);
 
             FilterBlockView fv = (FilterBlockView) EpisodePlayHelper.findFilterBlockView(mEpisodeView);
