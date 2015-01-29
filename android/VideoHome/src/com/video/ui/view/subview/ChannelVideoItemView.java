@@ -80,6 +80,16 @@ public class ChannelVideoItemView extends RelativeLayout {
         }else {
             convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
             convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
+
+            left = (TextView) convertView.findViewById(R.id.channel_rank_item_hint_right);
+            if(left != null) {
+                if (item.hint != null && TextUtils.isEmpty(item.hint.right()) == false) {
+                    left.setVisibility(VISIBLE);
+                    left.setText(item.hint.right());
+                } else {
+                    left.setVisibility(GONE);
+                }
+            }
         }
 
         // rank
