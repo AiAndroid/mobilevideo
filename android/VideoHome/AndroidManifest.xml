@@ -67,8 +67,7 @@
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/filter"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UserActivity"
-                android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".UserActivity"/>
         <activity android:name=".AllEpisodeActivity"/>
 
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>

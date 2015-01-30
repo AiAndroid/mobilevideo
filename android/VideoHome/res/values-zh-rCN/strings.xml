@@ -75,4 +75,43 @@
     <string name="total_episode">"共%1$s集"</string>
     <string name="play_source_fetching">连接中</string>
     <string name="data_buffering">缓冲中</string>
+
+    <!-- myvideo start -->
+    <string name="local_video">本地视频</string>
+    <string name="my_favorite">我的收藏</string>
+    <string name="my_offline">我的离线</string>
+    <string name="play_history">播放历史</string>
+    <string name="addon">热门专区</string>
+    <string name="share_device">共享设备</string>
+    <string name="personal_center">个人中心</string>
+    <string name="not_login">未登录</string>
+    <string name="click_to_login">点击头像登录</string>
+    <string name="gong_count_ge">共&#x0020;%d&#x0020;个</string>
+    <!-- myvideo end -->
+
+    <!-- myvideo entry start -->
+    <string name="online_video">在线视频</string>
+    <!-- myvideo entry end -->
+
+
+    <!-- settings start -->
+    <string name="system_setting">系统设置</string>
+    <string name="setting">设置</string>
+    <string name="offline_setting">离线设置</string>
+    <string name="use_cellular_play_title">2G/3G/4G网络播放视频提示</string>
+    <string name="use_cellular_play_summary">为节省流量费用，建议打开</string>
+    <string name="use_cellular_network">允许使用数据网络缓存视频</string>
+    <string name="use_cellular_network_summary">可能产生较高流量费用，建议关闭</string>
+    <string name="use_cellular_offlinedownload_title">2G/3G/4G网络离线视频提示</string>
+    <string name="use_cellular_offlinedownload_summary">为节省流量费用，建议打开</string>
+    <string name="mipush_setting">推送设置</string>
+    <string name="receive_mipush">接收小米推送</string>
+    <string name="receive_mipush_summary">开启后，接收最新及热门影片通知</string>
+    <string name="other_setting">其他</string>
+    <string name="clear_cache">清除其它缓存</string>
+    <string name="clear_cache_summary">清除在手机上缓存的视频封面</string>
+    <string name="clear_cache_success">成功清除缓存</string>
+    <string name="priority_storage">优先使用外置SD卡</string>
+    <string name="priority_storage_summary">使用外置SD卡时，此功能生效</string>
+    <!-- settings end -->
 </resources>

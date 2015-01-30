@@ -4,6 +4,7 @@
     <dimen name="text_size_subtitle">12sp</dimen>
 
     <dimen name="font_size_30">10sp</dimen>
+    <dimen name="font_size_32">10.7sp</dimen>
     <dimen name="font_size_36">12sp</dimen>
     <dimen name="text_size_38">13dp</dimen>
     <dimen name="font_size_40">13.3sp</dimen>
@@ -116,8 +117,10 @@
     <dimen name="video_common_interval_36">12dp</dimen>
     <dimen name="video_common_interval_34">11.3dp</dimen>
     <dimen name="video_common_interval_30">10dp</dimen>
+    <dimen name="video_common_interval_29">9.7dp</dimen>
     <dimen name="video_common_interval_27">9dp</dimen>
     <dimen name="video_common_interval_24">8dp</dimen>
+    <dimen name="video_common_interval_21">7dp</dimen>
     <dimen name="video_common_interval_20">6.7dp</dimen>
     <dimen name="video_common_interval_15">5dp</dimen>
     <dimen name="video_common_interval_14">4.7dp</dimen>
@@ -356,5 +359,23 @@
     <dimen name="info_channel_list_poster_width">118.7dp</dimen>
     <dimen name="info_channel_list_poster_height">66.7dp</dimen>
     <!-- info end -->
+
+    <!-- MyVideo start -->
+    <dimen name="my_video_list_margin_top">20dp</dimen>
+    <dimen name="my_video_avatar_padding_bottom">19.7dp</dimen>
+    <dimen name="my_video_view_width">168.7dp</dimen>
+    <dimen name="my_video_view_height">138.3dp</dimen>
+    <dimen name="my_video_view_drawable_padding">13dp</dimen>
+    <dimen name="my_video_view_item_top_margin">24dp</dimen>
+    <dimen name="my_video_view_desc_height">38dp</dimen>
+    <!-- MyVideo end -->
+
+
+    <!-- user head start -->
+    <dimen name="user_head_width">67dp</dimen>
+    <dimen name="user_head_height">67dp</dimen>
+    <dimen name="user_head_name_top_margin">10dp</dimen>
+    <dimen name="user_head_identity_top_margin">0dp</dimen>
+    <!-- user head end -->
 
 </resources>

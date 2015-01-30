@@ -1,40 +1,29 @@
 package com.video.ui;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import com.video.ui.view.user.MyVideoFragment;
 
 /**
  * Created by liuhuadonbg on 1/24/15.
  */
-public class UserActivity extends FragmentActivity {
+public class UserActivity extends DisplayItemActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.user_ui);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mobile_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+        showSearch(false);
+        showFilter(false);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_search:
-                break;
-            case R.id.menu_share:
-                Intent intent=new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "欢迎试用\"新视频UI\", 点击链接 https://github.com/AiAndroid/mobilevideo/blob/master/dev.md 下载");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "分享 \"新视频UI\"");
-                startActivity(Intent.createChooser(intent, "分享 \"小米视频UI框架\""));
-                break;
+        setTitle(getString(R.string.personal_center));
+
+        Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
+        if(fg == null) {
+            MyVideoFragment df = new MyVideoFragment();
+            getSupportFragmentManager().beginTransaction().add(R.id.user_fragment, df, "user_fragment").commit();
         }
-        return super.onOptionsItemSelected(item);
     }
 }

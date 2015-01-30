@@ -147,6 +147,19 @@ public class iDataORM {
         return lens;
     }
 
+    public static int getFavoritesCount(Context context, String ns, String action){
+        int count = 0;
+        ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
+        String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
+        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, null);
+        if(cursor != null ){
+            count = cursor.getCount();
+            cursor.close();
+            cursor = null;
+        }
+        return count;
+    }
+
     public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
         String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";

@@ -24,9 +24,9 @@
                 android:layout_marginTop="0dp"/>
 
         <RelativeLayout
-                android:layout_width="150dp"
+                android:layout_width="@dimen/channel_media_view_image_width"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom" >
+                android:layout_gravity="bottom">
             <TextView
                     android:id="@+id/left_textview"
                     android:layout_width="wrap_content"
