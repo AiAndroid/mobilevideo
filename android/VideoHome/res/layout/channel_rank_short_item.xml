@@ -16,7 +16,7 @@
                 android:layout_marginLeft="@dimen/video_common_interval_30"
                 android:layout_marginRight="@dimen/video_common_interval_30"
                 android:background="@drawable/default_border_right_angle"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
                 android:layout_centerVertical="true"
                 android:src="@drawable/default_poster_media" />
 

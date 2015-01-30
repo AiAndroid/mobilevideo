@@ -31,9 +31,21 @@ public class ChannelVideoItemView extends RelativeLayout {
     }
 
 
+    private int width  = -1;
+    private int height = -1;
     DisplayItem content;
     public void setContent(DisplayItem item, int position){
         content = item;
+
+        if(width == -1){
+            if(ui_type == LayoutConstant.channel_list_short){
+                width = getResources().getDimensionPixelSize(R.dimen.info_channel_list_poster_width);
+                height = getResources().getDimensionPixelSize(R.dimen.info_channel_list_poster_height);
+            }else {
+                width = getResources().getDimensionPixelSize(R.dimen.media_list_cover_v_width);
+                height = getResources().getDimensionPixelSize(R.dimen.media_list_cover_v_height);
+            }
+        }
 
         title.setText(item.title);
         String logo = "";
@@ -42,7 +54,7 @@ public class ChannelVideoItemView extends RelativeLayout {
                 logo = item.images.poster().url;
 
             if(logo != null && logo.length() > 0) {
-                Picasso.with(getContext()).load(logo).tag(getContext()).fit().into(poster);
+                Picasso.with(getContext()).load(logo).tag(getContext()).centerCrop().resize(width, height).into(poster);
             }
         }
 
