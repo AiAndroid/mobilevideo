@@ -57,10 +57,11 @@ public class iDataProvider extends ContentProvider {
 
                 db.execSQL("CREATE TABLE " + TABLE_Favor + " ("
                         + " _id      INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + " res_id   TEXT, "
-                        + " ns       TEXT,"
-                        + " action   TEXT,"
-                        + " value    TEXT,"
+                        + " res_id   TEXT, "     //media id
+                        + " ns       TEXT,"      //video
+                        + " action   TEXT,"      //history, favor
+                        + " value    TEXT,"      //json data
+                        + " uploaded INTEGER DEFAULT 0,"   //uploaded to server
                         + " date_time TEXT);");
 
             }catch (Exception ne){}

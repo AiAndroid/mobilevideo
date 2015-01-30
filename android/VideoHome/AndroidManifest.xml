@@ -73,9 +73,34 @@
 
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>
 
+        <!-- mi push begin-->
+        <service
+                android:name="com.xiaomi.push.service.XMPushService"
+                android:enabled="true"
+                android:process=":pushservice" />
+        <service
+                android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+                android:enabled="true"
+                android:exported="true" />
+        <service
+                android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+                android:enabled="true" />
+
+        <receiver
+                android:name="com.video.ui.push.MediaPushMessageReceiver"
+                android:exported="true" >
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+        <!-- mi push end -->
+
         <provider
             android:name="com.video.ui.idata.iDataProvider"
-            android:authorities="com.tv.ui.metro.mobile"
+            android:authorities="com.video.ui.mobile"
             android:exported="true"
             android:grantUriPermissions="true" >
         </provider>

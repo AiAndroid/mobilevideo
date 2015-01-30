@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.google.gson.Gson;
+import com.tv.ui.metro.model.DisplayItem;
 
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
@@ -16,12 +17,15 @@ import java.util.Date;
  *
  */
 public class iDataORM {
-    public static final String AUTHORITY                 = "com.tv.ui.metro.mobile";
+    public static final String AUTHORITY                 = "com.video.ui.mobile";
     public static final Uri SETTINGS_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/settings");
     public static final Uri FAVOR_CONTENT_URI            = Uri.parse("content://" + AUTHORITY + "/favor");
 
     private static final String data_collect_interval     = "data_collect_interval";
     private static  String TAG = "iDataORM";
+
+    public static String FavorAction   = "favor";
+    public static String HistoryAction = "play_history";
 
     private static iDataORM _instance;
     public static iDataORM getInstance(Context con){
@@ -50,6 +54,7 @@ public class iDataORM {
             "ns",
             "value",
             "action",
+            "uploaded",
             "date_time"
     };
 
@@ -59,6 +64,7 @@ public class iDataORM {
         public static final String NS         = "ns";
         public static final String VALUE      = "value";
         public static final String Action     = "action";
+        public static final String Uploaded   = "uploaded";
         public static final String ChangeDate = "date_time";
     }
 
@@ -68,6 +74,7 @@ public class iDataORM {
         public String ns;
         public String json;
         public String action;
+        public int    uploaded;
         public Object object;
         public String date;
 
@@ -76,6 +83,14 @@ public class iDataORM {
         }
     }
 
+    public static String toJson(Gson gson, DisplayItem item){
+        return gson.toJson(item);
+    }
+
+    static Gson gson = new Gson();
+    public static Uri addFavor(Context context, String ns, String action,String res_id,  DisplayItem item){
+        return addFavor(context, ns, action, res_id, gson.toJson(item));
+    }
     /**
      * add history and favor
      * @param context
@@ -92,6 +107,7 @@ public class iDataORM {
         ct.put(FavorCol.NS,     ns);
         ct.put(FavorCol.VALUE,  json);
         ct.put(FavorCol.Action,  action);
+        ct.put(FavorCol.Uploaded,  0);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
         //if exist, update
         if(true == existFavor(context, ns, action, res_id)){
@@ -143,6 +159,7 @@ public class iDataORM {
                 item.ns     = cursor.getString(cursor.getColumnIndex(FavorCol.NS));
                 item.json   = cursor.getString(cursor.getColumnIndex(FavorCol.VALUE));
                 item.action = cursor.getString(cursor.getColumnIndex(FavorCol.Action));
+                item.uploaded = cursor.getInt(cursor.getColumnIndex(FavorCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(FavorCol.ChangeDate));
                 actionRecords.add(item);
             }

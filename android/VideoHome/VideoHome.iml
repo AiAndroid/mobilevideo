@@ -19,5 +19,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="libs" level="project" />
     <orderEntry type="module" module-name="player_adapter" />
+    <orderEntry type="library" name="MiPush" level="project" />
   </component>
 </module>

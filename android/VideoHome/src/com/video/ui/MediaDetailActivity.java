@@ -13,10 +13,12 @@ import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
 import com.video.ui.view.RetryView;
 import com.video.ui.view.subview.FilterBlockView;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -55,7 +57,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     playview.setText(getString(R.string.play_source_fetching));
                     DisplayItem.Media.Episode episode = mVidoeInfo.blocks.get(0).media.items.get(0);
 
-                    EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media);
+                    EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
 
                 } catch (Exception ne) {
                     ne.printStackTrace();
@@ -63,6 +65,28 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             }
         });
 
+        final boolean exist = iDataORM.getInstance(getBaseContext()).existFavor(getBaseContext(), item.ns, iDataORM.FavorAction, item.id);
+        final View favorView = findViewById(R.id.detail_favorite);
+        favorView.setSelected(exist);
+
+        favorView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mVidoeInfo != null) {
+                    VideoItem vi = mVidoeInfo.blocks.get(0);
+                    boolean isFavored = iDataORM.getInstance(getBaseContext()).existFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
+                    if(isFavored ) {
+                        iDataORM.getInstance(getBaseContext()).removeFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
+                        MiPushClient.unsubscribe(getBaseContext(), vi.id, null);
+                    }
+                    else {
+                        iDataORM.getInstance(getBaseContext()).addFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id, vi);
+                        MiPushClient.subscribe(getBaseContext(), vi.id, null);
+                    }
+                    favorView.setSelected(!isFavored);
+                }
+            }
+        });
 
         mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.tabs_content));
         mLoadingView.setOnRetryListener(retryLoadListener);
@@ -138,7 +162,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             if(view instanceof FilterBlockView.VarietyEpisode){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media);
+            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

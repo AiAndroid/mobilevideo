@@ -44,7 +44,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
             if(view instanceof FilterBlockView.VarietyEpisode ){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media);
+            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

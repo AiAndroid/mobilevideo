@@ -14,9 +14,11 @@ import com.android.volley.toolbox.VolleyHelper;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.CommonUrl;
 import com.video.ui.view.subview.FilterBlockView;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 /**
  * Created by liuhuadonbg on 1/28/15.
@@ -24,7 +26,7 @@ import com.video.ui.view.subview.FilterBlockView;
 public class EpisodePlayHelper {
     private static String TAG = "PlayHelper";
 
-    public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media){
+    public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media, final DisplayItem item){
         String id = episode.id;
         String url = CommonUrl.BaseURL + "play?id=" +id.substring(id.indexOf('/', 0) + 1) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
@@ -37,7 +39,7 @@ public class EpisodePlayHelper {
                 view.setText(preText);
                 Log.d(TAG, "play source:" + response);
 
-                setPostToOldAPI(context, response, episode, media);
+                setPostToOldAPI(context, response, episode, media, item);
             }
         };
 
@@ -60,7 +62,7 @@ public class EpisodePlayHelper {
     /*
      * http://wiki.n.miui.com/pages/viewpage.action?pageId=8559511
      */
-    public static void setPostToOldAPI(Context context, PlaySource ps, DisplayItem.Media.Episode episode, DisplayItem.Media media){
+    public static void setPostToOldAPI(Context context, PlaySource ps, DisplayItem.Media.Episode episode, DisplayItem.Media media, DisplayItem item){
         Intent intent = new Intent("duokan.intent.action.VIDEO_PLAY", Uri.parse(ps.h5_url));
         intent.putExtra("video_type", 0);
         intent.putExtra("current_episode", episode.episode);
@@ -78,6 +80,9 @@ public class EpisodePlayHelper {
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+
+        iDataORM.getInstance(context).addFavor(context, item.ns, iDataORM.HistoryAction, item.id, item);
+        MiPushClient.subscribe(context, item.id, null);
     }
 
     public static View findFilterBlockView(ViewGroup view){
