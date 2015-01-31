@@ -1,0 +1,381 @@
+<resources>
+
+    <dimen name="text_size_normal">15sp</dimen>
+    <dimen name="text_size_subtitle">13sp</dimen>
+
+    <dimen name="font_size_30">10.9sp</dimen>
+    <dimen name="font_size_32">11.6sp</dimen>
+    <dimen name="font_size_36">13sp</dimen>
+    <dimen name="text_size_38">14dp</dimen>
+    <dimen name="font_size_40">14.5sp</dimen>
+    <dimen name="font_size_42">15.24sp</dimen>
+    <dimen name="font_size_46">16.66sp</dimen>
+    <dimen name="font_size_48">17.4sp</dimen>
+    <dimen name="font_size_60">21.8sp</dimen>
+    <dimen name="text_size_50">17.4dp</dimen>
+
+    <dimen name="size_2">0.73dp</dimen>
+    <dimen name="size_3">1.09dp</dimen>
+    <dimen name="size_5">1.82dp</dimen>
+    <dimen name="size_6">2.18dp</dimen>
+    <dimen name="size_10">3.63dp</dimen>
+    <dimen name="size_15">5.44dp</dimen>
+    <dimen name="size_20">7.26dp</dimen>
+    <dimen name="size_30">10.9dp</dimen>
+    <dimen name="size_40">14.5dp</dimen>
+    <dimen name="size_51">18.5dp</dimen>
+    <dimen name="size_74">26.86dp</dimen>
+    <dimen name="size_76">27.55dp</dimen>
+    <dimen name="size_81">29.4dp</dimen>
+    <dimen name="size_84">30.5dp</dimen>
+    <dimen name="size_100">36.3dp</dimen>
+    <dimen name="size_106">38.5dp</dimen>
+
+    <dimen name="text_font_size_huge">22.87sp</dimen>
+
+    <dimen name="nav_tab_text_size">15.8dp</dimen>
+    <dimen name="tab_recommend_margin_left">65.33dp</dimen>
+    <dimen name="tab_highlight_height">52.27dp</dimen>
+    <dimen name="tab_highlight_height_channel">43.56dp</dimen>
+    
+    <dimen name="nav_bar_margin_top">14.16dp</dimen>
+    <dimen name="tab_content_container_margin_top">56.6dp</dimen>
+
+    <dimen name="metro_offside">87.11dp</dimen>
+    <dimen name="fading_edge">87.11dp</dimen>
+
+    <dimen name="title_bar_left_margin">24.5dp</dimen>
+    <dimen name="title_bar_top_margin">26.68dp</dimen>
+    <dimen name="title_divider_left_margin">6.53dp</dimen>
+    <dimen name="title_divider_top_margin">-1.09dp</dimen>
+
+    <dimen name="mine_view_left_margin">3.27dp</dimen>
+    <dimen name="mine_mirror_view_width">218.9dp</dimen>
+    <dimen name="mine_mirror_view_height">109dp</dimen>
+    <dimen name="MIRROR_HEIGHTER">101.27dp</dimen>
+
+    <dimen name="ITEM_DIVIDE_SIZE">2.18dp</dimen>
+
+    <dimen name="text_tab_padding">16.33dp</dimen>
+
+    <dimen name="ITEM_V_WIDTH">146dp</dimen>
+    <dimen name="ITEM_V_HEIGHT">220dp</dimen>
+    <dimen name="ITEM_H_WIDTH">220dp</dimen>
+
+    <dimen name="ITEM_H_HEIGHT">109dp</dimen>
+    <dimen name="ITEM_NORMAL_SIZE">109dp</dimen>
+
+    <dimen name="OPERATOR_MARGIN">3.8dp</dimen>
+
+    <dimen name="metro_item_padding">1.63dp</dimen>
+    <dimen name="metro_item_recommend_text_height">21.8dp</dimen>
+    <dimen name="detail_y_distance">307dp</dimen>
+    
+
+    <dimen name="mirror_ref_height">39.2dp</dimen>
+
+    <dimen name="user_view_padding">4.35dp</dimen>
+
+    <dimen name="MAX_PIVOT_X">221dp</dimen>
+    <dimen name="MAX_PIVOT_Y">109dp</dimen>
+
+    <dimen name="item_v_margin_bottom">21.78dp</dimen>
+    <dimen name="tab_left_offset">54.4dp</dimen>
+
+    <dimen name="animation_offset_y">17.4dp</dimen>
+
+    <dimen name="ACCOUNT_ITEM_SIZE">67.5dp</dimen>
+    <dimen name="account_top_margin">45.7dp</dimen>
+    <dimen name="account_title_top_margin">15.24dp</dimen>
+
+
+    <!-- from old video app-->
+
+    <dimen name="video_common_blur_radius">87dp</dimen>
+    <dimen name="video_common_radius_18">6.53dp</dimen>
+    <dimen name="video_common_radius_9">3.27dp</dimen>
+    <dimen name="video_common_text_btn_padding_40">14.5dp</dimen>
+    <dimen name="video_common_text_btn_paddingH">7.6dp</dimen>
+    <dimen name="video_common_text_btn_drawble_padding">4.35dp</dimen>
+    <dimen name="video_common_text_btn_paddingV">2.18dp</dimen>
+    <dimen name="video_common_text_btn_paddingH2">17dp</dimen>
+    <dimen name="video_common_text_btn_paddingV2">9.44dp</dimen>
+    <dimen name="video_common_dialog_list_item_height">45.7dp</dimen>
+    <dimen name="video_common_title_top_btn_paddingH">10.9dp</dimen>
+    <dimen name="video_common_title_top_btn_paddingV">6.86dp</dimen>
+    <dimen name="video_common_title_top_btn_top_margin">7.62dp</dimen>
+    <dimen name="video_common_list_top_margin">54dp</dimen>
+    <dimen name="video_common_list_top_padding">9.8dp</dimen>
+    <dimen name="video_common_secondary_list_top_padding">9.8dp</dimen>
+    <dimen name="video_common_title_top_height">58dp</dimen>
+    <dimen name="video_common_content_top_margin">54.4dp</dimen>
+    <dimen name="video_common_interval_150">54.4dp</dimen>
+    <dimen name="video_common_interval_57">20.7dp</dimen>
+    <dimen name="video_common_interval_50">18.2dp</dimen>
+    <dimen name="video_common_interval_45">16.33dp</dimen>
+    <dimen name="video_common_interval_40">14.5dp</dimen>
+    <dimen name="video_common_interval_36">13dp</dimen>
+    <dimen name="video_common_interval_34">12.3dp</dimen>
+    <dimen name="video_common_interval_30">10.9dp</dimen>
+    <dimen name="video_common_interval_29">10.56dp</dimen>
+    <dimen name="video_common_interval_27">9.8dp</dimen>
+    <dimen name="video_common_interval_24">8.7dp</dimen>
+    <dimen name="video_common_interval_21">7.62dp</dimen>
+    <dimen name="video_common_interval_20">7.3dp</dimen>
+    <dimen name="video_common_interval_15">5.44dp</dimen>
+    <dimen name="video_common_interval_14">5.11dp</dimen>
+    <dimen name="video_common_interval_13">4.68dp</dimen>
+    <dimen name="video_common_interval_10">3.6dp</dimen>
+    <dimen name="video_common_interval_negtive_10">-3.6dp</dimen>
+    <dimen name="video_common_left_margin_49">17.75dp</dimen>
+    <dimen name="video_common_right_margin_49">17.75dp</dimen>
+    <dimen name="video_common_divider_width">1px</dimen>
+    <dimen name="video_common_divider_height">1px</dimen>
+    <dimen name="video_common_progress_width">37dp</dimen>
+    <dimen name="video_common_progress_height">37dp</dimen>
+    <dimen name="video_common_progress_padding">5.44dp</dimen>
+    <dimen name="video_common_fade_edge_length">81.67dp</dimen>
+    <dimen name="video_common_empty_top_margin">221dp</dimen>
+    <dimen name="video_common_empty_top_margin2">151.36dp</dimen>
+    <!-- common end -->
+
+    <!-- title top start -->
+    <dimen name="title_top_iv_left_margin">16.66dp</dimen>
+    <dimen name="title_top_iv_top_margin">18.5dp</dimen>
+    <dimen name="title_top_tv_left_margin">14dp</dimen>
+    <dimen name="title_top_action_button_height">28.3dp</dimen>
+    <dimen name="title_top_action_button_padding">12dp</dimen>
+    <dimen name="title_top_text_margin_top">1.1dp</dimen>
+    <!-- title top end -->
+
+    <!-- channel start -->
+    <dimen name="channel_title_btn_width">49.36dp</dimen>
+    <dimen name="channel_title_btn_height">29dp</dimen>
+    <dimen name="channel_banner_left_margin">3.27dp</dimen>
+    <dimen name="channel_banner_right_margin">3.27dp</dimen>
+    <dimen name="channel_banner_top_margin">9.8dp</dimen>
+    <dimen name="channel_banner_bottom_margin">7.62dp</dimen>
+    <dimen name="channel_choise_list_divider_height">4.36dp</dimen>
+    <dimen name="channel_choice_top_margin">4.36dp</dimen>
+    <!-- channel end -->
+
+
+    <dimen name="media_banner_width">377.5dp</dimen><!--352 -->
+    <dimen name="media_banner_height">170dp</dimen> <!--155.7 -->
+
+    <dimen name="media_banner_sub_channel_width">360dp</dimen><!-- 331 -->
+    <dimen name="media_banner_sub_channel_height">201.44dp</dimen><!--155 -->
+
+    <dimen name="media_banner_button_width">364.78dp</dimen>
+
+    <!-- category -->
+    <dimen name="category_media_view_width">382.53dp</dimen><!-- 351.3dp -->
+    <dimen name="category_media_view_height">206.9dp</dimen>
+    <dimen name="category_media_poster_height">130.67dp</dimen>
+    <dimen name="category_media_desc_icon_left_margin">13.4dp</dimen>
+    <dimen name="category_media_desc_count_left_margin">6.53dp</dimen>
+    <dimen name="category_media_desc_count_top_margin">2.5dp</dimen>
+    <dimen name="category_media_desc_name_left_margin">58.47dp</dimen>
+    <dimen name="category_media_desc_name_right_margin">37dp</dimen>
+    <dimen name="category_media_desc_name_top_margin">-1.09dp</dimen>
+
+    <!-- FeatureMediaView start -->
+    <dimen name="feature_media_view_width">190.55dp</dimen>
+    <dimen name="feature_media_view_height">138.6dp</dimen>
+    <dimen name="feature_media_poster_height">82.43dp</dimen>
+    <dimen name="feature_media_desc_top_margin">87.87dp</dimen>
+    <dimen name="feature_media_desc_left_margin">10.9dp</dimen>
+    <dimen name="feature_media_desc_right_margin">10.9dp</dimen>
+    <dimen name="feature_media_favorite_right_margin">10.9dp</dimen>
+    <dimen name="feature_media_favorite_bottom_margin">10.9dp</dimen>
+    <!-- FeatureMediaView end -->
+
+    <dimen name="rank_banner_width">382.3dp</dimen>
+    <dimen name="rank_media_item_height">206.9dp</dimen>
+    <dimen name="media_port_width">114.33dp</dimen>
+    <dimen name="media_port_height">161.16dp</dimen>
+    <dimen name="rank_port_padding">4.36dp</dimen>
+    <dimen name="rank_port_divider_height">1.09dp</dimen>
+    <dimen name="rank_media_text_paddingH">8.7dp</dimen>
+    <dimen name="rank_media_text_height">43.56dp</dimen>
+    <dimen name="rank_title_top">8.7dp</dimen>
+    <dimen name="rank_video_show_top">8.7dp</dimen>
+    <dimen name="rank_video_list_top">4.36dp</dimen>
+    <dimen name="rank_button_height">52.27dp</dimen>
+    <dimen name="first_textview_width">261.33dp</dimen>
+
+    <dimen name="quick_entry_channel_width">87dp</dimen>
+    <dimen name="quick_entry_channel_height">65.33dp</dimen>
+    <dimen name="quick_entry_channel_block_width">116.5dp</dimen>
+    <dimen name="quick_entry_channel_block_height">43.56dp</dimen>
+    <dimen name="quick_entry_channel_image_height">32.67dp</dimen>
+    <dimen name="quick_entry_channel_image_width">34.8dp</dimen>
+    <dimen name="quick_entry_channel_intervalH">9.8dp</dimen>
+    <dimen name="quick_entry_channel_content_paddingT">8.38dp</dimen>
+    <dimen name="quick_entry_channel_content_paddingB">7.3dp</dimen>
+    <dimen name="quick_entry_channel_drawable_padding">5.44dp</dimen>
+
+    <dimen name="quick_entry_user_height">49.76dp</dimen>
+    <dimen name="quick_entry_user_image_height">31dp</dimen>
+    <dimen name="quick_entry_user_image_width">27.22dp</dimen>
+    <dimen name="quick_entry_user_content_paddingH">10.9dp</dimen>
+    <dimen name="quick_entry_user_drawable_padding">8.7dp</dimen>
+
+
+   <dimen name="media_port_item_right_corner_width">21.78dp</dimen>
+
+    <!-- Channeltabs start -->
+    <dimen name="channel_media_view_width">175.3dp</dimen>
+    <dimen name="channel_media_view_image_width">172dp</dimen>
+    <dimen name="channel_media_view_image_height">97dp</dimen>
+    <dimen name="channel_media_view_height">146dp</dimen>
+    <dimen name="channel_media_view_port_width">114.33dp</dimen>
+    <dimen name="channel_media_view_port_image_width">111.43dp</dimen>
+    <dimen name="channel_media_view_port_image_height">161.87dp</dimen>
+    <dimen name="channel_media_view_port_height">212.33dp</dimen>
+
+    <dimen name="channel_tabs_horizontal_view_height">348.44dp</dimen>
+    <dimen name="channel_tabs_portrait_view_height">435.56dp</dimen>
+
+    <!-- media pager view start -->
+    <dimen name="media_pager_title_text_width">118.36dp</dimen>
+    <dimen name="media_pager_content_padding_top">37dp</dimen>
+    <dimen name="media_pager_title_text_height">37.75dp</dimen>
+    <dimen name="media_pager_title_bg_height">43.56dp</dimen>
+    <dimen name="media_pager_title_top_margin">1.09dp</dimen>
+    <dimen name="media_pager_title_right_margin">10.9dp</dimen>
+    <dimen name="media_pager_tab_bg_width">116.84dp</dimen>
+    <dimen name="media_pager_tab_bg_height">37dp</dimen>
+    <dimen name="media_pager_tab_bg_corner_width">4.68dp</dimen>
+    <dimen name="media_pager_tab_bg_shadow_length">1.42dp</dimen>
+    <dimen name="media_pager_media_view_top_margin">47.58dp</dimen>
+    <!-- media pager view end -->
+
+    <dimen name="media_item_padding">8.7dp</dimen>
+
+    <dimen name="channel_media_poster_view_width">179.67dp</dimen>
+    <dimen name="channel_media_poster_view_height">92.56dp</dimen>
+
+    <dimen name="title_height">54.44dp</dimen>
+    <dimen name="title_bottom_padding">14.16dp</dimen>
+    <dimen name="title_divider_bottom_padding">1px</dimen>
+    <!-- Channeltabs end -->
+
+    <dimen name="media_list_cover_v_width">99.4dp</dimen>
+    <dimen name="media_list_cover_v_height">131.32dp</dimen>
+    <dimen name="media_list_cover_h_width">138dp</dimen>
+    <dimen name="media_list_cover_h_height">79.5dp</dimen>
+    <dimen name="media_cover_padding">0.36dp</dimen>
+
+
+    <dimen name="filter_button_width">81.67dp</dimen>
+
+    <!-- media detail start -->
+    <dimen name="detail_poster_height">572.76dp</dimen>
+    <dimen name="detail_poster_mask_height">398.53dp</dimen>
+    <dimen name="detail_poster_bottom_mask_height">27.22dp</dimen>
+    <dimen name="detail_play_view_top_margin">143.4dp</dimen>
+    <dimen name="detail_scroll_top_padding">161.16dp</dimen>
+    <dimen name="detail_scroll_info_height">288.56dp</dimen>
+    <dimen name="detail_scroll_item_title_height">44.64dp</dimen>
+    <dimen name="detail_scroll_item_btn_height">47.15dp</dimen>
+    <dimen name="detail_info_actorname_paddingV">5.44dp</dimen>
+    <dimen name="detail_info_actorname_paddingH">7.95dp</dimen>
+    <dimen name="detail_info_actorname_padding">28.64dp</dimen>
+    <dimen name="detail_info_divider_left_margin">9dp</dimen>
+    <dimen name="detail_info_divider_right_margin">9dp</dimen>
+    <dimen name="detail_info_score_count_top_margin">-4.36dp</dimen>
+    <dimen name="detail_info_score_desc_top_margin">-3.27dp</dimen>
+    <dimen name="detail_info_type_top_margin">1.42dp</dimen>
+    <dimen name="detail_variety_item_height">95.5dp</dimen>
+    <dimen name="detail_introduce_line_space">1.85dp</dimen>
+    <dimen name="detail_ep_item_load_width">28.31dp</dimen>
+    <dimen name="detail_ep_item_load_height">28.31dp</dimen>
+    <dimen name="detail_ep_multy_btn_width">8057.dp</dimen>
+    <dimen name="detail_ep_multy_btn_height">36.26dp</dimen>
+    <dimen name="detail_bottom_bar_height">65.33dp</dimen>
+    <dimen name="detail_bottom_bar_content_intervalH">16dp</dimen>
+    <dimen name="detail_bottom_bar_drawable_padding">6.86dp</dimen>
+    <dimen name="detail_favorite_width">78.4dp</dimen>
+    <dimen name="detail_favorite_height">36.26dp</dimen>
+    <dimen name="detail_favorite_left_margin">18.51dp</dimen>
+    <dimen name="detail_download_width">78.4dp</dimen>
+    <dimen name="detail_download_height">36.26dp</dimen>
+    <dimen name="detail_download_right_margin">18.51dp</dimen>
+    <dimen name="detail_play_width">169.87dp</dimen>
+    <dimen name="detail_play_height">36.26dp</dimen>
+    <dimen name="detail_review_item_user_top_margin">10.56dp</dimen>
+    <dimen name="detail_review_item_rate_left_margin">4.03dp</dimen>
+    <dimen name="detail_review_item_comment_top_margin">33.76dp</dimen>
+    <dimen name="detail_review_item_divider_top_margin">12dp</dimen>
+    <dimen name="detail_page_episode_row_height">39.2dp</dimen>
+    <dimen name="detail_variety_item_name_left_margin">19dp</dimen>
+    <dimen name="detail_variety_item_name_right_margin">21.78dp</dimen>
+    <dimen name="detail_comment_write_btn_paddingH">18.51dp</dimen>
+    <dimen name="detail_comment_write_btn_paddingV">6.2dp</dimen>
+    <dimen name="detail_comment_empty_icon_top_margin">52.27dp</dimen>
+    <dimen name="detail_comment_empty_icon_bottom_margin">74dp</dimen>
+    <!-- media detail end -->
+
+
+    <!-- rating view start -->
+    <dimen name="rating_view_padding">2.5dp</dimen>
+    <!-- rating view end -->
+
+    <!-- loading view start -->
+    <dimen name="loading_text_margin_left">6.53dp</dimen>
+    <dimen name="loading_text_margin_top">6.53dp</dimen>
+    <!-- loading view end -->
+
+    <dimen name="page_title_offset">-4dp</dimen>
+
+
+    <!-- retry view start -->
+    <dimen name="reload_view_title_top_margin">2.18dp</dimen>
+    <dimen name="reload_view_sub_title_top_margin">2.18dp</dimen>
+    <!-- retry view end -->
+
+    <!-- search box start -->
+    <dimen name="search_box_height">32.67dp</dimen>
+    <dimen name="search_box_btn_del_width">30.16dp</dimen>
+    <dimen name="search_box_btn_del_height">30.16dp</dimen>
+    <dimen name="search_hint_item_height">58dp</dimen>
+    <dimen name="search_hint_tv_left_margin">29.4dp</dimen>
+    <!-- search box end -->
+
+    <!-- search result start -->
+    <dimen name="search_box_top_margin">9.8dp</dimen>
+    <dimen name="search_box_left_margin">15.24dp</dimen>
+    <dimen name="search_box_right_margin">68.6dp</dimen>
+    <dimen name="search_recommend_word_hint_height">40.2dp</dimen>
+    <dimen name="search_empty_hint_top_margin">124.46dp</dimen>
+    <dimen name="search_empty_media_top_margin">108.9dp</dimen>
+    <dimen name="search_result_filter_top_margin">26.46dp</dimen>
+    <!-- search result end -->
+
+    <!-- info start -->
+    <dimen name="info_filter_view_item_height">43.56dp</dimen>
+    <dimen name="info_channel_list_item_height">94dp</dimen>
+    <dimen name="info_channel_list_poster_width">129.25dp</dimen>
+    <dimen name="info_channel_list_poster_height">72.63dp</dimen>
+    <!-- info end -->
+
+    <!-- MyVideo start -->
+    <dimen name="my_video_list_margin_top">21.78dp</dimen>
+    <dimen name="my_video_avatar_padding_bottom">21.45dp</dimen>
+    <dimen name="my_video_view_width">183.7dp</dimen>
+    <dimen name="my_video_view_height">150.6dp</dimen>
+    <dimen name="my_video_view_drawable_padding">14.16dp</dimen>
+    <dimen name="my_video_view_item_top_margin">26.13dp</dimen>
+    <dimen name="my_video_view_desc_height">41.38dp</dimen>
+    <!-- MyVideo end -->
+
+
+    <!-- user head start -->
+    <dimen name="user_head_width">73dp</dimen>
+    <dimen name="user_head_height">73dp</dimen>
+    <dimen name="user_head_name_top_margin">10.9dp</dimen>
+    <dimen name="user_head_identity_top_margin">0dp</dimen>
+    <!-- user head end -->
+
+</resources>

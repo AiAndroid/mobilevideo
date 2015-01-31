@@ -86,9 +86,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
                 Picasso.with(getContext()).
                         load(content.get(contentPos).images.get("poster").url)
-                        .tag(getTag(R.integer.picasso_tag))
                         .priority(Picasso.Priority.HIGH)
-                        .placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default)
                         .transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false))
                         .fit()
                         .into(iv);
