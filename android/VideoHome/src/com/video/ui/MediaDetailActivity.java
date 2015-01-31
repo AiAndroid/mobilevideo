@@ -57,7 +57,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     playview.setText(getString(R.string.play_source_fetching));
                     DisplayItem.Media.Episode episode = mVidoeInfo.blocks.get(0).media.items.get(0);
 
-                    EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
+                    EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
 
                 } catch (Exception ne) {
                     ne.printStackTrace();
@@ -74,6 +74,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             public void onClick(View view) {
                 if(mVidoeInfo != null) {
                     VideoItem vi = mVidoeInfo.blocks.get(0);
+                    vi.target.entity = "pvideo";
                     boolean isFavored = iDataORM.getInstance(getBaseContext()).existFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
                     if(isFavored ) {
                         iDataORM.getInstance(getBaseContext()).removeFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
@@ -88,7 +89,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             }
         });
 
-        mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.tabs_content));
+        mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.root_container));
         mLoadingView.setOnRetryListener(retryLoadListener);
 
         loaderID = GenericDetailLoader.VIDEO_LOADER_ID;
@@ -162,7 +163,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             if(view instanceof FilterBlockView.VarietyEpisode){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
+            EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

@@ -52,6 +52,7 @@ public class LayoutConstant {
     public final static int channel_list_long_hot   = 451; //频道 列表 显示hot
     public final static int channel_list_long_rate  = 452; //频道 列表 显示rate
     public final static int channel_list_short      = 453; //频道 资讯
+    public final static int channel_grid_long       = 454; //favor, offline, history
 
 
 

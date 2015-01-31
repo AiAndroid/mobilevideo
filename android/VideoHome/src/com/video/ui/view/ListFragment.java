@@ -11,6 +11,7 @@ import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
+import com.tv.ui.metro.model.PlaySource;
 import com.video.ui.R;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
@@ -106,6 +107,8 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                     listView.setOnItemClickListener(itemClicker);
                 }
                 break;
+            }else {
+                Log.d(TAG, "not specific ui type: "+block);
             }
         }
         return listView;

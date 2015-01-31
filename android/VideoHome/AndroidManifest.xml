@@ -60,15 +60,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChannelFilterActivity">
+        <activity android:name=".tinyui.ChannelFilterActivity">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/filter"/>
             </intent-filter>
         </activity>
+        <activity android:name=".tinyui.AlbumActivity">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/play_favor"/>
+                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/play_history"/>
+                <data android:scheme="mvschema" android:host="video" android:pathPrefix="/local_album"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".UserActivity"/>
-        <activity android:name=".AllEpisodeActivity"/>
+        <activity android:name=".tinyui.AllEpisodeActivity"/>
 
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>
 

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.video.ui.R;
+import miui.accounts.ExtraAccountManager;
 
 public class UserHeadView extends FrameLayout {
 
@@ -62,6 +63,8 @@ public class UserHeadView extends FrameLayout {
 		mUserHeadIdentity.setText(account.name);
 		mUserHeadIv.setBackgroundResource(R.drawable.user_head_default);
 		//fetchImage();
+
+		final Account xiaomiAccount = ExtraAccountManager.getXiaomiAccount(getContext());
 	}
 	
 	private void showNotLogin() {

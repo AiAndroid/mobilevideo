@@ -23,7 +23,7 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 /**
  * Created by liuhuadonbg on 1/28/15.
  */
-public class EpisodePlayHelper {
+public class EpisodePlayAdapter {
     private static String TAG = "PlayHelper";
 
     public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media, final DisplayItem item){

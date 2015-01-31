@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
+import com.video.ui.tinyui.AlbumActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -204,8 +205,14 @@ public class MyVideoFragment extends Fragment {
 				case TAG_SETTING:
 					break;
 				case TAG_MY_FAVORITE:
+					Intent favorIntent = new Intent(getActivity(), AlbumActivity.class);
+					favorIntent.putExtra("favor", true);
+					getActivity().startActivity(favorIntent);
 					break;
 				case TAG_PLAY_HIS:
+					Intent history = new Intent(getActivity(), AlbumActivity.class);
+					history.putExtra("history", true);
+					getActivity().startActivity(history);
 					break;
 			}
 			Toast.makeText(getActivity(), "not support", Toast.LENGTH_LONG).show();

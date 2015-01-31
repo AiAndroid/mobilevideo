@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
-import com.video.ui.AllEpisodeActivity;
+import com.video.ui.tinyui.AllEpisodeActivity;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.subview.PortBlockView;
@@ -40,7 +39,7 @@ public class EpisodeContainerView extends FrameLayout {
         Block<VideoItem> item = new Block<VideoItem>();
         item.title = String.format(context.getString(R.string.total_episode), videoItem.media.items.size());
         item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = 206;
+        item.ui_type.id = LayoutConstant.linearlayout_title;
         return item;
     }
 

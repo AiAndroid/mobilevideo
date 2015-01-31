@@ -1,18 +1,18 @@
-package com.video.ui;
+package com.video.ui.tinyui;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.video.ui.DisplayItemActivity;
+import com.video.ui.R;
 import com.video.ui.view.FilterFragment;
 import com.video.ui.view.subview.BaseCardView;
 import com.video.ui.view.subview.FilterBlockView;
-import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -46,16 +46,8 @@ public class ChannelFilterActivity extends DisplayItemActivity {
             }
         }
 
-        titlebar.findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
-        titlebar.findViewById(R.id.channel_search_btn).setVisibility(View.GONE);
-
-        ImageView back_imageview = (ImageView) titlebar.findViewById(R.id.title_top_back);
-        back_imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ChannelFilterActivity.this.finish();
-            }
-        });
+        showFilter(false);
+        showSearch(false);
 
         df = new FilterFragment();
         Bundle data = new Bundle();

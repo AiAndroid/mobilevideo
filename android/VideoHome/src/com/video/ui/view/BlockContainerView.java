@@ -16,6 +16,37 @@ public class BlockContainerView  extends MetroLayout {
         super(context, attrs);
     }
 
+    public void setBlocks(Block<DisplayItem> tab){
+        this.removeAllViews();
+        rowOffset[0] = 0;
+        rowOffset[1] = 0;
+
+        int step = 0;
+        for(Block<DisplayItem> item:tab.blocks){
+            View blockView = inflateBlock(item, new Integer(0));
+
+            if(item.ui_type.id == LayoutConstant.imageswitcher      ||
+                    item.ui_type.id == LayoutConstant.linearlayout_top   ||
+                    item.ui_type.id == LayoutConstant.linearlayout_left  ||
+                    item.ui_type.id == LayoutConstant.list_category_land ||
+                    item.ui_type.id == LayoutConstant.list_rich_header   ||
+                    item.ui_type.id == LayoutConstant.block_channel      ||
+                    item.ui_type.id == LayoutConstant.block_sub_channel  ||
+                    item.ui_type.id == LayoutConstant.linearlayout_land  ||
+                    item.ui_type.id == LayoutConstant.linearlayout_poster||
+                    item.ui_type.id == LayoutConstant.grid_block_selection ||
+                    item.ui_type.id == LayoutConstant.grid_media_land ||
+                    item.ui_type.id == LayoutConstant.grid_media_port ||
+                    item.ui_type.id == LayoutConstant.grid_media_land_title ||
+                    item.ui_type.id == LayoutConstant.grid_media_port_title ||
+                    item.ui_type.id == LayoutConstant.tabs_horizontal ||
+                    item.ui_type.id == LayoutConstant.linearlayout_filter)
+                addItemViewPort(blockView, item.ui_type.id, 0, step++);
+            else
+                addItemViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
+        }
+    }
+
     public void setVideo(VideoItem tab){
         this.removeAllViews();
         rowOffset[0] = 0;
@@ -46,6 +77,7 @@ public class BlockContainerView  extends MetroLayout {
                 addItemViewPort(blockView, MetroLayout.HorizontalMatchWith, 0, step++);
         }
     }
+
 
 
     protected View inflateBlock(Block<DisplayItem> item, Object tag){

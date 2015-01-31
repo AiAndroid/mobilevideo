@@ -1,4 +1,4 @@
-package com.video.ui;
+package com.video.ui.tinyui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
+import com.video.ui.DisplayItemActivity;
+import com.video.ui.EpisodePlayAdapter;
+import com.video.ui.R;
 import com.video.ui.view.detail.EpisodeContainerView;
 import com.video.ui.view.subview.FilterBlockView;
 
@@ -31,7 +34,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
 
         EpisodeContainerView.createEpisodeView(getBaseContext(), (VideoItem) item, vg);
 
-        FilterBlockView fv = (FilterBlockView) EpisodePlayHelper.findFilterBlockView(vg);
+        FilterBlockView fv = (FilterBlockView) EpisodePlayAdapter.findFilterBlockView(vg);
         fv.setOnPlayClickListener(episodeClick, null);
 
     }
@@ -44,7 +47,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
             if(view instanceof FilterBlockView.VarietyEpisode ){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayHelper.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
+            EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

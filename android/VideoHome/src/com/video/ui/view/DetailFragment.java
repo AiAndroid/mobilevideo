@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.tv.ui.metro.model.VideoItem;
-import com.video.ui.EpisodePlayHelper;
+import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.view.detail.*;
 import com.video.ui.view.subview.FilterBlockView;
@@ -83,7 +83,7 @@ public class DetailFragment extends LoadingFragment {
 
             mPosterView.setImageUrlInfo(mItem.media.poster);
 
-            FilterBlockView fv = (FilterBlockView) EpisodePlayHelper.findFilterBlockView(mEpisodeView);
+            FilterBlockView fv = (FilterBlockView) EpisodePlayAdapter.findFilterBlockView(mEpisodeView);
             if(fv != null) {
                 fv.setOnPlayClickListener(episodeClickListener, null);
             }

@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.loader.BaseGsonLoader;
+import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.EmptyLoadingView;
 
 /**
@@ -35,6 +36,13 @@ public class DisplayItemActivity extends FragmentActivity {
         item = (DisplayItem) this.getIntent().getSerializableExtra("item");
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        View root = findViewById(R.id.root_container);
+        ViewUtils.unbindDrawables(root);
     }
 
     @Override
