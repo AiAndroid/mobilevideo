@@ -113,7 +113,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                             iDataORM.getInstance(getBaseContext()).addFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id, vi);
                             MiPushClient.subscribe(getBaseContext(), vi.id, null);
                         }
-                        favorView.setSelected(!isFavored);
+                        view.setSelected(!isFavored);
                     }
                     break;
                 }
