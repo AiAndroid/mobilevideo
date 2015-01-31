@@ -46,16 +46,11 @@ public class MVDownloadManager {
             Cursor c = dm.query(query);
             if (c.moveToFirst()) {
                 int status = c.getInt(c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS));
-                if(android.app.DownloadManager.STATUS_FAILED == status){
-                    return false;
+                if(DownloadManager.STATUS_RUNNING == status || DownloadManager.STATUS_PENDING == status || DownloadManager.STATUS_SUCCESSFUL == status){
+                    return true;
                 }
-            }else {
-                return false;
             }
-
-            return true;
         }
-
         return false;
     }
 
@@ -131,7 +126,7 @@ public class MVDownloadManager {
                                 }
                             }
                             else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
-                                
+
                                 Log.d(TAG, "new download fail="+downloadId);
                             }
                         }
