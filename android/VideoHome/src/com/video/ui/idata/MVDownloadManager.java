@@ -160,6 +160,14 @@ public class MVDownloadManager {
         }
     }
 
+    public static String[] ramdonvideo= {
+        "http://vod01.media.ysten.com/media/new/2011/10/21/sd_dy_xskdjs_20111021.ts",
+        "http://payment.icntvcdn.com/media/new/2013/icntv2/media/2014/06/18/1986d2fb6faa41ba9bf9a6bb2c085b48.ts",
+        "http://vod01.media.ysten.com/media/new/2011/11/14/sd_dy_qyqx_20111114.ts",
+        "http://vod01.media.ysten.com/media/new/2011/11/01/sd_dy_ygdx_20111101.ts",
+        "http://vod01.media.ysten.com/media/new/2013/04/16/hd_dy_zjdbre_20130416.ts",
+        "http://vod01.media.ysten.com/media/new/2011/10/31/sd_dy_zzx1_20111031.ts"
+    };
     public static final int DOWNLOAD_IN = -100;
     public long requestDownload(Context con, VideoItem video){
         long download_id = -1;
@@ -175,7 +183,7 @@ public class MVDownloadManager {
             }
 
             android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
-            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(video.media.poster));
+            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(ramdonvideo[((int) (Math.random() * 100)) % ramdonvideo.length]));
             //request.setMimeType("application/vnd.android.package-archive");
             request.setMimeType(MimeTypeMap.getSingleton().getMimeTypeFromExtension(video.media.poster));
             request.setTitle(video.title);
