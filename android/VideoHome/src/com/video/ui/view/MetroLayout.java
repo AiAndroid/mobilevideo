@@ -208,17 +208,21 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.tabs_horizontal:
             case LayoutConstant.linearlayout_filter:
             {
+                int paddingStart = paddingLeft;
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
                 flp = new LayoutParams(width, height);
                 if (child instanceof DimensHelper) {
+                    width  = ((DimensHelper) child).getDimens().width;
                     height = ((DimensHelper) child).getDimens().height;
+
+                    paddingStart =  (getResources().getDisplayMetrics().widthPixels - width)/2;
                     flp = new LayoutParams(((DimensHelper) child).getDimens().width, height);
                 }
 
-                flp.leftMargin = getPaddingLeft() + paddingLeft;
+                flp.leftMargin = getPaddingLeft() + paddingStart;
                 flp.topMargin = getPaddingTop() + rowOffset[0] + padding * (y+1);
-                flp.rightMargin = getPaddingRight() + paddingLeft;
+                flp.rightMargin = getPaddingRight() + paddingStart;
                 child.setFocusable(true);
                 addView(child, flp);
                 rowOffset[0] += height;

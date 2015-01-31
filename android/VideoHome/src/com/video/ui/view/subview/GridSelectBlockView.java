@@ -63,7 +63,7 @@ public class GridSelectBlockView extends BaseCardView implements DimensHelper {
     public Dimens getDimens() {
         if(mDimens == null){
             mDimens = new DimensHelper.Dimens();
-            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.rank_banner_width);
             mDimens.height = 0;
         }
         return mDimens;

@@ -163,8 +163,8 @@
     <dimen name="media_banner_width">346.7dp</dimen><!--352 -->
     <dimen name="media_banner_height">156dp</dimen> <!--155.7 -->
 
-    <dimen name="media_banner_sub_channel_width">333dp</dimen><!-- 331 -->
-    <dimen name="media_banner_sub_channel_height">186dp</dimen><!--155 -->
+    <dimen name="media_banner_sub_channel_width">331dp</dimen><!-- 331 -->
+    <dimen name="media_banner_sub_channel_height">185dp</dimen><!--155 -->
 
     <dimen name="media_banner_button_width">335dp</dimen>
 

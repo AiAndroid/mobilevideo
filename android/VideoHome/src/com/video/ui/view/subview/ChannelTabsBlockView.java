@@ -50,7 +50,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         if(mDimens == null){
             mDimens = new DimensHelper.Dimens();
 
-            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
+            mDimens.width  = getResources().getDimensionPixelSize(R.dimen.rank_banner_width);
             if( mType == LayoutConstant.grid_media_land) {
                 mDimens.height = getResources().getDimensionPixelSize(R.dimen.channel_tabs_horizontal_view_height);
             }else{
