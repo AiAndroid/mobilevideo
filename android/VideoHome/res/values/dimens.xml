@@ -160,8 +160,8 @@
     <!-- channel end -->
 
 
-    <dimen name="media_banner_width">352dp</dimen>
-    <dimen name="media_banner_height">155.7dp</dimen>
+    <dimen name="media_banner_width">346.7dp</dimen><!--352 -->
+    <dimen name="media_banner_height">156dp</dimen> <!--155.7 -->
 
     <dimen name="media_banner_sub_channel_width">333dp</dimen><!-- 331 -->
     <dimen name="media_banner_sub_channel_height">186dp</dimen><!--155 -->
@@ -169,7 +169,7 @@
     <dimen name="media_banner_button_width">335dp</dimen>
 
     <!-- category -->
-    <dimen name="category_media_view_width">352dp</dimen><!-- 351.3dp -->
+    <dimen name="category_media_view_width">351.3dp</dimen><!-- 351.3dp -->
     <dimen name="category_media_view_height">190dp</dimen>
     <dimen name="category_media_poster_height">120dp</dimen>
     <dimen name="category_media_desc_icon_left_margin">12.3dp</dimen>
@@ -205,14 +205,14 @@
     <dimen name="first_textview_width">240dp</dimen>
 
     <dimen name="quick_entry_channel_width">80dp</dimen>
-    <dimen name="quick_entry_channel_height">70dp</dimen>
+    <dimen name="quick_entry_channel_height">60dp</dimen>
     <dimen name="quick_entry_channel_block_width">107dp</dimen>
     <dimen name="quick_entry_channel_block_height">40dp</dimen>
-    <dimen name="quick_entry_channel_image_height">35dp</dimen>
-    <dimen name="quick_entry_channel_image_width">37.5dp</dimen>
+    <dimen name="quick_entry_channel_image_height">30dp</dimen>
+    <dimen name="quick_entry_channel_image_width">32dp</dimen>
     <dimen name="quick_entry_channel_intervalH">9dp</dimen>
-    <dimen name="quick_entry_channel_content_paddingT">9.7dp</dimen>
-    <dimen name="quick_entry_channel_content_paddingB">8.7dp</dimen>
+    <dimen name="quick_entry_channel_content_paddingT">7.7dp</dimen>
+    <dimen name="quick_entry_channel_content_paddingB">6.7dp</dimen>
     <dimen name="quick_entry_channel_drawable_padding">5dp</dimen>
 
     <dimen name="quick_entry_user_height">45.7dp</dimen>

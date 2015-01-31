@@ -72,11 +72,27 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         viewFlipper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i2) {
-                Log.d("ads", "onPageScrolled");
+                //Log.d("ads", "onPageScrolled");
             }
 
             @Override
             public void onPageSelected(int i) {
+                int contentPos = (content.size()+ (i-1))%content.size();
+                ImageView iv = (ImageView)( viewList.get(i).findViewById(R.id.image_ads));
+                if(iv == null){
+                    Log.d("ads", "maybe finished activity");
+                    return;
+                }
+
+                Picasso.with(getContext()).
+                        load(content.get(contentPos).images.get("poster").url)
+                        .tag(getTag(R.integer.picasso_tag))
+                        .priority(Picasso.Priority.HIGH)
+                        .placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default)
+                        .transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false))
+                        .fit()
+                        .into(iv);
+
                 page_indicator.setText(String.format("%1$s/%2$s ", i ,content.size()));
                 mHander.postDelayed(new Runnable() {
                     @Override
@@ -110,27 +126,18 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         PagerAdapter pagerAdapter = new PagerAdapter() {
 
             @Override
-            public boolean isViewFromObject(View arg0, Object arg1) {
-
-                return arg0 == arg1;
-            }
+            public boolean isViewFromObject(View arg0, Object arg1) {return arg0 == arg1; }
 
             @Override
-            public int getCount() {
-
-                return viewList.size();
-            }
+            public int getCount() { return viewList.size(); }
 
             @Override
-            public void destroyItem(ViewGroup container, int position,
-                                    Object object) {
-                container.removeView(viewList.get(position));
-
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                //container.removeView(viewList.get(position));
             }
 
             @Override
             public int getItemPosition(Object object) {
-
                 return super.getItemPosition(object);
             }
 
@@ -141,10 +148,13 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                container.addView(viewList.get(position));
-                return viewList.get(position);
-            }
+                View view = viewList.get(position);
+                if (view != null && view.getParent() == null) {
+                    container.addView(view);
+                }
 
+                return view;
+            }
         };
         viewFlipper.setAdapter(pagerAdapter);
         viewFlipper.setCurrentItem(1, false);
@@ -152,7 +162,6 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
     private View getImageView(final DisplayItem item){
         View view  = View.inflate(getContext(), R.layout.ads_imageview_container, null);
-        ImageView imageView = (ImageView) view.findViewById(R.id.image_ads);
 
         view.findViewById(R.id.ads_media_click).setOnClickListener(new OnClickListener() {
             @Override
@@ -160,7 +169,6 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                 launcherAction(getContext(), item);
             }
         });
-        Picasso.with(getContext()).load(item.images.get("poster").url).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()<2?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).fit().into(imageView);
         return view;
     }
 
@@ -180,7 +188,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
         for(int i=0;i<content.size();i++) {
             ImageView view = (ImageView) viewList.get(i).findViewById(R.id.image_ads);
             DisplayItem item = content.get(i);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(getDimens().width, getDimens().height).tag(getTag(R.integer.picasso_tag)).priority(viewList.size()==0?Picasso.Priority.HIGH: Picasso.Priority.NORMAL).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(getDimens().width, getDimens().height).tag(getTag(R.integer.picasso_tag)).priority(Picasso.Priority.HIGH).transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false)).into(view);
         }
     }
 
