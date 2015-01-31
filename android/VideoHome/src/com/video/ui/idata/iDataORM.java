@@ -248,7 +248,7 @@ public class iDataORM {
         String where = ColumsCol.RES_ID + " ='" + res_id +  "'";
         Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID, ColumsCol.DOWNLOAD_ID}, where, null, null);
         if(cursor != null ){
-            if(cursor.getCount() > 0){
+            if(cursor.getCount() > 0 && cursor.moveToFirst()){
                 download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
             }
             cursor.close();

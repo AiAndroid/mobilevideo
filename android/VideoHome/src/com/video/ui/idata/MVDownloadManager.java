@@ -9,11 +9,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
-
-import java.io.File;
 
 
 /**
@@ -75,7 +74,7 @@ public class MVDownloadManager {
                     //update download status
                     //TODO
 
-                    Log.d(TAG, "new download complete="+downloadId);
+                    Log.d(TAG, "new download complete=" + downloadId);
                     android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
                     query.setFilterById(downloadId);
                     Cursor c = dm.query(query);
@@ -126,13 +125,13 @@ public class MVDownloadManager {
                                 {
                                     ApkFileManager.installApk(con, uriString, "", "", false);
                                 }
-                                else
+                                //else
                                 {
                                     openDownloadsPage(con);
                                 }
                             }
-                            else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex))
-                            {
+                            else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
+                                
                                 Log.d(TAG, "new download fail="+downloadId);
                             }
                         }
@@ -166,7 +165,7 @@ public class MVDownloadManager {
         }
     }
 
-    String testAPKURL = "http://neirong.funshion.com/android/1660/FunshionAphone_SID_1660_zipalign.apk";
+    public static final int DOWNLOAD_IN = -100;
     public long requestDownload(Context con, VideoItem video){
         long download_id = -1;
         if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) == false){
@@ -177,12 +176,13 @@ public class MVDownloadManager {
         if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
             if (isInDownloading(con, video.id)) {
                 Log.i(TAG, "download, ongoing item: " + video);
-                return -1;
+                return DOWNLOAD_IN;
             }
 
             android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
-            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(testAPKURL));
-            request.setMimeType("application/vnd.android.package-archive");
+            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(video.media.poster));
+            //request.setMimeType("application/vnd.android.package-archive");
+            request.setMimeType(MimeTypeMap.getSingleton().getMimeTypeFromExtension(video.media.poster));
             request.setTitle(video.title);
             request.setVisibleInDownloadsUi(true);
             request.setShowRunningNotification(true);
@@ -210,7 +210,7 @@ public class MVDownloadManager {
             //download directly
             Intent downIntent = new Intent(Intent.ACTION_VIEW);
             downIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            downIntent.setData(Uri.parse(testAPKURL));
+            downIntent.setData(Uri.parse(video.media.poster));
             try {
                 con.startActivity(downIntent);
             }catch(Exception ne){
