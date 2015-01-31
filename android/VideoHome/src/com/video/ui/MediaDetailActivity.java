@@ -95,6 +95,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                         if(download_id != -1) {
                             iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, vi);
                             MiPushClient.subscribe(getBaseContext(), vi.id, null);
+
+                            Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
                         }else if(download_id == MVDownloadManager.DOWNLOAD_IN){
                             Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
                         }else {
