@@ -62,6 +62,7 @@ public class iDataProvider extends ContentProvider {
                         + " action   TEXT,"      //history, favor
                         + " value    TEXT,"      //json data
                         + " uploaded INTEGER DEFAULT 0,"   //uploaded to server
+                        + " date_int INTEGER ,"   //for sort
                         + " date_time TEXT);");
 
             }catch (Exception ne){}

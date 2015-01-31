@@ -81,6 +81,7 @@ public class EpisodePlayAdapter {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
 
+        item.target.entity = "pvideo";
         iDataORM.getInstance(context).addFavor(context, item.ns, iDataORM.HistoryAction, item.id, item);
         MiPushClient.subscribe(context, item.id, null);
     }

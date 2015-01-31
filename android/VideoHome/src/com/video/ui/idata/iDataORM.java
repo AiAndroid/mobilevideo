@@ -55,7 +55,8 @@ public class iDataORM {
             "value",
             "action",
             "uploaded",
-            "date_time"
+            "date_time",
+            "date_int"
     };
 
     public static class FavorCol{
@@ -66,6 +67,7 @@ public class iDataORM {
         public static final String Action     = "action";
         public static final String Uploaded   = "uploaded";
         public static final String ChangeDate = "date_time";
+        public static final String ChangeLong = "date_int";
     }
 
     public static class ActionRecord<T>{
@@ -77,6 +79,7 @@ public class iDataORM {
         public int    uploaded;
         public Object object;
         public String date;
+        public int    dateInt;
 
         public static <T> T parseJson(Gson gson, String json, Type type){
             return gson.fromJson(json, type);
@@ -109,6 +112,7 @@ public class iDataORM {
         ct.put(FavorCol.Action,  action);
         ct.put(FavorCol.Uploaded,  0);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
+        ct.put(FavorCol.ChangeLong, System.currentTimeMillis());
         //if exist, update
         if(true == existFavor(context, ns, action, res_id)){
             updateFavor(context, action, ct);
@@ -151,7 +155,7 @@ public class iDataORM {
         int count = 0;
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
         String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, null);
+        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, new String[]{"_id"}, where, null, null);
         if(cursor != null ){
             count = cursor.getCount();
             cursor.close();
@@ -163,7 +167,7 @@ public class iDataORM {
     public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
         String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, null);
+        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
                 ActionRecord item = new ActionRecord();
@@ -174,6 +178,8 @@ public class iDataORM {
                 item.action = cursor.getString(cursor.getColumnIndex(FavorCol.Action));
                 item.uploaded = cursor.getInt(cursor.getColumnIndex(FavorCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(FavorCol.ChangeDate));
+                item.dateInt = cursor.getInt(cursor.getColumnIndex(FavorCol.ChangeLong));
+
                 actionRecords.add(item);
             }
             cursor.close();
@@ -230,6 +236,7 @@ public class iDataORM {
         public static final String Value      = "value";
         public static final String Application= "application";
         public static final String ChangeDate = "date_time";
+        public static final String ChangeLong = "date_long";
     }
 
 
