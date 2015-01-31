@@ -19,13 +19,16 @@ import java.util.Date;
 public class iDataORM {
     public static final String AUTHORITY                 = "com.video.ui.mobile";
     public static final Uri SETTINGS_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/settings");
-    public static final Uri FAVOR_CONTENT_URI            = Uri.parse("content://" + AUTHORITY + "/favor");
+    public static final Uri ALBUM_CONTENT_URI            = Uri.parse("content://" + AUTHORITY + "/local_album");
+    public static final Uri DOWNLOAD_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/download");
 
     private static final String data_collect_interval     = "data_collect_interval";
     private static  String TAG = "iDataORM";
 
     public static String FavorAction   = "favor";
     public static String HistoryAction = "play_history";
+
+    public static String mobile_offline_hint = "mobile_offline_hint";
 
     private static iDataORM _instance;
     public static iDataORM getInstance(Context con){
@@ -59,7 +62,20 @@ public class iDataORM {
             "date_int"
     };
 
-    public static class FavorCol{
+    public static String[] downloadProject =  new String[]{
+            "_id",
+            "res_id",
+            "ns",
+            "value",
+
+            "uploaded",
+            "date_time",
+            "date_int",
+
+            "download_id"
+    };
+
+    public static class ColumsCol {
         public static final String ID         = "_id";
         public static final String RES_ID     = "res_id";
         public static final String NS         = "ns";
@@ -68,6 +84,10 @@ public class iDataORM {
         public static final String Uploaded   = "uploaded";
         public static final String ChangeDate = "date_time";
         public static final String ChangeLong = "date_int";
+
+        public static final String DOWNLOAD_ID      = "download_id";
+        public static final String DOWNLOAD_STATUS  = "download_status";
+        public static final String DOWNLOAD_PATH    = "download_path";
     }
 
     public static class ActionRecord<T>{
@@ -80,6 +100,9 @@ public class iDataORM {
         public Object object;
         public String date;
         public int    dateInt;
+
+        //just for download
+        public int    download_id;
 
         public static <T> T parseJson(Gson gson, String json, Type type){
             return gson.fromJson(json, type);
@@ -106,26 +129,26 @@ public class iDataORM {
     public static Uri addFavor(Context context, String ns, String action,String res_id,  String json){
         Uri ret = null;
         ContentValues ct = new ContentValues();
-        ct.put(FavorCol.RES_ID, res_id);
-        ct.put(FavorCol.NS,     ns);
-        ct.put(FavorCol.VALUE,  json);
-        ct.put(FavorCol.Action,  action);
-        ct.put(FavorCol.Uploaded,  0);
+        ct.put(ColumsCol.RES_ID, res_id);
+        ct.put(ColumsCol.NS,     ns);
+        ct.put(ColumsCol.VALUE,  json);
+        ct.put(ColumsCol.Action,  action);
+        ct.put(ColumsCol.Uploaded,  0);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
-        ct.put(FavorCol.ChangeLong, System.currentTimeMillis());
+        ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
         //if exist, update
         if(true == existFavor(context, ns, action, res_id)){
             updateFavor(context, action, ct);
         }else{
-            ret = context.getContentResolver().insert(FAVOR_CONTENT_URI, ct);
+            ret = context.getContentResolver().insert(ALBUM_CONTENT_URI, ct);
         }
         return ret;
     }
 
     public static boolean updateFavor(Context context, String action, ContentValues ct) {
         boolean ret = false;
-        String where = String.format(" ns = \'%1$s\' and res_id = \'%2$s\' and action=\'%3$s\'", ct.get(FavorCol.NS), ct.get(FavorCol.RES_ID), ct.get(FavorCol.Action));
-        if(context.getContentResolver().update(FAVOR_CONTENT_URI, ct, where, null) > 0){
+        String where = String.format(" ns = \'%1$s\' and res_id = \'%2$s\' and action=\'%3$s\'", ct.get(ColumsCol.NS), ct.get(ColumsCol.RES_ID), ct.get(ColumsCol.Action));
+        if(context.getContentResolver().update(ALBUM_CONTENT_URI, ct, where, null) > 0){
             ret = true;
         }
         return ret;
@@ -133,8 +156,8 @@ public class iDataORM {
 
     public static boolean existFavor(Context context, String ns, String action, String res_id){
         boolean exist = false;
-        String where = FavorCol.NS +"='"+ns+"' and " + FavorCol.RES_ID + " ='" + res_id + "' and action='"+action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, new String[]{"_id"}, where, null, null);
+        String where = ColumsCol.NS +"='"+ns+"' and " + ColumsCol.RES_ID + " ='" + res_id + "' and action='"+action + "'";
+        Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, new String[]{"_id"}, where, null, null);
         if(cursor != null ){
             if(cursor.getCount() > 0){
                 exist = true;
@@ -146,16 +169,16 @@ public class iDataORM {
     }
 
     public static int removeFavor(Context context, String ns, String action, String res_id){
-        String where = FavorCol.NS +"='"+ns+"' and " + FavorCol.RES_ID + " ='" + res_id + "' and action='"+action + "'";
-        int lens = context.getContentResolver().delete(FAVOR_CONTENT_URI, where, null);
+        String where = ColumsCol.NS +"='"+ns+"' and " + ColumsCol.RES_ID + " ='" + res_id + "' and action='"+action + "'";
+        int lens = context.getContentResolver().delete(ALBUM_CONTENT_URI, where, null);
         return lens;
     }
 
     public static int getFavoritesCount(Context context, String ns, String action){
         int count = 0;
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
-        String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, new String[]{"_id"}, where, null, null);
+        String where = ColumsCol.NS +"='"+ns + "' and action='" + action + "'";
+        Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, new String[]{"_id"}, where, null, null);
         if(cursor != null ){
             count = cursor.getCount();
             cursor.close();
@@ -166,19 +189,19 @@ public class iDataORM {
 
     public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
-        String where = FavorCol.NS +"='"+ns + "' and action='" + action + "'";
-        Cursor cursor = context.getContentResolver().query(FAVOR_CONTENT_URI, actionProject, where, null, " date_int desc");
+        String where = ColumsCol.NS +"='"+ns + "' and action='" + action + "'";
+        Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, actionProject, where, null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
                 ActionRecord item = new ActionRecord();
-                item.id     = cursor.getInt(cursor.getColumnIndex(FavorCol.ID));
-                item.res_id = cursor.getString(cursor.getColumnIndex(FavorCol.RES_ID));
-                item.ns     = cursor.getString(cursor.getColumnIndex(FavorCol.NS));
-                item.json   = cursor.getString(cursor.getColumnIndex(FavorCol.VALUE));
-                item.action = cursor.getString(cursor.getColumnIndex(FavorCol.Action));
-                item.uploaded = cursor.getInt(cursor.getColumnIndex(FavorCol.Uploaded));
-                item.date   = cursor.getString(cursor.getColumnIndex(FavorCol.ChangeDate));
-                item.dateInt = cursor.getInt(cursor.getColumnIndex(FavorCol.ChangeLong));
+                item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
+                item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
+                item.ns     = cursor.getString(cursor.getColumnIndex(ColumsCol.NS));
+                item.json   = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+                item.action = cursor.getString(cursor.getColumnIndex(ColumsCol.Action));
+                item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
+                item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
+                item.dateInt = cursor.getInt(cursor.getColumnIndex(ColumsCol.ChangeLong));
 
                 actionRecords.add(item);
             }
@@ -187,6 +210,110 @@ public class iDataORM {
         }
         return actionRecords;
     }
+
+    /*
+    * download begin
+    */
+    public static Uri addDownload(Context context, String res_id, long download_id, DisplayItem item){
+        String json = gson.toJson(item);
+        Uri ret = null;
+        ContentValues ct = new ContentValues();
+        ct.put(ColumsCol.RES_ID, res_id);
+        ct.put(ColumsCol.VALUE,  json);
+        ct.put(ColumsCol.NS,     "video"); //TODO need add ns to download apk
+        ct.put(ColumsCol.DOWNLOAD_ID, download_id);
+        ct.put(ColumsCol.Uploaded,  0);
+        ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
+        ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
+        //if exist, update
+        if(true == existDowndload(context, res_id)){
+            updateDownload(context, ct);
+        }else{
+            ret = context.getContentResolver().insert(DOWNLOAD_CONTENT_URI, ct);
+        }
+        return ret;
+    }
+
+    public static boolean updateDownload(Context context, ContentValues ct) {
+        boolean ret = false;
+        String where = String.format(" res_id = \'%1$s\' ", ct.get(ColumsCol.RES_ID));
+        if(context.getContentResolver().update(DOWNLOAD_CONTENT_URI, ct, where, null) > 0){
+            ret = true;
+        }
+        return ret;
+    }
+
+    public static int getDowndloadID(Context context, String res_id){
+        int download_id = -1;
+        String where = ColumsCol.RES_ID + " ='" + res_id +  "'";
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID, ColumsCol.DOWNLOAD_ID}, where, null, null);
+        if(cursor != null ){
+            if(cursor.getCount() > 0){
+                download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+            }
+            cursor.close();
+            cursor = null;
+        }
+        return download_id;
+    }
+
+    public static boolean existDowndload(Context context, String res_id){
+        boolean exist = false;
+        String where = ColumsCol.RES_ID + " ='" + res_id +  "'";
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID}, where, null, null);
+        if(cursor != null ){
+            if(cursor.getCount() > 0){
+                exist = true;
+            }
+            cursor.close();
+            cursor = null;
+        }
+        return exist;
+    }
+
+    public static int removeDownload(Context context, String res_id){
+        String where = ColumsCol.RES_ID + " ='" + res_id + "'";
+        int lens = context.getContentResolver().delete(DOWNLOAD_CONTENT_URI, where, null);
+        return lens;
+    }
+
+    public static int getDownloadCount(Context context){
+        int count = 0;
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{"_id"}, null, null, null);
+        if(cursor != null ){
+            count = cursor.getCount();
+            cursor.close();
+            cursor = null;
+        }
+        return count;
+    }
+
+    public static ArrayList<ActionRecord> getDownloads(Context context){
+        ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, null, null, " date_int desc");
+        if(cursor != null ){
+            while(cursor.moveToNext()){
+                ActionRecord item = new ActionRecord();
+                item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
+                item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
+
+                item.json   = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+
+                item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
+                item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
+                item.dateInt = cursor.getInt(cursor.getColumnIndex(ColumsCol.ChangeLong));
+                item.download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+
+                actionRecords.add(item);
+            }
+            cursor.close();
+            cursor = null;
+        }
+        return actionRecords;
+    }
+    /*
+    *download end
+    */
 
     public int getDataCollectionInterval(int defaultValue) {
         return 120;

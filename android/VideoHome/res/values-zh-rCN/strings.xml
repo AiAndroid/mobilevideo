@@ -114,4 +114,6 @@
     <string name="priority_storage">优先使用外置SD卡</string>
     <string name="priority_storage_summary">使用外置SD卡时，此功能生效</string>
     <!-- settings end -->
+
+    <string name="no_sdcard_no_download">没有存储卡，下载失败</string>
 </resources>

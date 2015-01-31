@@ -144,6 +144,7 @@ public class MyVideoFragment extends Fragment {
 		mMyOfflineItem = new MyVideoItem();
 		mMyOfflineItem.itemName = mContext.getResources().getString(R.string.my_offline);
 		mMyOfflineItem.itemIconResId = R.drawable.icon_my_video_offline;
+		mMyOfflineItem.mDesc = getCountDesc(iDataORM.getInstance(getActivity()).getDownloadCount(getActivity()));
 		mMyOfflineItem.tag = TAG_MY_OFFLINE;
 		mMyVideoItems.add(mMyOfflineItem);
 		
@@ -213,6 +214,11 @@ public class MyVideoFragment extends Fragment {
 					Intent history = new Intent(getActivity(), AlbumActivity.class);
 					history.putExtra("history", true);
 					getActivity().startActivity(history);
+					break;
+				case TAG_MY_OFFLINE:
+					Intent offline = new Intent(getActivity(), AlbumActivity.class);
+					offline.putExtra("offline", true);
+					getActivity().startActivity(offline);
 					break;
 			}
 			Toast.makeText(getActivity(), "not support", Toast.LENGTH_LONG).show();

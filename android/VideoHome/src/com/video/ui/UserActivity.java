@@ -20,10 +20,12 @@ public class UserActivity extends DisplayItemActivity {
 
         setTitle(getString(R.string.personal_center));
 
-        Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
-        if(fg == null) {
-            MyVideoFragment df = new MyVideoFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.user_fragment, df, "user_fragment").commit();
+        if(getSupportFragmentManager().findFragmentById(R.id.user_fragment) == null) {
+            Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
+            if (fg == null) {
+                MyVideoFragment df = new MyVideoFragment();
+                getSupportFragmentManager().beginTransaction().add(R.id.user_fragment, df, "user_fragment").commit();
+            }
         }
     }
 }

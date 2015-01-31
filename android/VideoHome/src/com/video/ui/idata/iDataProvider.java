@@ -22,7 +22,8 @@ public class iDataProvider extends ContentProvider {
     public static SQLiteOpenHelper mOpenHelper;
 
     private static final String     TABLE_SETTINGS   = "settings";
-    private static final String     TABLE_Favor      = "favor";
+    private static final String     TABLE_ALBUM      = "local_album";
+    private static final String     TABLE_Downdload  = "download";
 
     public static final String _ID   = "_id";
     public static final String NAME  = "name";
@@ -55,7 +56,7 @@ public class iDataProvider extends ContentProvider {
                         + " application TEXT,"
                         + " date_time TEXT);");
 
-                db.execSQL("CREATE TABLE " + TABLE_Favor + " ("
+                db.execSQL("CREATE TABLE " + TABLE_ALBUM + " ("
                         + " _id      INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + " res_id   TEXT, "     //media id
                         + " ns       TEXT,"      //video
@@ -65,13 +66,28 @@ public class iDataProvider extends ContentProvider {
                         + " date_int INTEGER ,"   //for sort
                         + " date_time TEXT);");
 
+                db.execSQL("CREATE TABLE " + TABLE_Downdload + " ("
+                        + " _id           INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " res_id        TEXT, "     //media id
+                        + " download_id   TEXT, "     //in download manager
+                        + " value    TEXT,"      //json   data
+                        + " ns       TEXT,"      //video, apk
+                        + " download_status    TEXT,"     //down status
+                        + " download_path      TEXT,"      //down path
+
+                        + " uploaded INTEGER DEFAULT 0,"   //sync to server
+                        + " date_int INTEGER ,"   //for sort
+                        + " date_time TEXT);");
+
             }catch (Exception ne){}
         }
 
         private void dropTables(SQLiteDatabase db) {
             try {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
-                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Favor);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+
             }catch (Exception ne){}
         }
 
@@ -79,7 +95,8 @@ public class iDataProvider extends ContentProvider {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             try {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
-                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Favor);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
             }catch (Exception ne){}
 
             onCreate(db);
@@ -92,7 +109,9 @@ public class iDataProvider extends ContentProvider {
             try {
                 try {
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
-                    db.execSQL("DROP TABLE IF EXISTS " + TABLE_Favor);
+                    db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
+                    db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+
                 }catch (Exception ne){}
 
                 onCreate(db);

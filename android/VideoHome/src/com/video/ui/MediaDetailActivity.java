@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
+import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
@@ -28,6 +30,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
     private static String TAG = MediaDetailActivity.class.getName();
     private int loaderID;
     private TextView playview ;
+    private View    favorView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -69,25 +72,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         final View favorView = findViewById(R.id.detail_favorite);
         favorView.setSelected(exist);
 
-        favorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mVidoeInfo != null) {
-                    VideoItem vi = mVidoeInfo.blocks.get(0);
-                    vi.target.entity = "pvideo";
-                    boolean isFavored = iDataORM.getInstance(getBaseContext()).existFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
-                    if(isFavored ) {
-                        iDataORM.getInstance(getBaseContext()).removeFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
-                        MiPushClient.unsubscribe(getBaseContext(), vi.id, null);
-                    }
-                    else {
-                        iDataORM.getInstance(getBaseContext()).addFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id, vi);
-                        MiPushClient.subscribe(getBaseContext(), vi.id, null);
-                    }
-                    favorView.setSelected(!isFavored);
-                }
-            }
-        });
+        favorView.setOnClickListener(bottomClick);
+        findViewById(R.id.detail_download).setOnClickListener(bottomClick);
 
         mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.root_container));
         mLoadingView.setOnRetryListener(retryLoadListener);
@@ -95,6 +81,41 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         loaderID = GenericDetailLoader.VIDEO_LOADER_ID;
         getSupportLoaderManager().initLoader(GenericDetailLoader.VIDEO_LOADER_ID, savedInstanceState, this);
     }
+
+    View.OnClickListener bottomClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (mVidoeInfo != null) {
+                VideoItem vi = mVidoeInfo.blocks.get(0);
+                vi.target.entity = "pvideo";
+
+                switch (view.getId()) {
+                    case R.id.detail_download: {
+                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi);
+                        if(download_id != -1) {
+                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, vi);
+                            MiPushClient.subscribe(getBaseContext(), vi.id, null);
+                        }else {
+                            Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
+                        }
+                        break;
+                    }
+                    case R.id.detail_favorite: {
+                        boolean isFavored = iDataORM.getInstance(getBaseContext()).existFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
+                        if (isFavored) {
+                            iDataORM.getInstance(getBaseContext()).removeFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id);
+                            MiPushClient.unsubscribe(getBaseContext(), vi.id, null);
+                        } else {
+                            iDataORM.getInstance(getBaseContext()).addFavor(getBaseContext(), vi.ns, iDataORM.FavorAction, vi.id, vi);
+                            MiPushClient.subscribe(getBaseContext(), vi.id, null);
+                        }
+                        favorView.setSelected(!isFavored);
+                    }
+                    break;
+                }
+            }
+        }
+    };
 
     private DisplayItem.Media.CP currentCP;
     @Override

@@ -39,6 +39,7 @@ public class AlbumActivity extends DisplayItemActivity{
             setTitle(getString(R.string.play_history));
             getIntent().putExtra("history", true);
         }else if(getIntent().getBooleanExtra("offline", false) || (item != null && item.id.endsWith("play_offline") )){
+            getIntent().putExtra("offline", true);
             setTitle(getString(R.string.my_offline));
         }
 
@@ -57,7 +58,11 @@ public class AlbumActivity extends DisplayItemActivity{
     public AsyncTask loadFavor = new AsyncTask() {
         @Override
         protected Object doInBackground(Object[] objects) {
-            records = iDataORM.getInstance(getBaseContext()).getFavorites(getBaseContext(), "video", getIntent().getBooleanExtra("favor", false)==true?iDataORM.FavorAction:iDataORM.HistoryAction);
+            if(getIntent().getBooleanExtra("offline", false) == true){
+                records = iDataORM.getInstance(getBaseContext()).getDownloads(getBaseContext());
+            }else {
+                records = iDataORM.getInstance(getBaseContext()).getFavorites(getBaseContext(), "video", getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction);
+            }
             mHandler.obtainMessage(SHOW_UI).sendToTarget();
             return null;
         }
