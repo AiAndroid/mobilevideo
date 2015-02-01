@@ -15,6 +15,8 @@ public class ImageGroup extends HashMap<String, Image> implements Serializable{
     public Image screenshot(){return get("screenshot");}
     public Image poster(){return get("poster");}
     public Image smallerPoster(){return get("poster");}
+    public Image normal(){return get("normal");}
+    public Image pressed(){return get("pressed");}
 
     public ImageGroup clone(){
         ImageGroup item = new ImageGroup();
@@ -27,6 +29,8 @@ public class ImageGroup extends HashMap<String, Image> implements Serializable{
         if(text() != null)item.put("text",    text().clone());
         if(thumbnail() != null)item.put("thumbnail",    thumbnail().clone());
         if(screenshot() != null)item.put("screenshot",    screenshot().clone());
+        if(normal() != null)item.put("normal",    normal().clone());
+        if(pressed() != null)item.put("pressed",    pressed().clone());
         return item;
     }
 	public String toString(){
@@ -39,6 +43,8 @@ public class ImageGroup extends HashMap<String, Image> implements Serializable{
         sb.append(" \ttext="+text());
         sb.append(" \tscreenshot="+screenshot());
         sb.append(" \tthumbnail="+thumbnail());
+        sb.append(" \tnormal="+normal());
+        sb.append(" \tpressed="+pressed());
 	    return sb.toString();
 	}
 }

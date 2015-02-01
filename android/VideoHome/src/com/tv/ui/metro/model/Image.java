@@ -115,6 +115,7 @@ public class Image implements Serializable {
     public String type="image";
 	public String url;
 	public String bgcolor;
+
 	public Position pos;
 	public Size size;
 	public Ani ani;

@@ -2,6 +2,7 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.*;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -77,5 +78,35 @@ public abstract class BaseCardView  extends RelativeLayout {
         } catch (Exception ne) {
             ne.printStackTrace();
         }
+    }
+
+    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float round) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final RectF rectF = new RectF(rect);
+        final float Px = round;
+
+        final Rect bottomRect = new Rect(0, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawRoundRect(rectF, Px, Px, paint);
+        // Fill in upper right corner
+        // canvas.drawRect(topRightRect, paint);
+        // Fill in bottom corners
+        canvas.drawRect(bottomRect, paint);
+
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        if (bitmap != output) {
+            bitmap.recycle();
+        }
+        return output;
     }
 }
