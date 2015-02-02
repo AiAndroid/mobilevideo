@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 
+import miui.reflect.Method;
 
 /**
  * Created by liuhuadonbg on 1/31/15.
@@ -35,6 +36,11 @@ public class MVDownloadManager {
     }
 
 
+    //TODO refer to aimashi download code, SuperMarket and GameCenter
+    private static final Method RESUME_DOWNLOAD = Method.of(DownloadManager.class, "resumeDownload", "([J)V");
+    private static final Method PAUSE_DOWNLOAD  = Method.of(DownloadManager.class, "pauseDownload", "([J)V");
+
+
     public static boolean isInDownloading(Context con, String res_id)
     {
         int download_id = iDataORM.getInstance(con).getDowndloadID(con, res_id);
@@ -54,6 +60,7 @@ public class MVDownloadManager {
         return false;
     }
 
+    //http://www.apkbus.com/forum.php?mod=viewthread&tid=144845
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
@@ -68,6 +75,7 @@ public class MVDownloadManager {
                     long downloadId = intent.getLongExtra(android.app.DownloadManager.EXTRA_DOWNLOAD_ID, 0);
                     //update download status
                     //TODO
+
 
                     Log.d(TAG, "new download complete=" + downloadId);
                     android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
@@ -96,40 +104,37 @@ public class MVDownloadManager {
                 }
             }
             else if (android.app.DownloadManager.ACTION_NOTIFICATION_CLICKED.equals(action)){
-                if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO)
-                {
+                if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
                     android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
 
-                        long downloadId = intent.getLongExtra(android.app.DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-                        Log.d(TAG, "new download complete="+downloadId);
-                        android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
-                        query.setFilterById(downloadId);
-                        Cursor c = dm.query(query);
-                        if (c.moveToFirst()) {
-                            int columnIndex = c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS);
-                            if (android.app.DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
+                    long downloadId = intent.getLongExtra(android.app.DownloadManager.EXTRA_DOWNLOAD_ID, 0);
+                    Log.d(TAG, "new download complete="+downloadId);
+                    android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
+                    query.setFilterById(downloadId);
+                    Cursor c = dm.query(query);
+                    if (c.moveToFirst()) {
+                        int columnIndex = c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS);
+                        if (android.app.DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
 
-                                String uriString = c.getString(c.getColumnIndex(android.app.DownloadManager.COLUMN_LOCAL_FILENAME));
-                                if(uriString.startsWith("file://"))
-                                {
-                                    uriString = uriString.substring(7);
-                                }
-
-                                Log.d(TAG, "new downloaded"+uriString);
-                                if(uriString.endsWith(".apk"))
-                                {
-                                    ApkFileManager.installApk(con, uriString, "", "", false);
-                                }
-                                //else
-                                {
-                                    openDownloadsPage(con);
-                                }
+                            String uriString = c.getString(c.getColumnIndex(android.app.DownloadManager.COLUMN_LOCAL_FILENAME));
+                            if(uriString.startsWith("file://"))
+                            {
+                                uriString = uriString.substring(7);
                             }
-                            else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
 
-                                Log.d(TAG, "new download fail="+downloadId);
+                            Log.d(TAG, "new downloaded"+uriString);
+                            if(uriString.endsWith(".apk")){
+                                ApkFileManager.installApk(con, uriString, "", "", false);
+                            }else
+                            {
+                                openDownloadsPage(con);
                             }
                         }
+                        else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
+                            Log.d(TAG, "new download fail="+downloadId);
+                            openDownloadsPage(con);
+                        }
+                    }
                 }else{
                     openDownloadsPage(con);
                 }
@@ -183,9 +188,13 @@ public class MVDownloadManager {
             }
 
             android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
-            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(ramdonvideo[((int) (Math.random() * 100)) % ramdonvideo.length]));
+
+            //String url = ramdonvideo[((int) (Math.random() * 100)) % ramdonvideo.length];
+            String url = video.media.poster;
+            android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(url));
             //request.setMimeType("application/vnd.android.package-archive");
-            request.setMimeType(MimeTypeMap.getSingleton().getMimeTypeFromExtension(video.media.poster));
+            request.setMimeType(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(url)));
+
             request.setTitle(video.title);
             request.setVisibleInDownloadsUi(true);
             request.setShowRunningNotification(true);
@@ -194,6 +203,9 @@ public class MVDownloadManager {
                 downloadFlag |=DownloadManager.Request.NETWORK_MOBILE;
             }
             request.setAllowedNetworkTypes(downloadFlag);
+
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, "video");
+            request.allowScanningByMediaScanner();
 
             request.setDestinationUri(Uri.fromFile(Environment.getDownloadCacheDirectory()));
 
