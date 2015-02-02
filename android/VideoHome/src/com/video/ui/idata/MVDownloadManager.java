@@ -9,11 +9,12 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
-import android.webkit.MimeTypeMap;
 import android.widget.Toast;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 
+import com.video.ui.utils.VideoUtils;
 import miui.reflect.Method;
 
 /**
@@ -174,7 +175,7 @@ public class MVDownloadManager {
         "http://vod01.media.ysten.com/media/new/2011/10/31/sd_dy_zzx1_20111031.ts"
     };
     public static final int DOWNLOAD_IN = -100;
-    public long requestDownload(Context con, VideoItem video){
+    public long requestDownload(Context con, VideoItem video, DisplayItem.Media.Episode episode){
         long download_id = -1;
         if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) == false){
             Toast.makeText(con, R.string.no_sdcard_no_download, Toast.LENGTH_SHORT).show();
@@ -193,7 +194,7 @@ public class MVDownloadManager {
             String url = video.media.poster;
             android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(url));
             //request.setMimeType("application/vnd.android.package-archive");
-            request.setMimeType(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(url)));
+            request.setMimeType(VideoUtils.getMimeType(url));
 
             request.setTitle(video.title);
             request.setVisibleInDownloadsUi(true);
@@ -216,7 +217,7 @@ public class MVDownloadManager {
             }
             //request.setNotificationVisibility(true);
             download_id = dm.enqueue(request);
-            iDataORM.getInstance(con).addDownload(con, video.id, download_id, video);
+            iDataORM.getInstance(con).addDownload(con, video.id, download_id, video, episode);
 
 
             Log.d(TAG, "new download="+download_id);
@@ -232,7 +233,6 @@ public class MVDownloadManager {
                 ne.printStackTrace();
             }
         }
-
         return download_id;
     }
 

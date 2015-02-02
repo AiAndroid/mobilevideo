@@ -161,26 +161,26 @@ public class DisplayItem implements Serializable{
             public ArrayList<String> area(){return get("area");}
         }
 
-        public static class CP implements Serializable{
+        public static class CP extends HashMap<String, String> implements Serializable{
             private static final long serialVersionUID = 1L;
-            public String cp;
-            public String name;
-            public String icon;
+            public String cp()  {return get("cp");}
+            public String name(){return get("name");}
+            public String icon(){return get("icon");}
         }
 
-        public static class Episode implements Serializable{
+        public static class Episode extends HashMap<String, String> implements Serializable{
             private static final long serialVersionUID = 1L;
-            public String                  date;
-            public int                     episode;
-            public String                  id;
-            public String                  name;
+            public String                  date()   {return get("date");}
+            public int                     episode(){return Integer.valueOf(get("episode"));}
+            public String                  id()     {return get("id");}
+            public String                  name()   {return get("name");}
         }
 
         public static class Stuff extends HashMap<String, ArrayList<Stuff.Star>>  implements Serializable{
             private static final long serialVersionUID = 1L;
             public ArrayList<Stuff.Star> director(){return  get("director");}
-            public ArrayList<Stuff.Star> writer(){return get("writer");}
-            public ArrayList<Stuff.Star> actor(){return get("actor");}
+            public ArrayList<Stuff.Star> writer()  {return get("writer");}
+            public ArrayList<Stuff.Star> actor()   {return get("actor");}
 
             public static class Star implements Serializable {
                 private static final long serialVersionUID = 1L;

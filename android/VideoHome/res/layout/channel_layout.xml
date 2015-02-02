@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:flipInterval="30"
                 android:layout_below="@android:id/tabhost"
-                android:paddingTop="-3.3dp"
+                android:paddingTop="@dimen/video_common_interval_negtive_10"
                 android:persistentDrawingCache="all" />
 
 

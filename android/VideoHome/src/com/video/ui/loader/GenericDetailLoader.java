@@ -47,8 +47,8 @@ public abstract class GenericDetailLoader<T> extends BaseGsonLoader<VideoBlocks<
 
             @Override
             public void setLoaderURL(DisplayItem _item) {
-                String id = _item.media.items.get(0).id;
-                String url = CommonUrl.BaseURL + "play?id=" +id.substring(id.indexOf('/', 0) + 1) + "&cp="+_item.media.cps.get(0).cp;
+                String id = _item.media.items.get(0).id();
+                String url = CommonUrl.BaseURL + "play?id=" +id.substring(id.indexOf('/', 0) + 1) + "&cp="+_item.media.cps.get(0).cp();
                 calledURL = new CommonUrl(getContext()).addCommonParams(url);
             }
 

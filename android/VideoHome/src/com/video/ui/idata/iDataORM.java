@@ -68,6 +68,7 @@ public class iDataORM {
             "ns",
             "value",
 
+            "episode",
             "uploaded",
             "date_time",
             "date_int",
@@ -85,6 +86,7 @@ public class iDataORM {
         public static final String ChangeDate = "date_time";
         public static final String ChangeLong = "date_int";
 
+        public static final String EPISODE          = "episode";
         public static final String DOWNLOAD_ID      = "download_id";
         public static final String DOWNLOAD_STATUS  = "download_status";
         public static final String DOWNLOAD_PATH    = "download_path";
@@ -103,6 +105,7 @@ public class iDataORM {
 
         //just for download
         public int    download_id;
+        public String episode;
 
         public static <T> T parseJson(Gson gson, String json, Type type){
             return gson.fromJson(json, type);
@@ -214,12 +217,13 @@ public class iDataORM {
     /*
     * download begin
     */
-    public static Uri addDownload(Context context, String res_id, long download_id, DisplayItem item){
+    public static Uri addDownload(Context context, String res_id, long download_id, DisplayItem item, DisplayItem.Media.Episode episode){
         String json = gson.toJson(item);
         Uri ret = null;
         ContentValues ct = new ContentValues();
         ct.put(ColumsCol.RES_ID, res_id);
         ct.put(ColumsCol.VALUE,  json);
+        ct.put(ColumsCol.EPISODE, gson.toJson(episode));
         ct.put(ColumsCol.NS,     "video"); //TODO need add ns to download apk
         ct.put(ColumsCol.DOWNLOAD_ID, download_id);
         ct.put(ColumsCol.Uploaded,  0);
@@ -297,7 +301,8 @@ public class iDataORM {
                 item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
                 item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
 
-                item.json   = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+                item.json    = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+                item.episode = cursor.getString(cursor.getColumnIndex(ColumsCol.EPISODE));
 
                 item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));

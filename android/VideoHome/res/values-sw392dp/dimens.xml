@@ -54,7 +54,7 @@
     <dimen name="mine_mirror_view_height">109dp</dimen>
     <dimen name="MIRROR_HEIGHTER">101.27dp</dimen>
 
-    <dimen name="ITEM_DIVIDE_SIZE">2.18dp</dimen>
+    <dimen name="ITEM_DIVIDE_SIZE">6.53dp</dimen>
 
     <dimen name="text_tab_padding">16.33dp</dimen>
 
@@ -80,7 +80,7 @@
     <dimen name="MAX_PIVOT_Y">109dp</dimen>
 
     <dimen name="item_v_margin_bottom">21.78dp</dimen>
-    <dimen name="tab_left_offset">54.4dp</dimen>
+    <dimen name="tab_left_offset">0dp</dimen>
 
     <dimen name="animation_offset_y">17.4dp</dimen>
 

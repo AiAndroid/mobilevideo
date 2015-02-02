@@ -91,9 +91,9 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
-                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi);
+                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi, vi.media.items.get(0));
                         if(download_id != -1) {
-                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, vi);
+                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, vi, vi.media.items.get(0));
                             MiPushClient.subscribe(getBaseContext(), vi.id, null);
 
                             Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
