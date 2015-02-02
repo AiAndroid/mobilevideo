@@ -76,6 +76,7 @@
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/local_album"/>
             </intent-filter>
         </activity>
+        <activity android:name=".tinyui.OfflineActivity"/>
         <activity android:name=".UserActivity"/>
         <activity android:name=".tinyui.AllEpisodeActivity"/>
 

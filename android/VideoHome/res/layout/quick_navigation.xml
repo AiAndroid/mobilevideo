@@ -9,6 +9,8 @@
                 android:id="@+id/metrolayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_info_type_top_margin"
+                android:layout_marginBottom="@dimen/detail_info_type_top_margin"
                 android:layout_centerHorizontal="true">
         </com.video.ui.view.LinearFrame>
 </merge>

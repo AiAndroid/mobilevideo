@@ -165,7 +165,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
         if(mDimens == null){
             mDimens = new Dimens();
             mDimens.width  = getResources().getDimensionPixelSize(R.dimen.media_banner_width);
-            mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height);
+            mDimens.height = getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height) + 2*getResources().getDimensionPixelSize(R.dimen.detail_info_type_top_margin);
         }
         return mDimens;
     }
