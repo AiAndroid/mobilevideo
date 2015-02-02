@@ -41,10 +41,39 @@ public class MVDownloadManager {
     private static final Method RESUME_DOWNLOAD = Method.of(DownloadManager.class, "resumeDownload", "([J)V");
     private static final Method PAUSE_DOWNLOAD  = Method.of(DownloadManager.class, "pauseDownload", "([J)V");
 
+    public static void pauseDownload(DownloadManager dm ,long[] ids){
+        try {
+            if(!dm.getClass().getName().equalsIgnoreCase("android.app.MiuiDownloadManager")){
+                return;
+            }
+            Class<?> miuidownlaod = Class.forName("android.app.MiuiDownloadManager");
+            java.lang.reflect.Method pauseDownload = miuidownlaod.getMethod("pauseDownload", ids.getClass());
+            pauseDownload.setAccessible(true);
+            pauseDownload.invoke(dm, ids);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-    public static boolean isInDownloading(Context con, String res_id)
+
+    public static void resumeDownload(DownloadManager dm ,long[] ids){
+        try {
+            if(!dm.getClass().getName().equalsIgnoreCase("android.app.MiuiDownloadManager")){
+                return;
+            }
+            Class<?> miuidownlaod = Class.forName("android.app.MiuiDownloadManager");
+            java.lang.reflect.Method resumeDownload = miuidownlaod.getMethod("resumeDownload", ids.getClass());
+            resumeDownload.setAccessible(true);
+            resumeDownload.invoke(dm, ids);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static boolean isInDownloading(Context con, String res_id, String sub_id)
     {
-        int download_id = iDataORM.getInstance(con).getDowndloadID(con, res_id);
+        int download_id = iDataORM.getInstance(con).getDowndloadID(con, res_id, sub_id);
         if(download_id != -1){
 
             android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
@@ -183,7 +212,7 @@ public class MVDownloadManager {
         }
 
         if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-            if (isInDownloading(con, video.id)) {
+            if (isInDownloading(con, video.id, episode.id())) {
                 Log.i(TAG, "download, ongoing item: " + video);
                 return DOWNLOAD_IN;
             }

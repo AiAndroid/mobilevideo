@@ -70,13 +70,18 @@ public class iDataProvider extends ContentProvider {
                         + " _id           INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + " res_id        TEXT, "     //media id
                         + " download_id   TEXT, "     //in download manager
-                        + " episode       TEXT, "     //current episode,  it is json for episode
+
+                        + " sub_id        TEXT, "     //main video object id
+                        + " sub_value     TEXT, "     //current episode,  it is json for episode
+
                         + " value    TEXT,"      //json   data
                         + " ns       TEXT,"      //video, apk
+
                         + " download_status    TEXT,"     //down status
                         + " download_path      TEXT,"      //down path
 
                         + " uploaded INTEGER DEFAULT 0,"   //sync to server
+
                         + " date_int INTEGER ,"   //for sort
                         + " date_time TEXT);");
 

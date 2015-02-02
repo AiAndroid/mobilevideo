@@ -41,16 +41,16 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
     };
 
     private static String []color = {
-            "#42a56a",
-            "#33b3c6",
-            "#5b80d6",
-            "#dd6144"
+            "#f7698d",
+            "#b477da",
+            "#51beec",
+            "#e7a551"
     };
     private static String []colorpress = {
-            "#36925b",
-            "#259fb1",
-            "#4c70c1",
-            "#c95338"
+            "#cf5474",
+            "#9b69ba",
+            "#44aad5",
+            "#cd9144"
     };
     private int []hodlerdraws = {
             R.drawable.quick_entry_tv_series,

@@ -68,8 +68,11 @@ public class iDataORM {
             "ns",
             "value",
 
-            "episode",
+            "sub_id",
+            "sub_value",
+
             "uploaded",
+
             "date_time",
             "date_int",
 
@@ -86,7 +89,8 @@ public class iDataORM {
         public static final String ChangeDate = "date_time";
         public static final String ChangeLong = "date_int";
 
-        public static final String EPISODE          = "episode";
+        public static final String SUB_ID           = "sub_id";
+        public static final String SUB_VALUE        = "sub_value";
         public static final String DOWNLOAD_ID      = "download_id";
         public static final String DOWNLOAD_STATUS  = "download_status";
         public static final String DOWNLOAD_PATH    = "download_path";
@@ -105,7 +109,8 @@ public class iDataORM {
 
         //just for download
         public int    download_id;
-        public String episode;
+        public String sub_id;
+        public String sub_value;
 
         public static <T> T parseJson(Gson gson, String json, Type type){
             return gson.fromJson(json, type);
@@ -223,14 +228,15 @@ public class iDataORM {
         ContentValues ct = new ContentValues();
         ct.put(ColumsCol.RES_ID, res_id);
         ct.put(ColumsCol.VALUE,  json);
-        ct.put(ColumsCol.EPISODE, gson.toJson(episode));
+        ct.put(ColumsCol.SUB_ID,    episode.id());
+        ct.put(ColumsCol.SUB_VALUE, gson.toJson(episode));
         ct.put(ColumsCol.NS,     "video"); //TODO need add ns to download apk
         ct.put(ColumsCol.DOWNLOAD_ID, download_id);
         ct.put(ColumsCol.Uploaded,  0);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
         ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
         //if exist, update
-        if(true == existDowndload(context, res_id)){
+        if(true == existDowndload(context, res_id, episode.id())){
             updateDownload(context, ct);
         }else{
             ret = context.getContentResolver().insert(DOWNLOAD_CONTENT_URI, ct);
@@ -247,9 +253,9 @@ public class iDataORM {
         return ret;
     }
 
-    public static int getDowndloadID(Context context, String res_id){
+    public static int getDowndloadID(Context context, String res_id, String sub_id){
         int download_id = -1;
-        String where = ColumsCol.RES_ID + " ='" + res_id +  "'";
+        String where = ColumsCol.RES_ID + " ='" + res_id +  "' and " + ColumsCol.SUB_ID + " ='"+sub_id + "'";
         Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID, ColumsCol.DOWNLOAD_ID}, where, null, null);
         if(cursor != null ){
             if(cursor.getCount() > 0 && cursor.moveToFirst()){
@@ -261,9 +267,9 @@ public class iDataORM {
         return download_id;
     }
 
-    public static boolean existDowndload(Context context, String res_id){
+    public static boolean existDowndload(Context context, String res_id, String sub_id){
         boolean exist = false;
-        String where = ColumsCol.RES_ID + " ='" + res_id +  "'";
+        String where = ColumsCol.RES_ID + " ='" + res_id +  "' and " + ColumsCol.SUB_ID + " ='"+sub_id + "'";
         Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID}, where, null, null);
         if(cursor != null ){
             if(cursor.getCount() > 0){
@@ -302,7 +308,8 @@ public class iDataORM {
                 item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
 
                 item.json    = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
-                item.episode = cursor.getString(cursor.getColumnIndex(ColumsCol.EPISODE));
+                item.sub_id  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
+                item.sub_value  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
 
                 item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
