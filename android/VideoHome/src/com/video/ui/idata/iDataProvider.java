@@ -63,7 +63,7 @@ public class iDataProvider extends ContentProvider {
                         + " action   TEXT,"      //history, favor
                         + " value    TEXT,"      //json data
                         + " uploaded INTEGER DEFAULT 0,"   //uploaded to server
-                        + " date_int INTEGER ,"   //for sort
+                        + " date_int LONG ,"   //for sort
                         + " date_time TEXT);");
 
                 db.execSQL("CREATE TABLE " + TABLE_Downdload + " ("
@@ -82,7 +82,7 @@ public class iDataProvider extends ContentProvider {
 
                         + " uploaded INTEGER DEFAULT 0,"   //sync to server
 
-                        + " date_int INTEGER ,"   //for sort
+                        + " date_int  LONG ,"   //for sort
                         + " date_time TEXT);");
 
             }catch (Exception ne){}

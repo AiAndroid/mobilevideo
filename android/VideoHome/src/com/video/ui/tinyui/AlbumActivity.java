@@ -80,42 +80,61 @@ public class AlbumActivity extends DisplayItemActivity{
                     top.ui_type.id = LayoutConstant.block_port;
 
                     top.blocks = new  ArrayList<Block<DisplayItem>>();
-
-                    Block<DisplayItem> vi = new Block<DisplayItem>();
-                    vi.ui_type = new DisplayItem.UI();
-                    vi.ui_type.id = LayoutConstant.block_sub_channel;
-
-                    vi.blocks = new  ArrayList<Block<DisplayItem>>();
-
-                    Block<DisplayItem> title = new Block<DisplayItem>();
-                    title.title = getString(R.string.online_video);
-                    title.ui_type = new DisplayItem.UI();
-                    title.ui_type.id = LayoutConstant.linearlayout_title;
-                    vi.blocks.add(title);
-
-                    Block<DisplayItem> grid_port = new Block<DisplayItem>();
-                    grid_port.title = getString(R.string.online_video);
-                    grid_port.ui_type = new DisplayItem.UI();
-                    grid_port.ui_type.id = LayoutConstant.grid_media_port;
-                    grid_port.ui_type.row_count = 3;
-
-                    grid_port.items = new ArrayList<DisplayItem>();
-                    for(iDataORM.ActionRecord ar :records){
-                        VideoItem  di = iDataORM.ActionRecord.parseJson(gson, ar.json, VideoItem.class);
-                        di.images = new ImageGroup();
-                        Image image = new Image();
-                        image.url = di.media.poster;
-                        di.images.put("poster", image);
-
-                        grid_port.items.add(di);
+                    Block<DisplayItem> vi = createLatestVideos(true);
+                    if(vi != null) {
+                        top.blocks.add(vi);
                     }
-                    vi.blocks.add(grid_port);
 
-                    top.blocks.add(vi);
+                    vi = createLatestVideos(false);
+                    if(vi != null && vi.blocks.get(0).items != null && vi.blocks.get(0).items.size() > 0) {
+                        top.blocks.add(vi);
+                    }
+
 
                     bcv.setBlocks(top);
                     break;
             }
         }
     };
+
+    private Block<DisplayItem> createLatestVideos(boolean lastweek){
+        Block<DisplayItem> vi = new Block<DisplayItem>();
+        vi.ui_type = new com.tv.ui.metro.model.DisplayItem.UI();
+        vi.ui_type.id = LayoutConstant.block_sub_channel;
+
+        vi.blocks = new  ArrayList<Block<DisplayItem>>();
+
+        Block<DisplayItem> title = new Block<DisplayItem>();
+        title.title = getString(R.string.online_video_oneweek);
+        if(lastweek == false){
+            title.title = getString(R.string.online_video_oneweek_ago);
+        }
+        title.ui_type = new com.tv.ui.metro.model.DisplayItem.UI();
+        title.ui_type.id = LayoutConstant.linearlayout_title;
+        vi.blocks.add(title);
+
+        Block<DisplayItem> grid_port = new Block<DisplayItem>();
+        grid_port.title = getString(R.string.online_video);
+        grid_port.ui_type = new com.tv.ui.metro.model.DisplayItem.UI();
+        grid_port.ui_type.id = LayoutConstant.grid_media_port;
+        grid_port.ui_type.row_count = 3;
+
+        long lastweekpointer = System.currentTimeMillis() - 7*24*60*60*1000l;
+        grid_port.items = new ArrayList<DisplayItem>();
+        for(iDataORM.ActionRecord ar :records){
+            if((lastweek && ar.dateInt >= lastweekpointer) ||
+                    (lastweek == false && ar.dateInt < lastweekpointer )) {
+                VideoItem di = iDataORM.ActionRecord.parseJson(gson, ar.json, VideoItem.class);
+                di.images = new ImageGroup();
+                Image image = new Image();
+                image.url = di.media.poster;
+                di.images.put("poster", image);
+
+                grid_port.items.add(di);
+            }
+        }
+        vi.blocks.add(grid_port);
+
+        return vi;
+    }
 }

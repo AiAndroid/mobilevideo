@@ -15,7 +15,6 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 
 import com.video.ui.utils.VideoUtils;
-import miui.reflect.Method;
 
 /**
  * Created by liuhuadonbg on 1/31/15.
@@ -38,8 +37,8 @@ public class MVDownloadManager {
 
 
     //TODO refer to aimashi download code, SuperMarket and GameCenter
-    private static final Method RESUME_DOWNLOAD = Method.of(DownloadManager.class, "resumeDownload", "([J)V");
-    private static final Method PAUSE_DOWNLOAD  = Method.of(DownloadManager.class, "pauseDownload", "([J)V");
+    //private static final Method RESUME_DOWNLOAD = Method.of(DownloadManager.class, "resumeDownload", "([J)V");
+    //private static final Method PAUSE_DOWNLOAD  = Method.of(DownloadManager.class, "pauseDownload", "([J)V");
 
     public static void pauseDownload(DownloadManager dm ,long[] ids){
         try {

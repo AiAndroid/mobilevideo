@@ -93,6 +93,8 @@
 
     <!-- myvideo entry start -->
     <string name="online_video">Online</string>
+    <string name="online_video_oneweek">This week</string>
+    <string name="online_video_oneweek_ago">One week ago</string>
     <!-- myvideo entry end -->
 
     <!-- settings start -->

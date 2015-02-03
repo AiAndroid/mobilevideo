@@ -105,7 +105,7 @@ public class iDataORM {
         public int    uploaded;
         public Object object;
         public String date;
-        public int    dateInt;
+        public long   dateInt;
 
         //just for download
         public int    download_id;
@@ -195,9 +195,9 @@ public class iDataORM {
         return count;
     }
 
-    public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
+    public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action, int before_date){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
-        String where = ColumsCol.NS +"='"+ns + "' and action='" + action + "'";
+        String where = ColumsCol.NS +"='"+ns + "' and action='" + action + "' and date_int >= "+before_date;
         Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, actionProject, where, null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
@@ -209,7 +209,7 @@ public class iDataORM {
                 item.action = cursor.getString(cursor.getColumnIndex(ColumsCol.Action));
                 item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
-                item.dateInt = cursor.getInt(cursor.getColumnIndex(ColumsCol.ChangeLong));
+                item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
 
                 actionRecords.add(item);
             }
@@ -217,6 +217,10 @@ public class iDataORM {
             cursor = null;
         }
         return actionRecords;
+    }
+
+    public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
+        return getFavorites(context, ns, action, 0);
     }
 
     /*
@@ -299,8 +303,12 @@ public class iDataORM {
     }
 
     public static ArrayList<ActionRecord> getDownloads(Context context){
+       return getDownloads(context, 0);
+    }
+
+    public static ArrayList<ActionRecord> getDownloads(Context context, int before_date){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
-        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, null, null, " date_int desc");
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " date_int >= "+before_date, null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
                 ActionRecord item = new ActionRecord();
@@ -313,7 +321,7 @@ public class iDataORM {
 
                 item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
                 item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
-                item.dateInt = cursor.getInt(cursor.getColumnIndex(ColumsCol.ChangeLong));
+                item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
                 item.download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
 
                 actionRecords.add(item);

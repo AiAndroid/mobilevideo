@@ -91,6 +91,8 @@
 
     <!-- myvideo entry start -->
     <string name="online_video">在线视频</string>
+    <string name="online_video_oneweek">本周视频</string>
+    <string name="online_video_oneweek_ago">一周以前视频</string>
     <!-- myvideo entry end -->
 
 
