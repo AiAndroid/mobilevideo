@@ -69,7 +69,9 @@ public class iDataProvider extends ContentProvider {
                 db.execSQL("CREATE TABLE " + TABLE_Downdload + " ("
                         + " _id           INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + " res_id        TEXT, "     //media id
+
                         + " download_id   TEXT, "     //in download manager
+                        + " download_url  TEXT, "     //in download manager path
 
                         + " sub_id        TEXT, "     //main video object id
                         + " sub_value     TEXT, "     //current episode,  it is json for episode
@@ -77,10 +79,13 @@ public class iDataProvider extends ContentProvider {
                         + " value    TEXT,"      //json   data
                         + " ns       TEXT,"      //video, apk
 
-                        + " download_status    TEXT,"     //down status
+                        + " download_status    INTEGER DEFAULT 0,"     //down status finished set it as 1, other is is 0
                         + " download_path      TEXT,"      //down path
 
                         + " uploaded INTEGER DEFAULT 0,"   //sync to server
+
+                        + " totalsizebytes INTEGER DEFAULT 0,"   //
+                        + " downloadbytes  INTEGER DEFAULT 0,"   //
 
                         + " date_int  LONG ,"   //for sort
                         + " date_time TEXT);");

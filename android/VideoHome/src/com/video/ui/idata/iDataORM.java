@@ -4,10 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import com.android.volley.toolbox.ClearCacheRequest;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.DisplayItem;
 
 import java.lang.reflect.Type;
+import java.net.PortUnreachableException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,6 +70,8 @@ public class iDataORM {
             "ns",
             "value",
 
+            "download_url",
+
             "sub_id",
             "sub_value",
 
@@ -75,6 +79,12 @@ public class iDataORM {
 
             "date_time",
             "date_int",
+
+            "download_status",
+            "download_path",
+
+            "totalsizebytes",
+            "downloadbytes",
 
             "download_id"
     };
@@ -94,6 +104,10 @@ public class iDataORM {
         public static final String DOWNLOAD_ID      = "download_id";
         public static final String DOWNLOAD_STATUS  = "download_status";
         public static final String DOWNLOAD_PATH    = "download_path";
+        public static final String DOWNLOAD_URL     = "download_url";
+
+        public static final String TOTAL_SIZE       = "totalsizebytes";
+        public static final String DOWNLOADED_SIZE  = "downloadbytes";
     }
 
     public static class ActionRecord<T>{
@@ -109,8 +123,13 @@ public class iDataORM {
 
         //just for download
         public int    download_id;
+        public String download_url;
+        public String download_path;
+        public int    download_status;
         public String sub_id;
         public String sub_value;
+        public long   downloadbytes;
+        public long   totalsizebytes;
 
         public static <T> T parseJson(Gson gson, String json, Type type){
             return gson.fromJson(json, type);
@@ -226,7 +245,7 @@ public class iDataORM {
     /*
     * download begin
     */
-    public static Uri addDownload(Context context, String res_id, long download_id, DisplayItem item, DisplayItem.Media.Episode episode){
+    public static Uri addDownload(Context context, String res_id, long download_id, String download_url, DisplayItem item, DisplayItem.Media.Episode episode){
         String json = gson.toJson(item);
         Uri ret = null;
         ContentValues ct = new ContentValues();
@@ -235,6 +254,7 @@ public class iDataORM {
         ct.put(ColumsCol.SUB_ID,    episode.id);
         ct.put(ColumsCol.SUB_VALUE, gson.toJson(episode));
         ct.put(ColumsCol.NS,     "video"); //TODO need add ns to download apk
+        ct.put(ColumsCol.DOWNLOAD_URL, download_url);
         ct.put(ColumsCol.DOWNLOAD_ID, download_id);
         ct.put(ColumsCol.Uploaded,  0);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
@@ -246,6 +266,65 @@ public class iDataORM {
             ret = context.getContentResolver().insert(DOWNLOAD_CONTENT_URI, ct);
         }
         return ret;
+    }
+
+    private static final int FINISHED    = 1;
+    private static final int NOT_FINISHED=0;
+    public static void downloadFinished(Context context, int download_id){
+        ActionRecord ar = getDowndloadByDID(context, download_id);
+        ar.download_status = FINISHED;
+        updateDownload(context, actionRecordToContentValues(ar));
+    }
+
+    public static ActionRecord getDowndloadByDID(Context context, int download_id){
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " download_id = "+download_id, null, " date_int desc");
+        if(cursor != null ){
+            while(cursor.moveToNext()){
+                return formatActionRecord(cursor);
+            }
+            cursor.close();
+            cursor = null;
+        }
+        return null;
+    }
+
+    public static ActionRecord formatActionRecord(Cursor cursor){
+        ActionRecord item = new ActionRecord();
+        item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
+        item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
+
+        item.json    = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+        item.sub_id  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
+        item.sub_value  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
+
+        item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
+        item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
+        item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
+        item.download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+        item.download_url = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_URL));
+        item.download_status = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_STATUS));
+        item.download_path   = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_PATH));
+        return  item;
+    }
+
+    private static ContentValues actionRecordToContentValues(ActionRecord ar){
+        ContentValues ct = new ContentValues();
+        ct.put(ColumsCol.ID,        ar.id);
+        ct.put(ColumsCol.RES_ID,    ar.res_id);
+        ct.put(ColumsCol.VALUE,     ar.json );
+        ct.put(ColumsCol.SUB_ID,    ar.sub_id);
+        ct.put(ColumsCol.SUB_VALUE, ar.sub_value);
+        ct.put(ColumsCol.NS,        ar.ns); //TODO need add ns to download apk
+        ct.put(ColumsCol.DOWNLOAD_URL, ar.download_url);
+        ct.put(ColumsCol.DOWNLOAD_ID,  ar.download_id);
+        ct.put(ColumsCol.Uploaded,     ar.uploaded);
+        ct.put(SettingsCol.ChangeDate, ar.date);
+        ct.put(ColumsCol.ChangeLong,   ar.dateInt);
+
+        ct.put(ColumsCol.DOWNLOAD_PATH,   ar.download_path);
+        ct.put(ColumsCol.DOWNLOAD_STATUS, ar.download_status);
+
+        return  ct;
     }
 
     public static boolean updateDownload(Context context, ContentValues ct) {
@@ -308,7 +387,7 @@ public class iDataORM {
 
     public static ArrayList<ActionRecord> getDownloads(Context context, int before_date){
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
-        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " date_int >= "+before_date, null, " date_int desc");
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " date_int >= "+before_date + " and download_status != 1", null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
                 ActionRecord item = new ActionRecord();
@@ -323,6 +402,7 @@ public class iDataORM {
                 item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
                 item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
                 item.download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+                item.download_url = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_URL));
 
                 actionRecords.add(item);
             }

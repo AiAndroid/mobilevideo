@@ -69,6 +69,10 @@ public abstract class BaseCardView  extends RelativeLayout {
             item.type = "local_album";
         }
 
+        if(item.id.endsWith("play_offline") ){
+            item.type = "play_offline";
+        }
+
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("mvschema://" + item.ns + "/" + item.type + "?rid=" + item.id));
