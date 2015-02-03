@@ -44,7 +44,8 @@
             android:layout_gravity="center_vertical" android:layout_width="wrap_content"  android:clickable="true" android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:contentDescription="@string/app_name"
-            android:background="@drawable/filter_icon"/>
+            android:background="@drawable/filter_icon"
+            android:visibility="invisible"/>
 
     <ImageView
             android:id="@+id/channel_search_btn"
@@ -52,5 +53,6 @@
 
             android:scaleType="centerInside"
             android:contentDescription="@string/app_name"
-            android:background="@drawable/search_icon"/>
+            android:background="@drawable/search_icon"
+            android:visibility="invisible"/>
 </LinearLayout>

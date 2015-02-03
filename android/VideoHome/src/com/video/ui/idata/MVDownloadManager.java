@@ -212,7 +212,7 @@ public class MVDownloadManager {
         }
 
         if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-            if (isInDownloading(con, video.id, episode.id())) {
+            if (isInDownloading(con, video.id, episode.id)) {
                 Log.i(TAG, "download, ongoing item: " + video);
                 return DOWNLOAD_IN;
             }

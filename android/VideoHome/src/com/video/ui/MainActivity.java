@@ -31,7 +31,7 @@ import com.video.ui.view.subview.DimensHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<GenericBlock<DisplayItem>> {
+public class MainActivity extends DisplayItemActivity implements LoaderManager.LoaderCallbacks<GenericBlock<DisplayItem>> {
     private final static String TAG = "video-MainActivity";
 
     protected BaseGsonLoader mLoader;
@@ -64,6 +64,8 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
         mViewPager = (ViewPager)findViewById(R.id.pager);
 
         mLoadingView = makeEmptyLoadingView(this, (RelativeLayout)findViewById(R.id.tabs_content));
+        mLoadingView.setOnRetryListener(retryLoadListener);
+
 
         albumItem = (DisplayItem) getIntent().getSerializableExtra("item");
         setUserFragmentClass();
@@ -612,20 +614,5 @@ public class MainActivity extends FragmentActivity implements LoaderManager.Load
                 view.setTextColor(res.getColor(R.color.tab));
             }
         }
-    }
-
-    public EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
-        return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
-    }
-
-    public EmptyLoadingView makeEmptyLoadingView(Context context, RelativeLayout parentView, int rule){
-        EmptyLoadingView loadingView = new EmptyLoadingView(context);
-        loadingView.setOnRetryListener(retryLoadListener);
-
-        loadingView.setGravity(Gravity.CENTER);
-        RelativeLayout.LayoutParams rlp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        rlp.addRule(rule);
-        parentView.addView(loadingView, rlp);
-        return loadingView;
     }
 }

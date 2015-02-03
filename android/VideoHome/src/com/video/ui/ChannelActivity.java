@@ -83,10 +83,24 @@ public class ChannelActivity extends  MainActivity {
         setContentView(R.layout.channel_layout);
     }
 
+    private boolean isExistFilter(Block<DisplayItem> block){
+        for(Block<DisplayItem> item:block.blocks){
+            if(item.ui_type != null && item.ui_type.id == LayoutConstant.linearlayout_filter){
+                return true;
+            }
+        }
+        return false;
+    }
     protected Class getFragmentClass(Block<DisplayItem> block){
-        if(block.id.endsWith(".choice") || block.id.endsWith(".r"))
+        if(block.id.endsWith(".choice") || block.id.endsWith(".r")) {
+            if(isExistFilter(block)){
+                showFilter(true);
+                showSearch(true);
+            }
             return MetroFragment.class;
+        }
 
+        showSearch(true);
         return ListFragment.class;
     }
 

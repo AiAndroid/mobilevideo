@@ -179,7 +179,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
                 }
             });
 
-            mFiter.setText(String.valueOf(item.episode()));
+            mFiter.setText(String.valueOf(item.episode));
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item, step % row_count, step / row_count, padding);
             step++;
 
@@ -448,8 +448,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             if(mItem == null) {
                 return;
             }
-            mDate.setText(mItem.date());
-            mName.setText(mItem.name());
+            mDate.setText(mItem.date);
+            mName.setText(mItem.name);
 
             mPoster.setSelected(selected);
             if(selected) {

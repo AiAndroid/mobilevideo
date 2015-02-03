@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -29,8 +30,8 @@ public class EpisodePlayAdapter {
 
 
     public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media, final DisplayItem item){
-        String id = episode.id();
-        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(item) + "&cp="+cp.cp();
+        String id = episode.id;
+        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(item) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
 
         final String preText = (String) view.getText();
@@ -50,7 +51,8 @@ public class EpisodePlayAdapter {
             public void onErrorResponse(VolleyError error) {
                 view.setText(preText);
 
-                Log.d(TAG, "fail to fetch play source");
+                Toast.makeText(context, "Server error: "+error, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "fail to fetch play source:"+error);
             }
         };
 
@@ -67,7 +69,7 @@ public class EpisodePlayAdapter {
     public static void setPostToOldAPI(Context context, PlaySource ps, DisplayItem.Media.Episode episode, DisplayItem.Media media, DisplayItem item){
         Intent intent = new Intent("duokan.intent.action.VIDEO_PLAY", Uri.parse(ps.h5_url));
         intent.putExtra("video_type", 0);
-        intent.putExtra("current_episode", episode.episode());
+        intent.putExtra("current_episode", episode.episode);
         intent.putExtra("multi_set", media.items.size() > 0);
         intent.putExtra("media_id", Integer.valueOf(ps.cp_id));
         intent.putExtra("media_clarity", 1);
@@ -75,7 +77,7 @@ public class EpisodePlayAdapter {
         intent.putExtra("media_source", 8);
         intent.putExtra("available_episode_count", media.items.size());
         intent.putExtra("media_poster_url", media.poster);
-        intent.putExtra("media_set_name", episode.name());
+        intent.putExtra("media_set_name", episode.name);
         intent.putExtra("mediaTitle", media.name);
         intent.putExtra("sdkinfo", String.format("{\"vid\":\"%1$s\"}", ps.h5_url));
         intent.putExtra("sdkdisable", false);

@@ -116,7 +116,7 @@ public class EpisodeContainerView extends FrameLayout {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(vg.getContext(), AllEpisodeActivity.class);
-                    videoItem.media.display_layout.max_display = 10000;
+                    videoItem.media.display_layout.max_display = 1000;
                     videoItem.title = String.format("1-%1$s集", videoItem.media.items.size());
                     //TODO
                     //we should choose the cp from user selection

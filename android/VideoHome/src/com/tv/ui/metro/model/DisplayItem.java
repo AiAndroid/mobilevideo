@@ -161,19 +161,19 @@ public class DisplayItem implements Serializable{
             public ArrayList<String> area(){return get("area");}
         }
 
-        public static class CP extends HashMap<String, String> implements Serializable{
+        public static class CP /*extends HashMap<String, String>*/ implements Serializable{
             private static final long serialVersionUID = 1L;
-            public String cp()  {return get("cp");}
-            public String name(){return get("name");}
-            public String icon(){return get("icon");}
+            public String cp;
+            public String name;
+            public String icon;
         }
 
-        public static class Episode extends HashMap<String, String> implements Serializable{
+        public static class Episode /*extends HashMap<String, String> */implements Serializable{
             private static final long serialVersionUID = 1L;
-            public String                  date()   {return get("date");}
-            public int                     episode(){return Integer.valueOf(get("episode"));}
-            public String                  id()     {return get("id");}
-            public String                  name()   {return get("name");}
+            public String                  date;
+            public int                     episode;
+            public String                  id;
+            public String                  name;
         }
 
         public static class Stuff extends HashMap<String, ArrayList<Stuff.Star>>  implements Serializable{

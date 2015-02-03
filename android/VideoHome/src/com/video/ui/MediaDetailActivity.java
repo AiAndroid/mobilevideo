@@ -57,9 +57,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                         return;
                     }
 
-                    playview.setText(getString(R.string.play_source_fetching));
                     DisplayItem.Media.Episode episode = mVidoeInfo.blocks.get(0).media.items.get(0);
-
                     EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
 
                 } catch (Exception ne) {

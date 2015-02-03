@@ -228,7 +228,7 @@ public class iDataORM {
         ContentValues ct = new ContentValues();
         ct.put(ColumsCol.RES_ID, res_id);
         ct.put(ColumsCol.VALUE,  json);
-        ct.put(ColumsCol.SUB_ID,    episode.id());
+        ct.put(ColumsCol.SUB_ID,    episode.id);
         ct.put(ColumsCol.SUB_VALUE, gson.toJson(episode));
         ct.put(ColumsCol.NS,     "video"); //TODO need add ns to download apk
         ct.put(ColumsCol.DOWNLOAD_ID, download_id);
@@ -236,7 +236,7 @@ public class iDataORM {
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
         ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
         //if exist, update
-        if(true == existDowndload(context, res_id, episode.id())){
+        if(true == existDowndload(context, res_id, episode.id)){
             updateDownload(context, ct);
         }else{
             ret = context.getContentResolver().insert(DOWNLOAD_CONTENT_URI, ct);
