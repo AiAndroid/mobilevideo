@@ -100,6 +100,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         block_height += getResources().getDimensionPixelSize(R.dimen.media_pager_title_text_height);
         //TODO also have .67dp
 
+        //for tab padding top
+        int topMargin = item_padding;
         for(Block<T> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
@@ -178,7 +180,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                         FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, height);
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count) ) + padding*(i%row_count + 1);
-                        flp.topMargin  = getPaddingTop()  + (height*(i/row_count)) + item_padding*(i/row_count + 1);
+                        flp.topMargin  = getPaddingTop()  + (height*(i/row_count)) + item_padding*(i/row_count + 1) + topMargin;
 
                         grid.addView(meida,flp);
                     }
@@ -229,7 +231,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, height);
 
                         flp.leftMargin = getPaddingLeft() + (width*(i%row_count)) + padding*(i%row_count + 1);
-                        flp.topMargin  = getPaddingTop() + (height*(i/row_count)) + item_padding*(i/row_count + 1);
+                        flp.topMargin  = getPaddingTop() + (height*(i/row_count)) + item_padding*(i/row_count + 1) + topMargin;
 
                         grid.addView(meida,flp);
                     }
@@ -240,7 +242,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }
 
 
-        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height+item_padding);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height+item_padding) ;
         addView(root,lp);
 
         //size == 1 is special
