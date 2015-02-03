@@ -20,11 +20,11 @@
               android:clickable="false"
               android:singleLine="true"
               android:id="@+id/page_title"
-              android:shadowColor="@color/black"
-              android:shadowDy="2.0"
+              android:shadowColor="@color/white"
+              android:shadowDy="1.0"
               android:paddingBottom="2dp"
               android:textSize="@dimen/font_size_42"
-              android:shadowRadius="3.0"
+              android:shadowRadius="1.0"
               android:text=""/>
 
     <TextView android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
               android:layout_alignParentBottom="true"
               android:clickable="false"
               android:id="@+id/page_indicator"
-              android:shadowColor="@color/black"
+              android:shadowColor="@color/white"
               android:shadowDy="2.0"
               android:paddingRight="2dp"
               android:paddingBottom="2dp"
