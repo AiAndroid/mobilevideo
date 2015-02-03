@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
-                    android:paddingRight="@dimen/media_tab_hint_padding_margin"
+                    android:paddingLeft="@dimen/media_tab_hint_padding_margin"
                     android:textSize="@dimen/font_size_30"/>
 
             <TextView
