@@ -53,16 +53,7 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
     @Override
     protected void onPause() {
         super.onPause();
-        MVDownloadManager.getInstance(getBaseContext()).removeListener(OfflineActivity.class.getName());
     }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MVDownloadManager.getInstance(getBaseContext()).addDownloadListener(OfflineActivity.class.getName(), downloadListner);
-    }
-
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
@@ -70,15 +61,6 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
         Uri baseUri = iDataORM.DOWNLOAD_CONTENT_URI;
         return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, null, null, "date_int ASC");
     }
-
-
-
-    MVDownloadManager.DownloadListner downloadListner = new MVDownloadManager.DownloadListner() {
-        @Override
-        public void downloadUpdate(ArrayList<MVDownloadManager.DownloadTablePojo> downloadTablePojos) {
-            //reload UI
-        }
-    };
 
     private RelativeAdapter adapter;
     @Override
@@ -116,7 +98,6 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
             DownloadVideoItemView root = new DownloadVideoItemView(context);
             return root;
-
         }
 
         @Override
@@ -145,7 +126,7 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
             }
 
             iDataORM.ActionRecord ar = iDataORM.getInstance(context).formatActionRecord(cursor);
-            root.setContent(ar);
+            root.bind(ar);
         }
     }
 

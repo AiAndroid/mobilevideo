@@ -1,7 +1,9 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,8 +16,12 @@ import com.tv.ui.metro.model.Image;
 import com.tv.ui.metro.model.ImageGroup;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
+import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.view.LayoutConstant;
+import com.xiaomi.video.player.duokan.TimedText;
+
+import java.util.ArrayList;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -24,6 +30,7 @@ public class DownloadVideoItemView extends RelativeLayout {
 
     public DownloadVideoItemView(Context context) {
         super(context);
+        mainHandler = new Handler();
         initViews(context);
     }
 
@@ -34,8 +41,10 @@ public class DownloadVideoItemView extends RelativeLayout {
     Gson gson = new Gson();
     VideoItem displayItem;
     DisplayItem.Media.Episode episode;
+    Handler mainHandler;
 
-    public void setContent(iDataORM.ActionRecord item){
+    public void bind(iDataORM.ActionRecord item){
+
         content = item;
         if(item.object == null){
             item.object = gson.fromJson(item.json, VideoItem.class);
@@ -43,6 +52,8 @@ public class DownloadVideoItemView extends RelativeLayout {
 
         if(item.object != null){
             displayItem = (VideoItem) item.object;
+
+            setTag(displayItem);
 
             if(displayItem.images == null || displayItem.images.poster() == null) {
                 displayItem.images = new ImageGroup();
@@ -69,31 +80,61 @@ public class DownloadVideoItemView extends RelativeLayout {
         }
 
         // title
-        title.setText(displayItem.title);
+        title.setText(episode.name);
         // subtitle
-        subtitle.setText(episode.name);
-        // desc
-        desc.setText("");
 
-        // value
-        convertView.findViewById(R.id.channel_rank_item_score_layout).setVisibility(View.GONE);
-        convertView.findViewById(R.id.channel_rank_item_hot_layout).setVisibility(View.GONE);
-        place.setVisibility(View.INVISIBLE);
+        MVDownloadManager.getInstance(getContext()).addDownloadListener(String.valueOf(item.download_id), new MVDownloadManager.DownloadListner() {
+            @Override
+            public void downloadUpdate(final MVDownloadManager.DownloadTablePojo itemData) {
+                mainHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        switch (itemData.status){
+                            case MVDownloadManager.DownloadTablePojo.DownloadFail:
+                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_fail));
+                                break;
+                            case MVDownloadManager.DownloadTablePojo.Downloading:
+                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_loading));
+                                break;
+                            case MVDownloadManager.DownloadTablePojo.DownloadQueue:
+                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_waiting));
+                                break;
+                            case MVDownloadManager.DownloadTablePojo.DownloadPause:
+                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_pause));
+                                break;
+                            case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
+                                place.setText("finished");
+                                break;
+                        }
+
+                        subtitle.setText(String.format("%1$s/%2$s", itemData.recv, itemData.total));
+                        download_reason.setText("reason");
+
+                    }
+                });
+
+                downloadStatus = itemData;
+
+                Log.d("Download", "update view:" + itemData);
+            }
+        });
     }
 
-    View      convertView;
-    ImageView poster;
-    TextView title;
-    TextView subtitle;
-    TextView desc;
-    TextView left;
-    TextView place;
+    private View      convertView;
+    private ImageView poster;
+    private TextView title;
+
+    private MVDownloadManager.DownloadTablePojo downloadStatus;
+
+    public TextView subtitle;
+    public TextView place;
+    public TextView download_reason;
     public RelativeLayout layout;
     public View     line;
     public View     padding;
 
     private void initViews(Context ctx){
-        int res_id = R.layout.channel_rank_item;
+        int res_id = R.layout.download_item;
         convertView = LayoutInflater.from(ctx).inflate(res_id, this);
         layout = (RelativeLayout) convertView.findViewById(R.id.channel_rank_item_layout);
 
@@ -101,9 +142,35 @@ public class DownloadVideoItemView extends RelativeLayout {
         title = (TextView) convertView.findViewById(R.id.channel_rank_item_title);
         subtitle = (TextView) convertView.findViewById(R.id.channel_rank_item_subtitle);
 
-        desc = (TextView) convertView.findViewById(R.id.channel_rank_item_desc);
-        place = (TextView) convertView.findViewById(R.id.channel_rank_item_place);
+
+        place = (TextView) convertView.findViewById(R.id.download_status);
+        download_reason = (TextView) convertView.findViewById(R.id.download_reason);
         line = convertView.findViewById(R.id.channel_rank_item_line);
         padding = convertView.findViewById(R.id.channel_rank_item_padding);
+
+        place.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(downloadStatus != null){
+                    switch (downloadStatus.status){
+                        case MVDownloadManager.DownloadTablePojo.DownloadFail:
+                            MVDownloadManager.resumeDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            break;
+                        case MVDownloadManager.DownloadTablePojo.Downloading:
+                            MVDownloadManager.pauseDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            break;
+                        case MVDownloadManager.DownloadTablePojo.DownloadQueue:
+                            MVDownloadManager.pauseDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            break;
+                        case MVDownloadManager.DownloadTablePojo.DownloadPause:
+                            MVDownloadManager.resumeDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            break;
+                        case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
+                            place.setText("finished");
+                            break;
+                    }
+                }
+            }
+        });
     }
 }

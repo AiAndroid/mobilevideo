@@ -7,6 +7,7 @@ import android.util.Log;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
+import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.push.MiPushManager;
 
 import java.io.File;
@@ -23,6 +24,7 @@ public class MobileVideoApplication extends Application{
     public void onCreate() {
         super.onCreate();
 
+        MVDownloadManager.getInstance(getBaseContext());
         MiPushManager.getInstance(getBaseContext());
         File cacheFile = createDefaultCacheDir(getApplicationContext());
 
@@ -33,6 +35,13 @@ public class MobileVideoApplication extends Application{
 
         Picasso.with(getApplicationContext()).setLoggingEnabled(false);
         Picasso.with(getApplicationContext()).setIndicatorsEnabled(false);
+    }
+
+    @Override
+    public void onTerminate(){
+        super.onTerminate();
+
+        MVDownloadManager.getInstance(getBaseContext()).stop(getBaseContext());
     }
 
     @Override
