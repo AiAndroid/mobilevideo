@@ -350,7 +350,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
 
         int itemHeight = 0;
-        for(DisplayItem item: items) {
+        for(final DisplayItem item: items) {
             View convertView = View.inflate(context, R.layout.episode_item_layout, null);
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
@@ -361,6 +361,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             mFiter.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    launcherAction(v.getContext(), item);
                 }
             });
             step++;

@@ -90,7 +90,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         public void onClick(View view) {
             if (mVidoeInfo != null) {
                 final VideoItem vi = mVidoeInfo.blocks.get(0);
-                vi.target.entity = "pvideo";
+                //vi.target.entity = "pvideo";
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
