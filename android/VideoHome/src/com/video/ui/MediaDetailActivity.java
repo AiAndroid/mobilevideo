@@ -26,6 +26,8 @@ import com.video.ui.view.RetryView;
 import com.video.ui.view.subview.FilterBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.util.ArrayList;
+
 /**
  * Created by liuhuadong on 12/2/14.
  */
@@ -96,11 +98,11 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     case R.id.detail_download: {
                         EpisodePlayAdapter.EpisodeSourceListener rl = new EpisodePlayAdapter.EpisodeSourceListener() {
                             @Override
-                            public void playSource(boolean result, PlaySource ps) {
+                            public void playSource(boolean result, final PlaySource ps) {
                                 if(result == false)
                                     return;
 
-                                PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, 0);
+                                PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, ps.cp);
                                 mUrlLoader.get(30000, new PlayUrlLoader.H5OnloadListener() {
                                     @Override
                                     public void playUrlFetched(boolean result, String playurl, WebView webView) {
@@ -127,7 +129,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                             }
                         };
 
-                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, vi.media.cps.get(0), vi.media.items.get(0), rl);
+                        DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
+                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, downCP, vi.media.items.get(0), rl);
                         break;
                     }
                     case R.id.detail_favorite: {
@@ -146,6 +149,16 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             }
         }
     };
+
+    private DisplayItem.Media.CP findDownloadableCP( ArrayList<DisplayItem.Media.CP> cps){
+        for(DisplayItem.Media.CP item:cps){
+            if(item.name.equals("sohu") || item.name.equals("fengxing") ){
+                return item;
+            }
+        }
+
+        return cps.get(0);
+    }
 
     private DisplayItem.Media.CP currentCP;
     @Override

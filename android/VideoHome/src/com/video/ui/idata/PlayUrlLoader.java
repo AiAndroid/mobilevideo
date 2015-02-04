@@ -20,6 +20,7 @@ import android.view.KeyEvent;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.tv.ui.metro.model.DisplayItem;
 
 
 /**
@@ -31,7 +32,7 @@ public class PlayUrlLoader {
     private final static String TAG = "PlayUrlLoader";
     
 	private String mHtml5;
-	private int mSource;
+	private String mSource;
 	private Context mContext;
 	private WebView mWebView = null;
 	private String mPlayUrl;
@@ -41,7 +42,7 @@ public class PlayUrlLoader {
 
 	private boolean isQIYI = true;
     
-	public PlayUrlLoader(Context context, String html5, int source){
+	public PlayUrlLoader(Context context, String html5, String source){
 		mHtml5 = html5;
 		mSource = source;
 		mContext = context.getApplicationContext();

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
+import com.tv.ui.metro.model.DisplayItem;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,7 +30,7 @@ public class Html5PlayUrlRetriever {
 	private static final int URL_LOOP_INTERVAL_QIYI = 3000;
 	private static final int URL_LOOP_INTERVAL = 2000;
 	
-	private int mSource = 0;
+	private String mSource ;
 	private String mPlayUrl = null;
 	
 	private boolean mAutoPlay = false;
@@ -44,9 +45,8 @@ public class Html5PlayUrlRetriever {
 	
 	private boolean mSkipAd = false;
 
-	boolean isQiyiSource = true;
 	
-	public Html5PlayUrlRetriever(WebView webView, int source){
+	public Html5PlayUrlRetriever(WebView webView, String source){
 		init(webView, source);
 	}
 	
@@ -54,7 +54,7 @@ public class Html5PlayUrlRetriever {
 		mSkipAd = skip;
 	}
 	
-	private void init(WebView webView, int source){
+	private void init(WebView webView, String source){
 		mSource = source;
 		mWebView = webView;
 		Context context = webView.getContext();
@@ -64,7 +64,7 @@ public class Html5PlayUrlRetriever {
 	}
 	
 	public synchronized void start(){
-		if(isQiyiSource){
+		if(mSource.equals("iqiyi")){//iqiyi
 			mLogCat.start();
 		}else{
         	getVideoUrlLoop(2000);
@@ -151,7 +151,7 @@ public class Html5PlayUrlRetriever {
 		setPlayUrlListener(null);
     	mHandler.removeCallbacks(mGetVideoUrlQiyiRunnale);
     	mHandler.removeCallbacks(mGetVideoUrlRunnale);
-		if(isQiyiSource){
+		if(mSource.equals("iqiyi")){
 			mLogCat.interrupt();
 		}
 		
