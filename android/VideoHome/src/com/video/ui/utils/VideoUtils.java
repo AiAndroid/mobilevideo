@@ -25,8 +25,8 @@ public class VideoUtils {
         return null;
     }
 
-    public static String getVideoID(DisplayItem item){
-        return item.id.substring(item.id.indexOf('/', 0) + 1);
+    public static String getVideoID(String id){
+        return id.substring(id.indexOf('/', 0) + 1);
     }
 
     public static void saveVideoInfo(Context context, VideoItem item){
@@ -35,7 +35,7 @@ public class VideoUtils {
             if(new File(context.getCacheDir().getAbsolutePath() + "/videoinfo/").exists() == false)
                 new File(context.getCacheDir().getAbsolutePath() + "/videoinfo/").mkdirs();
 
-            fos = new FileOutputStream(context.getCacheDir().getAbsolutePath() + "/videoinfo/" + item.id);
+            fos = new FileOutputStream(context.getCacheDir().getAbsolutePath() + "/videoinfo/" + getVideoID(item.id));
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             oos.writeObject(item);

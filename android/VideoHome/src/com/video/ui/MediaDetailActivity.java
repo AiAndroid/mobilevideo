@@ -6,15 +6,19 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.idata.MVDownloadManager;
+import com.video.ui.idata.PlayUrlLoader;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
@@ -85,23 +89,45 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         @Override
         public void onClick(View view) {
             if (mVidoeInfo != null) {
-                VideoItem vi = mVidoeInfo.blocks.get(0);
+                final VideoItem vi = mVidoeInfo.blocks.get(0);
                 vi.target.entity = "pvideo";
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
-                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi, vi.media.items.get(0), downapk);
-                        if(download_id == MVDownloadManager.DOWNLOAD_IN) {
-                            Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
-                        }
-                        else if(download_id != -1) {
-                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, downapk, vi, vi.media.items.get(0));
-                            MiPushClient.subscribe(getBaseContext(), vi.id, null);
+                        EpisodePlayAdapter.EpisodeSourceListener rl = new EpisodePlayAdapter.EpisodeSourceListener() {
+                            @Override
+                            public void playSource(boolean result, PlaySource ps) {
+                                if(result == false)
+                                    return;
 
-                            Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
-                        }else {
-                            Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
-                        }
+                                PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, 0);
+                                mUrlLoader.get(30000, new PlayUrlLoader.H5OnloadListener() {
+                                    @Override
+                                    public void playUrlFetched(boolean result, String playurl, WebView webView) {
+                                        webView.destroy();
+
+                                        Log.d("download", "qiyi url:"+playurl);
+                                        if(TextUtils.isEmpty(playurl) == true)
+                                            return;
+
+                                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi, vi.media.items.get(0), playurl);
+                                        if(download_id == MVDownloadManager.DOWNLOAD_IN) {
+                                            Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
+                                        }
+                                        else if(download_id != -1) {
+                                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, downapk, vi, vi.media.items.get(0));
+                                            MiPushClient.subscribe(getBaseContext(), vi.id, null);
+
+                                            Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
+                                        }else {
+                                            Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                            }
+                        };
+
+                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, vi.media.cps.get(0), vi.media.items.get(0), rl);
                         break;
                     }
                     case R.id.detail_favorite: {

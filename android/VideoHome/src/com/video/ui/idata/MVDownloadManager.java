@@ -212,8 +212,12 @@ public class MVDownloadManager {
         mListener.remove(key);
     }
 
+    public static interface RequestDownloadListener{
+        public void onResult(boolean suc, int download_id);
+    }
+
     public static final int DOWNLOAD_IN = -100;
-    public long requestDownload(Context con, VideoItem video, DisplayItem.Media.Episode episode, String apkurl){
+    public long requestDownload(Context con, VideoItem video, DisplayItem.Media.Episode episode, String downloadurl){
         long download_id = -1;
         if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) == false){
             Toast.makeText(con, R.string.no_sdcard_no_download, Toast.LENGTH_SHORT).show();
@@ -228,8 +232,7 @@ public class MVDownloadManager {
 
             android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
 
-            //String url = ramdonvideo[((int) (Math.random() * 100)) % ramdonvideo.length];
-            String url = video.media.poster;
+            String url = downloadurl;
             android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(url));
             //request.setMimeType("application/vnd.android.package-archive");
             request.setMimeType(VideoUtils.getMimeType(url));
