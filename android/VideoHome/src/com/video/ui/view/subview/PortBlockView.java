@@ -101,7 +101,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_none: {
-                addOnePadding();
+                //addOnePadding();
                 View buttonContain = View.inflate(getContext(), R.layout.button_enter, null);
                 Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
                 blockView.setText(block.title);

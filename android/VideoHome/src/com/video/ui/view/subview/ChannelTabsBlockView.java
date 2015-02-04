@@ -198,7 +198,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                     grid.addView(meida,flp);
                 }
 
-                block_height += height*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1);
+                block_height += height*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1) + topMargin;
             }
         }
 

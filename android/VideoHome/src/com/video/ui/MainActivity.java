@@ -82,7 +82,7 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
                 public void onClick(View v) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("mvschema://video/search?rid=" + "choice"));
+                    intent.setData(Uri.parse("mvschema://video/search?rid=" + "search.choice"));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } catch (Exception ne) {
