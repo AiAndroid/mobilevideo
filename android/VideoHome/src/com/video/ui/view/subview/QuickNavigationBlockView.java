@@ -44,13 +44,21 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
             "#f7698d",
             "#b477da",
             "#51beec",
-            "#e7a551"
+            "#e7a551",
+            "#f18f5a",
+            "#e36565",
+            "#7790ec",
+            "#43ca7f"
     };
     private static String []colorpress = {
             "#cf5474",
             "#9b69ba",
             "#44aad5",
-            "#cd9144"
+            "#cd9144",
+            "#db7e4c",
+            "#c75959",
+            "#687ed1",
+            "#3da86c"
     };
     private int []hodlerdraws = {
             R.drawable.quick_entry_tv_series,
@@ -59,6 +67,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
             R.drawable.quick_entry_all
     };
 
+    static int step = 0;
     private View                   root;
     private ArrayList<DisplayItem> content;
     public QuickNavigationBlockView(Context context, ArrayList<DisplayItem> items, Object tag) {
@@ -73,6 +82,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
         int padding = (getDimens().width-4*width)/3;
         int leftPadding = 0;
         for (int i=0;i<items.size();i++) {
+            step++;
             final DisplayItem item = items.get(i);
             View view =  View.inflate(getContext(), R.layout.qucik_entry_textview, null);
             view.setClickable(true);
@@ -86,8 +96,8 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
                         normalColor = Color.parseColor(item.images.normal().bgcolor);
                         pressColor  = Color.parseColor(item.images.pressed().bgcolor);
                     }catch (Exception ne){
-                        normalColor = Color.parseColor(color[i%4]);
-                        pressColor  = Color.parseColor(colorpress[i%4]);
+                        normalColor = Color.parseColor(color[step%color.length]);
+                        pressColor  = Color.parseColor(colorpress[step%colorsPressed.length]);
                     }
 
                     StateListDrawable stalistDrawable = new StateListDrawable();
