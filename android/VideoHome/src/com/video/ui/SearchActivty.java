@@ -125,16 +125,16 @@ public class SearchActivty extends MainActivity{
                 searchItem.target = new DisplayItem.Target();
                 searchItem.target.entity = "search_result";
                 try {
-                    searchItem.target.url = String.format("search?key=%1$s", URLEncoder.encode(keyword, "utf-8"));
+                    searchItem.target.url = String.format("search?kw=%1$s", URLEncoder.encode(keyword, "utf-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                searchItem.ns = "video";
+                searchItem.ns = "search";
                 searchItem.type = "album";
-                searchItem.id = String.format("search?key=%1$s", keyword);
+                searchItem.id = String.format("search?kw=%1$s", keyword);
             }else {
                 searchItem.target = item.target;
-                searchItem.ns = "video";
+                searchItem.ns = "search";
                 searchItem.type = "album";
                 searchItem.id = item.id;
             }

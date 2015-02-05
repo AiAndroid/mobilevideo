@@ -1,6 +1,7 @@
 package com.video.ui.loader;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.volley.RequestQueue;
@@ -63,10 +64,10 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                 RequestQueue requestQueue = VolleyHelper.getInstance(getContext().getApplicationContext()).getAPIRequestQueue();
                 GsonRequest<GenericBlock<DisplayItem>> gsonRequest = new GsonRequest<GenericBlock<DisplayItem>>(calledURL, new TypeToken<GenericBlock<DisplayItem>>(){}.getType(), null, listener, errorListener);
                 gsonRequest.setCacheNeed(getContext().getCacheDir() + "/" + cacheFileName + mItem.id + ".cache");
-                //TODO
+
                 //if for search no cache
-                if(mItem.ns.equals("search")) {
-                    gsonRequest.setShouldCache(true);
+                if(mItem.ns.equals("search") || calledURL.contains("search?kw=")) {
+                    gsonRequest.setShouldCache(false);
                 }
                 requestQueue.add(gsonRequest);
             }
@@ -104,7 +105,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
             @Override
             public void setLoaderURL(DisplayItem _item) {
                 if(TextUtils.isEmpty(mKeyword) == false) {
-                    String url = CommonUrl.BaseURL + "video/search?q=" + URLEncoder.encode(mKeyword) /*+ "&page="+page*/;
+                    String url = CommonUrl.BaseURL + "search?kw=" + URLEncoder.encode(mKeyword) ;
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }
             }
@@ -114,7 +115,7 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
                 super.setSearchKeyword(key);
 
                 if(TextUtils.isEmpty(key) == false) {
-                    String url = CommonUrl.BaseURL + "video/search?q=" + URLEncoder.encode(key) /*+ "&page="+page*/;
+                    String url = CommonUrl.BaseURL + "search?kw=" + URLEncoder.encode(key) ;
                     calledURL = new CommonUrl(getContext()).addCommonParams(url);
                 }
             }
@@ -135,8 +136,20 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
     @Override
     public void setLoaderURL(DisplayItem _item) {
         mItem = _item;
-        String url = CommonUrl.BaseURL + encode(mItem.target.url) + "?page="+page;
+
+        String url = getURL(mItem.target.url, page);
         calledURL = new CommonUrl(getContext()).addCommonParams(url);
+    }
+
+    private String getURL(String target_url, int page){
+        String url = CommonUrl.BaseURL + encode(target_url) + "?page=" + page;
+        try {
+            if (Uri.parse(target_url).getQueryParameterNames() != null && Uri.parse(target_url).getQueryParameterNames().size() > 0) {
+                url = CommonUrl.BaseURL + encode(target_url) + "&page=" + (page);
+            }
+        }catch (Exception ne){}
+
+        return url;
     }
 
     protected static String encode(String name){
@@ -166,9 +179,9 @@ public abstract class GenericAlbumLoader<T> extends BaseGsonLoader<GenericBlock<
         page = specificPage;
         //load from server
         mIsLoading = true;
-        //
-        //String url = CommonUrl.BaseURL + mItem.ns + "/" + mItem.type + "?id=" + mItem.id + "&page="+(page);
-        String url = CommonUrl.BaseURL + encode(mItem.target.url) + "?page="+(page);
+        String url = getURL(mItem.target.url, page);
+
+
         //TODO, just return test data list
         //String url = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/channel_one_list.json";
         Log.d("nextpage", "page="+(page));

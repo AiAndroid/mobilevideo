@@ -122,7 +122,7 @@ public class DisplayItem implements Serializable{
 
     public static class Meta extends HashMap<String, String> implements Serializable{
         private static final long serialVersionUID = 1L;
-        public String page(){return get("page");}
+        public String page(){String page = get("page"); if(page == null) page="0"; return page;}
     }
 
     public static class Settings  extends HashMap<String, String> implements Serializable{

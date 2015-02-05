@@ -226,7 +226,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     public boolean nextPage() {
         if(mLoader != null 	){
             int nextPage = 0;
-            if(mVidoeInfo != null){
+            if(mVidoeInfo != null && mVidoeInfo.blocks.get(0).meta.page() != null){
                 nextPage = Integer.valueOf(mVidoeInfo.blocks.get(0).meta.page());
             }
 
