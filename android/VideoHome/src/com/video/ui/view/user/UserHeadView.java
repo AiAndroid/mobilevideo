@@ -3,14 +3,12 @@ package com.video.ui.view.user;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
-import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.video.ui.R;
-import miui.accounts.ExtraAccountManager;
+//import miui.accounts.ExtraAccountManager;
 
 public class UserHeadView extends FrameLayout {
 
@@ -64,7 +62,7 @@ public class UserHeadView extends FrameLayout {
 		mUserHeadIv.setBackgroundResource(R.drawable.user_head_default);
 		//fetchImage();
 
-		final Account xiaomiAccount = ExtraAccountManager.getXiaomiAccount(getContext());
+		//final Account xiaomiAccount = ExtraAccountManager.getXiaomiAccount(getContext());
 	}
 	
 	private void showNotLogin() {
