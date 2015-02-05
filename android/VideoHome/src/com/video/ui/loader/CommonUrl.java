@@ -1,8 +1,10 @@
 package com.video.ui.loader;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import com.video.ui.idata.iDataORM;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,8 +21,18 @@ public class CommonUrl {
         BaseURL = url;
     }
 
+	public static int fetchedBaseUrl = -1;
 	public CommonUrl(Context appContext) {
 		mAppContext = appContext.getApplicationContext();
+
+		if(fetchedBaseUrl == -1) {
+			String base_url = iDataORM.getInstance(mAppContext).getSettingValue("base_url");
+			if (TextUtils.isEmpty(base_url) == false) {
+				BaseURL = base_url;
+			}
+
+			fetchedBaseUrl = 1;
+		}
 	}
 
 	public String addCommonParams(String url) {

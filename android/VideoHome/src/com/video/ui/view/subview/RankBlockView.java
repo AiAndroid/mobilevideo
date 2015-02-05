@@ -17,21 +17,22 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 11/19/14.
  */
-public class RankBlockView extends BaseCardView implements DimensHelper {
+public class RankBlockView<T> extends BaseCardView implements DimensHelper {
     public RankBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
     private View root;
-    private Block<DisplayItem> content;
-    public RankBlockView(Context context, Block<DisplayItem> block, Object tag){
+    private Block<T> content;
+    public RankBlockView(Context context, Block<T> block, Object tag){
         this(context, null, 0);
         setTag(R.integer.picasso_tag, tag);
         content = block;
 
-        setBackgroundResource(R.drawable.com_block_n);
+        //no need background, it will be set outside
+        //setBackgroundResource(R.drawable.com_block_n);
 
-        ArrayList<DisplayItem> items = block.items;
+        ArrayList<T> items = block.items;
         String container = block.title;
         String subtitle  = block.sub_title;
         int row_count    = block.ui_type.row_count;
@@ -56,7 +57,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
         int padding = (getDimens().width-row_count*getResources().getDimensionPixelSize(R.dimen.media_port_width))/(row_count+1);
         LinearFrame header = (LinearFrame)root.findViewById(R.id.header);
         for (int i=0;i<row_count;i++) {
-            final DisplayItem item = items.get(i);
+            final DisplayItem item = (DisplayItem) items.get(i);
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
             ((TextView)tv.findViewById(R.id.click_count)).setText(item.sub_title);
             ((TextView)tv.findViewById(R.id.name)).setText(item.title);
@@ -86,7 +87,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
 
         LinearFrame list = (LinearFrame)root.findViewById(R.id.list);
         for (int i=row_count;i<items.size();i++) {
-            final DisplayItem item = items.get(i);
+            final DisplayItem item = (DisplayItem) items.get(i);
             View view =  View.inflate(getContext(), R.layout.media_item_textview, null);
             final TextView tv = (TextView)view.findViewById(R.id.quick_entry_user);
             tv.setText(String.format("%1$s . %2$s", i+1, getTitle(item.title)));
@@ -149,7 +150,7 @@ public class RankBlockView extends BaseCardView implements DimensHelper {
     public void invalidateUI() {
         LinearFrame header = (LinearFrame)root.findViewById(R.id.header);
         for (int i=0;i<header.getChildCount();i++) {
-            final DisplayItem item = content.items.get(i);
+            final DisplayItem item = (DisplayItem) content.items.get(i);
             View view =  header.getChildAt(i);
 
             ImageView rightCorner = (ImageView) view.findViewById(R.id.rank_media_corner);

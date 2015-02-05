@@ -29,6 +29,9 @@ public class ViewCreateFactory {
                 break;
             case LayoutConstant.list_rich_header:
                 view = new RankBlockView(context, item, tag);
+
+                //individual block
+                view.setBackgroundResource(R.drawable.com_block_n);
                 break;
             case LayoutConstant.block_channel:
                 view = new PortBlockView(context, item, tag);
