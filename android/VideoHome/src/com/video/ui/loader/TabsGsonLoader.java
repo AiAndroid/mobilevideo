@@ -22,7 +22,7 @@ public class TabsGsonLoader extends BaseGsonLoader<GenericBlock<DisplayItem>> {
     public void setLoaderURL(DisplayItem item) {
         //only for test
         //calledURL = "https://raw.githubusercontent.com/AiAndroid/mobilevideo/master/mobile_port.json";
-        calledURL = "http://mv.mitvos.com/api/c/home";
+        calledURL = CommonUrl.BaseURL + "c/home";
     }
 
     public TabsGsonLoader(Context context, DisplayItem item) {

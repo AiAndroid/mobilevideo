@@ -13,7 +13,7 @@ import java.util.Locale;
 public class CommonUrl {
 	private Context mAppContext;
 
-    public static String BaseURL = "http://mv.mitvos.com/api/";
+    public static String BaseURL = "http://mv.mitvos.com/api/a1/";
 
     public static void setBaseURL(String url){
         BaseURL = url;
