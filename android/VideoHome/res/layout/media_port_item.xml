@@ -4,17 +4,20 @@
               android:orientation="vertical"
               android:layout_width="@dimen/media_port_width"
               android:layout_height="@dimen/rank_media_item_height">
-    <RelativeLayout android:id="@+id/poster_container" android:layout_width="match_parent" android:layout_height="@dimen/media_port_height">
+    <RelativeLayout android:id="@+id/poster_container"
+                    android:layout_width="@dimen/channel_media_view_port_image_width"
+                    android:layout_height="@dimen/channel_media_view_port_image_height"
+                    android:layout_centerHorizontal="true">
         <ImageView android:id="@+id/poster"
                    android:scaleType="fitXY"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
+                   android:layout_width="@dimen/channel_media_view_port_image_width"
+                   android:layout_height="@dimen/channel_media_view_port_image_height"
                    android:layout_centerHorizontal="true"
                    android:background="@drawable/default_poster_pic"/>
         <View
                 android:id="@+id/mask"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/channel_media_view_port_image_width"
+                android:layout_height="@dimen/channel_media_view_port_image_height"
                 android:background="@drawable/poster_mask_v" />
 
         <TextView  android:id="@+id/click_count" android:textColor="@android:color/white"
@@ -22,7 +25,8 @@
                    android:shadowColor="@color/black"
                    android:shadowDy="2.0"
                    android:shadowRadius="3.0"
-                   android:singleLine="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
+                   android:gravity="center_horizontal"
+                   android:singleLine="true" android:layout_width="@dimen/channel_media_view_port_image_width" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
 
         <com.video.ui.view.subview.CornerUpImageView
                 android:id="@+id/rank_media_corner"
@@ -33,10 +37,10 @@
                 android:scaleType="fitXY"
                 android:contentDescription="@string/app_name"/>
 
-        <View android:id="@+id/rank_media_item_click" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/list_selector_bg" android:clickable="true"/>
+        <View android:id="@+id/rank_media_item_click" android:layout_width="@dimen/channel_media_view_port_image_width" android:layout_height="@dimen/channel_media_view_port_image_height" android:background="@drawable/list_selector_bg" android:clickable="true"/>
     </RelativeLayout>
     <TextView  android:id="@+id/name"
-               android:paddingTop="4dp"
+               android:paddingTop="@dimen/rank_port_padding"
                android:layout_below="@id/poster_container"
                android:layout_width="wrap_content"
                android:singleLine="true"

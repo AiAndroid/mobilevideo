@@ -190,8 +190,8 @@
     <dimen name="feature_media_favorite_bottom_margin">10.9dp</dimen>
     <!-- FeatureMediaView end -->
 
-    <dimen name="rank_banner_width">382.3dp</dimen>
-    <dimen name="rank_media_item_height">206.9dp</dimen>
+    <dimen name="rank_banner_width">377.5dp</dimen>
+    <dimen name="rank_media_item_height">196dp</dimen>
     <dimen name="media_port_width">114.33dp</dimen>
     <dimen name="media_port_height">161.16dp</dimen>
     <dimen name="rank_port_padding">4.36dp</dimen>

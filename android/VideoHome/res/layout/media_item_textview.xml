@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:background="@drawable/list_selector_bg">
+                android:background="@drawable/com_item_bg_mid">
 <TextView
             android:id="@+id/quick_entry_user"
             android:layout_width="wrap_content"

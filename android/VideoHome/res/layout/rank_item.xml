@@ -20,18 +20,18 @@
             android:id="@+id/header"
             android:layout_width="@dimen/rank_banner_width"
             android:layout_height="@dimen/rank_media_item_height"
-            android:paddingTop="@dimen/rank_video_show_top"
             android:layout_centerHorizontal="true">
-
+            <!-- android:paddingTop="@dimen/rank_video_show_top" -->
         </com.video.ui.view.LinearFrame>
 
         <com.video.ui.view.LinearFrame
             android:id="@+id/list"
-            android:paddingTop="@dimen/rank_video_list_top"
             android:layout_width="@dimen/rank_banner_width"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
+            <!--  android:paddingTop="@dimen/rank_video_list_top"-->
         </com.video.ui.view.LinearFrame>
+
         <View android:layout_width="match_parent" android:layout_height="@dimen/media_item_padding"/>
         <Button android:id="@+id/enter_button"
                 android:layout_width="@dimen/media_banner_button_width" android:layout_height="@dimen/rank_button_height"

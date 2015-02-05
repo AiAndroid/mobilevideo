@@ -181,7 +181,7 @@
     <!-- FeatureMediaView end -->
 
     <dimen name="rank_banner_width">751dp</dimen>
-    <dimen name="rank_media_item_height">405.33dp</dimen>
+    <dimen name="rank_media_item_height">390.36dp</dimen>
     <dimen name="media_port_width">224dp</dimen>
     <dimen name="media_port_height">315.7dp</dimen>
     <dimen name="rank_port_padding">8.5dp</dimen>

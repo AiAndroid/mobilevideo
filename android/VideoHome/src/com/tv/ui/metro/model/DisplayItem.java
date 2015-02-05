@@ -93,7 +93,7 @@ public class DisplayItem implements Serializable{
 
     public static class Hint extends LinkedHashMap<String, String> implements Serializable{
         public String left() {return  get("left");}
-        public String mid()  {return  get("mid");}
+        public String mid()  {return  get("center");}
         public String right(){return  get("right");}
 
         public String toString(){

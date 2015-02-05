@@ -89,6 +89,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
             }
 
             case LayoutConstant.list_rich_header: {
+                addOnePadding();
                 RankBlockView view = new RankBlockView(getContext(), block, getTag(R.integer.picasso_tag));
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  view.getDimens().height);
                 addView(view, flp);
