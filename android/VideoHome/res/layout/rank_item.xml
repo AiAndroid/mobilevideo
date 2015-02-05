@@ -20,8 +20,8 @@
             android:id="@+id/header"
             android:layout_width="@dimen/rank_banner_width"
             android:layout_height="@dimen/rank_media_item_height"
+            android:paddingTop="@dimen/rank_video_show_top"
             android:layout_centerHorizontal="true">
-            <!-- android:paddingTop="@dimen/rank_video_show_top" -->
 
         </com.video.ui.view.LinearFrame>
 

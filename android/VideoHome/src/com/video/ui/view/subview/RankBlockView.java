@@ -50,10 +50,9 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
 
             //add text view height
             height += Math.ceil(title.getPaint().getFontMetrics().descent - title.getPaint().getFontMetrics().top) + 2;
-
-            //add top height
-            height += getResources().getDimensionPixelSize(R.dimen.rank_video_show_top);
         }
+        //add top height
+        height += getResources().getDimensionPixelSize(R.dimen.rank_video_show_top);
 
         if(row_count == 0)
             row_count = 3;
@@ -63,7 +62,9 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
         for (int i=0;i<row_count;i++) {
             final DisplayItem item = (DisplayItem) items.get(i);
             final View tv =  View.inflate(getContext(), R.layout.media_port_item, null);
-            ((TextView)tv.findViewById(R.id.click_count)).setText(item.sub_title);
+            if(item.hint != null && item.hint.mid() != null) {
+                ((TextView) tv.findViewById(R.id.click_count)).setText(item.hint.mid());
+            }
             ((TextView)tv.findViewById(R.id.name)).setText(item.title);
 
             ImageView rightCorner = (ImageView) tv.findViewById(R.id.rank_media_corner);
