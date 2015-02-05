@@ -295,7 +295,7 @@
     <dimen name="detail_introduce_line_space">1.85dp</dimen>
     <dimen name="detail_ep_item_load_width">28.31dp</dimen>
     <dimen name="detail_ep_item_load_height">28.31dp</dimen>
-    <dimen name="detail_ep_multy_btn_width">8057.dp</dimen>
+    <dimen name="detail_ep_multy_btn_width">80.57dp</dimen>
     <dimen name="detail_ep_multy_btn_height">36.26dp</dimen>
     <dimen name="detail_bottom_bar_height">65.33dp</dimen>
     <dimen name="detail_bottom_bar_content_intervalH">16dp</dimen>
