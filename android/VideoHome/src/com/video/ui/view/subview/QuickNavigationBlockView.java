@@ -96,7 +96,7 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
                         pressColor  = Color.parseColor(item.images.pressed().bgcolor);
                     }catch (Exception ne){
                         normalColor = Color.parseColor(color[step%color.length]);
-                        pressColor  = Color.parseColor(colorpress[step%colorsPressed.length]);
+                        pressColor  = Color.parseColor(colorpress[step%colorpress.length]);
                     }
 
                     StateListDrawable stalistDrawable = new StateListDrawable();
