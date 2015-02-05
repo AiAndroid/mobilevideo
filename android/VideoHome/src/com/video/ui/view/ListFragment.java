@@ -91,24 +91,26 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
     private View createListContentView(Block<DisplayItem> preData){
         listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
-        for(int i=0;i<preData.blocks.size();i++) {
-            Block<DisplayItem> block = preData.blocks.get(i);
-            if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
-                    block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                    block.ui_type.id == LayoutConstant.channel_list_short ) {
-                if(block.items != null && block.items.size() > 0) {
-                    sendInBlock = block;
-                    adapter = new RelativeAdapter(block.items, block.ui_type.id);
-                    haveBuildInData = true;
+        if(preData.blocks != null && preData.blocks.size() > 0) {
+            for (int i = 0; i < preData.blocks.size(); i++) {
+                Block<DisplayItem> block = preData.blocks.get(i);
+                if (block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                        block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                        block.ui_type.id == LayoutConstant.channel_list_short) {
+                    if (block.items != null && block.items.size() > 0) {
+                        sendInBlock = block;
+                        adapter = new RelativeAdapter(block.items, block.ui_type.id);
+                        haveBuildInData = true;
 
-                    //update UI
-                    listView.setAdapter(adapter);
-                    listView.setOnScrollListener(scrollListener);
-                    listView.setOnItemClickListener(itemClicker);
+                        //update UI
+                        listView.setAdapter(adapter);
+                        listView.setOnScrollListener(scrollListener);
+                        listView.setOnItemClickListener(itemClicker);
+                    }
+                    break;
+                } else {
+                    Log.d(TAG, "not specific ui type: " + block);
                 }
-                break;
-            }else {
-                Log.d(TAG, "not specific ui type: "+block);
             }
         }
         return listView;

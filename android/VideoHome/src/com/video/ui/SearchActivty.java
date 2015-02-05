@@ -1,7 +1,11 @@
 package com.video.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,6 +14,9 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Created by liuhuadong on 7/29/14.
@@ -32,6 +39,42 @@ public class SearchActivty extends MainActivity{
         });
 
         titlebar.findViewById(R.id.channel_search_btn).setOnClickListener(searchClickLister);
+
+        EditText et = (EditText) findViewById(R.id.search_name);
+        if(item != null){
+            if(TextUtils.isEmpty(item.id) == false) {
+                try {
+                    String keyword = Uri.parse(item.id).getQueryParameter("kw");
+                    et.setText(keyword);
+                }catch (Exception ne){}
+            }
+        }
+
+        et.addTextChangedListener(tw);
+    }
+
+    boolean filtMode = false;
+    TextWatcher tw = new TextWatcher(){
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            filtMode = charSequence.length() > 0;
+            filtVideoContent(charSequence.toString());
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {}
+    };
+
+    private void filtVideoContent(String keyword){
+        if(filtMode == false){
+            Fragment df = getSupportFragmentManager().findFragmentById(R.id.search_result);
+            if(df!= null) {
+                getSupportFragmentManager().beginTransaction().remove(df).commit();
+            }
+        }
     }
 
     @Override public void setContentView(){
@@ -47,14 +90,26 @@ public class SearchActivty extends MainActivity{
                 findViewById(R.id.search_result).setVisibility(View.VISIBLE);
                 ListFragment df = new ListFragment();
                 Bundle data = new Bundle();
+
                 Block<DisplayItem> searchItem = new Block<DisplayItem>();
-                searchItem.ns   = "search";
+                searchItem.target = new DisplayItem.Target();
+                searchItem.target.entity = "search_result";
+                try {
+                    searchItem.target.url = String.format("search?key=%1$s", URLEncoder.encode(keyword, "utf-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                searchItem.ns   = "video";
                 searchItem.type = "album";
-                searchItem.id   = keyword;
+                searchItem.id   = String.format("search?key=%1$s",keyword);
 
                 data.putSerializable("tab", searchItem);
                 df.setArguments(data);
-                getSupportFragmentManager().beginTransaction().add(R.id.search_result, df, "search_result").commit();
+                if(getSupportFragmentManager().findFragmentById(R.id.search_result) != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.search_result, df).commit();
+                }else {
+                    getSupportFragmentManager().beginTransaction().add(R.id.search_result, df, "search_result").commit();
+                }
             }
         }
     };

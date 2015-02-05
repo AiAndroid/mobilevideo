@@ -60,7 +60,10 @@ public abstract class BaseCardView  extends RelativeLayout {
                 item.type = "album";
             }else if(item.target.entity.endsWith("search")) {
                 item.type = "search";
-            }else{
+            }else if(item.target.entity.endsWith("search_result")) {
+                item.type = "search";
+            }
+            else{
                 item.type = "item";
             }
         }else {
