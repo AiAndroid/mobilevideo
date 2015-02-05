@@ -13,14 +13,15 @@
                   android:paddingTop="@dimen/rank_title_top"
                   android:paddingLeft="8dp"
                   android:textColor="@color/orange"
-                  android:text="Movie"/>
+                  android:text="Movie"
+                  android:visibility="gone"/>
 
         <com.video.ui.view.LinearFrame
             android:id="@+id/header"
             android:layout_width="@dimen/rank_banner_width"
             android:layout_height="@dimen/rank_media_item_height"
-            android:paddingTop="@dimen/rank_video_show_top"
             android:layout_centerHorizontal="true">
+            <!-- android:paddingTop="@dimen/rank_video_show_top" -->
 
         </com.video.ui.view.LinearFrame>
 
@@ -37,5 +38,6 @@
                 android:background="@drawable/com_item_bg_full"
                 android:textSize="@dimen/font_size_42"
                 android:layout_gravity="center_horizontal"/>
-        <View android:layout_width="match_parent" android:layout_height="@dimen/media_item_padding"/>
+        <View android:layout_width="match_parent" android:layout_height="@dimen/media_item_padding"
+                android:visibility="gone"/>
 </LinearLayout>

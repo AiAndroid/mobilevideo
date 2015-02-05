@@ -22,6 +22,7 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
         super(context, attrs, defStyle);
     }
 
+    private boolean haveTitle = false;
     private View root;
     private Block<T> content;
     public RankBlockView(Context context, Block<T> block, Object tag){
@@ -41,15 +42,18 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
         root = View.inflate(getContext(), R.layout.rank_item, this);
 
         //add title top height
-        height += getResources().getDimensionPixelSize(R.dimen.rank_title_top);
+        if(haveTitle) {
+            height += getResources().getDimensionPixelSize(R.dimen.rank_title_top);
 
-        TextView title = (TextView) root.findViewById(R.id.rank_title);
-        title.setText(container);
+            TextView title = (TextView) root.findViewById(R.id.rank_title);
+            title.setText(container);
 
-        //add text view height
-        height +=  Math.ceil(title.getPaint().getFontMetrics().descent - title.getPaint().getFontMetrics().top) +2;
-        //add top height
-        height += getResources().getDimensionPixelSize(R.dimen.rank_video_show_top);
+            //add text view height
+            height += Math.ceil(title.getPaint().getFontMetrics().descent - title.getPaint().getFontMetrics().top) + 2;
+
+            //add top height
+            height += getResources().getDimensionPixelSize(R.dimen.rank_video_show_top);
+        }
 
         if(row_count == 0)
             row_count = 3;
@@ -117,11 +121,13 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
         }
 
         //add height
-        height += dpToPx(8);
-        height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-        height += dpToPx(8);
+        if(haveTitle) {
+            height += dpToPx(8);
+            height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+            height += dpToPx(8);
 
-        ((Button)root.findViewById(R.id.enter_button)).setText(subtitle);
+            ((Button) root.findViewById(R.id.enter_button)).setText(subtitle);
+        }
         getDimens().height = height;
     }
     private String getTitle(String title){
