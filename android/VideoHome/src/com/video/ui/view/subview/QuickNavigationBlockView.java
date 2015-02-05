@@ -82,7 +82,6 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
         int padding = (getDimens().width-4*width)/3;
         int leftPadding = 0;
         for (int i=0;i<items.size();i++) {
-            step++;
             final DisplayItem item = items.get(i);
             View view =  View.inflate(getContext(), R.layout.qucik_entry_textview, null);
             view.setClickable(true);
@@ -165,6 +164,8 @@ public class QuickNavigationBlockView extends BaseCardView implements DimensHelp
                 }
             });
             mMetroLayout.addItemView(view,width , getResources().getDimensionPixelSize(R.dimen.quick_entry_channel_height), leftPadding, padding);
+
+            step++;
         }
     }
 
