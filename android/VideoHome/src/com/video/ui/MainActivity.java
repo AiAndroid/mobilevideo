@@ -281,8 +281,16 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
                 mTabs.focusCurrentTab(0);
             }
         }, 200);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                afterUICreated();
+            }
+        }, 400);
     }
 
+    protected void afterUICreated(){}
     protected Class getFragmentClass(Block<DisplayItem> block){
         return MetroFragment.class;
     }

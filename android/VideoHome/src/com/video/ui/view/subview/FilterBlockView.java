@@ -341,7 +341,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
 
     public static FilterBlockView createSearchBlockView(Context context,ArrayList<DisplayItem>items, int maxVisible) {
-        FilterBlockView filterView = new FilterBlockView(context);
+        final FilterBlockView filterView = new FilterBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
         MetroLayout ml = new MetroLayout(context);
@@ -372,13 +372,16 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
             }
 
             mFiter.setWidth(itemWidth);
+            mFiter.setTag(item);
 
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_search_item, position++, row_position, padding);
 
             mFiter.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    launcherAction(v.getContext(), item);
+                    if(filterView.getItemClick() != null){
+                        filterView.getItemClick().onClick(v);
+                    }
                 }
             });
             step++;
