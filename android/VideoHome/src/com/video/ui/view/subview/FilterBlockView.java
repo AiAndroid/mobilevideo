@@ -2,8 +2,10 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
 
     public FilterBlockView(Context context){
-        super(context, null , 0);
+        this(context, null, 0);
     }
 
 
@@ -350,13 +352,28 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
 
         int itemHeight = 0;
+        int addedWidth = 0;
+        int position     = 0;
+        int row_position = 0;
         for(final DisplayItem item: items) {
-            View convertView = View.inflate(context, R.layout.episode_item_layout, null);
+            View convertView = View.inflate(context, R.layout.search_item_layout, null);
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
-            final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+            final TextView mFiter = (TextView) convertView.findViewById(R.id.search_keyword_btn);
             mFiter.setText(item.title);
-            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+
+            Paint paint = mFiter.getPaint();
+            int itemWidth = (int) paint.measureText(item.title) + filterView.getTextPadding() * 2;
+            addedWidth += itemWidth + padding;
+            if(addedWidth > filterView.getDimens().width){
+                position   = 0;
+                row_position++;
+                addedWidth = itemWidth + padding;
+            }
+
+            mFiter.setWidth(itemWidth);
+
+            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_search_item, position++, row_position, padding);
 
             mFiter.setOnClickListener(new OnClickListener() {
                 @Override
@@ -379,7 +396,15 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
+    public int getTextPadding(){
+        if(textPadding == -1){
+            textPadding = getResources().getDimensionPixelSize(R.dimen.size_15);
+        }
 
+        return textPadding;
+    }
+
+    private int textPadding = -1;
     private DimensHelper.Dimens mDimens;
     @Override
     public DimensHelper.Dimens getDimens() {

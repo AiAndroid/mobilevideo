@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.video.ui.R;
 import com.video.ui.view.subview.DimensHelper;
 
@@ -179,6 +180,21 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 child.setFocusable(true);
                 addView(child, flp);
                 rowOffset[0] += height;
+                break;
+            }
+            case LayoutConstant.linearlayout_search_item: {
+                //reset to first position
+                if(x == 0)rowOffset[1] = 0;
+
+                int height = getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+                int width  = ((TextView)child).getMaxWidth();//getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_width);
+                flp = new LayoutParams(width, height);
+                flp.leftMargin = getPaddingLeft() + rowOffset[1] + (padding) * x + padding;
+                flp.topMargin = getPaddingTop() + height * y + padding * (y + 1); //no need one more
+                child.setFocusable(true);
+                addView(child, flp);
+                rowOffset[0] += height;
+                rowOffset[1] += width;
                 break;
             }
             case LayoutConstant.linearlayout_episode_list_item:{

@@ -18,12 +18,14 @@ public class LayoutConstant {
     public final static int linearlayout_filter_item= 298;//-------过滤
     public final static int linearlayout_episode= 209;//-------剧集, 默认button风格
     public final static int linearlayout_episode_item=299;//----子剧集 外部不直接使用
+    public final static int linearlayout_search_item =297;//----search  外部不直接使用
     public final static int linearlayout_episode_list     = 210;//-----剧集 list 风格
     public final static int linearlayout_episode_list_item= 211;//-----子剧集 外部不直接使用
     public final static int linearlayout_filter_select      = 212;//过滤器UI使用
     public final static int linearlayout_filter_select_item = 213;//过滤器单个元素使用
     public final static int linearlayout_search             = 214;//search UI
     public final static int linearlayout_single_desc        = 215;//描述
+
 
 
     public final static int block_land         = 300;//------------展示块容器------------没有什么用 landscape layout
