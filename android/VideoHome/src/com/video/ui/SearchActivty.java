@@ -88,6 +88,8 @@ public class SearchActivty extends MainActivity{
             String keyword = et.getText().toString();
             if(TextUtils.isEmpty(keyword) == false) {
                 findViewById(R.id.search_result).setVisibility(View.VISIBLE);
+                //
+                //need define one search fragment
                 ListFragment df = new ListFragment();
                 Bundle data = new Bundle();
 
