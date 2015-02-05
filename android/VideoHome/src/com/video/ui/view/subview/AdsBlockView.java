@@ -131,7 +131,7 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                //container.removeView(viewList.get(position));
+                container.removeView(viewList.get(position));
             }
 
             @Override
