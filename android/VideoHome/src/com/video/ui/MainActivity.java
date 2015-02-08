@@ -247,12 +247,16 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
         if(content.blocks.size() == 1){
             mTabs.setVisibility(View.GONE);
         }
-        
-       for(int i=0;i<content.blocks.size();i++) {
+
+        int size = content.blocks.size();
+        if(ViewUtils.LargerMemoryMode(getApplicationContext()) == false){
+            size = size > 3?3:size;
+        }
+        for(int i=0;i<size;i++) {
             Bundle args = new Bundle();
             args.putSerializable("tab",     content.blocks.get(i));
             args.putInt("index",            mTabs.getTabCount());
-            args.putInt("tab_count",        content.blocks.size()+(isNeedUserTab?1:0));
+            args.putInt("tab_count",        size+(isNeedUserTab?1:0));
             /*
             if(i==0){
                 mTabsAdapter.addTab(mTabHost.newTabSpec(content.blocks.get(i).title).setIndicator(newTabIndicator(content.blocks.get(i).title, mTabs.getTabCount() == 0)),

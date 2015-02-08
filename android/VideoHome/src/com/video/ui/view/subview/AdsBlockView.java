@@ -87,8 +87,8 @@ public class AdsBlockView extends BaseCardView implements DimensHelper, AdsAnima
                 Picasso.with(getContext()).
                         load(content.get(contentPos).images.get("poster").url)
                         .priority(Picasso.Priority.HIGH)
-                        .transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false))
                         .fit()
+                        .transform(new CategoryBlockView.Round_Corners(getContext(), 4, 4, false))
                         .into(iv);
 
                 page_indicator.setText(String.format("%1$s/%2$s ", i ,content.size()));
