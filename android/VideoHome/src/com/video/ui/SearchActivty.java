@@ -103,8 +103,10 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
 
     private void removeNoResultView(){
         RelativeLayout header_placeholder = (RelativeLayout) findViewById(R.id.header_placeholder);
-        header_placeholder.removeAllViews();
-        header_placeholder.setVisibility(View.GONE);
+        if(header_placeholder != null){
+            header_placeholder.removeAllViews();
+            header_placeholder.setVisibility(View.GONE);
+        }
     }
 
     private void removeSearchResultFragment(){
@@ -138,7 +140,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
                         //we also need placeholder to place empty hint
                     }
                 }else {
-                   removeNoResultView();
+                    removeNoResultView();
                 }
             }
         });
