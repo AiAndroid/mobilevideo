@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingTop="0dp"
-      android:paddingLeft="0dp"
-      android:paddingRight="0dp"
-      android:paddingBottom="0dp">
+<com.video.ui.view.detail.ObserverScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.video.ui.view.detail.ObserverScrollView
-            android:id="@+id/scroll_view"
+            <RelativeLayout
+            android:id="@+id/header_placeholder"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
+
+            <com.video.ui.view.MetroLayout
+            android:id="@+id/metrolayout"
+            android:layout_below="@id/header_placeholder"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scrollbars="none">
-	    <com.video.ui.view.MetroLayout
-	    android:id="@+id/metrolayout"
-	    android:layout_width="wrap_content"
-	    android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="@dimen/ITEM_DIVIDE_SIZE"/>
-    </com.video.ui.view.detail.ObserverScrollView>
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="@dimen/ITEM_DIVIDE_SIZE"/>
+    </RelativeLayout>
+</com.video.ui.view.detail.ObserverScrollView>
 
-
-</FrameLayout>
 
 

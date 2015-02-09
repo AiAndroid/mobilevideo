@@ -2,20 +2,26 @@ package com.video.ui;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.view.inputmethod.EditorInfo;
+import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
+import com.video.ui.view.SearchFragment;
+import com.video.ui.view.subview.BaseCardView;
 import com.video.ui.view.subview.FilterBlockView;
 
 import java.io.UnsupportedEncodingException;
@@ -24,7 +30,7 @@ import java.net.URLEncoder;
 /**
  * Created by liuhuadong on 7/29/14.
  */
-public class SearchActivty extends MainActivity{
+public class SearchActivty extends MainActivity implements SearchFragment.SearchResultListener{
     private static final String TAG = SearchActivty.class.getName();
     private EditText et;
     @Override
@@ -53,8 +59,23 @@ public class SearchActivty extends MainActivity{
             }
         }
 
+        et.setOnEditorActionListener(searchActionIME);
+
         et.addTextChangedListener(tw);
     }
+
+    TextView.OnEditorActionListener searchActionIME = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                EditText et = (EditText) findViewById(R.id.search_name);
+                String keyword = et.getText().toString();
+                searchKeyword(keyword, null);
+                return true;
+            }
+            return false;
+        }
+    };
 
     boolean filtMode = false;
     TextWatcher tw = new TextWatcher(){
@@ -73,11 +94,54 @@ public class SearchActivty extends MainActivity{
 
     private void filtVideoContent(String keyword){
         if(filtMode == false){
-            Fragment df = getSupportFragmentManager().findFragmentById(R.id.search_result);
-            if(df!= null) {
-                getSupportFragmentManager().beginTransaction().remove(df).commit();
-            }
+            removeSearchResultFragment();
+
+            //remove
+            removeNoResultView();
         }
+    }
+
+    private void removeNoResultView(){
+        RelativeLayout header_placeholder = (RelativeLayout) findViewById(R.id.header_placeholder);
+        header_placeholder.removeAllViews();
+        header_placeholder.setVisibility(View.GONE);
+    }
+
+    private void removeSearchResultFragment(){
+        Fragment df = getSupportFragmentManager().findFragmentById(R.id.search_result);
+        if(df!= null) {
+            getSupportFragmentManager().beginTransaction().remove(df).commit();
+        }
+    }
+
+    @Override
+    public void onResult(final boolean result, final GenericBlock<DisplayItem> searchResult) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if(result == false){
+                    removeSearchResultFragment();
+
+                    //show no search result view
+                    RelativeLayout header_placeholder = (RelativeLayout) findViewById(R.id.header_placeholder);
+                    if(header_placeholder != null) {
+                        RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+
+                        View emptyView = View.inflate(getBaseContext(), R.layout.search_empty_view, null);
+                        header_placeholder.addView(emptyView, flp);
+
+                        header_placeholder.setVisibility(View.VISIBLE);
+                    }else {
+
+                        //TODO
+                        //we also need placeholder to place empty hint
+                    }
+                }else {
+                   removeNoResultView();
+                }
+            }
+        });
     }
 
     @Override public void setContentView(){
@@ -98,6 +162,7 @@ public class SearchActivty extends MainActivity{
                 DisplayItem item = (DisplayItem)obj;
                 String keyword = Uri.parse(item.id).getQueryParameter("kw");
                 et.setText(keyword);
+                et.setSelection(keyword.length(), keyword.length());
                 searchKeyword(keyword, item);
             }
         }
@@ -117,7 +182,7 @@ public class SearchActivty extends MainActivity{
             findViewById(R.id.search_result).setVisibility(View.VISIBLE);
             //
             //need define one search fragment
-            ListFragment df = new ListFragment();
+            SearchFragment df = new SearchFragment();
             Bundle data = new Bundle();
 
             Block<DisplayItem> searchItem = new Block<DisplayItem>();
@@ -140,7 +205,9 @@ public class SearchActivty extends MainActivity{
             }
 
             data.putSerializable("tab", searchItem);
+
             df.setArguments(data);
+            df.setSearchResultListener(this);
             if(getSupportFragmentManager().findFragmentById(R.id.search_result) != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.search_result, df).commit();
             }else {
@@ -168,4 +235,5 @@ public class SearchActivty extends MainActivity{
 
         mLoader = GenericAlbumLoader.generateTabsLoader(getBaseContext(), albumItem);
     }
+
 }

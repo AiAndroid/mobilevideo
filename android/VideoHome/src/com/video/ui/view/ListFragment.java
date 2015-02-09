@@ -340,30 +340,4 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     public View addViewPort(View view, int celltype, int x, int y){
         return mMetroLayout.addItemViewPort(view, celltype, x, y);
     }
-
-    public void initViews(){
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        Log.d(TAG, "onResume="+this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        Log.d(TAG, "onPause="+this);
-    }
-
-    @Override
-    public void onDestroy()  {
-        super.onDestroy();
-
-        Log.d(TAG, "onDestroy="+this);
-        ViewUtils.unbindImageDrawables(getView());
-    }
 }

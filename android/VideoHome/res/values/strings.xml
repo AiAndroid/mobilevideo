@@ -71,6 +71,7 @@
     <string name="cancel_favorite_success">Unstarred</string>
     <!-- media detail end -->
 
+    <string name="search_result_empty_text">Didn\'t find anything</string>
     <string name="search_hint">Search online video</string>
     <string name="all_episode">All Episodes</string>
     <string name="total_episode">%1$s Episodes</string>

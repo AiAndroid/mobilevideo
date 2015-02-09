@@ -45,13 +45,14 @@
             </LinearLayout>
         </TabHost>
 
-        <LinearLayout android:id="@+id/search_result"
+        <RelativeLayout android:id="@+id/search_result"
                       android:layout_below="@android:id/tabhost"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
+                      android:paddingTop="@dimen/video_common_interval_negtive_10"
                       android:visibility="gone">
-        </LinearLayout>
+        </RelativeLayout>
         <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"

@@ -3,15 +3,18 @@ package com.video.ui.view;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.video.ui.loader.BaseGsonLoader;
+import com.video.ui.utils.ViewUtils;
 
 /**
  * Created by liuhuadonbg on 1/24/15.
  */
 public class LoadingFragment extends Fragment {
+    protected static final String TAG = LoadingFragment.class.getName();
     protected EmptyLoadingView   mLoadingView;
     protected EmptyLoadingView makeEmptyLoadingView(Context context,  RelativeLayout parentView){
         return makeEmptyLoadingView(context, parentView,  RelativeLayout.CENTER_IN_PARENT);
@@ -35,5 +38,13 @@ public class LoadingFragment extends Fragment {
         rlp.addRule(rule);
         parentView.addView(loadingView, rlp);
         return loadingView;
+    }
+
+    @Override
+    public void onDestroy()  {
+        super.onDestroy();
+
+        Log.d(TAG, "onDestroy=" + this);
+        ViewUtils.unbindImageDrawables(getView());
     }
 }

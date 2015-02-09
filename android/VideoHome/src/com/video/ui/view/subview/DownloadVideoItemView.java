@@ -18,10 +18,6 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
-import com.video.ui.view.LayoutConstant;
-import com.xiaomi.video.player.duokan.TimedText;
-
-import java.util.ArrayList;
 
 /**
  * Created by liuhuadong on 12/2/14.
