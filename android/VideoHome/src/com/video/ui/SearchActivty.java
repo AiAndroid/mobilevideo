@@ -117,7 +117,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
     }
 
     @Override
-    public void onResult(final boolean result, final GenericBlock<DisplayItem> searchResult) {
+    public void onSearchResult(final boolean result, final GenericBlock<DisplayItem> searchResult) {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
@@ -179,8 +179,8 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
         }
     };
 
-    private void searchKeyword(String keyword, DisplayItem item){
-        if(TextUtils.isEmpty(keyword) == false) {
+    private void searchKeyword(String keyword, DisplayItem item) {
+        if (TextUtils.isEmpty(keyword) == false) {
             findViewById(R.id.search_result).setVisibility(View.VISIBLE);
             //
             //need define one search fragment
@@ -188,7 +188,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
             Bundle data = new Bundle();
 
             Block<DisplayItem> searchItem = new Block<DisplayItem>();
-            if(item == null) {
+            if (item == null) {
                 searchItem.target = new DisplayItem.Target();
                 searchItem.target.entity = "search_result";
                 try {
@@ -199,7 +199,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
                 searchItem.ns = "search";
                 searchItem.type = "album";
                 searchItem.id = String.format("search?kw=%1$s", keyword);
-            }else {
+            } else {
                 searchItem.target = item.target;
                 searchItem.ns = "search";
                 searchItem.type = "album";
@@ -210,20 +210,12 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
 
             df.setArguments(data);
             df.setSearchResultListener(this);
-            if(getSupportFragmentManager().findFragmentById(R.id.search_result) != null) {
+            if (getSupportFragmentManager().findFragmentById(R.id.search_result) != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.search_result, df).commit();
-            }else {
+            } else {
                 getSupportFragmentManager().beginTransaction().add(R.id.search_result, df, "search_result").commit();
             }
         }
-    }
-
-    @Override
-    protected Class getFragmentClass(Block<DisplayItem> block){
-        if(block.id.endsWith(".choice") || block.id.endsWith(".r"))
-            return MetroFragment.class;
-
-        return ListFragment.class;
     }
 
     //please override this fun

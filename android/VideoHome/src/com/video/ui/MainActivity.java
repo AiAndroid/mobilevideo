@@ -25,6 +25,7 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.TabsGsonLoader;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.*;
+import com.video.ui.view.ListFragment;
 import com.video.ui.view.subview.AdsAnimationListener;
 import com.video.ui.view.subview.DimensHelper;
 
@@ -296,7 +297,10 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
 
     protected void afterUICreated(){}
     protected Class getFragmentClass(Block<DisplayItem> block){
-        return MetroFragment.class;
+        if(block.id.endsWith(".choice") || block.id.endsWith(".r"))
+            return MetroFragment.class;
+
+        return ListFragment.class;
     }
 
     protected Class getFragmentClass2(Block<DisplayItem> block){

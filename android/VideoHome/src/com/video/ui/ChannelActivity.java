@@ -91,6 +91,8 @@ public class ChannelActivity extends  MainActivity {
         }
         return false;
     }
+    
+    @Override
     protected Class getFragmentClass(Block<DisplayItem> block){
         if(block.id.endsWith(".choice") || block.id.endsWith(".r")) {
             if(isExistFilter(block)){

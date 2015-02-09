@@ -14,7 +14,6 @@ import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.R;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
-import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.subview.BaseCardView;
 import com.video.ui.view.subview.ChannelVideoItemView;
 
@@ -32,7 +31,7 @@ public class SearchFragment extends LoadingFragment implements LoaderManager.Loa
     private   boolean            haveBuildInData = false;
 
     public interface SearchResultListener{
-        public void onResult(boolean result, GenericBlock<DisplayItem> searchResult);
+        public void onSearchResult(boolean result, GenericBlock<DisplayItem> searchResult);
     }
 
     private SearchResultListener searchResultListener;
@@ -93,7 +92,7 @@ public class SearchFragment extends LoadingFragment implements LoaderManager.Loa
             }
 
             if(searchResultListener != null)
-                searchResultListener.onResult(false, null);
+                searchResultListener.onSearchResult(false, null);
             return;
         }
         //for cache show
@@ -163,11 +162,11 @@ public class SearchFragment extends LoadingFragment implements LoaderManager.Loa
         if(searchResultListener != null) {
             try {
                 if (mVidoeInfo.blocks.get(0).blocks.get(0).items.size() > 0)
-                    searchResultListener.onResult(true, result);
+                    searchResultListener.onSearchResult(true, result);
                 else
-                    searchResultListener.onResult(false, result);
+                    searchResultListener.onSearchResult(false, result);
             }catch (Exception ne){
-                searchResultListener.onResult(false, result);
+                searchResultListener.onSearchResult(false, result);
             }
         }
     }
