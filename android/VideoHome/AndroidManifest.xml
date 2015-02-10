@@ -33,7 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.video.ui.MediaDetailActivity">
+        <activity android:name="com.video.ui.MediaDetailActivity"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -60,14 +61,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".tinyui.ChannelFilterActivity">
+        <activity android:name=".tinyui.ChannelFilterActivity"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/filter"/>
             </intent-filter>
         </activity>
-        <activity android:name=".tinyui.AlbumActivity">
+        <activity android:name=".tinyui.AlbumActivity"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -76,17 +79,22 @@
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/local_album"/>
             </intent-filter>
         </activity>
-        <activity android:name=".tinyui.OfflineActivity">
+        <activity android:name=".tinyui.OfflineActivity"
+                  android:screenOrientation="portrait">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="mvschema" android:host="video" android:pathPrefix="/play_offline"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UserActivity"/>
-        <activity android:name=".tinyui.AllEpisodeActivity"/>
+        <activity android:name=".UserActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".tinyui.AllEpisodeActivity"
+                  android:screenOrientation="portrait"/>
 
+        <!--
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>
+        -->
 
         <!-- mi push begin-->
         <service
