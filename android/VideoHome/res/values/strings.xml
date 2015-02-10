@@ -73,6 +73,7 @@
 
     <string name="search_result_empty_text">Didn\'t find anything</string>
     <string name="search_hint">Search online video</string>
+    <string name="clear_search_history">Clear search history</string>
     <string name="all_episode">All Episodes</string>
     <string name="total_episode">%1$s Episodes</string>
     <string name="play_source_fetching">Connecting</string>

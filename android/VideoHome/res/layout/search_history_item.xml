@@ -1,0 +1,35 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/rank_button_height">
+
+    <ImageView
+        android:id="@+id/search_item_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/size_51"
+        android:background="@drawable/quick_entry_play_his"
+        android:contentDescription="@string/app_name" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_common_divider_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/com_10_black" />
+
+    <TextView
+        android:id="@+id/search_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/line"
+        android:layout_marginLeft="@dimen/video_common_interval_50"
+        android:layout_marginRight="@dimen/size_51"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/search_item_poster"
+        android:textIsSelectable="false"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/font_size_46" />
+
+</RelativeLayout>

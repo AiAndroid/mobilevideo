@@ -133,9 +133,9 @@ public class RankBlockView<T> extends BaseCardView implements DimensHelper {
 
         //add height
         if(haveTitle) {
-            height += dpToPx(8);
+            height += getResources().getDimensionPixelSize(R.dimen.video_common_interval_24);
             height += getResources().getDimensionPixelSize(R.dimen.rank_button_height);
-            height += dpToPx(8);
+            height += getResources().getDimensionPixelSize(R.dimen.video_common_interval_24);
 
             ((Button) root.findViewById(R.id.enter_button)).setText(subtitle);
         }

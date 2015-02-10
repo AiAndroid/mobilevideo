@@ -59,8 +59,8 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
         mTabs    = (TabWidget)findViewById(android.R.id.tabs);
 
         //just for indicator loading
-        if(showTabLoading)
-            mTabs.addView(newTabIndicator(getString(R.string.tab_loading), false));
+        //if(showTabLoading)
+        //    mTabs.addView(newTabIndicator(getString(R.string.tab_loading), false));
 
         mViewPager = (ViewPager)findViewById(R.id.pager);
 

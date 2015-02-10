@@ -17,13 +17,14 @@ import android.text.TextUtils;
 public class iDataProvider extends ContentProvider {
     private static final String     TAG              = "iDataProvider";
     public static final String      DATABASE_NAME    = "idata.db";
-    public static final int         DATABASE_VERSION = 3;
+    public static final int         DATABASE_VERSION = 4;
     public static final String      AUTHORITY        = iDataORM.AUTHORITY;
     public static SQLiteOpenHelper mOpenHelper;
 
     private static final String     TABLE_SETTINGS   = "settings";
     private static final String     TABLE_ALBUM      = "local_album";
     private static final String     TABLE_Downdload  = "download";
+    private static final String     TABLE_SEARCH     = "search";
 
     public static final String _ID   = "_id";
     public static final String NAME  = "name";
@@ -54,6 +55,12 @@ public class iDataProvider extends ContentProvider {
                         + " name  TEXT,"
                         + " value TEXT,"
                         + " application TEXT,"
+                        + " date_time TEXT);");
+
+                db.execSQL("CREATE TABLE " + TABLE_SEARCH + " ("
+                        + " _id       INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " key       TEXT,"
+                        + " date_int  LONG ,"   //for sort
                         + " date_time TEXT);");
 
                 db.execSQL("CREATE TABLE " + TABLE_ALBUM + " ("
@@ -98,6 +105,7 @@ public class iDataProvider extends ContentProvider {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
 
             }catch (Exception ne){}
         }
@@ -108,11 +116,25 @@ public class iDataProvider extends ContentProvider {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
             }catch (Exception ne){}
+
+            if(newVersion == 4){
+                create4Version(db);
+            }
 
             onCreate(db);
         }
 
+        private void create4Version(SQLiteDatabase db){
+            try {
+                db.execSQL("CREATE TABLE " + TABLE_SEARCH + " ("
+                        + " _id       INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " key       TEXT,"
+                        + " date_int  LONG ,"   //for sort
+                        + " date_time TEXT);");
+            }catch (Exception ne){}
+        }
 
 
         @Override
@@ -122,6 +144,7 @@ public class iDataProvider extends ContentProvider {
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+                    db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
 
                 }catch (Exception ne){}
 

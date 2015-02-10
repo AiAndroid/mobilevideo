@@ -73,6 +73,7 @@
     <string name="search_result_empty_text">没有你搜索的视频</string>
 
     <string name="search_hint">搜索影片、精选、明星</string>
+    <string name="clear_search_history">清空搜索记录</string>
     <string name="all_episode">全部剧集</string>
     <string name="total_episode">"共%1$s集"</string>
     <string name="play_source_fetching">连接中</string>

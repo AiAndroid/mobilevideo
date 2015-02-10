@@ -83,4 +83,19 @@ public class LinearFrame extends FrameLayout {
         rowOffset[0]+=height + padding;
         return result;
     }
+
+    public View addItemViewPort(View child, int width, int height, int horizontal_padding, int vertical_padding){
+        child.setFocusable(true);
+        mViewList.add(new WeakReference<View>(child));
+        View result = child;
+
+        LayoutParams flp = new LayoutParams(width, height);
+        flp.leftMargin  = getPaddingLeft() + horizontal_padding;
+        flp.topMargin   = getPaddingTop() + rowOffset[0] + vertical_padding;
+        flp.rightMargin = getPaddingRight();
+        addView(child,flp);
+
+        rowOffset[0]+=height + vertical_padding;
+        return result;
+    }
 }

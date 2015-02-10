@@ -17,7 +17,9 @@ import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericAlbumLoader;
+import com.video.ui.view.LinearFrame;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
 import com.video.ui.view.SearchFragment;
@@ -26,6 +28,7 @@ import com.video.ui.view.subview.FilterBlockView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 /**
  * Created by liuhuadong on 7/29/14.
@@ -33,6 +36,7 @@ import java.net.URLEncoder;
 public class SearchActivty extends MainActivity implements SearchFragment.SearchResultListener{
     private static final String TAG = SearchActivty.class.getName();
     private EditText et;
+    private int DEFAULT_MAX = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +64,18 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
         }
 
         et.setOnEditorActionListener(searchActionIME);
-
         et.addTextChangedListener(tw);
+        et.setOnFocusChangeListener(searchFocuseChange);
     }
+
+    View.OnFocusChangeListener searchFocuseChange = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if(hasFocus && TextUtils.isEmpty(et.getText()) && iDataORM.hasSearchHistory(getBaseContext())){
+                removeNoResultView(true);
+            }
+        }
+    };
 
     TextView.OnEditorActionListener searchActionIME = new TextView.OnEditorActionListener() {
         @Override
@@ -97,16 +110,79 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
             removeSearchResultFragment();
 
             //remove
-            removeNoResultView();
+            removeNoResultView(true);
         }
     }
 
-    private void removeNoResultView(){
+    private void removeNoResultView(boolean showSearchHistory){
         RelativeLayout header_placeholder = (RelativeLayout) findViewById(R.id.header_placeholder);
         if(header_placeholder != null){
             header_placeholder.removeAllViews();
-            header_placeholder.setVisibility(View.GONE);
+            if(showSearchHistory == false || iDataORM.hasSearchHistory(getBaseContext()) == false) {
+                header_placeholder.setVisibility(View.GONE);
+            }else {
+                createHistoryView(header_placeholder);
+            }
         }
+    }
+
+    private void createHistoryView(RelativeLayout  header_placeholder){
+        int width   = getResources().getDimensionPixelSize(R.dimen.rank_banner_width);
+        int height  = getResources().getDimensionPixelSize(R.dimen.rank_button_height);
+        int padding = (getResources().getDisplayMetrics().widthPixels - width)/2;
+        header_placeholder.setVisibility(View.VISIBLE);
+        //add search history to header layout container
+        ArrayList<iDataORM.SearchHistoryItem> historyItems = iDataORM.getSearchHistory(getBaseContext(), iDataORM.getIntValue(getBaseContext(), iDataORM.Max_Show_Search, DEFAULT_MAX));
+        View listContainer = View.inflate(getBaseContext(), R.layout.linear_frame, null);
+        RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        flp.topMargin = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
+        header_placeholder.addView(listContainer, flp);
+        LinearFrame lf = (LinearFrame)listContainer.findViewById(R.id.list);
+
+        int size = historyItems.size();
+        for(int i=0;i<size;i++){
+            iDataORM.SearchHistoryItem item = historyItems.get(i);
+            View historyView = View.inflate(getBaseContext(), R.layout.search_history_item, null);
+            TextView textView = (TextView) historyView.findViewById(R.id.search_item_name);
+            textView.setText(item.key);
+            historyView.setTag(item.key);
+
+            if(i == 0) {
+                historyView.setBackgroundResource(R.drawable.com_item_bg_up);
+            }else if(i == size -1 ){
+                historyView.setBackgroundResource(R.drawable.com_item_bg_mid);
+                historyView.findViewById(R.id.line).setVisibility(View.GONE);
+            }
+            else {
+                historyView.setBackgroundResource(R.drawable.com_item_bg_mid);
+            }
+
+            historyView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    searchKeyword((String)v.getTag(), null);
+                }
+            });
+
+            lf.addItemViewPort(historyView, width, height, padding, 0);
+        }
+
+        //add one clean button
+        View buttonContain = View.inflate(getBaseContext(), R.layout.button_enter, null);
+        Button blockView = (Button) buttonContain.findViewById(R.id.enter_button);
+        blockView.setText(R.string.clear_search_history);
+        buttonContain.setBackgroundResource(R.drawable.com_item_bg_down);
+        blockView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                iDataORM.removeSearchHistory(getBaseContext(), null);
+
+                //remove the history view
+                removeNoResultView(false);
+            }
+        });
+
+        lf.addItemViewPort(buttonContain, width, height, padding, 0);
     }
 
     private void removeSearchResultFragment(){
@@ -127,6 +203,8 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
                     //show no search result view
                     RelativeLayout header_placeholder = (RelativeLayout) findViewById(R.id.header_placeholder);
                     if(header_placeholder != null) {
+                        header_placeholder.removeAllViews();
+
                         RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                         flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
 
@@ -140,7 +218,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
                         //we also need placeholder to place empty hint
                     }
                 }else {
-                    removeNoResultView();
+                    removeNoResultView(false);
                 }
             }
         });
@@ -181,6 +259,9 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
 
     private void searchKeyword(String keyword, DisplayItem item) {
         if (TextUtils.isEmpty(keyword) == false) {
+            //add to history
+            iDataORM.addSearchHistory(getBaseContext(), keyword.trim());
+
             findViewById(R.id.search_result).setVisibility(View.VISIBLE);
             //
             //need define one search fragment

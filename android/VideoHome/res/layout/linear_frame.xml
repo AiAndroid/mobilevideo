@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.video.ui.view.LinearFrame
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list"
+    android:layout_width="@dimen/rank_banner_width"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
+</com.video.ui.view.LinearFrame>
