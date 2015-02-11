@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.android.volley.toolbox.ClearCacheRequest;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.DisplayItem;
+import com.video.ui.SettingActivity;
 
 import java.lang.reflect.Type;
 import java.net.PortUnreachableException;
@@ -98,6 +99,36 @@ public class iDataORM {
             "date_time",
             "date_int",
     };
+
+    public static boolean isPriorityStorage(Context baseContext) {
+        return false;
+    }
+
+    public static boolean isOpenCellularPlayHint(Context context) {
+        return false;
+    }
+
+    public static boolean isOpenCellularOfflineHint(Context context) {
+        return false;
+    }
+
+    public static boolean isMiPushOn() {
+        return true;
+    }
+
+    public static void setPriorityStorage(Context context, boolean priorityStorage) {
+
+    }
+
+    public static void setOpenCellularPlayHint(Context context, boolean checked) {
+    }
+
+    public static void setOpenCellularOfflineHint(Context context, boolean checked) {
+    }
+
+    public static void setMiPushOn(Context context, boolean miPushOn) {
+
+    }
 
     public static class ColumsCol {
         public static final String ID         = "_id";

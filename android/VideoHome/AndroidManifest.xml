@@ -92,6 +92,10 @@
         <activity android:name=".tinyui.AllEpisodeActivity"
                   android:screenOrientation="portrait"/>
 
+        <activity android:name=".SettingActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.Light"/>
+
         <!--
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>
         -->

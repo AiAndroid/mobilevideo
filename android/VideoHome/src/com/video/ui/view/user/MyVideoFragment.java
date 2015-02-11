@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.video.ui.R;
+import com.video.ui.SettingActivity;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.tinyui.AlbumActivity;
 
@@ -204,6 +205,8 @@ public class MyVideoFragment extends Fragment {
 			int tag = myVideoItem.tag;
 			switch (tag){
 				case TAG_SETTING:
+					Intent setting = new Intent(getActivity(), SettingActivity.class);
+					getActivity().startActivity(setting);
 					break;
 				case TAG_MY_FAVORITE:
 					Intent favorIntent = new Intent(getActivity(), AlbumActivity.class);
