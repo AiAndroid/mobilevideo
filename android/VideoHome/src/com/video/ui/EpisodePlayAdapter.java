@@ -3,6 +3,7 @@ package com.video.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.VolleyHelper;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
@@ -102,6 +104,7 @@ public class EpisodePlayAdapter {
         requestQueue.add(gsonRequest);
     }
 
+    private static Gson gson = new Gson();
     /*
      * http://wiki.n.miui.com/pages/viewpage.action?pageId=8559511
      */
@@ -118,7 +121,15 @@ public class EpisodePlayAdapter {
         intent.putExtra("media_poster_url", media.poster);
         intent.putExtra("media_set_name", episode.name);
         intent.putExtra("mediaTitle", media.name);
-        intent.putExtra("sdkinfo", String.format("{\"vid\":\"%1$s\"}", ps.h5_url));
+        if(ps.app_info.size() != 0){
+            intent.putExtra("sdkinfo", gson.toJson(ps.app_info));
+        }else {
+            if(ps.cp.equals("sohu")) {
+                intent.putExtra("sdkinfo", String.format("{\"vid\":%1$s, \"resolutionmap\":1, \"site\":1}", ps.vid));
+            }else if(ps.cp.equals("iqiyi")){
+                intent.putExtra("sdkinfo", String.format("{\"vid\":\"%1$s\", \"resolutionmap\":1, \"site\":1}", ps.h5_url));
+            }
+        }
         intent.putExtra("sdkdisable", false);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
