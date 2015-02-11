@@ -382,4 +382,11 @@
     <dimen name="user_head_identity_top_margin">0dp</dimen>
     <!-- user head end -->
 
+    <!-- web media start -->
+    <dimen name="page_progress_height">8dp</dimen>
+    <dimen name="page_progress_top_margin">-2dp</dimen>
+    <dimen name="page_btn_fullscreen_width">42dp</dimen>
+    <dimen name="page_btn_fullscreen_height">42dp</dimen>
+    <!-- web media end -->
+
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vp_datastream_alert_play">您在使用2G/3G/4G网络播放视频，可能产生较高流量费用</string>
+    <string name="vp_datastream_alert_hint">您可在"设置-系统应用-视频"中,关闭该提示</string>
+    <string name="vp_datastream_alert_positive_button">继续</string>
+    <string name="vp_datastream_alert_negative_button">取消</string>
+    <string name="vp_datastream_alert_title">流量提示</string>
+</resources>

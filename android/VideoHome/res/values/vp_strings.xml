@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vp_datastream_alert_play">Using your mobile data connection to watch videos will increase your data usage. If you go over your plan’s data usage limit, your carrier could charge you additional fees.</string>
+    <string name="vp_datastream_alert_hint">You can turn off data usage notifications any time in Settings.</string>
+    <string name="vp_datastream_alert_positive_button">Continue</string>
+    <string name="vp_datastream_alert_negative_button">Cancel</string>
+    <string name="vp_datastream_alert_title">Data usage warning</string>
+</resources>
