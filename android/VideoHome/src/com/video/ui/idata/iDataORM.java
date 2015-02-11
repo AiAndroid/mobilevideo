@@ -35,6 +35,7 @@ public class iDataORM {
     public static String Max_Show_Search = "Max_Show_Search";
 
     public static String mobile_offline_hint = "mobile_offline_hint";
+    public static String KEY_PREFERENCE_SOURCE = "prefer_source_cp";
 
     private static iDataORM _instance;
     public static iDataORM getInstance(Context con){

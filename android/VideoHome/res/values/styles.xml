@@ -95,4 +95,9 @@
         <item name="android:imeOptions">flagNoExtractUi|actionSearch</item>
     </style>
 
+    <style name="vp_source_item_text_style" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/text_size_15</item>
+        <item name="android:textColor">@drawable/vp_source_item_color</item>
+    </style>
+
 </resources>

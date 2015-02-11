@@ -31,6 +31,11 @@
     <dimen name="size_100">36.3dp</dimen>
     <dimen name="size_106">38.5dp</dimen>
 
+    <dimen name="text_size_10">11.2dp</dimen>
+    <dimen name="text_size_13">14.2dp</dimen>
+    <dimen name="text_size_15">15.9dp</dimen>
+    <dimen name="text_size_16">17.0dp</dimen>
+
     <dimen name="text_font_size_huge">22.87sp</dimen>
 
     <dimen name="nav_tab_text_size">15.8dp</dimen>
@@ -388,5 +393,41 @@
     <dimen name="page_btn_fullscreen_width">45.8dp</dimen>
     <dimen name="page_btn_fullscreen_height">45.8dp</dimen>
     <!-- web media end -->
+
+    <!-- ActionMode start -->
+    <dimen name="action_mode_top_view_height">65.4dp</dimen>
+    <dimen name="action_mode_top_btn_edge_margin">21.8dp</dimen>
+    <dimen name="action_mode_top_btn_bottom_margin">12.0dp</dimen>
+    <dimen name="action_mode_top_title_bottom_margin">18.5dp</dimen>
+    <dimen name="action_mode_bottom_view_height">92.7dp</dimen>
+    <dimen name="action_mode_bottom_menu_height">70.9dp</dimen>
+    <dimen name="action_mode_bottom_menu_item_left_margin">13.1dp</dimen>
+    <dimen name="action_mode_bottom_menu_item_icon_width">45.8dp</dimen>
+    <dimen name="action_mode_bottom_menu_item_icon_height">45.8dp</dimen>
+    <dimen name="action_mode_bottom_menu_item_text_top_margin">6.5dp</dimen>
+    <dimen name="action_mode_top_bg_height">65.4dp</dimen>
+    <dimen name="action_mode_top_bg_mask_height">136.3dp</dimen>
+    <dimen name="action_mode_bottom_bg_height">838.2dp</dimen>
+    <!-- ActionMode end -->
+
+
+    <!-- home start -->
+    <dimen name="home_pager_title_padding">46.9dp</dimen>
+    <dimen name="home_search_top_margin">12.3dp</dimen>
+    <dimen name="home_quick_entry_divider_height">22.1dp</dimen>
+    <dimen name="menu_pop_window_width">151.8dp</dimen>
+    <dimen name="menu_pop_window_xoff">-5.5dp</dimen>
+    <dimen name="menu_pop_window_yoff">7.3dp</dimen>
+    <dimen name="menu_pop_window_item_height">72.7dp</dimen>
+    <!-- home end -->
+
+    <dimen name="mediadetail_selectsource_width">150.4dp</dimen>
+    <dimen name="mediadetail_selectsource_item_height">71.9dp</dimen>
+    <dimen name="sourceslogo_width">63.2dp</dimen>
+    <dimen name="sourceslogo_height">63.2dp</dimen>
+    <dimen name="sourceslogo_marginleft">8.7dp</dimen>
+
+
+    <dimen name="mediadetail_selectsource_popup_margintop">3.6dp</dimen>
 
 </resources>

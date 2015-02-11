@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
+    <drawable name="com_3_black">#19000000</drawable>
     <color name="text_color_shadow">#80ffffff</color>
     <color name="text_color_highlight">#ffff7e00</color>
     <color name="text_color_link">#ff307ab3</color>

@@ -8,11 +8,16 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoBlocks;
@@ -23,6 +28,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
 import com.video.ui.view.RetryView;
+import com.video.ui.view.detail.SelectSourcePopup;
 import com.video.ui.view.subview.FilterBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
@@ -35,21 +41,36 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
     private static String TAG = MediaDetailActivity.class.getName();
     private int loaderID;
-    private TextView playview ;
-    private View    favorView;
+    private TextView          playview ;
+    private View              favorView;
+    private View              titlebar;
+    private ImageView         mSourceSelectLogo;
+    private SelectSourcePopup    mSelectSourcePopup;
+    private DisplayItem.Media.CP preferenceSource;
 
+    private String default_cp_icon = "http://file.market.xiaomi.com/download/Duokan/dfddd21f-3be0-4def-8b5d-d293328ed800/symbol_default_normal.png";
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.video_detail_layout);
 
-        View titlebar = this.findViewById(R.id.title_bar);
+        titlebar = this.findViewById(R.id.title_bar);
         TextView tv = (TextView) titlebar.findViewById(R.id.title_top_name);
         tv.setText(item.title);
 
-        titlebar.findViewById(R.id.channel_filte_btn).setVisibility(View.GONE);
-        titlebar.findViewById(R.id.channel_search_btn).setVisibility(View.GONE);
+        showFilter(false);
+        showSearch(true);
+
+        mSourceSelectLogo = (ImageView) findViewById(R.id.channel_search_btn);
+        mSourceSelectLogo.setBackground(null);
+        Picasso.with(getBaseContext()).load(default_cp_icon).into(mSourceSelectLogo);
+        mSourceSelectLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSelectSourceDialog();
+            }
+        });
 
         playview = (TextView) findViewById(R.id.detail_play);
 
@@ -64,7 +85,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     }
 
                     DisplayItem.Media.Episode episode = mVidoeInfo.blocks.get(0).media.items.get(0);
-                    EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
+
+                    EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, preferenceSource, episode, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
 
                 } catch (Exception ne) {
                     ne.printStackTrace();
@@ -156,6 +178,63 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         }
     };
 
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event){
+        if(event.getAction() == KeyEvent.ACTION_DOWN &&
+                event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+            /*
+            if(mOfflineSelectView != null && mOfflineSelectView.isShowing()){
+                mOfflineSelectView.dismiss();
+                return true;
+            }else
+            */
+            if(mSelectSourcePopup != null && mSelectSourcePopup.isShowing()){
+                mSelectSourcePopup.dismiss();
+                return true;
+            }
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(mSelectSourcePopup != null && mSelectSourcePopup.isShowing()){
+            mSelectSourcePopup.triggerDismissImmediately();
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    public void showSelectSourceDialog(){
+        if(mVidoeInfo == null ||
+                mVidoeInfo.blocks.get(0).media.cps == null ||
+                mVidoeInfo.blocks.get(0).media.cps.size() == 0){
+            return;
+        }
+        if(mSelectSourcePopup == null){
+            mSelectSourcePopup = new SelectSourcePopup(this, mVidoeInfo.blocks.get(0).media.cps);
+            Log.d(TAG, "preferenceSource:" + preferenceSource);
+            mSelectSourcePopup.setCurrentSource(preferenceSource);
+            mSelectSourcePopup.setOnSourceSelectListener(new SelectSourcePopup.OnSourceSelectListener() {
+                @Override
+                public void onSourceSelect(int position, DisplayItem.Media.CP source) {
+                    preferenceSource = source;
+                    iDataORM.addSetting(getBaseContext(), iDataORM.KEY_PREFERENCE_SOURCE, preferenceSource.cp);
+                    refreshSelectedSource(preferenceSource);
+                    mSelectSourcePopup.dismiss();
+                }
+            });
+        }
+        mSelectSourcePopup.show((ViewGroup) findViewById(R.id.root_container), titlebar);
+        titlebar.bringToFront();
+    }
+
+    private void refreshSelectedSource(DisplayItem.Media.CP preferenceSource) {
+        this.preferenceSource = preferenceSource;
+        mSourceSelectLogo.setImageBitmap(null);
+        Picasso.with(getBaseContext()).load(preferenceSource.icon).fit().into(mSourceSelectLogo);
+    }
+
     private DisplayItem.Media.CP findDownloadableCP( ArrayList<DisplayItem.Media.CP> cps){
         for(DisplayItem.Media.CP item:cps){
             if(item.name.equals("sohu") || item.name.equals("fengxing") ){
@@ -166,7 +245,6 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         return cps.get(0);
     }
 
-    private DisplayItem.Media.CP currentCP;
     @Override
     public Loader<VideoBlocks<VideoItem>> onCreateLoader(int id, Bundle bundle) {
 
@@ -202,7 +280,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         mLoadingView.stopLoading(true, false);
         mVidoeInfo = blocks;
 
-        currentCP = mVidoeInfo.blocks.get(0).media.cps.get(0);
+        preferenceSource = mVidoeInfo.blocks.get(0).media.cps.get(0);
+        Picasso.with(getBaseContext()).load(preferenceSource.icon).into(mSourceSelectLogo);
 
         setTitle(mVidoeInfo.blocks.get(0).title);
 
@@ -215,7 +294,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     df.setEpisodeClick(episodeClick);
                     Bundle data = new Bundle();
                     data.putSerializable("item", mVidoeInfo.blocks.get(0));
-                    data.putSerializable("cp",   currentCP);
+                    data.putSerializable("cp",   preferenceSource);
                     df.setArguments(data);
                     getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
                 }else {
@@ -233,7 +312,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             if(view instanceof FilterBlockView.VarietyEpisode){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
+            EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, preferenceSource, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

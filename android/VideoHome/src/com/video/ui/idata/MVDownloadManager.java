@@ -241,12 +241,12 @@ public class MVDownloadManager {
             request.setVisibleInDownloadsUi(true);
             request.setShowRunningNotification(true);
             int downloadFlag = DownloadManager.Request.NETWORK_WIFI;
-            if(iDataORM.getBooleanValue(mContext, iDataORM.mobile_offline_hint, true) == false){
+            if(iDataORM.isOpenCellularOfflineHint(con) == false){
                 downloadFlag |=DownloadManager.Request.NETWORK_MOBILE;
             }
             request.setAllowedNetworkTypes(downloadFlag);
 
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, "video");
+            //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, "video");
             request.allowScanningByMediaScanner();
 
             request.setDestinationUri(Uri.fromFile(Environment.getDownloadCacheDirectory()));
