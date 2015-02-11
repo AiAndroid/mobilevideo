@@ -15,6 +15,7 @@ import com.android.volley.toolbox.VolleyHelper;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.CommonUrl;
@@ -29,10 +30,10 @@ public class EpisodePlayAdapter {
     private static String TAG = "PlayHelper";
 
     public interface EpisodeSourceListener{
-        public void playSource(boolean result, PlaySource ps);
+        public void playSource(boolean result, PlaySource ps, VideoItem item, DisplayItem.Media.Episode episode);
     }
 
-    public static void fetchEpisodeSource(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
+    public static void fetchEpisodeSource(final Context context, final TextView view, final VideoItem item , DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
         String id = episode.id;
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
@@ -45,7 +46,7 @@ public class EpisodePlayAdapter {
                 view.setText(preText);
                 Log.d(TAG, "play source:" + response);
 
-                el.playSource(true, response);
+                el.playSource(true, response, item, episode);
             }
         };
 
@@ -56,7 +57,7 @@ public class EpisodePlayAdapter {
 
                 Toast.makeText(context, "Server error: "+error, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "fail to fetch play source:"+error);
-                el.playSource(false, null);
+                el.playSource(false, null, item, episode);
             }
         };
 

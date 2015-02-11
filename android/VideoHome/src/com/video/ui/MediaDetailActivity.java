@@ -92,45 +92,16 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         public void onClick(View view) {
             if (mVidoeInfo != null) {
                 final VideoItem vi = mVidoeInfo.blocks.get(0);
-                //vi.target.entity = "pvideo";
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
-                        EpisodePlayAdapter.EpisodeSourceListener rl = new EpisodePlayAdapter.EpisodeSourceListener() {
-                            @Override
-                            public void playSource(boolean result, final PlaySource ps) {
-                                if(result == false)
-                                    return;
+                        //current episode
+                        DisplayItem.Media.Episode episode = vi.media.items.get(0);
 
-                                PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, ps.cp);
-                                mUrlLoader.get(30000, new PlayUrlLoader.H5OnloadListener() {
-                                    @Override
-                                    public void playUrlFetched(boolean result, String playurl, WebView webView) {
-                                        webView.destroy();
-
-                                        Log.d("download", "qiyi url:"+playurl);
-                                        if(TextUtils.isEmpty(playurl) == true)
-                                            return;
-
-                                        long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), vi, vi.media.items.get(0), playurl);
-                                        if(download_id == MVDownloadManager.DOWNLOAD_IN) {
-                                            Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
-                                        }
-                                        else if(download_id != -1) {
-                                            iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), vi.id, download_id, downapk, vi, vi.media.items.get(0));
-                                            MiPushClient.subscribe(getBaseContext(), vi.id, null);
-
-                                            Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
-                                        }else {
-                                            Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
-                                        }
-                                    }
-                                });
-                            }
-                        };
-
+                        //current select cp
                         DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
-                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, downCP, vi.media.items.get(0), rl);
+
+                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
                         break;
                     }
                     case R.id.detail_favorite: {
@@ -146,6 +117,41 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     }
                     break;
                 }
+            }
+        }
+    };
+
+    EpisodePlayAdapter.EpisodeSourceListener playSouceFetchListener = new EpisodePlayAdapter.EpisodeSourceListener() {
+        @Override
+        public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
+            if(result == false)
+                return;
+
+            PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, ps.cp);
+            mUrlLoader.get(30000, item, episode, h5LoadListener);
+        }
+    };
+
+    PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
+        @Override
+        public void playUrlFetched(boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
+            webView.destroy();
+
+            Log.d("download", "qiyi url:"+playurl);
+            if(TextUtils.isEmpty(playurl) == true)
+                return;
+
+            long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), item, episode, playurl);
+            if(download_id == MVDownloadManager.DOWNLOAD_IN) {
+                Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
+            }
+            else if(download_id != -1) {
+                iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), item.id, download_id, downapk, item, episode);
+                MiPushClient.subscribe(getBaseContext(), item.id, null);
+
+                Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
             }
         }
     };

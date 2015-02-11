@@ -21,6 +21,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.VideoItem;
 
 
 /**
@@ -49,11 +50,17 @@ public class PlayUrlLoader {
 	} 
 
 	public static interface H5OnloadListener{
-		public void playUrlFetched(boolean result, String playurl, WebView webView);
+		public void playUrlFetched(boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode);
 	}
 
 	private H5OnloadListener urlLoaderListener;
-	public void get(int timeout, H5OnloadListener listener){
+	private VideoItem mItem;
+	private DisplayItem.Media.Episode  mEpisode;
+
+	public void get(int timeout, VideoItem item, DisplayItem.Media.Episode episode, H5OnloadListener listener){
+		mItem    = item;
+		mEpisode = episode;
+
 		urlLoaderListener = listener;
 		mHandler.post(new Runnable() {
 			@Override
@@ -108,7 +115,7 @@ public class PlayUrlLoader {
 		public void onUrlUpdate(String htmlUrl, String url) {
 			mPlayUrl = url;
 
-			urlLoaderListener.playUrlFetched(true, mPlayUrl, mWebView);
+			urlLoaderListener.playUrlFetched(true, mPlayUrl, mWebView, mItem, mEpisode);
 		}
     };
 
