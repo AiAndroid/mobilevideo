@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -88,8 +89,7 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 				@Override
 				public void onRightClick() {
 				    if(episodeView.getSelectedEpisodeItems().size() > 0){
-
-						addToDownloadList(episodeView.getSelectedEpisodeItems());
+						addToDownloadInBG.execute();
 						Toast.makeText(mContext, R.string.download_add_success, Toast.LENGTH_SHORT).show();
 				    }else{
 						Toast.makeText(mContext, R.string.offline_no_selected_item_hint, Toast.LENGTH_SHORT).show();
@@ -103,9 +103,17 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 		}
 	}
 
+	AsyncTask  addToDownloadInBG = new AsyncTask() {
+		@Override
+		protected Object doInBackground(Object[] params) {
+			addToDownloadList(episodeView.getSelectedEpisodeItems());
+			return null;
+		}
+	};
 	//TODO
 	//we should use queue to add the list, do it one by one
 	private void addToDownloadList(ArrayList<DisplayItem.Media.Episode> episodes){
+
 		for(DisplayItem.Media.Episode episode: episodes) {
 			EpisodePlayAdapter.fetchOfflineEpisodeSource(mContext.getApplicationContext(), null, mMedias, cp, episode, createSourceLister());
 		}

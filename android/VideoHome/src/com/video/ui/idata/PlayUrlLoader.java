@@ -30,7 +30,7 @@ import com.tv.ui.metro.model.VideoItem;
  */
 public class PlayUrlLoader {
 	
-    private final static String TAG = "PlayUrlLoader";
+    private final static String TAG = "html5";
     
 	private String mHtml5;
 	private String mSource;

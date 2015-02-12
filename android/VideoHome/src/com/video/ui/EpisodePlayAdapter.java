@@ -129,8 +129,8 @@ public class EpisodePlayAdapter {
         intent.putExtra("media_poster_url", media.poster);
         intent.putExtra("media_set_name", episode.name);
         intent.putExtra("mediaTitle", media.name);
-        if(ps.app_info.size() != 0){
-            intent.putExtra("sdkinfo", gson.toJson(ps.app_info));
+        if(ps.app_info.has("vid") ==  true){
+            intent.putExtra("sdkinfo", ps.app_info.toString());
         }else {
             if(ps.cp.equals("sohu")) {
                 intent.putExtra("sdkinfo", String.format("{\"vid\":%1$s, \"resolutionmap\":1, \"site\":1}", ps.cp_id));

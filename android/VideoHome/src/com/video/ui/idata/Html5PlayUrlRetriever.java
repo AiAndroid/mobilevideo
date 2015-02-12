@@ -25,7 +25,7 @@ public class Html5PlayUrlRetriever {
 
 	}
 
-	private static final String TAG = "Html5PlayUrlRetriever";
+	private static final String TAG = "html5";
 	
 	private static final int URL_LOOP_INTERVAL_QIYI = 3000;
 	private static final int URL_LOOP_INTERVAL = 2000;
@@ -85,7 +85,11 @@ public class Html5PlayUrlRetriever {
     	if(!mReleased){
     		Log.i(TAG, "get video url");
     		mHandler.removeCallbacks(mGetVideoUrlRunnale);
-    		mHandler.postDelayed(mGetVideoUrlRunnale, delay);
+			if(step <= 60) {
+				mHandler.postDelayed(mGetVideoUrlRunnale, delay);
+			}else {
+				Log.d(TAG, "not find result for 60 times");
+			}
     	}
     }
     
@@ -158,11 +162,12 @@ public class Html5PlayUrlRetriever {
 		if(mSource.equals("iqiyi")){
 			mLogCat.interrupt();
 		}
-		
+
+		Log.d(TAG, "I am just released: "+this);
 	}
 	
 	private synchronized void notifyUrlReady(String pageUrl, String playUrl){
-		Log.d(TAG, "find url:"+playUrl + " this:"+this);
+		Log.d(TAG, "find url:"+playUrl + " this:"+this + " mReleased:"+mReleased );
 		if(mPlayUrlListener != null){
 			mPlayUrlListener.onUrlUpdate(pageUrl, playUrl);
 		}
@@ -212,6 +217,8 @@ public class Html5PlayUrlRetriever {
 			}
 			mLastUrl = playUrl;
 			onUrlFound(pageUrl, playUrl);
+
+			Log.d(TAG, "i am released: "+mReleased);
         }
     }
 	
