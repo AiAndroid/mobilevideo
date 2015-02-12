@@ -124,7 +124,13 @@ public class EpisodePlayAdapter {
         intent.putExtra("media_id", Integer.valueOf(ps.cp_id));
         intent.putExtra("media_clarity", 1);
         intent.putExtra("media_h5_url", ps.h5_url);
-        intent.putExtra("media_source", 8);
+
+        //TODO
+        if(ps.cp.equals("sohu"))
+            intent.putExtra("media_source", 3);
+        else
+            intent.putExtra("media_source", 8);
+
         intent.putExtra("available_episode_count", media.items.size());
         intent.putExtra("media_poster_url", media.poster);
         intent.putExtra("media_set_name", episode.name);
