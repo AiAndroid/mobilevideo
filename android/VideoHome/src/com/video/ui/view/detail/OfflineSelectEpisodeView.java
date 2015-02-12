@@ -103,46 +103,56 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 		}
 	}
 
+	//TODO
+	//we should use queue to add the list, do it one by one
 	private void addToDownloadList(ArrayList<DisplayItem.Media.Episode> episodes){
 		for(DisplayItem.Media.Episode episode: episodes) {
-			EpisodePlayAdapter.fetchOfflineEpisodeSource(mContext.getApplicationContext(), null, mMedias, cp, episode, playSouceFetchListener);
+			EpisodePlayAdapter.fetchOfflineEpisodeSource(mContext.getApplicationContext(), null, mMedias, cp, episode, createSourceLister());
 		}
 	}
 
-	EpisodePlayAdapter.EpisodeSourceListener playSouceFetchListener = new EpisodePlayAdapter.EpisodeSourceListener() {
-		@Override
-		public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
-			if(result == false)
-				return;
+	private EpisodePlayAdapter.EpisodeSourceListener createSourceLister(){
+		EpisodePlayAdapter.EpisodeSourceListener playSouceFetchListener = new EpisodePlayAdapter.EpisodeSourceListener() {
+			@Override
+			public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
+				if(result == false)
+					return;
 
-			PlayUrlLoader mUrlLoader = new PlayUrlLoader(mContext.getApplicationContext(), ps.h5_url, ps.cp);
-			mUrlLoader.get(30000, item, episode, h5LoadListener);
-		}
-	};
-
-	PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
-		@Override
-		public void playUrlFetched(boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
-			webView.destroy();
-
-			Log.d("download", "qiyi url:"+playurl);
-			if(TextUtils.isEmpty(playurl) == true)
-				return;
-
-			long download_id = MVDownloadManager.getInstance(mContext).requestDownload(mContext, item, episode, playurl);
-			if(download_id == MVDownloadManager.DOWNLOAD_IN) {
-				Toast.makeText(mContext, "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
+				PlayUrlLoader mUrlLoader = new PlayUrlLoader(mContext.getApplicationContext(), ps.h5_url, ps.cp);
+				mUrlLoader.get(30000, item, episode, createUrlLoader());
 			}
-			else if(download_id != -1) {
-				iDataORM.getInstance(mContext).addDownload(mContext, item.id, download_id, playurl, item, episode);
-				MiPushClient.subscribe(mContext, item.id, null);
+		};
 
-				Toast.makeText(mContext, "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
-			}else {
-				Toast.makeText(mContext, "add download fail", Toast.LENGTH_LONG).show();
+		return playSouceFetchListener;
+	}
+
+	private PlayUrlLoader.H5OnloadListener createUrlLoader() {
+
+		PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
+			@Override
+			public void playUrlFetched(PlayUrlLoader mLoader, boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
+				mLoader.release();
+
+				Log.d("download", "qiyi url:" + playurl);
+				if (TextUtils.isEmpty(playurl) == true)
+					return;
+
+				long download_id = MVDownloadManager.getInstance(mContext).requestDownload(mContext, item, episode, playurl);
+				if (download_id == MVDownloadManager.DOWNLOAD_IN) {
+					Toast.makeText(mContext, "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
+				} else if (download_id != -1) {
+					iDataORM.getInstance(mContext).addDownload(mContext, item.id, download_id, playurl, item, episode);
+					MiPushClient.subscribe(mContext, item.id, null);
+
+					Toast.makeText(mContext, "已经添加到队列，download id:" + download_id, Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(mContext, "add download fail", Toast.LENGTH_LONG).show();
+				}
 			}
-		}
-	};
+		};
+
+		return h5LoadListener;
+	}
 
 	View.OnClickListener episodeClick = new View.OnClickListener() {
 		@Override

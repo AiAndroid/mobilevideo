@@ -50,7 +50,7 @@ public class PlayUrlLoader {
 	} 
 
 	public static interface H5OnloadListener{
-		public void playUrlFetched(boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode);
+		public void playUrlFetched(PlayUrlLoader urlLoader, boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode);
 	}
 
 	private H5OnloadListener urlLoaderListener;
@@ -72,7 +72,11 @@ public class PlayUrlLoader {
 		});
 	}
 	
-	private void release(){
+	public void release(){
+		if(mUrlRetriever != null){
+			mUrlRetriever.release();
+		}
+
 		mHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
@@ -104,20 +108,18 @@ public class PlayUrlLoader {
     			mUrlRetriever.release();
     		}
     		mUrlRetriever = new Html5PlayUrlRetriever(webView, mSource);
-    		mUrlRetriever.setPlayUrlListener(mInnerUrlListener);
+    		mUrlRetriever.setPlayUrlListener(new Html5PlayUrlRetriever.PlayUrlListener(){
+				@Override
+				public void onUrlUpdate(String htmlUrl, String url) {
+					mPlayUrl = url;
+
+					urlLoaderListener.playUrlFetched(PlayUrlLoader.this, true, mPlayUrl, mWebView, mItem, mEpisode);
+				}
+			});
     		mUrlRetriever.setSkipAd(true);
     		mUrlRetriever.start();
     	}
     }
-    
-    private Html5PlayUrlRetriever.PlayUrlListener mInnerUrlListener = new Html5PlayUrlRetriever.PlayUrlListener(){
-		@Override
-		public void onUrlUpdate(String htmlUrl, String url) {
-			mPlayUrl = url;
-
-			urlLoaderListener.playUrlFetched(true, mPlayUrl, mWebView, mItem, mEpisode);
-		}
-    };
 
 	public class MyWebViewClient extends WebViewClient {
 		@Override
@@ -130,7 +132,7 @@ public class PlayUrlLoader {
 		public void onPageFinished(WebView view, String url) {
 			super.onPageFinished(view, url);
 			Log.d(TAG, "on page finish: " + url);
-			if(isQIYI) {
+			if(mSource.equals("iqiyi")) {
 				mUrlRetriever.startQiyiLoop();
 	    	} 
 		}

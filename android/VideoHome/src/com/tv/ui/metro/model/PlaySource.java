@@ -27,7 +27,7 @@ public class PlaySource implements Serializable{
     public  String pc_url;
     public  String sdk_url;
     public  String vid;
-    public  HashMap<String, Object> app_info;
+    public  HashMap<String, String> app_info;
     public  boolean offline;
 
     public String toString(){

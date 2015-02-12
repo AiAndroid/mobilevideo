@@ -372,7 +372,7 @@ public class iDataORM {
 
     public static boolean updateDownload(Context context, ContentValues ct) {
         boolean ret = false;
-        String where = String.format(" res_id = \'%1$s\' ", ct.get(ColumsCol.RES_ID));
+        String where = String.format(" res_id = \'%1$s\' and sub_id=\'%2$s\'", ct.get(ColumsCol.RES_ID), ct.get(ColumsCol.SUB_ID));
         if(context.getContentResolver().update(DOWNLOAD_CONTENT_URI, ct, where, null) > 0){
             ret = true;
         }

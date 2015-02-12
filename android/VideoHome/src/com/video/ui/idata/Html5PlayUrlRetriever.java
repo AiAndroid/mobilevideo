@@ -53,7 +53,8 @@ public class Html5PlayUrlRetriever {
 	public void setSkipAd(boolean skip){
 		mSkipAd = skip;
 	}
-	
+
+	private int step=0;
 	private void init(WebView webView, String source){
 		mSource = source;
 		mWebView = webView;
@@ -67,7 +68,10 @@ public class Html5PlayUrlRetriever {
 		if(mSource.equals("iqiyi")){//iqiyi
 			mLogCat.start();
 		}else{
+			step++;
         	getVideoUrlLoop(2000);
+
+			Log.d(TAG, "times step:"+step + " to fetch url:"+mSource);
 		}
 
 		mAutoPlay = true;
@@ -158,6 +162,7 @@ public class Html5PlayUrlRetriever {
 	}
 	
 	private synchronized void notifyUrlReady(String pageUrl, String playUrl){
+		Log.d(TAG, "find url:"+playUrl + " this:"+this);
 		if(mPlayUrlListener != null){
 			mPlayUrlListener.onUrlUpdate(pageUrl, playUrl);
 		}

@@ -167,10 +167,13 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
     PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
         @Override
-        public void playUrlFetched(boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
-            webView.destroy();
+        public void playUrlFetched(PlayUrlLoader mLoader, boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
+            mLoader.release();
+            try{
+                webView.destroy();
+            }catch (Exception ne){}
 
-            Log.d("download", "qiyi url:"+playurl);
+            Log.d("download", "download url:"+playurl);
             if(TextUtils.isEmpty(playurl) == true)
                 return;
 
