@@ -241,7 +241,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
     private DisplayItem.Media.CP findDownloadableCP( ArrayList<DisplayItem.Media.CP> cps){
         for(DisplayItem.Media.CP item:cps){
-            if(item.name.equals("sohu") || item.name.equals("fengxing") || item.offline == 1 ){
+            if(item.name.equals("sohu") || item.name.equals("fengxing") || item.vitem_offline == true ){
                 return item;
             }
         }
