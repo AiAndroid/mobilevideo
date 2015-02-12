@@ -2,6 +2,7 @@ package com.video.ui.view.detail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,10 +69,10 @@ public class EpisodeContainerView extends FrameLayout {
 
         PortBlockView view = new PortBlockView(vg.getContext(), item, new Integer(100));
         LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
-        flp.leftMargin = (vg.getWidth() - view.getDimens().width)/2;
+
         //no need background for offline
         if(ui_style == EPISODE_OFFLINE_UI_STYLE){
-            view.setBackground(null);
+            view.setBackgroundColor(Color.TRANSPARENT);
         }
 
         vg.addView(view, flp);
@@ -107,7 +108,11 @@ public class EpisodeContainerView extends FrameLayout {
         Block<VideoItem> item = new Block<VideoItem>();
         item.title = "episode";
         item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.linearlayout_episode;
+        if(ui_stytle == EPISODE_OFFLINE_UI_STYLE){
+            item.ui_type.id = LayoutConstant.linearlayout_episode_select;
+        }else {
+            item.ui_type.id = LayoutConstant.linearlayout_episode;
+        }
         item.ui_type.row_count     = 4;
         item.ui_type.display_count = 11;
         item.media = videoItem.media;

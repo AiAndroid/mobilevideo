@@ -184,6 +184,14 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 addOnePadding();
                 break;
             }
+            case LayoutConstant.linearlayout_episode_select:{
+                SelectItemsBlockView child = SelectItemsBlockView.createEpisodeSelectBlockView(getContext(), block.media.items, block.media.display_layout==null?12:block.media.display_layout.max_display);
+
+                addView(child);
+                getDimens().height += child.getDimens().height;
+                addOnePadding();
+                break;
+            }
             case LayoutConstant.linearlayout_search:{
                 SelectItemsBlockView child = SelectItemsBlockView.createSearchBlockView(getContext(), (ArrayList<com.tv.ui.metro.model.DisplayItem>) block.items, 12);
 

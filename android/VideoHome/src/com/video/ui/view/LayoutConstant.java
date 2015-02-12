@@ -25,7 +25,7 @@ public class LayoutConstant {
     public final static int linearlayout_filter_select_item = 213;//过滤器单个元素使用
     public final static int linearlayout_search             = 214;//search UI
     public final static int linearlayout_single_desc        = 215;//描述
-    public final static int linearlayout_title_offline      = 216;//-------offline title
+    public final static int linearlayout_episode_select     = 216;//-------episode enable select
 
 
 

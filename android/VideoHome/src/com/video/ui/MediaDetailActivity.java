@@ -41,6 +41,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
     private static String TAG = MediaDetailActivity.class.getName();
     private int loaderID;
     private TextView          playview ;
+    private TextView          detail_download;
     private View              favorView;
     private View              titlebar;
     private ImageView         mSourceSelectLogo;
@@ -99,7 +100,9 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         favorView.setSelected(exist);
 
         favorView.setOnClickListener(bottomClick);
-        findViewById(R.id.detail_download).setOnClickListener(bottomClick);
+        detail_download = (TextView) findViewById(R.id.detail_download);
+        detail_download.setOnClickListener(bottomClick);
+        detail_download.setEnabled(false);
 
         mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.root_container));
         mLoadingView.setOnRetryListener(retryLoadListener);
@@ -117,19 +120,20 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
-                        if(vi.media.items.size() == 1) {
-                            //current episode
-                            DisplayItem.Media.Episode episode = vi.media.items.get(0);
-
-                            //current select cp
-                            DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
-
-                            EpisodePlayAdapter.fetchOfflineEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
-                        }else {
-                            Intent intent = new Intent(getBaseContext(), OfflineSelectEpisodeView.class);
-                            intent.putExtra("item", vi);
-                            mOfflineSelectView = new OfflineSelectEpisodeView(MediaDetailActivity.this, intent);
-                            mOfflineSelectView.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+                        //current select cp
+                        DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
+                        if(downCP != null) {
+                            if (vi.media.items.size() == 1) {
+                                //current episode
+                                DisplayItem.Media.Episode episode = vi.media.items.get(0);
+                                EpisodePlayAdapter.fetchOfflineEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
+                            } else {
+                                Intent intent = new Intent(getBaseContext(), OfflineSelectEpisodeView.class);
+                                intent.putExtra("item", vi);
+                                intent.putExtra("cp",   downCP);
+                                mOfflineSelectView = new OfflineSelectEpisodeView(MediaDetailActivity.this, intent);
+                                mOfflineSelectView.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+                            }
                         }
                         break;
                     }
@@ -246,7 +250,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             }
         }
 
-        return cps.get(0);
+        return null;
     }
 
     @Override
@@ -286,6 +290,11 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
         preferenceSource = mVidoeInfo.blocks.get(0).media.cps.get(0);
         Picasso.with(getBaseContext()).load(preferenceSource.icon).into(mSourceSelectLogo);
+
+        DisplayItem.Media.CP downloadableCP = findDownloadableCP(mVidoeInfo.blocks.get(0).media.cps);
+        if(downloadableCP != null){
+            detail_download.setEnabled(true);
+        }
 
         setTitle(mVidoeInfo.blocks.get(0).title);
 

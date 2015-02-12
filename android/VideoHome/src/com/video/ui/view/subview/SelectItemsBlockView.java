@@ -17,6 +17,7 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.MetroLayout;
+import com.video.ui.view.detail.EpisodeContainerView;
 
 import java.util.ArrayList;
 
@@ -37,8 +38,6 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
     private ArrayList<DisplayItem.FilterItem>filtes;
     public static final int Filter_Type  = LayoutConstant.linearlayout_filter;
     public static final int Episode_Type = LayoutConstant.linearlayout_episode;
-    public static final int Episode_list_Type  = LayoutConstant.linearlayout_episode_list;
-    public static final int Filter_select_Type = LayoutConstant.linearlayout_filter_select;
 
     private OnClickListener mItemClick;
 
@@ -266,6 +265,69 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
     }
     private ArrayList<String> selectedItems = new ArrayList<String>();
 
+    public ArrayList<DisplayItem.Media.Episode> getSelectedEpisodeItems(){
+        return selectedEpisodes;
+    }
+    private ArrayList<DisplayItem.Media.Episode> selectedEpisodes = new ArrayList<DisplayItem.Media.Episode>();
+
+    public static SelectItemsBlockView createEpisodeSelectBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int maxVisible) {
+        final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
+        RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
+
+        final MetroLayout ml = new MetroLayout(context);
+        int step      = 0;
+        int row_count = 4;
+        int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
+
+        int itemHeight = 0;
+        for(VideoItem.Media.Episode episode: episodes) {
+            View convertView = View.inflate(context, R.layout.filter_check_item_layout, null);
+            convertView.setTag(episode);
+            convertView.setBackgroundResource(R.drawable.com_btn_bg);
+
+            final TextView mFiter = (TextView) convertView.findViewById(R.id.channel_filter_btn);
+            mFiter.setText(String.valueOf(episode.episode));
+            ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
+
+            final ImageView imageView = (ImageView) convertView.findViewById(R.id.channel_filter_selected);
+            convertView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (imageView.getVisibility() == VISIBLE) {
+                        imageView.setVisibility(GONE);
+                        mFiter.setTextColor(context.getResources().getColor(R.color.text_color_deep_dark));
+                        mFiter.setBackgroundResource(0);
+
+                        filterView.getSelectedEpisodeItems().remove((DisplayItem.Media.Episode) v.getTag());
+                    } else {
+
+                        filterView.getSelectedEpisodeItems().add((DisplayItem.Media.Episode) v.getTag());
+
+                        imageView.setVisibility(VISIBLE);
+                        mFiter.setTextColor(context.getResources().getColor(R.color.orange));
+                        mFiter.setBackgroundResource(R.drawable.editable_title_com_btn_bg_s);
+                    }
+
+                    if (filterView.getItemClick() != null) {
+                        filterView.getItemClick().onClick(v);
+                    }
+                }
+            });
+            step++;
+        }
+
+        if(itemHeight == 0){
+            itemHeight = context.getResources().getDimensionPixelSize(R.dimen.detail_ep_multy_btn_height);
+        }
+
+        filterView.getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, filterView.getDimens().height);
+        lp.addRule(CENTER_HORIZONTAL);
+        filterView.addView(ml, lp);
+
+        return filterView;
+    }
+
     public static SelectItemsBlockView createFilterSelectBlockView(final Context context, final DisplayItem.Filter.FilterType filterType, int maxVisible) {
         final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
@@ -289,9 +351,7 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
             convertView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (filterView.getItemClick() != null) {
-                        filterView.getItemClick().onClick(v);
-                    }
+
                     if (imageView.getVisibility() == VISIBLE) {
                         imageView.setVisibility(GONE);
                         mFiter.setTextColor(context.getResources().getColor(R.color.text_color_deep_dark));
@@ -321,6 +381,10 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
                                 }
                             }
                         }
+                    }
+
+                    if (filterView.getItemClick() != null) {
+                        filterView.getItemClick().onClick(v);
                     }
                 }
             });

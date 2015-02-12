@@ -39,12 +39,19 @@ public class EpisodePlayAdapter {
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
 
-        final String preText = (String) view.getText();
-        view.setText(context.getString(R.string.connecting));
+        String showText = "";
+        if(view != null) {
+            showText = (String) view.getText();
+            view.setText(context.getString(R.string.connecting));
+        }
+
+        final String preText = showText;
         Response.Listener<PlaySource> listener = new Response.Listener<PlaySource>() {
             @Override
             public void onResponse(PlaySource response) {
-                view.setText(preText);
+                if(view != null) {
+                    view.setText(preText==null?"":preText);
+                }
                 Log.d(TAG, "play source:" + response);
 
                 el.playSource(true, response, item, episode);
@@ -54,7 +61,9 @@ public class EpisodePlayAdapter {
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                view.setText(preText);
+                if(view != null) {
+                    view.setText(preText);
+                }
 
                 Toast.makeText(context, "Server error: "+error, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "fail to fetch play source:"+error);

@@ -41,7 +41,7 @@
      <ScrollView  android:layout_width="match_parent"
                   android:layout_height="0dp"
                   android:layout_weight="1"
-                  android:layout_marginLeft="@dimen/size_50"
+                  android:layout_marginLeft="@dimen/size_20"
                   android:layout_marginRight="@dimen/size_20"
                   android:scrollbarThumbVertical="@drawable/offline_video_drop_down_line">
          <com.video.ui.view.detail.EpisodeContainerView

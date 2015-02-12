@@ -177,6 +177,18 @@ public class DisplayItem implements Serializable{
             public int                     episode;
             public String                  id;
             public String                  name;
+
+            @Override
+            public boolean equals(Object obj) {
+                if(obj == null)
+                    return false;
+
+                if(obj instanceof Episode){
+                    return  ((Episode)obj).id.equals(id);
+                }
+
+                return  false;
+            }
         }
 
         public static class Stuff extends HashMap<String, ArrayList<Stuff.Star>>  implements Serializable{
