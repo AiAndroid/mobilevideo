@@ -121,4 +121,26 @@
     <!-- settings end -->
 
     <string name="no_sdcard_no_download">No enough storage, fail to request download.</string>
+
+    <string name="offline_loaded">Offline video</string>
+    <string name="storage_remain">"Available: "</string>
+    <string name="storage_total">"Total space: "</string>
+    <string name="offline_with">Offline (%d)</string>
+
+    <!-- download start -->
+    <string name="offline_no_source">"Can\'t view in offline mode"</string>
+    <string name="download_is_in_tasklist">In download queue</string>
+    <string name="download_add_success">Added to download queue</string>
+    <string name="offline_alert_title">Data usage</string>
+    <string name="good">OK</string>
+    <string name="offline_no_selected_item_hint">Choose a video</string>
+    <string name="offline_alert_wifi">You are using cellular network, to save your data usage, the caching tasks are paused and will be continue after you switch to wifi network.</string>
+    <string name="datastream_alert_play">Using your mobile data connection to watch videos will increase your data usage. If you go over your plan’s data usage limit, your carrier could charge you additional fees.</string>
+    <string name="datastream_alert_download">Using your mobile data connection to download videos will increase your data usage. If you go over your plan’s data usage limit, your carrier could charge you additional fees.</string>
+    <string name="datastream_alert_hint">You can turn off data usage notifications any time in Settings.</string>
+    <string name="datastream_alert_positive_button">Continue</string>
+    <string name="datastream_alert_negative_button">Cancel</string>
+    <string name="datastream_alert_title">Data usage warning</string>
+    <!-- download end -->
+
 </resources>

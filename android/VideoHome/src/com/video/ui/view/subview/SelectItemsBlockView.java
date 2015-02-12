@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +23,12 @@ import java.util.ArrayList;
 /**
  * Created by liuhuadong on 12/1/14.
  */
-public class FilterBlockView  extends BaseCardView implements DimensHelper {
-    public FilterBlockView(Context context, AttributeSet attrs, int defStyle) {
+public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
+    public SelectItemsBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public FilterBlockView(Context context){
+    public SelectItemsBlockView(Context context){
         this(context, null, 0);
     }
 
@@ -54,7 +53,7 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
 
     int mUIType = -1;
-    public FilterBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filtes, final int uiType, final Block<DisplayItem> block) {
+    public SelectItemsBlockView(final Context context, ArrayList<DisplayItem.FilterItem> filtes, final int uiType, final Block<DisplayItem> block) {
         super(context, null, 0);
         this.filtes = filtes;
         int selectIndex = 2;
@@ -152,8 +151,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         Root.addView(ml, lp);
     }
 
-    public static FilterBlockView createEpisodeButtonBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
-        final FilterBlockView filterView = new FilterBlockView(context);
+    public static SelectItemsBlockView createEpisodeButtonBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
+        final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
 
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
         MetroLayout ml = new MetroLayout(context);
@@ -202,8 +201,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
-    public static FilterBlockView createEpisodeListBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
-        final FilterBlockView filterView = new FilterBlockView(context);
+    public static SelectItemsBlockView createEpisodeListBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int selectIndex, int maxVisible) {
+        final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
         RelativeLayout Root = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
         MetroLayout ml = new MetroLayout(context);
 
@@ -267,8 +266,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
     }
     private ArrayList<String> selectedItems = new ArrayList<String>();
 
-    public static FilterBlockView createFilterSelectBlockView(final Context context, final DisplayItem.Filter.FilterType filterType, int maxVisible) {
-        final FilterBlockView filterView = new FilterBlockView(context);
+    public static SelectItemsBlockView createFilterSelectBlockView(final Context context, final DisplayItem.Filter.FilterType filterType, int maxVisible) {
+        final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
         final MetroLayout ml = new MetroLayout(context);
@@ -340,8 +339,8 @@ public class FilterBlockView  extends BaseCardView implements DimensHelper {
         return filterView;
     }
 
-    public static FilterBlockView createSearchBlockView(Context context,ArrayList<DisplayItem>items, int maxVisible) {
-        final FilterBlockView filterView = new FilterBlockView(context);
+    public static SelectItemsBlockView createSearchBlockView(Context context,ArrayList<DisplayItem>items, int maxVisible) {
+        final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
 
         MetroLayout ml = new MetroLayout(context);

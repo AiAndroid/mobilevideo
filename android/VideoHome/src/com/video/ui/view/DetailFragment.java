@@ -10,7 +10,7 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.view.detail.*;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -83,7 +83,7 @@ public class DetailFragment extends LoadingFragment {
 
             mPosterView.setImageUrlInfo(mItem.media.poster);
 
-            FilterBlockView fv = (FilterBlockView) EpisodePlayAdapter.findFilterBlockView(mEpisodeView);
+            SelectItemsBlockView fv = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(mEpisodeView);
             if(fv != null) {
                 fv.setOnPlayClickListener(episodeClickListener, null);
             }

@@ -3,7 +3,6 @@ package com.video.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.CommonUrl;
 import com.video.ui.utils.VideoUtils;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 /**
@@ -35,7 +34,7 @@ public class EpisodePlayAdapter {
         public void playSource(boolean result, PlaySource ps, VideoItem item, DisplayItem.Media.Episode episode);
     }
 
-    public static void fetchEpisodeSource(final Context context, final TextView view, final VideoItem item , DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
+    public static void fetchOfflineEpisodeSource(final Context context, final TextView view, final VideoItem item, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
         String id = episode.id;
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
@@ -125,7 +124,7 @@ public class EpisodePlayAdapter {
             intent.putExtra("sdkinfo", gson.toJson(ps.app_info));
         }else {
             if(ps.cp.equals("sohu")) {
-                intent.putExtra("sdkinfo", String.format("{\"vid\":%1$s, \"resolutionmap\":1, \"site\":1}", ps.vid));
+                intent.putExtra("sdkinfo", String.format("{\"vid\":%1$s, \"resolutionmap\":1, \"site\":1}", ps.cp_id));
             }else if(ps.cp.equals("iqiyi")){
                 intent.putExtra("sdkinfo", String.format("{\"vid\":\"%1$s\", \"resolutionmap\":1, \"site\":1}", ps.h5_url));
             }
@@ -144,14 +143,14 @@ public class EpisodePlayAdapter {
         if(view == null)
             return null;
 
-        if(FilterBlockView.class.isInstance(view ))
+        if(SelectItemsBlockView.class.isInstance(view ))
             return view;
 
         int size = view.getChildCount();
         for (int i=0;i<size;i++){
             View item =  view.getChildAt(i);
 
-            if(FilterBlockView.class.isInstance(item ))
+            if(SelectItemsBlockView.class.isInstance(item ))
                 return item;
 
             if(item instanceof ViewGroup){

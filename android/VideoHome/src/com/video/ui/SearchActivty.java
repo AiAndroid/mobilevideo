@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
-import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +18,8 @@ import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.view.LinearFrame;
-import com.video.ui.view.ListFragment;
-import com.video.ui.view.MetroFragment;
 import com.video.ui.view.SearchFragment;
-import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -230,7 +225,7 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
 
     @Override protected void afterUICreated(){
         ViewGroup fl = (ViewGroup) findViewById(R.id.root_container);
-        FilterBlockView fv = (FilterBlockView) EpisodePlayAdapter.findFilterBlockView(fl);
+        SelectItemsBlockView fv = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(fl);
         fv.setOnPlayClickListener(keywordClick, null);
     }
 

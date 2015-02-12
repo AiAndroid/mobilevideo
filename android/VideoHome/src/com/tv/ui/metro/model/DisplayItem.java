@@ -168,6 +168,7 @@ public class DisplayItem implements Serializable{
             public String icon;
             public String app_icon; //for download
             public String apk_url;  //for download
+            public int    offline; //
         }
 
         public static class Episode /*extends HashMap<String, String> */implements Serializable{

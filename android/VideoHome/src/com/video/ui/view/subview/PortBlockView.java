@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 
@@ -152,7 +151,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
             }
             case LayoutConstant.linearlayout_filter:{
 
-                FilterBlockView bv = new FilterBlockView(getContext(), block.filters.filters(), block.ui_type.id, (Block<DisplayItem>) block);
+                SelectItemsBlockView bv = new SelectItemsBlockView(getContext(), block.filters.filters(), block.ui_type.id, (Block<DisplayItem>) block);
 
                 addView(bv);
                 getDimens().height += bv.getDimens().height;
@@ -161,7 +160,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_episode:{
-                FilterBlockView bv = FilterBlockView.createEpisodeButtonBlockView(getContext(), block.media.items, 0,  block.media.display_layout==null?8:block.media.display_layout.max_display);
+                SelectItemsBlockView bv = SelectItemsBlockView.createEpisodeButtonBlockView(getContext(), block.media.items, 0,  block.media.display_layout==null?8:block.media.display_layout.max_display);
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
                 addView(bv, flp);
 
@@ -169,7 +168,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_episode_list:{
-                FilterBlockView bv = FilterBlockView.createEpisodeListBlockView(getContext(), block.media.items, 0, block.media.display_layout==null?4:block.media.display_layout.max_display);
+                SelectItemsBlockView bv = SelectItemsBlockView.createEpisodeListBlockView(getContext(), block.media.items, 0, block.media.display_layout==null?4:block.media.display_layout.max_display);
 
                 LayoutParams flp = new LayoutParams(LayoutParams.MATCH_PARENT,  bv.getDimens().height);
                 addView(bv, flp);
@@ -178,7 +177,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_filter_select:{
-                FilterBlockView child = FilterBlockView.createFilterSelectBlockView(getContext(), block.filters.all.get(0), 12);
+                SelectItemsBlockView child = SelectItemsBlockView.createFilterSelectBlockView(getContext(), block.filters.all.get(0), 12);
 
                 addView(child);
                 getDimens().height += child.getDimens().height;
@@ -186,7 +185,7 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 break;
             }
             case LayoutConstant.linearlayout_search:{
-                FilterBlockView child = FilterBlockView.createSearchBlockView(getContext(), (ArrayList<com.tv.ui.metro.model.DisplayItem>) block.items, 12);
+                SelectItemsBlockView child = SelectItemsBlockView.createSearchBlockView(getContext(), (ArrayList<com.tv.ui.metro.model.DisplayItem>) block.items, 12);
 
                 addView(child);
                 getDimens().height += child.getDimens().height;

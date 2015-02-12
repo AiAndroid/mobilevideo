@@ -1,6 +1,7 @@
 package com.video.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -8,10 +9,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,8 +26,9 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
 import com.video.ui.view.RetryView;
+import com.video.ui.view.detail.OfflineSelectEpisodeView;
 import com.video.ui.view.detail.SelectSourcePopup;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.ArrayList;
@@ -45,6 +44,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
     private View              favorView;
     private View              titlebar;
     private ImageView         mSourceSelectLogo;
+    private OfflineSelectEpisodeView mOfflineSelectView;
     private SelectSourcePopup    mSelectSourcePopup;
     private DisplayItem.Media.CP preferenceSource;
 
@@ -117,13 +117,20 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
                 switch (view.getId()) {
                     case R.id.detail_download: {
-                        //current episode
-                        DisplayItem.Media.Episode episode = vi.media.items.get(0);
+                        if(vi.media.items.size() == 1) {
+                            //current episode
+                            DisplayItem.Media.Episode episode = vi.media.items.get(0);
 
-                        //current select cp
-                        DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
+                            //current select cp
+                            DisplayItem.Media.CP downCP = findDownloadableCP(vi.media.cps);
 
-                        EpisodePlayAdapter.fetchEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
+                            EpisodePlayAdapter.fetchOfflineEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
+                        }else {
+                            Intent intent = new Intent(getBaseContext(), OfflineSelectEpisodeView.class);
+                            intent.putExtra("item", vi);
+                            mOfflineSelectView = new OfflineSelectEpisodeView(MediaDetailActivity.this, intent);
+                            mOfflineSelectView.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+                        }
                         break;
                     }
                     case R.id.detail_favorite: {
@@ -180,15 +187,12 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event){
-        if(event.getAction() == KeyEvent.ACTION_DOWN &&
-                event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-            /*
+        if(event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+
             if(mOfflineSelectView != null && mOfflineSelectView.isShowing()){
                 mOfflineSelectView.dismiss();
                 return true;
-            }else
-            */
-            if(mSelectSourcePopup != null && mSelectSourcePopup.isShowing()){
+            }else if(mSelectSourcePopup != null && mSelectSourcePopup.isShowing()){
                 mSelectSourcePopup.dismiss();
                 return true;
             }
@@ -237,7 +241,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
 
     private DisplayItem.Media.CP findDownloadableCP( ArrayList<DisplayItem.Media.CP> cps){
         for(DisplayItem.Media.CP item:cps){
-            if(item.name.equals("sohu") || item.name.equals("fengxing") ){
+            if(item.name.equals("sohu") || item.name.equals("fengxing") || item.offline == 1 ){
                 return item;
             }
         }
@@ -309,7 +313,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         @Override
         public void onClick(View view) {
             DisplayItem.Media.Episode ps = (DisplayItem.Media.Episode) view.getTag();
-            if(view instanceof FilterBlockView.VarietyEpisode){
+            if(view instanceof SelectItemsBlockView.VarietyEpisode){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
             EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, preferenceSource, ps, mVidoeInfo.blocks.get(0).media, mVidoeInfo.blocks.get(0));

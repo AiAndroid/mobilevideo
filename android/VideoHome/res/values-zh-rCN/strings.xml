@@ -121,4 +121,25 @@
     <!-- settings end -->
 
     <string name="no_sdcard_no_download">没有存储卡，下载失败</string>
+
+    <string name="offline_loaded">离线视频</string>
+    <string name="storage_remain">剩余空间：</string>
+    <string name="storage_total">总空间：</string>
+    <string name="offline_with">离线（%d）</string>
+
+    <!-- download start -->
+    <string name="offline_no_source">没有可用的离线源</string>
+    <string name="download_is_in_tasklist">该视频已在离线列表中</string>
+    <string name="download_add_success">已成功加入离线列表</string>
+    <string name="offline_alert_title">离线提示</string>
+    <string name="good">好</string>
+    <string name="offline_no_selected_item_hint">请选择要下载的集数</string>
+    <string name="offline_alert_wifi">您目前正在使用数据网络，为了节约您的流量，将在连接无线网络后自动为您离线视频</string>
+    <string name="datastream_alert_play">您在使用2G/3G/4G网络播放视频，可能产生较高流量费用</string>
+    <string name="datastream_alert_download">您在使用2G/3G/4G网络下载视频，可能产生较高流量费用</string>
+    <string name="datastream_alert_hint">您可在"设置-系统应用-视频"中,关闭该提示</string>
+    <string name="datastream_alert_positive_button">继续</string>
+    <string name="datastream_alert_negative_button">取消</string>
+    <string name="datastream_alert_title">流量提示</string>
+    <!-- download end -->
 </resources>

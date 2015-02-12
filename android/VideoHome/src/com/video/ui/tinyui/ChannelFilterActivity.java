@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
@@ -12,7 +11,7 @@ import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.view.FilterFragment;
 import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -100,8 +99,8 @@ public class ChannelFilterActivity extends DisplayItemActivity {
     ArrayList<String> selectedFilters = new ArrayList<String>();
 
     private void getSelectFilters(View view){
-        if (view instanceof FilterBlockView) {
-            selectedFilters.addAll(((FilterBlockView) view).getSelectedItems());
+        if (view instanceof SelectItemsBlockView) {
+            selectedFilters.addAll(((SelectItemsBlockView) view).getSelectedItems());
         }else if(view instanceof ViewGroup) {
             for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
                 View item = ((ViewGroup) view).getChildAt(i);

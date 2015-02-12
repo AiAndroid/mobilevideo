@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
-import com.tv.ui.metro.model.DisplayItem;
+import android.webkit.JavascriptInterface;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -168,26 +168,31 @@ public class Html5PlayUrlRetriever {
 	}
 
 	public class H5Object implements JSObject{
+		@JavascriptInterface
         public boolean isVideoReady() {
 			Log.d(TAG, "isVideoReady " + mVideoReady);
         	return mVideoReady;
         }
 
+		@JavascriptInterface
         public void onVideoReady() {
 			Log.d(TAG, "onVideoReady.");
         	mVideoReady = true;
         }
 
+		@JavascriptInterface
 		public boolean canAutoPlay(){
 			return true;
 		}
-		
+
+		@JavascriptInterface
 		public boolean canSkipAd(){
 			return mSkipAd;
 		}
 		
 		private String mLastUrl = null;
-		
+
+		@JavascriptInterface
         public void getUrl(final String pageUrl, final String playUrl, boolean neverAd) {
 			Log.d(TAG, "getUrl pageUrl = " + pageUrl + ", playUrl = " + playUrl);
 			if(playUrl.contains(".html")){

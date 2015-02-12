@@ -100,4 +100,10 @@
         <item name="android:textColor">@drawable/vp_source_item_color</item>
     </style>
 
+    <style name="vertical_popup_anim_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/vp_menu_popup_enter_vertical</item>
+        <item name="android:windowExitAnimation">@anim/vp_menu_popup_exit_vertical</item>
+        <item name="android:popupBackground">@color/option_menu_background</item>
+    </style>
+
 </resources>

@@ -2,7 +2,6 @@ package com.video.ui.view;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.Button;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
@@ -53,10 +52,10 @@ public class ViewCreateFactory {
                 view = new BlockLinearButtonView(context, item.items, tag);
                 break;
             case LayoutConstant.linearlayout_filter:
-                view = new FilterBlockView(context, item.filters.filters(), FilterBlockView.Filter_Type, item);
+                view = new SelectItemsBlockView(context, item.filters.filters(), SelectItemsBlockView.Filter_Type, item);
                 break;
             case LayoutConstant.linearlayout_episode:
-                view = new FilterBlockView(context, item.filters.filters(), FilterBlockView.Episode_Type, item);
+                view = new SelectItemsBlockView(context, item.filters.filters(), SelectItemsBlockView.Episode_Type, item);
                 break;
             case LayoutConstant.grid_media_land:
             case LayoutConstant.grid_media_port:

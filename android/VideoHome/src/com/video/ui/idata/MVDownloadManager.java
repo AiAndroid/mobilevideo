@@ -249,7 +249,7 @@ public class MVDownloadManager {
             //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, "video");
             request.allowScanningByMediaScanner();
 
-            request.setDestinationUri(Uri.fromFile(Environment.getDownloadCacheDirectory()));
+            request.setDestinationUri(Uri.fromFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES)));
 
             if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.HONEYCOMB){
                 try{

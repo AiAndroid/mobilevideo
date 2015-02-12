@@ -30,9 +30,68 @@ public class EpisodeContainerView extends FrameLayout {
 		super(context, attrs, defStyle);
 	}
 
+    public static final int EPISODE_BUTTON_UI_STYLE  = 0;
+    public static final int EPISODE_OFFLINE_UI_STYLE = 1;
+
     public void setVideo(VideoItem videoItem){
+        setVideo(videoItem, EPISODE_BUTTON_UI_STYLE);
+    }
+
+    public void setVideo(VideoItem videoItem, int uiStyle){
         this.removeAllViews();
-        createEpisodeView(getContext(), videoItem, this);
+        createEpisodeView(getContext(), videoItem, this, uiStyle);
+    }
+
+    //init
+    public static void createEpisodeView(Context context, final VideoItem videoItem, final ViewGroup vg, int ui_style) {
+        Block<VideoItem> item = new Block<VideoItem>();
+        item.ui_type = new DisplayItem.UI();
+        item.ui_type.id = LayoutConstant.block_sub_channel;
+        item.blocks = new ArrayList<Block<VideoItem>>();
+        //add title
+        if(ui_style == EPISODE_BUTTON_UI_STYLE) {
+            item.blocks.add(createTitleBlock(context, videoItem));
+        }
+
+        //add content
+        if(videoItem.media.display_layout != null && ("variety").equals(videoItem.media.display_layout.type)){
+            item.blocks.add(createListEpisodeBlock(videoItem));
+        }else {
+            item.blocks.add(createEpisodeBlock(videoItem, ui_style));
+        }
+
+        //add more button
+        if(ui_style == EPISODE_BUTTON_UI_STYLE && videoItem.media.items.size() > videoItem.media.display_layout.max_display ) {
+            item.blocks.add(createLineBlock(context, videoItem));
+        }
+
+
+        PortBlockView view = new PortBlockView(vg.getContext(), item, new Integer(100));
+        LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
+        flp.leftMargin = (vg.getWidth() - view.getDimens().width)/2;
+        //no need background for offline
+        if(ui_style == EPISODE_OFFLINE_UI_STYLE){
+            view.setBackground(null);
+        }
+
+        vg.addView(view, flp);
+
+        Button mAllEpisode = (Button) view.findViewById(R.id.enter_button);
+        if(mAllEpisode != null){
+            mAllEpisode.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(vg.getContext(), AllEpisodeActivity.class);
+                    videoItem.media.display_layout.max_display = 1000;
+                    videoItem.title = String.format("1-%1$s集", videoItem.media.items.size());
+                    //TODO
+                    //we should choose the cp from user selection
+                    intent.putExtra("cp",   videoItem.media.cps.get(0));
+                    intent.putExtra("item", videoItem);
+                    vg.getContext().startActivity(intent);
+                }
+            });
+        }
     }
 
     private static Block<VideoItem> createTitleBlock(Context context, VideoItem videoItem){
@@ -44,7 +103,7 @@ public class EpisodeContainerView extends FrameLayout {
     }
 
 
-    private static Block<VideoItem> createEpisodeBlock(VideoItem videoItem) {
+    private static Block<VideoItem> createEpisodeBlock(VideoItem videoItem, int ui_stytle) {
         Block<VideoItem> item = new Block<VideoItem>();
         item.title = "episode";
         item.ui_type = new DisplayItem.UI();
@@ -52,6 +111,12 @@ public class EpisodeContainerView extends FrameLayout {
         item.ui_type.row_count     = 4;
         item.ui_type.display_count = 11;
         item.media = videoItem.media;
+
+        //TODO
+        //performance issue
+        if(ui_stytle == EPISODE_OFFLINE_UI_STYLE){
+            item.media.display_layout.max_display = 1000;
+        }
 
         return item;
     }
@@ -85,46 +150,5 @@ public class EpisodeContainerView extends FrameLayout {
 
 
 
-	//init
-	public static void createEpisodeView(Context context, final VideoItem videoItem, final ViewGroup vg) {
-        Block<VideoItem> item = new Block<VideoItem>();
-        item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.block_sub_channel;
-        item.blocks = new ArrayList<Block<VideoItem>>();
-        item.blocks.add(createTitleBlock(context, videoItem));
 
-        if(videoItem.media.display_layout != null && ("variety").equals(videoItem.media.display_layout.type)){
-            item.blocks.add(createListEpisodeBlock(videoItem));
-        }else {
-            item.blocks.add(createEpisodeBlock(videoItem));
-        }
-
-        if(videoItem.media.items.size() > videoItem.media.display_layout.max_display ) {
-            item.blocks.add(createLineBlock(context, videoItem));
-        }
-
-
-        PortBlockView view = new PortBlockView(vg.getContext(), item, new Integer(100));
-        LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(view.getDimens().width, view.getDimens().height );
-
-        vg.addView(view, flp);
-
-        Button mAllEpisode = (Button) view.findViewById(R.id.enter_button);
-
-        if(mAllEpisode != null){
-            mAllEpisode.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(vg.getContext(), AllEpisodeActivity.class);
-                    videoItem.media.display_layout.max_display = 1000;
-                    videoItem.title = String.format("1-%1$s集", videoItem.media.items.size());
-                    //TODO
-                    //we should choose the cp from user selection
-                    intent.putExtra("cp",   videoItem.media.cps.get(0));
-                    intent.putExtra("item", videoItem);
-                    vg.getContext().startActivity(intent);
-                }
-            });
-        }
-	}
 }

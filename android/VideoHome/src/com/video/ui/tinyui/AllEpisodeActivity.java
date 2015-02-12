@@ -11,7 +11,7 @@ import com.video.ui.DisplayItemActivity;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.view.detail.EpisodeContainerView;
-import com.video.ui.view.subview.FilterBlockView;
+import com.video.ui.view.subview.SelectItemsBlockView;
 
 /**
  * Created by liuhuadonbg on 1/26/15.
@@ -32,9 +32,9 @@ public class AllEpisodeActivity extends DisplayItemActivity {
         setTitle(getString(R.string.all_episode));
         ViewGroup vg = (ViewGroup) findViewById(R.id.episode_container);
 
-        EpisodeContainerView.createEpisodeView(getBaseContext(), (VideoItem) item, vg);
+        EpisodeContainerView.createEpisodeView(getBaseContext(), (VideoItem) item, vg, EpisodeContainerView.EPISODE_BUTTON_UI_STYLE);
 
-        FilterBlockView fv = (FilterBlockView) EpisodePlayAdapter.findFilterBlockView(vg);
+        SelectItemsBlockView fv = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(vg);
         fv.setOnPlayClickListener(episodeClick, null);
 
     }
@@ -44,7 +44,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
         @Override
         public void onClick(View view) {
             DisplayItem.Media.Episode ps = (DisplayItem.Media.Episode) view.getTag();
-            if(view instanceof FilterBlockView.VarietyEpisode ){
+            if(view instanceof SelectItemsBlockView.VarietyEpisode ){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
             EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);

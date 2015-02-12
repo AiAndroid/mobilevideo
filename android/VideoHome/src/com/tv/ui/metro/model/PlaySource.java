@@ -27,7 +27,7 @@ public class PlaySource implements Serializable{
     public  String pc_url;
     public  String sdk_url;
     public  String vid;
-    public HashMap<String, String> app_info;
+    public  HashMap<String, Object> app_info;
 
     public String toString(){
         return "cp: "+cp + " cp_id:"+cp_id + " h5_url:"+h5_url + " id:"+id + " pc_url:"+pc_url + " sdk_url:"+sdk_url + " vid:"+vid + " app_info:"+app_info;
