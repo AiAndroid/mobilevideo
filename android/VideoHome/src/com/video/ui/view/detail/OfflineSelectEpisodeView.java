@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +19,7 @@ import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
-import com.video.ui.idata.MVDownloadManager;
-import com.video.ui.idata.MediaUrlForPlayerUtil;
-import com.video.ui.idata.PlayUrlLoader;
-import com.video.ui.idata.iDataORM;
+import com.video.ui.idata.*;
 import com.video.ui.push.Util;
 import com.video.ui.view.subview.SelectItemsBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -128,73 +126,8 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 	private void addToDownloadList(ArrayList<DisplayItem.Media.Episode> episodes){
 
 		for(DisplayItem.Media.Episode episode: episodes) {
-			EpisodePlayAdapter.fetchOfflineEpisodeSource(mContext.getApplicationContext(), null, mMedias, cp, episode, createSourceLister());
+			OfflineDownload.startDownloadTask(mContext.getApplicationContext(), null, mMedias, cp, episode, OfflineDownload.createSourceLister(mContext.getApplicationContext()));
 		}
-	}
-
-	private EpisodePlayAdapter.EpisodeSourceListener createSourceLister(){
-		EpisodePlayAdapter.EpisodeSourceListener playSouceFetchListener = new EpisodePlayAdapter.EpisodeSourceListener() {
-			@Override
-			public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
-				if(result == false)
-					return;
-
-				MediaUrlForPlayerUtil mediaUrlForPlayerUtil = new MediaUrlForPlayerUtil(mContext.getApplicationContext());
-				mediaUrlForPlayerUtil.getMediaUrlForPlayer(ps.h5_url, ps.cp, createPlayUrlObserver());
-
-				//PlayUrlLoader mUrlLoader = new PlayUrlLoader(mContext.getApplicationContext(), ps.h5_url, ps.cp);
-				//mUrlLoader.get(30000, item, episode, createUrlLoader());
-			}
-		};
-
-		return playSouceFetchListener;
-	}
-
-	private MediaUrlForPlayerUtil.PlayUrlObserver createPlayUrlObserver(){
-		MediaUrlForPlayerUtil.PlayUrlObserver playUrlObserver = new MediaUrlForPlayerUtil.PlayUrlObserver() {
-			@Override
-			public void onUrlUpdate(String playUrl, String html5Url) {
-				Log.d("html5", "onUrlUpdate: "+html5Url);
-			}
-
-			@Override
-			public void onError() {
-				Log.d("html5", "onError");
-			}
-
-			@Override
-			public void onReleaseLock() {
-				Log.d("html5", "onReleaseLock");
-			}
-		};
-		return playUrlObserver;
-	}
-	private PlayUrlLoader.H5OnloadListener createUrlLoader() {
-
-		PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
-			@Override
-			public void playUrlFetched(PlayUrlLoader mLoader, boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
-				mLoader.release();
-
-				Log.d("download", "qiyi url:" + playurl);
-				if (TextUtils.isEmpty(playurl) == true)
-					return;
-
-				long download_id = MVDownloadManager.getInstance(mContext).requestDownload(mContext, item, episode, playurl);
-				if (download_id == MVDownloadManager.DOWNLOAD_IN) {
-					Toast.makeText(mContext, "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
-				} else if (download_id != -1) {
-					iDataORM.getInstance(mContext).addDownload(mContext, item.id, download_id, playurl, item, episode);
-					MiPushClient.subscribe(mContext, item.id, null);
-
-					Toast.makeText(mContext, "已经添加到队列，download id:" + download_id, Toast.LENGTH_LONG).show();
-				} else {
-					Toast.makeText(mContext, "add download fail", Toast.LENGTH_LONG).show();
-				}
-			}
-		};
-
-		return h5LoadListener;
 	}
 
 	View.OnClickListener episodeClick = new View.OnClickListener() {

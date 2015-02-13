@@ -13,9 +13,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
+import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 
 import com.video.ui.utils.VideoUtils;

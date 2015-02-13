@@ -22,6 +22,7 @@ import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoBlocks;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.idata.MVDownloadManager;
+import com.video.ui.idata.OfflineDownload;
 import com.video.ui.idata.PlayUrlLoader;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
@@ -127,7 +128,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                             if (vi.media.items.size() == 1) {
                                 //current episode
                                 DisplayItem.Media.Episode episode = vi.media.items.get(0);
-                                EpisodePlayAdapter.fetchOfflineEpisodeSource(getBaseContext(), (TextView) view, vi, downCP, episode, playSouceFetchListener);
+                                OfflineDownload.startDownloadTask(getBaseContext(), (TextView) view, vi, downCP, episode, OfflineDownload.createSourceLister(getApplicationContext()));
                             } else {
                                 Intent intent = new Intent(getBaseContext(), OfflineSelectEpisodeView.class);
                                 intent.putExtra("item", vi);
@@ -151,44 +152,6 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                     }
                     break;
                 }
-            }
-        }
-    };
-
-    EpisodePlayAdapter.EpisodeSourceListener playSouceFetchListener = new EpisodePlayAdapter.EpisodeSourceListener() {
-        @Override
-        public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
-            if(result == false)
-                return;
-
-            PlayUrlLoader mUrlLoader = new PlayUrlLoader(getBaseContext(), ps.h5_url, ps.cp);
-            mUrlLoader.get(30000, item, episode, h5LoadListener);
-        }
-    };
-
-    PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
-        @Override
-        public void playUrlFetched(PlayUrlLoader mLoader, boolean result, String playurl, WebView webView, VideoItem item, DisplayItem.Media.Episode episode) {
-            mLoader.release();
-            try{
-                webView.destroy();
-            }catch (Exception ne){}
-
-            Log.d("download", "download url:"+playurl);
-            if(TextUtils.isEmpty(playurl) == true)
-                return;
-
-            long download_id = MVDownloadManager.getInstance(getBaseContext()).requestDownload(getBaseContext(), item, episode, playurl);
-            if(download_id == MVDownloadManager.DOWNLOAD_IN) {
-                Toast.makeText(getBaseContext(), "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
-            }
-            else if(download_id != -1) {
-                iDataORM.getInstance(getBaseContext()).addDownload(getBaseContext(), item.id, download_id, downapk, item, episode);
-                MiPushClient.subscribe(getBaseContext(), item.id, null);
-
-                Toast.makeText(getBaseContext(), "已经添加到队列，download id:"+download_id, Toast.LENGTH_LONG).show();
-            }else {
-                Toast.makeText(getBaseContext(), "add download fail", Toast.LENGTH_LONG).show();
             }
         }
     };

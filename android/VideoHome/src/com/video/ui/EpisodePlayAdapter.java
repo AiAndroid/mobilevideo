@@ -30,54 +30,6 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 public class EpisodePlayAdapter {
     private static String TAG = "PlayHelper";
 
-    public interface EpisodeSourceListener{
-        public void playSource(boolean result, PlaySource ps, VideoItem item, DisplayItem.Media.Episode episode);
-    }
-
-    public static void fetchOfflineEpisodeSource(final Context context, final TextView view, final VideoItem item, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
-        String id = episode.id;
-        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
-        String calledURL = new CommonUrl(context).addCommonParams(url);
-
-        String showText = "";
-        if(view != null) {
-            showText = (String) view.getText();
-            view.setText(context.getString(R.string.connecting));
-        }
-
-        final String preText = showText;
-        Response.Listener<PlaySource> listener = new Response.Listener<PlaySource>() {
-            @Override
-            public void onResponse(PlaySource response) {
-                if(view != null) {
-                    view.setText(preText==null?"":preText);
-                }
-                Log.d(TAG, "play source:" + response);
-
-                el.playSource(true, response, item, episode);
-            }
-        };
-
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if(view != null) {
-                    view.setText(preText);
-                }
-
-                Toast.makeText(context, "Server error: "+error, Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "fail to fetch play source:"+error);
-                el.playSource(false, null, item, episode);
-            }
-        };
-
-        RequestQueue requestQueue = VolleyHelper.getInstance(context).getAPIRequestQueue();
-        BaseGsonLoader.GsonRequest<PlaySource> gsonRequest = new BaseGsonLoader.GsonRequest<PlaySource>(calledURL, new TypeToken<PlaySource>(){}.getType(), null, listener, errorListener);
-        gsonRequest.setCacheNeed(context.getCacheDir() + "/" + id + ".playsource.cache");
-        gsonRequest.setShouldCache(false);
-        requestQueue.add(gsonRequest);
-    }
-
     public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media, final DisplayItem item){
         String id = episode.id;
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;

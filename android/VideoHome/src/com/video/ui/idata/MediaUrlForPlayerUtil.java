@@ -10,6 +10,8 @@ import android.view.KeyEvent;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.VideoItem;
 
 public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListener {
 	private static final String TAG = MediaUrlForPlayerUtil.class.getName();
@@ -39,11 +41,14 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
     	    mUrlRetriever.start();
         }
     }
-	
-	public synchronized void getMediaUrlForPlayer(String  h5_url, String source, PlayUrlObserver observer) {
+	private VideoItem mItem;
+	private DisplayItem.Media.Episode mEpisode;
+	public synchronized void getMediaUrlForPlayer(String  h5_url, String source, VideoItem item, DisplayItem.Media.Episode episode, PlayUrlObserver observer) {
 		Log.d(TAG, "public get media url for player");
 		tearDown();
 		this.source = source;
+		mItem = item;
+		mEpisode = episode;
 
 		setObserver(observer);
 		getPlayerUrl(h5_url);
@@ -91,7 +96,7 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
 	
 	private synchronized void onGetPlayerUrlFinish(String playUrl, String html5Url) {
 		if(mObserver != null){
-			mObserver.onUrlUpdate(playUrl, html5Url);
+			mObserver.onUrlUpdate(playUrl, html5Url, mItem, mEpisode);
 		}
 		tearDown();
 	}
@@ -181,7 +186,7 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
 	}
 
 	public interface PlayUrlObserver {
-		public void onUrlUpdate(String playUrl, String html5Url);
+		public void onUrlUpdate(String playUrl, String html5Url, VideoItem item, DisplayItem.Media.Episode episode);
 		public void onError();
 		public void onReleaseLock();
 	}
