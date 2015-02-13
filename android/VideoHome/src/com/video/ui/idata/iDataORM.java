@@ -315,8 +315,10 @@ public class iDataORM {
     private static final int NOT_FINISHED=0;
     public static void downloadFinished(Context context, int download_id){
         ActionRecord ar = getDowndloadByDID(context, download_id);
-        ar.download_status = FINISHED;
-        updateDownload(context, actionRecordToContentValues(ar));
+        if(ar != null) {
+            ar.download_status = FINISHED;
+            updateDownload(context, actionRecordToContentValues(ar));
+        }
     }
 
     public static ActionRecord getDowndloadByDID(Context context, int download_id){

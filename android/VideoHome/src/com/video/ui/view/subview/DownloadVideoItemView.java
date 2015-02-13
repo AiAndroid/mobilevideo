@@ -103,9 +103,9 @@ public class DownloadVideoItemView extends RelativeLayout {
                                 break;
                         }
 
-                        subtitle.setText(String.format("%1$sm/%2$sm", itemData.recv/(1024.0*1024.0), itemData.total/(1024.0*1024.0)));
+                        subtitle.setText(String.format("%.1fm/%.1fm", itemData.recv/(1024.0*1024.0), itemData.total/(1024.0*1024.0)));
                         download_reason.setText("reason");
-                        download_per.setText(String.format("%1$s%", (itemData.recv*100)/itemData.total));
+                        download_per.setText(String.format("%1$s", String.valueOf((itemData.recv*100)/itemData.total))+"%");
 
                     }
                 });
