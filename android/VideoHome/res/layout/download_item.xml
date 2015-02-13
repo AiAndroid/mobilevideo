@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/top_heat_icon" />
+                android:src="@drawable/btn_menu_n" />
 
             <TextView
                 android:id="@+id/channel_rank_item_hot"
@@ -89,9 +89,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/size_10"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text="98%"/>
+                android:text="0%"/>
         </LinearLayout>
 
         <TextView

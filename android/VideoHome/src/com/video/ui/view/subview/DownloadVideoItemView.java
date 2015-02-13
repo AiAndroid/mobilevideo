@@ -103,8 +103,9 @@ public class DownloadVideoItemView extends RelativeLayout {
                                 break;
                         }
 
-                        subtitle.setText(String.format("%1$s/%2$s", itemData.recv, itemData.total));
+                        subtitle.setText(String.format("%1$sm/%2$sm", itemData.recv/(1024.0*1024.0), itemData.total/(1024.0*1024.0)));
                         download_reason.setText("reason");
+                        download_per.setText(String.format("%1$s%", (itemData.recv*100)/itemData.total));
 
                     }
                 });
@@ -119,6 +120,7 @@ public class DownloadVideoItemView extends RelativeLayout {
     private View      convertView;
     private ImageView poster;
     private TextView title;
+    private TextView download_per;
 
     private MVDownloadManager.DownloadTablePojo downloadStatus;
 
@@ -143,6 +145,7 @@ public class DownloadVideoItemView extends RelativeLayout {
         download_reason = (TextView) convertView.findViewById(R.id.download_reason);
         line = convertView.findViewById(R.id.channel_rank_item_line);
         padding = convertView.findViewById(R.id.channel_rank_item_padding);
+        download_per = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
 
         place.setOnClickListener(new OnClickListener() {
             @Override

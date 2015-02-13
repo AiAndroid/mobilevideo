@@ -177,6 +177,7 @@ public class DisplayItem implements Serializable{
             public int                     episode;
             public String                  id;
             public String                  name;
+            public int                     download_trys=0;
 
             @Override
             public boolean equals(Object obj) {
@@ -188,6 +189,10 @@ public class DisplayItem implements Serializable{
                 }
 
                 return  false;
+            }
+
+            public String toString(){
+                return "episode:"+episode + " id:"+id + " name:"+name+ " date:"+date;
             }
         }
 

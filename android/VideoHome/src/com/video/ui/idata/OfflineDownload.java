@@ -52,8 +52,8 @@ public class OfflineDownload {
     }
 
     public void startDownloadTask(final TextView view, final EpisodeSourceListener el){
-        mItem.download_trys++;
-        Log.d(TAG, "start download retry times: "+mItem.download_trys);
+        mEpisode.download_trys++;
+        Log.d(TAG, "start download retry times: "+mEpisode.download_trys);
 
         String id = mEpisode.id;
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(mEpisode.id) + "&cp="+mCP.cp;
@@ -141,8 +141,8 @@ public class OfflineDownload {
 
             @Override
             public void onError(VideoItem item, DisplayItem.Media.Episode episode) {
-                Log.d(TAG,  "onError try times:"+item.download_trys);
-                if(item.download_trys < 5){
+                Log.d(TAG,  "onError try times:"+mEpisode.download_trys);
+                if(mEpisode.download_trys < 5){
                     //relaunch the fetch
                     OfflineDownload od = tasks.get(item.id);
 
@@ -178,20 +178,20 @@ public class OfflineDownload {
     }
 
     private void appendDownload(Context context, String playurl, VideoItem item, DisplayItem.Media.Episode episode){
-        Log.d(TAG,  "qiyi url:" + playurl);
+        Log.d(TAG,  "append url:" + playurl + " episode:"+episode);
         if (TextUtils.isEmpty(playurl) == true)
             return;
 
         long download_id = MVDownloadManager.getInstance(context).requestDownload(context, item, episode, playurl);
         if (download_id == MVDownloadManager.DOWNLOAD_IN) {
-            Toast.makeText(context, "已经添加到队列，下载中", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, String.format("您已经添加\"%1$s\"到下载队列", episode.name), Toast.LENGTH_LONG).show();
         } else if (download_id != -1) {
             iDataORM.getInstance(context).addDownload(context, item.id, download_id, playurl, item, episode);
             MiPushClient.subscribe(context, item.id, null);
 
-            Toast.makeText(context, "已经添加到队列，download id:" + download_id, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, String.format("已经添加\"%1$s\"到下载队列，单号:%2$s", episode.name, download_id), Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(context, "add download fail", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, String.format("下载\"%1$s\"失败，请稍后重试", episode.name), Toast.LENGTH_LONG).show();
         }
     }
 }
