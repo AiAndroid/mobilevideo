@@ -239,7 +239,7 @@ public class MVDownloadManager {
             //request.setMimeType("application/vnd.android.package-archive");
             request.setMimeType(VideoUtils.getMimeType(url));
 
-            request.setTitle(video.title);
+            request.setTitle(episode.name);
             request.setVisibleInDownloadsUi(true);
             request.setShowRunningNotification(true);
             int downloadFlag = DownloadManager.Request.NETWORK_WIFI;
