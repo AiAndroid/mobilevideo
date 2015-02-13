@@ -19,6 +19,7 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.idata.MVDownloadManager;
+import com.video.ui.idata.MediaUrlForPlayerUtil;
 import com.video.ui.idata.PlayUrlLoader;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.push.Util;
@@ -91,16 +92,28 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 				    if(episodeView.getSelectedEpisodeItems().size() > 0){
 						addToDownloadInBG.execute();
 						Toast.makeText(mContext, R.string.download_add_success, Toast.LENGTH_SHORT).show();
+
+						resetMainWindowAlpha();
+						dismiss();
 				    }else{
 						Toast.makeText(mContext, R.string.offline_no_selected_item_hint, Toast.LENGTH_SHORT).show();
 				    }
 				}
 				@Override
 				public void onLeftClick() {
+					resetMainWindowAlpha();
 					dismiss();
 				}
 			});
+
+			mButtonPair.setRightText(R.string.offline);
 		}
+	}
+
+	private void resetMainWindowAlpha(){
+		WindowManager.LayoutParams lp = ((Activity)mContext).getWindow().getAttributes();
+		lp.alpha = 1.0f;
+		((Activity)mContext).getWindow().setAttributes(lp);
 	}
 
 	AsyncTask  addToDownloadInBG = new AsyncTask() {
@@ -126,14 +139,36 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 				if(result == false)
 					return;
 
-				PlayUrlLoader mUrlLoader = new PlayUrlLoader(mContext.getApplicationContext(), ps.h5_url, ps.cp);
-				mUrlLoader.get(30000, item, episode, createUrlLoader());
+				MediaUrlForPlayerUtil mediaUrlForPlayerUtil = new MediaUrlForPlayerUtil(mContext.getApplicationContext());
+				mediaUrlForPlayerUtil.getMediaUrlForPlayer(ps.h5_url, ps.cp, createPlayUrlObserver());
+
+				//PlayUrlLoader mUrlLoader = new PlayUrlLoader(mContext.getApplicationContext(), ps.h5_url, ps.cp);
+				//mUrlLoader.get(30000, item, episode, createUrlLoader());
 			}
 		};
 
 		return playSouceFetchListener;
 	}
 
+	private MediaUrlForPlayerUtil.PlayUrlObserver createPlayUrlObserver(){
+		MediaUrlForPlayerUtil.PlayUrlObserver playUrlObserver = new MediaUrlForPlayerUtil.PlayUrlObserver() {
+			@Override
+			public void onUrlUpdate(String playUrl, String html5Url) {
+				Log.d("html5", "onUrlUpdate: "+html5Url);
+			}
+
+			@Override
+			public void onError() {
+				Log.d("html5", "onError");
+			}
+
+			@Override
+			public void onReleaseLock() {
+				Log.d("html5", "onReleaseLock");
+			}
+		};
+		return playUrlObserver;
+	}
 	private PlayUrlLoader.H5OnloadListener createUrlLoader() {
 
 		PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {

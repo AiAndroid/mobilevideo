@@ -1,6 +1,7 @@
 package com.video.ui;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -197,6 +198,9 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
         if(event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK){
 
             if(mOfflineSelectView != null && mOfflineSelectView.isShowing()){
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 1.0f;
+                getWindow().setAttributes(lp);
                 mOfflineSelectView.dismiss();
                 return true;
             }else if(mSelectSourcePopup != null && mSelectSourcePopup.isShowing()){

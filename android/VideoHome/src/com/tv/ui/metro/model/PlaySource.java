@@ -25,6 +25,7 @@ import java.util.HashMap;
 public class PlaySource implements Serializable{
     private static final long serialVersionUID = 1L;
     public  String cp;
+    public  int    cp_code;
     public  String cp_id;
     public  String h5_url;
     public  String id;

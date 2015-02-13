@@ -125,16 +125,22 @@ public class EpisodePlayAdapter {
         intent.putExtra("media_clarity", 1);
         intent.putExtra("media_h5_url", ps.h5_url);
 
-        //TODO
-        if(ps.cp.equals("sohu"))
-            intent.putExtra("media_source", 3);
-        else
-            intent.putExtra("media_source", 8);
+        //cp code
+        if(ps.cp_code != 0){
+            intent.putExtra("media_source", ps.cp_code);
+        }else {
+            if (ps.cp.equals("sohu"))
+                intent.putExtra("media_source", 3);
+            else
+                intent.putExtra("media_source", 8);
+        }
 
         intent.putExtra("available_episode_count", media.items.size());
         intent.putExtra("media_poster_url", media.poster);
         intent.putExtra("media_set_name", episode.name);
         intent.putExtra("mediaTitle", media.name);
+
+        //sdkinfo for cp video player
         if(ps.app_info.has("vid") ==  true){
             intent.putExtra("sdkinfo", ps.app_info.toString());
         }else {
