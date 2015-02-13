@@ -54,7 +54,7 @@ public class OfflineDownload {
     public void startDownloadTask(final TextView view, final EpisodeSourceListener el){
         mItem.download_trys++;
         Log.d(TAG, "start download retry times: "+mItem.download_trys);
-        
+
         String id = mEpisode.id;
         String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(mEpisode.id) + "&cp="+mCP.cp;
         String calledURL = new CommonUrl(mContext).addCommonParams(url);

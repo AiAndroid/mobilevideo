@@ -14,7 +14,7 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 
 public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListener {
-	private static final String TAG = MediaUrlForPlayerUtil.class.getName();
+	private static final String TAG = "html5-download-MediaUrlForPlayerUtil";
 	
 	private Context mContext;
 	private WebView mWebView;
@@ -141,6 +141,7 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
 	public class MyWebViewClient extends WebViewClient {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
+			Log.d(TAG, "shouldOverrideUrlLoading: "+url);
 			startUrlRetriever();
 			return super.shouldOverrideUrlLoading(view, url);
 		}
