@@ -117,7 +117,7 @@ public class OfflineDownload {
                     @Override
                     public void run() {
                         MediaUrlForPlayerUtil mediaUrlForPlayerUtil = new MediaUrlForPlayerUtil(context.getApplicationContext());
-                        mediaUrlForPlayerUtil.getMediaUrlForPlayer(ps.h5_url, ps.cp, item, episode,  createPlayUrlObserver(context));
+                        mediaUrlForPlayerUtil.getMediaUrlForPlayer(ps.h5_url+"1000|0001", ps.cp, item, episode,  createPlayUrlObserver(context));
                     }
                 });
 
@@ -133,7 +133,7 @@ public class OfflineDownload {
         MediaUrlForPlayerUtil.PlayUrlObserver playUrlObserver = new MediaUrlForPlayerUtil.PlayUrlObserver() {
             @Override
             public void onUrlUpdate(String playUrl, String html5Url, VideoItem item, DisplayItem.Media.Episode episode) {
-                Log.d(TAG, "onUrlUpdate: "+html5Url);
+                Log.d(TAG, "************************** onUrlUpdate: "+html5Url);
 
                 releaseDownload(item.id);
                 appendDownload(context, playUrl, item, episode);
@@ -147,7 +147,9 @@ public class OfflineDownload {
                     OfflineDownload od = tasks.get(item.id);
 
                     //restart the task
-                    od.startDownloadTask(null, od.createSourceLister(context));
+                    if(od != null) {
+                        od.startDownloadTask(null, od.createSourceLister(context));
+                    }
                     releaseDownload(item.id);
                 }
             }
