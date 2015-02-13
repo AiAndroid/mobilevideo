@@ -15,28 +15,54 @@ import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
 import com.tv.ui.metro.model.VideoItem;
-import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.CommonUrl;
 import com.video.ui.utils.VideoUtils;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.util.HashMap;
+
 /**
  * Created by liuhuadonbg on 2/13/15.
  */
 public class OfflineDownload {
     private static final String TAG = "html5-download";
+    Context      mContext;
+    VideoItem    mItem;
+    DisplayItem.Media.Episode mEpisode;
+    DisplayItem.Media.CP      mCP;
 
-    public static void startDownloadTask(final Context context, final TextView view, final VideoItem item, DisplayItem.Media.CP cp, final com.tv.ui.metro.model.DisplayItem.Media.Episode episode, final EpisodeSourceListener el){
-        String id = episode.id;
-        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
-        String calledURL = new CommonUrl(context).addCommonParams(url);
+    static HashMap<String, OfflineDownload> tasks = new HashMap<String, OfflineDownload>();
+
+    private void releaseDownload(String key){
+        tasks.remove(key);
+    }
+    private OfflineDownload(Context context, VideoItem item, DisplayItem.Media.CP cp, DisplayItem.Media.Episode episode){
+        mContext = context.getApplicationContext();
+        mItem    = item;
+        mCP      = cp;
+        mEpisode = episode;
+    }
+
+    public static void startDownload(final Context context, final TextView view, final VideoItem item, DisplayItem.Media.CP cp, final com.tv.ui.metro.model.DisplayItem.Media.Episode episode){
+        OfflineDownload offlineDownload = new OfflineDownload(context, item, cp, episode);
+        tasks.put(item.id, offlineDownload);
+        offlineDownload.startDownloadTask(view, offlineDownload.createSourceLister(context));
+    }
+
+    public void startDownloadTask(final TextView view, final EpisodeSourceListener el){
+        mItem.download_trys++;
+        Log.d(TAG, "start download retry times: "+mItem.download_trys);
+        
+        String id = mEpisode.id;
+        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(mEpisode.id) + "&cp="+mCP.cp;
+        String calledURL = new CommonUrl(mContext).addCommonParams(url);
 
         String showText = "";
         if(view != null) {
             showText = (String) view.getText();
-            view.setText(context.getString(R.string.connecting));
+            view.setText(mContext.getString(R.string.connecting));
         }
 
         final String preText = showText;
@@ -48,7 +74,7 @@ public class OfflineDownload {
                 }
                 Log.d(TAG, "play source:" + response);
 
-                el.playSource(true, response, item, episode);
+                el.playSource(true, response, mItem, mEpisode);
             }
         };
 
@@ -59,15 +85,15 @@ public class OfflineDownload {
                     view.setText(preText);
                 }
 
-                Toast.makeText(context, "Server error: " + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Server error: " + error, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "fail to fetch play source:"+error);
-                el.playSource(false, null, item, episode);
+                el.playSource(false, null, mItem, mEpisode);
             }
         };
 
-        RequestQueue requestQueue = VolleyHelper.getInstance(context).getAPIRequestQueue();
+        RequestQueue requestQueue = VolleyHelper.getInstance(mContext).getAPIRequestQueue();
         BaseGsonLoader.GsonRequest<PlaySource> gsonRequest = new BaseGsonLoader.GsonRequest<PlaySource>(calledURL, new TypeToken<PlaySource>(){}.getType(), null, listener, errorListener);
-        gsonRequest.setCacheNeed(context.getCacheDir() + "/" + id + ".playsource.cache");
+        gsonRequest.setCacheNeed(mContext.getCacheDir() + "/" + id + ".playsource.cache");
         gsonRequest.setShouldCache(false);
         requestQueue.add(gsonRequest);
     }
@@ -76,12 +102,14 @@ public class OfflineDownload {
         public void playSource(boolean result, PlaySource ps, VideoItem item, DisplayItem.Media.Episode episode);
     }
 
-    public static EpisodeSourceListener createSourceLister(final Context context){
+    public EpisodeSourceListener createSourceLister(final Context context){
         EpisodeSourceListener playSouceFetchListener = new EpisodeSourceListener() {
             @Override
             public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
-                if(result == false)
+                if(result == false) {
+                    releaseDownload(item.id);
                     return;
+                }
 
                 Log.d(TAG, "play source returned : "+ps);
                 //ui thread do the task
@@ -101,18 +129,27 @@ public class OfflineDownload {
         return playSouceFetchListener;
     }
 
-    private static MediaUrlForPlayerUtil.PlayUrlObserver createPlayUrlObserver(final Context context){
+    private MediaUrlForPlayerUtil.PlayUrlObserver createPlayUrlObserver(final Context context){
         MediaUrlForPlayerUtil.PlayUrlObserver playUrlObserver = new MediaUrlForPlayerUtil.PlayUrlObserver() {
             @Override
             public void onUrlUpdate(String playUrl, String html5Url, VideoItem item, DisplayItem.Media.Episode episode) {
                 Log.d(TAG, "onUrlUpdate: "+html5Url);
 
+                releaseDownload(item.id);
                 appendDownload(context, playUrl, item, episode);
             }
 
             @Override
-            public void onError() {
-                Log.d(TAG,  "onError");
+            public void onError(VideoItem item, DisplayItem.Media.Episode episode) {
+                Log.d(TAG,  "onError try times:"+item.download_trys);
+                if(item.download_trys < 5){
+                    //relaunch the fetch
+                    OfflineDownload od = tasks.get(item.id);
+
+                    //restart the task
+                    od.startDownloadTask(null, od.createSourceLister(context));
+                    releaseDownload(item.id);
+                }
             }
 
             @Override
@@ -123,7 +160,7 @@ public class OfflineDownload {
         return playUrlObserver;
     }
 
-    private static PlayUrlLoader.H5OnloadListener createUrlLoader(final Context context) {
+    private PlayUrlLoader.H5OnloadListener createUrlLoader(final Context context) {
 
         PlayUrlLoader.H5OnloadListener h5LoadListener = new PlayUrlLoader.H5OnloadListener() {
             @Override
@@ -138,7 +175,7 @@ public class OfflineDownload {
         return h5LoadListener;
     }
 
-    private static void appendDownload(Context context, String playurl, VideoItem item, DisplayItem.Media.Episode episode){
+    private void appendDownload(Context context, String playurl, VideoItem item, DisplayItem.Media.Episode episode){
         Log.d(TAG,  "qiyi url:" + playurl);
         if (TextUtils.isEmpty(playurl) == true)
             return;

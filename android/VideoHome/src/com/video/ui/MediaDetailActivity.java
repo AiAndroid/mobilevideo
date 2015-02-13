@@ -128,7 +128,8 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
                             if (vi.media.items.size() == 1) {
                                 //current episode
                                 DisplayItem.Media.Episode episode = vi.media.items.get(0);
-                                OfflineDownload.startDownloadTask(getBaseContext(), (TextView) view, vi, downCP, episode, OfflineDownload.createSourceLister(getApplicationContext()));
+                                vi.download_trys = 0;
+                                OfflineDownload.startDownload(getBaseContext(), (TextView) view, vi, downCP, episode);
                             } else {
                                 Intent intent = new Intent(getBaseContext(), OfflineSelectEpisodeView.class);
                                 intent.putExtra("item", vi);

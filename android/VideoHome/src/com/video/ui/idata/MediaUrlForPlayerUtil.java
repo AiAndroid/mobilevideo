@@ -103,14 +103,14 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
 	
 	private synchronized void onGetPlayerUrlError() {
 		if(mObserver != null){
-			mObserver.onError();
+			mObserver.onError(mItem, mEpisode);
 		}
 		tearDown();
 	}
 	
 	private synchronized void onGetPlayerUrlCancel() {
 		if(mObserver != null){
-			mObserver.onError();
+			mObserver.onError(mItem, mEpisode);
 		}
 		tearDown();
 	}
@@ -187,7 +187,7 @@ public class MediaUrlForPlayerUtil implements Html5PlayUrlRetriever.PlayUrlListe
 
 	public interface PlayUrlObserver {
 		public void onUrlUpdate(String playUrl, String html5Url, VideoItem item, DisplayItem.Media.Episode episode);
-		public void onError();
+		public void onError(VideoItem item, DisplayItem.Media.Episode episode);
 		public void onReleaseLock();
 	}
 }

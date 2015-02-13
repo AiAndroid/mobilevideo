@@ -126,7 +126,8 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 	private void addToDownloadList(ArrayList<DisplayItem.Media.Episode> episodes){
 
 		for(DisplayItem.Media.Episode episode: episodes) {
-			OfflineDownload.startDownloadTask(mContext.getApplicationContext(), null, mMedias, cp, episode, OfflineDownload.createSourceLister(mContext.getApplicationContext()));
+			mMedias.download_trys = 0;
+			OfflineDownload.startDownload(mContext.getApplicationContext(), null, mMedias, cp, episode);
 		}
 	}
 

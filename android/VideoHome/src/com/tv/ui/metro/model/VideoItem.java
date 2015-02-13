@@ -11,4 +11,5 @@ public class VideoItem extends DisplayItem {
     private static final long serialVersionUID = 1L;
 
     public ArrayList<Block<DisplayItem>>  blocks;
+    public int download_trys = 0;
 }
