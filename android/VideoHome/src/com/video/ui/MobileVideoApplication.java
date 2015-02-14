@@ -67,8 +67,8 @@ public class MobileVideoApplication extends Application{
                         android.app.DownloadManager dm = (android.app.DownloadManager) getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
 
                         android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(response.apk_url));
-                        //request.setMimeType("application/vnd.android.package-archive");
-                        request.setMimeType(VideoUtils.getMimeType(response.apk_url));
+                        request.setMimeType("application/vnd.android.package-archive");
+                        //request.setMimeType(VideoUtils.getMimeType(response.apk_url));
 
                         request.setTitle(response.version_name);
                         request.setVisibleInDownloadsUi(true);
