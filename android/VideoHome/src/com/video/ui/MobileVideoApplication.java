@@ -91,7 +91,7 @@ public class MobileVideoApplication extends Application{
                         long download_id = dm.enqueue(request);
                         Log.d(TAG, "add to download apk :"+appversion + " down: "+download_id);
                     }
-                } catch (PackageManager.NameNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
