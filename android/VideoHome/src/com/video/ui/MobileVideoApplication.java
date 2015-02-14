@@ -2,10 +2,17 @@ package com.video.ui;
 
 import android.app.Application;
 import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.database.ContentObserver;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.os.StatFs;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,6 +33,7 @@ import com.video.ui.push.MiPushManager;
 import com.video.ui.utils.VideoUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by liuhuadong on 11/18/14.
@@ -88,8 +96,12 @@ public class MobileVideoApplication extends Application{
                             }catch(Exception ne){}
                         }
                         //request.setNotificationVisibility(true);
-                        long download_id = dm.enqueue(request);
+                        download_id = dm.enqueue(request);
                         Log.d(TAG, "add to download apk :"+appversion + " down: "+download_id);
+
+                        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+                        filter.addAction(DownloadManager.ACTION_NOTIFICATION_CLICKED);
+                        getApplicationContext().registerReceiver(receiver, filter);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -111,11 +123,42 @@ public class MobileVideoApplication extends Application{
         requestQueue.add(gsonRequest);
     }
 
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            String action = intent.getAction();
+            if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)) {
+
+                long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);
+                if(downloadId == download_id) {
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(downloadId);
+                    Cursor c = dm.query(query);
+                    if (c.moveToFirst()) {
+                        int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                        if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
+
+                            String uriString = c.getString(c.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
+                            Intent actionIntent = new Intent(Intent.ACTION_VIEW);
+                            actionIntent.setDataAndType(Uri.fromFile(new File(uriString)), "application/vnd.android.package-archive");
+                            actionIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(actionIntent);
+                        }
+                    }
+                }
+            }
+        }
+    };
+    private long download_id;
+
     @Override
     public void onTerminate(){
         super.onTerminate();
 
         MVDownloadManager.getInstance(getBaseContext()).stop(getBaseContext());
+        getApplicationContext().unregisterReceiver(receiver);
     }
 
     @Override
