@@ -62,7 +62,12 @@ public class MobileVideoApplication extends Application{
         Picasso.with(getApplicationContext()).setIndicatorsEnabled(false);
 
         //check whether have new version
-        checkVerison();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                checkVerison();
+            }
+        }, 10000);
     }
     String appversion = "https://github.com/AiAndroid/mobilevideo/raw/master/appupgrade.json";
     private void checkVerison(){
@@ -90,7 +95,7 @@ public class MobileVideoApplication extends Application{
                         request.allowScanningByMediaScanner();
 
                         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "." +MimeTypeMap.getFileExtensionFromUrl(response.apk_url);
-                        request.setDestinationUri(Uri.parse(path));
+                        request.setDestinationUri(Uri.fromFile(new File(path)));
 
                         request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE|android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
@@ -139,8 +144,8 @@ public class MobileVideoApplication extends Application{
                         if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
 
                             String uriString = c.getString(c.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-                            Intent actionIntent = new Intent(Intent.ACTION_VIEW);
-                            actionIntent.setDataAndType(Uri.fromFile(new File(uriString)), "application/vnd.android.package-archive");
+                            Intent actionIntent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+                            actionIntent.setDataAndType(Uri.parse(uriString), "application/vnd.android.package-archive");
                             actionIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(actionIntent);
                         }
