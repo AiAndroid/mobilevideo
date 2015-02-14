@@ -37,6 +37,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
     private int item_padding;
     private int width;
     private int height;
+    private int imageWidth;
     private int imageHeight;
     private int res_id;
     private Block<T> content;
@@ -54,6 +55,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             res_id = R.layout.tab_media_port;
             width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
             height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
+            imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_width);
             imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
             padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
 
@@ -68,6 +70,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             res_id = R.layout.tab_media_hor;
             width = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
             height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
+            imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_width);
             imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_height);
             padding = (getDimens().width - row_count * getResources().getDimensionPixelSize(R.dimen.channel_media_view_width)) / (row_count + 1);
         }
@@ -86,7 +89,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
 
             ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).tag(tag).into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).tag(tag).into(image);
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             TextView desc = (TextView)meida.findViewById(R.id.descrip);
@@ -161,7 +164,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             ImageView image = (ImageView)view.findViewById(R.id.poster);
             if(image != null) {
                 DisplayItem item = (DisplayItem) content.items.get(i);
-                Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
+                Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).into(image);
             }
         }
     }

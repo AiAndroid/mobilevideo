@@ -27,7 +27,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     protected Block<DisplayItem> tab;
     protected int                index;
 
-    private   ListView           listView;
+    private   AbsListView        listView;
     private   EmptyLoadingView   mLoadingView;
     private   int                loaderID;
     private   boolean            haveBuildInData = false;
@@ -78,25 +78,42 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     }
 
     private View createHeader(Block<DisplayItem> block){
-        View header = View.inflate(getActivity(), R.layout.list_header_text, null);
+        if(ListView.class.isInstance(listView)) {
+            View header = View.inflate(getActivity(), R.layout.list_header_text, null);
 
-        TextView textView = (TextView) header.findViewById(R.id.header_introduce);
-        textView.setText(block.desc);
-        listView.addHeaderView(header, null, false);
-        return header;
+            TextView textView = (TextView) header.findViewById(R.id.header_introduce);
+            textView.setText(block.desc);
+            ((ListView) listView).addHeaderView(header, null, false);
+
+            return header;
+        }
+
+        return null;
     }
 
     static int stepID = 1000;
     private Block<DisplayItem> sendInBlock;
 
+    private boolean ui_type_listview = false;
+    private int testSwitch = 0;
     private View createListContentView(Block<DisplayItem> preData){
-        listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
-        if(preData.blocks != null && preData.blocks.size() > 0) {
+        //BUG
+        //if no data, will show as list, because no data for judge
+        //
+        ui_type_listview = isListViewUI(preData);
+        if(ui_type_listview) {
+            listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
+        }else{
+            listView = (GridView) View.inflate(getActivity(), R.layout.grid_content_layout, null);
+        }
+
+        if (preData.blocks != null && preData.blocks.size() > 0) {
             for (int i = 0; i < preData.blocks.size(); i++) {
                 Block<DisplayItem> block = preData.blocks.get(i);
                 if (block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                         block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                        block.ui_type.id == LayoutConstant.channel_list_short) {
+                        block.ui_type.id == LayoutConstant.channel_list_short||
+                        block.ui_type.id == LayoutConstant.channel_grid_long) {
                     if (block.items != null && block.items.size() > 0) {
                         sendInBlock = block;
                         adapter = new RelativeAdapter(block.items, block.ui_type.id);
@@ -113,9 +130,27 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                 }
             }
         }
+
         return listView;
     }
 
+    //default is grid view to display
+    private boolean isListViewUI(Block<DisplayItem> data){
+        if (data.blocks != null && data.blocks.size() > 0) {
+            for (int i = 0; i < data.blocks.size(); i++) {
+                Block<DisplayItem> block = data.blocks.get(i);
+                if (block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                        block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                        block.ui_type.id == LayoutConstant.channel_list_short) {
+                    return true;
+                } else if (block.ui_type.id == LayoutConstant.channel_grid_long) {
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
 
     @Override
     public Loader<GenericBlock<DisplayItem>> onCreateLoader(int id, Bundle bundle) {
@@ -145,6 +180,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
             return;
         }
 
+        mLoadingView.stopLoading(true, false);
         //first page
         if (mVidoeInfo == null) {
             mVidoeInfo = result;
@@ -153,7 +189,9 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                 Block<DisplayItem> block = mVidoeInfo.blocks.get(0).blocks.get(i);
                 if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                         block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                        block.ui_type.id == LayoutConstant.channel_list_short ) {
+                        block.ui_type.id == LayoutConstant.channel_list_short ||
+                        block.ui_type.id == LayoutConstant.channel_grid_long) {
+
                     if(haveBuildInData == true){
                         mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(sendInBlock.items);
                         adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(i).items);
@@ -187,7 +225,8 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                     Block<DisplayItem> block = result.blocks.get(0).blocks.get(i);
                     if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                             block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                            block.ui_type.id == LayoutConstant.channel_list_short ) {
+                            block.ui_type.id == LayoutConstant.channel_list_short ||
+                            block.ui_type.id == LayoutConstant.channel_grid_long) {
 
                         content_step = i;
                         mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(block.items);
@@ -216,7 +255,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
         @Override
         public void onScroll(AbsListView absListView, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
-            if(firstVisibleItem + 5 >= totalItemCount){
+            if(firstVisibleItem + 20 >= totalItemCount){
                 nextPage();
             }
         }
@@ -300,37 +339,41 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         public View getView(int i, View view, ViewGroup viewGroup) {
             ChannelVideoItemView root = null;
             if(items == null) {
-                root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
+                //only for test
+                root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType(), ui_type_listview);
             }else {
                 if(view == null) {
-                    root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
+                    root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType(), ui_type_listview);
                 }else{
                     root = (ChannelVideoItemView)view;
                 }
-
-                root.setTag(getItem(i));
-                root.setUIType(getLeftBottomUIType());
-                root.setContent((DisplayItem) getItem(i), i);
             }
 
+            root.setTag(getItem(i));
+            root.setUIType(getLeftBottomUIType());
+            root.setContent((DisplayItem) getItem(i), i);
+
             int size = getCount();
-            if(size == 1) {
-                root.setBackgroundResource(R.drawable.com_item_bg_full);
-                root.line.setVisibility(View.INVISIBLE);
-                root.padding.setVisibility(View.GONE);
-            } else {
-                if(i == 0) {
-                    root.layout.setBackgroundResource(R.drawable.com_item_bg_up);
-                    root.line.setVisibility(View.VISIBLE);
-                    root.padding.setVisibility(View.GONE);
-                } else if(i == size - 1) {
-                    root.layout.setBackgroundResource(R.drawable.com_item_bg_down);
+            //just set the background for list vew
+            if(ui_type_listview) {
+                if (size == 1) {
+                    root.setBackgroundResource(R.drawable.com_item_bg_full);
                     root.line.setVisibility(View.INVISIBLE);
-                    root.padding.setVisibility(View.VISIBLE);
-                } else {
-                    root.layout.setBackgroundResource(R.drawable.com_item_bg_mid);
-                    root.line.setVisibility(View.VISIBLE);
                     root.padding.setVisibility(View.GONE);
+                } else {
+                    if (i == 0) {
+                        root.layout.setBackgroundResource(R.drawable.com_item_bg_up);
+                        root.line.setVisibility(View.VISIBLE);
+                        root.padding.setVisibility(View.GONE);
+                    } else if (i == size - 1) {
+                        root.layout.setBackgroundResource(R.drawable.com_item_bg_down);
+                        root.line.setVisibility(View.INVISIBLE);
+                        root.padding.setVisibility(View.VISIBLE);
+                    } else {
+                        root.layout.setBackgroundResource(R.drawable.com_item_bg_mid);
+                        root.line.setVisibility(View.VISIBLE);
+                        root.padding.setVisibility(View.GONE);
+                    }
                 }
             }
             return root;

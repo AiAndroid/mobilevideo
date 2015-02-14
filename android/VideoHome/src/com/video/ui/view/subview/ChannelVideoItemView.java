@@ -1,12 +1,11 @@
 package com.video.ui.view.subview;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Color;
 import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,12 +20,14 @@ import com.video.ui.view.LayoutConstant;
 public class ChannelVideoItemView extends RelativeLayout {
 
     private int ui_type = LayoutConstant.channel_list_long_hot;
+    private boolean mIsListViewUI = true;
     public void setUIType(int type){
         ui_type = type;
     }
-    public ChannelVideoItemView(Context context, int uitype) {
+    public ChannelVideoItemView(Context context, int uitype, boolean liststyle) {
         super(context);
         ui_type = uitype;
+        mIsListViewUI = liststyle;
         initViews(context);
     }
 
@@ -36,7 +37,72 @@ public class ChannelVideoItemView extends RelativeLayout {
     DisplayItem content;
     public void setContent(DisplayItem item, int position){
         content = item;
+        if(mIsListViewUI == true){
+            setListItemUI(item, position);
+        }else {
+            setGridItemUI(item, position);
+        }
+    }
 
+    static int imageWidth  = -1;
+    static int imageHeight = -1;
+    static int secondHeight = -1;
+    private TextView leftView, midView, rightView;
+
+    private void setGridItemUI(DisplayItem item, int position){
+        if(convertView == null) {
+            convertView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.grid_media_port, this);
+            poster = (ImageView) convertView.findViewById(R.id.poster);
+            title = (TextView) convertView.findViewById(R.id.media_title);
+            desc  = (TextView) convertView.findViewById(R.id.descrip);
+            leftView  = (TextView) convertView.findViewById(R.id.left_textview);
+            midView   = (TextView) convertView.findViewById(R.id.mid_textview);
+            rightView = (TextView) convertView.findViewById(R.id.right_textview);
+        }
+
+        if(imageWidth == -1){
+            imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_width);
+            imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
+            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
+        }
+
+        Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).into(poster);
+        if(TextUtils.isEmpty(item.sub_title)){
+            title.setSingleLine(false);
+            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
+            desc.setHeight(0);
+            desc.setVisibility(GONE);
+        }else {
+            title.setSingleLine(true);
+            title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+            desc.setHeight(secondHeight);
+            desc.setVisibility(VISIBLE);
+        }
+        title.setText(item.title);
+        desc.setText(item.sub_title);
+
+        setHintText(item);
+    }
+
+    private void setHintText(DisplayItem item){
+        leftView.setText("");
+        midView.setText("");
+        rightView.setText("");
+
+        if(item.hint != null && TextUtils.isEmpty(item.hint.left()) == false) {
+            leftView.setText(item.hint.left());
+        }
+
+        if(item.hint != null && TextUtils.isEmpty(item.hint.mid()) == false) {
+            midView.setText(item.hint.mid());
+        }
+
+        if(item.hint != null && TextUtils.isEmpty(item.hint.right()) == false) {
+            rightView.setText(item.hint.right());
+        }
+    }
+
+    private void setListItemUI(DisplayItem item, int position){
         if(width == -1){
             if(ui_type == LayoutConstant.channel_list_short){
                 width = getResources().getDimensionPixelSize(R.dimen.info_channel_list_poster_width);
@@ -125,20 +191,22 @@ public class ChannelVideoItemView extends RelativeLayout {
     public View     padding;
 
     private void initViews(Context ctx){
-        int res_id = R.layout.channel_rank_item;
-        if(ui_type == LayoutConstant.channel_list_short){
-            res_id = R.layout.channel_rank_short_item;
+        if(mIsListViewUI == true) {
+            int res_id = R.layout.channel_rank_item;
+            if (ui_type == LayoutConstant.channel_list_short) {
+                res_id = R.layout.channel_rank_short_item;
+            }
+            convertView = LayoutInflater.from(ctx).inflate(res_id, this);
+            layout = (RelativeLayout) convertView.findViewById(R.id.channel_rank_item_layout);
+
+            poster = (ImageView) convertView.findViewById(R.id.channel_rank_item_poster);
+            title = (TextView) convertView.findViewById(R.id.channel_rank_item_title);
+            subtitle = (TextView) convertView.findViewById(R.id.channel_rank_item_subtitle);
+
+            desc = (TextView) convertView.findViewById(R.id.channel_rank_item_desc);
+            place = (TextView) convertView.findViewById(R.id.channel_rank_item_place);
+            line = convertView.findViewById(R.id.channel_rank_item_line);
+            padding = convertView.findViewById(R.id.channel_rank_item_padding);
         }
-        convertView = LayoutInflater.from(ctx).inflate(res_id, this);
-        layout = (RelativeLayout) convertView.findViewById(R.id.channel_rank_item_layout);
-
-        poster = (ImageView) convertView.findViewById(R.id.channel_rank_item_poster);
-        title = (TextView) convertView.findViewById(R.id.channel_rank_item_title);
-        subtitle = (TextView) convertView.findViewById(R.id.channel_rank_item_subtitle);
-
-        desc = (TextView) convertView.findViewById(R.id.channel_rank_item_desc);
-        place = (TextView) convertView.findViewById(R.id.channel_rank_item_place);
-        line = convertView.findViewById(R.id.channel_rank_item_line);
-        padding = convertView.findViewById(R.id.channel_rank_item_padding);
     }
 }

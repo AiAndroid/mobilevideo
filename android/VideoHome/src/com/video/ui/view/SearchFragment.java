@@ -267,10 +267,10 @@ public class SearchFragment extends LoadingFragment implements LoaderManager.Loa
         public View getView(int i, View view, ViewGroup viewGroup) {
             ChannelVideoItemView root = null;
             if(items == null) {
-                root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
+                root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType(), true);
             }else {
                 if(view == null) {
-                    root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType());
+                    root = new ChannelVideoItemView(getActivity(), getLeftBottomUIType(), true);
                 }else{
                     root = (ChannelVideoItemView)view;
                 }
