@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StatFs;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -76,9 +77,9 @@ public class MobileVideoApplication extends Application{
 
                         android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(response.apk_url));
                         request.setMimeType("application/vnd.android.package-archive");
-                        //request.setMimeType(VideoUtils.getMimeType(response.apk_url));
-
+                        request.setMimeType(VideoUtils.getMimeType(response.apk_url));
                         request.setTitle(response.version_name);
+                        request.setDescription(response.released_by);
                         request.setVisibleInDownloadsUi(true);
                         request.setShowRunningNotification(true);
                         int downloadFlag = DownloadManager.Request.NETWORK_WIFI;
@@ -88,14 +89,11 @@ public class MobileVideoApplication extends Application{
                         request.setAllowedNetworkTypes(downloadFlag);
                         request.allowScanningByMediaScanner();
 
-                        request.setDestinationUri(Uri.fromFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)));
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "." +MimeTypeMap.getFileExtensionFromUrl(response.apk_url);
+                        request.setDestinationUri(Uri.parse(path));
 
-                        if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.HONEYCOMB){
-                            try{
-                                request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE|android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                            }catch(Exception ne){}
-                        }
-                        //request.setNotificationVisibility(true);
+                        request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE|android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
                         download_id = dm.enqueue(request);
                         Log.d(TAG, "add to download apk :"+appversion + " down: "+download_id);
 
