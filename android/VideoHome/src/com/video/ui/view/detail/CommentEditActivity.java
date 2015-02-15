@@ -100,6 +100,7 @@ public class CommentEditActivity extends DisplayItemActivity {
 	}
 	
 	//get data
+	Account mAccount;
 	private void startAuthAccount() {
 		AccountManager mAccountManager = AccountManager.get(getBaseContext());
 		Account[] account = mAccountManager.getAccountsByType("com.xiaomi");
@@ -107,6 +108,7 @@ public class CommentEditActivity extends DisplayItemActivity {
 			mAccountManager.addAccount("com.xiaomi", (String)null, (String[])null, (Bundle)null, this, null, (Handler)null);
 		}else {
 			Log.d(TAG, "xiaimi account: " + account[0].toString());
+			mAccount = account[0];
 			uploadComment();
 		}
 	}
@@ -144,8 +146,12 @@ public class CommentEditActivity extends DisplayItemActivity {
 					//
 					Log.d(TAG, "comment success!");
 					Intent result = new Intent();
-					result.putExtra("comment", mCommentStr);
-					setResult(100, result);
+					DetailCommentView.VideoComments.VideoComment vcitem = new DetailCommentView.VideoComments.VideoComment();
+					vcitem.comment = mCommentStr;
+					vcitem.score   = mScore;
+					vcitem.uid     = mAccount!=null?mAccount.name:getString(R.string.xiaomi_user) ;
+					result.putExtra("comment", vcitem);
+					setResult(RESULT_OK, result);
 					finishActivity(100);
 				}
 			};

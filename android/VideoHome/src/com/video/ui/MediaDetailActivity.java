@@ -28,6 +28,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericDetailLoader;
 import com.video.ui.view.DetailFragment;
 import com.video.ui.view.RetryView;
+import com.video.ui.view.detail.DetailCommentView;
 import com.video.ui.view.detail.OfflineSelectEpisodeView;
 import com.video.ui.view.detail.SelectSourcePopup;
 import com.video.ui.view.subview.SelectItemsBlockView;
@@ -50,6 +51,7 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
     private OfflineSelectEpisodeView mOfflineSelectView;
     private SelectSourcePopup    mSelectSourcePopup;
     private DisplayItem.Media.CP preferenceSource;
+    private DetailFragment       detailFragment;
 
     private String default_cp_icon = "http://file.market.xiaomi.com/download/Duokan/dfddd21f-3be0-4def-8b5d-d293328ed800/symbol_default_normal.png";
     @Override
@@ -274,16 +276,16 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
             public void run() {
                 Fragment fg = getSupportFragmentManager().findFragmentById(R.id.detail_view);
                 if(fg == null) {
-                    DetailFragment df = new DetailFragment();
-                    df.setEpisodeClick(episodeClick);
+                    detailFragment = new DetailFragment();
+                    detailFragment.setEpisodeClick(episodeClick);
                     Bundle data = new Bundle();
                     data.putSerializable("item", mVidoeInfo.blocks.get(0));
                     data.putSerializable("cp",   preferenceSource);
-                    df.setArguments(data);
-                    getSupportFragmentManager().beginTransaction().add(R.id.detail_view, df, "details").commit();
+                    detailFragment.setArguments(data);
+                    getSupportFragmentManager().beginTransaction().add(R.id.detail_view, detailFragment, "details").commit();
                 }else {
-                    DetailFragment df = (DetailFragment)fg;
-                    df.updateVideo(mVidoeInfo.blocks.get(0));
+                    detailFragment = (DetailFragment)fg;
+                    detailFragment.updateVideo(mVidoeInfo.blocks.get(0));
                 }
             }
         });
@@ -304,6 +306,14 @@ public class MediaDetailActivity extends DisplayItemActivity implements LoaderCa
     @Override
     public void onLoaderReset(Loader<VideoBlocks<VideoItem>> blocks) {
         Log.d("MediaDetailActivity", "onLoaderReset result:" + blocks);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            DetailCommentView.VideoComments.VideoComment comment = (DetailCommentView.VideoComments.VideoComment) data.getSerializableExtra("comment");
+            detailFragment.insertComment(comment);
+        }
     }
 
 }

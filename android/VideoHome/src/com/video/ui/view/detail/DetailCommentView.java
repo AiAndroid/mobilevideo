@@ -1,5 +1,6 @@
 package com.video.ui.view.detail;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
@@ -77,17 +78,20 @@ public class DetailCommentView extends FrameLayout {
 		addView(mEmptyView);
 	}
 
-	public void setVideoContent(VideoItem item){
-		mItem = item;
+	private Activity mActivity;
+	public void setVideoContent(VideoItem item, Activity activity){
+		mItem     = item;
+		mActivity = activity;
 		initDataSupply();
 	}
-	
+	private VideoComments mComments;
 	private void initDataSupply() {
 		String commentURL = CommonUrl.BaseURL + "comment/"+ VideoUtils.getVideoID(mItem.id) + "?page=1";
 		Response.Listener<VideoComments> listener = new Response.Listener<VideoComments>() {
 			@Override
 			public void onResponse(VideoComments response) {
 				Log.d(TAG, "comments data: "+response);
+				mComments = response;
 				refresh(response);
 			}
 		};
@@ -104,6 +108,14 @@ public class DetailCommentView extends FrameLayout {
 		gsonRequest.setCacheNeed(getContext().getCacheDir() + "/comment_"+VideoUtils.getVideoID(mItem.id));
 		gsonRequest.setShouldCache(true);
 		requestQueue.add(gsonRequest);
+	}
+
+	public void addNewComment(VideoComments.VideoComment comment) {
+		VideoComments.VideoComment vc = new VideoComments.VideoComment() ;
+		vc.comment = comment.comment;
+		vc.score   = comment.score;
+		mComments.data.add(0, vc);
+		mCommentReviewView.setMediaReviews(mComments.data);
 	}
 
 
@@ -181,7 +193,7 @@ public class DetailCommentView extends FrameLayout {
 		if(mItem != null) {
 			Intent intent = new Intent(getContext(), CommentEditActivity.class);
 			intent.putExtra("item", mItem);
-			getContext().startActivity(intent);
+			mActivity.startActivityForResult(intent, 100);
 		}else {
 			Toast.makeText(getContext(), "not fetch video info", Toast.LENGTH_SHORT).show();
 		}

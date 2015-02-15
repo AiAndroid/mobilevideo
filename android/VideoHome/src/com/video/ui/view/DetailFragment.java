@@ -83,7 +83,7 @@ public class DetailFragment extends LoadingFragment {
 
             mPosterView.setImageUrlInfo(mItem.media.poster);
 
-            mCommentView.setVideoContent(mItem);
+            mCommentView.setVideoContent(mItem, getActivity());
 
             SelectItemsBlockView fv = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(mEpisodeView);
             if(fv != null) {
@@ -116,4 +116,7 @@ public class DetailFragment extends LoadingFragment {
     }
 
 
+    public void insertComment(DetailCommentView.VideoComments.VideoComment comment) {
+        mCommentView.addNewComment(comment);
+    }
 }
