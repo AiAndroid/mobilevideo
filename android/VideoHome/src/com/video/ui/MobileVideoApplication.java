@@ -65,7 +65,7 @@ public class MobileVideoApplication extends Application{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(iDataORM.getBooleanValue(getApplicationContext(), "development_app", false) == true) {
+                if(iDataORM.getBooleanValue(getApplicationContext(), "development_app", true) == true) {
                     checkVerison();
                 }
             }
