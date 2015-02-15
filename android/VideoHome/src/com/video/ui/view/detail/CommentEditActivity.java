@@ -146,7 +146,7 @@ public class CommentEditActivity extends DisplayItemActivity {
 					vcitem.uid     = mAccount!=null?mAccount.name:getString(R.string.xiaomi_user) ;
 					result.putExtra("comment", vcitem);
 					setResult(RESULT_OK, result);
-					finishActivity(100);
+					finish();
 				}
 			};
 

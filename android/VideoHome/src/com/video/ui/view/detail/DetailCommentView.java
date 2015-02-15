@@ -117,6 +117,10 @@ public class DetailCommentView extends FrameLayout {
 		vc.score   = comment.score;
 		mComments.data.add(0, vc);
 		mCommentReviewView.setMediaReviews(mComments.data);
+
+		mContentView.setVisibility(View.VISIBLE);
+		mEmptyView.setVisibility(View.GONE);
+		mCommentReviewBtn.setVisibility(mComments.data.size() > MAX_SHOW_COUNT?VISIBLE:GONE);
 	}
 
 

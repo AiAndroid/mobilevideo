@@ -30,7 +30,6 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     private   AbsListView        listView;
     private   EmptyLoadingView   mLoadingView;
     private   int                loaderID;
-    private   boolean            haveBuildInData = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +44,9 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         mLoadingView = makeEmptyLoadingView(getActivity(), (RelativeLayout) v.findViewById(R.id.tabs_content));
         //have data
         //now we just get the data from server
-        addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+        if(hasBuildInData(tab)) {
+            addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+        }
 
         if(tab.blocks != null && tab.blocks.size() > 0){
 
@@ -68,7 +69,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         }
 
         //if send data in, just use the sent data, then fetch new data in next page
-        if(haveBuildInData == false) {
+        if(listView == null) {
             loaderID = GenericAlbumLoader.VIDEO_ALBUM_LOADER_ID + (stepID++);
             getActivity().getSupportLoaderManager().initLoader(loaderID, savedInstanceState, this);
         }
@@ -95,12 +96,9 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     private Block<DisplayItem> sendInBlock;
 
     private boolean ui_type_listview = false;
-    private int testSwitch = 0;
     private View createListContentView(Block<DisplayItem> preData){
-        //BUG
-        //if no data, will show as list, because no data for judge
-        //
         ui_type_listview = isListViewUI(preData);
+        ui_type_listview = false;
         if(ui_type_listview) {
             listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
         }else{
@@ -117,7 +115,6 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                     if (block.items != null && block.items.size() > 0) {
                         sendInBlock = block;
                         adapter = new RelativeAdapter(block.items, block.ui_type.id);
-                        haveBuildInData = true;
 
                         //update UI
                         listView.setAdapter(adapter);
@@ -134,6 +131,21 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         return listView;
     }
 
+    private boolean hasBuildInData(Block<DisplayItem> data){
+        if (data.blocks != null && data.blocks.size() > 0) {
+            for (int i = 0; i < data.blocks.size(); i++) {
+                Block<DisplayItem> block = data.blocks.get(i);
+                if (block.ui_type.id == LayoutConstant.channel_list_long_hot      ||
+                        block.ui_type.id == LayoutConstant.channel_list_long_rate ||
+                        block.ui_type.id == LayoutConstant.channel_list_short     ||
+                        block.ui_type.id == LayoutConstant.channel_grid_long) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     //default is grid view to display
     private boolean isListViewUI(Block<DisplayItem> data){
         if (data.blocks != null && data.blocks.size() > 0) {
@@ -155,7 +167,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     @Override
     public Loader<GenericBlock<DisplayItem>> onCreateLoader(int id, Bundle bundle) {
         if(id == loaderID) {
-            mLoader = GenericAlbumLoader.generateVideoAlbumLoader(getActivity(), tab, haveBuildInData==true?2:1);
+            mLoader = GenericAlbumLoader.generateVideoAlbumLoader(getActivity(), tab, listView!=null?2:1);
             mLoader.setProgressNotifiable(mLoadingView);
             return mLoader;
         }
@@ -184,20 +196,20 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
         //first page
         if (mVidoeInfo == null) {
             mVidoeInfo = result;
-
-            for(int i=0;i<mVidoeInfo.blocks.get(0).blocks.size();i++) {
+            for (int i = 0; i < mVidoeInfo.blocks.get(0).blocks.size(); i++) {
                 Block<DisplayItem> block = mVidoeInfo.blocks.get(0).blocks.get(i);
-                if(block.ui_type.id == LayoutConstant.channel_list_long_hot ||
+                if (block.ui_type.id == LayoutConstant.channel_list_long_hot ||
                         block.ui_type.id == LayoutConstant.channel_list_long_rate ||
                         block.ui_type.id == LayoutConstant.channel_list_short ||
                         block.ui_type.id == LayoutConstant.channel_grid_long) {
 
-                    if(haveBuildInData == true){
+                    if (listView != null) {
                         mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(sendInBlock.items);
                         adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(i).items);
                         adapter.notifyDataSetChanged();
-                    }
-                    else {
+                    } else {
+                        addViewPort(createListContentView(tab), LayoutConstant.single_view, 0, 0);
+
                         adapter = new RelativeAdapter(block.items, block.ui_type.id);
                         //update UI
                         listView.setAdapter(adapter);
