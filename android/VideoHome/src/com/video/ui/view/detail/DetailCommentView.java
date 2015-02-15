@@ -39,6 +39,7 @@ public class DetailCommentView extends FrameLayout {
 	private VideoItem   mItem;
 	private int mPageNo = 1;
 	private int mPageSize = 3;
+	public final static int MAX_SHOW_COUNT=3;
 	
 	//data from net
 	private int mTotalCommentCount;
@@ -183,12 +184,10 @@ public class DetailCommentView extends FrameLayout {
 			mContentView.setVisibility(View.VISIBLE);
 			mEmptyView.setVisibility(View.GONE);
 
-			if(mTotalCommentCount > 3){
-				mCommentReviewBtn.setVisibility(VISIBLE);
-			}
+			mCommentReviewBtn.setVisibility(mTotalCommentCount > MAX_SHOW_COUNT?VISIBLE:GONE);
 		}
 	}
-	
+
 	private void startCommentEditActivity() {
 		if(mItem != null) {
 			Intent intent = new Intent(getContext(), CommentEditActivity.class);
