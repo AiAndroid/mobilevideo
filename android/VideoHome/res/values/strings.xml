@@ -118,6 +118,10 @@
     <string name="clear_cache_success">Cache cleared</string>
     <string name="priority_storage">Save to SD card</string>
     <string name="priority_storage_summary">Automatically save to external SD card if available</string>
+
+    <string name="development_setting">Development</string>
+    <string name="develop_version">Developing application</string>
+    <string name="receive_develop_summary">Receive application update when new develop version is available</string>
     <!-- settings end -->
 
     <string name="no_sdcard_no_download">No enough storage, fail to request download.</string>

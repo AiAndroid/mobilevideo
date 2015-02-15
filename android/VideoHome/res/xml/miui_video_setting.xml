@@ -30,6 +30,16 @@
             android:defaultValue="true"
             android:summary="@string/receive_mipush_summary"/>
     </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="development_setting"
+            android:title="@string/development_setting">
+        <CheckBoxPreference
+                android:key="open_develop"
+                android:title="@string/develop_version"
+                android:defaultValue="true"
+                android:summary="@string/receive_develop_summary"/>
+    </PreferenceCategory>
     
     <PreferenceCategory
         android:key="other_setting"

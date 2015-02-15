@@ -131,6 +131,14 @@ public class iDataORM {
 
     }
 
+    public static boolean isDevelopmentOn(Context context) {
+        return iDataORM.getBooleanValue(context, "development_app", true);
+    }
+
+    public static void setDevelopmentOn(Context baseContext, boolean checked) {
+        iDataORM.addSetting(baseContext, "development_app", checked==true?"1":"0");
+    }
+
     public static class ColumsCol {
         public static final String ID         = "_id";
         public static final String RES_ID     = "res_id";

@@ -44,6 +44,9 @@ public class SettingActivity extends PreferenceActivity {
 		receiveMipush.setChecked(iDataORM.isMiPushOn());
 		receiveMipush.setOnPreferenceClickListener(mOnPreferenceClickListener);
 
+		CheckBoxPreference open_develop = (CheckBoxPreference) findPreference("open_develop");
+		open_develop.setChecked(iDataORM.isDevelopmentOn(this));
+		open_develop.setOnPreferenceClickListener(mOnPreferenceClickListener);
 	}
 	
 	//UI callback
@@ -67,7 +70,9 @@ public class SettingActivity extends PreferenceActivity {
 			}else if(preKey.equals("receive_mipush")){
 				iDataORM.setMiPushOn(getBaseContext(), ((CheckBoxPreference) preference).isChecked());
                 return true;
-            }
+            }else if(preKey.equals("open_develop")){
+				iDataORM.setDevelopmentOn(getBaseContext(), ((CheckBoxPreference) preference).isChecked());
+			}
 			return false;
 		}
 	};

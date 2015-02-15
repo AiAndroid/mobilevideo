@@ -118,6 +118,10 @@
     <string name="clear_cache_success">成功清除缓存</string>
     <string name="priority_storage">优先使用外置SD卡</string>
     <string name="priority_storage_summary">使用外置SD卡时，此功能生效</string>
+
+    <string name="development_setting">体验计划</string>
+    <string name="develop_version">开发版应用</string>
+    <string name="receive_develop_summary">有新的开发版本时， 提醒用户安装</string>
     <!-- settings end -->
 
     <string name="no_sdcard_no_download">没有存储卡，下载失败</string>
