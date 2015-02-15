@@ -93,7 +93,7 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
             });
         }
 
-        checkAccount();
+        //checkAccount();
     }
 
     private void checkAccount(){

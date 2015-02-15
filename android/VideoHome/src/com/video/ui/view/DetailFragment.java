@@ -83,6 +83,8 @@ public class DetailFragment extends LoadingFragment {
 
             mPosterView.setImageUrlInfo(mItem.media.poster);
 
+            mCommentView.setVideoContent(mItem);
+
             SelectItemsBlockView fv = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(mEpisodeView);
             if(fv != null) {
                 fv.setOnPlayClickListener(episodeClickListener, null);

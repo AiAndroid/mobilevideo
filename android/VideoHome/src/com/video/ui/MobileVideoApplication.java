@@ -86,7 +86,7 @@ public class MobileVideoApplication extends Application{
                         request.setMimeType("application/vnd.android.package-archive");
                         request.setMimeType(VideoUtils.getMimeType(response.apk_url));
                         request.setTitle(response.version_name);
-                        request.setDescription(response.released_by);
+                        request.setDescription(response.released_by + " @"+response.release_date);
                         request.setVisibleInDownloadsUi(true);
                         request.setShowRunningNotification(true);
                         int downloadFlag = DownloadManager.Request.NETWORK_WIFI;

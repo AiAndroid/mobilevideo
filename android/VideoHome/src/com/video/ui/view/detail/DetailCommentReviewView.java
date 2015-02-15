@@ -10,7 +10,7 @@ import com.video.ui.R;
 import java.util.List;
 
 public class DetailCommentReviewView extends LinearLayout {
-	
+
 	private Context mContext;
 
 	public DetailCommentReviewView(Context context, AttributeSet attrs) {
@@ -24,8 +24,8 @@ public class DetailCommentReviewView extends LinearLayout {
 		this.mContext = context;
 		init();
 	}
-	
-	public void setMediaReviews(List<MediaReview> mediaReviews) {
+
+	public void setMediaReviews(List<DetailCommentView.VideoComments.VideoComment> mediaReviews) {
 		removeAllViews();
 		if(mediaReviews == null || mediaReviews.size() == 0) {
 			return;
@@ -33,16 +33,16 @@ public class DetailCommentReviewView extends LinearLayout {
 		for(int i = 0; i < mediaReviews.size(); i++) {
 			View contentView = View.inflate(mContext, R.layout.detail_review_list_item, null);
 			addView(contentView);
-			
+
 			View divider = contentView.findViewById(R.id.detail_review_list_divider);
 			TextView comment = (TextView) contentView.findViewById(R.id.detail_review_list_comment);
 			TextView user = (TextView) contentView.findViewById(R.id.detail_review_list_user);
 			RatingView ratingView = (RatingView) contentView.findViewById(R.id.detail_review_list_rating);
-			MediaReview review = mediaReviews.get(i);
+			DetailCommentView.VideoComments.VideoComment review = mediaReviews.get(i);
 			if(review != null) {
-				comment.setText(review.filmreview);
+				comment.setText(review.comment);
 				user.setText(mContext.getString(R.string.xiaomi_user) + " "
-						+ review.userid);
+						+ review.uid);
 				ratingView.setScore(review.score);
 			}
 			if(i == mediaReviews.size() - 1) {

@@ -1,18 +1,31 @@
 package com.video.ui.view.detail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.VolleyHelper;
+import com.google.gson.reflect.TypeToken;
+import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
-
+import com.video.ui.loader.BaseGsonLoader;
+import com.video.ui.loader.CommonUrl;
+import com.video.ui.utils.VideoUtils;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class DetailCommentView extends FrameLayout {
-
+    private static final String TAG = "DetailCommentView";
 	private Context mContext;
 	private View mContentView;
 	private TextView mCommentReviewBtn;
@@ -21,7 +34,8 @@ public class DetailCommentView extends FrameLayout {
 	
 	private View mEmptyView;
 	private TextView mEmptyWriteBtn;
-	
+
+	private VideoItem   mItem;
 	private int mPageNo = 1;
 	private int mPageSize = 3;
 	
@@ -45,7 +59,6 @@ public class DetailCommentView extends FrameLayout {
 	
 	//init
 	private void init() {
-		initDataSupply();
 		initUI();
 	}
 	
@@ -62,30 +75,89 @@ public class DetailCommentView extends FrameLayout {
 		mEmptyWriteBtn = (TextView) mEmptyView.findViewById(R.id.detail_comment_empty_write);
 		mEmptyWriteBtn.setOnClickListener(mOnClickListener);
 		addView(mEmptyView);
-		
-		refresh();
+	}
+
+	public void setVideoContent(VideoItem item){
+		mItem = item;
+		initDataSupply();
 	}
 	
 	private void initDataSupply() {
+		String commentURL = CommonUrl.BaseURL + "comment/"+ VideoUtils.getVideoID(mItem.id) + "?page=1";
+		Response.Listener<VideoComments> listener = new Response.Listener<VideoComments>() {
+			@Override
+			public void onResponse(VideoComments response) {
+				Log.d(TAG, "comments data: "+response);
+				refresh(response);
+			}
+		};
 
+		Response.ErrorListener errorListener = new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				Log.d(TAG, "fail to fetch comments:"+mItem);
+			}
+		};
+
+		RequestQueue requestQueue = VolleyHelper.getInstance(getContext()).getAPIRequestQueue();
+		BaseGsonLoader.GsonRequest<VideoComments> gsonRequest = new BaseGsonLoader.GsonRequest<VideoComments>(commentURL, new TypeToken<VideoComments>(){}.getType(), null, listener, errorListener);
+		gsonRequest.setCacheNeed(getContext().getCacheDir() + "/comment_"+VideoUtils.getVideoID(mItem.id));
+		gsonRequest.setShouldCache(true);
+		requestQueue.add(gsonRequest);
 	}
 
-    private MediaReview makeTestData(){
-        MediaReview item = new MediaReview();
-        item.choice = 1;
+
+	public static class VideoComments implements Serializable{
+		private static final long serialVersionUID = 1L;
+        public Meta                    meta;
+		public ArrayList<VideoComment> data;
+
+		public static class Meta implements Serializable{
+			private static final long serialVersionUID = 1L;
+			public int    comment_count;
+			public int    page;
+			public String vid;
+			public String toString(){
+				return "vid:"+vid + " page:"+page + " count:"+comment_count;
+			}
+		}
+
+		public static class VideoComment implements Serializable{
+			private static final long serialVersionUID = 1L;
+			public String comment;
+			public float  score;
+			public String uid;
+			public String user;
+			public DisplayItem.Times time;
+		}
+
+		public String toString(){
+			return "meta: "+meta;
+		}
+	}
+
+
+    private VideoComments.VideoComment makeTestData(){
+		VideoComments.VideoComment item = new VideoComments.VideoComment();
         item.score  = 5;
-        item.userid = "刘华东";
-        item.createtime = new Date(System.currentTimeMillis()).toGMTString();
-        item.filmreview = "乱七八糟的东西新";
+        item.uid = "刘华东";
+		item.time = new DisplayItem.Times();
+        item.time.created = new Date(System.currentTimeMillis()).getTime();//.toGMTString();
+        item.comment = "乱七八糟的东西新";
         return item;
     }
-	//packaged method
-	private void refresh() {
-		List<MediaReview> reviews = new ArrayList<MediaReview>();
-        reviews.add(makeTestData());
-        reviews.add(makeTestData());
 
-        mTotalCommentCount = 100;
+	//packaged method
+	private void refresh(VideoComments comments) {
+
+		List<VideoComments.VideoComment> reviews = comments.data;
+		if(comments.data == null || comments.data.size() == 0){
+			reviews = new ArrayList<VideoComments.VideoComment>();
+			//reviews.add(makeTestData());
+			//reviews.add(makeTestData());
+		}
+
+        mTotalCommentCount = comments.meta.comment_count;
 
 		mCommentReviewView.setMediaReviews(reviews);
 		String str = mContext.getResources().getString(R.string.see_all_count_comment);
@@ -94,14 +166,25 @@ public class DetailCommentView extends FrameLayout {
 		if(mTotalCommentCount == 0) {
 			mContentView.setVisibility(View.GONE);
 			mEmptyView.setVisibility(View.VISIBLE);
+			mCommentReviewBtn.setVisibility(GONE);
 		} else {
 			mContentView.setVisibility(View.VISIBLE);
 			mEmptyView.setVisibility(View.GONE);
+
+			if(mTotalCommentCount > 3){
+				mCommentReviewBtn.setVisibility(VISIBLE);
+			}
 		}
 	}
 	
 	private void startCommentEditActivity() {
-
+		if(mItem != null) {
+			Intent intent = new Intent(getContext(), CommentEditActivity.class);
+			intent.putExtra("item", mItem);
+			getContext().startActivity(intent);
+		}else {
+			Toast.makeText(getContext(), "not fetch video info", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	private void startCommentReviewActivity() {

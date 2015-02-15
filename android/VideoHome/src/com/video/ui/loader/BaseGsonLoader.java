@@ -191,6 +191,51 @@ public abstract  class BaseGsonLoader<T> extends Loader<T> {
         }
     }
 
+    public static class PostRequest<TV> extends Request<TV> {
+        private final Map<String, String> headers;
+        private final byte []             body;
+        private final Response.Listener<TV> listener;
+
+        public PostRequest(String url, Map<String, String> headers, byte[] body,
+                           Response.Listener<TV> listener, Response.ErrorListener errorListener) {
+            super(Method.POST, url, errorListener);
+            this.headers = headers;
+            this.listener = listener;
+            this.body = body;
+        }
+
+        @Override
+        public byte[] getBody() throws AuthFailureError {
+            return body != null ? body : super.getBody();
+        }
+
+        @Override
+        public Map<String, String> getHeaders() throws AuthFailureError {
+            return headers != null ? headers : super.getHeaders();
+        }
+
+        @Override
+        protected void deliverResponse(TV response) {
+            listener.onResponse(response);
+        }
+
+        @Override
+        protected Response<TV> parseNetworkResponse(NetworkResponse response) {
+            try {
+                String json = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+                Log.d(TAG, "response json:" + json);
+                Response<TV> res =  Response.success(null, HttpHeaderParser.parseCacheHeaders(response));
+                return  res;
+            } catch (UnsupportedEncodingException e) {
+                return Response.error(new ParseError(e));
+            } catch (JsonSyntaxException e) {
+                return Response.error(new ParseError(e));
+            }
+        }
+    }
+
+
+
     public static void createDir(String filename){
         new File(filename).mkdirs();
     }

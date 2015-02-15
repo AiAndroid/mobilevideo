@@ -39,8 +39,8 @@
     <string name="media_name_comment">%s的评论</string>
     <string name="comment_edit_et_hint">最多输入300字</string>
     <string name="comment_edit_start_hint">轻按星星来评分</string>
-    <string name="comment_count_less_tip">请至少输入%d个字</string>
-    <string name="comment_count_much_tip">每条评论最多%d个字</string>
+    <string name="comment_count_less_tip">请至少输入%1$s个字</string>
+    <string name="comment_count_much_tip">每条评论最多%1$s个字</string>
     <string name="click_star_rate">点击星星评分</string>
     <!-- comment edit end -->
 

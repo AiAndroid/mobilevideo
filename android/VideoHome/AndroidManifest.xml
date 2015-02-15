@@ -91,6 +91,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".tinyui.AllEpisodeActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".view.detail.CommentEditActivity"
+                  android:screenOrientation="portrait"/>
 
         <activity android:name=".SettingActivity"
                   android:screenOrientation="portrait"

@@ -12,6 +12,8 @@
     <dimen name="font_size_46">16.66sp</dimen>
     <dimen name="font_size_48">17.4sp</dimen>
     <dimen name="font_size_60">21.8sp</dimen>
+    <dimen name="text_size_42">15.3sp</dimen>
+    <dimen name="text_size_48">17.4sp</dimen>
     <dimen name="text_size_50">17.4dp</dimen>
 
     <dimen name="size_1">0.4dp</dimen>
@@ -472,5 +474,25 @@
 
 
     <dimen name="mediadetail_selectsource_popup_margintop">3.6dp</dimen>
+
+    <!-- comment review start -->
+    <dimen name="comment_review_score_height">137.3dp</dimen>
+    <dimen name="comment_review_score_width">104.6dp</dimen>
+    <dimen name="comment_review_avg_hint_height">37.4dp</dimen>
+    <dimen name="comment_review_rate_top_margin">2.2dp</dimen>
+    <dimen name="comment_review_item_user_top_margin">10.6dp</dimen>
+    <dimen name="comment_review_item_rate_left_margin">4.0dp</dimen>
+    <dimen name="comment_review_item_comment_top_margin">33.8dp</dimen>
+    <dimen name="comment_review_item_divider_top_margin">12.0dp</dimen>
+    <!-- comment review end -->
+
+
+    <!-- comment edit start -->
+    <dimen name="comment_edit_et_height">202.7dp</dimen>
+    <!-- comment edit end -->
+
+    <!-- scoring view start -->
+    <dimen name="scoring_view_padding">9.0dp</dimen>
+    <!-- scoring view end -->
 
 </resources>
