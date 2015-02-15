@@ -13,6 +13,7 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.tv.ui.metro.model.PlaySource;
 import com.video.ui.R;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
 import com.video.ui.utils.ViewUtils;
@@ -98,7 +99,10 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     private boolean ui_type_listview = false;
     private View createListContentView(Block<DisplayItem> preData){
         ui_type_listview = isListViewUI(preData);
-        ui_type_listview = false;
+        if(iDataORM.getBooleanValue(getActivity(), "gridview_ui", true) == true) {
+            ui_type_listview = false;
+        }
+
         if(ui_type_listview) {
             listView = (ListView) View.inflate(getActivity(), R.layout.list_content_layout, null);
         }else{
@@ -119,7 +123,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                         //update UI
                         listView.setAdapter(adapter);
                         listView.setOnScrollListener(scrollListener);
-                        listView.setOnItemClickListener(itemClicker);
+                        //listView.setOnItemClickListener(itemClicker);
                     }
                     break;
                 } else {
@@ -214,7 +218,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                         //update UI
                         listView.setAdapter(adapter);
                         listView.setOnScrollListener(scrollListener);
-                        listView.setOnItemClickListener(itemClicker);
+                        //listView.setOnItemClickListener(itemClicker);
                     }
                     break;
                 }

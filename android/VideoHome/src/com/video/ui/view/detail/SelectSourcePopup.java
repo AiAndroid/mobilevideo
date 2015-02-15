@@ -60,6 +60,7 @@ public class SelectSourcePopup extends RelativeLayout {
 		mListView.setOnItemClickListener(mOnIemClickListener);
 		mListView.setDivider(mContext.getResources().getDrawable(R.drawable.com_3_black));
 		mListView.setDividerHeight(1);
+        mListView.setSelector(R.drawable.com_item_bg_mid);
 		mContentView.setBackgroundResource(R.drawable.mediadetail_selectsource);
 		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		mListView.setLayoutParams(params);

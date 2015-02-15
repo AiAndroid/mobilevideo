@@ -58,8 +58,15 @@ public class ChannelVideoItemView extends RelativeLayout {
             leftView  = (TextView) convertView.findViewById(R.id.left_textview);
             midView   = (TextView) convertView.findViewById(R.id.mid_textview);
             rightView = (TextView) convertView.findViewById(R.id.right_textview);
+            tab_media_click = convertView.findViewById(R.id.tab_media_click);
         }
 
+        tab_media_click.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BaseCardView.launcherAction(getContext(), content);
+            }
+        });
         if(imageWidth == -1){
             imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_width);
             imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
@@ -186,6 +193,7 @@ public class ChannelVideoItemView extends RelativeLayout {
     TextView desc;
     TextView left;
     TextView place;
+    View     tab_media_click;
     public RelativeLayout layout;
     public View     line;
     public View     padding;
@@ -207,6 +215,13 @@ public class ChannelVideoItemView extends RelativeLayout {
             place = (TextView) convertView.findViewById(R.id.channel_rank_item_place);
             line = convertView.findViewById(R.id.channel_rank_item_line);
             padding = convertView.findViewById(R.id.channel_rank_item_padding);
+            //tab_media_click = convertView.findViewById(R.id.tab_media_click);
+            convertView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BaseCardView.launcherAction(getContext(), content);
+                }
+            });
         }
     }
 }
