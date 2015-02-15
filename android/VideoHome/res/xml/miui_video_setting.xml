@@ -39,6 +39,12 @@
                 android:title="@string/develop_version"
                 android:defaultValue="true"
                 android:summary="@string/receive_develop_summary"/>
+
+        <CheckBoxPreference
+                android:key="ui_style"
+                android:title="ui style"
+                android:defaultValue="true"
+                android:summary="default is list view"/>
     </PreferenceCategory>
     
     <PreferenceCategory

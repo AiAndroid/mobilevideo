@@ -116,7 +116,6 @@
                 android:paddingTop="@dimen/media_tab_desc_top_margin"
                 android:ellipsize="end"
                 android:gravity="top|center_horizontal"
-                android:singleLine="true"
                 android:textColor="@color/color_sub_text"
                 android:textSize="@dimen/text_size_subtitle" />
     </RelativeLayout>

@@ -99,7 +99,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
     private boolean ui_type_listview = false;
     private View createListContentView(Block<DisplayItem> preData){
         ui_type_listview = isListViewUI(preData);
-        if(iDataORM.getBooleanValue(getActivity(), "gridview_ui", true) == false) {
+        if(iDataORM.getBooleanValue(getActivity(), iDataORM.gridview_ui, false) == true) {
             ui_type_listview = false;
         }
 

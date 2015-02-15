@@ -47,6 +47,11 @@ public class SettingActivity extends PreferenceActivity {
 		CheckBoxPreference open_develop = (CheckBoxPreference) findPreference("open_develop");
 		open_develop.setChecked(iDataORM.isDevelopmentOn(this));
 		open_develop.setOnPreferenceClickListener(mOnPreferenceClickListener);
+
+		CheckBoxPreference ui_style = (CheckBoxPreference) findPreference("ui_style");
+		ui_style.setChecked(iDataORM.getBooleanValue(getApplicationContext(), iDataORM.gridview_ui, false));
+		ui_style.setOnPreferenceClickListener(mOnPreferenceClickListener);
+
 	}
 	
 	//UI callback
@@ -72,6 +77,9 @@ public class SettingActivity extends PreferenceActivity {
                 return true;
             }else if(preKey.equals("open_develop")){
 				iDataORM.setDevelopmentOn(getBaseContext(), ((CheckBoxPreference) preference).isChecked());
+			}
+			else if(preKey.equals("ui_style")) {
+				iDataORM.addSetting(getBaseContext(), iDataORM.gridview_ui, ((CheckBoxPreference) preference).isChecked()?"1":"0");
 			}
 			return false;
 		}

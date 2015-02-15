@@ -80,12 +80,16 @@ public class ChannelVideoItemView extends RelativeLayout {
             desc.setHeight(0);
             desc.setVisibility(GONE);
         }else {
-            title.setSingleLine(true);
             title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+            title.setSingleLine(true);
             desc.setHeight(secondHeight);
             desc.setVisibility(VISIBLE);
         }
+        title.setHorizontallyScrolling(false);
         title.setText(item.title);
+
+        desc.setSingleLine();
+        desc.setHorizontallyScrolling(false);
         desc.setText(item.sub_title);
 
         setHintText(item);

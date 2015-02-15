@@ -36,6 +36,7 @@ public class iDataORM {
 
     public static String mobile_offline_hint = "mobile_offline_hint";
     public static String KEY_PREFERENCE_SOURCE = "prefer_source_cp";
+    public static String gridview_ui = "gridview_ui";
 
     private static iDataORM _instance;
     public static iDataORM getInstance(Context con){
