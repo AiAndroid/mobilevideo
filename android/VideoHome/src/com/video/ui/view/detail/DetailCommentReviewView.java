@@ -30,7 +30,8 @@ public class DetailCommentReviewView extends LinearLayout {
 		if(mediaReviews == null || mediaReviews.size() == 0) {
 			return;
 		}
-		for(int i = 0; i < mediaReviews.size(); i++) {
+		int size = mediaReviews.size()>4?4:mediaReviews.size();
+		for(int i = 0; i < size; i++) {
 			View contentView = View.inflate(mContext, R.layout.detail_review_list_item, null);
 			addView(contentView);
 
