@@ -115,6 +115,7 @@ public class DetailCommentView extends FrameLayout {
 		VideoComments.VideoComment vc = new VideoComments.VideoComment() ;
 		vc.comment = comment.comment;
 		vc.score   = comment.score;
+		vc.uid     = comment.uid;
 		mComments.data.add(0, vc);
 		mCommentReviewView.setMediaReviews(mComments.data);
 

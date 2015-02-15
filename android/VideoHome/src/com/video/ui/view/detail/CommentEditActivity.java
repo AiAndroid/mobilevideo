@@ -143,7 +143,7 @@ public class CommentEditActivity extends DisplayItemActivity {
 					DetailCommentView.VideoComments.VideoComment vcitem = new DetailCommentView.VideoComments.VideoComment();
 					vcitem.comment = mCommentStr;
 					vcitem.score   = mScore;
-					vcitem.uid     = mAccount!=null?mAccount.name:getString(R.string.xiaomi_user) ;
+					vcitem.uid     = "我";
 					result.putExtra("comment", vcitem);
 					setResult(RESULT_OK, result);
 					finish();
