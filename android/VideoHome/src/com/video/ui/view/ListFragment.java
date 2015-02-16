@@ -98,7 +98,10 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
     private boolean ui_type_listview = false;
     private View createListContentView(Block<DisplayItem> preData){
-        ui_type_listview = isListViewUI(preData);
+        //
+        //call to calculate the ui style
+        hasBuildInData(preData);
+
         if(iDataORM.getBooleanValue(getActivity(), iDataORM.gridview_ui, false) == true) {
             ui_type_listview = false;
         }
@@ -141,8 +144,14 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                 Block<DisplayItem> block = data.blocks.get(i);
                 if (block.ui_type.id == LayoutConstant.channel_list_long_hot      ||
                         block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                        block.ui_type.id == LayoutConstant.channel_list_short     ||
-                        block.ui_type.id == LayoutConstant.channel_grid_long) {
+                        block.ui_type.id == LayoutConstant.channel_list_short ) {
+                    ui_type_listview = true;
+                }
+                else if(block.ui_type.id == LayoutConstant.channel_grid_long) {
+                    ui_type_listview = false;
+                }
+
+                if(block.items != null && block.items.size() > 0) {
                     return true;
                 }
             }
@@ -150,23 +159,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
 
         return false;
     }
-    //default is grid view to display
-    private boolean isListViewUI(Block<DisplayItem> data){
-        if (data.blocks != null && data.blocks.size() > 0) {
-            for (int i = 0; i < data.blocks.size(); i++) {
-                Block<DisplayItem> block = data.blocks.get(i);
-                if (block.ui_type.id == LayoutConstant.channel_list_long_hot ||
-                        block.ui_type.id == LayoutConstant.channel_list_long_rate ||
-                        block.ui_type.id == LayoutConstant.channel_list_short) {
-                    return true;
-                } else if (block.ui_type.id == LayoutConstant.channel_grid_long) {
-                    return false;
-                }
-            }
-        }
 
-        return false;
-    }
 
     @Override
     public Loader<GenericBlock<DisplayItem>> onCreateLoader(int id, Bundle bundle) {

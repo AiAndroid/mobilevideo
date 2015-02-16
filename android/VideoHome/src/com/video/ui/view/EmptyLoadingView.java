@@ -63,7 +63,7 @@ public class EmptyLoadingView extends LinearLayout implements ProgressNotifiable
             updateStyle(hasData);
             if (hasData) {
                 hideView(loading_layout);
-                    progress.setIndeterminate(false);
+                progress.setIndeterminate(false);
                 view_retry.setVisibility(GONE);
             } else {
                 view_retry.setVisibility(VISIBLE);
