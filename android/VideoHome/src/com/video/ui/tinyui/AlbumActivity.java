@@ -125,11 +125,6 @@ public class AlbumActivity extends DisplayItemActivity{
             if((lastweek && ar.dateInt >= lastweekpointer) ||
                     (lastweek == false && ar.dateInt < lastweekpointer )) {
                 VideoItem di = iDataORM.ActionRecord.parseJson(gson, ar.json, VideoItem.class);
-                di.images = new ImageGroup();
-                Image image = new Image();
-                image.url = di.media.poster;
-                di.images.put("poster", image);
-
                 grid_port.items.add(di);
             }
         }
