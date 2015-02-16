@@ -15,10 +15,9 @@
                 android:layout_height="@dimen/info_channel_list_poster_height"
                 android:layout_marginLeft="@dimen/video_common_interval_30"
                 android:layout_marginRight="@dimen/video_common_interval_30"
-                android:background="@drawable/default_border_right_angle"
+                android:background="@drawable/default_poster_media"
                 android:scaleType="centerCrop"
-                android:layout_centerVertical="true"
-                android:src="@drawable/default_poster_media" />
+                android:layout_centerVertical="true" />
 
         <ImageView
                 android:id="@+id/channel_rank_item_poster"

@@ -122,10 +122,10 @@ public abstract class BaseCardView  extends RelativeLayout {
         return output;
     }
 
-    public static class BlendCorners implements Transformation {
+    public static class BlendImageWithCover implements Transformation {
         static Bitmap frontBitmp ;
         static NinePatchDrawable drawable;
-        BlendCorners(Context context) {
+        BlendImageWithCover(Context context) {
             if(frontBitmp == null){
                 frontBitmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.poster_mask_v);
                 byte[] chunk = frontBitmp.getNinePatchChunk();

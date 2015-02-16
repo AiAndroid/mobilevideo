@@ -44,8 +44,8 @@
                     android:id="@+id/detail_introduce_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/video_common_interval_13"
-                    android:layout_marginRight="@dimen/video_common_interval_13"
+                    android:layout_marginLeft="@dimen/video_common_interval_20"
+                    android:layout_marginRight="@dimen/video_common_interval_20"
                     android:layout_marginTop="@dimen/video_common_interval_15"
                     android:background="@drawable/com_bg_white_corner" />
 
@@ -66,8 +66,8 @@
                     android:id="@+id/detail_comment_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/video_common_interval_13"
-                    android:layout_marginRight="@dimen/video_common_interval_13"
+                    android:layout_marginLeft="@dimen/video_common_interval_20"
+                    android:layout_marginRight="@dimen/video_common_interval_20"
                     android:layout_marginTop="@dimen/video_common_interval_15"
                     android:background="@drawable/com_bg_white_corner" />
                 </LinearLayout>

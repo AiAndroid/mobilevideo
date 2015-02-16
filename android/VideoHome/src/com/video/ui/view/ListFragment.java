@@ -201,7 +201,7 @@ public class ListFragment extends LoadingFragment implements LoaderManager.Loade
                         block.ui_type.id == LayoutConstant.channel_grid_long) {
 
                     if (listView != null) {
-                        mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(sendInBlock.items);
+                        mVidoeInfo.blocks.get(0).blocks.get(i).items.addAll(0, sendInBlock.items);
                         adapter.changeContent(mVidoeInfo.blocks.get(0).blocks.get(i).items);
                         adapter.notifyDataSetChanged();
                     } else {
