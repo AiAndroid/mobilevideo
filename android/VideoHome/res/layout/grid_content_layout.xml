@@ -15,7 +15,7 @@
               android:adjustViewBounds="true"
               android:layout_centerVertical="true"
               android:gravity="center"
-              android:stretchMode="spacingWidth"
+              android:stretchMode="spacingWidthUniform"
               android:verticalSpacing="@dimen/ITEM_DIVIDE_SIZE">
 
 </GridView>

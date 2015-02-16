@@ -163,7 +163,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
                     ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
                     ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                    Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).into(image);
+                    Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).transform(new BaseCardView.BlendCorners(getContext())).into(image);
                     TextView title = (TextView)meida.findViewById(R.id.media_title);
                     TextView desc = (TextView)meida.findViewById(R.id.descrip);
                     if(TextUtils.isEmpty(item.sub_title)){
@@ -250,7 +250,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             View meida = grid.getChildAt(i);
             final DisplayItem item = (DisplayItem) block.items.get(i);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(image.getWidth(), image.getHeight()).into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(image.getWidth(), image.getHeight()).transform(new BaseCardView.BlendCorners(getContext())).into(image);
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             if(title != null) {

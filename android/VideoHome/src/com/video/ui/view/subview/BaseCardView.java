@@ -3,12 +3,15 @@ package com.video.ui.view.subview;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import com.squareup.picasso.Transformation;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 
@@ -117,5 +120,48 @@ public abstract class BaseCardView  extends RelativeLayout {
             bitmap.recycle();
         }
         return output;
+    }
+
+    public static class BlendCorners implements Transformation {
+        static Bitmap frontBitmp ;
+        static NinePatchDrawable drawable;
+        BlendCorners(Context context) {
+            if(frontBitmp == null){
+                frontBitmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.poster_mask_v);
+                byte[] chunk = frontBitmp.getNinePatchChunk();
+                if(NinePatch.isNinePatchChunk(chunk)) {
+                    drawable = new NinePatchDrawable(context.getResources(), frontBitmp, chunk, new Rect(), null);
+                }
+            }
+
+        }
+
+        @Override
+        public String key() {
+            return "blend bitmap";
+        }
+
+        @Override
+        public Bitmap transform(Bitmap arg0) {
+            return getRoundedTopLeftCornerBitmap(arg0);
+        }
+
+        public Bitmap getRoundedTopLeftCornerBitmap(Bitmap bitmap) {
+
+            Canvas canvas = new Canvas(bitmap);
+
+            final int color = 0xff424242;
+            final Paint paint = new Paint();
+            final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(color);
+
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+            drawable.setBounds(rect);
+            drawable.draw(canvas);
+            return bitmap;
+        }
     }
 }

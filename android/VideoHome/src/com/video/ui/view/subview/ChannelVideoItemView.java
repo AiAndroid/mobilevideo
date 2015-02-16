@@ -73,7 +73,7 @@ public class ChannelVideoItemView extends RelativeLayout {
             secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
         }
 
-        Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).into(poster);
+        Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendCorners(getContext())).into(poster);
         if(TextUtils.isEmpty(item.sub_title)){
             title.setSingleLine(false);
             title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
