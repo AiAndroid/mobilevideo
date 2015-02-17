@@ -84,6 +84,33 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }
     }
 
+    private int secondHeight = -1;
+    private int firstHeight  = -1;
+    private int itemWidth    = -1;
+    private int itemHeight   = -1;
+    private int imageWidth   = -1;
+    private  int imageHeight = -1;
+
+
+    private void fetchLineTextViewDimens(Block<T> block){
+        if(secondHeight == -1) {
+            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
+            firstHeight = getResources().getDimensionPixelSize(R.dimen.size_76);
+            if (block.ui_type.id == LayoutConstant.grid_media_land) {
+                secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
+                itemWidth       = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
+                itemHeight      = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
+                imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_width);
+                imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_height);
+            }else {
+                itemWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
+                itemHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
+                imageWidth  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_width);
+                imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
+            }
+        }
+    }
+
     private void initUI(Block<T> rootblock){
         content = rootblock;
         int block_height = 0;
@@ -102,6 +129,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
 
         //for tab padding top
         int topMargin = item_padding;
+        fetchLineTextViewDimens(content.blocks.get(0));
+
         for(Block<T> block: content.blocks) {
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
@@ -116,13 +145,6 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 }
 
                 text.setTextColor(getResources().getColor(R.color.orange));
-
-                int secondHeight = 0;
-                secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
-                if(block.ui_type.id == LayoutConstant.grid_media_land) {
-                    secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
-                }
-
                 FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
                 if(size == 1){
                     grid.setBackground(null);
@@ -134,53 +156,20 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 }
 
                 //default defined as landscape
-                int row_count = block.ui_type.row_count;
-                if(row_count == 0)
-                    row_count = 2;
-
-                int width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_width);
-                int height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_height);
-                int imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_image_height);
+                int row_count =  block.ui_type.row_count <=0?2:block.ui_type.row_count;
                 int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_width))/(row_count+1);
-                mType = LayoutConstant.grid_media_land;
-                int res_id = R.layout.tab_media_hor;
+                mType = block.ui_type.id == LayoutConstant.grid_media_port?LayoutConstant.grid_media_port:LayoutConstant.grid_media_land;
+                int res_id = block.ui_type.id == LayoutConstant.grid_media_port?R.layout.tab_media_port:R.layout.tab_media_hor;
 
                 if(block.ui_type.id == LayoutConstant.grid_media_port){
-                    row_count = block.ui_type.row_count;
-                    if(row_count == 0)
-                        row_count = 3;
-
-                    width  = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width);
-                    height = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_height);
-                    imageHeight = getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_image_height);
                     padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.channel_media_view_port_width))/(row_count+1);
-                    mType = LayoutConstant.grid_media_port;
-                    res_id = R.layout.tab_media_port;
                 }
 
                 for(int i=0;i<block.items.size();++i) {
                     final DisplayItem item = (DisplayItem) block.items.get(i);
 
                     ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
-                    ImageView image = (ImageView)meida.findViewById(R.id.poster);
-                    Picasso.with(getContext()).load(item.images.get("poster").url).resize(width, imageHeight).transform(new BlendImageWithCover(getContext())).into(image);
-                    TextView title = (TextView)meida.findViewById(R.id.media_title);
-                    TextView desc = (TextView)meida.findViewById(R.id.descrip);
-                    if(TextUtils.isEmpty(item.sub_title)){
-                        title.setSingleLine(false);
-                        title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                        desc.setVisibility(GONE);
-                    }else {
-                        title.setSingleLine(true);
-                        desc.setHeight(secondHeight);
-                        desc.setVisibility(VISIBLE);
-                    }
-                    title.setText(item.title);
-                    desc.setText(item.sub_title);
-
-                    title.requestLayout();
-                    desc.requestLayout();
-
+                    setImageAndDesc(meida, item);
                     setHintText(meida, item);
 
                     meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
@@ -190,34 +179,21 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                         }
                     });
 
-                    FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, height);
+                    FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, itemHeight);
 
-                    flp.leftMargin = getPaddingLeft() + (width*(i%row_count)) + padding*(i%row_count + 1);
-                    flp.topMargin  = getPaddingTop() + (height*(i/row_count)) + item_padding*(i/row_count + 1) + topMargin;
+                    flp.leftMargin = getPaddingLeft() + (itemWidth*(i%row_count)) + padding*(i%row_count + 1);
+                    flp.topMargin  = getPaddingTop() + (itemHeight*(i/row_count)) + item_padding*(i/row_count + 1) + topMargin;
 
                     grid.addView(meida,flp);
                 }
 
-                block_height += height*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1) + topMargin;
+                block_height += itemHeight*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1) + topMargin;
             }
         }
 
 
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, block_height+item_padding) ;
         addView(root,lp);
-
-        //size == 1 is special
-        if(size > 1 && false) {
-            TextView text = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.tab_text, null);
-            text.setText(" ");
-            mTabWidget.addView(text);
-            text.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //do nothing
-                }
-            });
-        }
 
         getDimens().height = block_height + item_padding;
     }
@@ -241,39 +217,12 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }
 
 
-        int secondHeight = getResources().getDimensionPixelSize(R.dimen.size_81);
-        if(block.ui_type.id == LayoutConstant.grid_media_land) {
-            secondHeight = getResources().getDimensionPixelSize(R.dimen.size_84);
-        }
+        fetchLineTextViewDimens(block);
 
         for(int i=0;i<grid.getChildCount();i++){
             View meida = grid.getChildAt(i);
             final DisplayItem item = (DisplayItem) block.items.get(i);
-            ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(image.getWidth(), image.getHeight()).transform(new BlendImageWithCover(getContext())).into(image);
-
-            TextView title = (TextView)meida.findViewById(R.id.media_title);
-            if(title != null) {
-                TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                if(TextUtils.isEmpty(item.sub_title)){
-                    title.setSingleLine(false);
-                    title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                    descrip.setVisibility(GONE);
-                }else {
-                    descrip.setVisibility(VISIBLE);
-                    title.setSingleLine(true);
-                    descrip.setHeight(secondHeight);
-                }
-                title.setText(item.title);
-                descrip.setText(item.sub_title);
-
-                title.requestLayout();
-                descrip.requestLayout();
-            }else {
-                TextView descrip = (TextView)meida.findViewById(R.id.descrip);
-                descrip.setText(item.title + " " +item.sub_title);
-            }
-
+            setImageAndDesc(meida, item);
             setHintText(meida, item);
 
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
@@ -282,6 +231,31 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 launcherAction(getContext(), item);
                 }
             });
+        }
+    }
+
+    private void setImageAndDesc(View media, DisplayItem item){
+        ImageView image = (ImageView)media.findViewById(R.id.poster);
+        Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BlendImageWithCover(getContext(), mType==LayoutConstant.grid_media_port?true:false)).into(image);
+
+        TextView title = (TextView)media.findViewById(R.id.media_title);
+        if(title != null) {
+            TextView descrip = (TextView)media.findViewById(R.id.descrip);
+            if(TextUtils.isEmpty(item.sub_title)){
+                title.setSingleLine(false);
+                title.setHeight(firstHeight + secondHeight);
+                descrip.setVisibility(GONE);
+            }else {
+                descrip.setVisibility(VISIBLE);
+                title.setSingleLine(true);
+                descrip.setHeight(secondHeight);
+            }
+            title.setText(item.title);
+            descrip.setText(item.sub_title);
+
+        }else {
+            TextView descrip = (TextView)media.findViewById(R.id.descrip);
+            descrip.setText(item.title + " " +item.sub_title);
         }
     }
 

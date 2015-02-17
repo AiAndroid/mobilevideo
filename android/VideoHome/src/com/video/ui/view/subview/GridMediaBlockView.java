@@ -88,7 +88,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
 
             ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext())).tag(tag).into(image);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext(), res_id == R.layout.tab_media_port?true:false)).tag(tag).into(image);
 
             TextView title = (TextView)meida.findViewById(R.id.media_title);
             TextView desc = (TextView)meida.findViewById(R.id.descrip);
@@ -163,7 +163,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             ImageView image = (ImageView)view.findViewById(R.id.poster);
             if(image != null) {
                 DisplayItem item = (DisplayItem) content.items.get(i);
-                Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext())).into(image);
+                Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext(), res_id == R.layout.tab_media_port?true:false)).into(image);
             }
         }
     }

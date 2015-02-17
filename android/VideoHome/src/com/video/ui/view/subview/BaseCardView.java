@@ -124,13 +124,22 @@ public abstract class BaseCardView  extends RelativeLayout {
 
     public static class BlendImageWithCover implements Transformation {
         static Bitmap frontBitmp ;
-        static NinePatchDrawable drawable;
-        BlendImageWithCover(Context context) {
+        static NinePatchDrawable vdrawable;
+        static NinePatchDrawable hdrawable;
+        private boolean mVertical;
+        BlendImageWithCover(Context context, boolean vertical) {
+            mVertical = vertical;
             if(frontBitmp == null){
                 frontBitmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.poster_mask_v);
                 byte[] chunk = frontBitmp.getNinePatchChunk();
                 if(NinePatch.isNinePatchChunk(chunk)) {
-                    drawable = new NinePatchDrawable(context.getResources(), frontBitmp, chunk, new Rect(), null);
+                    vdrawable = new NinePatchDrawable(context.getResources(), frontBitmp, chunk, new Rect(), null);
+                }
+
+                frontBitmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.poster_mask_h);
+                byte[] hchunk = frontBitmp.getNinePatchChunk();
+                if(NinePatch.isNinePatchChunk(hchunk)) {
+                    hdrawable = new NinePatchDrawable(context.getResources(), frontBitmp, hchunk, new Rect(), null);
                 }
             }
 
@@ -148,6 +157,12 @@ public abstract class BaseCardView  extends RelativeLayout {
 
         public Bitmap getRoundedTopLeftCornerBitmap(Bitmap bitmap) {
 
+            //TODO
+            //bug for crash
+            if(bitmap != null){
+                return bitmap;
+            }
+
             Canvas canvas = new Canvas(bitmap);
 
             final int color = 0xff424242;
@@ -159,8 +174,13 @@ public abstract class BaseCardView  extends RelativeLayout {
             paint.setColor(color);
 
             canvas.drawBitmap(bitmap, rect, rect, paint);
-            drawable.setBounds(rect);
-            drawable.draw(canvas);
+            if(mVertical) {
+                vdrawable.setBounds(rect);
+                vdrawable.draw(canvas);
+            }else {
+                hdrawable.setBounds(rect);
+                hdrawable.draw(canvas);
+            }
             return bitmap;
         }
     }

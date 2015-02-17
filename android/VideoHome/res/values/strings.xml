@@ -147,4 +147,27 @@
     <string name="datastream_alert_title">Data usage warning</string>
     <!-- download end -->
 
+    <!-- score status view start -->
+    <string name="percent_status" translatable="false">%.0f%%</string>
+    <!-- score status view end -->
+
+    <string name="local_favorite_empty_title">Empty</string>
+    <string name="offline_media_empty_title">Empty</string>
+    <string name="error_empty_title">Something went wrong</string>
+    <string name="error_empty_filter_title">No results</string>
+    <string name="local_media_empty_title">No videos</string>
+    <string name="local_media_empty_sub_title">Download and watch videos offline</string>
+
+    <!-- offline start -->
+    <string name="download_with">Downloading %1$s/%2$s</string>
+    <string name="offline_loading">Offline</string>
+    <!-- TODO: Make this into a plural-->
+    <string name="download_task_with">%d tasks</string>
+    <string name="offline_status_loading">Downloading</string>
+    <string name="offline_status_waiting">Waiting</string>
+    <string name="offline_status_paused">Paused</string>
+    <string name="offline_status_failed">Failed</string>
+    <string name="offline_status_finished">Complete</string>
+    <string name="delete_with">Delete (%d)</string>
+    <!-- offline end -->
 </resources>

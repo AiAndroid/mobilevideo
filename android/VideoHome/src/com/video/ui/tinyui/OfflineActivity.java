@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -43,7 +44,11 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
         mMetroLayout.addItemViewPort(createListContentView(), LayoutConstant.single_view, 0, 0);
         adapter = new RelativeAdapter(getBaseContext(), null, true);
 
-        setTitle(item.title);
+        if(item != null) {
+            setTitle(TextUtils.isEmpty(item.title) == false ? item.title : getString(R.string.offline_loading));
+        }else {
+            setTitle(getString(R.string.offline_loading));
+        }
         //update UI
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(itemClicker);

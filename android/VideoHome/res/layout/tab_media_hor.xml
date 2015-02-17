@@ -16,14 +16,12 @@
                 android:scaleType="centerCrop"
                 android:background="@drawable/default_poster_pic"/>
 
-        <!--
         <View
                 android:id="@+id/mask"
                 android:layout_width="@dimen/channel_media_view_image_width"
                 android:layout_height="@dimen/channel_media_view_image_height"
                 android:background="@drawable/poster_mask_h"
                 android:layout_marginTop="0dp"/>
-        -->
         <RelativeLayout
                 android:layout_width="@dimen/channel_media_view_image_width"
                 android:layout_height="wrap_content"

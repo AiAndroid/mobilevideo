@@ -83,6 +83,11 @@
 
     <dimen name="text_font_size_huge">21sp</dimen>
 
+    <!-- pixel size start -->
+    <dimen name="pixel_size_87">29dp</dimen>
+    <dimen name="pixel_size_32">10.7dp</dimen>
+    <!-- pixel size end -->
+
     <dimen name="nav_tab_text_size">14.5dp</dimen>
     <dimen name="tab_recommend_margin_left">60dp</dimen>
     <dimen name="tab_highlight_height">48dp</dimen>
@@ -496,5 +501,29 @@
     <!-- scoring view start -->
     <dimen name="scoring_view_padding">8.3dp</dimen>
     <!-- scoring view end -->
+
+    <!-- score status start -->
+    <dimen name="score_status_width">203dp</dimen>
+    <dimen name="score_status_progress_width">136dp</dimen>
+    <dimen name="score_status_progress_height">1.7dp</dimen>
+    <dimen name="score_status_progress_left_margin">32.3dp</dimen>
+    <dimen name="score_status_intervalV">11dp</dimen>
+    <!-- score status end -->
+
+    <!-- status btn start -->
+    <dimen name="status_btn_left_intervalH">4dp</dimen>
+    <dimen name="status_btn_left_width">18dp</dimen>
+    <dimen name="status_btn_left_height">18dp</dimen>
+    <dimen name="status_btn_iv_width">18dp</dimen>
+    <dimen name="status_btn_iv_height">18dp</dimen>
+    <dimen name="status_btn_font_size">13dp</dimen>
+    <!-- status btn end -->
+
+    <!-- storage bar start -->
+    <dimen name="storage_bar_height">60dp</dimen>
+    <dimen name="storage_bar_progress_width">320dp</dimen>
+    <dimen name="storage_bar_progress_height">3.33dp</dimen>
+    <!-- storage bar end -->
+
 
 </resources>
