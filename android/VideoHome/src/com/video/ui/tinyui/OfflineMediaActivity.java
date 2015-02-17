@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.google.gson.Gson;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
@@ -123,6 +124,7 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 			ChannelVideoItemView root = (ChannelVideoItemView) view;
 			iDataORM.ActionRecord ar = iDataORM.getInstance(context).formatActionRecord(cursor);
 			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);
+			vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
 			root.setContent(vi, cursor.getPosition());
 		}
 	}
