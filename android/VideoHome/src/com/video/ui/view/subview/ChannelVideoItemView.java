@@ -76,6 +76,7 @@ public class ChannelVideoItemView extends RelativeLayout {
         Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight)/*.transform(new BaseCardView.BlendCorners(getContext()))*/.into(poster);
         if(TextUtils.isEmpty(item.sub_title)){
             title.setSingleLine(false);
+            title.setMaxLines(2);
             title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
             desc.setHeight(0);
             desc.setVisibility(GONE);
@@ -226,6 +227,15 @@ public class ChannelVideoItemView extends RelativeLayout {
                     BaseCardView.launcherAction(getContext(), content);
                 }
             });
+        }else {
+            convertView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.grid_media_port, this);
+            poster = (ImageView) convertView.findViewById(R.id.poster);
+            title = (TextView) convertView.findViewById(R.id.media_title);
+            desc  = (TextView) convertView.findViewById(R.id.descrip);
+            leftView  = (TextView) convertView.findViewById(R.id.left_textview);
+            midView   = (TextView) convertView.findViewById(R.id.mid_textview);
+            rightView = (TextView) convertView.findViewById(R.id.right_textview);
+            tab_media_click = convertView.findViewById(R.id.tab_media_click);
         }
     }
 }

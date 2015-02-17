@@ -69,69 +69,70 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+
+
+    <LinearLayout
         android:id="@+id/offline_media_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@id/offline_storage"
         android:layout_below="@id/title_bar"
         android:layout_marginTop="@dimen/video_common_interval_negtive_10"
-        android:background="@drawable/com_bg_gray" >
+        android:background="@drawable/com_bg_gray"
+        android:orientation="vertical" >
 
-        <LinearLayout
+        <include layout="@layout/offline_media_loading_bar" android:id="@+id/offline_loading_bar" />
+
+        <RelativeLayout
+            android:id="@+id/offline_media_block"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <include layout="@layout/offline_media_loading_bar" android:id="@+id/offline_loading_bar" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/size_30"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_marginRight="@dimen/size_15"
+            android:background="@drawable/com_bg_white_corner"
+            android:paddingBottom="@dimen/size_60"
+            android:paddingLeft="@dimen/size_30"
+            android:paddingRight="@dimen/size_30"
+            android:paddingTop="@dimen/size_40" >
 
             <RelativeLayout
-                android:id="@+id/offline_media_block"
+                android:id="@+id/offline_media_block_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/offline_media_block_name"
+                    style="@style/NameTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_18"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/offline_loaded" />
+
+                <View
+                    android:id="@+id/offline_media_block_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@id/offline_media_block_name"
+                    android:background="@color/gray" />
+            </RelativeLayout>
+
+            <GridView
+                android:id="@+id/offline_media_block_grids"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/size_30"
-                android:layout_marginLeft="@dimen/size_15"
-                android:layout_marginRight="@dimen/size_15"
-                android:background="@drawable/com_bg_white_corner"
-                android:paddingBottom="@dimen/size_60"
-                android:paddingLeft="@dimen/size_30"
-                android:paddingRight="@dimen/size_30"
-                android:paddingTop="@dimen/size_40" >
+                android:layout_below="@id/offline_media_block_header"
+                android:listSelector="@color/transparent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/ITEM_DIVIDE_SIZE"
+                android:columnWidth="@dimen/channel_media_view_port_width"
+                android:numColumns="auto_fit"
+                android:scrollbarThumbVertical="@drawable/offline_video_drop_down_line"
+                android:stretchMode="spacingWidth"/>
+        </RelativeLayout>
+    </LinearLayout>
 
-                <RelativeLayout
-                    android:id="@+id/offline_media_block_header"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/offline_media_block_name"
-                        style="@style/NameTextViewStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/size_18"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text="@string/offline_loaded" />
-
-                    <View
-                        android:id="@+id/offline_media_block_line"
-                        android:layout_width="match_parent"
-                        android:layout_height="1px"
-                        android:layout_below="@id/offline_media_block_name"
-                        android:background="@color/gray" />
-                </RelativeLayout>
-
-                <GridView
-                    android:id="@+id/offline_media_block_grids"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/offline_media_block_header"
-                    android:listSelector="@color/transparent"
-                    android:numColumns="auto_fit"
-                    android:scrollbarThumbVertical="@drawable/offline_video_drop_down_line"
-                    android:stretchMode="spacingWidthUniform"/>
-            </RelativeLayout>
-        </LinearLayout>
-    </RelativeLayout>
 
 </RelativeLayout>
