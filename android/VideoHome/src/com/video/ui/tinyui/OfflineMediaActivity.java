@@ -123,7 +123,9 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 		public void bindView(View view, Context context, Cursor cursor) {
 			ChannelVideoItemView root = (ChannelVideoItemView) view;
 			iDataORM.ActionRecord ar = iDataORM.getInstance(context).formatActionRecord(cursor);
-			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);	
+			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);
+			vi.hint = new DisplayItem.Hint();
+			vi.hint.put("right", String.format(getString(R.string.total_episode), 4));
 			//vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
 			root.setContent(vi, cursor.getPosition());
 		}
