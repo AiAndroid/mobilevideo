@@ -25,6 +25,7 @@ public class iDataORM {
     public static final Uri SETTINGS_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/settings");
     public static final Uri ALBUM_CONTENT_URI            = Uri.parse("content://" + AUTHORITY + "/local_album");
     public static final Uri DOWNLOAD_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/download");
+    public static final Uri DOWNLOAD_GROUP_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/downloadgroup");
     public static final Uri SEARCH_CONTENT_URI           = Uri.parse("content://" + AUTHORITY + "/search");
 
     private static final String data_collect_interval     = "data_collect_interval";

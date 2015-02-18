@@ -1,9 +1,6 @@
 package com.video.ui.idata;
 
-import android.content.ContentProvider;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.Context;
+import android.content.*;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -24,11 +21,26 @@ public class iDataProvider extends ContentProvider {
     private static final String     TABLE_SETTINGS   = "settings";
     private static final String     TABLE_ALBUM      = "local_album";
     private static final String     TABLE_Downdload  = "download";
+    private static final String     TABLE_Downdload_GROUP  = "downloadgroup";
+    private static final String     TABLE_Downdload_GROUP_SPECIFIC  = "downloadgroup/#";
     private static final String     TABLE_SEARCH     = "search";
 
     public static final String _ID   = "_id";
     public static final String NAME  = "name";
     public static final String VALUE = "value";
+
+    private static final UriMatcher sURLMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    private static final int download_groupby = 1;
+    private static final int download_all     = 2;
+    private static final int download_groupby_specific = 3;
+
+    static {
+        sURLMatcher.addURI(AUTHORITY, TABLE_Downdload,       download_all);
+        sURLMatcher.addURI(AUTHORITY, TABLE_Downdload_GROUP, download_groupby);
+        sURLMatcher.addURI(AUTHORITY, TABLE_Downdload_GROUP_SPECIFIC, download_groupby_specific);
+    }
+
 
     @Override
     public boolean onCreate() {
@@ -163,6 +175,17 @@ public class iDataProvider extends ContentProvider {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(args.table);
 
+        int match = sURLMatcher.match(uri);
+        if(match == download_groupby){
+            args.groupby = "res_id";
+            args.table = TABLE_Downdload;
+            qb.setTables(args.table);
+        }else if(match == download_groupby_specific){
+            args.groupby = uri.getLastPathSegment();
+            args.table = TABLE_Downdload;
+            qb.setTables(args.table);
+        }
+
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
         Cursor result = qb.query(db, projection, args.where, args.args,
                 args.groupby, null, sortOrder);
@@ -224,7 +247,7 @@ public class iDataProvider extends ContentProvider {
     }
 
     static class SqlArguments {
-        public final String   table;
+        public String   table;
         public final String   where;
         public final String[] args;
         public String         groupby = null;

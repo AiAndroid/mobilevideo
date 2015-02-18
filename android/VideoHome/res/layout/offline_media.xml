@@ -86,7 +86,7 @@
         <RelativeLayout
             android:id="@+id/offline_media_block"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size_30"
             android:layout_marginLeft="@dimen/size_15"
             android:layout_marginRight="@dimen/size_15"
@@ -122,7 +122,7 @@
             <GridView
                 android:id="@+id/offline_media_block_grids"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/offline_media_block_header"
                 android:listSelector="@color/transparent"
                 android:orientation="vertical"

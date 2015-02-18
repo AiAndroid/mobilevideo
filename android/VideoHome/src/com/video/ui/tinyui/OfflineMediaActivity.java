@@ -91,7 +91,7 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
 
-		Uri baseUri = iDataORM.DOWNLOAD_CONTENT_URI;
+		Uri baseUri = iDataORM.DOWNLOAD_GROUP_CONTENT_URI;
 		mLoadingView.startLoading(true);
 		return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, null, null, "date_int desc");
 	}
@@ -123,8 +123,8 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 		public void bindView(View view, Context context, Cursor cursor) {
 			ChannelVideoItemView root = (ChannelVideoItemView) view;
 			iDataORM.ActionRecord ar = iDataORM.getInstance(context).formatActionRecord(cursor);
-			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);
-			vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
+			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);	
+			//vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
 			root.setContent(vi, cursor.getPosition());
 		}
 	}
