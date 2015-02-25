@@ -2,6 +2,7 @@ package com.video.ui.view.subview;
 
 import android.content.Context;
 import android.graphics.*;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -48,7 +49,9 @@ public class CategoryBlockView extends BaseCardView implements DimensHelper {
         mPosterView.setRadius(getResources().getDimensionPixelSize(R.dimen.video_common_radius_9));
         mIconView = (ImageView) mContentView.findViewById(R.id.category_media_desc_icon);
         Picasso.with(getContext()).load(item.images.icon().url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mIconView);
-        Picasso.with(getContext()).load(item.images.get("left_top_corner").url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
+        if(item.images.get("left_top_corner") != null && TextUtils.isEmpty(item.images.get("left_top_corner").url) == false) {
+            Picasso.with(getContext()).load(item.images.get("left_top_corner").url).placeholder(R.drawable.category_icon_default).error(R.drawable.category_icon_default).fit().into(mPosterView);
+        }
 
         mNameView = (TextView) mContentView.findViewById(R.id.category_media_desc_name);
         mNameView.setText(item.title);

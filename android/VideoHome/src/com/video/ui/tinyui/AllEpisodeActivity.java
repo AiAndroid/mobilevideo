@@ -1,5 +1,10 @@
 package com.video.ui.tinyui;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +15,8 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
+import com.video.ui.idata.MVDownloadManager;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.view.detail.EpisodeContainerView;
 import com.video.ui.view.subview.SelectItemsBlockView;
 
@@ -48,8 +55,21 @@ public class AllEpisodeActivity extends DisplayItemActivity {
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
             if(item.media != null && item.media.display_layout != null && "offline".equals(item.media.display_layout.type)){
-                //local play
-                //TODO
+                DownloadManager dm = (DownloadManager) getBaseContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                int down_id = iDataORM.getDowndloadID(getBaseContext(), item.id, ps.id);
+                DownloadManager.Query query = new DownloadManager.Query();
+
+                query = query.setFilterById(new long[]{down_id});
+                Cursor currentUI = dm.query(query);
+                if (currentUI != null && currentUI.getCount() > 0 && currentUI.moveToFirst()) {
+                    String local_uri = currentUI.getString(currentUI.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI));
+                    currentUI.close();
+
+                    Intent showIntent = new Intent(Intent.ACTION_VIEW);
+                    showIntent.setData(Uri.parse(local_uri));
+                    showIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getBaseContext().startActivity(showIntent);
+                }
             }else {
                 EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
             }
