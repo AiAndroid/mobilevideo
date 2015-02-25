@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.google.gson.Gson;
@@ -85,9 +86,11 @@ public class DownloadVideoItemView extends RelativeLayout {
                 mainHandler.post(new Runnable() {
                     @Override
                     public void run() {
+                        download_reason.setText("");
                         switch (itemData.status){
                             case MVDownloadManager.DownloadTablePojo.DownloadFail:
                                 place.setBackground(getResources().getDrawable(R.drawable.btn_offline_fail));
+                                //download_reason.setText("fail");
                                 break;
                             case MVDownloadManager.DownloadTablePojo.Downloading:
                                 place.setBackground(getResources().getDrawable(R.drawable.btn_offline_loading));
@@ -97,22 +100,23 @@ public class DownloadVideoItemView extends RelativeLayout {
                                 break;
                             case MVDownloadManager.DownloadTablePojo.DownloadPause:
                                 place.setBackground(getResources().getDrawable(R.drawable.btn_offline_pause));
+                                //download_reason.setText("pause");
                                 break;
                             case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
-                                place.setText("finished");
+                                //place.setText("finished");
                                 break;
                         }
 
                         subtitle.setText(String.format("%.1fMB/%.1fMB", itemData.recv/(1024.0*1024.0), itemData.total/(1024.0*1024.0)));
-                        download_reason.setText("reason");
-                        download_per.setText(String.format("%1$s", String.valueOf((itemData.recv*100)/itemData.total))+"%");
-
+                        int progress = (int) ((itemData.recv*100)/itemData.total);
+                        download_per.setText(String.format("%1$s", String.valueOf(progress)+"%"));
+                        offline_loading_item_progress.setProgress(progress);
                     }
                 });
 
                 downloadStatus = itemData;
 
-                Log.d("Download", "update view:" + itemData);
+                Log.d("download", "update view:" + itemData);
             }
         });
     }
@@ -121,6 +125,7 @@ public class DownloadVideoItemView extends RelativeLayout {
     private ImageView poster;
     private TextView title;
     private TextView download_per;
+    private ProgressBar offline_loading_item_progress;
 
     private MVDownloadManager.DownloadTablePojo downloadStatus;
 
@@ -147,6 +152,8 @@ public class DownloadVideoItemView extends RelativeLayout {
         padding = convertView.findViewById(R.id.channel_rank_item_padding);
         download_per = (TextView) convertView.findViewById(R.id.channel_rank_item_hot);
 
+        offline_loading_item_progress = (ProgressBar) convertView.findViewById(R.id.offline_loading_item_progress);
+
         place.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,12 +164,14 @@ public class DownloadVideoItemView extends RelativeLayout {
                             break;
                         case MVDownloadManager.DownloadTablePojo.Downloading:
                             MVDownloadManager.pauseDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            place.setBackground(getResources().getDrawable(R.drawable.btn_offline_pause));
                             break;
                         case MVDownloadManager.DownloadTablePojo.DownloadQueue:
                             MVDownloadManager.pauseDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
                             break;
                         case MVDownloadManager.DownloadTablePojo.DownloadPause:
                             MVDownloadManager.resumeDownload(MVDownloadManager.getInstance(getContext()).getDownloadManger(), new long[]{downloadStatus.downloadId});
+                            place.setBackground(getResources().getDrawable(R.drawable.btn_offline_loading));
                             break;
                         case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
                             place.setText("finished");

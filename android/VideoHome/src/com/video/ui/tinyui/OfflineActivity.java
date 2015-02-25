@@ -63,8 +63,11 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
 
+        //check the finished download task
+        //
+
         Uri baseUri = iDataORM.DOWNLOAD_CONTENT_URI;
-        return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, null, null, "date_int desc");
+        return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, "download_status!=1", null, "date_int desc");
     }
 
     private RelativeAdapter adapter;

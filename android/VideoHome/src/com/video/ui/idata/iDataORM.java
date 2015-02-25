@@ -466,6 +466,21 @@ public class iDataORM {
         }
         return actionRecords;
     }
+
+    public static ArrayList<Long> getDownloadIDs(Context context, int before_date){
+        ArrayList<Long> actionRecords = new ArrayList<Long>();
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID, ColumsCol.DOWNLOAD_ID}, " date_int >= "+before_date + " and download_status != 1", null, " date_int desc");
+        if(cursor != null && cursor.moveToFirst()){
+           do{
+                long download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+                actionRecords.add(download_id);
+            } while(cursor.moveToNext());
+            cursor.close();
+            cursor = null;
+        }
+        return actionRecords;
+    }
+
     /*
     *download end
     */

@@ -523,4 +523,14 @@
     <dimen name="storage_bar_progress_height">3.6dp</dimen>
     <!-- storage bar end -->
 
+    <!-- offline start -->
+    <dimen name="offline_loading_progress_width">141.4dp</dimen>
+    <dimen name="offline_title_btn_width">50.1dp</dimen>
+    <dimen name="offline_title_btn_height">29.1dp</dimen>
+    <dimen name="offline_loading_list_poster_padding_top">10.1dp</dimen>
+    <dimen name="offline_play_item_height">79.2dp</dimen>
+    <dimen name="offline_play_item_padding_left">23.2dp</dimen>
+    <dimen name="offline_play_item_padding_right">21.0dp</dimen>
+    <!-- offline end -->
+
 </resources>

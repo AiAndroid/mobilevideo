@@ -195,8 +195,10 @@ public class MVDownloadManager {
     }
 
     private HashMap<String, WeakReference<DownloadListner>> mListener = new HashMap<String , WeakReference<DownloadListner>>();
-    public void addDownloadListener(String key, DownloadListner listner){
-        mListener.put(key, new WeakReference<DownloadListner>(listner));
+    public void addDownloadListener(final String key, DownloadListner listner){
+        synchronized (mListener) {
+            mListener.put(key, new WeakReference<DownloadListner>(listner));
+        }
 
         //TODO performance issue
         //update current result
@@ -205,6 +207,18 @@ public class MVDownloadManager {
         Cursor currentUI = dm.query(query);
         if(currentUI != null && currentUI.getCount() > 0 && currentUI.moveToFirst()){
             DownloadTablePojo dp = new DownloadTablePojo(currentUI);
+
+            //
+            //update database and will not show in this UI
+            //
+            if(dp.status == MVDownloadManager.DownloadTablePojo.DownloadSuccess){
+                backThreadHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        iDataORM.downloadFinished(mContext, Integer.valueOf(key));
+                    }
+                });
+            }
             listner.downloadUpdate(dp);
             currentUI.close();
         }
@@ -265,8 +279,7 @@ public class MVDownloadManager {
             //add to current list
             currentDownloadRecords.add(iDataORM.getInstance(con).getDowndloadByDID(con, (int) download_id));
             Log.d(TAG, "new download=" + download_id);
-        }
-        else{
+        }else{
             //download directly
             Intent downIntent = new Intent(Intent.ACTION_VIEW);
             downIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -314,8 +327,7 @@ public class MVDownloadManager {
     }
 
 
-    public static boolean isInDownloading(Context con, String res_id, String sub_id)
-    {
+    public static boolean isInDownloading(Context con, String res_id, String sub_id){
         int download_id = iDataORM.getInstance(con).getDowndloadID(con, res_id, sub_id);
         if(download_id != -1){
 
