@@ -3,9 +3,12 @@ package com.video.ui.tinyui;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -24,6 +27,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.utils.Strings;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.subview.ChannelVideoItemView;
+import com.video.ui.view.subview.DownloadVideoItemView;
 
 import java.util.ArrayList;
 
@@ -57,11 +61,6 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 		});
 		mLoadingCountTextView = (TextView) mLoadingBar.findViewById(R.id.offline_media_bar_title);
 		mLoadingProgressTextView = (TextView) mLoadingBar.findViewById(R.id.offline_media_bar_subtitle);
-
-		//only for test
-		//check for current loading
-		setLoadingCount(10);
-		setLoadingProgress(100, 1000);
 
 		adapter = new RelativeAdapter(getBaseContext(), null, true);
 		mListView = (GridView) findViewById(R.id.offline_media_block_grids);
@@ -107,13 +106,70 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 
 					currentUI.close();
 				}
+
+				//check for downloading status
+				checkForDownloadingStatus();
+
 			}else {
 				Log.d(TAG, "no current download task");
 				mLoadingBar.setVisibility(View.GONE);
 			}
 		}
 	}
-	
+
+	private void checkForDownloadingStatus(){
+		DownloadManager.Query query = new DownloadManager.Query();
+		query = query.setFilterByStatus(DownloadManager.STATUS_RUNNING
+				| DownloadManager.STATUS_PENDING
+				| DownloadManager.STATUS_PAUSED
+				| DownloadManager.STATUS_FAILED);
+		downloadCursor = dm.query(query);
+		//do one time for init data
+		handler.sendEmptyMessage(EVENT_RELOAD_DOWNLOAD);
+
+		downloadCursor.registerContentObserver(mDownloadObserver);
+	}
+	private Cursor          downloadCursor;
+	private final int EVENT_RELOAD_DOWNLOAD = 100;
+	private ContentObserver mDownloadObserver = new ContentObserver(null) {
+		@Override
+		public void onChange(boolean selfChange) {
+			if (handler.hasMessages(EVENT_RELOAD_DOWNLOAD)) {
+				handler.removeMessages(EVENT_RELOAD_DOWNLOAD);
+			}
+			handler.sendEmptyMessage(EVENT_RELOAD_DOWNLOAD);
+		}
+	};
+
+	Handler handler = new Handler(){
+		public void dispatchMessage(Message msg){
+			switch (msg.what){
+				case EVENT_RELOAD_DOWNLOAD:
+					//update UI
+					ArrayList<MVDownloadManager.DownloadTablePojo> donws = MVDownloadManager.loadDownloadStatusFromDM(downloadCursor);
+					setLoadingCount(donws.size());
+					long downloaded=0, totalsize=0;
+					for(MVDownloadManager.DownloadTablePojo item:donws){
+						downloaded += item.recv;
+						totalsize  += item.total;
+					}
+					setLoadingProgress(downloaded, totalsize);
+					break;
+			}
+		}
+	};
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		try {
+			downloadCursor.unregisterContentObserver(mDownloadObserver);
+		}catch (Exception ne){}
+	}
+
+
+
 	private void setLoadingCount(int count) {
 		mLoadingCountTextView.setText(getResources().getString(R.string.download_task_with, count));
 	}
