@@ -128,7 +128,18 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 			vi.hint.put("right", String.format(getString(R.string.total_episode), 4));
 			//vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
 			root.setContent(vi, cursor.getPosition());
+
+			root.setVideoClickListener(offlineClick);
 		}
+
+		//TODO
+		private View.OnClickListener offlineClick = new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+
+			}
+		};
 	}
 
 }

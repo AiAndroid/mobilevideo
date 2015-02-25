@@ -44,10 +44,19 @@ public class ChannelVideoItemView extends RelativeLayout {
         }
     }
 
+    public DisplayItem getContent(){
+        return content;
+    }
+
     static int imageWidth  = -1;
     static int imageHeight = -1;
     static int secondHeight = -1;
     private TextView leftView, midView, rightView;
+
+    private View.OnClickListener mClickListener;
+    public void setVideoClickListener(View.OnClickListener listener){
+        mClickListener = listener;
+    }
 
     private void setGridItemUI(DisplayItem item, int position){
         if(convertView == null) {
@@ -64,7 +73,11 @@ public class ChannelVideoItemView extends RelativeLayout {
         tab_media_click.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseCardView.launcherAction(getContext(), content);
+                if(mClickListener != null){
+                    mClickListener.onClick(v);
+                }else {
+                    BaseCardView.launcherAction(getContext(), content);
+                }
             }
         });
         if(imageWidth == -1){
