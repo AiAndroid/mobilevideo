@@ -27,7 +27,6 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.utils.Strings;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.subview.ChannelVideoItemView;
-import com.video.ui.view.subview.DownloadVideoItemView;
 
 import java.util.ArrayList;
 
@@ -61,6 +60,9 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 		});
 		mLoadingCountTextView = (TextView) mLoadingBar.findViewById(R.id.offline_media_bar_title);
 		mLoadingProgressTextView = (TextView) mLoadingBar.findViewById(R.id.offline_media_bar_subtitle);
+
+		setLoadingCount(0);
+		setLoadingProgress(0, 0);
 
 		adapter = new RelativeAdapter(getBaseContext(), null, true);
 		mListView = (GridView) findViewById(R.id.offline_media_block_grids);
@@ -112,7 +114,7 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 
 			}else {
 				Log.d(TAG, "no current download task");
-				mLoadingBar.setVisibility(View.GONE);
+				//mLoadingBar.setVisibility(View.GONE);
 			}
 		}
 	}
