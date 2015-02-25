@@ -221,9 +221,12 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 			ChannelVideoItemView root = (ChannelVideoItemView) view;
 			iDataORM.ActionRecord ar = iDataORM.getInstance(context).formatActionRecord(cursor);
 			VideoItem vi = gson.fromJson(ar.json, VideoItem.class);
+			//
+			//TODO performance
+			//update ui in back thread
+			//
 			vi.hint = new DisplayItem.Hint();
-			vi.hint.put("right", String.format(getString(R.string.total_episode), 4));
-			//vi.title = gson.fromJson(ar.sub_value, DisplayItem.Media.Episode.class).name;
+			vi.hint.put("right", String.format(getString(R.string.total_episode), iDataORM.getFinishedEpisodeCount(getBaseContext(), vi.id)));
 			root.setContent(vi, cursor.getPosition());
 
 			root.setVideoClickListener(offlineClick);
@@ -234,9 +237,30 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 
 			@Override
 			public void onClick(View v) {
-
+				//show downloaded videos
+				Intent downloaedIntent = new Intent(getBaseContext(), AllEpisodeActivity.class);
+				VideoItem vi = getOfflinedVideoItem(v);
+				downloaedIntent.putExtra("item", vi);
+				startActivity(downloaedIntent);
 			}
 		};
+
+		VideoItem getOfflinedVideoItem(View view){
+
+			VideoItem vi = (VideoItem) view.getTag();
+			vi.media.display_layout = new DisplayItem.Media.DisplayLayout();
+			vi.media.display_layout.type = "offline";
+			vi.media.display_layout.max_display = 1000;
+
+			vi.media.items = new ArrayList<DisplayItem.Media.Episode>();
+			//get finished download resources
+			ArrayList<iDataORM.ActionRecord>  episode = iDataORM.getFinishedDownloads(getBaseContext(), vi.id);
+			for (iDataORM.ActionRecord item: episode){
+				vi.media.items.add(gson.fromJson(item.sub_value, DisplayItem.Media.Episode.class));
+			}
+
+			return vi;
+		}
 	}
 
 }

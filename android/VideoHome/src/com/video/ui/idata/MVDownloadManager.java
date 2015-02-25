@@ -34,21 +34,7 @@ public class MVDownloadManager {
     private static MVDownloadManager _instacne;
     private Context mContext;
     private DownloadManager dm;
-    private ArrayList<iDataORM.ActionRecord> currentDownloadRecords;
 
-    public ArrayList<iDataORM.ActionRecord> getCurrentCacheDownload(){
-        return currentDownloadRecords;
-    }
-
-    public iDataORM.ActionRecord getDownload(int downloadid){
-        for(iDataORM.ActionRecord item: currentDownloadRecords){
-            if(item.download_id == downloadid){
-                return  item;
-            }
-        }
-
-        return null;
-    }
 
     private MVDownloadManager(Context context){
         mContext = context.getApplicationContext();
@@ -77,15 +63,6 @@ public class MVDownloadManager {
 
             backThread.start();
             backThreadHandler = new Handler(backThread.getLooper());
-
-            //do it in next thread
-            //load data from local table
-            backThreadHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    currentDownloadRecords = iDataORM.getInstance(con).getDownloads(con, 0);
-                }
-            });
 
             addObserver(dm);
         }
@@ -152,19 +129,6 @@ public class MVDownloadManager {
                 DownloadListner dl = mListener.get(String.valueOf(down.downloadId)).get();
                 if(dl != null) {
                     dl.downloadUpdate(down);
-                }
-            }
-        }
-
-        //update current database download list
-        for(int i=0;i<currentDownloadRecords.size();i++){
-            iDataORM.ActionRecord ar = currentDownloadRecords.get(i);
-
-            for(DownloadTablePojo down: donws){
-                if(down.downloadId == ar.download_id){
-                    ar.download_status = down.status;
-                    ar.totalsizebytes  = down.total;
-                    ar.downloadbytes   = down.recv;
                 }
             }
         }
@@ -273,8 +237,6 @@ public class MVDownloadManager {
             download_id = dm.enqueue(request);
             iDataORM.getInstance(con).addDownload(con, video.id, download_id, url, video, episode);
 
-            //add to current list
-            currentDownloadRecords.add(iDataORM.getInstance(con).getDowndloadByDID(con, (int) download_id));
             Log.d(TAG, "new download=" + download_id);
         }else{
             //download directly

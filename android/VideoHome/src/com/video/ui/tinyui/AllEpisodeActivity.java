@@ -47,7 +47,12 @@ public class AllEpisodeActivity extends DisplayItemActivity {
             if(view instanceof SelectItemsBlockView.VarietyEpisode ){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
+            if(item.media != null && item.media.display_layout != null && "offline".equals(item.media.display_layout.type)){
+                //local play
+                //TODO
+            }else {
+                EpisodePlayAdapter.playEpisode(getBaseContext(), (TextView) view, currentCP, ps, item.media, item);
+            }
             Log.d(TAG, "click episode:" + view.getTag());
         }
     };

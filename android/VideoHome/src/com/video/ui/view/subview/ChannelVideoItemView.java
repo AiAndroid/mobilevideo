@@ -70,6 +70,7 @@ public class ChannelVideoItemView extends RelativeLayout {
             tab_media_click = convertView.findViewById(R.id.tab_media_click);
         }
 
+        tab_media_click.setTag(content);
         tab_media_click.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

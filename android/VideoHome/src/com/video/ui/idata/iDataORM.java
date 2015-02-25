@@ -479,6 +479,45 @@ public class iDataORM {
         return  removeDownload(context, removes);
     }
 
+
+    public static int getFinishedEpisodeCount(Context context, String res_id){
+        int episodeCount = 0;
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID}, " res_id = '"+res_id + "' and download_status = 1", null, null);
+        if(cursor != null ){
+            episodeCount = cursor.getCount();
+            cursor.close();
+
+        }
+        return episodeCount;
+    }
+
+
+    public static ArrayList<ActionRecord> getFinishedDownloads(Context context, String res_id){
+        ArrayList<Integer> removes = new ArrayList<Integer>();
+        ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " res_id = '"+res_id + "' and download_status = 1", null, " date_int desc");
+        if(cursor != null ){
+            while(cursor.moveToNext()){
+                //if exist in download manager task
+                int downid = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+                if(existInDownloadManager(context, downid)) {
+                    ActionRecord item = formatActionRecord(cursor);
+
+                    actionRecords.add(item);
+                }else{
+                    removes.add(downid);
+                }
+            }
+            cursor.close();
+            cursor = null;
+
+            //
+            removeDownload(context, removes);
+        }
+        return actionRecords;
+    }
+
+
     public static ArrayList<ActionRecord> getDownloads(Context context, int before_date){
         ArrayList<Integer> removes = new ArrayList<Integer>();
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
@@ -488,20 +527,7 @@ public class iDataORM {
                 //if exist in download manager task
                 int downid = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
                 if(existInDownloadManager(context, downid)) {
-                    ActionRecord item = new ActionRecord();
-                    item.id = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
-                    item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
-
-                    item.json = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
-                    item.sub_id = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
-                    item.sub_value = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
-
-                    item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
-                    item.date = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
-                    item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
-                    item.download_id = downid;
-                    item.download_url = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_URL));
-
+                    ActionRecord item = formatActionRecord(cursor);
                     actionRecords.add(item);
                 }else{
                     removes.add(downid);
