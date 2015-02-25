@@ -1,13 +1,18 @@
 package com.video.ui.tinyui;
 
+import android.app.DownloadManager;
 import android.content.Context;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -53,6 +58,7 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(itemClicker);
         getSupportLoaderManager().initLoader(cursorLoaderID, null, this);
+        dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     @Override
@@ -63,19 +69,80 @@ public class OfflineActivity extends DisplayItemActivity implements LoaderManage
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
 
-        //check the finished download task
-        //
-
         Uri baseUri = iDataORM.DOWNLOAD_CONTENT_URI;
         return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, "download_status!=1", null, "date_int desc");
     }
 
+    private DownloadManager dm;
+    private Cursor          downloadCursor;
     private RelativeAdapter adapter;
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         mLoadingView.stopLoading(true, false);
 
         adapter.swapCursor(cursor);
+
+        //begin to monitor download data
+        ArrayList<Long> ids = iDataORM.getDownloadIDs(getBaseContext(), 0);
+        if (ids.size() > 0) {
+            DownloadManager.Query query = new DownloadManager.Query();
+            long[] inids = new long[ids.size()];
+            for (int i = 0; i < ids.size(); i++) {
+                inids[i] = ids.get(i);
+            }
+            query = query.setFilterById(inids);
+
+            downloadCursor = dm.query(query);
+            downloadCursor.registerContentObserver(mDownloadObserver);
+        }else {
+            Log.d("download-OfflineActivity", "no current download task");
+        }
+    }
+
+    private final int EVENT_RELOAD_DOWNLOAD = 100;
+    private ContentObserver mDownloadObserver = new ContentObserver(null) {
+        @Override
+        public void onChange(boolean selfChange) {
+            if (handler.hasMessages(EVENT_RELOAD_DOWNLOAD)) {
+                handler.removeMessages(EVENT_RELOAD_DOWNLOAD);
+            }
+            handler.sendEmptyMessage(EVENT_RELOAD_DOWNLOAD);
+        }
+    };
+
+    Handler handler = new Handler(){
+        public void dispatchMessage(Message msg){
+            switch (msg.what){
+                case EVENT_RELOAD_DOWNLOAD:
+                    //update UI
+                    ArrayList<MVDownloadManager.DownloadTablePojo> donws = MVDownloadManager.loadDownloadStatusFromDM(downloadCursor);
+
+                    int size = listView.getChildCount();
+                    for(int i=0;i<size;i++){
+                        View  view = listView.getChildAt(i);
+                        if(view instanceof  DownloadVideoItemView){
+                            DownloadVideoItemView dv = (DownloadVideoItemView)view;
+
+                            for(int di=0;di<donws.size();di++){
+                                if(donws.get(di).downloadId == dv.getDowbnloadID()){
+                                    dv.updateUI(donws.get(di));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        try {
+            downloadCursor.unregisterContentObserver(mDownloadObserver);
+        }catch (Exception ne){}
     }
 
     AdapterView.OnItemClickListener itemClicker = new AdapterView.OnItemClickListener() {

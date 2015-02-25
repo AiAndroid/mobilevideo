@@ -25,6 +25,7 @@ import com.video.ui.idata.iDataORM;
  */
 public class DownloadVideoItemView extends RelativeLayout {
 
+    private static final String TAG = "download-DownloadVideoItemView";
     public DownloadVideoItemView(Context context) {
         super(context);
         mainHandler = new Handler();
@@ -83,40 +84,50 @@ public class DownloadVideoItemView extends RelativeLayout {
         MVDownloadManager.getInstance(getContext()).addDownloadListener(String.valueOf(item.download_id), new MVDownloadManager.DownloadListner() {
             @Override
             public void downloadUpdate(final MVDownloadManager.DownloadTablePojo itemData) {
-                mainHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        download_reason.setText("");
-                        switch (itemData.status){
-                            case MVDownloadManager.DownloadTablePojo.DownloadFail:
-                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_fail));
-                                //download_reason.setText("fail");
-                                break;
-                            case MVDownloadManager.DownloadTablePojo.Downloading:
-                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_loading));
-                                break;
-                            case MVDownloadManager.DownloadTablePojo.DownloadQueue:
-                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_waiting));
-                                break;
-                            case MVDownloadManager.DownloadTablePojo.DownloadPause:
-                                place.setBackground(getResources().getDrawable(R.drawable.btn_offline_pause));
-                                //download_reason.setText("pause");
-                                break;
-                            case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
-                                //place.setText("finished");
-                                break;
-                        }
 
-                        subtitle.setText(String.format("%.1fMB/%.1fMB", itemData.recv/(1024.0*1024.0), itemData.total/(1024.0*1024.0)));
-                        int progress = (int) ((itemData.recv*100)/itemData.total);
-                        download_per.setText(String.format("%1$s", String.valueOf(progress)+"%"));
-                        offline_loading_item_progress.setProgress(progress);
-                    }
-                });
+                if(itemData.downloadId == content.download_id) {
+                    updateUI(itemData);
+                    Log.d("download", "update view:" + itemData);
+                }else {
+                    Log.d(TAG, "download id is changed: "+content.download_id + " in id:"+itemData.downloadId);
+                }
+            }
+        });
+    }
 
-                downloadStatus = itemData;
+    public int getDowbnloadID(){
+        return content.download_id;
+    }
+    public void updateUI(MVDownloadManager.DownloadTablePojo downloadTablePojo){
+        downloadStatus = downloadTablePojo;
+        mainHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                download_reason.setText("");
+                switch (downloadStatus.status){
+                    case MVDownloadManager.DownloadTablePojo.DownloadFail:
+                        place.setBackground(getResources().getDrawable(R.drawable.btn_offline_fail));
+                        //download_reason.setText("fail");
+                        break;
+                    case MVDownloadManager.DownloadTablePojo.Downloading:
+                        place.setBackground(getResources().getDrawable(R.drawable.btn_offline_loading));
+                        break;
+                    case MVDownloadManager.DownloadTablePojo.DownloadQueue:
+                        place.setBackground(getResources().getDrawable(R.drawable.btn_offline_waiting));
+                        break;
+                    case MVDownloadManager.DownloadTablePojo.DownloadPause:
+                        place.setBackground(getResources().getDrawable(R.drawable.btn_offline_pause));
+                        //download_reason.setText("pause");
+                        break;
+                    case MVDownloadManager.DownloadTablePojo.DownloadSuccess:
+                        //place.setText("finished");
+                        break;
+                }
 
-                Log.d("download", "update view:" + itemData);
+                subtitle.setText(String.format("%.1fMB/%.1fMB", downloadStatus.recv/(1024.0*1024.0), downloadStatus.total/(1024.0*1024.0)));
+                int progress = (int) ((downloadStatus.recv*100)/downloadStatus.total);
+                download_per.setText(String.format("%1$s", String.valueOf(progress)+"%"));
+                offline_loading_item_progress.setProgress(progress);
             }
         });
     }

@@ -170,7 +170,7 @@ public class MVDownloadManager {
         }
     }
 
-    private ArrayList<DownloadTablePojo> loadDownloadStatusFromDM(Cursor cursor){
+    public static ArrayList<DownloadTablePojo> loadDownloadStatusFromDM(Cursor cursor){
         ArrayList<DownloadTablePojo> ret = new ArrayList<DownloadTablePojo>();
         if (null == cursor) {
             return ret;
@@ -196,9 +196,11 @@ public class MVDownloadManager {
 
     private HashMap<String, WeakReference<DownloadListner>> mListener = new HashMap<String , WeakReference<DownloadListner>>();
     public void addDownloadListener(final String key, DownloadListner listner){
+        /*
+         * no need add monitor here, we monitor it in UI activity
         synchronized (mListener) {
             mListener.put(key, new WeakReference<DownloadListner>(listner));
-        }
+        }*/
 
         //TODO performance issue
         //update current result
@@ -210,7 +212,6 @@ public class MVDownloadManager {
 
             //
             //update database and will not show in this UI
-            //
             if(dp.status == MVDownloadManager.DownloadTablePojo.DownloadSuccess){
                 backThreadHandler.post(new Runnable() {
                     @Override
@@ -221,16 +222,12 @@ public class MVDownloadManager {
             }
             listner.downloadUpdate(dp);
             currentUI.close();
+        }else {
+            //no record, so remove or ?
+            Log.d(TAG, "no download task:"+key);
         }
     }
 
-    public void removeListener(String key){
-        mListener.remove(key);
-    }
-
-    public static interface RequestDownloadListener{
-        public void onResult(boolean suc, int download_id);
-    }
 
     public static final int DOWNLOAD_IN = -100;
     public long requestDownload(Context con, VideoItem video, DisplayItem.Media.Episode episode, String downloadurl){
@@ -337,7 +334,10 @@ public class MVDownloadManager {
             Cursor c = dm.query(query);
             if (c.moveToFirst()) {
                 int status = c.getInt(c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS));
-                if(DownloadManager.STATUS_RUNNING == status || DownloadManager.STATUS_PENDING == status || DownloadManager.STATUS_SUCCESSFUL == status){
+                if(DownloadManager.STATUS_RUNNING == status ||
+                        DownloadManager.STATUS_PENDING == status ||
+                        DownloadManager.STATUS_PAUSED  == status ||
+                        DownloadManager.STATUS_SUCCESSFUL == status){
                     return true;
                 }
             }
@@ -478,6 +478,18 @@ public class MVDownloadManager {
         @Override
         public String toString() {
             return "SystemDownload: DownloadID:"+downloadId+ "Status:"+status;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if(obj == null)
+                return false;
+
+            if(obj instanceof DownloadTablePojo){
+                return  ((DownloadTablePojo)obj).downloadId == (downloadId);
+            }
+
+            return  false;
         }
     }
 }

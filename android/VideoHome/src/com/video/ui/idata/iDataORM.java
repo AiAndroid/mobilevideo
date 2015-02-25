@@ -1,10 +1,13 @@
 package com.video.ui.idata;
 
+import android.app.DownloadManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 import com.android.volley.toolbox.ClearCacheRequest;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.DisplayItem;
@@ -425,6 +428,24 @@ public class iDataORM {
         return lens;
     }
 
+    public static int removeDownload(Context context, ArrayList<Integer> ids){
+        StringBuilder sb = new StringBuilder();
+        sb.append(ColumsCol.DOWNLOAD_ID);
+        sb.append(" in (");
+        boolean needDouhao = false;
+        for(Integer item:ids){
+            if(needDouhao){
+                sb.append(",");
+            }
+            sb.append(item);
+
+            needDouhao = true;
+        }
+        sb.append(" )");
+        int lens = context.getContentResolver().delete(DOWNLOAD_CONTENT_URI, sb.toString(), null);
+        return lens;
+    }
+
     public static int getDownloadCount(Context context){
         int count = 0;
         Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{"_id"}, null, null, null);
@@ -440,31 +461,76 @@ public class iDataORM {
        return getDownloads(context, 0);
     }
 
+    public static int clearDownloadNotInSystemDowndoad(Context context){
+        ArrayList<Integer> removes = new ArrayList<Integer>();
+
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID, ColumsCol.DOWNLOAD_ID}, null, null, " date_int desc");
+        if(cursor != null && cursor.moveToFirst()){
+            do{
+                int download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+                if(existInDownloadManager(context, download_id) == false) {
+                    removes.add(download_id);
+                }
+            } while(cursor.moveToNext());
+            cursor.close();
+            cursor = null;
+        }
+
+        return  removeDownload(context, removes);
+    }
+
     public static ArrayList<ActionRecord> getDownloads(Context context, int before_date){
+        ArrayList<Integer> removes = new ArrayList<Integer>();
         ArrayList<ActionRecord> actionRecords = new ArrayList<ActionRecord>();
         Cursor cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, downloadProject, " date_int >= "+before_date + " and download_status != 1", null, " date_int desc");
         if(cursor != null ){
             while(cursor.moveToNext()){
-                ActionRecord item = new ActionRecord();
-                item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
-                item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
+                //if exist in download manager task
+                int downid = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
+                if(existInDownloadManager(context, downid)) {
+                    ActionRecord item = new ActionRecord();
+                    item.id = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
+                    item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
 
-                item.json    = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
-                item.sub_id  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
-                item.sub_value  = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
+                    item.json = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+                    item.sub_id = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
+                    item.sub_value = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
 
-                item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
-                item.date   = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
-                item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
-                item.download_id = cursor.getInt(cursor.getColumnIndex(ColumsCol.DOWNLOAD_ID));
-                item.download_url = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_URL));
+                    item.uploaded = cursor.getInt(cursor.getColumnIndex(ColumsCol.Uploaded));
+                    item.date = cursor.getString(cursor.getColumnIndex(ColumsCol.ChangeDate));
+                    item.dateInt = cursor.getLong(cursor.getColumnIndex(ColumsCol.ChangeLong));
+                    item.download_id = downid;
+                    item.download_url = cursor.getString(cursor.getColumnIndex(ColumsCol.DOWNLOAD_URL));
 
-                actionRecords.add(item);
+                    actionRecords.add(item);
+                }else{
+                    removes.add(downid);
+                }
             }
             cursor.close();
             cursor = null;
+
+            //
+            removeDownload(context, removes);
         }
         return actionRecords;
+    }
+
+    private static  DownloadManager dm;
+    public static boolean existInDownloadManager(Context context, int download_id){
+        boolean existInSystemDownloadQueue = false;
+        if(dm == null) {
+            dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        }
+
+        DownloadManager.Query query = new DownloadManager.Query();
+        query = query.setFilterById(new long[]{download_id});
+        Cursor currentUI = dm.query(query);
+        if (currentUI != null && currentUI.getCount() > 0 && currentUI.moveToFirst()) {
+            existInSystemDownloadQueue = true;
+            currentUI.close();
+        }
+        return existInSystemDownloadQueue;
     }
 
     public static ArrayList<Long> getDownloadIDs(Context context, int before_date){

@@ -126,9 +126,12 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
-
 		Uri baseUri = iDataORM.DOWNLOAD_GROUP_CONTENT_URI;
 		mLoadingView.startLoading(true);
+
+		//remove not exist downloads
+        int lens = iDataORM.clearDownloadNotInSystemDowndoad(getBaseContext());
+		Log.d(TAG, "remove not exist download in system download:"+lens);
 		return new CursorLoader(getBaseContext(), baseUri, iDataORM.downloadProject, "download_status == 1", null, "date_int desc");
 	}
 
