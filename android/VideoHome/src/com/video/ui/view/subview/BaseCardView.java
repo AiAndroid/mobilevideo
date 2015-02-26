@@ -1,19 +1,26 @@
 package com.video.ui.view.subview;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.squareup.picasso.Transformation;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
+import com.video.ui.idata.iDataORM;
+import com.video.ui.utils.VideoUtils;
+
+import java.io.File;
 
 /**
  * Created by liuhuadong on 11/19/14.
@@ -65,6 +72,18 @@ public abstract class BaseCardView  extends RelativeLayout {
                 item.type = "search";
             }else if(item.target.entity.endsWith("search_result")) {
                 item.type = "search";
+            }else if(item.target.entity.endsWith("app")){
+                //launcher download
+                requestDownloadAPP(context, item.target.url, item.title);
+                return;
+            }else if(item.target.entity.endsWith("app_market")){
+                try {
+                    Intent appMarket = new Intent(Intent.ACTION_VIEW);
+                    appMarket.setClassName("com.xiaomi.market", "com.xiaomi.market.ui.MarketTabActivity");
+                    appMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(appMarket);
+                }catch (Exception ne){}
+                return;
             }
             else{
                 item.type = "item";
@@ -90,6 +109,26 @@ public abstract class BaseCardView  extends RelativeLayout {
         } catch (Exception ne) {
             ne.printStackTrace();
         }
+    }
+
+    public static void requestDownloadAPP(Context context, String apk_url, String title){
+        android.app.DownloadManager dm = (android.app.DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+
+        android.app.DownloadManager.Request request = new android.app.DownloadManager.Request(Uri.parse(apk_url));
+        request.setMimeType("application/vnd.android.package-archive");
+        request.setMimeType(VideoUtils.getMimeType(apk_url));
+        request.setTitle(title);
+        request.setVisibleInDownloadsUi(true);
+        request.setShowRunningNotification(true);
+        int downloadFlag = DownloadManager.Request.NETWORK_WIFI|DownloadManager.Request.NETWORK_MOBILE;
+        request.setAllowedNetworkTypes(downloadFlag);
+        request.allowScanningByMediaScanner();
+
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +  "." + MimeTypeMap.getFileExtensionFromUrl(apk_url);
+        request.setDestinationUri(Uri.fromFile(new File(path)));
+        request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE|android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+        dm.enqueue(request);
     }
 
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float round) {

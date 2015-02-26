@@ -80,6 +80,10 @@ public class ViewCreateFactory {
                 view = sbv;
                 view.setBackgroundResource(R.drawable.com_block_n);
                 break;
+            case LayoutConstant.app_grid:
+            case LayoutConstant.app_list:
+                view = new AppBlockView(context, item);
+                break;
         }
         return view;
     }

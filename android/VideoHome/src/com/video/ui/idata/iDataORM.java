@@ -40,6 +40,8 @@ public class iDataORM {
     public static String gridview_ui = "gridview_ui";
 
     private static iDataORM _instance;
+    public static String debug_mode = "debug_mode";
+
     public static iDataORM getInstance(Context con){
         if(_instance == null){
             _instance = new iDataORM(con);

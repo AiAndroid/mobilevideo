@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/recommend_businessmediaview_width"
+    android:layout_height="@dimen/recommend_businessmediaview_height"
+    android:background="@drawable/list_selector_bg"
+    >
+    
+    <ImageView
+        android:id="@+id/business_icon"
+        android:layout_width="@dimen/recommend_business_item_width"
+        android:layout_height="@dimen/recommend_business_item_height"
+        android:contentDescription="@string/app_name"
+        android:layout_centerHorizontal="true" />
+	<TextView
+        android:id="@+id/business_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size_30"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/recommend_business_item_text_margintop"
+        android:layout_below="@id/business_icon"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

@@ -533,4 +533,11 @@
     <dimen name="offline_play_item_padding_right">21.0dp</dimen>
     <!-- offline end -->
 
+    <dimen name="recommend_business_space">17.4dp</dimen>
+    <dimen name="recommend_businessmediaview_width">43.6dp</dimen>
+    <dimen name="recommend_businessmediaview_height">81.7dp</dimen>
+    <dimen name="recommend_business_item_width">43.6dp</dimen>
+    <dimen name="recommend_business_item_height">43.6dp</dimen>
+    <dimen name="recommend_business_item_text_margintop">3.3dp</dimen>
+
 </resources>

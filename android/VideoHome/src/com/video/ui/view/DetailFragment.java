@@ -6,11 +6,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.tv.ui.metro.model.Block;
+import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.view.detail.*;
 import com.video.ui.view.subview.SelectItemsBlockView;
+
+import java.util.ArrayList;
 
 /**
  * Created by liuhuadong on 12/2/14.
@@ -70,6 +75,9 @@ public class DetailFragment extends LoadingFragment {
             if(mItem.blocks == null || mItem.blocks == null || mItem.blocks.size() == 0){
                 relative_region.setVisibility(View.GONE);
             }else{
+                if(iDataORM.getBooleanValue(getActivity(), iDataORM.debug_mode, true)){
+                    addRecommendApps(mItem);
+                }
                 relative_region.setVideo(mItem);
             }
 
@@ -90,6 +98,24 @@ public class DetailFragment extends LoadingFragment {
                 fv.setOnPlayClickListener(episodeClickListener, null);
             }
         }
+    }
+
+    private void addRecommendApps(VideoItem block){
+        Block<DisplayItem> item = new Block<DisplayItem>();
+        item.ui_type = new DisplayItem.UI();
+        item.ui_type.id = LayoutConstant.block_sub_channel;
+        item.blocks = new ArrayList<Block<DisplayItem>>();
+        //add title
+        item.blocks.add(createTitleBlock(getActivity(), "推荐应用"));
+
+
+        //add content
+        item.blocks.add(createAppsBlock());
+
+        //add more button
+        item.blocks.add(createLineBlock(getActivity(), "更多应用"));
+
+        block.blocks.add(0, item);
     }
 
     private ObserverScrollView.OnScrollChangedListener mOnScrollChangedListener = new ObserverScrollView.OnScrollChangedListener() {
