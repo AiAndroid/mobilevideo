@@ -22,7 +22,7 @@ public abstract class BaseCardView  extends RelativeLayout {
     public BaseCardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         if(media_item_padding == -1){
-            media_item_padding = getResources().getDimensionPixelSize(R.dimen.media_item_padding);
+            media_item_padding = getResources().getDimensionPixelSize(R.dimen.ITEM_DIVIDE_SIZE);
         }
     }
 

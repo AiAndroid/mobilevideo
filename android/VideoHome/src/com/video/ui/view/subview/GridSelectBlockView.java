@@ -40,7 +40,8 @@ public class GridSelectBlockView extends BaseCardView implements DimensHelper {
             row_count = 2;
         }
 
-        int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width))/(row_count+1);
+        //why -1, because we don't want padding at begin and at end.
+        int padding = (getDimens().width - row_count*getResources().getDimensionPixelSize(R.dimen.feature_media_view_width))/(row_count-1);
         int itemHeight = 0;
         for(DisplayItem item: block.items) {
             View child = new FeatureItemView(context, item);

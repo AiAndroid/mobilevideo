@@ -235,8 +235,8 @@
     <dimen name="category_media_desc_name_top_margin">-1.09dp</dimen>
 
     <!-- FeatureMediaView start -->
-    <dimen name="feature_media_view_width">190.55dp</dimen>
-    <dimen name="feature_media_view_height">138.6dp</dimen>
+    <dimen name="feature_media_view_width">185dp</dimen>
+    <dimen name="feature_media_view_height">135dp</dimen>
     <dimen name="feature_media_poster_height">82.43dp</dimen>
     <dimen name="feature_media_desc_top_margin">87.87dp</dimen>
     <dimen name="feature_media_desc_left_margin">10.9dp</dimen>

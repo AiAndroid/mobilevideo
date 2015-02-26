@@ -17,6 +17,7 @@ import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
+import com.video.ui.utils.VideoUtils;
 import com.video.ui.view.detail.EpisodeContainerView;
 import com.video.ui.view.subview.SelectItemsBlockView;
 
@@ -66,7 +67,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
                     currentUI.close();
 
                     Intent showIntent = new Intent(Intent.ACTION_VIEW);
-                    showIntent.setData(Uri.parse(local_uri));
+                    showIntent.setDataAndType(Uri.parse(local_uri), VideoUtils.getMimeType(local_uri));
                     showIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     getBaseContext().startActivity(showIntent);
                 }

@@ -1,8 +1,8 @@
 {
-    "version_code":6,
+    "version_code":7,
     "recent_change":"预发布开发版本,修复详情页宽度",
-    "version_name":"小米视频——开发版(V6)",
+    "version_name":"小米视频——开发版(V7)",
     "apk_url":"https://github.com/AiAndroid/mobilevideo/raw/master/out/production/VideoHome/VideoHome.apk",
-    "release_date":"2015-02-16 11PM",
+    "release_date":"2015-02-26 11AM",
     "released_by":"爱影士出品"
 }
