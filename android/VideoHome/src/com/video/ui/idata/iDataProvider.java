@@ -14,7 +14,7 @@ import android.text.TextUtils;
 public class iDataProvider extends ContentProvider {
     private static final String     TAG              = "iDataProvider";
     public static final String      DATABASE_NAME    = "idata.db";
-    public static final int         DATABASE_VERSION = 4;
+    public static final int         DATABASE_VERSION = 5;
     public static final String      AUTHORITY        = iDataORM.AUTHORITY;
     public static SQLiteOpenHelper mOpenHelper;
 
@@ -23,7 +23,8 @@ public class iDataProvider extends ContentProvider {
     private static final String     TABLE_Downdload  = "download";
     private static final String     TABLE_Downdload_GROUP  = "downloadgroup";
     private static final String     TABLE_Downdload_GROUP_SPECIFIC  = "downloadgroup/#";
-    private static final String     TABLE_SEARCH     = "search";
+    private static final String     TABLE_SEARCH           = "search";
+    private static final String     TABLE_Downdload_Pending  = "pending_download";
 
     public static final String _ID   = "_id";
     public static final String NAME  = "name";
@@ -109,6 +110,20 @@ public class iDataProvider extends ContentProvider {
                         + " date_int  LONG ,"   //for sort
                         + " date_time TEXT);");
 
+                db.execSQL("CREATE TABLE " + TABLE_Downdload_Pending + " ("
+                        + " _id           INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + " res_id        TEXT, "     //media id
+
+                        + " sub_id        TEXT, "     //main video object id
+                        + " sub_value     TEXT, "     //current episode,  it is json for episode
+
+                        + " value    TEXT,"      //video item json   data
+                        + " cp       TEXT,"      //cp json   data
+
+                        + " date_int  LONG ,"   //for sort
+                        + " date_time TEXT);");
+
+
             }catch (Exception ne){}
         }
 
@@ -117,6 +132,7 @@ public class iDataProvider extends ContentProvider {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload_Pending);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
 
             }catch (Exception ne){}
@@ -128,6 +144,7 @@ public class iDataProvider extends ContentProvider {
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload_Pending);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
             }catch (Exception ne){}
 
@@ -156,6 +173,8 @@ public class iDataProvider extends ContentProvider {
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALBUM);
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload);
+
+                    db.execSQL("DROP TABLE IF EXISTS " + TABLE_Downdload_Pending);
                     db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEARCH);
 
                 }catch (Exception ne){}

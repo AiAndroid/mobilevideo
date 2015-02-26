@@ -7,14 +7,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import com.android.volley.toolbox.ClearCacheRequest;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.DisplayItem;
-import com.video.ui.SettingActivity;
-
+import com.tv.ui.metro.model.VideoItem;
 import java.lang.reflect.Type;
-import java.net.PortUnreachableException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +24,8 @@ public class iDataORM {
     public static final Uri SETTINGS_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/settings");
     public static final Uri ALBUM_CONTENT_URI            = Uri.parse("content://" + AUTHORITY + "/local_album");
     public static final Uri DOWNLOAD_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/download");
-    public static final Uri DOWNLOAD_GROUP_CONTENT_URI         = Uri.parse("content://" + AUTHORITY + "/downloadgroup");
+    public static final Uri DOWNLOAD_PENDING_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/pending_download");
+    public static final Uri DOWNLOAD_GROUP_CONTENT_URI   = Uri.parse("content://" + AUTHORITY + "/downloadgroup");
     public static final Uri SEARCH_CONTENT_URI           = Uri.parse("content://" + AUTHORITY + "/search");
 
     private static final String data_collect_interval     = "data_collect_interval";
@@ -144,6 +141,98 @@ public class iDataORM {
         iDataORM.addSetting(baseContext, "development_app", checked==true?"1":"0");
     }
 
+    public static class PendingDownload{
+        public int                       id;
+        public String                    res_id;
+        public String                    sub_id;
+        public String                    sub_value;
+        public String                    value;
+        public String                    cp;
+
+        public VideoItem                 video_obj;
+        public DisplayItem.Media.CP      cp_obj;
+        public DisplayItem.Media.Episode episode_obj;
+    }
+
+    public static String[] download_pending_Project =  new String[]{
+            "_id",
+            "res_id",
+            "value",
+            "cp",
+            "sub_id",
+            "sub_value",
+            "date_time",
+            "date_int"
+    };
+
+    public ArrayList<PendingDownload> getPendingDownload(Context context){
+        ArrayList<PendingDownload> actionRecords = new ArrayList<PendingDownload>();
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_PENDING_CONTENT_URI, download_pending_Project, "", null, " date_int desc");
+        if(cursor != null ){
+            while(cursor.moveToNext()){
+                PendingDownload item = new PendingDownload();
+                item.id     = cursor.getInt(cursor.getColumnIndex(ColumsCol.ID));
+                item.res_id = cursor.getString(cursor.getColumnIndex(ColumsCol.RES_ID));
+                item.cp     = cursor.getString(cursor.getColumnIndex(ColumsCol.CP));
+                item.value  = cursor.getString(cursor.getColumnIndex(ColumsCol.VALUE));
+                item.sub_id = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_ID));
+                item.sub_value = cursor.getString(cursor.getColumnIndex(ColumsCol.SUB_VALUE));
+                actionRecords.add(item);
+            }
+            cursor.close();
+            cursor = null;
+        }
+        return actionRecords;
+    }
+    public static boolean existInPendingTask(Context context, String episode_id){
+        boolean exist = false;
+        String where = ColumsCol.SUB_ID + " ='" + episode_id + "'";
+        Cursor cursor = context.getContentResolver().query(DOWNLOAD_PENDING_CONTENT_URI, new String[]{ColumsCol.ID}, where, null, null);
+        if(cursor != null ){
+            if(cursor.getCount() > 0){
+                exist = true;
+            }
+            cursor.close();
+        }
+
+        if(exist == false){
+            cursor = context.getContentResolver().query(DOWNLOAD_CONTENT_URI, new String[]{ColumsCol.ID}, where, null, null);
+            if(cursor != null ){
+                if(cursor.getCount() > 0){
+                    exist = true;
+                }
+                cursor.close();
+            }
+        }
+        return exist;
+    }
+
+    public static Uri addPendingDownloadTask(Context context, VideoItem item, DisplayItem.Media.CP cp, DisplayItem.Media.Episode episode) {
+        if(existInPendingTask(context, episode.id))
+            return null;
+        else {
+            Uri ret = null;
+            ContentValues ct = new ContentValues();
+            ct.put(ColumsCol.RES_ID,    item.id);
+            ct.put(ColumsCol.VALUE,     gson.toJson(item));
+            ct.put(ColumsCol.CP,        gson.toJson(cp));
+            ct.put(ColumsCol.SUB_ID,    episode.id);
+            ct.put(ColumsCol.SUB_VALUE, gson.toJson(episode));
+            ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
+            ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
+            //if exist, update
+            ret = context.getContentResolver().insert(DOWNLOAD_PENDING_CONTENT_URI, ct);
+            return ret;
+        }
+    }
+
+    public static int releaseDownloadTask(Context context, String id) {
+        String where = ColumsCol.SUB_ID + " ='" + id + "'";
+        int len =  context.getContentResolver().delete(DOWNLOAD_PENDING_CONTENT_URI, where, null);
+        Log.d(TAG, "remove pending task:" + id + " len:"+len);
+        return len;
+    }
+
     public static class ColumsCol {
         public static final String ID         = "_id";
         public static final String RES_ID     = "res_id";
@@ -157,6 +246,7 @@ public class iDataORM {
 
         public static final String SUB_ID           = "sub_id";
         public static final String SUB_VALUE        = "sub_value";
+        public static final String CP               = "cp";
         public static final String DOWNLOAD_ID      = "download_id";
         public static final String DOWNLOAD_STATUS  = "download_status";
         public static final String DOWNLOAD_PATH    = "download_path";
@@ -184,6 +274,7 @@ public class iDataORM {
         public int    download_status;
         public String sub_id;
         public String sub_value;
+        public String cp;
         public long   downloadbytes;
         public long   totalsizebytes;
 
@@ -301,6 +392,7 @@ public class iDataORM {
     /*
     * download begin
     */
+
     public static Uri addDownload(Context context, String res_id, long download_id, String download_url, DisplayItem item, DisplayItem.Media.Episode episode){
         String json = gson.toJson(item);
         Uri ret = null;

@@ -124,7 +124,7 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 	//TODO
 	//we should use queue to add the list, do it one by one
 	private void addToDownloadList(ArrayList<DisplayItem.Media.Episode> episodes){
-
+		//add task to queue
 		for(DisplayItem.Media.Episode episode: episodes) {
 			episode.download_trys = 0;
 			OfflineDownload.startDownload(mContext.getApplicationContext(), null, mMedias, cp, episode);

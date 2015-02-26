@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
+import com.video.ui.idata.iDataORM;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.MetroLayout;
 import com.video.ui.view.detail.EpisodeContainerView;
@@ -275,6 +277,7 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
     }
     private ArrayList<DisplayItem.Media.Episode> selectedEpisodes = new ArrayList<DisplayItem.Media.Episode>();
 
+    private Handler mHandler = new Handler();
     public static SelectItemsBlockView createEpisodeSelectBlockView(final Context context, ArrayList<VideoItem.Media.Episode> episodes, int maxVisible) {
         final SelectItemsBlockView filterView = new SelectItemsBlockView(context);
         RelativeLayout view = (RelativeLayout) View.inflate(context, R.layout.relative_layout_container, filterView);
@@ -285,8 +288,8 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
         int padding = (filterView.getDimens().width - row_count*context.getResources().getDimensionPixelSize(R.dimen.filter_button_width))/(row_count+1);
 
         int itemHeight = 0;
-        for(VideoItem.Media.Episode episode: episodes) {
-            View convertView = View.inflate(context, R.layout.filter_check_item_layout, null);
+        for(final VideoItem.Media.Episode episode: episodes) {
+            final View convertView = View.inflate(context, R.layout.filter_check_item_layout, null);
             convertView.setTag(episode);
             convertView.setBackgroundResource(R.drawable.com_btn_bg);
 
@@ -295,6 +298,16 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
             ml.addItemViewPort(convertView, LayoutConstant.linearlayout_episode_item,step % row_count, step / row_count, padding);
 
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.channel_filter_selected);
+            filterView.mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if(iDataORM.existInPendingTask(imageView.getContext(), episode.id)){
+                        imageView.setVisibility(VISIBLE);
+                        convertView.setEnabled(false);
+                        imageView.setImageDrawable(imageView.getResources().getDrawable(R.drawable.offline_already_pic));
+                    }
+                }
+            });
             convertView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

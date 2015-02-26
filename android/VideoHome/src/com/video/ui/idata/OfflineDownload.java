@@ -46,8 +46,9 @@ public class OfflineDownload {
     }
 
     public static void startDownload(final Context context, final TextView view, final VideoItem item, DisplayItem.Media.CP cp, final com.tv.ui.metro.model.DisplayItem.Media.Episode episode){
+        iDataORM.addPendingDownloadTask(context, item, cp, episode);
         OfflineDownload offlineDownload = new OfflineDownload(context, item, cp, episode);
-        tasks.put(item.id, offlineDownload);
+        tasks.put(episode.id, offlineDownload);
         offlineDownload.startDownloadTask(view, offlineDownload.createSourceLister(context));
     }
 
@@ -107,7 +108,7 @@ public class OfflineDownload {
             @Override
             public void playSource(boolean result, final PlaySource ps, final  VideoItem item, final DisplayItem.Media.Episode episode) {
                 if(result == false) {
-                    releaseDownload(item.id);
+                    releaseDownload(episode.id);
                     return;
                 }
 
@@ -135,7 +136,7 @@ public class OfflineDownload {
             public void onUrlUpdate(String playUrl, String html5Url, VideoItem item, DisplayItem.Media.Episode episode) {
                 Log.d(TAG, "************************** onUrlUpdate: "+html5Url);
 
-                releaseDownload(item.id);
+                releaseDownload(episode.id);
                 appendDownload(context, playUrl, item, episode);
             }
 
@@ -144,13 +145,16 @@ public class OfflineDownload {
                 Log.d(TAG,  "onError try times:"+mEpisode.download_trys);
                 if(mEpisode.download_trys < 5){
                     //relaunch the fetch
-                    OfflineDownload od = tasks.get(item.id);
+                    OfflineDownload od = tasks.get(episode.id);
 
                     //restart the task
                     if(od != null) {
                         od.startDownloadTask(null, od.createSourceLister(context));
                     }
-                    releaseDownload(item.id);
+
+                }else {
+                    //release the task
+                    releaseDownload(episode.id);
                 }
             }
 
@@ -184,8 +188,10 @@ public class OfflineDownload {
 
         long download_id = MVDownloadManager.getInstance(context).requestDownload(context, item, episode, playurl);
         if (download_id == MVDownloadManager.DOWNLOAD_IN) {
+            iDataORM.releaseDownloadTask(mContext.getApplicationContext(), episode.id);
             Toast.makeText(context, String.format("您已经添加\"%1$s\"到下载队列", episode.name), Toast.LENGTH_LONG).show();
         } else if (download_id != -1) {
+            iDataORM.releaseDownloadTask(mContext.getApplicationContext(), episode.id);
             iDataORM.getInstance(context).addDownload(context, item.id, download_id, playurl, item, episode);
             MiPushClient.subscribe(context, item.id, null);
 
