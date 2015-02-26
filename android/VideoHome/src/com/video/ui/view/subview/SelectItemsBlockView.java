@@ -216,7 +216,7 @@ public class SelectItemsBlockView extends BaseCardView implements DimensHelper {
             VarietyEpisode view = new VarietyEpisode(context);
 
             if(size == 1) {
-                view.setBackgroundResource(R.drawable.com_item_bg_full);
+                view.setBackgroundResource(R.drawable.com_item_bg_mid);
                 view.findViewById(R.id.line).setVisibility(GONE);
             } else {
                 if(i == 0) {
