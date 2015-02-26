@@ -6,4 +6,5 @@
         android:layout_height="@dimen/media_pager_tab_bg_height"
         android:layout_marginTop="@dimen/media_pager_tab_bg_shadow_length"
         android:textSize="@dimen/font_size_42"
+        android:textColor="@color/tab"
         android:gravity="center"/>

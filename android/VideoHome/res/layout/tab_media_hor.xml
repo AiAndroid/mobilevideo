@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
                     android:paddingLeft="@dimen/media_tab_hint_padding_margin"
-                    android:textSize="@dimen/font_size_30"/>
+                    style="@style/ExtraTextViewStyle"/>
 
             <TextView
                     android:id="@+id/mid_textview"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|bottom"
                     android:layout_centerHorizontal="true"
-                    android:textSize="@dimen/font_size_30"/>
+                    style="@style/ExtraTextViewStyle"/>
 
             <TextView
                     android:id="@+id/right_textview"
@@ -49,7 +49,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
                     android:paddingRight="@dimen/media_tab_hint_padding_margin"
-                    android:textSize="@dimen/font_size_30"/>
+                    style="@style/ExtraTextViewStyle"/>
 
             <ImageView
                     android:id="@+id/imageView2"

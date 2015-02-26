@@ -9,7 +9,7 @@ import miui.preference.PreferenceActivity;
  * Created by liuhuadonbg on 2/26/15.
  */
 public class BasePreferenceActivity extends PreferenceActivity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         initStyle();
