@@ -24,6 +24,11 @@
         android:label="@string/app_name"
         android:name=".MobileVideoApplication"
         android:theme="@style/AppTheme" >
+
+        <meta-data
+                android:name="miui_push_app"
+                android:value="miuivideo-new" />
+
         <activity
             android:name="com.video.ui.MainActivity"
             android:label="@string/app_name"
@@ -97,8 +102,11 @@
                   android:screenOrientation="portrait"/>
 
         <activity android:name=".SettingActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.Holo.Light"/>
+                  android:screenOrientation="portrait">
+            <intent-filter android:priority="90" >
+                <action android:name="miui.intent.action.APP_SETTINGS" />
+            </intent-filter>
+        </activity>
 
         <!--
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>

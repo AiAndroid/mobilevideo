@@ -2,8 +2,13 @@
     <style name="AppBaseTheme" parent="@android:style/Theme.Holo.NoActionBar">
     </style>
 
+    <style name="DefaultTheme" parent="android:Theme.Light">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="DefaultTheme">
         <item name="buttonSelectableBackground">@drawable/list_selector_bg</item>
     </style>
 

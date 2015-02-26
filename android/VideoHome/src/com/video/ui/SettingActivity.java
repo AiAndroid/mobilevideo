@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.*;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.widget.Toast;
 import com.video.ui.idata.iDataORM;
+import com.video.ui.tinyui.BasePreferenceActivity;
 
-public class SettingActivity extends PreferenceActivity {
+public class SettingActivity extends BasePreferenceActivity {
 	
 	private final String TAG = SettingActivity.class.getName();
 	public  boolean isExternalSdcardMounted(Context context){
@@ -19,6 +19,7 @@ public class SettingActivity extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		addPreferencesFromResource(R.xml.miui_video_setting);
 		Preference clearCahcePreference = findPreference("clear_cache");
 		clearCahcePreference.setOnPreferenceClickListener(mOnPreferenceClickListener);
@@ -55,7 +56,7 @@ public class SettingActivity extends PreferenceActivity {
 	}
 	
 	//UI callback
-	private OnPreferenceClickListener mOnPreferenceClickListener = new OnPreferenceClickListener() {
+	private Preference.OnPreferenceClickListener mOnPreferenceClickListener = new Preference.OnPreferenceClickListener() {
 		
 		@Override
 		public boolean onPreferenceClick(Preference preference) {
