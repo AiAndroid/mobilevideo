@@ -1,8 +1,7 @@
 package com.tv.ui.metro.model;
 
-import com.video.ui.utils.DateFormate;
-
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,10 +19,18 @@ public class GenericBlock<T> implements Serializable {
         sb.append(" GenericBlock: ");
 
         if(times != null)
-            sb.append("update_time=" + DateFormate.dateToString(new Date(times.updated)));
+            sb.append("update_time=" + dateToString(new Date(times.updated)));
 
         sb.append("\n");
         return  sb.toString();
+    }
+
+    public static String dateToString(Date time){
+        SimpleDateFormat formatter;
+        formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+        String ctime = formatter.format(time);
+
+        return ctime;
     }
 }
 

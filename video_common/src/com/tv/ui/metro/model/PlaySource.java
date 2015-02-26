@@ -1,11 +1,7 @@
 package com.tv.ui.metro.model;
 
 import com.google.gson.JsonObject;
-import com.video.ui.idata.Html5PlayUrlRetriever;
-import org.json.JSONObject;
-
 import java.io.Serializable;
-import java.util.HashMap;
 
 /**
  * Created by liuhuadonbg on 1/27/15.

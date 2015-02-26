@@ -20,5 +20,7 @@
     <orderEntry type="library" name="libs" level="project" />
     <orderEntry type="library" name="MiPush" level="project" />
     <orderEntry type="library" name="miuisdk" level="project" />
+    <orderEntry type="module" module-name="video_common" />
+    <orderEntry type="library" name="gson-2.2.4" level="project" />
   </component>
 </module>
