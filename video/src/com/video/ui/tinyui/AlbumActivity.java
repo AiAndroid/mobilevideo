@@ -105,7 +105,9 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
                         RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                         flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
 
-                        View emptyView = new EmptyView(getApplicationContext(), R.string.play_his_empty_title,  R.drawable.empty_icon_play_his);
+                        View emptyView = new EmptyView(getApplicationContext(),
+                                getIntent().getBooleanExtra("favor", false) == true?R.string.local_favorite_empty_title:R.string.play_his_empty_title,
+                                getIntent().getBooleanExtra("favor", false) == true?R.drawable.empty_icon_favorite:R.drawable.empty_icon_play_his);
                         rl.addView(emptyView, flp);
                         rl.setVisibility(View.VISIBLE);
                     }
