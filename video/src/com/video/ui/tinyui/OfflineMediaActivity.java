@@ -249,7 +249,7 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 
 			VideoItem vi = (VideoItem) view.getTag();
 			vi.media.display_layout = new DisplayItem.Media.DisplayLayout();
-			vi.media.display_layout.type = "offline";
+			vi.media.display_layout.type = DisplayItem.Media.DisplayLayout.TYPE_OFFLINE;
 			vi.media.display_layout.max_display = 1000;
 
 			vi.media.items = new ArrayList<DisplayItem.Media.Episode>();

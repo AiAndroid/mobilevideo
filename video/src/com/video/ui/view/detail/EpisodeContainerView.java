@@ -55,7 +55,7 @@ public class EpisodeContainerView extends FrameLayout {
         }
 
         //add content
-        if(videoItem.media.display_layout != null && (("variety").equals(videoItem.media.display_layout.type) || ("offline").equals(videoItem.media.display_layout.type))){
+        if(videoItem.media.display_layout != null && (DisplayItem.Media.DisplayLayout.TYPE_VARIETY.equals(videoItem.media.display_layout.type) || DisplayItem.Media.DisplayLayout.TYPE_OFFLINE.equals(videoItem.media.display_layout.type))){
             item.blocks.add(createListEpisodeBlock(videoItem));
         }else {
             item.blocks.add(createEpisodeBlock(videoItem, ui_style));

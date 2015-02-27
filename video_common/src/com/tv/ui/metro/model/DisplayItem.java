@@ -151,6 +151,10 @@ public class DisplayItem implements Serializable{
             private static final long serialVersionUID = 1L;
             public String type        = "tv";
             public int    max_display = 8;
+
+            public static final String TYPE_TV      = "tv";
+            public static final String TYPE_OFFLINE = "offline";
+            public static final String TYPE_VARIETY = "variety";
         }
 
         public static class Tags extends HashMap<String, ArrayList<String>> implements Serializable{

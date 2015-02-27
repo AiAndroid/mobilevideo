@@ -75,7 +75,7 @@ public class OfflineSelectEpisodeView extends PopupWindow {
 			mTextView = (TextView) mContent.findViewById(R.id.offline_select_ep_subtitle);
 			mLoadingGridView = (EpisodeContainerView) mContent.findViewById(R.id.offline_select_ep_grids);
 			//we just ignore variety type
-			mMedias.media.display_layout.type = "tv";
+			mMedias.media.display_layout.type = DisplayItem.Media.DisplayLayout.TYPE_TV;
 			mLoadingGridView.setVideo(mMedias, EpisodeContainerView.EPISODE_OFFLINE_UI_STYLE);
 
 			episodeView = (SelectItemsBlockView) EpisodePlayAdapter.findFilterBlockView(mLoadingGridView);

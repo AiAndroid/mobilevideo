@@ -55,7 +55,7 @@ public class AllEpisodeActivity extends DisplayItemActivity {
             if(view instanceof SelectItemsBlockView.VarietyEpisode ){
                 view = view.findViewById(R.id.detail_variety_item_name);
             }
-            if(item.media != null && item.media.display_layout != null && "offline".equals(item.media.display_layout.type)){
+            if(item.media != null && item.media.display_layout != null && DisplayItem.Media.DisplayLayout.TYPE_OFFLINE.equals(item.media.display_layout.type)){
                 DownloadManager dm = (DownloadManager) getBaseContext().getSystemService(Context.DOWNLOAD_SERVICE);
                 int down_id = iDataORM.getDowndloadID(getBaseContext(), item.id, ps.id);
                 DownloadManager.Query query = new DownloadManager.Query();
