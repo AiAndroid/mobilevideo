@@ -387,6 +387,13 @@ public class iDataORM {
         return actionRecords;
     }
 
+    public static Cursor getFavoritesCusor(Context context, String ns, String action, int before_date){
+        String where = ColumsCol.NS +"='"+ns + "' and action='" + action + "' and date_int >= "+before_date;
+        Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, actionProject, where, null, " date_int desc");
+
+        return cursor;
+    }
+
     public static ArrayList<ActionRecord> getFavorites(Context context, String ns, String action){
         return getFavorites(context, ns, action, 0);
     }

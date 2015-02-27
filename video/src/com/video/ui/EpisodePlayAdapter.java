@@ -81,6 +81,7 @@ public class EpisodePlayAdapter {
         if(ps.cp_code != 0){
             intent.putExtra("media_source", ps.cp_code);
         }else {
+            Log.e(TAG, "why come here, server should send the cp info");
             if (ps.cp.equals("sohu"))
                 intent.putExtra("media_source", 3);
             else
@@ -96,6 +97,7 @@ public class EpisodePlayAdapter {
         if(ps.app_info.has("vid") ==  true){
             intent.putExtra("sdkinfo", ps.app_info.toString());
         }else {
+            Log.e(TAG, "why come here, server should send the sdkinfo");
             if(ps.cp.equals("sohu")) {
                 intent.putExtra("sdkinfo", String.format("{\"vid\":%1$s, \"resolutionmap\":1, \"site\":1}", ps.cp_id));
             }else if(ps.cp.equals("iqiyi")){
@@ -103,6 +105,7 @@ public class EpisodePlayAdapter {
             }
         }
         intent.putExtra("sdkdisable", false);
+        intent.putExtra("item", item);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);

@@ -1,12 +1,18 @@
 package com.video.ui.tinyui;
 
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.*;
 import com.video.ui.DisplayItemActivity;
@@ -25,8 +31,9 @@ import java.util.ArrayList;
  *
  */
 public class AlbumActivity extends DisplayItemActivity implements LoaderManager.LoaderCallbacks<Cursor>{
-
+    private static final String TAG=AlbumActivity.class.getName();
     BlockContainerView bcv;
+    private int cursorFinishedLoaderID = 211;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +57,8 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         bcv = (BlockContainerView) findViewById(R.id.container_view);
 
         loadFavor.execute();
-    }
 
-    @Override
-    public void onResume(){
-        super.onResume();
+        //getSupportLoaderManager().initLoader(cursorFinishedLoaderID, null, this);
     }
 
     ArrayList<iDataORM.ActionRecord> records;
@@ -84,17 +88,29 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
 
                     top.blocks = new  ArrayList<Block<DisplayItem>>();
                     Block<DisplayItem> vi = createLatestVideos(true);
-                    if(vi != null) {
+                    if(vi != null && vi.blocks.size() > 0 && vi.blocks.get(1).items != null && vi.blocks.get(1).items.size() > 0) {
                         top.blocks.add(vi);
                     }
 
                     vi = createLatestVideos(false);
-                    if(vi != null && vi.blocks.get(0).items != null && vi.blocks.get(0).items.size() > 0) {
+                    if(vi != null && vi.blocks.size() > 0 && vi.blocks.get(1).items != null && vi.blocks.get(1).items.size() > 0) {
                         top.blocks.add(vi);
                     }
 
+                    if(top.blocks.size() == 0){
+                        bcv.setVisibility(View.GONE);
+                        RelativeLayout rl = (RelativeLayout) findViewById(R.id.tabs_content);
+
+                        RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
+
+                        View emptyView = View.inflate(getBaseContext(), R.layout.search_empty_view, null);
+                        rl.addView(emptyView, flp);
+                        rl.setVisibility(View.VISIBLE);
+                    }
 
                     bcv.setBlocks(top);
+
                     break;
             }
         }
@@ -138,7 +154,13 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return null;
+        Uri baseUri = iDataORM.ALBUM_CONTENT_URI;
+        mLoadingView.startLoading(true);
+
+        String action = getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction;
+
+        String where = iDataORM.ColumsCol.NS +"='video' and action='" + action + "' and date_int >= 0";
+        return new CursorLoader(getBaseContext(), baseUri, iDataORM.actionProject, where, null, "date_int desc");
     }
 
     @Override
