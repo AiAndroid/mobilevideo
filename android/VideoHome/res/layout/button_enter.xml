@@ -9,5 +9,6 @@
         android:layout_height="@dimen/rank_button_height"
         android:background="@drawable/com_item_bg_full"
         android:textSize="@dimen/font_size_42"
+        android:textColor="@color/color_text"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>

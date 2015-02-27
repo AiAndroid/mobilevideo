@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|left"
-                    android:paddingLeft="@dimen/media_tab_hint_padding_margin"
+                    android:paddingLeft="@dimen/video_common_interval_21"
                     style="@style/ExtraTextViewStyle"/>
 
             <TextView
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|right"
-                    android:paddingRight="@dimen/media_tab_hint_padding_margin"
+                    android:paddingRight="@dimen/video_common_interval_21"
                     style="@style/ExtraTextViewStyle"/>
 
             <ImageView

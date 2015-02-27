@@ -131,7 +131,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         int topMargin = item_padding;
         fetchLineTextViewDimens(content.blocks.get(0));
 
-        for(Block<T> block: content.blocks) {
+        for(int tabstep=0;tabstep<content.blocks.size();tabstep++) {
+            Block<T> block = content.blocks.get(tabstep);
             TextView text = (TextView)LayoutInflater.from(getContext()).inflate(R.layout.tab_text,null);
             text.setText(block.title);
             mTabWidget.addView(text);
@@ -188,6 +189,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 }
 
                 block_height += itemHeight*((block.items.size()-1)/row_count + 1) + item_padding*((block.items.size()-1)/row_count + 1) + topMargin;
+            }else if(tabstep <size-1){
+                text.setBackgroundResource(R.drawable.media_page_bg_mid);
             }
         }
 
@@ -202,7 +205,8 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         FrameLayout grid = (FrameLayout)root.findViewById(R.id.channeltabcontent);
         Block<T> block = content.blocks.get(index);
 
-        for(int i=0;i<mTabWidget.getChildCount();i++){
+        int size = mTabWidget.getChildCount();
+        for(int i=0;i<size;i++){
             TextView text = (TextView) mTabWidget.getChildAt(i);
             if(i == index) {
                 if(i == 0)
@@ -211,7 +215,12 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                     text.setBackgroundResource(R.drawable.media_pager_tab_mid);
                 text.setTextColor(getResources().getColor(R.color.orange));
             }else {
-                text.setBackground(null);
+                if(i < index-1 ||
+                   (i>=index+1 && i != (size -1))) {
+                    text.setBackgroundResource(R.drawable.media_page_bg_mid);
+                }else {
+                    text.setBackground(null);
+                }
                 text.setTextColor(getResources().getColor(R.color.tab));
             }
         }

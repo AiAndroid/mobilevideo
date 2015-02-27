@@ -22,7 +22,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:textColor="@color/p_80_black"
+                        android:textColor="@color/color_text"
                         android:textSize="@dimen/font_size_42"
                         android:clickable="false"
                         android:paddingLeft="@dimen/quick_entry_user_drawable_padding"
