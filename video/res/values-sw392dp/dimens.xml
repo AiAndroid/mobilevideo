@@ -540,4 +540,9 @@
     <dimen name="recommend_business_item_height">43.6dp</dimen>
     <dimen name="recommend_business_item_text_margintop">3.3dp</dimen>
 
+    <!-- empty view start -->
+    <dimen name="empty_view_title_top_margin">5.5dp</dimen>
+    <dimen name="empty_view_sub_title_top_margin">2.2dp</dimen>
+    <!-- empty view end -->
+
 </resources>

@@ -157,6 +157,9 @@
     <string name="error_empty_filter_title">No results</string>
     <string name="local_media_empty_title">No videos</string>
     <string name="local_media_empty_sub_title">Download and watch videos offline</string>
+    <string name="play_his_empty_title">Empty</string>
+    <string name="device_empty_hint">Empty</string>
+    <string name="device_media_empty_hint">Empty</string>
 
     <!-- offline start -->
     <string name="download_with">Downloading %1$s/%2$s</string>

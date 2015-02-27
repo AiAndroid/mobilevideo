@@ -153,6 +153,9 @@
     <string name="error_empty_filter_title">未找到筛选结果</string>
     <string name="local_media_empty_title">暂无本地视频</string>
     <string name="local_media_empty_sub_title">离线影片到本地，无网络也能看视频</string>
+    <string name="play_his_empty_title">暂无播放历史</string>
+    <string name="device_empty_hint">暂无共享设备</string>
+    <string name="device_media_empty_hint">暂无共享视频</string>
 
     <!-- offline start -->
     <string name="download_with">已下载 %1$s / %2$s</string>
@@ -165,4 +168,6 @@
     <string name="offline_status_finished">已完成</string>
     <string name="delete_with">删除（%d）</string>
     <!-- offline end -->
+
+
 </resources>

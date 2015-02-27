@@ -19,6 +19,7 @@ import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.view.BlockContainerView;
+import com.video.ui.view.EmptyView;
 import com.video.ui.view.LayoutConstant;
 
 import java.util.ArrayList;
@@ -101,10 +102,10 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
                         bcv.setVisibility(View.GONE);
                         RelativeLayout rl = (RelativeLayout) findViewById(R.id.tabs_content);
 
-                        RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        RelativeLayout.LayoutParams flp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                         flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
 
-                        View emptyView = View.inflate(getBaseContext(), R.layout.search_empty_view, null);
+                        View emptyView = new EmptyView(getApplicationContext(), R.string.play_his_empty_title,  R.drawable.empty_icon_play_his);
                         rl.addView(emptyView, flp);
                         rl.setVisibility(View.VISIBLE);
                     }
