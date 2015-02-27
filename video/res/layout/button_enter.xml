@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+<Button
+        android:id="@+id/enter_button"
+        android:layout_width="@dimen/media_banner_button_width"
+        android:layout_height="@dimen/rank_button_height"
+        android:background="@drawable/com_item_bg_padding"
+        android:textSize="@dimen/font_size_42"
+        android:textColor="@color/color_text"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
