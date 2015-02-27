@@ -1,5 +1,6 @@
 package com.video.ui;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.widget.Toast;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.tinyui.BasePreferenceActivity;
 
-public class SettingActivity extends BasePreferenceActivity {
+public class SettingActivity extends /*Base*/PreferenceActivity {
 	
 	private final String TAG = SettingActivity.class.getName();
 	public  boolean isExternalSdcardMounted(Context context){
@@ -18,7 +19,13 @@ public class SettingActivity extends BasePreferenceActivity {
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setTheme(miui.R.style.Theme_Light_Settings);
 		super.onCreate(savedInstanceState);
+		ActionBar actionBar = getActionBar();
+		if(actionBar != null) {
+			actionBar.setTitle(R.string.app_name);
+			actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_back_light));
+		}
 
 		addPreferencesFromResource(R.xml.miui_video_setting);
 		Preference clearCahcePreference = findPreference("clear_cache");
