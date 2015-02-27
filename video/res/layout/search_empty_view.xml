@@ -2,12 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="@dimen/media_banner_sub_channel_height">
+              android:minHeight="@dimen/media_banner_sub_channel_height"
+              android:layout_height="wrap_content">
     <TextView
+            android:paddingTop="@dimen/size_100"
             android:drawableTop="@drawable/empty_icon_search"
             android:text="@string/search_result_empty_text"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/size_100"/>
 
 </RelativeLayout>
