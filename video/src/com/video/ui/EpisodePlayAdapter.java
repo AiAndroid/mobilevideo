@@ -105,7 +105,7 @@ public class EpisodePlayAdapter {
             }
         }
         intent.putExtra("sdkdisable", false);
-        intent.putExtra("item", item);
+        //intent.putExtra("item", item);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
