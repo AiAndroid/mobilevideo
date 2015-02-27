@@ -1,9 +1,12 @@
 package com.video.ui.tinyui;
 
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.*;
 import com.video.ui.DisplayItemActivity;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
  *    large than 30, use gridview and cusorLoader
  *
  */
-public class AlbumActivity extends DisplayItemActivity{
+public class AlbumActivity extends DisplayItemActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     BlockContainerView bcv;
     @Override
@@ -131,5 +134,20 @@ public class AlbumActivity extends DisplayItemActivity{
         vi.blocks.add(grid_port);
 
         return vi;
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 }

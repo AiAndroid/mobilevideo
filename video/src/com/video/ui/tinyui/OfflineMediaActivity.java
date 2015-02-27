@@ -71,6 +71,7 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 		mListView.setAdapter(adapter);
 		mLoadingView = makeEmptyLoadingView(getBaseContext(), (RelativeLayout) findViewById(R.id.tabs_content));
 
+		findViewById(R.id.offline_media_block).setVisibility(View.GONE);
 		//after check then load
 		getSupportLoaderManager().initLoader(cursorFinishedLoaderID, null, this);
 	}
@@ -198,6 +199,9 @@ public class OfflineMediaActivity extends DisplayItemActivity implements LoaderM
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		mLoadingView.stopLoading(true, false);
 
+		if(cursor != null && cursor.getCount() > 0){
+			findViewById(R.id.offline_media_block).setVisibility(View.VISIBLE);
+		}
 		adapter.swapCursor(cursor);
 	}
 
