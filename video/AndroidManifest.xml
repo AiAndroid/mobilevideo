@@ -109,6 +109,12 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".idata.BackgroundService" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.miui.video_apk_download" />
+            </intent-filter>
+        </service>
+
         <!--
         <activity android:name="com.xiaomi.video.player.PlayerActivity" android:screenOrientation="landscape" android:launchMode="singleTask"/>
         -->

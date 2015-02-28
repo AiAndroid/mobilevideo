@@ -13,11 +13,9 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
-import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 
 import com.video.ui.utils.VideoUtils;
@@ -58,9 +56,6 @@ public class MVDownloadManager {
 
     public void start(final Context con){
         if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-            con.registerReceiver(receiver, new IntentFilter(android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-            con.registerReceiver(receiver, new IntentFilter(android.app.DownloadManager.ACTION_NOTIFICATION_CLICKED));
-
             backThread.start();
             backThreadHandler = new Handler(backThread.getLooper());
 
@@ -68,11 +63,7 @@ public class MVDownloadManager {
         }
     }
 
-    public void stop(Context con){
-        if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-            con.unregisterReceiver(receiver);
-        }
-    }
+    public void stop(Context con){}
 
     private Cursor downloadCursor = null;
     private void addObserver(DownloadManager dm){
@@ -307,96 +298,6 @@ public class MVDownloadManager {
         return false;
     }
 
-    //http://www.apkbus.com/forum.php?mod=viewthread&tid=144845
-
-    BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context con, Intent intent) {
-            String action = intent.getAction();
-            Log.d(TAG, "action=" + intent);
-
-            if (android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)){
-                if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-                    android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
-
-                    long downloadId = intent.getLongExtra(android.app.DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-                    //update download status
-                    //TODO
-
-
-                    Log.d(TAG, "new download complete=" + downloadId);
-                    android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
-                    query.setFilterById(downloadId);
-                    Cursor c = dm.query(query);
-                    if (c.moveToFirst()) {
-                        int columnIndex = c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS);
-                        if (android.app.DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-
-                            iDataORM.downloadFinished(mContext, (int) downloadId);
-
-                            String uriString = c.getString(c.getColumnIndex(android.app.DownloadManager.COLUMN_LOCAL_FILENAME));
-
-                            if(uriString.startsWith("file://"))
-                            {
-                                uriString = uriString.substring(7);
-                            }
-
-                            if(uriString.endsWith(".apk")){
-                                ApkFileManager.installApk(con, uriString, "", "", false);
-                            }
-                        }
-                        else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
-                            Log.d(TAG, "new download fail="+downloadId);
-                        }
-                    }
-
-                }
-            }
-            else if (android.app.DownloadManager.ACTION_NOTIFICATION_CLICKED.equals(action)){
-                if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.FROYO){
-                    android.app.DownloadManager dm = (android.app.DownloadManager) con.getSystemService(Context.DOWNLOAD_SERVICE);
-
-                    long downloadId = intent.getLongExtra(android.app.DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-                    Log.d(TAG, "new download complete="+downloadId);
-                    android.app.DownloadManager.Query query = new android.app.DownloadManager.Query();
-                    query.setFilterById(downloadId);
-                    Cursor c = dm.query(query);
-                    if (c.moveToFirst()) {
-                        int columnIndex = c.getColumnIndex(android.app.DownloadManager.COLUMN_STATUS);
-                        if (android.app.DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
-
-                            String uriString = c.getString(c.getColumnIndex(android.app.DownloadManager.COLUMN_LOCAL_FILENAME));
-                            if(uriString.startsWith("file://"))
-                            {
-                                uriString = uriString.substring(7);
-                            }
-
-                            Log.d(TAG, "new downloaded"+uriString);
-                            if(uriString.endsWith(".apk")){
-                                ApkFileManager.installApk(con, uriString, "", "", false);
-                            }else
-                            {
-                                openDownloadsPage(con);
-                            }
-                        }
-                        else if(android.app.DownloadManager.STATUS_FAILED == c.getInt(columnIndex)){
-                            Log.d(TAG, "new download fail="+downloadId);
-                            openDownloadsPage(con);
-                        }
-                    }
-                }else{
-                    openDownloadsPage(con);
-                }
-            }
-        }
-    };
-
-
-    private void openDownloadsPage(Context context) {
-        Intent pageView = new Intent(android.app.DownloadManager.ACTION_VIEW_DOWNLOADS);
-        pageView.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(pageView);
-    }
 
 
     public static class DownloadTablePojo {
