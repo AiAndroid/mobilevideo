@@ -6,7 +6,7 @@ import com.android.volley.Response.ErrorListener;
 
 public abstract class CommonRequest<T> extends Request<T> {
 
-	private CommonUrl mCommonUrl;
+	private CommonBaseUrl mCommonUrl;
 
 	public CommonRequest(Context context, int method, String url, ErrorListener listener) {
 		super(method, url, listener);

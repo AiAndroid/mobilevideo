@@ -92,6 +92,14 @@
     <dimen name="tab_recommend_margin_left">65.33dp</dimen>
     <dimen name="tab_highlight_height">52.27dp</dimen>
     <dimen name="tab_highlight_height_channel">43.56dp</dimen>
+
+    <!-- page view start -->
+    <dimen name="pager_title_height">58.1dp</dimen>
+    <dimen name="pager_title_min_space">29.8dp</dimen>
+    <dimen name="pager_secondary_title_height">46.5dp</dimen>
+    <dimen name="pager_top_margin">54.5dp</dimen>
+    <dimen name="pager_secondary_top_margin">43.3dp</dimen>
+    <!-- page view end -->
     
     <dimen name="nav_bar_margin_top">14.16dp</dimen>
     <dimen name="tab_content_container_margin_top">56.6dp</dimen>

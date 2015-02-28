@@ -16,9 +16,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.PlaySource;
-import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.BaseGsonLoader;
+import com.video.ui.loader.CommonBaseUrl;
 import com.video.ui.loader.CommonUrl;
 import com.video.ui.utils.VideoUtils;
 import com.video.ui.view.subview.SelectItemsBlockView;
@@ -32,7 +32,7 @@ public class EpisodePlayAdapter {
 
     public static void playEpisode(final Context context, final TextView view, DisplayItem.Media.CP cp, final DisplayItem.Media.Episode episode,final DisplayItem.Media media, final DisplayItem item){
         String id = episode.id;
-        String url = CommonUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
+        String url = CommonBaseUrl.BaseURL + "play?id=" + VideoUtils.getVideoID(episode.id) + "&cp="+cp.cp;
         String calledURL = new CommonUrl(context).addCommonParams(url);
 
         final String preText = (String) view.getText();

@@ -110,7 +110,7 @@ public class iDataORM {
     }
 
     public static boolean isOpenCellularPlayHint(Context context) {
-        return false;
+        return true;
     }
 
     public static boolean isOpenCellularOfflineHint(Context context) {

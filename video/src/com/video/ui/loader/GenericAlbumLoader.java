@@ -11,7 +11,6 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.tv.ui.metro.model.VideoItem;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 /**

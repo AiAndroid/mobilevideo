@@ -627,7 +627,7 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
             }else{
                 TextView view = (TextView) viewC.findViewById(R.id.tv_tab_indicator);
                 Resources res = view.getResources();
-                view.setTextColor(res.getColor(R.color.tab));
+                view.setTextColor(res.getColor(R.color.text_color_light_dark));
             }
         }
     }

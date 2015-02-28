@@ -20,7 +20,7 @@ import com.android.volley.toolbox.VolleyHelper;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.loader.BaseGsonLoader;
-import com.video.ui.loader.CommonUrl;
+import com.video.ui.loader.CommonBaseUrl;
 import com.video.ui.push.Util;
 import com.video.ui.utils.VideoUtils;
 import org.json.JSONException;
@@ -133,7 +133,7 @@ public class CommentEditActivity extends DisplayItemActivity {
 	private void uploadComment() {
 		mScore = mScoringView.geCurtScore();
 		if(item != null) {
-			String commentURL = CommonUrl.BaseURL + "action/comment";
+			String commentURL = CommonBaseUrl.BaseURL + "action/comment";
 			Response.Listener<Boolean> listener = new Response.Listener<Boolean>() {
 				@Override
 				public void onResponse(Boolean response) {

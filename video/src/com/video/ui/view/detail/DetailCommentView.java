@@ -18,7 +18,7 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.R;
 import com.video.ui.loader.BaseGsonLoader;
-import com.video.ui.loader.CommonUrl;
+import com.video.ui.loader.CommonBaseUrl;
 import com.video.ui.utils.VideoUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class DetailCommentView extends FrameLayout {
 	}
 	private VideoComments mComments;
 	private void initDataSupply() {
-		String commentURL = CommonUrl.BaseURL + "comment/"+ VideoUtils.getVideoID(mItem.id) + "?page=1";
+		String commentURL = CommonBaseUrl.BaseURL + "comment/"+ VideoUtils.getVideoID(mItem.id) + "?page=1";
 		Response.Listener<VideoComments> listener = new Response.Listener<VideoComments>() {
 			@Override
 			public void onResponse(VideoComments response) {

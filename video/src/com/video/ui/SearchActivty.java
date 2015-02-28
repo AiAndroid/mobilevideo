@@ -62,7 +62,17 @@ public class SearchActivty extends MainActivity implements SearchFragment.Search
         et.setOnEditorActionListener(searchActionIME);
         et.addTextChangedListener(tw);
         et.setOnFocusChangeListener(searchFocuseChange);
+        et.setOnClickListener(clickListener);
     }
+
+    View.OnClickListener clickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            if(TextUtils.isEmpty(et.getText()) && iDataORM.hasSearchHistory(getBaseContext())){
+                removeNoResultView(true);
+            }
+        }
+    };
 
     View.OnFocusChangeListener searchFocuseChange = new View.OnFocusChangeListener() {
         @Override
