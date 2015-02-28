@@ -169,5 +169,20 @@
     <string name="delete_with">删除（%d）</string>
     <!-- offline end -->
 
+    <!-- action mode start -->
+    <string name="select_all">全选</string>
+    <string name="select_none">全不选</string>
+    <string name="select_count_xiang">已选中%d项</string>
+    <!-- action mode end -->
 
+    <!-- action mode start -->
+    <string name="delete_action_text">删除 （%d）</string>
+    <!-- action mode  end -->
+
+    <string name="delete">删除</string>
+
+    <!-- local favorite start -->
+    <string name="edit">编辑</string>
+    <string name="unfavorite">取消收藏</string>
+    <!-- local favorite end -->
 </resources>

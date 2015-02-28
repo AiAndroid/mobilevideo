@@ -12,12 +12,14 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.google.gson.Gson;
 import com.tv.ui.metro.model.*;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
+import com.video.ui.view.ActionDeleteView;
 import com.video.ui.view.BlockContainerView;
 import com.video.ui.view.EmptyView;
 import com.video.ui.view.LayoutConstant;
@@ -35,13 +37,31 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
     private static final String TAG=AlbumActivity.class.getName();
     BlockContainerView bcv;
     private int cursorFinishedLoaderID = 211;
+    private ActionDeleteView mDeleteActionMode;
+    private Button mBtnAction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initActionMode();
+
         setContentView(R.layout.favor_ui);
 
         showSearch(false);
         showFilter(false);
+        showEdit(true);
+        mBtnAction = (Button) findViewById(R.id.channel_edit_btn);
+        mBtnAction.setText(R.string.edit);
+        mBtnAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isInEditMode()){
+                    exitActionMode();
+                }else{
+                    startActionMode();
+                }
+            }
+        });
 
         if(getIntent().getBooleanExtra("favor", false) || (item != null && item.id.endsWith("play_favor") )){
             setTitle(getString(R.string.my_favorite));
@@ -58,9 +78,77 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         bcv = (BlockContainerView) findViewById(R.id.container_view);
 
         loadFavor.execute();
-
         //getSupportLoaderManager().initLoader(cursorFinishedLoaderID, null, this);
     }
+
+    public boolean isInEditMode(){
+        return mDeleteActionMode.isInEditMode();
+    }
+
+    private void initActionMode() {
+        mDeleteActionMode = new ActionDeleteView(this, mDeleteCallback);
+        ViewGroup viewGroup = (ViewGroup) getWindow().getDecorView();
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,  ViewGroup.LayoutParams.MATCH_PARENT);
+        mDeleteActionMode.setLayoutParams(params);
+        viewGroup.addView(mDeleteActionMode);
+
+        mDeleteActionMode.setVisibility(View.GONE);
+    }
+
+    private ActionDeleteView.Callback mDeleteCallback = new ActionDeleteView.Callback(){
+        @Override
+        public void onActionDeleteClick() {
+            //TODO
+            //do real delete
+            //onDeleteClick();
+            exitActionMode();
+            loadFavor.execute();
+        }
+        @Override
+        public void onActionSelectAll() {
+            selectAll();
+        }
+
+        @Override
+        public void onActionUnSelectAll() {
+            unSelectAll();
+        }
+    };
+
+    protected void startActionMode() {
+        if(!mDeleteActionMode.isInEditMode()) {
+            mDeleteActionMode.startActionMode();
+        }
+        mBtnAction.setText(android.R.string.cancel);
+        if(bcv != null){
+            bcv.setInEditMode(true);
+        }
+    }
+
+    protected void exitActionMode() {
+        if(mDeleteActionMode.isInEditMode()) {
+            mDeleteActionMode.exitActionMode();
+        }
+        mBtnAction.setText(R.string.edit);
+        clearAllSelected();
+        if(bcv != null){
+            bcv.setInEditMode(false);
+        }
+    }
+
+    private void selectAll(){
+        bcv.selectAll(true);
+    }
+
+    private void unSelectAll(){
+        bcv.selectAll(false);
+    }
+
+    private void clearAllSelected(){
+
+    }
+
 
     ArrayList<iDataORM.ActionRecord> records;
     public AsyncTask loadFavor = new AsyncTask() {

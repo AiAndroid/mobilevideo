@@ -89,5 +89,7 @@
     <color name="progress_color">#fff95f22</color>
     <!-- color end -->
 
+    <color name="gray_separate_line">#e5e5e5</color>
+
 
 </resources>

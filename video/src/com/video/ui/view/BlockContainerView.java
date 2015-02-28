@@ -92,4 +92,11 @@ public class BlockContainerView  extends MetroLayout {
         notview.setText("not support: "+item);
         return notview;
     }
+
+    public void setInEditMode(boolean editMode) {
+    }
+
+    public void selectAll(boolean selectAll) {
+
+    }
 }

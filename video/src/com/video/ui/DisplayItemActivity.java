@@ -1,13 +1,15 @@
 package com.video.ui;
 
+import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.tv.ui.metro.model.DisplayItem;
@@ -26,7 +28,15 @@ public class DisplayItemActivity extends FragmentActivity {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        initStyle();
+        try{
+            super.onCreate(savedInstanceState);
+            ActionBar actionBar = getActionBar();
+            if(actionBar != null) {
+                actionBar.hide();
+            }
+        }catch(Exception e){
+        }
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             //when user start portrait, lock the screen orientation
@@ -36,6 +46,19 @@ public class DisplayItemActivity extends FragmentActivity {
         item = (DisplayItem) this.getIntent().getSerializableExtra("item");
 
 
+    }
+
+    protected void initStyle() {
+        setTheme(miui.R.style.Theme_Light_NoTitle);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_MENU
+                && event.getRepeatCount() > 0){
+            startActivity(new Intent(this, SettingActivity.class));
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -83,6 +106,12 @@ public class DisplayItemActivity extends FragmentActivity {
     protected void showSearch(boolean show){
         if(findViewById(R.id.channel_search_btn) != null){
             findViewById(R.id.channel_search_btn).setVisibility(show?View.VISIBLE:View.GONE);
+        }
+    }
+
+    protected void showEdit(boolean show){
+        if(findViewById(R.id.channel_edit_btn) != null){
+            findViewById(R.id.channel_edit_btn).setVisibility(show?View.VISIBLE:View.GONE);
         }
     }
 

@@ -555,4 +555,14 @@
     <dimen name="empty_view_sub_title_top_margin">2dp</dimen>
     <!-- empty view end -->
 
+    <!-- edit mode start -->
+    <dimen name="delete_bottom_view_height">60dp</dimen>
+    <dimen name="delete_bottom_button_height">33.3dp</dimen>
+    <dimen name="delete_bottom_button_wdith">158.3dp</dimen>
+    <dimen name="delete_bottom_button_margin">10.3dp</dimen>
+    <!-- edit mode end -->
+
+    <dimen name="history_title_header_height">46.3dp</dimen>
+
+    <dimen name="divider">1px</dimen>
 </resources>
