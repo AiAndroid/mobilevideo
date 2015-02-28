@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="@dimen/channel_media_view_width"
               android:layout_height="@dimen/channel_media_view_height"
               android:gravity="center_horizontal"
@@ -101,4 +101,4 @@
                 android:textSize="@dimen/text_size_subtitle" />
     </RelativeLayout>
 
-</LinearLayout>
+</merge>

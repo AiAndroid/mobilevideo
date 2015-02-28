@@ -43,25 +43,13 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActionMode();
-
         setContentView(R.layout.favor_ui);
+        initActionMode();
 
         showSearch(false);
         showFilter(false);
         showEdit(true);
-        mBtnAction = (Button) findViewById(R.id.channel_edit_btn);
-        mBtnAction.setText(R.string.edit);
-        mBtnAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isInEditMode()){
-                    exitActionMode();
-                }else{
-                    startActionMode();
-                }
-            }
-        });
+
 
         if(getIntent().getBooleanExtra("favor", false) || (item != null && item.id.endsWith("play_favor") )){
             setTitle(getString(R.string.my_favorite));
@@ -93,7 +81,20 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         mDeleteActionMode.setLayoutParams(params);
         viewGroup.addView(mDeleteActionMode);
 
-        mDeleteActionMode.setVisibility(View.GONE);
+        mBtnAction = (Button) findViewById(R.id.channel_edit_btn);
+        mBtnAction.setText(R.string.edit);
+        mBtnAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isInEditMode()){
+                    exitActionMode();
+                }else{
+                    startActionMode();
+                }
+            }
+        });
+
+        mDeleteActionMode.setVisibility(View.INVISIBLE);
     }
 
     private ActionDeleteView.Callback mDeleteCallback = new ActionDeleteView.Callback(){

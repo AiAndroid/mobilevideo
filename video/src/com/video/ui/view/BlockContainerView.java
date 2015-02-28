@@ -94,6 +94,7 @@ public class BlockContainerView  extends MetroLayout {
     }
 
     public void setInEditMode(boolean editMode) {
+
     }
 
     public void selectAll(boolean selectAll) {

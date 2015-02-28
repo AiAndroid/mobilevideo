@@ -888,8 +888,7 @@ public class iDataORM {
         String va = null;
         String where = SettingsCol.Name +"='"+name+"'";
         Cursor cursor = con.getContentResolver().query(settingUri, settingsProject,where, null, null);
-        if(cursor != null)
-        {
+        if(cursor != null){
             if(cursor.moveToFirst()){
                 va = cursor.getString(cursor.getColumnIndex(SettingsCol.Value));
             }
@@ -914,12 +913,10 @@ public class iDataORM {
         ct.put(SettingsCol.Value, value);
         ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
         //if exist, update
-        if(null != getSettingValue(context, settingUri, name))
-        {
+        if(null != getSettingValue(context, settingUri, name)){
             updateSetting(context, settingUri, name, value);
         }
-        else
-        {
+        else{
             ret = context.getContentResolver().insert(settingUri, ct);
         }
 

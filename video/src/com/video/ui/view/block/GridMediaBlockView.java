@@ -6,16 +6,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.*;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.LinearFrame;
+
+import java.util.Observer;
 
 /**
  * Created by liuhuadong on 11/27/14.
@@ -86,34 +85,7 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
         for(int step=0;step<block.items.size();step++) {
             final DisplayItem item = (DisplayItem) block.items.get(step);
 
-            ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
-            ImageView image = (ImageView)meida.findViewById(R.id.poster);
-            Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext(), res_id == R.layout.tab_media_port?true:false)).tag(tag).into(image);
-
-            TextView title = (TextView)meida.findViewById(R.id.media_title);
-            TextView desc = (TextView)meida.findViewById(R.id.descrip);
-            if(TextUtils.isEmpty(item.sub_title)){
-                title.setSingleLine(false);
-                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
-                desc.setHeight(0);
-                desc.setVisibility(GONE);
-            }else {
-                title.setSingleLine(true);
-                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
-                desc.setHeight(secondHeight);
-                desc.setVisibility(VISIBLE);
-            }
-            title.setText(item.title);
-            desc.setText(item.sub_title);
-
-            meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    launcherAction(getContext(), item);
-                }
-            });
-
-            setHintText(meida, item);
+            ViewGroup meida = new MediaItemView(context, item, res_id, imageWidth, imageHeight, secondHeight);
 
             FrameLayout.LayoutParams itemflp = new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, height);
             itemflp.leftMargin = getPaddingLeft() + (width*(step%row_count) ) + padding*(step%row_count + 1);
@@ -124,23 +96,6 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
 
         int lines = (block.items.size()+row_count -1)/row_count;
         getDimens().height += (height + item_padding)*lines;
-    }
-
-    private void setHintText(View meida, DisplayItem item){
-        if(item.hint != null && TextUtils.isEmpty(item.hint.left()) == false) {
-            TextView leftView = (TextView) meida.findViewById(R.id.left_textview);
-            leftView.setText(item.hint.left());
-        }
-
-        if(item.hint != null && TextUtils.isEmpty(item.hint.mid()) == false) {
-            TextView midView = (TextView) meida.findViewById(R.id.mid_textview);
-            midView.setText(item.hint.mid());
-        }
-
-        if(item.hint != null && TextUtils.isEmpty(item.hint.right()) == false) {
-            TextView rightView = (TextView) meida.findViewById(R.id.right_textview);
-            rightView.setText(item.hint.right());
-        }
     }
 
     private Dimens mDimens;
@@ -171,5 +126,44 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
     @Override
     public void unbindDrawables(View view) {
 
+    }
+
+    public static class MediaItemView extends LinearLayout {
+
+        public MediaItemView(Context context, DisplayItem item, int res_id, int imageWidth, int imageHeight, int secondHeight) {
+            super(context);
+
+            setOrientation(VERTICAL);
+            init(res_id, item, imageWidth, imageHeight, secondHeight);
+        }
+
+        private void init(int res_id, final DisplayItem item, int imageWidth, int imageHeight, int secondHeight){
+            ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, this);
+            ImageView image = (ImageView)meida.findViewById(R.id.poster);
+            Picasso.with(getContext()).load(item.images.get("poster").url).resize(imageWidth, imageHeight).transform(new BaseCardView.BlendImageWithCover(getContext(), res_id == R.layout.tab_media_port?true:false)).into(image);
+
+            TextView title = (TextView)meida.findViewById(R.id.media_title);
+            TextView desc = (TextView)meida.findViewById(R.id.descrip);
+            if(TextUtils.isEmpty(item.sub_title)){
+                title.setSingleLine(false);
+                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76) + secondHeight);
+                desc.setVisibility(GONE);
+            }else {
+                desc.setVisibility(VISIBLE);
+                title.setSingleLine(true);
+                title.setHeight(getResources().getDimensionPixelSize(R.dimen.size_76));
+            }
+            title.setText(item.title);
+            desc.setText(item.sub_title);
+
+            meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BaseCardView.launcherAction(getContext(), item);
+                }
+            });
+
+            setHintText(meida, item);
+        }
     }
 }

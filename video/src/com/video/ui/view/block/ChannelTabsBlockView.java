@@ -169,10 +169,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
                 for(int i=0;i<block.items.size();++i) {
                     final DisplayItem item = (DisplayItem) block.items.get(i);
 
-                    ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, null);
-                    setImageAndDesc(meida, item);
-                    setHintText(meida, item);
-
+                    ViewGroup meida = new GridMediaBlockView.MediaItemView(getContext(), item, res_id, imageWidth, imageHeight, secondHeight);
                     meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -232,7 +229,7 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
             View meida = grid.getChildAt(i);
             final DisplayItem item = (DisplayItem) block.items.get(i);
             setImageAndDesc(meida, item);
-            setHintText(meida, item);
+            LinearBaseCardView.setHintText(meida, item);
 
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override
@@ -265,23 +262,6 @@ public class ChannelTabsBlockView<T> extends BaseCardView implements DimensHelpe
         }else {
             TextView descrip = (TextView)media.findViewById(R.id.descrip);
             descrip.setText(item.title + " " +item.sub_title);
-        }
-    }
-
-    private void setHintText(View meida, DisplayItem item){
-        if(item.hint != null && TextUtils.isEmpty(item.hint.left()) == false) {
-            TextView leftView = (TextView) meida.findViewById(R.id.left_textview);
-            leftView.setText(item.hint.left());
-        }
-
-        if(item.hint != null && TextUtils.isEmpty(item.hint.mid()) == false) {
-            TextView midView = (TextView) meida.findViewById(R.id.mid_textview);
-            midView.setText(item.hint.mid());
-        }
-
-        if(item.hint != null && TextUtils.isEmpty(item.hint.right()) == false) {
-            TextView rightView = (TextView) meida.findViewById(R.id.right_textview);
-            rightView.setText(item.hint.right());
         }
     }
 }

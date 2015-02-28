@@ -204,7 +204,7 @@ public class MainActivity extends DisplayItemActivity implements LoaderManager.L
         }
 
         for(Block item :_contents.blocks){
-            if(_contents.times.updated <item.times.updated){
+            if(/*(item.id.endsWith(".r") || item.id.endsWith(".choice"))&&*/ _contents.times.updated <item.times.updated){
                 _contents.times.updated = item.times.updated;
             }
         }
