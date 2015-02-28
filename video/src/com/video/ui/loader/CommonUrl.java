@@ -13,14 +13,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
 public class CommonUrl extends CommonBaseUrl{
-
-    public static String BaseURL = "http://mv.mitvos.com/api/a1/";
-
-    public static void setBaseURL(String url){
-        BaseURL = url;
-    }
-
-	public static int fetchedBaseUrl = -1;
 	public CommonUrl(Context appContext) {
 		super(appContext);
 		getBaseURLFromLoacalSetting();
