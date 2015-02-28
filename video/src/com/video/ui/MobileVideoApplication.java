@@ -93,7 +93,7 @@ public class MobileVideoApplication extends Application{
         RequestQueue requestQueue = VolleyHelper.getInstance(getApplicationContext()).getAPIRequestQueue();
         BaseGsonLoader.GsonRequest<AppVersion> gsonRequest = new BaseGsonLoader.GsonRequest<AppVersion>(appversion, new TypeToken<AppVersion>(){}.getType(), null, listener, errorListener);
         gsonRequest.setCacheNeed(getApplicationContext().getCacheDir() + "/app_version.cache");
-        gsonRequest.setShouldCache(true);
+        gsonRequest.setShouldCache(false);
         requestQueue.add(gsonRequest);
     }
 
