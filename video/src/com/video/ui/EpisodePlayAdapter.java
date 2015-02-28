@@ -105,7 +105,10 @@ public class EpisodePlayAdapter {
             }
         }
         intent.putExtra("sdkdisable", false);
-        //intent.putExtra("item", item);
+
+        //episode info
+        intent.putExtra("media_set_style", DisplayItem.Media.DisplayLayout.TYPE_TV.equals(media.display_layout.type)?0:1);
+        intent.putExtra("episode_list", media.items);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
