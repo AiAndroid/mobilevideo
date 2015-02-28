@@ -16,7 +16,6 @@ import com.video.ui.view.LinearFrame;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Observer;
 
 /**
  * Created by liuhuadong on 11/27/14.
@@ -170,11 +169,21 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(item.settings != null && "1".equals(item.settings.get(DisplayItem.Settings.edit_mode))){
+                    if (item.settings != null && "1".equals(item.settings.get(DisplayItem.Settings.edit_mode))) {
                         selectItem();
-                    }else {
+                    } else {
                         BaseCardView.launcherAction(getContext(), item);
                     }
+                }
+            });
+
+            meida.findViewById(R.id.tab_media_click).setOnLongClickListener(new OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(mOnLongClick != null)
+                        return mOnLongClick.onLongClick(v);
+                    else
+                        return false;
                 }
             });
 
@@ -184,15 +193,18 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
                 MediaEditView mev = (MediaEditView) meida.findViewById(R.id.edit_mode);
                 mev.setVisibility(VISIBLE);
                 mev.setInEditMode(true);
+                if("1".equals(item.settings.get(DisplayItem.Settings.selected))){
+                    mev.setMediaInfo(mItem);
+                }
             }
         }
 
         public void selectItem(){
             MediaEditView mev = (MediaEditView) findViewById(R.id.edit_mode);
-            mev.setMediaInfo(mItem);
+            mev.switchSelectState(mItem);
 
             if(mSelectListener != null){
-                mSelectListener.onSelected(this, mItem,  "1".equals(mItem.settings.get(DisplayItem.Settings.selected)));
+                mSelectListener.onSelected(this, mItem,  "1".equals(mItem.settings.get(DisplayItem.Settings.selected)), FLAG_SELECT_SINGLE);
             }
         }
 
@@ -200,8 +212,15 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
         public void setOnItemSelectListener(OnItemSelectListener listener){
             mSelectListener = listener;
         }
+        public static final int FLAG_SELECT_SINGLE  = 0;
+        public static final int FLAG_SELECT_ALL     = 1;
         public interface OnItemSelectListener{
-            public void onSelected(View view, DisplayItem item, boolean selected);
+            public void onSelected(View view, DisplayItem item, boolean selected, int flag);
+        }
+
+        private View.OnLongClickListener mOnLongClick;
+        public void setOnItemLongClick(View.OnLongClickListener longClick){
+            mOnLongClick= longClick;
         }
     }
 }

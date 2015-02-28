@@ -61,8 +61,18 @@ public class MediaEditView extends FrameLayout {
             setVisibility(View.INVISIBLE);
         }
     }
-    
+
     public void setMediaInfo(DisplayItem mediaInfo){
+        if(mediaInfo != null && "1".equals(mediaInfo.settings.get(DisplayItem.Settings.selected))){
+            setSelected(true);
+            mSelector.setSelected(true);
+        }else{
+            setSelected(false);
+            mSelector.setSelected(false);
+        }
+    }
+    
+    public void switchSelectState(DisplayItem mediaInfo){
         if(mediaInfo != null && "0".equals(mediaInfo.settings.get(DisplayItem.Settings.selected))){
             setSelected(true);
             mSelector.setSelected(true);

@@ -25,6 +25,9 @@ public class BlockContainerView  extends MetroLayout {
 
     private Handler mHander = new Handler();
     private Block<DisplayItem> content;
+    public Block<DisplayItem> getContent(){
+        return content;
+    }
     public void setBlocks(Block<DisplayItem> tab){
         content = tab;
         this.removeAllViews();
@@ -67,6 +70,7 @@ public class BlockContainerView  extends MetroLayout {
                     for(WeakReference<GridMediaBlockView.MediaItemView> mview : childs){
                         if(mview.get() != null) {
                             mview.get().setOnItemSelectListener(mSelectListener);
+                            mview.get().setOnItemLongClick(mLongClickListener);
                         }
                     }
                 }
@@ -103,6 +107,11 @@ public class BlockContainerView  extends MetroLayout {
     private GridMediaBlockView.MediaItemView.OnItemSelectListener mSelectListener;
     public void setOnItemSelectListener(GridMediaBlockView.MediaItemView.OnItemSelectListener listener){
         mSelectListener = listener;
+    }
+
+    private View.OnLongClickListener mLongClickListener;
+    public void setOnItemLongClickLitener(View.OnLongClickListener litener){
+        mLongClickListener = litener;
     }
 
     private VideoItem videoItem;
@@ -184,5 +193,7 @@ public class BlockContainerView  extends MetroLayout {
         setInEditMode(content, true, selectAll);
 
         setBlocks(content);
+
+        mSelectListener.onSelected(this, content, selectAll, GridMediaBlockView.MediaItemView.FLAG_SELECT_ALL);
     }
 }

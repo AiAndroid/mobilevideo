@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -185,6 +186,7 @@ public class BaseWebMediaActivity extends BaseWebViewActivity {
 	}
 	
 	public class WebPageObject{
+		@JavascriptInterface
         public boolean isPaused() {
 			return mIsStopped;
         }

@@ -66,6 +66,7 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         //TODO change to CursorLoader, because we need load the data from server
         bcv = (BlockContainerView) findViewById(R.id.container_view);
         bcv.setOnItemSelectListener(itemSelectListener);
+        bcv.setOnItemLongClickLitener(itemLongClick);
         new LoadAsyncTask().execute();
         //getSupportLoaderManager().initLoader(cursorFinishedLoaderID, null, this);
     }
@@ -140,19 +141,53 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         }
     }
 
+    private View.OnLongClickListener itemLongClick = new View.OnLongClickListener(){
+        @Override
+        public boolean onLongClick(View v) {
+            if(isInEditMode()){
+                exitActionMode();
+            }else{
+                startActionMode();
+            }
+            return true;
+        }
+    };
+
     private ArrayList<DisplayItem> willDelSelects = new ArrayList<DisplayItem>();
     private GridMediaBlockView.MediaItemView.OnItemSelectListener itemSelectListener = new GridMediaBlockView.MediaItemView.OnItemSelectListener() {
         @Override
-        public void onSelected(View view, DisplayItem item,  boolean selected) {
+        public void onSelected(View view, DisplayItem item,  boolean selected, int flag) {
             Log.d(TAG, "selected item:"+selected + " item:"+item);
 
-            if(selected){
-                willDelSelects.add(item);
-            }else {
-                willDelSelects.remove(item);
-            }
+            switch (flag){
+                case GridMediaBlockView.MediaItemView.FLAG_SELECT_SINGLE: {
+                    if (selected) {
+                        willDelSelects.add(item);
+                    } else {
+                        willDelSelects.remove(item);
+                    }
+                    mDeleteActionMode.setSelectCount(willDelSelects.size());
+                    break;
+                }
+                case  GridMediaBlockView.MediaItemView.FLAG_SELECT_ALL: {
+                    if(selected == false){
+                        willDelSelects.clear();
+                    }else {
+                        int size = 0;
+                        Block<DisplayItem> block = bcv.getContent();
+                        for(Block<DisplayItem> bitem: block.blocks){
+                            for(Block<DisplayItem> subitem:bitem.blocks){
+                                if(subitem.items != null){
+                                    willDelSelects.addAll(subitem.items);
+                                }
+                            }
+                        }
+                    }
 
-            mDeleteActionMode.setSelectCount(willDelSelects.size());
+                    mDeleteActionMode.setSelectCount(willDelSelects.size());
+                    break;
+                }
+            }
         }
     };
 
