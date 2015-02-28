@@ -127,6 +127,10 @@ public class DisplayItem implements Serializable{
 
     public static class Settings  extends HashMap<String, String> implements Serializable{
         private static final long serialVersionUID = 1L;
+
+        public static final String edit_mode = "edit_mode";
+        public static final String selected  = "selected";
+        public static final String offset    = "offset";
     }
 
     public static class Media implements Serializable {

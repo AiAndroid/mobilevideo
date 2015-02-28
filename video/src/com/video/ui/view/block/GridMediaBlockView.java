@@ -14,6 +14,8 @@ import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.LinearFrame;
 
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.Observer;
 
 /**
@@ -42,6 +44,11 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
     private View root;
 
     private int secondHeight;
+
+    private ArrayList<WeakReference<MediaItemView>> allMesiaView = new ArrayList<WeakReference<MediaItemView>>();
+    public ArrayList<WeakReference<MediaItemView>> getChildMediaViews(){
+        return allMesiaView;
+    }
 
     private void initDimens(Block<T> block){
         content = block;
@@ -79,13 +86,15 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
         content = block;
 
         root = View.inflate(getContext(), R.layout.quick_navigation, this);
+        allMesiaView.clear();
         //LayoutParams flp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //addView(root, flp);
         LinearFrame mMetroLayout = (LinearFrame)root.findViewById(R.id.metrolayout);
         for(int step=0;step<block.items.size();step++) {
             final DisplayItem item = (DisplayItem) block.items.get(step);
 
-            ViewGroup meida = new MediaItemView(context, item, res_id, imageWidth, imageHeight, secondHeight);
+            MediaItemView meida = new MediaItemView(context, item, res_id, imageWidth, imageHeight, secondHeight);
+            allMesiaView.add(new WeakReference<MediaItemView>(meida));
 
             FrameLayout.LayoutParams itemflp = new FrameLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, height);
             itemflp.leftMargin = getPaddingLeft() + (width*(step%row_count) ) + padding*(step%row_count + 1);
@@ -133,10 +142,12 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
         public MediaItemView(Context context, DisplayItem item, int res_id, int imageWidth, int imageHeight, int secondHeight) {
             super(context);
 
+            mItem = item;
             setOrientation(VERTICAL);
             init(res_id, item, imageWidth, imageHeight, secondHeight);
         }
 
+        private DisplayItem mItem;
         private void init(int res_id, final DisplayItem item, int imageWidth, int imageHeight, int secondHeight){
             ViewGroup meida = (ViewGroup) LayoutInflater.from(getContext()).inflate(res_id, this);
             ImageView image = (ImageView)meida.findViewById(R.id.poster);
@@ -159,11 +170,38 @@ public class GridMediaBlockView<T> extends LinearBaseCardView implements DimensH
             meida.findViewById(R.id.tab_media_click).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BaseCardView.launcherAction(getContext(), item);
+                    if(item.settings != null && "1".equals(item.settings.get(DisplayItem.Settings.edit_mode))){
+                        selectItem();
+                    }else {
+                        BaseCardView.launcherAction(getContext(), item);
+                    }
                 }
             });
 
             setHintText(meida, item);
+
+            if(item.settings != null && "1".equals(item.settings.get(DisplayItem.Settings.edit_mode))){
+                MediaEditView mev = (MediaEditView) meida.findViewById(R.id.edit_mode);
+                mev.setVisibility(VISIBLE);
+                mev.setInEditMode(true);
+            }
+        }
+
+        public void selectItem(){
+            MediaEditView mev = (MediaEditView) findViewById(R.id.edit_mode);
+            mev.setMediaInfo(mItem);
+
+            if(mSelectListener != null){
+                mSelectListener.onSelected(this, mItem,  "1".equals(mItem.settings.get(DisplayItem.Settings.selected)));
+            }
+        }
+
+        private OnItemSelectListener mSelectListener;
+        public void setOnItemSelectListener(OnItemSelectListener listener){
+            mSelectListener = listener;
+        }
+        public interface OnItemSelectListener{
+            public void onSelected(View view, DisplayItem item, boolean selected);
         }
     }
 }

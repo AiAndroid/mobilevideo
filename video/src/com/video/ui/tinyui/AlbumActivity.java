@@ -23,6 +23,7 @@ import com.video.ui.view.ActionDeleteView;
 import com.video.ui.view.BlockContainerView;
 import com.video.ui.view.EmptyView;
 import com.video.ui.view.LayoutConstant;
+import com.video.ui.view.block.GridMediaBlockView;
 
 import java.util.ArrayList;
 
@@ -64,8 +65,8 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
 
         //TODO change to CursorLoader, because we need load the data from server
         bcv = (BlockContainerView) findViewById(R.id.container_view);
-
-        loadFavor.execute();
+        bcv.setOnItemSelectListener(itemSelectListener);
+        new LoadAsyncTask().execute();
         //getSupportLoaderManager().initLoader(cursorFinishedLoaderID, null, this);
     }
 
@@ -93,27 +94,27 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
                 }
             }
         });
-
-        mDeleteActionMode.setVisibility(View.INVISIBLE);
     }
 
     private ActionDeleteView.Callback mDeleteCallback = new ActionDeleteView.Callback(){
         @Override
         public void onActionDeleteClick() {
-            //TODO
-            //do real delete
-            //onDeleteClick();
+
+            for(DisplayItem item: willDelSelects){
+                iDataORM.removeFavor(getApplicationContext(), "video", getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction, item.id);
+            }
+
             exitActionMode();
-            loadFavor.execute();
+            new LoadAsyncTask().execute();
         }
         @Override
         public void onActionSelectAll() {
-            selectAll();
+            bcv.selectAll(true);
         }
 
         @Override
         public void onActionUnSelectAll() {
-            unSelectAll();
+            bcv.selectAll(false);
         }
     };
 
@@ -132,27 +133,30 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
             mDeleteActionMode.exitActionMode();
         }
         mBtnAction.setText(R.string.edit);
-        clearAllSelected();
+
         if(bcv != null){
             bcv.setInEditMode(false);
         }
     }
 
-    private void selectAll(){
-        bcv.selectAll(true);
-    }
+    private ArrayList<DisplayItem> willDelSelects = new ArrayList<DisplayItem>();
+    private GridMediaBlockView.MediaItemView.OnItemSelectListener itemSelectListener = new GridMediaBlockView.MediaItemView.OnItemSelectListener() {
+        @Override
+        public void onSelected(View view, DisplayItem item,  boolean selected) {
+            Log.d(TAG, "selected item:"+selected + " item:"+item);
 
-    private void unSelectAll(){
-        bcv.selectAll(false);
-    }
+            if(selected){
+                willDelSelects.add(item);
+            }else {
+                willDelSelects.remove(item);
+            }
 
-    private void clearAllSelected(){
-
-    }
-
+            mDeleteActionMode.setSelectCount(willDelSelects.size());
+        }
+    };
 
     ArrayList<iDataORM.ActionRecord> records;
-    public AsyncTask loadFavor = new AsyncTask() {
+    public class LoadAsyncTask extends AsyncTask {
         @Override
         protected Object doInBackground(Object[] objects) {
             if(getIntent().getBooleanExtra("offline", false) == true){
