@@ -103,6 +103,7 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
             for(DisplayItem item: willDelSelects){
                 iDataORM.removeFavor(getApplicationContext(), "video", getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction, item.id);
             }
+            willDelSelects.clear();
 
             exitActionMode();
             new LoadAsyncTask().execute();

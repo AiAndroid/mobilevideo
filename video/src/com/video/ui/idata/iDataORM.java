@@ -5,6 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.TextUtils;
 import android.util.Log;
 import com.google.gson.Gson;
@@ -41,10 +43,16 @@ public class iDataORM {
 
     private static iDataORM _instance;
     public static String debug_mode = "debug_mode";
+    private static HandlerThread ht;
+    private static Handler       mBackHandler;
 
     public static iDataORM getInstance(Context con){
         if(_instance == null){
             _instance = new iDataORM(con);
+            ht = new HandlerThread("idate_bg_thread");
+            ht.start();
+
+            mBackHandler = new Handler(ht.getLooper());
         }
 
         return _instance;
@@ -302,26 +310,33 @@ public class iDataORM {
      * @param json   whole video info json
      * @return
      */
-    public static Uri addFavor(Context context, String ns, String action,String res_id,  String json){
+    public static Uri addFavor(final Context context, final String ns, final String action,final String res_id,  final String json){
         Uri ret = null;
-        ContentValues ct = new ContentValues();
-        ct.put(ColumsCol.RES_ID, res_id);
-        ct.put(ColumsCol.NS,     ns);
-        ct.put(ColumsCol.VALUE,  json);
-        ct.put(ColumsCol.Action,  action);
-        ct.put(ColumsCol.Uploaded,  0);
-        ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
-        ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
-        //if exist, update
-        if(true == existFavor(context, ns, action, res_id)){
-            updateFavor(context, action, ct);
-        }else{
-            ret = context.getContentResolver().insert(ALBUM_CONTENT_URI, ct);
-        }
+        mBackHandler.post(new Runnable() {
+            @Override
+            public void run() {
+
+                ContentValues ct = new ContentValues();
+                ct.put(ColumsCol.RES_ID, res_id);
+                ct.put(ColumsCol.NS,     ns);
+                ct.put(ColumsCol.VALUE,  json);
+                ct.put(ColumsCol.Action,  action);
+                ct.put(ColumsCol.Uploaded,  0);
+                ct.put(SettingsCol.ChangeDate, dateToString(new Date()));
+                ct.put(ColumsCol.ChangeLong, System.currentTimeMillis());
+                //if exist, update
+                if(true == existFavor(context, ns, action, res_id)){
+                    updateFavor(context, action, ct);
+                }else{
+                    context.getContentResolver().insert(ALBUM_CONTENT_URI, ct);
+                }
+            }
+        });
+
         return ret;
     }
 
-    public static boolean updateFavor(Context context, String action, ContentValues ct) {
+    private static boolean updateFavor(final Context context, final String action, final ContentValues ct) {
         boolean ret = false;
         String where = String.format(" ns = \'%1$s\' and res_id = \'%2$s\' and action=\'%3$s\'", ct.get(ColumsCol.NS), ct.get(ColumsCol.RES_ID), ct.get(ColumsCol.Action));
         if(context.getContentResolver().update(ALBUM_CONTENT_URI, ct, where, null) > 0){
