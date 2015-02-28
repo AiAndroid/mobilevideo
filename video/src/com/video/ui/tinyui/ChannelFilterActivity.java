@@ -10,8 +10,8 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.view.FilterFragment;
-import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.BaseCardView;
+import com.video.ui.view.block.SelectItemsBlockView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

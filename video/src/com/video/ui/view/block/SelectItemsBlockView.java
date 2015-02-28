@@ -1,4 +1,4 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.MetroLayout;
-import com.video.ui.view.detail.EpisodeContainerView;
 
 import java.util.ArrayList;
 

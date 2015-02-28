@@ -1,4 +1,4 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.view.View;
 

@@ -5,13 +5,13 @@
               android:layout_width="@dimen/media_banner_width"
               android:layout_height="@dimen/media_banner_height"
               android:layout_centerHorizontal="true">
-    <com.video.ui.view.subview.CustomViewPager
+    <com.video.ui.view.block.CustomViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="false"
             android:focusable="false"
             android:id="@+id/image_flipper">
-    </com.video.ui.view.subview.CustomViewPager>
+    </com.video.ui.view.block.CustomViewPager>
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"

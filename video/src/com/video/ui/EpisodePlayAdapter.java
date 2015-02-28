@@ -21,7 +21,7 @@ import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.loader.CommonBaseUrl;
 import com.video.ui.loader.CommonUrl;
 import com.video.ui.utils.VideoUtils;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.SelectItemsBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 /**

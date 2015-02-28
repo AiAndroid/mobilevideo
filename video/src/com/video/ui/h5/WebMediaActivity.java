@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import com.video.ui.utils.NoWifiAlertManager;
+import com.video.ui.miui.NoWifiAlertManager;
 
 /**
  *@author tangfuling

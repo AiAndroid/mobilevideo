@@ -20,7 +20,7 @@
                     android:contentDescription="@string/app_name"/>
         </FrameLayout>
 
-        <com.video.ui.view.subview.CornerUpImageView
+        <com.video.ui.view.block.CornerUpImageView
                 android:id="@+id/feature_media_poster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

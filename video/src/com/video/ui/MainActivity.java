@@ -13,7 +13,6 @@ import android.support.v4.app.*;
 import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -26,8 +25,8 @@ import com.video.ui.loader.TabsGsonLoader;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.*;
 import com.video.ui.view.ListFragment;
-import com.video.ui.view.subview.AdsAnimationListener;
-import com.video.ui.view.subview.DimensHelper;
+import com.video.ui.view.block.AdsAnimationListener;
+import com.video.ui.view.block.DimensHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;

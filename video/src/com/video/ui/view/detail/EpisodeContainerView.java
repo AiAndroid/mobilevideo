@@ -15,7 +15,7 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.tinyui.AllEpisodeActivity;
 import com.video.ui.R;
 import com.video.ui.view.LayoutConstant;
-import com.video.ui.view.subview.PortBlockView;
+import com.video.ui.view.block.PortBlockView;
 
 import java.util.ArrayList;
 

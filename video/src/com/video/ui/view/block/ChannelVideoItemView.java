@@ -1,7 +1,6 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -11,14 +11,12 @@ import android.widget.*;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
-import com.tv.ui.metro.model.PlaySource;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
-import com.video.ui.utils.ViewUtils;
-import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.ChannelVideoItemView;
+import com.video.ui.view.block.BaseCardView;
+import com.video.ui.view.block.ChannelVideoItemView;
 
 import java.util.ArrayList;
 

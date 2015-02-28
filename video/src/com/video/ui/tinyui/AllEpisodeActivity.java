@@ -15,11 +15,10 @@ import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.DisplayItemActivity;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
-import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.utils.VideoUtils;
 import com.video.ui.view.detail.EpisodeContainerView;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.SelectItemsBlockView;
 
 /**
  * Created by liuhuadonbg on 1/26/15.

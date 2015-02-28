@@ -5,7 +5,7 @@ import android.view.View;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
-import com.video.ui.view.subview.*;
+import com.video.ui.view.block.*;
 
 /**
  * Created by liuhuadong on 11/17/14.

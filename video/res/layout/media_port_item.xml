@@ -28,7 +28,7 @@
                    android:gravity="center_horizontal"
                    android:singleLine="true" android:layout_width="@dimen/channel_media_view_port_image_width" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
 
-        <com.video.ui.view.subview.CornerUpImageView
+        <com.video.ui.view.block.CornerUpImageView
                 android:id="@+id/rank_media_corner"
                 android:layout_width="@dimen/media_port_item_right_corner_width"
                 android:layout_height="@dimen/media_port_item_right_corner_width"

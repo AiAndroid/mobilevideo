@@ -1,6 +1,5 @@
 package com.video.ui;
 
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +19,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.view.LinearFrame;
 import com.video.ui.view.SearchFragment;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.SelectItemsBlockView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

@@ -13,7 +13,7 @@ import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.view.detail.*;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.SelectItemsBlockView;
 
 import java.util.ArrayList;
 

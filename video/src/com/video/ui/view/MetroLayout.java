@@ -12,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.video.ui.R;
-import com.video.ui.view.subview.DimensHelper;
+import com.video.ui.view.block.DimensHelper;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MetroLayout extends FrameLayout implements View.OnFocusChangeListener{

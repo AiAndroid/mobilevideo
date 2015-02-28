@@ -1,8 +1,7 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.content.Context;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

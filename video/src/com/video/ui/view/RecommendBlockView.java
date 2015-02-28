@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.tv.ui.metro.model.*;
-import com.video.ui.view.subview.PortBlockView;
+import com.video.ui.view.block.PortBlockView;
 
 import java.util.ArrayList;
 

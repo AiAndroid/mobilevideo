@@ -1,4 +1,4 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

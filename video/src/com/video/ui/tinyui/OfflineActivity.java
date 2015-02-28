@@ -24,8 +24,8 @@ import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.view.LayoutConstant;
 import com.video.ui.view.MetroLayout;
-import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.DownloadVideoItemView;
+import com.video.ui.view.block.BaseCardView;
+import com.video.ui.view.block.DownloadVideoItemView;
 
 import java.util.ArrayList;
 

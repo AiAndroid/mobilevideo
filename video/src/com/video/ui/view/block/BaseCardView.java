@@ -1,27 +1,19 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.net.Uri;
-import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.webkit.MimeTypeMap;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import com.squareup.picasso.Transformation;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.idata.BackgroundService;
-import com.video.ui.idata.iDataORM;
-import com.video.ui.utils.VideoUtils;
 
-import java.io.File;
 
 /**
  * Created by liuhuadong on 11/19/14.

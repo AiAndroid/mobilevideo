@@ -18,8 +18,8 @@ import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.detail.ObserverScrollView;
-import com.video.ui.view.subview.AdsAnimationListener;
-import com.video.ui.view.subview.DimensHelper;
+import com.video.ui.view.block.AdsAnimationListener;
+import com.video.ui.view.block.DimensHelper;
 
 import java.lang.reflect.Field;
 

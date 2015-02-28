@@ -1,13 +1,9 @@
-package com.video.ui.view.subview;
+package com.video.ui.view.block;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 
 /**

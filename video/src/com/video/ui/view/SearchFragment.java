@@ -14,8 +14,8 @@ import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.R;
 import com.video.ui.loader.GenericAlbumLoader;
 import com.video.ui.loader.OnNextPageLoader;
-import com.video.ui.view.subview.BaseCardView;
-import com.video.ui.view.subview.ChannelVideoItemView;
+import com.video.ui.view.block.BaseCardView;
+import com.video.ui.view.block.ChannelVideoItemView;
 
 import java.util.ArrayList;
 

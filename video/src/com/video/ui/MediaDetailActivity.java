@@ -24,7 +24,7 @@ import com.video.ui.view.RetryView;
 import com.video.ui.view.detail.DetailCommentView;
 import com.video.ui.view.detail.OfflineSelectEpisodeView;
 import com.video.ui.view.detail.SelectSourcePopup;
-import com.video.ui.view.subview.SelectItemsBlockView;
+import com.video.ui.view.block.SelectItemsBlockView;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.ArrayList;
