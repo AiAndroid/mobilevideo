@@ -46,9 +46,13 @@ public class iDataORM {
     private static HandlerThread ht;
     private static Handler       mBackHandler;
 
+    private static int MAX_STORE_COUNT = 80;
+
     public static iDataORM getInstance(Context con){
         if(_instance == null){
             _instance = new iDataORM(con);
+
+            MAX_STORE_COUNT = _instance.getIntValue("max_storage_count", 80);
             ht = new HandlerThread("idate_bg_thread");
             ht.start();
 
@@ -315,6 +319,30 @@ public class iDataORM {
         mBackHandler.post(new Runnable() {
             @Override
             public void run() {
+
+                String where = ColumsCol.NS +"='"+ns+"' and action='"+action + "'";
+                Cursor cursor = context.getContentResolver().query(ALBUM_CONTENT_URI, new String[]{ColumsCol.ID}, where, null, " date_int asc");
+                if(cursor != null ){
+                    if(cursor.getCount() >= MAX_STORE_COUNT && cursor.moveToFirst()){
+                        int step = 0;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(ColumsCol.ID);
+                        sb.append(" in (");
+                        do{
+                            if(step > 0){
+                                sb.append(",");
+                            }
+                            sb.append(cursor.getInt(cursor.getColumnIndex(ColumsCol.ID)));
+
+                            step++;
+                        }while (cursor.moveToNext() && step <=10);
+                        sb.append(" )");
+
+                        int lens = context.getContentResolver().delete(ALBUM_CONTENT_URI, sb.toString(), null);
+                        Log.d(TAG, "remove latest 10 items:"+lens);
+                    }
+                    cursor.close();
+                }
 
                 ContentValues ct = new ContentValues();
                 ct.put(ColumsCol.RES_ID, res_id);
@@ -859,7 +887,7 @@ public class iDataORM {
         return va;
     }
 
-    public long getLongValue(String name, long defaultV) {
+    public int getIntValue(String name, int defaultV) {
         String va = String.valueOf(defaultV);
         String where = SettingsCol.Name + "='"+name+"'";
         Cursor cursor = mContext.getContentResolver().query(SETTINGS_CONTENT_URI,settingsProject,where, null, null);
@@ -870,7 +898,7 @@ public class iDataORM {
             }
             cursor.close();
         }
-        return  Long.valueOf(va);
+        return  Integer.valueOf(va);
     }
 
     public boolean getBooleanValue(String name, boolean defaultV) {

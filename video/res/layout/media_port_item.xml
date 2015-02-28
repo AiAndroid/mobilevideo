@@ -21,10 +21,7 @@
                 android:background="@drawable/poster_mask_v" />
 
         <TextView  android:id="@+id/click_count" android:textColor="@android:color/white"
-                   android:textSize="@dimen/font_size_36"
-                   android:shadowColor="@color/black"
-                   android:shadowDy="2.0"
-                   android:shadowRadius="3.0"
+                   style="@style/ExtraTextViewStyle"
                    android:gravity="center_horizontal"
                    android:singleLine="true" android:layout_width="@dimen/channel_media_view_port_image_width" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:paddingBottom="10dp" android:layout_centerHorizontal="true"/>
 
