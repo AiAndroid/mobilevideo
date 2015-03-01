@@ -112,12 +112,15 @@ public abstract class BaseCardView  extends RelativeLayout {
     }
     private static void launchDefault(Context context, DisplayItem item){
         try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            if (item.target != null && TextUtils.isEmpty(item.target.action) == false) ;
+            Intent intent = null;
+            if (item.target != null && TextUtils.isEmpty(item.target.action) == false)
                 intent = new Intent(item.target.action);
+            else
+                intent = new Intent(Intent.ACTION_VIEW);
+
 
             intent.setData(Uri.parse(item.target.url));
-            if (TextUtils.isEmpty(item.target.mime) == false) ;
+            if (TextUtils.isEmpty(item.target.mime) == false)
                intent.setType(item.target.mime);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

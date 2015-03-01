@@ -264,7 +264,7 @@ public class LoadingFragment extends Fragment {
         item.ui_type.id = LayoutConstant.linearlayout_single_poster;
         item.target = new DisplayItem.Target();
         item.target.entity = "intent";
-        item.target.url    = "o2o://o2otab/";
+        item.target.url    = "o2o://movies/";
 
         item.images = new ImageGroup();
         Image image = new Image();
@@ -288,7 +288,7 @@ public class LoadingFragment extends Fragment {
             child.title = "狼图腾";
             child.target = new DisplayItem.Target();
             child.target.entity = "intent";
-            child.target.url    = "o2o://o2otab/";
+            child.target.url    = "o2o://movies/";
             child.images = new ImageGroup();
             Image image = new Image();
             image.url = "http://t2.baidu.com/it/u=2411093926,2475191373&fm=20";
@@ -304,7 +304,7 @@ public class LoadingFragment extends Fragment {
             child.title = "天将雄师 国语 2015";
             child.target = new DisplayItem.Target();
             child.target.entity = "intent";
-            child.target.url    = "o2o://o2otab/";
+            child.target.url    = "o2o://movies/";
             child.images = new ImageGroup();
             Image image = new Image();
             image.url = "http://t2.baidu.com/it/u=753869764,2801031141&fm=20";
@@ -320,7 +320,7 @@ public class LoadingFragment extends Fragment {
             child.title = "澳门风云2";
             child.target = new DisplayItem.Target();
             child.target.entity = "intent";
-            child.target.url    = "o2o://o2otab/";
+            child.target.url    = "o2o://movies/";
             child.images = new ImageGroup();
             Image image = new Image();
             image.url = "http://t2.baidu.com/it/u=514158127,293282070&fm=20";
