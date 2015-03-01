@@ -76,7 +76,17 @@ public class DetailFragment extends LoadingFragment {
                 relative_region.setVisibility(View.GONE);
             }else{
                 if(iDataORM.getBooleanValue(getActivity(), iDataORM.debug_mode, true)){
-                    addRecommendApps(mItem);
+                    boolean hasAppRecommend = false;
+                    for(Block<DisplayItem> block:mItem.blocks){
+                        if(block.ui_type.id == LayoutConstant.app_grid || block.ui_type.id == LayoutConstant.app_list){
+                            hasAppRecommend = true;
+                            break;
+                        }
+                    }
+
+                    if(hasAppRecommend == false) {
+                        addRecommendApps(mItem);
+                    }
                 }
                 relative_region.setVideo(mItem);
             }

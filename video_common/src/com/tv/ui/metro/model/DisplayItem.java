@@ -85,9 +85,11 @@ public class DisplayItem implements Serializable{
         public String entity;
         public String params;
         public String url;
+        public String mime;
+        public String action;
 
         public String toString(){
-            return "url: "+url + " entity:" +entity;
+            return "url: "+url + " entity:" +entity + " params:"+params + " mime:"+mime;
         }
     }
 

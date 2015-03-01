@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.*;
 import android.graphics.drawable.NinePatchDrawable;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -77,12 +78,18 @@ public abstract class BaseCardView  extends RelativeLayout {
                     context.startActivity(appMarket);
                 }catch (Exception ne){}
                 return;
+            }else if(item.target.entity.endsWith("intent")){
+                launchDefault(context, item);
+                return;
             }
             else{
-                item.type = "item";
+                launchDefault(context, item);
+                return;
             }
         }else {
             item.type = "album";
+            //launchDefault(context, item);
+            //return;
         }
 
         if(item.id.endsWith("play_history") || item.id.endsWith("play_offline") || item.id.endsWith("play_favor")){
@@ -102,6 +109,20 @@ public abstract class BaseCardView  extends RelativeLayout {
         } catch (Exception ne) {
             ne.printStackTrace();
         }
+    }
+    private static void launchDefault(Context context, DisplayItem item){
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            if (item.target != null && TextUtils.isEmpty(item.target.action) == false) ;
+                intent = new Intent(item.target.action);
+
+            intent.setData(Uri.parse(item.target.url));
+            if (TextUtils.isEmpty(item.target.mime) == false) ;
+               intent.setType(item.target.mime);
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }catch (Exception ne){ne.printStackTrace();}
     }
 
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float round) {

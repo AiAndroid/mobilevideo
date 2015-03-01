@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
@@ -20,6 +21,7 @@ import com.video.ui.R;
 
 import com.video.ui.utils.VideoUtils;
 
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -206,6 +208,7 @@ public class MVDownloadManager {
             request.setMimeType(VideoUtils.getMimeType(url));
 
             request.setTitle(episode.name);
+            request.setDescription(episode.date);
             request.setVisibleInDownloadsUi(true);
             request.setShowRunningNotification(true);
             int downloadFlag = DownloadManager.Request.NETWORK_WIFI;
@@ -217,7 +220,7 @@ public class MVDownloadManager {
             //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, "video");
             request.allowScanningByMediaScanner();
 
-            request.setDestinationUri(Uri.fromFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES)));
+            request.setDestinationUri(Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getAbsolutePath() + "." + MimeTypeMap.getFileExtensionFromUrl(url))));
 
             if(android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.HONEYCOMB){
                 try{
