@@ -269,9 +269,10 @@ public class LoadingFragment extends Fragment {
         item.images = new ImageGroup();
         Image image = new Image();
         image.url = "http://t12.baidu.com/it/u=4075131680,1827553139&fm=58";
+        image.url = "http://img.2258.com/d/file/yule/mingxing/tuwen/2015-01-21/41c36e08a00b46473f33e62dc91f1bcd.jpg";
         item.images.put("poster", image);
         item.hint = new DisplayItem.Hint();
-        item.hint.put("center", "狼图腾——选座——3折");
+        item.hint.put("center", "狼图腾(选座): 3折");
         return item;
     }
     protected static Block<DisplayItem> createMovieBlock(){

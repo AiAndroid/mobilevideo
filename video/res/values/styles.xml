@@ -90,6 +90,11 @@
         <item name="android:textSize">@dimen/font_size_30</item>
     </style>
 
+    <style name="ExtraBigTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/p_80_white</item>
+        <item name="android:textSize">@dimen/font_size_40</item>
+    </style>
+
     <style name="ExtraTextViewDarkStyle" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@color/text_color_deep_dark</item>
         <item name="android:textSize">@dimen/font_size_30</item>

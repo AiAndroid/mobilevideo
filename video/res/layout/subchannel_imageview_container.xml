@@ -29,7 +29,7 @@
                 android:layout_gravity="bottom|left"
                 android:paddingLeft="@dimen/video_common_interval_21"
                 android:paddingBottom="@dimen/video_common_interval_21"
-                style="@style/ExtraTextViewStyle"/>
+                style="@style/ExtraBigTextViewStyle"/>
 
         <TextView
                 android:id="@+id/mid_textview"
@@ -38,7 +38,7 @@
                 android:layout_gravity="center_horizontal|bottom"
                 android:layout_centerHorizontal="true"
                 android:paddingBottom="@dimen/video_common_interval_21"
-                style="@style/ExtraTextViewStyle"/>
+                style="@style/ExtraBigTextViewStyle"/>
 
         <TextView
                 android:id="@+id/right_textview"
@@ -48,7 +48,7 @@
                 android:layout_gravity="bottom|right"
                 android:paddingRight="@dimen/video_common_interval_21"
                 android:paddingBottom="@dimen/video_common_interval_21"
-                style="@style/ExtraTextViewStyle"/>
+                style="@style/ExtraBigTextViewStyle"/>
 
     </RelativeLayout>
 
