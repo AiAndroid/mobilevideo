@@ -544,11 +544,11 @@
     <!-- offline end -->
 
     <dimen name="recommend_business_space">16dp</dimen>
-    <dimen name="recommend_businessmediaview_width">40dp</dimen>
+    <dimen name="recommend_businessmediaview_width">50dp</dimen>
     <dimen name="recommend_businessmediaview_height">75dp</dimen>
     <dimen name="recommend_business_item_width">40dp</dimen>
     <dimen name="recommend_business_item_height">40dp</dimen>
-    <dimen name="recommend_business_item_text_margintop">3dp</dimen>
+    <dimen name="recommend_business_item_text_margintop">5dp</dimen>
 
     <!-- empty view start -->
     <dimen name="empty_view_title_top_margin">5dp</dimen>

@@ -111,21 +111,58 @@ public class DetailFragment extends LoadingFragment {
     }
 
     private void addRecommendApps(VideoItem block){
-        Block<DisplayItem> item = new Block<DisplayItem>();
-        item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.block_sub_channel;
-        item.blocks = new ArrayList<Block<DisplayItem>>();
-        //add title
-        item.blocks.add(createTitleBlock(getActivity(), "推荐应用"));
+        {
+            Block<DisplayItem> item = new Block<DisplayItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<DisplayItem>>();
+            //add title
+            item.blocks.add(createTitleBlock(getActivity(), "推荐应用"));
 
 
-        //add content
-        item.blocks.add(createAppsBlock());
+            //add content
+            item.blocks.add(createAppsBlock());
 
-        //add more button
-        item.blocks.add(createLineBlock(getActivity(), "更多应用"));
+            //add more button
+            item.blocks.add(createLineBlock(getActivity(), "更多应用"));
 
-        block.blocks.add(0, item);
+            block.blocks.add(0, item);
+        }
+        {
+            Block<DisplayItem> item = new Block<DisplayItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<DisplayItem>>();
+            //add title
+            item.blocks.add(createTitleBlock(getActivity(), "小米彩票"));
+
+            //add content
+            item.blocks.add(createCaiPiaoBlock());
+            //add more button
+            item.blocks.add(createLineBlock(getActivity(), "进入小米彩票"));
+            block.blocks.add(0, item);
+        }
+
+        {
+            Block<DisplayItem> item = new Block<DisplayItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<DisplayItem>>();
+            //add title
+            item.blocks.add(createTitleBlock(getActivity(), "影院电影"));
+
+
+            //add single poster
+            item.blocks.add(createMovieSinglePosterBlock());
+
+            //add content
+            item.blocks.add(createMovieBlock());
+
+            //add more button
+            item.blocks.add(createLineBlock(getActivity(), "进入小米生活——电影频道"));
+
+            block.blocks.add(0, item);
+        }
     }
 
     private ObserverScrollView.OnScrollChangedListener mOnScrollChangedListener = new ObserverScrollView.OnScrollChangedListener() {

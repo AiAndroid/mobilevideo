@@ -1,8 +1,8 @@
 {
-    "version_code":11,
-    "recent_change":"预发布开发版本-修改UI细节",
-    "version_name":"小米视频——开发版(V9)",
+    "version_code":12,
+    "recent_change":"预发布开发版本-加入详情页面商业化",
+    "version_name":"小米视频——开发版(V11)",
     "apk_url":"https://github.com/AiAndroid/mobilevideo/raw/master/out/production/video/video.apk",
-    "release_date":"2015-02-28 11AM",
+    "release_date":"2015-03-01 4PM",
     "released_by":"爱码士"
 }

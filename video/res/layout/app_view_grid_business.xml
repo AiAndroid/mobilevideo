@@ -10,6 +10,7 @@
         android:layout_width="@dimen/recommend_business_item_width"
         android:layout_height="@dimen/recommend_business_item_height"
         android:contentDescription="@string/app_name"
+        android:layout_marginTop="@dimen/recommend_business_item_text_margintop"
         android:layout_centerHorizontal="true" />
 	<TextView
         android:id="@+id/business_text"

@@ -34,6 +34,8 @@ public class SinglePosterBlockView<T> extends BaseCardView implements DimensHelp
             }
         });
 
+        LinearBaseCardView.setHintText(root, block);
+
         getDimens().height += getResources().getDimensionPixelSize(R.dimen.media_banner_sub_channel_height);
     }
 

@@ -10,6 +10,47 @@
                android:layout_height="@dimen/media_banner_sub_channel_height"
                android:background="@drawable/default_poster_pic"
                android:layout_centerHorizontal="true"/>
+    <View
+            android:id="@+id/mask"
+            android:layout_width="@dimen/media_banner_sub_channel_width"
+            android:layout_height="@dimen/media_banner_sub_channel_height"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/poster_mask_h"/>
+
+    <RelativeLayout
+            android:layout_width="@dimen/media_banner_sub_channel_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true">
+        <TextView
+                android:id="@+id/left_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:paddingLeft="@dimen/video_common_interval_21"
+                android:paddingBottom="@dimen/video_common_interval_21"
+                style="@style/ExtraTextViewStyle"/>
+
+        <TextView
+                android:id="@+id/mid_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/video_common_interval_21"
+                style="@style/ExtraTextViewStyle"/>
+
+        <TextView
+                android:id="@+id/right_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="bottom|right"
+                android:paddingRight="@dimen/video_common_interval_21"
+                android:paddingBottom="@dimen/video_common_interval_21"
+                style="@style/ExtraTextViewStyle"/>
+
+    </RelativeLayout>
 
     <View      android:id="@+id/ads_media_click"
                android:layout_width="@dimen/media_banner_sub_channel_width"

@@ -37,7 +37,7 @@ public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
         if(block.ui_type != null && block.ui_type.row_count> 0)
             row_count = block.ui_type.row_count;
 
-        int padding = (getDimens().width - row_count*getContext().getResources().getDimensionPixelSize(R.dimen.recommend_business_item_width))/(row_count+1);
+        int padding = (getDimens().width - row_count*getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_width))/(row_count+1);
 
         int itemHeight = 0;
         for(int i=0;i< block.items.size();i++) {
@@ -66,10 +66,12 @@ public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
         }
 
         if(itemHeight == 0){
-            itemHeight = getContext().getResources().getDimensionPixelSize(R.dimen.recommend_business_item_height);
+            itemHeight = getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_height);
         }
 
-        getDimens().height += (itemHeight)* ((step+row_count-1)/row_count) + padding*((step+row_count-1)/row_count);
+        int lines = (block.items.size()+row_count -1)/row_count;
+        getDimens().height += (itemHeight + media_item_padding)*lines;
+
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getDimens().height);
         lp.addRule(CENTER_HORIZONTAL);
         addView(ml, lp);
