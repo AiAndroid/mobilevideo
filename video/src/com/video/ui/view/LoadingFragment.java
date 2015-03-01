@@ -160,7 +160,7 @@ public class LoadingFragment extends Fragment {
         item.title = "";
         item.ui_type = new DisplayItem.UI();
         item.ui_type.id = LayoutConstant.app_grid;
-        item.ui_type.row_count = 3;
+        item.ui_type.row_count = 6;
 
         item.items = new ArrayList<DisplayItem>();
         //sohu
@@ -173,7 +173,7 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p01AUSPmZ9K9/bIyRiiudsqkTsG.png";
+            image.url = "http://p7.sinaimg.cn/1641447470/180/23591251173452";
             child.images.put("icon", image);
 
             item.items.add(child);
@@ -188,7 +188,8 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p01ycTc2CWZ3/eSgjAsS58aTeqF.png";
+            image.url = "http://photocdn.sohu.com/20120119/Img332675933.jpg";
+            //image.url = "http://pic.baike.soso.com/p/20100629/bki-20100629110833-109286196.jpg";
             child.images.put("icon", image);
 
             item.items.add(child);
@@ -203,7 +204,7 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p01d5PtLAhv6/yPF76vKE70eA1x.png";
+            image.url = "http://img4.imgtn.bdimg.com/it/u=4131549034,2694083374&fm=11&gp=0.jpg";
             child.images.put("icon", image);
 
             item.items.add(child);
@@ -218,7 +219,7 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p013utylDQ9D/5tqyB2BfGQ1vEg.png";
+            image.url = "http://www.v2gg.com/uploads/allimg/140419/0949131193-0.jpg";
             child.images.put("icon", image);
 
             item.items.add(child);
@@ -233,7 +234,7 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p016LLWvD4DD/83MBZ9LtZmueev.png";
+            image.url = "http://img26.nipic.com/20110803/457269_094456472149_1.jpg";
             child.images.put("icon", image);
 
             item.items.add(child);
@@ -247,7 +248,7 @@ public class LoadingFragment extends Fragment {
             child.target.url    = "http://cp.mi.com";
             child.images = new ImageGroup();
             Image image = new Image();
-            image.url = "http://image.box.xiaomi.com/mfsv2/download/s010/p016LLWvD4DD/83MBZ9LtZmueev.png";
+            image.url = "http://pic.paopaoche.net/up/2014-4/201442594839.png";
             child.images.put("icon", image);
 
             item.items.add(child);

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/recommend_businessmediaview_width"
-    android:layout_height="@dimen/recommend_businessmediaview_height"
-    android:background="@drawable/list_selector_bg"
-    >
+    android:layout_height="@dimen/recommend_businessmediaview_height">
     
     <ImageView
         android:id="@+id/business_icon"
@@ -22,5 +20,12 @@
         android:layout_marginTop="@dimen/recommend_business_item_text_margintop"
         android:layout_below="@id/business_icon"
         android:layout_centerHorizontal="true"/>
+
+    <View
+            android:id="@+id/tab_media_click"
+            android:layout_width="match_parent
+            "
+            android:layout_height="match_parent"
+            android:background="@drawable/list_selector_bg"/>
 
 </RelativeLayout>
