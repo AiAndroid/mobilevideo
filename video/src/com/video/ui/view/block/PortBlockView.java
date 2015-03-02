@@ -184,9 +184,9 @@ public class PortBlockView<T> extends LinearBaseCardView implements DimensHelper
                 addOnePadding();
                 break;
             }
-            case LayoutConstant.app_list:
-            case LayoutConstant.app_grid: {
-                AppBlockView child = new AppBlockView(getContext(), block);
+            case LayoutConstant.list_small_icon:
+            case LayoutConstant.grid_small_icon: {
+                TableSmallIconBlockView child = new TableSmallIconBlockView(getContext(), block);
 
                 addView(child);
                 getDimens().height += child.getDimens().height;

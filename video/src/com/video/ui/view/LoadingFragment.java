@@ -3,13 +3,11 @@ package com.video.ui.view;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.tv.ui.metro.model.*;
-import com.video.ui.R;
 import com.video.ui.loader.BaseGsonLoader;
 import com.video.ui.utils.ViewUtils;
 
@@ -73,11 +71,36 @@ public class LoadingFragment extends Fragment {
         return item;
     }
 
+    protected static Block<DisplayItem> createGamesBlock() {
+        Block<DisplayItem> item = new Block<DisplayItem>();
+        item.title = "";
+        item.ui_type = new DisplayItem.UI();
+        item.ui_type.id = LayoutConstant.list_small_icon;
+        item.ui_type.row_count = 1;
+
+        item.items = new ArrayList<DisplayItem>();
+        {
+            DisplayItem child = new DisplayItem();
+            child.title = "《全民奇迹》";
+            child.sub_title = "公测庆典，一款以《奇迹MU》为蓝本的动作手游，游戏以Unity3D引擎打造.";
+            child.target = new DisplayItem.Target();
+            child.target.entity = "app";
+            child.target.url = "http://app.mi.com/download/79047";
+            child.images = new ImageGroup();
+            Image image = new Image();
+            image.url = "http://file.market.xiaomi.com/thumbnail/PNG/l114/AppStore/0dd1b652ee178445210c95093ceb434a15b2b8983";
+            child.images.put("icon", image);
+
+            item.items.add(child);
+        }
+        return  item;
+    }
+
     protected static Block<DisplayItem> createAppsBlock(){
         Block<DisplayItem> item = new Block<DisplayItem>();
         item.title = "";
         item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.app_grid;
+        item.ui_type.id = LayoutConstant.grid_small_icon;
         item.ui_type.row_count = 5;
 
         item.items = new ArrayList<DisplayItem>();
@@ -159,7 +182,7 @@ public class LoadingFragment extends Fragment {
         Block<DisplayItem> item = new Block<DisplayItem>();
         item.title = "";
         item.ui_type = new DisplayItem.UI();
-        item.ui_type.id = LayoutConstant.app_grid;
+        item.ui_type.id = LayoutConstant.grid_small_icon;
         item.ui_type.row_count = 6;
 
         item.items = new ArrayList<DisplayItem>();

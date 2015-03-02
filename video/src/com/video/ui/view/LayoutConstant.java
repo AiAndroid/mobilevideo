@@ -56,7 +56,8 @@ public class LayoutConstant {
     public final static int channel_list_short = 453; //频道 资讯
     public final static int channel_grid_long = 454; //favor, offline, history
 
-    public final static int app_grid = 501; //app grid view
-    public final static int app_list = 502; //app list view
-    public final static int app_grid_item = 503; //single app, not call from outside
+    public final static int grid_small_icon = 501; //app grid view
+    public final static int list_small_icon = 502; //app list view
+    public final static int grid_small_icon_item = 503; //single app, not call from outside
+    public final static int list_small_icon_item = 504; //single app, not call from outside
 }

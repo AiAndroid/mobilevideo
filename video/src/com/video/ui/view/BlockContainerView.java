@@ -10,7 +10,6 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.view.block.GridMediaBlockView;
-import com.video.ui.view.block.SelectItemsBlockView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -141,8 +140,8 @@ public class BlockContainerView  extends MetroLayout {
                     item.ui_type.id == LayoutConstant.grid_media_port_title ||
                     item.ui_type.id == LayoutConstant.tabs_horizontal ||
                     item.ui_type.id == LayoutConstant.linearlayout_filter||
-                    item.ui_type.id == LayoutConstant.app_grid ||
-                    item.ui_type.id == LayoutConstant.app_list)
+                    item.ui_type.id == LayoutConstant.grid_small_icon ||
+                    item.ui_type.id == LayoutConstant.list_small_icon)
 
                 addItemViewPort(blockView, item.ui_type.id, 0, step++);
             else

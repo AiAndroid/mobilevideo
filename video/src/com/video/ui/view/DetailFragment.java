@@ -78,7 +78,7 @@ public class DetailFragment extends LoadingFragment {
                 if(iDataORM.getBooleanValue(getActivity(), iDataORM.debug_mode, true)){
                     boolean hasAppRecommend = false;
                     for(Block<DisplayItem> block:mItem.blocks){
-                        if(block.ui_type.id == LayoutConstant.app_grid || block.ui_type.id == LayoutConstant.app_list){
+                        if(block.ui_type.id == LayoutConstant.grid_small_icon || block.ui_type.id == LayoutConstant.list_small_icon){
                             hasAppRecommend = true;
                             break;
                         }
@@ -111,6 +111,20 @@ public class DetailFragment extends LoadingFragment {
     }
 
     private void addRecommendApps(VideoItem block){
+        int step = 0;
+        {
+            Block<DisplayItem> item = new Block<DisplayItem>();
+            item.ui_type = new DisplayItem.UI();
+            item.ui_type.id = LayoutConstant.block_sub_channel;
+            item.blocks = new ArrayList<Block<DisplayItem>>();
+            //add title
+            item.blocks.add(createTitleBlock(getActivity(), "热门推荐"));
+
+            //add content
+            item.blocks.add(createGamesBlock());
+            block.blocks.add(step++, item);
+        }
+
         {
             Block<DisplayItem> item = new Block<DisplayItem>();
             item.ui_type = new DisplayItem.UI();
@@ -126,7 +140,7 @@ public class DetailFragment extends LoadingFragment {
             //add more button
             item.blocks.add(createLineBlock(getActivity(), "更多应用"));
 
-            block.blocks.add(0, item);
+            block.blocks.add(step++, item);
         }
         {
             Block<DisplayItem> item = new Block<DisplayItem>();
@@ -140,7 +154,7 @@ public class DetailFragment extends LoadingFragment {
             item.blocks.add(createCaiPiaoBlock());
             //add more button
             item.blocks.add(createLineBlock(getActivity(), "进入小米彩票"));
-            block.blocks.add(0, item);
+            block.blocks.add(step++, item);
         }
 
         {
@@ -161,7 +175,7 @@ public class DetailFragment extends LoadingFragment {
             //add more button
             item.blocks.add(createLineBlock(getActivity(), "进入小米生活——电影频道"));
 
-            block.blocks.add(0, item);
+            block.blocks.add(step++, item);
         }
     }
 

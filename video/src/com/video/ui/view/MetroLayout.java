@@ -170,9 +170,20 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
                 rowOffset[0] += height;
                 break;
             }
-            case LayoutConstant.app_grid_item: {
+            case LayoutConstant.grid_small_icon_item: {
                 int height = getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_height);
                 int width = getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_width);
+                flp = new LayoutParams(width, height);
+                flp.leftMargin = getPaddingLeft() + (width + padding) * x + padding;
+                flp.topMargin = getPaddingTop() + height * y + DIVIDE_SIZE * (y + 1); //no need one more
+                child.setFocusable(true);
+                addView(child, flp);
+                rowOffset[0] += height;
+                break;
+            }
+            case LayoutConstant.list_small_icon_item:{
+                int height = getResources().getDimensionPixelSize(R.dimen.list_single_item_height);
+                int width = getResources().getDimensionPixelSize(R.dimen.list_single_item_width);
                 flp = new LayoutParams(width, height);
                 flp.leftMargin = getPaddingLeft() + (width + padding) * x + padding;
                 flp.topMargin = getPaddingTop() + height * y + DIVIDE_SIZE * (y + 1); //no need one more
@@ -233,8 +244,8 @@ public class MetroLayout extends FrameLayout implements View.OnFocusChangeListen
             case LayoutConstant.grid_media_land_title:
             case LayoutConstant.tabs_horizontal:
             case LayoutConstant.linearlayout_filter:
-            case LayoutConstant.app_grid:
-            case LayoutConstant.app_list:
+            case LayoutConstant.grid_small_icon:
+            case LayoutConstant.list_small_icon:
             {
                 int paddingStart = paddingLeft;
                 int height = getResources().getDimensionPixelSize(R.dimen.media_banner_height);

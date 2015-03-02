@@ -17,12 +17,12 @@ import com.video.ui.view.MetroLayout;
 /**
  * Created by liuhuadonbg on 2/26/15.
  */
-public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
-    public AppBlockView(Context context, AttributeSet attrs, int defStyle) {
+public class TableSmallIconBlockView<T> extends BaseCardView implements  DimensHelper{
+    public TableSmallIconBlockView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public AppBlockView(Context context, Block<T> block) {
+    public TableSmallIconBlockView(Context context, Block<T> block) {
         super(context, null, 0);
         createUI(block);
     }
@@ -37,12 +37,27 @@ public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
         if(block.ui_type != null && block.ui_type.row_count> 0)
             row_count = block.ui_type.row_count;
 
-        int padding = (getDimens().width - row_count*getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_width))/(row_count+1);
+        int width  = 0;
+        int height = 0;
+
+        if(block.ui_type.id == LayoutConstant.grid_small_icon){
+            width = getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_width);
+            height = getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_height);
+        }else {
+            width = getContext().getResources().getDimensionPixelSize(R.dimen.list_single_item_width);
+            height = getContext().getResources().getDimensionPixelSize(R.dimen.list_single_item_height);
+        }
+        int padding = (getDimens().width - row_count*width)/(row_count+1);
+
+        int res_id = R.layout.grid_small_icon_business;
+        if(block.ui_type.id == LayoutConstant.list_small_icon){
+            res_id = R.layout.list_small_icon_business;
+        }
 
         int itemHeight = 0;
         for(int i=0;i< block.items.size();i++) {
             final DisplayItem episode = (DisplayItem) block.items.get(i);
-            final View convertView = View.inflate(getContext(), R.layout.app_view_grid_business, null);
+            final View convertView = View.inflate(getContext(), res_id, null);
             convertView.setTag(episode);
 
             final TextView mFiter = (TextView) convertView.findViewById(R.id.business_text);
@@ -50,11 +65,11 @@ public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.business_icon);
             if(episode.images.icon() != null)
-                Picasso.with(getContext()).load(episode.images.icon().url).placeholder(R.drawable.default_poster_media).into(imageView);
+                Picasso.with(getContext()).load(episode.images.icon().url).placeholder(R.drawable.default_business_icon).into(imageView);
             else
-                Picasso.with(getContext()).load(default_cp_icon).placeholder(R.drawable.default_poster_media).into(imageView);
+                Picasso.with(getContext()).load(default_cp_icon).placeholder(R.drawable.default_business_icon).into(imageView);
 
-            ml.addItemViewPort(convertView, LayoutConstant.app_grid_item,step % row_count, step / row_count, padding);
+            ml.addItemViewPort(convertView, block.ui_type.id == LayoutConstant.list_small_icon?LayoutConstant.list_small_icon_item:LayoutConstant.grid_small_icon_item,step % row_count, step / row_count, padding);
 
             convertView.setOnClickListener(new OnClickListener() {
                 @Override
@@ -62,11 +77,16 @@ public class AppBlockView<T> extends BaseCardView implements  DimensHelper{
                     BaseCardView.launcherAction(getContext(), episode);
                 }
             });
+
+            final TextView desc = (TextView) convertView.findViewById(R.id.business_desc);
+            if(desc != null)
+                desc.setText(String.valueOf(episode.sub_title));
+
             step++;
         }
 
         if(itemHeight == 0){
-            itemHeight = getContext().getResources().getDimensionPixelSize(R.dimen.recommend_businessmediaview_height);
+            itemHeight = height;
         }
 
         int lines = (block.items.size()+row_count -1)/row_count;
