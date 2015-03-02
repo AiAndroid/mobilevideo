@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
-import com.video.ui.view.LayoutConstant;
+import com.tv.ui.metro.model.LayoutConstant;
 
 /**
  * Created by wangwei on 11/18/14.

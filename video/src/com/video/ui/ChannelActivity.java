@@ -10,7 +10,7 @@ import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
 import com.tv.ui.metro.model.GenericBlock;
 import com.video.ui.loader.GenericAlbumLoader;
-import com.video.ui.view.LayoutConstant;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.video.ui.view.ListFragment;
 import com.video.ui.view.MetroFragment;
 

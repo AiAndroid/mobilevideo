@@ -22,7 +22,7 @@ import com.video.ui.idata.iDataORM;
 import com.video.ui.view.ActionDeleteView;
 import com.video.ui.view.BlockContainerView;
 import com.video.ui.view.EmptyView;
-import com.video.ui.view.LayoutConstant;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.video.ui.view.block.GridMediaBlockView;
 
 import java.util.ArrayList;
@@ -52,15 +52,15 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         showEdit(true);
 
 
-        if(getIntent().getBooleanExtra("favor", false) || (item != null && item.id.endsWith("play_favor") )){
+        if(getIntent().getBooleanExtra(Constants.Favor_Video, false) || (item != null && item.id.endsWith(Constants.Video_ID_Favor) )){
             setTitle(getString(R.string.my_favorite));
-            getIntent().putExtra("favor", true);
-        }else if(getIntent().getBooleanExtra("history", false) || (item != null && item.id.endsWith("play_history") )){
+            getIntent().putExtra(Constants.Favor_Video, true);
+        }else if(getIntent().getBooleanExtra(Constants.History_Video, false) || (item != null && item.id.endsWith(Constants.Video_ID_History) )){
             setTitle(getString(R.string.play_history));
-            getIntent().putExtra("history", true);
-        }else if(getIntent().getBooleanExtra("offline", false) || (item != null && item.id.endsWith("play_offline") )){
-            getIntent().putExtra("offline", true);
-            setTitle(getString(R.string.my_offline));
+            getIntent().putExtra(Constants.History_Video, true);
+        }else if(getIntent().getBooleanExtra(Constants.Local_Video, false) || (item != null && item.id.endsWith(Constants.Video_ID_Local) )){
+            getIntent().putExtra(Constants.Local_Video, true);
+            setTitle(getString(R.string.local_video));
         }
 
         //TODO change to CursorLoader, because we need load the data from server
@@ -102,7 +102,7 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         public void onActionDeleteClick() {
 
             for(DisplayItem item: willDelSelects){
-                iDataORM.removeFavor(getApplicationContext(), "video", getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction, item.id);
+                iDataORM.removeFavor(getApplicationContext(), "video", getIntent().getBooleanExtra(Constants.Favor_Video, false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction, item.id);
             }
             willDelSelects.clear();
 
@@ -198,7 +198,7 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
             if(getIntent().getBooleanExtra("offline", false) == true){
                 records = iDataORM.getInstance(getBaseContext()).getDownloads(getBaseContext());
             }else {
-                records = iDataORM.getInstance(getBaseContext()).getFavorites(getBaseContext(), "video", getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction);
+                records = iDataORM.getInstance(getBaseContext()).getFavorites(getBaseContext(), "video", getIntent().getBooleanExtra(Constants.Favor_Video, false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction);
             }
             mHandler.obtainMessage(SHOW_UI).sendToTarget();
             return null;
@@ -235,8 +235,8 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
                         flp.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.CENTER_VERTICAL);
 
                         View emptyView = new EmptyView(getApplicationContext(),
-                                getIntent().getBooleanExtra("favor", false) == true?R.string.local_favorite_empty_title:R.string.play_his_empty_title,
-                                getIntent().getBooleanExtra("favor", false) == true?R.drawable.empty_icon_favorite:R.drawable.empty_icon_play_his);
+                                getIntent().getBooleanExtra(Constants.Favor_Video, false) == true?R.string.local_favorite_empty_title:R.string.play_his_empty_title,
+                                getIntent().getBooleanExtra(Constants.Favor_Video, false) == true?R.drawable.empty_icon_favorite:R.drawable.empty_icon_play_his);
                         rl.addView(emptyView, flp);
                         rl.setVisibility(View.VISIBLE);
                     }
@@ -289,7 +289,7 @@ public class AlbumActivity extends DisplayItemActivity implements LoaderManager.
         Uri baseUri = iDataORM.ALBUM_CONTENT_URI;
         mLoadingView.startLoading(true);
 
-        String action = getIntent().getBooleanExtra("favor", false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction;
+        String action = getIntent().getBooleanExtra(Constants.Favor_Video, false) == true ? iDataORM.FavorAction : iDataORM.HistoryAction;
 
         String where = iDataORM.ColumsCol.NS +"='video' and action='" + action + "' and date_int >= 0";
         return new CursorLoader(getBaseContext(), baseUri, iDataORM.actionProject, where, null, "date_int desc");

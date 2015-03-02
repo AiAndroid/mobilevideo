@@ -25,7 +25,7 @@ import com.video.ui.R;
 import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.utils.Strings;
-import com.video.ui.view.LayoutConstant;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.video.ui.view.block.ChannelVideoItemView;
 
 import java.util.ArrayList;

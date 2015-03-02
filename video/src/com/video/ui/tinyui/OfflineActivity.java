@@ -22,7 +22,7 @@ import com.video.ui.DisplayItemActivity;
 import com.video.ui.R;
 import com.video.ui.idata.MVDownloadManager;
 import com.video.ui.idata.iDataORM;
-import com.video.ui.view.LayoutConstant;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.video.ui.view.MetroLayout;
 import com.video.ui.view.block.BaseCardView;
 import com.video.ui.view.block.DownloadVideoItemView;

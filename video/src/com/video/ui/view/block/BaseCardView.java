@@ -11,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.RelativeLayout;
 import com.squareup.picasso.Transformation;
+import com.tv.ui.metro.model.Constants;
 import com.tv.ui.metro.model.DisplayItem;
 import com.video.ui.R;
 import com.video.ui.idata.BackgroundService;
@@ -54,23 +55,23 @@ public abstract class BaseCardView  extends RelativeLayout {
         //Toast.makeText(context, "prepare to launch="+item.title + "/" +item.id + "/" + item.target + "/"+item.ns+ item.ui_type, Toast.LENGTH_SHORT).show();
 
         if(item.target != null && item.target.entity != null) {
-            if(item.target.entity.endsWith("pvideo")) {
+            if(Constants.Entiry_Long_Video.equals(item.target.entity)) {
+
                 item.type = "item";
-            }else if(item.target.entity.endsWith("svideo")) {
+            }else if(Constants.Entity_Short_Video.equals(item.target.entity) ||
+                     Constants.Entity_Album_Collection.equals(item.target.entity) ||
+                     Constants.Entity_Album.equals(item.target.entity)) {
+
                 item.type = "album";
-            }else if(item.target.entity.endsWith("album_collection")) {
-                item.type = "album";
-            }else if(item.target.entity.endsWith("album")) {
-                item.type = "album";
-            }else if(item.target.entity.endsWith("search")) {
+            }else if(Constants.Entity_Search_Video.equals(item.target.entity) ||
+                     Constants.Entity_Search_Result_Video.equals(item.target.entity)) {
+
                 item.type = "search";
-            }else if(item.target.entity.endsWith("search_result")) {
-                item.type = "search";
-            }else if(item.target.entity.endsWith("app")){
-                //launcher download
+            }else if(Constants.Entity_App_Video.equals(item.target.entity)){
+
                 BackgroundService.startDownloadAPK(context, item.target.url, item.title, context.getString(R.string.app_name));
                 return;
-            }else if(item.target.entity.endsWith("app_market")){
+            }else if(Constants.Entity_App_Market_Video.equals(item.target.entity)){
                 try {
                     Intent appMarket = new Intent(Intent.ACTION_VIEW);
                     appMarket.setClassName("com.xiaomi.market", "com.xiaomi.market.ui.MarketTabActivity");
@@ -78,7 +79,7 @@ public abstract class BaseCardView  extends RelativeLayout {
                     context.startActivity(appMarket);
                 }catch (Exception ne){}
                 return;
-            }else if(item.target.entity.endsWith("intent")){
+            }else if(Constants.Entity_Intent_Video.equals(item.target.entity)){
                 launchDefault(context, item);
                 return;
             }
@@ -92,11 +93,11 @@ public abstract class BaseCardView  extends RelativeLayout {
             //return;
         }
 
-        if(item.id.endsWith("play_history") || item.id.endsWith("play_offline") || item.id.endsWith("play_favor")){
+        if(item.id.endsWith(Constants.Video_ID_History) || item.id.endsWith(Constants.Video_ID_Offline) || item.id.endsWith(Constants.Video_ID_Favor)){
             item.type = "local_album";
         }
 
-        if(item.id.endsWith("play_offline") ){
+        if(item.id.endsWith(Constants.Video_ID_Offline) ){
             item.type = "play_offline";
         }
 

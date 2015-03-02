@@ -15,10 +15,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.tv.ui.metro.model.Constants;
 import com.video.ui.R;
 import com.video.ui.SettingActivity;
 import com.video.ui.idata.iDataORM;
 import com.video.ui.tinyui.AlbumActivity;
+import com.video.ui.tinyui.OfflineMediaActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -204,23 +206,28 @@ public class MyVideoFragment extends Fragment {
 		public void onMyVideoClick(MyVideoView view, MyVideoItem myVideoItem) {
 			int tag = myVideoItem.tag;
 			switch (tag){
+				case TAG_LOCAL_MEDIA:
+					Intent local = new Intent(getActivity(), AlbumActivity.class);
+					local.putExtra(Constants.Local_Video, true);
+					getActivity().startActivity(local);
+					break;
 				case TAG_SETTING:
 					Intent setting = new Intent(getActivity(), SettingActivity.class);
 					getActivity().startActivity(setting);
 					break;
 				case TAG_MY_FAVORITE:
 					Intent favorIntent = new Intent(getActivity(), AlbumActivity.class);
-					favorIntent.putExtra("favor", true);
+					favorIntent.putExtra(Constants.Favor_Video, true);
 					getActivity().startActivity(favorIntent);
 					break;
 				case TAG_PLAY_HIS:
 					Intent history = new Intent(getActivity(), AlbumActivity.class);
-					history.putExtra("history", true);
+					history.putExtra(Constants.History_Video, true);
 					getActivity().startActivity(history);
 					break;
 				case TAG_MY_OFFLINE:
-					Intent offline = new Intent(getActivity(), AlbumActivity.class);
-					offline.putExtra("offline", true);
+					Intent offline = new Intent(getActivity(), OfflineMediaActivity.class);
+					offline.putExtra(Constants.Offline_Video, true);
 					getActivity().startActivity(offline);
 					break;
 			}

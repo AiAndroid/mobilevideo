@@ -6,9 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.tv.ui.metro.model.Block;
-import com.tv.ui.metro.model.DisplayItem;
-import com.tv.ui.metro.model.VideoItem;
+import com.tv.ui.metro.model.*;
 import com.video.ui.EpisodePlayAdapter;
 import com.video.ui.R;
 import com.video.ui.idata.iDataORM;
@@ -118,10 +116,10 @@ public class DetailFragment extends LoadingFragment {
             item.ui_type.id = LayoutConstant.block_sub_channel;
             item.blocks = new ArrayList<Block<DisplayItem>>();
             //add title
-            item.blocks.add(createTitleBlock(getActivity(), "热门推荐"));
+            item.blocks.add(Constants.TestData.createTitleBlock(getActivity(), "热门推荐"));
 
             //add content
-            item.blocks.add(createGamesBlock());
+            item.blocks.add(Constants.TestData.createGamesBlock());
             block.blocks.add(step++, item);
         }
 
@@ -131,14 +129,14 @@ public class DetailFragment extends LoadingFragment {
             item.ui_type.id = LayoutConstant.block_sub_channel;
             item.blocks = new ArrayList<Block<DisplayItem>>();
             //add title
-            item.blocks.add(createTitleBlock(getActivity(), "推荐应用"));
+            item.blocks.add(Constants.TestData.createTitleBlock(getActivity(), "推荐应用"));
 
 
             //add content
-            item.blocks.add(createAppsBlock());
+            item.blocks.add(Constants.TestData.createAppsBlock());
 
             //add more button
-            item.blocks.add(createLineBlock(getActivity(), "更多应用"));
+            item.blocks.add(Constants.TestData.createLineBlock(getActivity(), "更多应用"));
 
             block.blocks.add(step++, item);
         }
@@ -148,12 +146,12 @@ public class DetailFragment extends LoadingFragment {
             item.ui_type.id = LayoutConstant.block_sub_channel;
             item.blocks = new ArrayList<Block<DisplayItem>>();
             //add title
-            item.blocks.add(createTitleBlock(getActivity(), "小米彩票"));
+            item.blocks.add(Constants.TestData.createTitleBlock(getActivity(), "小米彩票"));
 
             //add content
-            item.blocks.add(createCaiPiaoBlock());
+            item.blocks.add(Constants.TestData.createCaiPiaoBlock());
             //add more button
-            item.blocks.add(createLineBlock(getActivity(), "进入小米彩票"));
+            item.blocks.add(Constants.TestData.createLineBlock(getActivity(), "进入小米彩票"));
             block.blocks.add(step++, item);
         }
 
@@ -163,17 +161,17 @@ public class DetailFragment extends LoadingFragment {
             item.ui_type.id = LayoutConstant.block_sub_channel;
             item.blocks = new ArrayList<Block<DisplayItem>>();
             //add title
-            item.blocks.add(createTitleBlock(getActivity(), "影院电影"));
+            item.blocks.add(Constants.TestData.createTitleBlock(getActivity(), "影院电影"));
 
 
             //add single poster
-            item.blocks.add(createMovieSinglePosterBlock());
+            item.blocks.add(Constants.TestData.createMovieSinglePosterBlock());
 
             //add content
-            item.blocks.add(createMovieBlock());
+            item.blocks.add(Constants.TestData.createMovieBlock());
 
             //add more button
-            item.blocks.add(createLineBlock(getActivity(), "进入小米生活——电影频道"));
+            item.blocks.add(Constants.TestData.createLineBlock(getActivity(), "进入小米生活——电影频道"));
 
             block.blocks.add(step++, item);
         }

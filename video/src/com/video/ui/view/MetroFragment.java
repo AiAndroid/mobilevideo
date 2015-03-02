@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.video.ui.R;
 import com.video.ui.utils.ViewUtils;
 import com.video.ui.view.detail.ObserverScrollView;

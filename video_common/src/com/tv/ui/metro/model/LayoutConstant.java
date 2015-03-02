@@ -1,4 +1,4 @@
-package com.video.ui.view;
+package com.tv.ui.metro.model;
 
 /**
  * Created by liuhuadong on 11/17/14.

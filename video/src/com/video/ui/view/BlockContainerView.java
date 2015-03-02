@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.tv.ui.metro.model.Block;
 import com.tv.ui.metro.model.DisplayItem;
+import com.tv.ui.metro.model.LayoutConstant;
 import com.tv.ui.metro.model.VideoItem;
 import com.video.ui.view.block.GridMediaBlockView;
 
