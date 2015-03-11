@@ -1,8 +1,8 @@
 {
-    "version_code":21,
-    "recent_change":"预发布开发版本-外部接口",
-    "version_name":"小米视频——开发版(V21)",
+    "version_code":22,
+    "recent_change":"预发布开发版本-直播",
+    "version_name":"小米视频——开发版(V22)",
     "apk_url":"https://github.com/AiAndroid/mobilevideo/raw/master/out/production/video/video.apk",
-    "release_date":"2015-03-11 10:27PM",
+    "release_date":"2015-03-11 19:27PM",
     "released_by":"爱码士"
 }
