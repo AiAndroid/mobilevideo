@@ -123,6 +123,111 @@
           },
           "ns": "video",
           "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http:/www.baidu.com/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://mg.soupingguo.com/bizhi/big/10/374/061/10374061.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http:/www.baidu.com/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://mg.soupingguo.com/bizhi/big/10/374/030/10374030.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http:/www.baidu.com/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47157.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http:/www.baidu.com/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47159.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http:/www.baidu.com/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47155.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
       }
    ]
 }
