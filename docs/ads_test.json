@@ -3,7 +3,9 @@
         "entity":"intent",
         "utl":"http://www.mi.com/mitv/324/",
     }
-    "images": {
-        "poster": {"url":"http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47159.jpg"}
+    "images":{
+        "poster": {
+            "url":"http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47159.jpg"
+        }
     }
 }
