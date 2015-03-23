@@ -1,7 +1,7 @@
 {
     "target":{
         "entity":"intent",
-        "utl":"http://www.mi.com/mitv/324/",
+        "utl":"http://www.mi.com/mitv/324/"
     },
     "images":{
         "poster": {
