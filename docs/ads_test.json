@@ -84,7 +84,7 @@
       },
       {
          "target": {
-              "url": "http://www.autohome.com.cn/",
+              "url": "http://m.autohome.com.cn/",
               "params": {
                   "entity": "intent"
               },
