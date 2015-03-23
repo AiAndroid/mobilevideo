@@ -1,7 +1,7 @@
 {
-    "version_code":49,
-    "recent_change":"V49 更新：修改广告\n\n加入详情页面商业化，首页后退键直接回桌面,播放器插件化, 直播入口，剧集的选中状态\\nn电影票，主播秀展示为统一的样式\n\n单独海报图\\nn首页性能提升加载速度\n\n支持爆点，PPTV清晰度切换\n\n支持视频源 sohu, iqiyi,pptv,leshi,funshion\n\n加入RecyleView节省内存\n",
-    "version_name":"小米视频——开发版(V49-MIUI)",
+    "version_code":50,
+    "recent_change":"V50 更新：修改广告,运营商版本\n\n加入详情页面商业化，首页后退键直接回桌面,播放器插件化, 直播入口，剧集的选中状态\\nn电影票，主播秀展示为统一的样式\n\n单独海报图\\nn首页性能提升加载速度\n\n支持爆点，PPTV清晰度切换\n\n支持视频源 sohu, iqiyi,pptv,leshi,funshion\n\n加入RecyleView节省内存\n",
+    "version_name":"小米视频——开发版(V50-MIUI)",
     "apk_url":"https://github.com/AiAndroid/mobilevideo/raw/master/out/production/video/video.apk",
     "release_date":"2015-03-22 16:41PM",
     "released_by":"爱码士出品"
