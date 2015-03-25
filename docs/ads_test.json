@@ -228,6 +228,27 @@
           },
           "ns": "video",
           "id": "ads"
-      }
+      },
+      {
+         "target": {
+              "url": "http://www.mi.com/mitv/324/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://img1.mydrivers.com/img/20140603/3cd537a8083f41cea70f1bc33342e3f2.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
    ]
 }
