@@ -34,7 +34,7 @@
           },
           "images": {
               "poster": {
-                  "url": "http://fs0.139js.com/file/s_jpg_6f94a54cgw1e46fuec8f8j20u01hc1fl.jpg"
+                  "url": "http://i-2.yxdown.com/2015/3/17/98762db8-2355-48c9-afac-706cbe937dee.jpg"
               }
           },
           "ns": "video",
@@ -55,7 +55,7 @@
           },
           "images": {
               "poster": {
-                  "url": "http://i-2.yxdown.com/2015/3/17/98762db8-2355-48c9-afac-706cbe937dee.jpg"
+                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47155.jpg"
               }
           },
           "ns": "video",
@@ -118,28 +118,7 @@
           },
           "images": {
               "poster": {
-                  "url": "http://p18.qhimg.com/t016cf79eb0fd31d4ed.jpg"
-              }
-          },
-          "ns": "video",
-          "id": "ads"
-      },
-      {
-         "target": {
-              "url": "http:/www.baidu.com/",
-              "params": {
-                  "entity": "intent"
-              },
-              "entity": "intent"
-          },
-          "title": "ads-beauty",
-          "times": {
-              "updated": 0,
-              "created": 0
-          },
-          "images": {
-              "poster": {
-                  "url": "http://mg.soupingguo.com/bizhi/big/10/374/061/10374061.jpg"
+                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47157.jpg"
               }
           },
           "ns": "video",
@@ -161,27 +140,6 @@
           "images": {
               "poster": {
                   "url": "http://mg.soupingguo.com/bizhi/big/10/374/030/10374030.jpg"
-              }
-          },
-          "ns": "video",
-          "id": "ads"
-      },
-      {
-         "target": {
-              "url": "http:/www.baidu.com/",
-              "params": {
-                  "entity": "intent"
-              },
-              "entity": "intent"
-          },
-          "title": "ads-beauty",
-          "times": {
-              "updated": 0,
-              "created": 0
-          },
-          "images": {
-              "poster": {
-                  "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47157.jpg"
               }
           },
           "ns": "video",
@@ -224,6 +182,48 @@
           "images": {
               "poster": {
                   "url": "http://pic1cn.xingyun.cn/media/users/post/004/71/100200892140_47155.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http://www.mi.com/mitv/324/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://img1.mydrivers.com/img/20140603/3cd537a8083f41cea70f1bc33342e3f2.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
+              "url": "http://www.mi.com/mitv/324/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads-beauty",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "http://y1.ifengimg.com/a/2015_13/3cd56d82d43211d.jpg"
               }
           },
           "ns": "video",
