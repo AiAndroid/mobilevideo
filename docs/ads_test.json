@@ -21,6 +21,27 @@
    "blocks":[
       {
          "target": {
+              "url": "http://www.mi.com/mitv/",
+              "params": {
+                  "entity": "intent"
+              },
+              "entity": "intent"
+          },
+          "title": "ads",
+          "times": {
+              "updated": 0,
+              "created": 0
+          },
+          "images": {
+              "poster": {
+                  "url": "https://github.com/AiAndroid/mobilevideo/raw/master/server_res/startup.jpg"
+              }
+          },
+          "ns": "video",
+          "id": "ads"
+      },
+      {
+         "target": {
               "url": "http://www.mi.com/mitv/324/",
               "params": {
                   "entity": "intent"
